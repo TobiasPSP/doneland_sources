@@ -26,7 +26,7 @@ In the image above, you see the typical shape of different transistor families: 
 
 ### Wiring
 
-Transistors typically have three connectors:
+Transistors have three connectors:
 
 * **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should let pass through. 
 * **Collector**/**Source** (Input): this is "collecting" the electrical power you want to control, so here is the *source* of the power. It is the **positive lead**.
@@ -38,8 +38,12 @@ Transistors typically have three connectors:
 
 Transistors come in *P* and in *N* types. This refers to the internal architecture. **MOSFET* transistors are called *p-type* and *n-type*, whereas **BJT** transistors are called *PNP* and *NPN*.
 
+The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
+
 * **NPN**/**n-type FET**: Current flows from *collector*/*source* to *emitter*/*drain*. This is the most commonly used type. Both *base*/*gate* and *collector*/*source* are connected to the **positive** voltage: the *load* controlled by the transistor is wired between **positive** voltage and *collector*/*source*. The combined current leaves the transistor through the *emitter*/*drain* which is connected to GND.
 * **PNP**/**p-type FET**: Current flows from *emitter*/*drain* to *collector*/*source*. The positive voltage is connected to the *emitter*/*drain*, so the entire current enters the transistor through the *emitter*/*drain*. Both *base*/*gate* and *collector*/*source* are connected to the **negative** voltage. So by controlling how much current is "leaving" the base towards GND, you control how much current goes through the *load* which is wired between **GND**  and collector.
+
+
 
 > Commonly used **NPN* transistors are *2N2222*, *2N3904*, *TIP120*
 > Commonly used *PNP* transistors are *2N2907*, *2N3906*
