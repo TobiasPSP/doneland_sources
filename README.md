@@ -2,16 +2,17 @@
 Here you'll find a general introduction to **transistors**, focused on practical aspects and essentials. 
 
 ## Quick overview
-Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals.
+Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals. That's why transistors have a *third* connector which is used to control the behavior (turn on, turn off, amplify). This third "control" connector is called *base* or *gate*.
 
-> Here are a couple of common use-cases:
-> - Classic switch: pressing a button tells the transistor to switch on or off an electrical connection. The transistor needs only a very small current to tell it what to do, so the physical switch in this scenario could be a cheap push button that only is capable of switching a few mA. Depending on the transistor type, it can then switch loads of many Ampere.
-> - Fast switching: in contrast to physical switches, transistors can switch very fast, many thousand times per second and more. If you use a microprocessor such as *Arduino* or *ESP*, you can turn a transistor on and off many times per second, effectively adjusting the power that it lets through. This principle is known as *PWM* (*pulse width modulation*). It is used i.e. to dim a LED or control motor speed.
-> - Amplification: A transistor is not a strict *on*/*off*-switch. Rather, the "strength* of the signal you are sending determines how much power it lets through. For a classic *on*/*off*-switch, you'd send zero or full power. However, you can also use any level inbetween and gradually change the amount of power it lets through. This way, a tiny modulated input signal gets *amplified* to a much stronger output signal with the same amplitude.
+In circuit diagrams, transistors are represented by these symbols:
+
+<img src="/Images/transistor_symbols.svg" width="50%" height="50%" />
+
+The upper two symbols represent "classic* **BJT** transistors, the lower two symbols represent **FET** transistors. More on that below. 
 
 ### Transistor Families
 
-Transistors internally use different architectures:
+Transistors use different architectures:
 
 * **MOSFET**: 99.9% of all transistors today are of this type. MOSFETs change conductivity based on the applied voltage, and *Power MOSFETs* can control extremely high currents. MOSFET input impedance (resistance) is *high*. They act as voltage-controlled variable resistors.
 * **BJT**: they used to be the most widely used transistors decades ago. BJT input impedance is *low*. They are often used to amplify current. Although *BJT* transistors are still used, their future is uncertain, and they may eventually be completely replaced by *MOS* type of transistors.
