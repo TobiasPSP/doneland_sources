@@ -42,7 +42,7 @@ The most important practical difference is in how *N*- and *P*-types are control
 
 The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors:
 
-<img src="/Images/pnp_npn_compare.png" width="50%" height="50%" />
+<img src="/Images/pnp_npn_compare.PNG" width="50%" height="50%" />
 
 
 On the left side, you find the typical *NPN* use case. The load is wired between *positive* current and transistor. On the right side, you find the *PNP* use case: here, the load is wired between **GND** and transistor. 
