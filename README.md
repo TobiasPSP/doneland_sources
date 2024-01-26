@@ -3,10 +3,10 @@ Here you'll find a general introduction to **transistors**, focused on practical
 
 ## Quick overview
 Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals.
-
 In circuit diagrams, transistors are represented by a set of similar symbols:
 
 ![Transistor Symbols](/Images/transistor_symbols.svg)
+<img src="/Images/transistor_symbols.svg" width="50%" height="50%" />
 
 > Here are a couple of common use-cases:
 > - Classic switch: pressing a button tells the transistor to switch on or off an electrical connection. The transistor needs only a very small current to tell it what to do, so the physical switch in this scenario could be a cheap push button that only is capable of switching a few mA. Depending on the transistor type, it can then switch loads of many Ampere.
