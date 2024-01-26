@@ -40,6 +40,13 @@ Transistors come in *P* and in *N* types. This refers to the internal architectu
 
 The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
 
+The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors:
+
+<img src="/Images/pnp_npn_compare.png" width="50%" height="50%" />
+
+
+On the left side, you find the typical *NPN* use case. The load is wired between *positive* current and transistor. On the right side, you find the *PNP* use case: here, the load is wired between **GND** and transistor. 
+
 * **NPN**/**n-type FET**: Current flows from *collector*/*source* to *emitter*/*drain*. This is the most commonly used type. Both *base*/*gate* and *collector*/*source* are connected to the **positive** voltage: the *load* controlled by the transistor is wired between **positive** voltage and *collector*/*source*. The combined current leaves the transistor through the *emitter*/*drain* which is connected to GND.
 * **PNP**/**p-type FET**: Current flows from *emitter*/*drain* to *collector*/*source*. The positive voltage is connected to the *emitter*/*drain*, so the entire current enters the transistor through the *emitter*/*drain*. Both *base*/*gate* and *collector*/*source* are connected to the **negative** voltage. So by controlling how much current is "leaving" the base towards GND, you control how much current goes through the *load* which is wired between **GND**  and collector.
 
