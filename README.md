@@ -18,6 +18,11 @@ Transistors use different architectures:
 * **BJT**: they used to be the most widely used transistors decades ago. BJT input impedance is *low*. They are often used to amplify current. Although *BJT* transistors are still used, their future is uncertain, and they may eventually be completely replaced by *MOS* type of transistors.
 * **Other**: there are plenty more transistor types for special purposes that are not discussed here.
 
+> Hobbyists often use **BJT** transistors for logic and **MOSFET** transistors as power switches when devices like LEDs or motors need to be controlled.
+
+<img src="/Images/transistor_types_real_.png" width="50%" height="50%" />
+
+
 
 ### Wiring
 
