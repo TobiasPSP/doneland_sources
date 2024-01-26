@@ -22,7 +22,7 @@ Transistors use different architectures:
 
 <img src="/Images/transistor_types_real_.png" width="50%" height="50%" />
 
-
+In the image above, you see the typical shape of different transistor families: *MOSFET*, *BJT*, and a *Power BJT* (left to right).
 
 ### Wiring
 
