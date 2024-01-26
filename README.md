@@ -3,6 +3,7 @@ Here you'll find a general introduction to **transistors**, focused on practical
 
 ## Quick overview
 Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals.
+
 In circuit diagrams, transistors are represented by a set of similar symbols:
 
 <img src="/Images/transistor_symbols.svg" width="50%" height="50%" />
