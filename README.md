@@ -56,5 +56,6 @@ Here are some more observations to note:
 
 
 > Commonly used **NPN* transistors are *2N2222*, *2N3904*, *TIP120*
+> 
 > Commonly used *PNP* transistors are *2N2907*, *2N3906*
 
