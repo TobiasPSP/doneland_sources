@@ -32,8 +32,8 @@ Transistors typically have three connectors:
 
 Transistors come in *P* and in *N* types. This refers to the internal architecture. **MOSFET* transistors are called *p-type* and *n-type*, whereas **BJT** transistors are called *PNP* and *NPN*.
 
-* **NPN**: Current flows from *collector* to *emitter*. This is the most commonly used type. Both *base* and *collector* are connected to the **positive** voltage: the *load* controlled by the transistor is wired between **positive** voltage and collector. The combined current leaves the transistor through the *emitter* which is connected to GND.
-* **PNP**: Current flows from *emitter* to *collector*. The positive voltage is connected to the *emitter*, so the entire current enters the transistor through the *emitter*. Both *base* and *collector* are connected to the **negative** voltage. So by controlling how much current is "leaving" the base towards GND, you control how much current goes through the *load* which is wired between **GND**  and collector.
+* **NPN**/**n-type FET**: Current flows from *collector*/*source* to *emitter*/*drain*. This is the most commonly used type. Both *base*/*gate* and *collector*/*source* are connected to the **positive** voltage: the *load* controlled by the transistor is wired between **positive** voltage and *collector*/*source*. The combined current leaves the transistor through the *emitter*/*drain* which is connected to GND.
+* **PNP**/**p-type FET**: Current flows from *emitter*/*drain* to *collector*/*source*. The positive voltage is connected to the *emitter*/*drain*, so the entire current enters the transistor through the *emitter*/*drain*. Both *base*/*gate* and *collector*/*source* are connected to the **negative** voltage. So by controlling how much current is "leaving" the base towards GND, you control how much current goes through the *load* which is wired between **GND**  and collector.
 
 > Commonly used **NPN* transistors are *2N2222*, *2N3904*, *TIP120*
 > Commonly used *PNP* transistors are *2N2907*, *2N3906*
