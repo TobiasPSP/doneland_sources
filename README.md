@@ -12,7 +12,7 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 
 ### Transistor Families
 
-Transistors internally use different architectures:
+Transistors use different architectures:
 
 * **MOSFET**: 99.9% of all transistors today are of this type. MOSFETs change conductivity based on the applied voltage, and *Power MOSFETs* can control extremely high currents. MOSFET input impedance (resistance) is *high*. They act as voltage-controlled variable resistors.
 * **BJT**: they used to be the most widely used transistors decades ago. BJT input impedance is *low*. They are often used to amplify current. Although *BJT* transistors are still used, their future is uncertain, and they may eventually be completely replaced by *MOS* type of transistors.
