@@ -4,6 +4,10 @@ Here you'll find a general introduction to **transistors**, focused on practical
 ## Quick overview
 Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals.
 
+In circuit diagrams, transistors are represented by a set of similar symbols:
+
+![Transistor Symbols](/Images/transistor_symbols.svg)
+
 > Here are a couple of common use-cases:
 > - Classic switch: pressing a button tells the transistor to switch on or off an electrical connection. The transistor needs only a very small current to tell it what to do, so the physical switch in this scenario could be a cheap push button that only is capable of switching a few mA. Depending on the transistor type, it can then switch loads of many Ampere.
 > - Fast switching: in contrast to physical switches, transistors can switch very fast, many thousand times per second and more. If you use a microprocessor such as *Arduino* or *ESP*, you can turn a transistor on and off many times per second, effectively adjusting the power that it lets through. This principle is known as *PWM* (*pulse width modulation*). It is used i.e. to dim a LED or control motor speed.
