@@ -1,5 +1,5 @@
 # Transistors - Practical Summary
-Here you'll find a general introduction to **transistors**. I focus on practical aspects and essentials. If you'd like to add wisdom, please use the *discussion* forum from the menu bar.
+Here you'll find a general introduction to **transistors**, focused on practical aspects and essentials. 
 
 ## Quick overview
 Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals.
