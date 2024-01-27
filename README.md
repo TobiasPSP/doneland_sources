@@ -28,7 +28,6 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 >
 > At other times, the FET symbol may show a straight line instead of three separated small lines (like above). A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.
 > A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*.  
-
 > In contrast, an "enhanced mode" FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
 >
 > *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types. Still, these transistors, too, have just *three* exposed terminals, which is why the symbol connects two lines with the **source** pin.   
