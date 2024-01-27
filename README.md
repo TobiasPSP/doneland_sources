@@ -22,18 +22,31 @@ In schematics, you can identify transistors by these symbols:
 
 The upper two symbols represent "classic* **BJT** transistors, the lower two symbols represent **FET** transistors. More on that below. 
 
-> You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
->   
-> Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
->
-> At other times, the FET symbol may show a straight line instead of three separated small lines (like above).
-> A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.   
->
-> A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*. In contrast, an *enhanced mode* FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
->
-> *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types.
->
-> Still, these transistors, just like the classic *BJT* transistors, have just *three* exposed terminals, which is why the symbol combines two lines with the **source** pin. In some symbols you may find a separate *forth* terminal called *substrate*. Practically though, there are no FET transistors around that physically expose this forth terminal.   
+#### Slight Variations
+You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
+  
+Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
+
+At other times, the FET symbol may show a straight line instead of three separated small lines (like above).
+A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.   
+
+A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*. In contrast, an *enhanced mode* FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
+
+*FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types.
+
+Still, these transistors, just like the classic *BJT* transistors, have just *three* exposed terminals, which is why the symbol combines two lines with the **source** pin. In some symbols you may find a separate *forth* terminal called *substrate*. Practically though, there are no FET transistors around that physically expose this forth terminal.
+
+#### Special Purpose Transistors
+
+In schematics, you may come across special purpose transistors in preconfigured setups. Here are the three most common types:
+
+<img src="/Images/special_types.PNG" width="50%" height="50%" />
+
+* **Darlington**: a *Darlington* transistor is actually a combination of two transistors coupled together for *amplification* purposes: by combining two transistors, the *gain* is much higher than any single transistor could provide. The first transistor amplifies the input voltage and then uses the amplified current to drive a second transistor. That is why *Darlington* transistors are used when you have very weak input signals and require a high amplification factor.
+The symbol either identifies a *Darlington* transistor by a **double line** at the *collector*, or the dual transistors are actually depicted. When the symbol also includes a *diode*, this is representing a *Power Darlington* transistor, capable of handling high currents.
+* **Phototransistor**: here, a light-sensitive input replaces the *base* terminal. The minute voltage created by the light-sensitive material drives the transistor current. In essence, the conductivity of the photo transistor is controlled by the incoming light intensity.
+* **Optocoupler**: in this device, a photo transistor is combined with a light emitting diode (LED). This way, one circuit (driving the LED) can control a second circuit (driven by the transistor). *Optocoupler* can physically separate two circuits, much similar to magnetic *Reed Contacts** or *Relais*, except *Optocoupler* have no movable parts, and they support more than just a simple *on* and *off*. Instead, they can couple any signal strength.
+*Optocouplers* are often used to connect microcontrollers with other circuitry that runs on much higher voltages.
 
 ### Transistor Families
 
@@ -81,14 +94,4 @@ Here are some more observations to note:
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
 
-## Special Purpose Transistors
 
-In schematics, you may come across special purpose transistors in preconfigured setups. Here are the three most common types:
-
-<img src="/Images/special_types.PNG" width="50%" height="50%" />
-
-* **Darlington**: a *Darlington* transistor is actually a combination of two transistors coupled together for *amplification* purposes: by combining two transistors, the *gain* is much higher than any single transistor could provide. The first transistor amplifies the input voltage and then uses the amplified current to drive a second transistor. That is why *Darlington* transistors are used when you have very weak input signals and require a high amplification factor.
-The symbol either identifies a *Darlington* transistor by a **double line** at the *collector*, or the dual transistors are actually depicted. When the symbol also includes a *diode*, this is representing a *Power Darlington* transistor, capable of handling high currents.
-* **Phototransistor**: here, a light-sensitive input replaces the *base* terminal. The minute voltage created by the light-sensitive material drives the transistor current. In essence, the conductivity of the photo transistor is controlled by the incoming light intensity.
-* **Optocoupler**: in this device, a photo transistor is combined with a light emitting diode (LED). This way, one circuit (driving the LED) can control a second circuit (driven by the transistor). *Optocoupler* can physically separate two circuits, much similar to magnetic *Reed Contacts** or *Relais*, except *Optocoupler* have no movable parts, and they support more than just a simple *on* and *off*. Instead, they can couple any signal strength.
-*Optocouplers* are often used to connect microcontrollers with other circuitry that runs on much higher voltages.
