@@ -94,4 +94,29 @@ Here are some more observations to note:
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
 
+# Identifying Pins
+
+Transistors of all types expose three terminals. Obviously, it is crucial to identify the correct terminals. Here is how:
+
+## Plastic Casing With Flat Side
+
+*BJT* transistory typically come in a black plastic casing with one *flat* side which is the *front* side. To identify the pins, look at the flat side and keep the pins pointing downwards:
+
+* **NPN**: (from left to right) the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
+* **PNP**: (from left to right) the order is reversed, and the pins are *Emitter*, *Base*, *Collector*
+
+<img src="/Images/bjt_pins.png" width="50%" height="50%" />
+
+## Metal housed "can" type
+
+Pins are arranged circularly. There is a tab in the rim of the housing. Typically, the pin closest to the tab is *Emitter*, the opposite pin is *Collector*, and inbetween is *Base*.
+
+> WARNING: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+
+### MOSFETs
+
+
+
+
+
 
