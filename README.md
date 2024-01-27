@@ -6,7 +6,7 @@ Transistors are electronic switches. They can turn a connection *on* and *off*, 
 
 In circuit diagrams, transistors are represented by these symbols:
 
-<img src="/Images/transistor_symbols.svg" width="50%" height="50%" />
+<img src="/Images/transistor_symbols.png" width="50%" height="50%" />
 
 The upper two symbols represent "classic* **BJT** transistors, the lower two symbols represent **FET** transistors. More on that below. 
 
