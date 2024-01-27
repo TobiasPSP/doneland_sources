@@ -6,7 +6,7 @@ Transistors work similar to a dam, and while a valve wheel in a dam controls how
 
 That's why a transistor can be viewed like a voltage-driven adjustable resistor (similar to a manually operated potentiometer), and in its two extreme positions a transistor acts like a plain *on*/*off*-switch.
 
-<img src="/Images/dam.jpg" width="110%" height="110%" />
+<img src="/Images/damIntro.jpg" width="110%" height="110%" />
 
 **Acting as a switch**: in its most extreme scenarios, the transistor control pin is either 0V or full voltage. Depending on transistor type, this will either turn the transistor completely *on* (producing a shortcut), or completely *off* (being non-conductive). 
 
