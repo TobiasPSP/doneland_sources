@@ -80,7 +80,7 @@ The most important practical difference is in how *N*- and *P*-types are control
 
 The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors. Both schematics use a switch and a transistor to control a load:
 
-<img src="/Images/pnp_npn_compare.PNG" width="50%" height="50%" />
+<img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
 **NPN**: the left schematic uses a **NPN** transistor which switches *ON* the load when the transistor *base* is connected to *Vcc* (positive voltage).
 
