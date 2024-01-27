@@ -105,7 +105,7 @@ Transistors of all types expose three terminals. Obviously, it is crucial to ide
 * **NPN**: (from left to right) the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
 * **PNP**: (from left to right) the order is reversed, and the pins are *Emitter*, *Base*, *Collector*
 
-<img src="/Images/bjt_pins.png" width="50%" height="50%" />
+<img src="/Images/bjt_pins.PNG" width="50%" height="50%" />
 
 ## Metal housed "can" type
 
