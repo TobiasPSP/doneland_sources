@@ -26,7 +26,8 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 >   
 > Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
 >
-> At other times, the FET symbol may show a straight line instead of three separated small lines (like above). A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.
+> At other times, the FET symbol may show a straight line instead of three separated small lines (like above).
+> A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.   
 > A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*.  
 > In contrast, an "enhanced mode" FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
 >
