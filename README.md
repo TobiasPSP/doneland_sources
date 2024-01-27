@@ -40,7 +40,7 @@ Still, these transistors, just like the classic *BJT* transistors, have just *th
 
 In schematics, you may come across special purpose transistors in preconfigured setups. Here are the three most common types:
 
-<img src="/Images/special_types.PNG" width="50%" height="50%" />
+<img src="/Images/special_types.PNG" width="70%" height="70%" />
 
 * **Darlington**: a *Darlington* transistor is actually a combination of two transistors coupled together for *amplification* purposes: by combining two transistors, the *gain* is much higher than any single transistor could provide. The first transistor amplifies the input voltage and then uses the amplified current to drive a second transistor. That is why *Darlington* transistors are used when you have very weak input signals and require a high amplification factor.
 The symbol either identifies a *Darlington* transistor by a **double line** at the *collector*, or the dual transistors are actually depicted. When the symbol also includes a *diode*, this is representing a *Power Darlington* transistor, capable of handling high currents.
