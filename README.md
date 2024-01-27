@@ -31,7 +31,7 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 >
 > A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*. In contrast, an *enhanced mode* FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
 >
-> *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types. Still, these transistors, just like the classic *BJT* transistors, have just *three* exposed terminals, which is why the symbol connects two lines with the **source** pin.   
+> *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types. Still, these transistors, just like the classic *BJT* transistors, have just *three* exposed terminals, which is why the symbol combines two lines with the **source** pin.   
 > In some symbols you may find a separate *forth* terminal called *substrate*. Practically though, there are no FET transistors around that physically expose this forth terminal.   
 
 ### Transistor Families
