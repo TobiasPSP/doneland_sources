@@ -74,7 +74,7 @@ Transistors have three connectors:
 
 ### Types
 
-Transistors come in *P* and in *N* types. *MOSFET* transistors are called *p-type* and *n-type*, whereas **BJT** transistors are called *PNP* and *NPN*.
+Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-type* and *p-type*, whereas **BJT** transistors are called *NPN* and *PNP*. The *P*-type has much more typical use cases than the *N*-type.
 
 The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
 
