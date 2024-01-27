@@ -2,19 +2,26 @@
 Here you'll find a general introduction to **transistors**, focused on practical aspects and essentials. 
 
 ## Quick overview
-Transistors work like a valve wheel in a dam: they can control how much water flows. This is why transistors have *three* pins: one of them acts as *control* and tells the transistor how much current it should let pass. A transistor can therefore be seen as an electronically adjustable resistor that is driven by the *voltage* you apply to its control pin.
+Transistors work similar to a valve wheel in a dam: while the valve wheel in the dam controls how much water flows, the voltage at the transistor control pin (called *base* or *gate*) controls how much current can flow through the remaining two pins. A transistor therefore acts a bit like a voltage-driven and electronically adjustable resistor.
 
 <img src="/Images/dam.jpg" width="50%" height="50%" />
 
-In its most extreme scenarios, the control pin tells the transistor to be completely *on* (producing a shortcut), or completely *off* (being non-conductive).  transistor works like an electronic **switch** and is either completely *on* or *off*. 
+**Acting as a switch**: in its most extreme scenarios, the transistor control pin is either 0V or full voltage. Depending on transistor type, this will either turn the transistor completely *on* (producing a shortcut), or completely *off* (being non-conductive).  The transistor acts like a simple **switch**, only instead of you flipping the real switch, the transistor can be controlled electronically. In fact, in many scenarios (power) transistors are used in this way and can replace mechanical relais. 
 
-If you submit a control voltage to the control pin that is between these two extremes, the transistor acts as an **amplifier**: a small voltage change results in a massive current change.
+**Acting as an amplifier**: if you submit a voltage inbetween the two extremes, the transistor resistance slowly decreases or increases. So a tiny voltage change at the control pin can result in a massive current change inbetween its other two pins. Here, the transistor is used as an **amplifier**.
 
-In circuit diagrams, you can identify transistors by these symbols:
+### Circuit Symbols
+
+In schematics, you can identify transistors by these symbols:
 
 <img src="/Images/transistor_symbols_wide.png" width="50%" height="50%" />
 
 The upper two symbols represent "classic* **BJT** transistors, the lower two symbols represent **FET** transistors. More on that below. 
+
+> You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above.
+> Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amount of currents.
+> At other times, the FET symbol shows a straight line instead of three separated small lines (like above). A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET. A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*. In contrast, an "enhanced mode" FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.
+> A difference between classic *BJT* transistors (*PNP* and *NPN*, the upper line in the image above) and *FET* transistors (the lower line in above image) is that the latter show *four* instead of *three* terminals. Typically, two of them are combined as *source* (like above). In some symbols, however, you may find *four* instead of *three* terminals. The forth connector is then called *substrate*. These four terminals represent the physical structure inside a FET but practically, there are no FET transistors generally available that actually expose the forth terminal.
 
 ### Transistor Families
 
