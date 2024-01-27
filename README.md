@@ -10,7 +10,7 @@ That's why a transistor can be viewed like a voltage-driven adjustable resistor 
 
 **Acting as a switch**: in its most extreme scenarios, the transistor control pin is either 0V or full voltage. Depending on transistor type, this will either turn the transistor completely *on* (producing a shortcut), or completely *off* (being non-conductive). 
 
-The transistor now acts like a simple **switch**, only instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios (power) transistors are used this way to replace slow and power-hungry mechanical relais. 
+The transistor now acts like a simple **switch**, only instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais. 
 
 **Acting as an amplifier**: if you submit a voltage inbetween the two extremes, the transistor resistance slowly decreases or increases. So a tiny voltage change at the control pin can result in a massive current change inbetween its other two pins. Here, the transistor is used as an **amplifier**.
 
