@@ -6,7 +6,7 @@ Transistors work similar to a dam, and while a valve wheel in a dam controls how
 
 That's why a transistor can be viewed like a voltage-driven adjustable resistor (similar to a manually operated potentiometer), and in its two extreme positions a transistor acts like a plain *on*/*off*-switch.
 
-<img src="/Images/dam.jpg" width="50%" height="50%" />
+<img src="/Images/dam.jpg" width="100%" height="100%" />
 
 **Acting as a switch**: in its most extreme scenarios, the transistor control pin is either 0V or full voltage. Depending on transistor type, this will either turn the transistor completely *on* (producing a shortcut), or completely *off* (being non-conductive). 
 
@@ -80,7 +80,7 @@ The most important practical difference is in how *N*- and *P*-types are control
 
 The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors. Both schematics use a switch and a transistor to control a load:
 
-<img src="/Images/pnp_npn_compare.PNG" width="50%" height="50%" />
+<img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
 **NPN**: the left schematic uses a **NPN** transistor which switches *ON* the load when the transistor *base* is connected to *Vcc* (positive voltage).
 
