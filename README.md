@@ -96,7 +96,11 @@ Here are some more observations to note:
 
 # Identifying Pins
 
-Transistors of all types expose three terminals. Obviously, it is crucial to identify the correct terminals. Here is how:
+Transistors of all types expose three terminals. Obviously, it is crucial to identify the correct terminals. 
+
+The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *measure* the transistor functionality. Many multimeters have built-in transistor tester when you switch the dial to the *hFE* setting. 
+
+Only very few transistors actually show distinct pin markings on their housing. However, there are a few rules of thumb (use at own risk):
 
 ## Plastic Casing With Flat Side
 
