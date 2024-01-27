@@ -2,11 +2,17 @@
 Here you'll find a general introduction to **transistors**, focused on practical aspects and essentials. 
 
 ## Quick overview
-Transistors are electronic switches. They can turn a connection *on* and *off*, but they can also *amplify* electrical signals. That's why transistors have a *third* connector which is used to control the behavior (turn on, turn off, amplify). This third "control" connector is called *base* or *gate*.
+Transistors work like a valve wheel in a dam: they can control how much water flows. This is why transistors have *three* pins: one of them acts as *control* and tells the transistor how much current it should let pass. A transistor can therefore be seen as an electronically adjustable resistor that is driven by the *voltage* you apply to its control pin.
 
-In circuit diagrams, transistors are represented by these symbols:
+<img src="/Images/dam.jpg" width="50%" height="50%" />
 
-<img src="/Images/transistor_symbols.png" width="50%" height="50%" />
+In its most extreme scenarios, the control pin tells the transistor to be completely *on* (producing a shortcut), or completely *off* (being non-conductive).  transistor works like an electronic **switch** and is either completely *on* or *off*. 
+
+If you submit a control voltage to the control pin that is between these two extremes, the transistor acts as an **amplifier**: a small voltage change results in a massive current change.
+
+In circuit diagrams, you can identify transistors by these symbols:
+
+<img src="/Images/transistor_symbols_wide.png" width="50%" height="50%" />
 
 The upper two symbols represent "classic* **BJT** transistors, the lower two symbols represent **FET** transistors. More on that below. 
 
