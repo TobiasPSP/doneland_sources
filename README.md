@@ -28,8 +28,8 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 >
 > > At other times, the FET symbol shows a straight line instead of three separated small lines (like above). A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET. A *depletion mode* FET is similar to a "normally closed" (NC) switch, so this transistor is *conductive* when there is no voltage between *gate* and *source*. In contrast, an "enhanced mode" FET is the other way around and works like a "normally open" (NO) switch: when there is no voltage between *base* and *source*, these transistors are *off* and do not conduct.   
 >
-> *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types. Still, these transistors, too, have just *three* exposed terminals, which is why the symbol connects two lines with the 
-> Typically, two of them are combined as *source* (like above). In some symbols, however, you may find *four* instead of *three* terminals. The forth connector is then called *substrate*. These four terminals represent the physical structure inside a FET but practically, there are no FET transistors generally available that actually expose the forth terminal.   
+> *FET* transistors (the lower line in above image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of these transistor types. Still, these transistors, too, have just *three* exposed terminals, which is why the symbol connects two lines with the **source** pin.   
+> In some symbols you may find a separate *forth* terminal called *substrate*. Practically though, there are no FET transistors around that physically expose this forth terminal.   
 
 ### Transistor Families
 
