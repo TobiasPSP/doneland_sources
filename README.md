@@ -98,7 +98,8 @@ Here are some more observations to note:
 
 Transistors of all types expose three terminals. Obviously, it is crucial to identify the correct terminals. 
 
-The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *measure* the transistor functionality. Many multimeters have built-in transistor tester when you switch the dial to the *hFE* setting. 
+> :warning: The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *measure* the transistor functionality. Many multimeters have built-in transistor tester when you switch the dial to the *hFE* setting.
+> You may *destroy* your transistor when you connect its pins in the wrong way.
 
 Only very few transistors actually show distinct pin markings on their housing. However, there are a few rules of thumb (use at own risk):
 
@@ -111,11 +112,13 @@ Only very few transistors actually show distinct pin markings on their housing. 
 
 <img src="/Images/bjt_pins.PNG" width="50%" height="50%" />
 
+> :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+
 ## Metal housed "can" type
 
 Pins are arranged circularly. There is a tab in the rim of the housing. Typically, the pin closest to the tab is *Emitter*, the opposite pin is *Collector*, and inbetween is *Base*.
 
-> WARNING: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+> :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
 ### MOSFETs
 
