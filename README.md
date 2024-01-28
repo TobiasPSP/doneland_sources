@@ -25,11 +25,9 @@ In schematics, you identify transistors by these symbols:
   <summary>:information_source: Slight Symbol Variants</summary>
   
   <br/>
-You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
-
+You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.<br/><br/>
 
 <img src="/Images/depletion_substrate.png" width="50%" height="50%" />
-
  
 * **Diode**: Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.
 
