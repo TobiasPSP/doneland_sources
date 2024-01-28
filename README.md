@@ -59,7 +59,7 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
 
-* **BJT**: In hobbyist projects, these are the most commonly used transistors. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*.
+* **BJT**: these are the most commonly used transistors in hobbyist projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they would shortcut the circuit and go up in flames (very much like LEDs). 
 * **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate* because their internal resistance between the control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway.
 
 <img src="/Images/transistor_types_real_.png" width="30%" height="30%" />
