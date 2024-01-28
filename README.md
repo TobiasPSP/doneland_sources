@@ -83,9 +83,7 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
 
   * The *base* and *gate* pins act as the *control pin* that tells the transistor what to do.
 
-  * The *emitter* and *drain* pins *combine* the current from the other two pins, so they *emit* or *drain* the current that entered the transistor through the other two pins (regardless of current flow direction).
-
-  The *collector* and *source* pins acquire the load current that is to be controlled by the transistor, so they *collect* or are the *source* of the load current (again, regardless of current flow direction).
+  * The *emitter* and *drain* pins *combine* the current from the other two pins, so they *emit* or *drain* the current that entered the transistor through the other two pins (regardless of current flow direction). The *collector* and *source* pins acquire the load current that is to be controlled by the transistor, so they *collect* or are the *source* of the load current (again, regardless of current flow direction).
 
   You may ask why both *BJT* and *FET* transistors using different terminology for their pins when the three pins actually behave the same. And the answer is: they are *not* behaving *exactly* the same, and *BJT* and *FET* transistors internally are completely different devices. So their terminology derives from their internal architecture and design, and electrical engineers applaud that. 
 
