@@ -89,7 +89,6 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
 
   That said, for *practical* aspects and *hobbyist* level, it is perfectly ok to go by the simple "control pin" and two "load current" pins paradigm.
 </details>
-> The terms *base*, *collector*, and *emitter* are used with *BJT* type transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* type transistors. Regardless, their purpose is similar.
 
 ### Types: NPN, PNP, N-Channel, P-Channel
 
