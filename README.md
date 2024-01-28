@@ -76,8 +76,9 @@ Transistors have three connectors (legs):
 The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow and depends on the transistor type.
 
 <details>
-  <summary>:information_source: Why Transistor Pins Have So Many Names</summary>
-  <br/>
+  <summary>:information_source: Why Transistor Pins Have So Many Names</summary><br/>
+
+  
   The terms *base*, *collector*, and *emitter* are used with *BJT* transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* transistors. Regardless, their purpose is similar.
 
   The *base* and *gate* pins act as the *control pin* that tells the transistor what to do.
