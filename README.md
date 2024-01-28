@@ -22,7 +22,7 @@ In schematics, you identify transistors by these symbols:
 
 
 <details>
-  <summary>Slight Symbol Variants</summary>
+  <summary>:information_source: Slight Symbol Variants</summary>
   
 
 
