@@ -57,7 +57,7 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 ### Transistor Families: BJT and FET
 
-There are primarily two different transistor types available: classic *BJT* transistors and *FET* transistors:
+There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
 
 * **BJT**: In hobbyist projects, these are the most commonly used transistors. They are used for logic and for switching small loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base*.
 * **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate*.
