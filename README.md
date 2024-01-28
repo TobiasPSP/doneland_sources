@@ -73,7 +73,7 @@ Transistors have three connectors (legs):
 * **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
 * **Collector**/**Source** and **Emitter**/**Drain**: these remaining two pins carry the *load current*.
 
-So the load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow.
+The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow and depends on the transistor type.
 
 As you learn in the next paragraph, there are two types of transistors: **N**- and **P**-type:
 
