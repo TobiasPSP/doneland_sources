@@ -23,15 +23,11 @@ In schematics, you can identify transistors by these symbols:
 #### Slight Variations
 You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
   
-Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
+**Diode**: Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
 
-At other times, the FET symbol may show a *straight line* instead of *three separated small lines* (like above). A *straight line* indicates a less common *depletion mode* FET whereas the *three separate short lines* indicate an *enhancement mode* FET.   
+**Straight** line vs. **dashed** line: the FET symbol may show a *straight line* instead of *three separated small lines* (*dashed* line as seen in the image above). A *dashed* line represents an *enhancement mode* FET whereas a *straight line* represents a much less common *depletion mode* FET. *Enhancement mode* FETs are "normally open" so by default, they are *off* (non-conductive). *Depletion mode* FETs are "normally closed" so by default, they are *on* (conductive).
 
-The more common *enhancement mode* FETs act as a "normally open" switch so by default, these FETs are *off* (non-conductive). The less common *depletion mode* FETs act as a "normally closed" switch so by default, these FETs are *on* (conductive).
-
-*FET* transistors (the symbols in the lower part of the image) generally show *four* instead of *three* terminals, one on the left side and three on the right side. This represents the inner physical structure of FET transistor types.
-
-Still, these transistors, just like classic *BJT* transistors, have just *three* exposed terminals, which is why the symbol typically combines two lines with the **source** pin (as seen above). Occasionally, you may find symbols with a separate *forth* terminal called *substrate*. Practically though, there are no FET transistors around that physically expose this forth terminal.
+**4 Terminals instead of 3**: *FET* transistors *internally* use *four* connections, one on the left side and three on the right side. They only *expose three* terminals though. So typically, the symbol combines two lines with the **source** pin (as seen above). Occasionally, you may find symbols with a separate *forth* exposed terminal called *substrate*. However, there are practcally no FET transistors available that in fact expose this forth terminal.
 
 #### Special Purpose Transistors
 
