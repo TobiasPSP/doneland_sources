@@ -81,9 +81,9 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
   
   The terms *base*, *collector*, and *emitter* are used with *BJT* transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* transistors. Regardless, their purpose is similar.
 
-  The *base* and *gate* pins act as the *control pin* that tells the transistor what to do.
+  * The *base* and *gate* pins act as the *control pin* that tells the transistor what to do.
 
-  The *emitter* and *drain* pins *combine* the current from the other two pins, so they *emit* or *drain* the current that entered the transistor through the other two pins (regardless of current flow direction).
+  * The *emitter* and *drain* pins *combine* the current from the other two pins, so they *emit* or *drain* the current that entered the transistor through the other two pins (regardless of current flow direction).
 
   The *collector* and *source* pins acquire the load current that is to be controlled by the transistor, so they *collect* or are the *source* of the load current (again, regardless of current flow direction).
 
