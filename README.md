@@ -4,6 +4,12 @@
 ## Quick overview
 Transistors work similar to a dam, and while a *valve wheel* in a dam *controls how much water can flow* through it, the transistor control pin (called *base* or *gate*) controls how much current can flow through the remaining two pins. 
 
+<details>
+  <summary>Click me</summary><br/>
+  > [!CAUTION]
+> Negative potential consequences of an action.
+</details>
+
 Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
 <img src="/Images/damIntro1.jpg" width="100%" height="100%" />
