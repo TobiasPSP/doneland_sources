@@ -64,10 +64,10 @@ There are two fundamental transistor types available: classic *BJT* transistors 
 
 <img src="/Images/transistor_types_real_.png" width="30%" height="30%" />
 
-In the image above, you see the typical shape of different transistor families: *MOSFET*, *BJT*, and a *Power BJT* (left to right).
+(*from left to right*: *MOSFET*, *BJT*, and a *Power BJT*)
 
 <details>
-  <summary>Learn more about *BJT* and *FET* differences</summary>
+  <summary>:information_source: More Differences Between *BJT* And *FET* Transistors</summary>
 <br/>
   
 * **BJT**: they come in a plastic housing with one side flat and have a *low input impedance*: their resistance between *base* and *emitter* is *very low* so they are driven by *current*. In fact, since their resistance at the control pin is so *low*, you *have to use a resistor* at the *base* pin to limit the current. Otherwise, due to the low resistance, a huge current could flow and quickly destroy the transistor.    
@@ -78,15 +78,21 @@ In the image above, you see the typical shape of different transistor families: 
 
 Transistors have three connectors (legs):
 
-* **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should let pass through. 
-* **Collector**/**Source** (Input): this is "collecting" the electrical power you want to control, so here is the *source* of the power. It is the **positive lead**.
-* **Emitter**/**Drain** (Output): this is where the current "leaves" the transistor (gets *emitted* or *drained*). Both the *base* and the *collector* current leaves the transistor via the *emitter* pin. This is the **negative lead**. 
+* **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
+* **Collector**/**Source** and **Emitter**/**Drain**: these remaining two pins carry the *load current*.
+
+So the load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated in the transistor symbol by a small arrow.
+
+As you learn in the next paragraph, there are two types of transistors: **N**- and **P**-type:
+
+* In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, and the current flows from **Collector**/**Source** to **Emitter**/**Drain**.
+* In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, and the current flows from **Emitter**/**Drain** to **Collector**/**Source**.
 
 > The terms *base*, *collector*, and *emitter* are used with *BJT* type transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* type transistors. Regardless, their purpose is similar.
 
-### Types: NPN, PNP, N-Type, P-Type
+### Types: NPN, PNP, N-Channel, P-Channel
 
-Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-type* and *p-type*, whereas **BJT** transistors are called *NPN* and *PNP*. The *P*-type has much more typical use cases than the *N*-type.
+Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. The *P*-type has much more typical use cases than the *N*-type.
 
 The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
 
