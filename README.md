@@ -2,17 +2,15 @@
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
-Transistors work similar to a dam, and while a valve wheel in a dam controls how much water can flow through the dam, the voltage at the transistor control pin (*base* or *gate*) controls how much current can flow through the remaining two pins. 
+Transistors work similar to a dam, and while a *valve wheel* in a dam *controls how much water can flow* through the dam, the transistor control pin (*base* or *gate*) controls how much current can flow through the remaining two pins. 
 
-That's why a transistor can be viewed like a voltage-driven adjustable resistor (similar to a manually operated potentiometer), and in its two extreme positions a transistor acts like a plain *on*/*off*-switch.
+So a transistor can act either as a **switch** or a **potentiometer**.
 
 <img src="/Images/damIntro1.jpg" width="110%" height="110%" />
 
-**Acting as a switch**: in its most extreme scenarios, the transistor control pin is either 0V or full voltage. Depending on transistor type, this will either turn the transistor completely *on* (producing a shortcut), or completely *off* (being non-conductive). 
+**Switch**: in the most extreme scenario, the transistor control pin is either telling the transistor to be completely *on* (fully conductive), or completely *off* (non-conductive). This way, the transistor is acting like a physical **switch**, only instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, and thanks to transistors, a tiny non-powerful low-voltage button can control huge currents or dangerous voltages. 
 
-The transistor now acts like a simple **switch**, only instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais. 
-
-**Acting as an amplifier**: if you submit a voltage inbetween the two extremes, the transistor resistance slowly decreases or increases. So a tiny voltage change at the control pin can result in a massive current change inbetween its other two pins. Here, the transistor is used as an **amplifier**.
+**Amplifier**: depending on transistor type, the control pin is driven either by *voltage* or by *current*. When you slowly increase *voltage* or *current*, the transistor acts as a variable resistor and slowly increases or decreases its resistance. So a transistor not only supports *on* and *off* but can also be used like a potentiometer. Unlike a real potentiometer, the transistor supports significant currents, depending on type, so it can work as an *amplifier*: a tiny voltage or current at the control pin can produce a massive current.
 
 ### Circuit Symbols
 
@@ -42,13 +40,11 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 ### Transistor Families: BJT and FET
 
-Transistors use different architectures:
+There are primarily two different transistor types available: classic *BJT* transistors and *FET* transistors (in the latter case typically *MOSFET* transistors, the most commonly used *FET* subgroup):
 
-* **MOSFET**: 99.9% of all transistors today are of this type. MOSFETs change conductivity based on the applied voltage, and *Power MOSFETs* can control extremely high currents. MOSFET input impedance (resistance) is *high*. They act as voltage-controlled variable resistors.
-* **BJT**: they used to be the most widely used transistors decades ago. BJT input impedance is *low*. They are often used to amplify current. Although *BJT* transistors are still used, their future is uncertain, and they may eventually be completely replaced by *MOS* type of transistors.
-* **Other**: there are plenty more transistor types for special purposes that are not discussed here.
+* **BJT**: These transistors typically come in a plastic housing with one side flat. They have a *low input impedance*: their resistance between *base* and *emitter* is low so they are driven by *current*. In fact, since their resistance at the control pin is *low*, you have to use a resistor at the *base* pin to limit the current. If you directly connect positive voltage to the *base*, due to the low resistance, a huge current would flow and quickly destroy the transistor. In hobbyist use cases, *BJT* transistors are typically used for logic and to switch small loads such as LEDs.   
+* **MOSFET**: they come in a rectangular plastic housing with metal heat sink, indicating their capability to handle large currents. They have a *high input impedance*: their resistance between *gate* and *source* is *very high*, there is almost no current flowing inbetween *gate* and *source*. So *FET* transistors are driven by *voltage* and require almost no energy to control. Thanks to their hight resistance at the control pin, you do not necessarily need a protective resistor. Even if you directly connect positive voltage to the control pin, due to its high resistance, the current flowing is always tiny, and there is no risk to destroy the transistor. In hobbyist projects, *FET*s are used primarily to switch *high current* loads.  
 
-> Hobbyists often use **BJT** transistors for logic and **MOSFET** transistors as power switches when devices like LEDs or motors need to be controlled.
 
 <img src="/Images/transistor_types_real_.png" width="50%" height="50%" />
 
