@@ -1,5 +1,5 @@
 # Transistors - Practical Summary
-Here you'll find a general introduction to **transistors**, focused on practical aspects and essentials. 
+:stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
 Transistors work similar to a dam, and while a valve wheel in a dam controls how much water can flow through the dam, the voltage at the transistor control pin (*base* or *gate*) controls how much current can flow through the remaining two pins. 
