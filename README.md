@@ -35,8 +35,8 @@ You may run across slight variations of these symbols, however for most practica
 </details>
 
 <details>
-> [!NOTE] <summary>ABC</summary>
-> Line 1
+ <summary>ABC</summary>
+> [!NOTE] Line 1
 > Line 2
 </details>
 
