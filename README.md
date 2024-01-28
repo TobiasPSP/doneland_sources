@@ -101,19 +101,19 @@ Here are some more observations to note:
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
 
-# Identifying Pins
+# Identifying Legs and Terminals
 
-Transistors of all types expose three terminals. Obviously, it is crucial to identify the correct terminals. 
+Transistors of all types have three legs. Obviously, it is crucial to identify the correct terminals. 
 
 > [!CAUTION]  
-> The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *test* the transistor.
+> The only *dependable* ways of determining the pins is either review the *data sheet* for the *particular transistor type* you want to use, or to physically *test* the transistor.
 
 > [!TIP]
-> Many multimeters have built-in transistor tester when you switch the dial to the *hFE* setting.
+> Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
 >
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
-Only very few transistors actually show distinct pin markings on their housing. However, there are a few rules of thumb (use at own risk):
+Only very few transistors actually show distinct pin markings on their housing. There are a few rules of thumb though (use at own risk):
 
 ## Plastic Casing With Flat Side
 
