@@ -59,8 +59,8 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
 
-* **BJT**: In hobbyist projects, these are the most commonly used transistors. They are used for logic and for switching small loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base*.
-* **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate*.
+* **BJT**: In hobbyist projects, these are the most commonly used transistors. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*.
+* **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate* because their internal resistance between the control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway.
 
 <img src="/Images/transistor_types_real_.png" width="30%" height="30%" />
 
@@ -81,13 +81,28 @@ Transistors have three connectors (legs):
 * **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
 * **Collector**/**Source** and **Emitter**/**Drain**: these remaining two pins carry the *load current*.
 
-So the load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated in the transistor symbol by a small arrow.
+So the load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow.
 
 As you learn in the next paragraph, there are two types of transistors: **N**- and **P**-type:
 
 * In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, and the current flows from **Collector**/**Source** to **Emitter**/**Drain**.
 * In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, and the current flows from **Emitter**/**Drain** to **Collector**/**Source**.
 
+<details>
+  <summary>:information_source: Why Transistor Pins Have So Many Names</summary>
+  <br/>
+  The terms *base*, *collector*, and *emitter* are used with *BJT* transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* transistors. Regardless, their purpose is similar.
+
+  The *base* and *gate* pins act as the *control pin* that tells the transistor what to do.
+
+  The *emitter* and *drain* pins *combine* the current from the other two pins, so they *emit* or *drain* the current that entered the transistor through the other two pins (regardless of current flow direction).
+
+  The *collector* and *source* pins acquire the load current that is to be controlled by the transistor, so they *collect* or are the *source* of the load current (again, regardless of current flow direction).
+
+  You may ask why both *BJT* and *FET* transistors using different terminology for their pins when the three pins actually behave the same. And the answer is: they are *not* behaving *exactly* the same, and *BJT* and *FET* transistors internally are completely different devices. So their terminology derives from their internal architecture and design, and electrical engineers applaud that. 
+
+  That said, for *practical* aspects and *hobbyist* level, it is perfectly ok to go by the simple "control pin" and two "load current" pins paradigm.
+</details>
 > The terms *base*, *collector*, and *emitter* are used with *BJT* type transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* type transistors. Regardless, their purpose is similar.
 
 ### Types: NPN, PNP, N-Channel, P-Channel
