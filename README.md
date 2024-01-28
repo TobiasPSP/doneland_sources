@@ -35,10 +35,11 @@ In schematics, you identify transistors by these symbols:
   <summary>Special Purpose Transistors</summary>
   <br/>
 In schematics, you may come across special purpose transistors in preconfigured setups:
+  
 <br/>
   
+<img src="/Images/special_types.PNG" width="70%" height="70%" />
 
-![alt text](/Images/special_types.PNG)
 <br/>
 
 * **Darlington**: a *Darlington* transistor is actually a combination of two transistors coupled together for *amplification* purposes: by combining two transistors, the *gain* is much higher than any single transistor could provide. The first transistor amplifies the input voltage and then uses the amplified current to drive a second transistor. That is why *Darlington* transistors are used when you have very weak input signals and require a high amplification factor.
