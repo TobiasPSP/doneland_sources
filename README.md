@@ -66,14 +66,6 @@ There are two fundamental transistor types available: classic *BJT* transistors 
 
 (*from left to right*: *MOSFET*, *BJT*, and a *Power BJT*)
 
-<details>
-  <summary>:information_source: More Differences Between *BJT* And *FET* Transistors</summary>
-<br/>
-  
-* **BJT**: they come in a plastic housing with one side flat and have a *low input impedance*: their resistance between *base* and *emitter* is *very low* so they are driven by *current*. In fact, since their resistance at the control pin is so *low*, you *have to use a resistor* at the *base* pin to limit the current. Otherwise, due to the low resistance, a huge current could flow and quickly destroy the transistor.    
-* **MOSFET**: they come in a rectangular plastic housing with metal heat sink, indicating their capability to handle large currents. They have a *high input impedance*: since their resistance between *gate* and *source* is *very high*, there is almost no current flowing inbetween *gate* and *source*. So *FET* transistors are driven by *voltage* (using an *electrical field* to control conductivity), so they require almost no energy to control. Thanks to their hight resistance at the control pin, you *do not necessarily need a protective resistor*. Even if you directly connect positive voltage to the control pin, due to its high resistance, the current is always tiny with no risk to destroy the transistor.   
-</details>
-
 ### Legs and Terminals
 
 Transistors have three connectors (legs):
