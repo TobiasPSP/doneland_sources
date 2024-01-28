@@ -6,7 +6,7 @@ Transistors work similar to a dam, and while a *valve wheel* in a dam *controls 
 
 Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
-<img src="/Images/damIntro1.jpg" width="140%" height="140%" />
+<img src="/Images/damIntro1.jpg" width="100%" height="100%" />
 
 A transistor can act either as **switch** or **potentiometer**:
 
@@ -18,7 +18,7 @@ A transistor can act either as **switch** or **potentiometer**:
 
 In schematics, you identify transistors by these symbols:
 
-<img src="/Images/transistor_symbols_wide.png" width="50%" height="50%" />
+<img src="/Images/transistor_symbols_wide.png" width="70%" height="70%" />
 
 
 <details>
