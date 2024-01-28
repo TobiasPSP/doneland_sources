@@ -108,9 +108,8 @@ Both schematics below do the same thing and control a load via a push button. Th
 
 <img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
-**N-Type**: the **NPN** transistor in the left curcuit switches *ON* the load when the transistor *base* is connected to positive voltage. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).
-
-**P-Type**: the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
+* **N-Type**: the **NPN** transistor in the left curcuit switches *ON* the load when the transistor *base* is connected to positive voltage. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).   
+* **P-Type**: the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
