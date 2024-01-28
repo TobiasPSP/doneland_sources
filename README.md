@@ -48,7 +48,7 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 * **Optocoupler**: in this device, a photo transistor is combined with a light emitting diode (LED). This way, one circuit (driving the LED) can control a second circuit (driven by the transistor). *Optocoupler* can physically separate two circuits, much similar to magnetic *Reed Contacts* or *Relais*, except *Optocoupler* have no movable parts, and they support more than just a simple *on* and *off*. Instead, they can couple any signal strength.
 *Optocouplers* are often used to connect microcontrollers with other circuitry that runs on much higher voltages.
 
-### Transistor Families
+### Transistor Families: BJT and FET
 
 Transistors use different architectures:
 
@@ -62,9 +62,9 @@ Transistors use different architectures:
 
 In the image above, you see the typical shape of different transistor families: *MOSFET*, *BJT*, and a *Power BJT* (left to right).
 
-### Wiring
+### Legs and Terminals
 
-Transistors have three connectors:
+Transistors have three connectors (legs):
 
 * **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should let pass through. 
 * **Collector**/**Source** (Input): this is "collecting" the electrical power you want to control, so here is the *source* of the power. It is the **positive lead**.
@@ -72,11 +72,15 @@ Transistors have three connectors:
 
 > The terms *base*, *collector*, and *emitter* are used with *BJT* type transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* type transistors. Regardless, their purpose is similar.
 
-### Types
+### Types: NPN, PNP, N-Type, P-Type
 
 Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-type* and *p-type*, whereas **BJT** transistors are called *NPN* and *PNP*. The *P*-type has much more typical use cases than the *N*-type.
 
 The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
+
+* **NPN**,**N-Type**: A *NPN BJT transistor* needs a **positive** *current* flowing from *base* to *emitter* to conduct. A *N-Type MOSFET* also needs a **positive** *voltage* between *gate* and *source* to conduct.
+**PNP**,**P-Type**: A *PNP BJT transistor* needs a **negative** *current* between *base* to *emitter* to conduct. A *P-Type MOSFET* also needs a **negative** *voltage* between *gate* and *source* to conduct.
+ 
 
 The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors. Both schematics use a switch and a transistor to control a load:
 
