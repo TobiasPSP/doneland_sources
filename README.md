@@ -35,9 +35,9 @@ In schematics, you identify transistors by these symbols:
   <summary>Special Purpose Transistors</summary>
   <br/>
 In schematics, you may come across special purpose transistors in preconfigured setups:
-  
+
 <br/>
-  
+<br/>
 <img src="/Images/special_types.PNG" width="70%" height="70%" />
 
 <br/>
