@@ -4,21 +4,21 @@
 ## Quick overview
 Transistors work similar to a dam, and while a *valve wheel* in a dam *controls how much water can flow* through the dam, the transistor control pin (*base* or *gate*) controls how much current can flow through the remaining two pins. 
 
-So a transistor can act either as a **switch** or a **potentiometer**.
+Depending on transistor type, the control pin is driven either by *voltage* or by *current*. A transistor can act either as **switch** or **potentiometer**. 
 
 <img src="/Images/damIntro1.jpg" width="110%" height="110%" />
 
-**Switch**: in the most extreme scenario, the transistor control pin is either telling the transistor to be completely *on* (fully conductive), or completely *off* (non-conductive). This way, the transistor is acting like a physical **switch**, only instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, and thanks to transistors, a tiny non-powerful low-voltage button can control huge currents or dangerous voltages. 
+**Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive) and acting like a physical **switch**. Instead of you flipping a real switch, the transistor can be controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, and tiny non-powerful low-voltage buttons can control huge currents or dangerous voltages. 
 
-**Amplifier**: depending on transistor type, the control pin is driven either by *voltage* or by *current*. When you slowly increase *voltage* or *current*, the transistor acts as a variable resistor and slowly increases or decreases its resistance. So a transistor not only supports *on* and *off* but can also be used like a potentiometer. Unlike a real potentiometer, the transistor supports significant currents, depending on type, so it can work as an *amplifier*: a tiny voltage or current at the control pin can produce a massive current.
+**Amplifier**:  By slowly increasing *voltage* or *current* to the control pin, the transistor works like a variable resistor and slowly increases or decreases its resistance between the other two pins. So a transistor can be used like a potentiometer, and the use case of a *switch* (above) is just an extreme example of this (cranking the potentiometer fully open or closed). Unlike a real potentiometer, the transistor can support significant currents. So a tiny voltage or current change at the control pin can result in a massive current change between the other two pins. This is how a transistor *amplifier* operates.
 
 ### Circuit Symbols
 
-In schematics, you can identify transistors by these symbols:
+In schematics, you identify transistors by these symbols:
 
 <img src="/Images/transistor_symbols_wide.png" width="50%" height="50%" />
 
-#### Slight Variations
+#### Slight Symbol Variations
 You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
   
 **Diode**: Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
