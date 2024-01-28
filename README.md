@@ -107,8 +107,7 @@ Transistors of all types expose three terminals. Obviously, it is crucial to ide
 
 > [!CAUTION]  
 > The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *test* the transistor.
-
-> :warning: The only *dependable* ways of determining the pins is to either view the *data sheet* for the particular transistor type you want to use, or to actually *test* the transistor.
+>
 > Many multimeters have built-in transistor tester when you switch the dial to the *hFE* setting.
 >
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
