@@ -97,20 +97,18 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Cha
 * In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, the control pin is *positive*, and the current flows from control pin *and* **Collector**/**Source** to **Emitter**/**Drain**.
 * In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, the control pin is *negative*, and the current flows from **Emitter**/**Drain** to control pin *and* **Collector**/**Source**.
 
-Choosing **N-Type** or **P-Type** depends entirely on *where* you want to place the transistor: **N-type** transistors are controlled by a *positive* voltage/current, and **P-type** transistors are controlled by a *negative* voltage/current.
+> [!TIP]
+> **N-Type**, **N-Channel**, and **NPN** all are **negative** at their emitter (the pin marked with the arrow), and require a *positive* control signal
+> **P-Type**, **P-Channel**, and **PNP** all are **positive** at their emitter (the pin marked with the arrow), and require a *negative* control signal
+> The direction of the arrow indicates the direction of the current flow
 
-The schematics illustrate the fundamental difference between placement of *N-Type* versus *P-Type* type transistors. Both schematics use a switch and a *BJT* transistor (**NPN** in the left example, and **PNP** in the right example) to control a load:
+Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
 
 <img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
-**N-Type**: the left schematic uses a **NPN** transistor which switches *ON* the load when the transistor *base* is connected to positive voltage. This is the most common use case. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).
+**N-Type**: the **NPN** transistor in the left curcuit switches *ON* the load when the transistor *base* is connected to positive voltage. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).
 
-**P-Type**: the right schematic uses a **PNP** transistor which switches *ON* the load when the transistor *base* is connected to *GND* (0V). This is a less common design and explains why **P-Type** transistors are less commonly used. The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
-
-Here are some more observations to note:
-
-* **NPN**/**n-type FET**: Current flows from *collector*/*source* to *emitter*/*drain*. This is the most commonly used type. Both *base*/*gate* and *collector*/*source* are connected to the **positive** voltage: the *load* controlled by the transistor is wired between **positive** voltage and *collector*/*source*. The combined current leaves the transistor through the *emitter*/*drain* which is connected to GND.
-* **PNP**/**p-type FET**: Current flows from *emitter*/*drain* to *collector*/*source*. The positive voltage is connected to the *emitter*/*drain*, so the entire current enters the transistor through the *emitter*/*drain*. Both *base*/*gate* and *collector*/*source* are connected to the **negative** voltage. So by controlling how much current is "leaving" the base towards GND, you control how much current goes through the *load* which is wired between **GND**  and collector.
+**P-Type**: the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
