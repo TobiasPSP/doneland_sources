@@ -4,9 +4,11 @@
 ## Quick overview
 Transistors work similar to a dam, and while a *valve wheel* in a dam *controls how much water can flow* through it, the transistor control pin (called *base* or *gate*) controls how much current can flow through the remaining two pins. 
 
-Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*. This way, a transistor can act either as **switch** or **potentiometer**. 
+Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
 <img src="/Images/damIntro1.jpg" width="110%" height="110%" />
+
+A transistor can act either as **switch** or **potentiometer**:
 
 **Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive), acting like a physical **switch**. Rather than you flipping a real switch, the transistor is controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, so tiny non-powerful low-voltage buttons or small currents and voltages can control huge currents or dangerous voltages. 
 
