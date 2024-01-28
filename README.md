@@ -98,8 +98,8 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Cha
 * In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, the control pin is *negative*, and the current flows from **Emitter**/**Drain** to control pin *and* **Collector**/**Source**.
 
 > [!TIP]
-> **N-Type**, **N-Channel**, and **NPN** all are **negative** at their emitter (the pin marked with the arrow), and require a *positive* control signal   
-> **P-Type**, **P-Channel**, and **PNP** all are **positive** at their emitter (the pin marked with the arrow), and require a *negative* control signal   
+> **N-Type**, **N-Channel**, and **NPN** all are **n***egative* at their emitter (the pin marked with the arrow), and require a *positive* control signal   
+> **P-Type**, **P-Channel**, and **PNP** all are **p***ositive* at their emitter (the pin marked with the arrow), and require a *negative* control signal   
 > The direction of the arrow indicates the direction of the current flow   
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
