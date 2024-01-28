@@ -55,11 +55,17 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 ### Transistor Families: BJT and FET
 
-There are primarily two different transistor types available: classic *BJT* transistors and *FET* transistors (in the latter case typically *MOSFET* transistors, the most commonly used *FET* subgroup):
+There are primarily two different transistor types available: classic *BJT* transistors and *FET* transistors:
+
+* **BJT**: In hobbyist projects, these are the most commonly used transistors. They are used for logic and for switching small loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base*.
+* **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate*.
+
+<details>
+  <summary>How do *BJT* and *FET* differ?</summary>
 
 * **BJT**: they come in a plastic housing with one side flat and have a *low input impedance*: their resistance between *base* and *emitter* is *very low* so they are driven by *current*. In fact, since their resistance at the control pin is so *low*, you *have to use a resistor* at the *base* pin to limit the current. Otherwise, due to the low resistance, a huge current could flow and quickly destroy the transistor. In hobbyist use cases, *BJT* transistors are typically used for logic and to switch small loads such as LEDs.   
 * **MOSFET**: they come in a rectangular plastic housing with metal heat sink, indicating their capability to handle large currents. They have a *high input impedance*: since their resistance between *gate* and *source* is *very high*, there is almost no current flowing inbetween *gate* and *source*. So *FET* transistors are driven by *voltage* (using an *electrical field* to control conductivity), so they require almost no energy to control. Thanks to their hight resistance at the control pin, you *do not necessarily need a protective resistor*. Even if you directly connect positive voltage to the control pin, due to its high resistance, the current is always tiny with no risk to destroy the transistor. In hobbyist projects, *FET*s are used primarily to switch *high current* loads.  
-
+</details>
 
 <img src="/Images/transistor_types_real_.png" width="50%" height="50%" />
 
