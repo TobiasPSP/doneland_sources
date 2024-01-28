@@ -75,11 +75,6 @@ Transistors have three connectors (legs):
 
 The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow and depends on the transistor type.
 
-As you learn in the next paragraph, there are two types of transistors: **N**- and **P**-type:
-
-* In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, and the current flows from **Collector**/**Source** to **Emitter**/**Drain**.
-* In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, and the current flows from **Emitter**/**Drain** to **Collector**/**Source**.
-
 <details>
   <summary>:information_source: Why Transistor Pins Have So Many Names</summary>
   <br/>
@@ -99,21 +94,20 @@ As you learn in the next paragraph, there are two types of transistors: **N**- a
 
 ### Types: NPN, PNP, N-Channel, P-Channel
 
-Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. The *P*-type has much more typical use cases than the *N*-type.
+Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. As with the pin terminology, you can simplify all of this and consider just two fundamental types of transistors: **N-Type** (*NPN* and *N-Channel*) and **P-Type** (*PNP* and *P-Channel*):
 
-The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
+* In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, the control pin is *positive*, and the current flows from control pin *and* **Collector**/**Source** to **Emitter**/**Drain**.
+* In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, the control pin is *negative*, and the current flows from **Emitter**/**Drain** to control pin *and* **Collector**/**Source**.
 
-* **NPN**,**N-Type**: A *NPN BJT transistor* needs a **positive** *current* flowing from *base* to *emitter* to conduct. A *N-Type MOSFET* also needs a **positive** *voltage* between *gate* and *source* to conduct. Note how the little arrow at the *emitter*/*source* pin indicates the direction of current flow.  
-* **PNP**,**P-Type**: A *PNP BJT transistor* needs a **negative** *current* between *base* to *emitter* to conduct. A *P-Type MOSFET* also needs a **negative** *voltage* between *gate* and *source* to conduct. Again, note how the little arrow at the *emitter*/*source* pin indicates the direction of current flow. For these transistors, the arrow points to the reverse direction.
- 
+Choosing **N-Type** or **P-Type** depends entirely on *where* you want to place the transistor: **N-type** transistors are controlled by a *positive* voltage/current, and **P-type** transistors are controlled by a *negative* voltage/current.
 
-The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors. Both schematics use a switch and a transistor to control a load:
+The schematics illustrate the fundamental difference between placement of *N-Type* versus *P-Type* type transistors. Both schematics use a switch and a *BJT* transistor (**NPN** in the left example, and **PNP** in the right example) to control a load:
 
 <img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
-**NPN**: the left schematic uses a **NPN** transistor which switches *ON* the load when the transistor *base* is connected to *Vcc* (positive voltage).
+**N-Type**: the left schematic uses a **NPN** transistor which switches *ON* the load when the transistor *base* is connected to positive voltage. This is the most common use case. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).
 
-**PNP**: the right schematic uses a **PNP** transistor which switches *ON* the load when the transistor *base* is connected to *GND* (0V).
+**P-Type**: the right schematic uses a **PNP** transistor which switches *ON* the load when the transistor *base* is connected to *GND* (0V). This is a less common design and explains why **P-Type** transistors are less commonly used. The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
 
 Here are some more observations to note:
 
