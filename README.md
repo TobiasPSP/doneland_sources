@@ -26,7 +26,6 @@ The upper two symbols represent "classic* **BJT** transistors, the lower two sym
 You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
   
 Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.   
-
 At other times, the FET symbol may show a straight line instead of three separated small lines (like above).
 A straight line indicates a *depletion mode* FET whereas the three separate short lines indicate an *enhancement mode* FET.   
 
@@ -78,8 +77,8 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-typ
 
 The most important practical difference is in how *N*- and *P*-types are controlled: the typical *N*-type transistors are controlled via a *positive* voltage, whereas the less common *P*-type transistors are controlled via a *negative* voltage.
 
-* **NPN**,**N-Type**: A *NPN BJT transistor* needs a **positive** *current* flowing from *base* to *emitter* to conduct. A *N-Type MOSFET* also needs a **positive** *voltage* between *gate* and *source* to conduct.
-**PNP**,**P-Type**: A *PNP BJT transistor* needs a **negative** *current* between *base* to *emitter* to conduct. A *P-Type MOSFET* also needs a **negative** *voltage* between *gate* and *source* to conduct.
+* **NPN**,**N-Type**: A *NPN BJT transistor* needs a **positive** *current* flowing from *base* to *emitter* to conduct. A *N-Type MOSFET* also needs a **positive** *voltage* between *gate* and *source* to conduct. Note how the little arrow at the *emitter*/*source* pin indicates the direction of current flow.  
+* **PNP**,**P-Type**: A *PNP BJT transistor* needs a **negative** *current* between *base* to *emitter* to conduct. A *P-Type MOSFET* also needs a **negative** *voltage* between *gate* and *source* to conduct. Again, note how the little arrow at the *emitter*/*source* pin indicates the direction of current flow. For these transistors, the arrow points to the reverse direction.
  
 
 The schematics illustrate the fundamental difference between *NPN* and *PNP* type transistors. Both schematics use a switch and a transistor to control a load:
