@@ -38,7 +38,7 @@ In schematics, you may come across special purpose transistors in preconfigured 
 <br/>
   
 
-![alt text](/Images/special_types.PN)
+![alt text](/Images/special_types.PNG)
 <br/>
 
 * **Darlington**: a *Darlington* transistor is actually a combination of two transistors coupled together for *amplification* purposes: by combining two transistors, the *gain* is much higher than any single transistor could provide. The first transistor amplifies the input voltage and then uses the amplified current to drive a second transistor. That is why *Darlington* transistors are used when you have very weak input signals and require a high amplification factor.
