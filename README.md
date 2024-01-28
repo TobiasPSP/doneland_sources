@@ -21,6 +21,10 @@ In schematics, you identify transistors by these symbols:
 
 <details>
   <summary>Slight Symbol Variants</summary>
+  
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
   <br/>
 > [!NOTE] 
 > You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.
