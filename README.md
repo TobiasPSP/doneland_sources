@@ -102,7 +102,7 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Cha
 > **P-Type**, **P-Channel**, and **PNP** all are **p***ositive* at their emitter (the pin marked with the arrow), and require a *negative* control signal   
 
 > [!IMPORTANT]  
-> The little arrow inside the transistor symbol *does not* generally indicate the direction of the current. In *BJT* transistors, the arrow indeed points into the direction the current flows. However, in *FET* transistors, the arrow points into the *opposite* direction. Again, the reason for these inconsistencies are historic, and in *FET* transistors, the arrow points into the direction the electrons travel internally.
+> The little arrow inside the transistor symbol *does not* generally indicate the direction of the current. In *BJT* transistors, the arrow indeed points into the direction of current flow. However, in *FET* transistors, the arrow points into the *opposite* direction. Again, the reason for these inconsistencies are historic, and in *FET* transistors, the arrow points into the direction the electrons travel internally.
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. 
 
