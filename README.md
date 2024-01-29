@@ -8,7 +8,7 @@ Depending on transistor type, the control pin that is telling the transistor wha
 
 <img src="/Images/damIntro1.jpg" width="100%" height="100%" />
 
-A transistor can act either as **switch** or **potentiometer**:
+A transistor typically acts either as **switch** or **potentiometer**:
 
 **Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive), acting like a physical **switch**. Rather than you flipping a real switch, the transistor is controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, so tiny non-powerful low-voltage buttons or small currents and voltages can control huge currents or dangerous voltages. 
 
@@ -59,7 +59,7 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
 
-* **BJT**: these are the most commonly used transistors in hobbyist projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they would shortcut the circuit and go up in flames (very much like LEDs). 
+* **BJT**: most commonly used transistors in hobbyist projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they would shortcut the circuit and go up in flames (very much like LEDs). 
 * **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate* because their internal resistance between the control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway.
 
 <img src="/Images/transistor_types_real_.png" width="30%" height="30%" />
@@ -73,7 +73,7 @@ Transistors have three connectors (legs):
 * **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
 * **Collector**/**Source** and **Emitter**/**Drain**: these remaining two pins carry the *load current*.
 
-The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow is indicated by the transistor symbol via a small arrow and depends on the transistor type.
+The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow depends on the transistor type.
 
 <details>
   <summary>:information_source: Why Transistor Pins Have So Many Names</summary><br/>
@@ -100,7 +100,9 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Cha
 > [!TIP]
 > **N-Type**, **N-Channel**, and **NPN** all are **n***egative* at their emitter (the pin marked with the arrow), and require a *positive* control signal   
 > **P-Type**, **P-Channel**, and **PNP** all are **p***ositive* at their emitter (the pin marked with the arrow), and require a *negative* control signal   
-> The direction of the arrow indicates the direction of the current flow   
+
+> [!IMPORTANT]  
+> The little arrow inside the transistor symbol *does not* generally indicate the direction of the current. In *BJT* transistors, the arrow indeed points into the direction the current flows. However, in *FET* transistors, the arrow points into the *opposite* direction. Again, the reason for these inconsistencies are historic, and in *FET* transistors, the arrow points into the direction the electrons travel internally.
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. 
 
