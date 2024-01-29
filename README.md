@@ -110,8 +110,25 @@ Both schematics below do the same thing and control a load via a push button. Th
 
 <img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
-* **N-Type**: the **NPN** transistor in the left curcuit switches *ON* the load when the transistor *base* is connected to positive voltage. The current flows in the direction of the arrow in the transistor symbol from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type).   
-* **P-Type**: the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current again flows in the direction of the arrow in the transistor symbol (which this time points inside the transistor), from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type).
+* **N-Type** (left): the **NPN** *BJT* transistor in the left circuit switches the load *on* when the transistor *base* is connected to positive voltage. The current flows from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). A current limiting resistor makes sure the *base* current is not excessive.  
+* **P-Type** (right): the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current flows from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). A current limiting resistor makes sure the *base* current is not excessive. 
+
+> [!IMPORTANT]  
+> Note how the **PNP** *BJT* transistor in the right curcuit is *flipped vertically*. In the *left* circuit, the **NPN** *emitter* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **PNP** *emitter* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
+
+The same circuitry can also be designed with *FET* transistors:
+
+<img src="/Images/mosfet_compare.PNG" width="80%" height="80%" />
+
+* **N-Type** (left): the **N-Channel** *FET* transistor in the left circuit switches the load *on* when the transistor *gate* is connected to positive voltage.  The current flows from *drain* to *source*. The *source* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, this time no current limiting external resistor is necessary. However, since *FET*s are highly sensitive to voltage, this time the *gate* must use a *pull down* resistor that keeps the *gate* from floating in an undefined state, and safely pulls the *gate* to ground when there is no control signal.   
+* **P-Type** (right): the **P-Channel** *FET* transistor in the right schematic switches the load *on* when the transistor *gate* is connected to *positive voltage*. The current flows from *source* to *drain*. The *source* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, to keep the *gate* from floating in an undefined state when there is no control signal, a *pull up* resistor is required to safely maintain positive voltage when the *FET* is supposed to be *off*.
+
+> [!IMPORTANT]  
+> Note how the **P-Channel** *FET* transistor in the right curcuit is *flipped vertically*. In the *left* circuit, the **N-Channel** *source* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **P-Channel** *source* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
+
+> [!NOTE]  
+> If you plan to control the *gate* of a *FET* transistor by a microprocessor, you should add a current limiting resistor between your digitak output pin and the *gate*. This resistor protects the microprocessors digital output pin because *FET* transistors have a considerable *capacitance*, so they act a bit like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a large current that may exceed the specs of your digital output pin, ultimately destroying it - unless you put a current limiting resistor in series.  
+> Also remember that *FET* transistors are *voltage*-controlled and need a certain voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* type and is specified as **Vgs** in its data sheet. The microcontroller digital output may not produce the required voltage. In this case, you need a *driver* between digital output and *gate* - which simply is another transistor that connects *gate* with whatever voltage is required.
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
