@@ -120,11 +120,11 @@ The same circuitry can also be designed with *FET* transistors:
 
 <img src="/Images/mosfet_compare.PNG" width="80%" height="80%" />
 
+> [!IMPORTANT]  
+> Note how the **P-Channel** *FET* transistor in the right curcuit is again *flipped vertically*. In the *left* circuit, the **N-Channel** *source* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **P-Channel** *source* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
+
 * **N-Type** (left): the **N-Channel** *FET* transistor in the left circuit switches the load *on* when the transistor *gate* is connected to positive voltage.  The current flows from *drain* to *source*. The *source* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, this time no current limiting external resistor is necessary. However, since *FET*s are highly sensitive to voltage, this time the *gate* must use a *pull down* resistor that keeps the *gate* from floating in an undefined state, and safely pulls the *gate* to ground when there is no control signal.   
 * **P-Type** (right): the **P-Channel** *FET* transistor in the right schematic switches the load *on* when the transistor *gate* is connected to *positive voltage*. The current flows from *source* to *drain*. The *source* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, to keep the *gate* from floating in an undefined state when there is no control signal, a *pull up* resistor is required to safely maintain positive voltage when the *FET* is supposed to be *off*.
-
-> [!IMPORTANT]  
-> Note how the **P-Channel** *FET* transistor in the right curcuit is *flipped vertically*. In the *left* circuit, the **N-Channel** *source* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **P-Channel** *source* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
 
 > [!NOTE]  
 > If you plan to control the *gate* of a *FET* transistor by a microprocessor, you should add a current limiting resistor between your digitak output pin and the *gate*. This resistor protects the microprocessors digital output pin because *FET* transistors have a considerable *capacitance*, so they act a bit like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a large current that may exceed the specs of your digital output pin, ultimately destroying it - unless you put a current limiting resistor in series.  
