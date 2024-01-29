@@ -130,9 +130,19 @@ The same circuitry can also be designed with *FET* transistors:
 * **N-Type** (*left circuit*): the **N-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *positive* voltage.  The current flows from *drain* to *source*. The *source* (marked with arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, they do not require a current limiting resistor because there is no way a destructive current could flow anyway. Instead, since *FET*s are controlled by tiny *voltages* at their *gate*, the *gate* must now use a *pull down* resistor that connects the *gate* with **GND**. This keeps the *gate* from floating in an undefined state. So the *pull down resistor* safely pulls the *gate* to ground when there is no control signal.   
 * **P-Type** (*right circuit*): the **P-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *GND* (or a *lower* voltage than *source*). The current flows from *source* to *drain*. The *source* (marked with arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, a *pull up* resistor is required to safely keep the *base* positive when the *FET* is supposed to be *off*.
 
-> [!NOTE]  
-> Only when you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a considerable *capacitance*, so they act like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a relatively large current that may destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
-> Also remember that *FET* transistors are *voltage*-controlled and need a given voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* specs. It is specified as **Vgs** in the transistor data sheet. If you (or your microcontroller output) cannot provide the required voltage, you need to add a *driver* for the *gate* - which typically is just another transistor that connects *gate* with whatever voltage is required.
+<details>
+  <summary>:information_source: Controlling FETs With Microcontrollers</summary><br/>
+
+  Only when you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a considerable *capacitance*, so they act like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a large current of up to a couple of Amperes that may easily destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
+  
+Also remember that *FET* transistors are *voltage*-controlled and need a given voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* specs. It is specified as **Vgs** or **Vth** in the transistor data sheet. 
+
+If you (or your microcontroller output) cannot provide the required voltage, you need to add a *driver* for the *gate* - which in its simplest form is just another transistor that connects *gate* with whatever voltage is required.
+
+So-called *logic level FET*s are specifically designed to directly work with microcontrollers: their *gate*-*source*-voltage is within the voltage range of typical microcontrollers. 
+
+If you must use *FET*s with higher voltage requirements, there are specific *driver ICs* available like the **LTC7004** that can drive *FET*s with *gate*-*source*-voltages of up to 60V. 
+</details>
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
