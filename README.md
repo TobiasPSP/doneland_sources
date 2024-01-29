@@ -92,7 +92,7 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
 
 ### Types: NPN, PNP, N-Channel, P-Channel
 
-Transistors come in *N* and in *P* types. **FET** transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. As with the pin terminology, you can simplify all of this and consider just two fundamental types of transistors: **N-Type** (*NPN* and *N-Channel*) and **P-Type** (*PNP* and *P-Channel*):
+Transistors come in *N* and in *P* types. **FET** transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. As with the pin terminology, you can simplify and consider just two fundamental types of transistors: **N-Type** (*NPN* and *N-Channel*) and **P-Type** (*PNP* and *P-Channel*):
 
 * In **N**-type transistors, the **Emitter**/**Drain** (the one with the arrow in the symbol) is **n***egative*, the control pin is *positive*, and the current flows from control pin *and* **Collector**/**Source** to **Emitter**/**Drain**.
 * In **P**-type transistors, the **Emitter**/**Drain** (again, the one with the arrow in the symbol) is **P***ositive*, the control pin is *negative*, and the current flows from **Emitter**/**Drain** to control pin *and* **Collector**/**Source**.
