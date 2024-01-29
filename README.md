@@ -106,29 +106,33 @@ Transistors come in *N* and in *P* types. *MOSFET* transistors are called *n-Cha
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. 
 
+#### Examples With BJT Transistors
+
 Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
 
 <img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
-* **N-Type** (left): the **NPN** *BJT* transistor in the left circuit switches the load *on* when the transistor *base* is connected to positive voltage. The current flows from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). A current limiting resistor makes sure the *base* current is not excessive.  
-* **P-Type** (right): the **PNP** transistor in the right schematic switches *ON* the load when the transistor *base* is connected to *GND* (0V). The current flows from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). A current limiting resistor makes sure the *base* current is not excessive. 
+* **N-Type** (*left circuit*): the **NPN** *BJT* transistor switches the load *on* when the *base* is connected to *positive* voltage. The current flows from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). A current limiting resistor makes sure the *base* current is not excessive.  
+* **P-Type** (*right circuit*): the **PNP** transistor switches the load *on* when the *base* is connected to *GND* (0V). The current flows from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). A current limiting resistor again makes sure the *base* current is not excessive. 
 
 > [!IMPORTANT]  
-> Note how the **PNP** *BJT* transistor in the right curcuit is *flipped vertically*. In the *left* circuit, the **NPN** *emitter* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **PNP** *emitter* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
+> Note how the transistor in the right circuit is *flipped vertically*. In the *left* circuit, the *emitter* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *emitter* (marked with arrow) is on *top* and connected to the *positive* side.
+
+#### Examples With FET Transistors
 
 The same circuitry can also be designed with *FET* transistors:
 
 <img src="/Images/mosfet_compare.PNG" width="80%" height="80%" />
 
 > [!IMPORTANT]  
-> Note how the **P-Channel** *FET* transistor in the right curcuit is again *flipped vertically*. In the *left* circuit, the **N-Channel** *source* (the terminal marked with the arrow) is on the bottom and connected to **GND**. In the *right* circuit, the **P-Channel** *source* (again, the terminal marked with the arrow) is on top and connected to the *positive* side.
+> Note how the transistor in the right curcuit is again *flipped vertically*. In the *left* circuit, the *source* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *source* (marked with arrow) is on *top* and connected to the *positive* side.
 
-* **N-Type** (left): the **N-Channel** *FET* transistor in the left circuit switches the load *on* when the transistor *gate* is connected to positive voltage.  The current flows from *drain* to *source*. The *source* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, this time no current limiting external resistor is necessary. However, since *FET*s are highly sensitive to voltage, this time the *gate* must use a *pull down* resistor that keeps the *gate* from floating in an undefined state, and safely pulls the *gate* to ground when there is no control signal.   
-* **P-Type** (right): the **P-Channel** *FET* transistor in the right schematic switches the load *on* when the transistor *gate* is connected to *positive voltage*. The current flows from *source* to *drain*. The *source* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, to keep the *gate* from floating in an undefined state when there is no control signal, a *pull up* resistor is required to safely maintain positive voltage when the *FET* is supposed to be *off*.
+* **N-Type** (*left circuit*): the **N-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *positive* voltage.  The current flows from *drain* to *source*. The *source* (marked with arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, they do not require a current limiting resistor because there is no way a destructive current could flow anyway. Instead, since *FET*s are controlled by tiny *voltages* at their *gate*, the *gate* must now use a *pull down* resistor that connects the *gate* with **GND**. This keeps the *gate* from floating in an undefined state. So the *pull down resistor* safely pulls the *gate* to ground when there is no control signal.   
+* **P-Type** (*right circuit*): the **P-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *GND* (or a *lower* voltage than *source*). The current flows from *source* to *drain*. The *source* (marked with arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, a *pull up* resistor is required to safely keep the *base* positive when the *FET* is supposed to be *off*.
 
 > [!NOTE]  
-> If you plan to control the *gate* of a *FET* transistor by a microprocessor, you should add a current limiting resistor between your digitak output pin and the *gate*. This resistor protects the microprocessors digital output pin because *FET* transistors have a considerable *capacitance*, so they act a bit like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a large current that may exceed the specs of your digital output pin, ultimately destroying it - unless you put a current limiting resistor in series.  
-> Also remember that *FET* transistors are *voltage*-controlled and need a certain voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* type and is specified as **Vgs** in its data sheet. The microcontroller digital output may not produce the required voltage. In this case, you need a *driver* between digital output and *gate* - which simply is another transistor that connects *gate* with whatever voltage is required.
+> Only when you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a considerable *capacitance*, so they act like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a relatively large current that may destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
+> Also remember that *FET* transistors are *voltage*-controlled and need a given voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* specs. It is specified as **Vgs** in the transistor data sheet. If you (or your microcontroller output) cannot provide the required voltage, you need to add a *driver* for the *gate* - which typically is just another transistor that connects *gate* with whatever voltage is required.
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
