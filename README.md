@@ -133,15 +133,13 @@ The same circuitry can also be designed with *FET* transistors:
 <details>
   <summary>:information_source: Controlling FETs With Microcontrollers</summary><br/>
 
-  Only when you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a considerable *capacitance*, so they act like a *capacitor*. When you turn the *MOSFET* on, it can initially draw a large current of up to a couple of Amperes that may easily destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
+When you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a *capacitance*, so they act like a *capacitor*. When you turn on the *MOSFET*, it can momentarily draw a huge current of up to a couple of Amperes that may easily destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
   
-Also remember that *FET* transistors are *voltage*-controlled and need a given voltage difference between *gate* and *source*. The voltage difference required for a *FET* to fully open depends on the *FET* specs. It is specified as **Vgs** or **Vth** in the transistor data sheet. 
+Also remember that *FET* transistors are *voltage*-controlled and need a given voltage difference between *gate* and *source*. The voltage difference required for a *FET* to become fully conductive (opened) depends on the *FET* specs. It is specified as **Vgs** or **Vth** in the transistor data sheet. 
 
-If you (or your microcontroller output) cannot provide the required voltage, you need to add a *driver* for the *gate* - which in its simplest form is just another transistor that connects *gate* with whatever voltage is required.
+If you (or your microcontroller output) cannot provide the required voltage, you need to add a *driver* for the *gate* - which in its simplest form is another transistor that connects *gate* with whatever voltage is required.
 
-So-called *logic level FET*s are specifically designed to directly work with microcontrollers: their *gate*-*source*-voltage is within the voltage range of typical microcontrollers. 
-
-If you must use *FET*s with higher voltage requirements, there are specific *driver ICs* available like the **LTC7004** that can drive *FET*s with *gate*-*source*-voltages of up to 60V. 
+*Logic level FET*s are specifically designed to directly work with microcontrollers: their *gate*-*source*-voltage is within the voltage range of typical microcontrollers. If you must use *FET*s with higher voltage requirements, there are specific *driver ICs* available (i.e. **LTC7004**) that can drive *FET*s with *gate*-*source*-voltages of up to 60V.
 </details>
 
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
