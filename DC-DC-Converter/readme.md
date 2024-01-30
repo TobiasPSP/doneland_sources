@@ -14,6 +14,8 @@ Typically, *DC-DC Converters* accept a wide range of input voltages and convert 
   
   They combine a fast transistor switch and a transient energy storage like a capacitor or a coil. Capacitors get loaded and unloaded in quick succession and "pump up" or lower the voltage. If more energy is needed, more expensive coils are used to temporarily store energy.
 
+## **Buck** And **Boost**: Lower Or Raise Voltages
+
   There are excellent resources available at *YouTube* and in the net that explain in great detail how *DC-DC Converters* internally work. For *practical* purposes, they are breakout boards that take an input voltage and deliver a different voltage that can be adjusted with a potentiometer.
   
 </details>
