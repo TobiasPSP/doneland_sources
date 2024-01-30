@@ -122,7 +122,7 @@ Both schematics below do the same thing and control a load via a push button. Th
 
 The same circuitry can also be designed with *FET* transistors:
 
-<img src="/Images/mosfet_compare.PNG" width="80%" height="80%" />
+<img src="Images/mosfet_compare.PNG" width="80%" height="80%" />
 
 > [!IMPORTANT]  
 > Note how the transistor in the right curcuit is again *flipped vertically*. In the *left* circuit, the *source* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *source* (marked with arrow) is on *top* and connected to the *positive* side.
