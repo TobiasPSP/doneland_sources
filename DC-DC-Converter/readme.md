@@ -1,4 +1,5 @@
 # DC-DC Converters
+:stopwatch: Reading time: 10 minutes.
 
 In *AC* circuits, transformers are used to transform one voltage into another using *magnetic fields*. This does not work for *DC* though.
 
