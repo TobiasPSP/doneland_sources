@@ -4,7 +4,7 @@ In *AC* circuits, transformers are used to transform one voltage into another us
 
 For *DC*, to change the voltage you use electronic circuits that take a given *DC* voltage and convert it to a different *DC* voltage. 
 
-Typically, *DC-DC Converters* accept a wide range of input voltages and convert it to a precise output voltage. For example, a *DC-DC Converter* can accept a wide range of input voltages from a car battery (12V) to a 9V block battery, and convert the input voltage to *5V* or *3.3V* required to run a microcontroller.
+Typically, *DC-DC Converters* accept a wide range of input voltages and convert it to a precise output voltage. For example, a *DC-DC Converter* can accept a wide range of input voltages from a car battery (12V) to a 9V block battery, and convert the input voltage to exactly *5V* (or *3.3V* or whatever you need) to run i.e. a microcontroller.
 
 <details>
   
