@@ -33,3 +33,13 @@ There are also combinations of both: **Buck-Boost-Converters** convert a DC volt
 
 > [!TIP]
 > *DC-DC Converters* are often used to *stabilize* the voltage. Lithium-Ion batteries, for example, can supply a wide range of voltage between 3.7V and 4.2V, based on their charge state. If you wanted to run a *voltage-sensitive* device like a microcontroller off such a battery, you could either use a **Buck** (to *lower* the voltage to precisely 3.3V for an *ESP8266*) or a **Boost** (to *raise* the voltage to precisely 5V for an *Arduino*).
+
+### Constant Current (CC)
+
+Simple *DC-DC Converters* produce a *constant voltage* (**CV**): regardless of input voltage, the output voltage is *constant*. 
+
+More advanced *DC-DC Converters* can also produce a *constant current* (**CC**): the output voltage is set to a given *maximum* but is automatically lowered to a level where a *constant current* flows. A *constant current* can be useful for a variety of use cases, i.e.:
+
+* **Protection**: **CC** can protect you from accidental shortcuts: if the output is shortened, only a safe maximum current will flow, and the *DC-DC Converter* will automatically lower the voltage to almost 0V in this case, protecting you from burning wires and damaged components.
+* **LED**: *LEDs* are *current-driven*. They need a certain current to light up brightly. This is why you typically add a *current-limiting resistor* to *LEDs*. Instead, you could also supply the *LEDs* directly from a **CC** power source. This is even better than using resistors because not every LED is equal, and what really matters in the end is the exact *current* that is supplied. A resistor is always just an approximation.
+
