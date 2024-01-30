@@ -6,7 +6,7 @@ Transistors work similar to a dam, and while a *valve wheel* in a dam *controls 
 
 Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
-<img src="/Images/damIntro1.jpg" width="100%" height="100%" />
+<img src="Images/damIntro1.jpg" width="100%" height="100%" />
 
 A transistor typically acts either as **switch** or **potentiometer**:
 
