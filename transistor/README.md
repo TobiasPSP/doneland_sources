@@ -161,7 +161,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 <img src="images/tester.jpg" width="40%" height="40%" />
 
 
-There are a few rules of thumb though (use at own risk):
+If you have neither a *component tester* device nor the data sheet, then there are a few rules of thumb though (use at own risk):
 
 ## Plastic Casing With Flat Side
 
