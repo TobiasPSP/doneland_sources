@@ -1,6 +1,8 @@
 # DC-DC Converters
 :stopwatch: Reading time: 10 minutes.
 
+## Quick Overview
+
 In *AC* circuits, transformers are used to transform one voltage into another using *magnetic fields*. This does not work for *DC* though.
 
 For *DC*, to change the voltage you use electronic circuits that take a given *DC* voltage and convert it to a different *DC* voltage. 
