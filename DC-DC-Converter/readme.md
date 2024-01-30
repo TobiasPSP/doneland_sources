@@ -22,7 +22,7 @@ Typically, *DC-DC Converters* accept a wide range of input voltages and convert 
 </details>
 
 
-## **Buck** Or **Boost**: Lower Or Raise Voltages
+### **Buck** Or **Boost**: Lower Or Raise Voltages
 
 There are many types of *DC-DC Converters* but two types are most important:
 
