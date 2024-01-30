@@ -8,8 +8,8 @@ For example, a *DC-DC Converter* can accept a wide range of input voltages from 
 
 <details>
   
-<summary>:information_source: How Do *DC-DC Converters* Work?</summary></summary><BR/>
-<br/>
+<summary>:information_source: How Do DC-DC Converters Work?</summary></summary><BR/>
+
   While transformers use the magnetic field created by *alternate current* and two coils with a different number of windings, *DC-DC Converters* work differently:
   
   They combine a fast transistor switch and a transient energy storage like a capacitor or a coil. Capacitors get loaded and unloaded in quick succession and "pump up" or lower the voltage. If more energy is needed, more expensive coils are used to temporarily store energy.
