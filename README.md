@@ -2,4 +2,4 @@
 
 ## Components
 
-* [Transistors](transistors)
+* [Transistors](transistor)
