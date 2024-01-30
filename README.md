@@ -1,8 +1,8 @@
 # **Electronics101** Start Page
 
-Welcome to this repository where you find information about electronic components, microcontrollers, and examples.
+Welcome to this repository: here you find information about electronic components, microcontrollers, and examples.
 
-The content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate practical use.
+All content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate practical use.
 
 > [!TIP]
 > If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an issue, or visit the discussion forum.
