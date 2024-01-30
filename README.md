@@ -7,7 +7,7 @@ All content focuses on *practical use* and quick success. It may not always be s
 > [!TIP]
 > If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an [issue](/../../issues), or visit the [discussion](/../../discussions) forum.
 > 
-> We only focus on *practically relevant* information. Please do not file an issue if you feel that there is an *academic* issue with terminology used or explanations given.
+> We focus on *practically relevant* information. Please do not file an issue if you feel that there is an *academic* issue with terminology used or explanations given.
 > 
 > Should you find information that is simply *wrong* or would even lead to *damage* or *malfunction*, or if you'd like to share own *practically relevant* experience, you are most welcome.
 
