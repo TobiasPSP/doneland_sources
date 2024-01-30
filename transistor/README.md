@@ -18,7 +18,7 @@ A transistor typically acts either as **switch** or **potentiometer**:
 
 In schematics, you identify transistors by these symbols:
 
-<img src="/Images/transistor_symbols_wide.png" width="70%" height="70%" />
+<img src="Images/transistor_symbols_wide.png" width="70%" height="70%" />
 
 
 <details>
@@ -27,7 +27,7 @@ In schematics, you identify transistors by these symbols:
   <br/>
 You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.<br/><br/>
 
-<img src="/Images/depletion_substrate.png" width="50%" height="50%" />
+<img src="Images/depletion_substrate.png" width="50%" height="50%" />
  
 * **Diode**: Some FET symbols include a symbol for a *diode* (like above). This often indicates *Power MOSFET* transistors that can handle huge amounts of currents.
 
@@ -43,7 +43,7 @@ In schematics, you may come across special purpose transistors in preconfigured 
 
 <br/>
 <br/>
-<img src="/Images/special_types.PNG" width="70%" height="70%" />
+<img src="Images/special_types.PNG" width="70%" height="70%" />
 
 <br/>
 <br/> 
@@ -62,7 +62,7 @@ There are two fundamental transistor types available: classic *BJT* transistors 
 * **BJT**: most commonly used transistors in hobbyist projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they would shortcut the circuit and go up in flames (very much like LEDs). 
 * **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate* because their internal resistance between the control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway.
 
-<img src="/Images/transistor_types_real_.png" width="30%" height="30%" />
+<img src="Images/transistor_types_real_.png" width="30%" height="30%" />
 
 (*from left to right*: *MOSFET*, *BJT*, and a *Power BJT*)
 
@@ -110,7 +110,7 @@ Choosing between **N-Type** and **P-Type** transistors depends entirely on *wher
 
 Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
 
-<img src="/Images/pnp_npn_compare.PNG" width="80%" height="80%" />
+<img src="Images/pnp_npn_compare.PNG" width="80%" height="80%" />
 
 * **N-Type** (*left circuit*): the **NPN** *BJT* transistor switches the load *on* when the *base* is connected to *positive* voltage. The current flows from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). A current limiting resistor makes sure the *base* current is not excessive.  
 * **P-Type** (*right circuit*): the **PNP** transistor switches the load *on* when the *base* is connected to *GND* (0V). The current flows from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). A current limiting resistor again makes sure the *base* current is not excessive. 
@@ -166,7 +166,7 @@ Only very few transistors actually show distinct pin markings on their housing. 
 * **NPN**: (from left to right) the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
 * **PNP**: (from left to right) the order is reversed, and the pins are *Emitter*, *Base*, *Collector*
 
-<img src="/Images/bjt_pins.PNG" width="50%" height="50%" />
+<img src="Images/bjt_pins.PNG" width="50%" height="50%" />
 
 > :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
