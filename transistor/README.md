@@ -150,14 +150,18 @@ If you (or your microcontroller output) cannot provide the required voltage, you
 Transistors of all types have three legs. Obviously, it is crucial to identify the correct terminals. 
 
 > [!CAUTION]  
-> The only *dependable* ways of determining the pins is either review the *data sheet* for the *particular transistor type* you want to use, or to physically *test* the transistor.
+> The only *dependable* ways of determining the pins is either review the *data sheet* for the *particular transistor type* you want to use, or to physically *test* the transistor. Only very few transistors actually show distinct pin markings on their housing. 
+
 
 > [!TIP]
 > Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
 >
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
-Only very few transistors actually show distinct pin markings on their housing. There are a few rules of thumb though (use at own risk):
+<img src="Images/buckTrans.png" width="80%" height="80%" />
+
+
+There are a few rules of thumb though (use at own risk):
 
 ## Plastic Casing With Flat Side
 
