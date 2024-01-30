@@ -17,3 +17,13 @@ Typically, *DC-DC Converters* accept a wide range of input voltages and convert 
   There are excellent resources available at *YouTube* and in the net that explain in great detail how *DC-DC Converters* internally work. For *practical* purposes, they are breakout boards that take an input voltage and deliver a different voltage that can be adjusted with a potentiometer.
   
 </details>
+
+There are many types of *DC-DC Converters* but two types are most important:
+
+* **Buck** (lower the voltage): A **buck* converter *decreases* the input voltage. This is the most common converter which is typically used to supply microcontrollers (which require very low voltages) from powerbanks or car batteries.
+* **Boost** (raise the voltage): A **boost** converter *increases* the input voltage. This way, you could i.e. run a *5V* microcontroller off a single *3.7V* lithium-ion battery. **Boost** converters can be used in many places, i.e. if you want to run a series of LEDs from a battery, you could "pump up" the input voltage.
+
+There are also combinations of both: **Buck-Boost-Converters** convert a DC voltage to another DC voltage, regardless of whether the input voltage is lower or higher than the output voltage.
+
+> [!TIP]
+> *DC-DC Converters* can also *stabilize* the voltage. Lithium-Ion batteries, for example, can supply a wide range of voltage between 3.7V and 4.2V, based on charge state. If you wanted to run a *voltage-sensitive* device like a microcontroller off such a battery, you could either use a **Buck** (to *lower* the voltage to precisely 3.3V for an *ESP8266*) or a **Boost** (to *raise* the voltage to precisely 5V for an *Arduino*).
