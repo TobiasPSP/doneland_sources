@@ -1,6 +1,6 @@
 # **Electronics101** Start Page
 
-Welcome to this repository: here you find information about electronic components, microcontrollers, and examples.
+Welcome to this repository: here you find information about electronic components, microcontrollers, plus many examples illustrating actual usage.
 
 All content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate practical use.
 
