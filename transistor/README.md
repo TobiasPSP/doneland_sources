@@ -158,7 +158,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 >
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
-<img src="images/tester.jpg" width="80%" height="80%" />
+<img src="images/tester.jpg" width="40%" height="40%" />
 
 
 There are a few rules of thumb though (use at own risk):
@@ -170,6 +170,8 @@ There are a few rules of thumb though (use at own risk):
 * **NPN**: (from left to right) the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
 * **PNP**: (from left to right) the order is reversed, and the pins are *Emitter*, *Base*, *Collector*
 
+
+<img src="images/bjt_pins.PNG" width="40%" height="40%" />
 <img src="images/bjt_pins.PNG" width="50%" height="50%" />
 
 > :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
