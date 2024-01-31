@@ -29,10 +29,15 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
   While all of this may be crucial in microelectronics and consumer devices such as tablets and phones, for hobbyist projects it does not matter much. That's why most *DC-DC Converter* breakout boards are relatively bulky and use switching frequencies in the lower range.
 </details>
 
-In addition, many *DC-DC Converters* can also limit the maximum current by reducing the voltage when the current exceeds a limit (*constant current*, **CC**).
+> [!NOTE]  
+> With pure **Buck** or **Boost**, the output voltage must be higher (**Buck**) or lower (**Boost**) than the input voltage. 
+>
+> For example, even if a **Buck** converter supports an input voltage range of 8-32V and an output voltage range from 1.25-28V, once you actually supply a voltage, the output voltage *must always be lower* than the input voltage. If you supplied 10V, you now can only produce an output voltage of 1.25-10V (practically rather 1.25-9.5V as there needs to be a certain voltage difference between input and output).
+> 
+> This limitation does not exist for combined **Buck-Boost** converters. They can always accept *any* allowable input voltage and produce *any* desired output voltage within the supported range: such converters are smart enough to decide whether the input voltage needs to raise, stay the same, or fall to produce the desired output voltage.
 
 
-### **Buck** Or **Boost** (Or Both): Lower Or Raise Voltages
+### **Buck** Or **Boost**: Lower Or Raise Voltages
 
 *DC-DC Converters* can lower or raise the voltage:
 
