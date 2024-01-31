@@ -7,16 +7,16 @@ Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
 
 The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as € 1.00 in total:
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
 
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
 > [!IMPORTANT]  
 > Boards can *differ considerably*: not all boards support all **XL4016** features.
 > 
-> Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. left board in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
+> Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
 > 
-> At practically same cost, different boards provide *two* potentiometers (i.e. right board in above image), so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
+> At practically same cost, different boards provide *two* potentiometers, so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
 >
 > If you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
 
