@@ -13,6 +13,18 @@ All content focuses on *practical use* and quick success. It may not always be s
 
 This repository grows as I move along. I'd be thrilled if some of the content is useful for you.
 
-## Components
+## Discrete Components
+
+Single parts of electrical circuits with one dominant function:
 
 * [Transistors](transistor)
+
+## DC-DC Converters
+
+Chips that can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
+
+Chips are typically sold embedded in a ready-to-go breakout board.
+
+### Buck-Converter (lowering the voltage)
+
+* [XL4015](DC-DC-Converter\buck\XL4015)
