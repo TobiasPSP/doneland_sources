@@ -1,18 +1,18 @@
-# XL4016
+# XL4005
 :stopwatch: Reading time: 4 minutes.
 
 Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
 
 ## Quick Overview
 
-The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
+The **XL4005** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 2-4:
 
-<img src="images/XL4016_cv.png" width="70%" height="70%" />
+<img src="images/xl4005_example_w.png" width="70%" height="70%" />
 
 > [!IMPORTANT]  
-> Boards can *differ considerably*: not all boards support all **XL4016** features.
+> Boards can *differ considerably*: not all boards support all **XL4005** features.
 > 
 > Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
 > 
