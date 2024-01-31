@@ -3,28 +3,30 @@
 
 ## Quick Overview
 
-In *AC* circuits, transformers are used to transform one voltage into another using *magnetic fields*. This does not work for *DC* though.
+*DC-DC Converter* change an input *DC* voltage to a different output *DC* voltage. They cannot work with *AC*.
 
-For *DC*, to change the voltage you use electronic circuits that take a given *DC* voltage and convert it to a different *DC* voltage. 
+For *AC* circuits, *transformers* are used to change one voltage into another using alternating *magnetic fields*. Since *DC* does not use *alternate* current and thus does not produce alternating magnetic fields, transformers do not work for *DC*.
 
-Typically, *DC-DC Converters* accept a wide range of input voltages and convert it to a precise output voltage. For example, a *DC-DC Converter* can accept a wide range of input voltages from a car battery (12V) to a 9V block battery, and convert the input voltage to exactly *5V* (or *3.3V* or whatever you need) to run i.e. a microcontroller.
+*DC-DC Converters* change the voltage electronically by using components that can temporarily store energy, such as *capacitors* or *coils*. In combination with a high frequency *switch* (transistor), they can add or reduce voltage as needed, producing a *constant voltage* (**CV**).
+
+The typical switching frequency is in the range of 50-500kHz, and depending implementation, this frequency can either be *fixed* or *variable*. 
 
 <details>
-  
-<summary>:information_source: How Do DC-DC Converters Work?</summary></summary><BR/>
+<summary>Why Should I Care About Switching Frequency?</summary><br/>
 
-  While transformers use the magnetic field created by *alternate current* and two coils with a different number of windings, *DC-DC Converters* work differently:
-  
-  They combine a fast transistor switch and a transient energy storage like a capacitor or a coil. Capacitors get loaded and unloaded in quick succession and "pump up" or lower the voltage. If more energy is needed, more expensive coils are used to temporarily store energy.
+  In hobby projects, you typically do not care about the switching frequency of *DC-DC Converters*, and whether they are fixed or variable. Most cheap hobbyist *DC-DC Converters* are *fixed frequency PWM* converters.
 
-  There are excellent resources available at *YouTube* and in the net that explain in great detail how *DC-DC Converters* internally work. For *practical* purposes, they are breakout boards that take an input voltage and deliver a different voltage that can be adjusted with a potentiometer.
-  
+  *DC-DC Converters* with *fixed* frequency typically use the same **PWM** (pulse width modulation) that you may have used in your electronics projects to dim LEDs. If there ever is interference, due to the fixed (and thus known) frequency, it is easier to identify and filter out. Also, since the frequency is fixed and well above audible frequencies, converters will never emit annoying hissing sounds. While efficiency generally is very good for these converters, unfortunately for light loads this is not the case. Due to the *fixed* frequency, the pulse width can only be shortened so much, so with light loads, energy is lost and turned into heat.
+
+  In *DC-DC Converters* with *variable* frequency, typically **PFM** (pulse frequency modulation) is used: the pulse width stays the same but the frequency of pulses changes. They are more efficient with light loads as the frequency can be easily lowered in a wide range. This can lead to a different problem, though: when with light loads the frequency is lowered so much that it enters audible ranges, these converters can produce an audible annoying high pitched hissing sound. This is also known as **Coil Whine** and can be produced by other parts of circuits as well when frequency drops into audible ranges.
 </details>
 
+In addition, many *DC-DC Converters* can also limit the maximum current by reducing the voltage when the current exceeds a limit (*constant current*, **CC**).
 
-### **Buck** Or **Boost**: Lower Or Raise Voltages
 
-There are many types of *DC-DC Converters* but two types are most important:
+### **Buck** Or **Boost** (Or Both): Lower Or Raise Voltages
+
+*DC-DC Converters* can lower or raise the voltage:
 
 * **Buck** (lower the voltage): A **buck* converter *decreases* the input voltage. This is the most common converter which is typically used to supply microcontrollers (which require very low voltages) from powerbanks or car batteries.
 * **Boost** (raise the voltage): A **boost** converter *increases* the input voltage. This way, you could i.e. run a *5V* microcontroller off a single *3.7V* lithium-ion battery. **Boost** converters can be used in many places, i.e. if you want to run a series of LEDs from a battery, you could "pump up" the input voltage.
