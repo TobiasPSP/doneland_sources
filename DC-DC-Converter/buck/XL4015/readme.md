@@ -3,7 +3,7 @@
 
 ## Quick Overview
 
-The **XL4015** chip from *XLSEMI* is a very popular step-down converter capable of outputting significant currents of up to *5A*:
+The **XL4015** from *XLSEMI* is a very popular step-down converter capable of outputting significant currents of up to *5A*:
 
 | Property | Value |
 | --- | --- |
