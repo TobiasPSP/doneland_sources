@@ -26,7 +26,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Output Voltage | 1.2-32V |
 | Max Output Current | 5A |
 | Efficiency | up to 96% |
-| Switching Frequency | 180kHz fixed |
+| Switching Frequency | 180kHz |
 
 > [!TIP]
 > The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4015** run well for long-time output currents of **3-4A**.
