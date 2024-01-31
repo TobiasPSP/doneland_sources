@@ -11,7 +11,7 @@ There are many simple ways of lowering a voltage, for example a *voltage divider
 
 If you want to lower the voltage *without* consuming energy though (i.e. dissipating heat), you need a **Buck** converter.
 
-### Borrowing Energy
+### Turning Input Voltage On And Off
 
 A **Buck** converter consists of a high-frequency switch that turns the input voltage on and off in rapid succession. This is the *switching frequency* (and explains why **Buck** converters are called *switching power supply*). Typically, **Buck** converters use a switching frequency of 50kHz up to a few MHz, so they switch the input voltage on and off between 50 thousand to a few million times per second.
 
@@ -23,7 +23,7 @@ This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here
 
 <img src="images/buck.png" width="100%" height="100%" />
 
-### Extracting And Temporarily Saving Energy
+### Phase 1: "Borrowing Energy"
 
 Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here is the relevant part of the schematics:
 
@@ -33,7 +33,11 @@ On its way to the load, the input voltage flows through the *coil*. A *coil* is 
 
 Until the magnetic field is fully created and stabilizes, the *coil* acts just like a *resistor* in a *voltage divider* and reduces the voltage.
 
-Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. In this phase, the relevant part of the schematics looks like this:
+Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. 
+
+### Phase 2: Running From Borrowed Energy Only
+
+In this phase, the relevant part of the schematics looks like this:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
 
