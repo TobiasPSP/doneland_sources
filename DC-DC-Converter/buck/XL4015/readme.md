@@ -1,6 +1,8 @@
 # XL4015
 :stopwatch: Reading time: 4 minutes.
 
+Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
+
 ## Quick Overview
 
 The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
