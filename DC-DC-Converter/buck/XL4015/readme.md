@@ -10,7 +10,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
 > [!WARNING]  
-> These boards can *differ considerably*, and not all boards support all **XL4015** features.
+> These boards can *differ considerably*: not all boards support all **XL4015** features.
 > 
 > Some boards come with just *one* potentiometer to setup the *constant voltage* output voltage (i.e. left board in above image).
 > 
