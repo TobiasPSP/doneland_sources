@@ -12,7 +12,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 <img src="images/xl4005_example_w.png" width="70%" height="70%" />
 
 > [!CAUTION]
-> Although the actual controller chip **XL4005** is fine, the breakout boards embedding it may be garbage.
+> Although the actual controller chip **XL4005** is possibly a bit outdated but technically fine, the breakout boards embedding it may be garbage.
 >
 > For example, the depicted breakout board comes with 3 (three) potentiometers (and no documentation). Simple boards have one potentiometer (for *constant voltage*), more advanced boards have two (*constant voltage* and *constant current*), but there is no need for a third potentiometer.
 >
