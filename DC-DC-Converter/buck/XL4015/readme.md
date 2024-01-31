@@ -16,7 +16,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 > 
 > At practically same cost, different boards provide *two* potentiometers (i.e. right board in above image), so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
 >
-> So if you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
+> If you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
 
 | Property | Value |
 | --- | --- |
