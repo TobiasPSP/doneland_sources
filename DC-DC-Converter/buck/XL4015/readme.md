@@ -14,7 +14,9 @@ The chip is sold separately and also embedded in a complete breakout, board read
 > 
 > Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. left board in above image). This may be sufficient if you plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
 > 
-> At almost the same cost, different boards provide *two* potentiometers, so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs. 
+> At almost the same cost, different boards provide *two* potentiometers, so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
+>
+> So if you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
 
 | Property | Value |
 | --- | --- |
