@@ -39,11 +39,9 @@ Which brings us to the second half of operation: the *off* phase.
 
 ### Phase 2: Running From Borrowed Energy Only
 
-In this phase, the relevant part of the schematics looks like this:
+The input voltage source has vanished: since the **Buck** switched it off in this phase, for the output load it no longer exists and does not supply any energy at this point:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
-
-As you see, the input voltage source vanished. Since the **Buck** switched it off, it no longer supplys energy.
 
 Instead, the magnetic field starts to collapse, and the *coil* starts to return the energy it previously extracted. The energy that was needed to create the magnetic field is now used, and the *coil* acts like a battery.
 
