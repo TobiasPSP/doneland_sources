@@ -27,7 +27,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Switching Frequency | 180kHz fixed |
 
 > [!TIP]
-> The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting its maximum specs. The boards using **XL4015** run well for long-time output currents of **3-4A**.
+> The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4015** run well for long-time output currents of **3-4A**.
 >
 > The available stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and the less heat is produced.
 
