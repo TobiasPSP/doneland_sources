@@ -1,4 +1,4 @@
-# Controlling Buck Converter Via ESP8266
+# Controlling Buck Converter Via Voltage Injection
 :stopwatch: Reading time: 20 minutes.
 
 ## Quick Overview
