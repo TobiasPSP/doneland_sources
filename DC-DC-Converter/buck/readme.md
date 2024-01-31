@@ -11,7 +11,7 @@ There are many simple ways of lowering a voltage, for example a *voltage divider
 
 If you want to lower the voltage *without* consuming energy though (i.e. dissipating heat), you need a **Buck** converter.
 
-### Switching Power On And Off In Rapid Succession
+### Borrowing Energy
 
 At the basis, a **Buck** converter consists of a high-frequency switch that turns the circuit on and off in rapid succession. This is the *switching frequency*, and this is why **Buck** converters are often called *switching power supply*. Typically, **Buck** converters use a switching frequency of 50kHz up to a few MHz.
 
