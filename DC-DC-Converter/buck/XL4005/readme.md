@@ -18,9 +18,9 @@ The chip is sold separately and also embedded in a complete breakout, board read
 >
 > It turns out the third potentiometer controls an on-board *LED* that lights *green* for low currents and *red* for high currents. The third potentiometer controls the threshold current and tells the LED when to change color.
 >
-> While such a *LED* might be fun for some and can safely be ignored by others, the board has more serious flaws: the maximum output current is capped at around **1A**, so while the **XL4005** used on the board can handle up to **5A**, the board cannot.
+> While such a *LED* might be fun for some and can safely be ignored by others, the board has more serious flaws: the maximum output current is capped at around **1A**, so while the **XL4005** used on the board can handle up to **5A**, the board cannot. If all you require is **1A**, then there are much cheaper and so much smaller converter boards available.
 >
-> If all you need is **1A**, then there are much cheaper and very much smaller converters available. The takeaway is: the controller specs are for the chip only. The actual board design determines what you get out of it. Since typically there are no schematics available for breakout boards, he only way to find out is to test and measure them yourself with dummy loads before you buy in larger quantity.
+> Takeaway: controller specs and their data sheets are for the chip only. The actual board design determines what you get out of it. Since typically there are no schematics available for breakout boards, he only way to find out is to test and measure them yourself with dummy loads before you buy in larger quantity.
 
 | Property | Value |
 | --- | --- |
