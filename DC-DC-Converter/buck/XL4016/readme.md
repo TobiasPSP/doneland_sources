@@ -1,18 +1,18 @@
-# XL4015
+# XL4016
 :stopwatch: Reading time: 4 minutes.
 
-Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
+Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
 
 ## Quick Overview
 
-The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
+The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
 
 The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as € 1.00 in total:
 
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
 > [!IMPORTANT]  
-> Boards can *differ considerably*: not all boards support all **XL4015** features.
+> Boards can *differ considerably*: not all boards support all **XL4016** features.
 > 
 > Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. left board in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
 > 
@@ -22,14 +22,14 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 | Property | Value |
 | --- | --- |
-| Input Voltage | 8-36V |
-| Output Voltage | 1.2-32V |
-| Max Output Current | 5A |
+| Input Voltage | 5-40V |
+| Output Voltage | 1.2-36V |
+| Max Output Current | 8A |
 | Efficiency | up to 96% |
 | Switching Frequency | 180kHz |
 
 > [!TIP]
-> The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4015** run well for long-time output currents of **3-4A**.
+> The maximum output current of **8A** requires to add a heat sink to the chip. While the **XL4016** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4016** run well for long-time output currents of **5A**.
 >
 > Stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and less heat is produced.
 
@@ -37,6 +37,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | --- | --- |
 | Constant Current | yes |
 | Output Shortcut Protection | yes |
+| Over Voltage Protection | yes |
 | Thermal Protection | yes |
 
 [Data Sheet](materials/XL4015_datasheet.pdf)
