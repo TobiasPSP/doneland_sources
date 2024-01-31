@@ -16,7 +16,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 >
 > For example, the depicted breakout board comes with 3 (three) potentiometers (and no documentation). Simple boards have one potentiometer (for *constant voltage*), more advanced boards have two (*constant voltage* and *constant current*), but there is no need for a third potentiometer.
 >
-> It turns out the third potentiometer controls an on-board *LED* that lights *green* for low currents and *red* for high currents. The third potentiometer controls the threshold current and tells the LED when to change color.
+> It turns out the third potentiometer controls the threshold for an on-board *LED* that lights *green* for low currents and *red* for high currents - a quite eerie and specific feature.
 >
 > While such a *LED* might be fun for some and can safely be ignored by others, the board has more serious flaws: the maximum output current is capped at around **1A**, so while the **XL4005** used on the board can handle up to **5A**, the board cannot. If all you require is **1A**, then there are much cheaper and so much smaller converter boards available.
 >
