@@ -14,7 +14,7 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
 <details>
 <summary>Why Should I Care About Switching Frequency?</summary><br/>
 
-  In hobby projects, you typically do not care about the switching frequency of *DC-DC Converters*, and whether they are fixed or variable. Most cheap hobbyist *DC-DC Converters* are *fixed frequency PWM* converters.
+  In hobby projects, you typically do not need to care much about the switching frequency of *DC-DC Converters*, and whether they are fixed or variable. Most cheap hobbyist *DC-DC Converters* are *fixed frequency PWM* converters.
 
   *DC-DC Converters* with *fixed* frequency typically use the same **PWM** (pulse width modulation) that you may have used in your electronics projects to dim LEDs. If there ever is interference, due to the fixed (and thus known) frequency, it is easier to identify and filter out. Also, since the frequency is fixed and well above audible frequencies, converters will never emit annoying hissing sounds. While efficiency generally is very good for these converters, unfortunately for light loads this is not the case. Due to the *fixed* frequency, the pulse width can only be shortened so much, so with light loads, energy is lost and turned into heat.
 
