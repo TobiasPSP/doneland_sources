@@ -31,7 +31,9 @@ Let's first look at the **Buck** converter when its high-frequency switch is tur
 
 <img src="images/buck_on.png" width="100%" height="100%" />
 
-On its way to the load, the input voltage flows through the *coil*. A *coil* is like a load and consumes energy to create a magnetic field. So until the magnetic field is fully created and stabilized, the *coil* acts as a *resistor* and reduces the voltage. So in the *on* cycle of the **Buck** converter, the *coil* is reducing the output voltage, just like a resistor would do.
+On its way to the load, the input voltage flows through the *coil*. A *coil* is just like another load switched in series, and it consumes energy (to create a magnetic field). 
+
+Until the magnetic field is fully created and stabilizes, the *coil* acts just like a *resistor* in a *voltage divider* and reduces the voltage: in the *on* cycle of the **Buck** converter, the *coil* is reducing the output voltage, just like a resistor would do.
 
 Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. In this phase, the relevant part of the schematics looks like this:
 
