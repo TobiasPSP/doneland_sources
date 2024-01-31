@@ -19,7 +19,7 @@ If we'd stop here, we would have **PWM**: the output device would receive the fu
 
 Hoewever, if you plan to supply more sensitive devices such as microcontrollers, you cannot use **PWM** output directly. You need to supply a *constant voltage* and cannot have a mixture of voltage spikes and no voltage.
 
-This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here is a circuit diagram showing only the principal components of a **Buck** converter:
+This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here is a circuit diagram showing the fundamental components of a **Buck** converter:
 
 <img src="images/buck.png" width="100%" height="100%" />
 
