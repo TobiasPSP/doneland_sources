@@ -9,7 +9,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
-> [!WARNING]  
+> [!IMPORTANT]  
 > These boards can *differ considerably*: not all boards support all **XL4015** features.
 > 
 > Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. left board in above image). This may be sufficient if you plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
