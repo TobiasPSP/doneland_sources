@@ -40,6 +40,6 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Over Voltage Protection | yes |
 | Thermal Protection | yes |
 
-[Data Sheet](materials/XL4015_datasheet.pdf)
+[Data Sheet](materials/XL4016_datasheet.pdf)
 
 
