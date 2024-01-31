@@ -27,4 +27,7 @@ Chips are typically sold embedded in a ready-to-go breakout board.
 
 ### Buck-Converter (lowering the voltage)
 
+* [XL4005](DC-DC-Converter/buck/XL4005)
 * [XL4015](DC-DC-Converter/buck/XL4015)
+*  [XL4016](DC-DC-Converter/buck/XL4016)
+
