@@ -11,14 +11,16 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 <img src="images/xl4005_example_w.png" width="70%" height="70%" />
 
-> [!IMPORTANT]  
-> Boards can *differ considerably*: not all boards support all **XL4005** features.
-> 
-> Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 5-32V input range.
-> 
-> At practically same cost, different boards provide *two* potentiometers, so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
+> [!CAUTION]
+> Although the actual controller chip **XL4005** is fine, the breakout boards embedding it may be garbage.
 >
-> If you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
+> For example, the depicted breakout board comes with 3 (three) potentiometers (and no documentation). Simple boards have one potentiometer (for *constant voltage*), more advanced boards have two (*constant voltage* and *constant current*), but there is no need for a third potentiometer.
+>
+> It turns out the third potentiometer controls an on-board *LED* that lights *green* for low currents and *red* for high currents. The third potentiometer controls the threshold current.
+>
+> While such a *LED* might be fun for some and can safely be ignored by others, the board has more serious flaws as well: the maximum output current is capped at around **1A**, so while the **XL4005** used on the board can produce up to **5A**, the board cannot.
+>
+> If all you need is **1A**, then there are much cheaper and very much smaller converters available. So the takeaway is: the controller specs are one thing. A more relevant fact is what an actual board can deliver. The only way to find out is to test and measure boards yourself before you buy in larger quantity.
 
 | Property | Value |
 | --- | --- |
