@@ -20,7 +20,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 >
 > While such a *LED* might be fun for some and can safely be ignored by others, the board has more serious flaws: the maximum output current is capped at around **1A**, so while the **XL4005** used on the board can handle up to **5A**, the board cannot.
 >
-> If all you need is **1A**, then there are much cheaper and very much smaller converters available. So the takeaway is: the controller specs are one thing. A more relevant fact is what an actual board can deliver. The only way to find out is to test and measure boards yourself before you buy in larger quantity.
+> If all you need is **1A**, then there are much cheaper and very much smaller converters available. The takeaway is: the controller specs are one thing. A more relevant fact is what an actual board can deliver. The only way to find out is to test and measure boards yourself before you buy in larger quantity.
 
 | Property | Value |
 | --- | --- |
