@@ -19,6 +19,14 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
   *DC-DC Converters* with *fixed* frequency typically use the same **PWM** (pulse width modulation) that you may have used in your electronics projects to dim LEDs. If there ever is interference, due to the fixed (and thus known) frequency, it is easier to identify and filter out. Also, since the frequency is fixed and well above audible frequencies, converters will never emit annoying hissing sounds. While efficiency generally is very good for these converters, unfortunately for light loads this is not the case. Due to the *fixed* frequency, the pulse width can only be shortened so much, so with light loads, energy is lost and turned into heat.
 
   In *DC-DC Converters* with *variable* frequency, typically **PFM** (pulse frequency modulation) is used: the pulse width stays the same but the frequency of pulses changes. They are more efficient with light loads as the frequency can be easily lowered in a wide range. This can lead to a different problem, though: when with light loads the frequency is lowered so much that it enters audible ranges, these converters can produce an audible annoying high pitched hissing sound. This is also known as **Coil Whine** and can be produced by other parts of circuits as well when frequency drops into audible ranges.
+
+  High switching frequency helps reducing component size (and cost) because due to the high switching frequency, only relatively small amounts of energy need to be stored in capacitors or coils. 
+
+  Lower switching frequencies require larger components but may create a better conversion efficiency and less *EMI* (radio interference).
+
+  For example, an *LM2853* (designed to lower voltage from 5V to 3.3V at a maximum current of 3A), running at a switching frequency of 550kHz, requires a total component area of 206mm2 with larger components and an inductor height of 4.6mm. The same conversion can also be done by a *LM2833Z* at a switching frequency of 3MHz. Now, the total component area is reduced to just 57mm2, and the inductor height reduced to 2mm.
+
+  While all of this may be crucial in microelectronics and consumer devices such as tablets and phones, for hobbyist projects it does not matter much. That's why most *DC-DC Converter* breakout boards are relatively bulky and use switching frequencies in the lower range.
 </details>
 
 In addition, many *DC-DC Converters* can also limit the maximum current by reducing the voltage when the current exceeds a limit (*constant current*, **CC**).
