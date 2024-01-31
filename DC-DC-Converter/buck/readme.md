@@ -3,43 +3,51 @@
 
 ## Quick Overview
 
-**Buck** converters are electronic circuits that can lower **DC** voltage. The output voltage of a **Buck** converter is always lower than its input voltage.
-
-While you can design a **Buck** converter solely from discrete electronic parts, typically prefabricated ICs are used that incorporate much of the circuitry needed.
+**Buck** converters are electronic circuits that can *lower* **DC** voltage, and the output voltage of a **Buck** converter is always lower than its input voltage.
 
 ## Principle
 
-There are many ways of lowering a voltage, for example *voltage divider* (resistors). In fact, *any* load will reduce the voltage by consuming part of the energy.
+There are many simple ways of lowering a voltage, for example a *voltage divider* (using *resistors*). In fact, *any* load will reduce the voltage by consuming part of the energy.
 
-If you want to lower the voltage *without* consuming energy (and i.e. dissipating it as heat), you can use a **Buck** converter.
+If you want to lower the voltage *without* consuming energy though (i.e. dissipating heat), you need a **Buck** converter.
 
-### Switching Power On And Off In Rapid Succession
+### Turning Input Voltage On And Off
 
-At the basis, a **Buck** converter consists of a high-frequency switch that turns the circuit on and off in rapid succession. This is the *switching frequency*, and this is why **Buck** converters are often called *switching power supply*. Typically, **Buck** converters use a switching frequency of 50kHz up to a few MHz.
+A **Buck** converter consists of a high-frequency switch that turns the input voltage on and off in rapid succession. This is the *switching frequency* (and explains why **Buck** converters are called *switching power supply*). Typically, **Buck** converters use a switching frequency of 50kHz up to a few MHz, so they switch the input voltage on and off between 50 thousand to a few million times per second.
 
-If we'd stop here, we would have a **PWM** circuitry: the output would be switched on and off in rapid succession, and the output device would receive the full input voltage, alternating with no input voltage at all. In the *average*, the received output voltage would already be lower than the input voltage, and in fact loads such as *LED* and *motors* can be controlled this way because they don't really care much about voltage spikes.
+If we'd stop here, we would have **PWM**: the output device would receive the full input voltage alternating with no input voltage at all. In the *average*, the output voltage would now be lower than the input voltage, and in fact loads such as *LED* and *motors* can be controlled this way because they don't really care much about voltage spikes.
 
 Hoewever, if you plan to supply more sensitive devices such as microcontrollers, you cannot use **PWM** output directly. You need to supply a *constant voltage* and cannot have a mixture of voltage spikes and no voltage.
 
-This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here is a circuit diagram showing only the principal components of a **Buck** converter:
+This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here is a circuit diagram showing the fundamental components of a **Buck** converter:
 
 <img src="images/buck.png" width="100%" height="100%" />
 
-### Extracting And Temporarily Saving Energy
+### Phase 1: "Borrowing Energy"
 
-Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here is the relevant part of the schematics:
+Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here the schematics are very simple:
 
 <img src="images/buck_on.png" width="100%" height="100%" />
 
-The input voltage now flows through the *coil*. A *coil* is like a load and consumes energy to create a magnetic field. So until the magnetic field is fully created and stabilized, the *coil* acts as a *resistor* and reduces the voltage. So in the *on* cycle of the **Buck** converter, the *coil* is reducing the output voltage, just like a resistor would do.
+The only new thing is a *coil* that needs to be passed on the way to the load.
 
-Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. In this phase, the relevant part of the schematics looks like this:
+A *coil* is just like another load. and it consumes energy, too, just like any other load or resistor (to create a magnetic field). So as long as the magnetic field is still building up, the *coil* acts like a *resistor* in a *voltage divider* and reduces the voltage. Mission accomplished.
+
+Unlike a *resistor* though, the *coil* does not dissipate the energy. Instead, it "invests" the extracted energy into a magnetic field. Magnetic fields store energy, similar to a battery, and can give it back. Dissipated heat from a resistor is lost.
+
+Which brings us to the second half of operation: the *off* phase. 
+
+### Phase 2: Running From Borrowed Energy Only
+
+In this phase, the input voltage source vanished because the **Buck** converter turned it off. It does not supply energy to the output at this point:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
 
-If the **Buck** converter opens the switch *while* the *coil* is still bulding up its magnetic field (while it is still acting as a *resistor* and actively extracting energy), the magnetic field starts to collapse. This *returns* the energy that was needed to create the magnetic field by inducing a current, acting almost like a battery.
+Instead, the magnetic field starts to collapse, and the *coil* starts to return the energy it previously extracted. The energy that was needed to create the magnetic field is now used, and the *coil* acts like a battery.
 
-Of course, current can only flow through your load when there is a closed circuit and the electrons can flow back. However, at this point the input source is separated, and the circuit is *off* (disconnected). That's why a **Buck** converter adds a *diode* so that the current from the *coil* can flow back to it.
+Of course, current can only flow when there is a closed circuit. Since at this point the input source is separated, a *diode* now guarantees that the circuit remains closed.
+
+### Borrow, Return, And Repeat...
 
 When the **Buck** converter switches back to *on* mode in time *before* the magnetic field has fully collapsed, the process repeats. In the *on* phase, the output voltage comes again from the input power supply and is again reduced by the energy that the *coil* needs to rebuild its magnetic field. The *diode* is now in blocking mode.
 
