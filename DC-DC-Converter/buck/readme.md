@@ -3,13 +3,11 @@
 
 ## Quick Overview
 
-**Buck** converters are electronic circuits that can lower **DC** voltage. The output voltage of a **Buck** converter is always lower than its input voltage.
-
-While you can design a **Buck** converter solely from discrete electronic parts, typically prefabricated ICs are used that incorporate much of the circuitry needed.
+**Buck** converters are electronic circuits that can *lower* **DC** voltage, and the output voltage of a **Buck** converter is always lower than its input voltage.
 
 ## Principle
 
-There are many ways of lowering a voltage, for example *voltage divider* (resistors). In fact, *any* load will reduce the voltage by consuming part of the energy.
+There are many simple ways of lowering a voltage, for example *voltage divider* (resistors). In fact, *any* load will reduce the voltage by consuming part of the energy.
 
 If you want to lower the voltage *without* consuming energy (and i.e. dissipating it as heat), you can use a **Buck** converter.
 
