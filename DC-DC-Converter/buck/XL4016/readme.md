@@ -9,7 +9,7 @@ The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputt
 
 The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
 
-<img src="images/xl4015_boards.png" width="100%" height="100%" />
+<img src="images/XL4005_white.png" width="100%" height="100%" />
 
 > [!IMPORTANT]  
 > Boards can *differ considerably*: not all boards support all **XL4016** features.
