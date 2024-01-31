@@ -34,6 +34,8 @@ The chip is sold separately and also embedded in a complete breakout, board read
 > The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4005** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4005** run well for long-time output currents of **2-3A**.
 >
 > Stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and less heat is produced.
+>
+> As mentioned, some boards cut off current at very low thresholds such as **1A**. In these cases, you definitely need no heat sink but rather a different board.
 
 | Feature | Supported |
 | --- | --- |
