@@ -37,6 +37,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | --- | --- |
 | Constant Current | yes |
 | Output Shortcut Protection | yes |
+| Over Voltage Protection | no |
 | Thermal Protection | yes |
 
 [Data Sheet](materials/XL4015_datasheet.pdf)
