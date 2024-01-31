@@ -31,11 +31,9 @@ Let's first look at the **Buck** converter when its high-frequency switch is tur
 
 The only new thing is a *coil* that needs to be passed on the way to the load.
 
-A *coil* is just like another load. and it consumes energy, too, just like any other load or resistor (to create a magnetic field). 
+A *coil* is just like another load. and it consumes energy, too, just like any other load or resistor (to create a magnetic field). So as long as the magnetic field is still building up, the *coil* acts like a *resistor* in a *voltage divider* and reduces the voltage. Mission accomplished.
 
-Until the magnetic field is fully created and stabilizes, the *coil* acts like a *resistor* in a simple *voltage divider* and reduces the voltage.
-
-Unlike a *resistor* though, the *coil* does not dissipate the energy, but "invests" it into a magnetic field. Magnetic fields store energy and can give it back. Dissipated heat from a resistor won't come back.
+Unlike a *resistor* though, the *coil* does not dissipate the energy. Instead, it "invests" the extracted energy into a magnetic field. Magnetic fields store energy, similar to a battery, and can give it back. Dissipated heat from a resistor is lost.
 
 Which brings us to the second half of operation: the *off* phase. 
 
