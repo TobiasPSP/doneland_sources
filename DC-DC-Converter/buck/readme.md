@@ -31,14 +31,12 @@ This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*.
 Let's first look at the **Buck** converter when its high-frequency switch is turned *on*:
 
 <img src="images/buck_on.png" width="100%" height="100%" />
-*(simplified circuit with just the relevant components)*
 
 The input voltage now flows through the *coil*. A *coil* is like a load and consumes energy to create a magnetic field. So until the magnetic field is fully created and stabilized, the *coil* acts as a *resistor* and reduces the voltage. So in the *on* cycle of the **Buck** converter, the *coil* is reducing the output voltage, just like a resistor would do.
 
 Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
-*(simplified circuit with just the relevant components)*
 
 If the **Buck** converter opens the switch *while* the *coil* is still bulding up its magnetic field (while it is still acting as a *resistor* and actively extracting energy), the magnetic field starts to collapse. This *returns* the energy that was needed to create the magnetic field by inducing a current, acting almost like a battery.
 
