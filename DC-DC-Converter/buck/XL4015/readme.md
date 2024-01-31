@@ -1,6 +1,8 @@
 # XL4015
 :stopwatch: Reading time: 4 minutes.
 
+<img src="images/xl4015_boards.png" width="100%" height="100%" />
+
 ## Quick Overview
 
 The **XL4015** from *XLSEMI* is a very popular step-down converter capable of outputting significant currents of up to *5A*:
