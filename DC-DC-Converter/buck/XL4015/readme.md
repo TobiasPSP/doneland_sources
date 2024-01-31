@@ -24,7 +24,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | --- | --- |
 | Input Voltage | 8-36V |
 | Output Voltage | 1.2-32V |
-| Max Constant Current Output | 5A |
+| Max Output Current | 5A |
 | Efficiency | up to 96% |
 | Switching Frequency | 180kHz fixed |
 
