@@ -15,7 +15,7 @@ If you want to lower the voltage *without* consuming energy though (i.e. dissipa
 
 A **Buck** converter consists of a high-frequency switch that turns the input voltage on and off in rapid succession. This is the *switching frequency* (and explains why **Buck** converters are called *switching power supply*). Typically, **Buck** converters use a switching frequency of 50kHz up to a few MHz, so they switch the input voltage on and off between 50 thousand to a few million times per second.
 
-If we'd stop here, we would have a **PWM** circuitry: the output would be switched on and off in rapid succession, and the output device would receive the full input voltage, alternating with no input voltage at all. In the *average*, the received output voltage would already be lower than the input voltage, and in fact loads such as *LED* and *motors* can be controlled this way because they don't really care much about voltage spikes.
+If we'd stop here, we would have **PWM**: the output device would receive the full input voltage, alternating with no input voltage at all. In the *average*, the received output voltage would already be lower than the input voltage, and in fact loads such as *LED* and *motors* can be controlled this way because they don't really care much about voltage spikes.
 
 Hoewever, if you plan to supply more sensitive devices such as microcontrollers, you cannot use **PWM** output directly. You need to supply a *constant voltage* and cannot have a mixture of voltage spikes and no voltage.
 
