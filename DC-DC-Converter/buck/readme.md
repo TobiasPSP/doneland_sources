@@ -39,7 +39,9 @@ Unlike a *resistor* though, the *coil* did not just dissipate the energy through
 
 <img src="images/buck_off.png" width="100%" height="100%" />
 
-If the **Buck** converter opens the switch *while* the *coil* is still bulding up its magnetic field (while it is still acting as a *resistor* and actively extracting energy), the magnetic field starts to collapse. This *returns* the energy that was needed to create the magnetic field by inducing a current, acting almost like a battery.
+As you see, the input voltage source vanished. Since the **Buck** switched it off, it no longer supplys energy.
+
+Instead, the magnetic field starts to collapse, and the *coil* starts to return the energy it previously extracted. The energy that was needed to create the magnetic field is now used, and the *coil* acts like a battery.
 
 Of course, current can only flow through your load when there is a closed circuit and the electrons can flow back. However, at this point the input source is separated, and the circuit is *off* (disconnected). That's why a **Buck** converter adds a *diode* so that the current from the *coil* can flow back to it.
 
