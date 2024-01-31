@@ -20,7 +20,7 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
 
   In *DC-DC Converters* with *variable* frequency, typically **PFM** (pulse frequency modulation) is used: the pulse width stays the same but the frequency of pulses changes. They are more efficient with light loads as the frequency can be easily lowered in a wide range. This can lead to a different problem: when the frequency is lowered so much that it enters audible ranges, these converters can produce an audible annoying high pitched hissing sound. This is also known as **Coil Whine** and can be produced by other parts of circuits as well when frequency drops into audible ranges.
 
-  High switching frequency helps reducing component size (and cost) because due to the high switching frequency, only relatively small amounts of energy need to be stored in capacitors or coils. 
+  High switching frequency also helps reducing component size (and cost) because due to the high switching frequency, only relatively small amounts of energy need to be stored in capacitors or coils. 
 
   Lower switching frequencies require larger components but may create a better conversion efficiency and less *EMI* (radio interference).
 
