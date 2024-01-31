@@ -21,19 +21,19 @@ If we'd stop here, we would have a **PWM** circuitry: the output would be switch
 
 Hoewever, if you plan to supply more sensitive devices such as microcontrollers, you cannot use **PWM** output directly. You need to supply a *constant voltage* and cannot have a mixture of voltage spikes and no voltage.
 
-This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*.
+This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here is a circuit diagram showing only the principal components of a **Buck** converter:
 
 <img src="images/buck.png" width="100%" height="100%" />
 
 ### Extracting And Temporarily Saving Energy
 
-Let's first look at the **Buck** converter when its high-frequency switch is turned *on*:
+Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here is the relevant part of the schematics:
 
 <img src="images/buck_on.png" width="100%" height="100%" />
 
 The input voltage now flows through the *coil*. A *coil* is like a load and consumes energy to create a magnetic field. So until the magnetic field is fully created and stabilized, the *coil* acts as a *resistor* and reduces the voltage. So in the *on* cycle of the **Buck** converter, the *coil* is reducing the output voltage, just like a resistor would do.
 
-Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase:
+Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. In this phase, the relevant part of the schematics looks like this:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
 
