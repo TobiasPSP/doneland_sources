@@ -39,7 +39,7 @@ Which brings us to the second half of operation: the *off* phase.
 
 ### Phase 2: Running From Borrowed Energy Only
 
-The input voltage source has vanished: since the **Buck** switched it off in this phase, for the output load it no longer exists and does not supply any energy at this point:
+In this phase, the input voltage source vanished because the **Buck** converter turned it off. It does not supply energy to the output at this point:
 
 <img src="images/buck_off.png" width="100%" height="100%" />
 
