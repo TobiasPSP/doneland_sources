@@ -8,8 +8,10 @@ The **XL4015** from *XLSEMI* is a very popular step-down converter capable of ou
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
 > [!WARNING]  
-> The way how such boards implement the **XL4015** can differ. Not all boards leverage all features provided by the **XL4015**.
+> These boards can *differ considerably*, and not all boards support all **XL4015** features.
+> 
 > Some boards come with just *one* potentiometer to setup the *constant voltage* output voltage (i.e. left board in above image).
+> 
 > At almost the same cost, other boards sport *two* potentiometers and let you *additionally* specify the maximum current (*constant current*). This can be an important feature, i.e. when you plan to use it for battery charging. 
 
 | Property | Value |
@@ -20,7 +22,10 @@ The **XL4015** from *XLSEMI* is a very popular step-down converter capable of ou
 | Efficiency | up to 96% |
 | Switching Frequency | 180kHz fixed |
 
-It comes with the following extra features:
+> [!TIP]
+> The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting the maximum capacities. The boards using **XL4015** run well for long-time output currents of **3-4A**.
+>
+> The available stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and the less heat is produced.
 
 | Feature | Supported |
 | --- | --- |
