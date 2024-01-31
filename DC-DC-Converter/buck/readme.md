@@ -7,7 +7,7 @@
 
 ## Principle
 
-There are many simple ways of lowering a voltage, for example *voltage divider* (resistors). In fact, *any* load will reduce the voltage by consuming part of the energy.
+There are many simple ways of lowering a voltage, for example a *voltage divider* (using *resistors*). In fact, *any* load will reduce the voltage by consuming part of the energy.
 
 If you want to lower the voltage *without* consuming energy (and i.e. dissipating it as heat), you can use a **Buck** converter.
 
