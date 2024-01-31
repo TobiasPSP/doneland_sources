@@ -23,6 +23,10 @@ Hoewever, if you plan to supply more sensitive devices such as microcontrollers,
 
 This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*.
 
+<img src="images/buck.png" width="100%" height="100%" />
+
+*(core components found in a **Buck** converter)*
+
 ### Extracting And Temporarily Saving Energy
 
 Let's first look at the **Buck** converter when its high-frequency switch is turned *on*:
