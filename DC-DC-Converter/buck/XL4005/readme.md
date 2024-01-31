@@ -22,7 +22,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 >
 > On top, many cheap breakout boards use counterfeit controllers that may still work for you but have significantly different specs. For example, some counterfeit **XL4005** do not run at 300kHz switching frequency but rather 50kHz.
 >
-> If the core of the inductor on the board is colored *yellow-white* (like the depicted one), then it might be a core with a maximum frequency of around 70kHz (real **XL4005** run at 300kHz) made from iron that is originally designed to be used in filters, not in *DC-DC converters*.
+> If the core of the inductor on the board is colored *yellow-white* (like the depicted one), then it might be a cheap iron core with a maximum frequency of around 70kHz (real **XL4005** run at 300kHz) that is originally designed to be used in filters, not in *DC-DC converters*.
 >
 > Takeaway: controller specs and data sheets are for the chip only. The actual board design determines what **you** get out of it. Since typically there are no schematics available for breakout boards, the only way to find out is to test and measure yourself with a dummy load and see if a given board is suiting your needs before you buy in larger quantity.
 
