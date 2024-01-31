@@ -45,7 +45,9 @@ In this phase, the input voltage source vanished because the **Buck** converter 
 
 Instead, the magnetic field starts to collapse, and the *coil* starts to return the energy it previously extracted. The energy that was needed to create the magnetic field is now used, and the *coil* acts like a battery.
 
-Of course, current can only flow through your load when there is a closed circuit and the electrons can flow back. However, at this point the input source is separated, and the circuit is *off* (disconnected). That's why a **Buck** converter needs a *diode* so that the current from the *coil* can flow back in this phase.
+Of course, current can only flow when there is a closed circuit. Since at this point the input source is separated, a *diode* now guarantees that the circuit remains closed.
+
+### Borrow, Return, And Repeat...
 
 When the **Buck** converter switches back to *on* mode in time *before* the magnetic field has fully collapsed, the process repeats. In the *on* phase, the output voltage comes again from the input power supply and is again reduced by the energy that the *coil* needs to rebuild its magnetic field. The *diode* is now in blocking mode.
 
