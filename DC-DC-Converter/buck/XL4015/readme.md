@@ -3,7 +3,9 @@
 
 ## Quick Overview
 
-The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. The chip often is sold as a complete breakout board ready-to-go for around € 1.00:
+The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
+
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as € 1.00 in total:
 
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
