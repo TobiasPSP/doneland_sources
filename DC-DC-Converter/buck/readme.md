@@ -25,15 +25,19 @@ This is why **Buck** converters add a *coil*, a *diode*, and a *capacitor*. Here
 
 ### Phase 1: "Borrowing Energy"
 
-Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here is the relevant part of the schematics:
+Let's first look at the **Buck** converter when its high-frequency switch is turned *on*. Here the schematics are very simple:
 
 <img src="images/buck_on.png" width="100%" height="100%" />
 
-On its way to the load, the input voltage flows through the *coil*. A *coil* is just like another load switched in series, and it consumes energy (to create a magnetic field). 
+The only new thing is a *coil* that needs to be passed on the way to the load.
 
-Until the magnetic field is fully created and stabilizes, the *coil* acts just like a *resistor* in a *voltage divider* and reduces the voltage.
+A *coil* is just like another load. and it consumes energy, too, just like any other load or resistor (to create a magnetic field). 
 
-Unlike a *resistor* though, the *coil* did not just dissipate the energy through heat, but it "invested" the energy into a magnetic field. Which brings us to the second half of operation: the *off* phase. 
+Until the magnetic field is fully created and stabilizes, the *coil* acts like a *resistor* in a simple *voltage divider* and reduces the voltage.
+
+Unlike a *resistor* though, the *coil* does not dissipate the energy, but "invests" it into a magnetic field. Magnetic fields store energy and can give it back. Dissipated heat from a resistor won't come back.
+
+Which brings us to the second half of operation: the *off* phase. 
 
 ### Phase 2: Running From Borrowed Energy Only
 
