@@ -1,11 +1,11 @@
 # LM5116
 :stopwatch: Reading time: 4 minutes.
 
-Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
+Input 6-100V, Output 1.215-80V (often limited to 32V to protect *condensators* used in breakout board, Current 20A, CV, CC
 
 ## Quick Overview
 
-The **LM5116** from *Texas Instruments* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
+The **LM5116** from *Texas Instruments* is a popular step-down converter capable of outputting significant currents of up to *20A*. 
 
 The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
 
@@ -22,14 +22,14 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 | Property | Value |
 | --- | --- |
-| Input Voltage | 5-40V |
-| Output Voltage | 1.2-36V |
-| Max Output Current | 8A |
+| Input Voltage | 6-100V |
+| Output Voltage | 1.215-80V (may be lower in breakout boards |
+| Max Output Current | 20A |
 | Efficiency | up to 96% |
-| Switching Frequency | 180kHz |
+| Switching Frequency | 50kHz-1MHz (programmable) |
 
 > [!TIP]
-> The maximum output current of **8A** requires to add a heat sink to the chip. While the **LM5116** is dependable and rugged, avoid exploting its maximum specs. Boards using **LM5116** run well for long-time output currents of **5A**.
+> The maximum output current of **20A** requires to add a heat sink to the chip. While the **LM5116** is dependable and rugged, avoid exploting its maximum specs. Boards using **LM5116** run well for long-time output currents of **10-15A**.
 >
 > Stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and less heat is produced.
 
@@ -39,6 +39,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Output Shortcut Protection | yes |
 | Over Voltage Protection | yes |
 | Thermal Protection | yes |
+| Softstart | yes, programmable |
 
 [Data Sheet](materials/LM5116_datasheet.pdf)
 
