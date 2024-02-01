@@ -17,13 +17,15 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 >
 > To adjust the *constant current* requires a load to be connected to the output terminal (preferrably a dedicated electronic load device where you can vary the load, but any load will do).
 >
-> You can now measure the current that flows at the output terminal with a **DC** clamp ampere meter (do *not* use simple multimeters for the currents at play here. They typically support high currents only for a few seconds).
+> You can now measure the current that flows at the output terminal with a **DC** clamp ampere meter (do *not* use a simple multimeter. It typically support high currents only for a few seconds before it starts to smoke).
 >
-> A red *LED* close to the *input terminal* tells you if your output is *above* the *constant current*: if the LED is *dim* or *off*, then the **Buck** converter actively lowers the current (by lowering the voltage). You would have to turn the **CC* potentiometer rightwards to *increase* the *constant voltage* until the red *LED* is *fully on* again if you wanted to allow such current.
+> A red *LED* close to the *input terminal* tells you if your output is *above* the *constant current*: if the LED is *dim* or *off*, then the **Buck** converter has actively lowered or shutdown the current (by lowering the voltage, and if that still did not suffice, by turning the output *off*).
 >
-> If you find that the breakout board provides much less current than **20A** before it starts to drop the voltage, regardless of what you do, make sure your *input power supply* is capable of providing *enough energy* in the first place. The **Buck** can't generate current out of nothing.
+> You can then turn the **CC* potentiometer rightwards to *increase* the *constant voltage* until the red *LED* starts to *fully* glow again (if you wanted to allow higher currents at the output).
 >
-> For example, if you supply *24V* and want to draw *10A* at *12V*, your power supply must be capable of supplying at least *24V* at *5A*. If it does not, or if you have accidentally set it to some *constant current* cap, the **LM5116** tries to maintain the *constant current* by gradually *decreasing the voltage*.
+> If you find that the breakout board provides much less current than **20A** before it starts to drop the voltage and shutdown, regardless of what you do, make sure your *input power supply* is capable of providing *enough energy* in the first place. The **Buck** can't generate current out of nothing.
+>
+> For example, if you supply *24V* and want to draw *10A* at *12V*, your power supply must be capable of supplying at least *24V* at *5A*. If it does not, or if you have accidentally set it to some *constant current* cap, the **LM5116** tries to maintain the set *constant current* by gradually *decreasing the voltage*.
 
 | Property | Value |
 | --- | --- |
@@ -34,9 +36,11 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 | Switching Frequency | 50kHz-1MHz (programmable) |
 
 > [!TIP]
-> The maximum output current of **20A** requires to add a heat sink to the chip. While the **LM5116** is dependable and rugged, avoid exploting its maximum specs. Boards using **LM5116** run well for long-time output currents of **10-15A**.
+> The maximum output current of **20A** requires heat sinks. Fortunately, many breakout boards come with them premounted. That said, you should test and experiment for yourself to see at which parameters the **LM5116** gets too hot.
 >
-> Stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and less heat is produced.
+> This depends on how much "work" it needs to do, so it is related to the actual *input* and *output* voltages you have set, and the voltage difference between them. So you might get away with a fairly cool **LM5116* at high currents for hours, while other setups may experience excess heat even after short times.
+>
+> One cause of excessive heat is when you *do not supply enough input power*: if the power source cannot provide enough current to drive the output terminal, the **LM5116** works very hard to try and provide the set *constant current* nevertheless (i.e. by lowering the voltage). This is inefficient and makes no sense. You should always use the *constant current* setting to limit the output current to a safe level that does not cause excessive *input currents* that your *input power supply* cannot provide.
 
 | Feature | Supported |
 | --- | --- |
