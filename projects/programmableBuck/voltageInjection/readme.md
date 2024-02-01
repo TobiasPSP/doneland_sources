@@ -9,7 +9,7 @@ I immediately catched fire as this sounded like a clever technique, possibly ado
 
 * **Bench Power Supply**: create your own modern bench power supply with cool custom-designed LCD, TFT or OLED displays, wireless controllable, with monitoring and data logging - thanks to digital control, ESP8266 et al can enhance functionality enourmously.
 * **Automated Testing**: a script or computer program can quickly change voltage and current based on test protocols, i.e. for automated device testing.
-* **Clever Chargers**: ever wanted to charge your *LiPo*s or *LiFePo4*s using *exactly* the recipe you trust most? With readily available and cheap components, you could build your own highly customizable battery charger that first charges gently with **CC**, then adds more current, and finally tops it off with a *constant voltage* charging phase, all of this of course with a charging protocol that shows battery health and can be used for documentation.
+* **Clever Chargers**: ever wanted to charge your *LiPo*s or *LiFePo4*s with love, using *exactly* the recipe you trust most? With readily available and cheap components, you could build your own highly customizable battery charger that first charges gently with **CC**, then adds more current, and finally tops it off with a *constant voltage* charging phase, all of this of course with a charging protocol that shows battery health and can be used for documentation.
 * **Sophisticated LED drivers**: tired of flickering **PWM** dimmed LEDs? Now you could directly control the *current* and create simple but effective *LED drivers* with wireless and bluetooth control for beautiful LED displays.
 
 I am sure there are plenty additional community ideas what else you could do with digitally controllable power supplies.
