@@ -5,11 +5,20 @@
 
 Recently, I came across an [Instructables](https://www.instructables.com/DIgital-Controlled-Bench-Power-Supply/) article from *Robert Tidey* where he built a digitally controlled bench power supply based on readily available and cheap *XL4015*-based **5A CV CC** *Buck* breakout boards.
 
-I immediately catched fire as this sounded like a clever technique which possibly can be adapted to other (and possibly more powerful) *buck* converters. So I visited Roberts [github](https://github.com/roberttidey/WifiPowerSupply) repository, and contacted him.
+I immediately catched fire as this sounded like a clever technique, possibly adoptable to other (and possibly more powerful) *buck* converters, and useful to so many projects:
 
-Here I documents my steps to rebuild the digitally controllable power supply in case these steps can help you build your own.
+* **Bench Power Supply**: create your own modern bench power supply with cool custom-designed LCD, TFT or OLED displays, wireless controllable, with monitoring and data logging - thanks to digital control, ESP8266 et al can enhance functionality enourmously.
+* **Automated Testing**: a script or computer program can quickly change voltage and current based on test protocols, i.e. for automated device testing.
+* **Clever Chargers**: ever wanted to charge your *LiPo*s or *LiFePo4*s using *exactly* the recipe you trust most? With readily available and cheap components, you could build your own highly customizable battery charger that first charges gently with **CC**, then adds more current, and finally tops it off with a *constant voltage* charging phase, all of this of course with a charging protocol that shows battery health and can be used for documentation.
+* **Sophisticated LED drivers**: tired of flickering **PWM** dimmed LEDs? Now you could directly control the *current* and create simple but effective *LED drivers* with wireless and bluetooth control for beautiful LED displays.
 
-### Principle
+I am sure there are plenty additional community ideas what else you could do with digitally controllable power supplies.
+
+So I visited Roberts [github](https://github.com/roberttidey/WifiPowerSupply) repository, and contacted him.
+
+Below you can follow me with my steps to rebuild the digitally controllable power supply, and if you, too, catch fire, easily follow along and you build your own.
+
+### Approaches To Digital Controllability
 
 Off-the-shelf **Buck** converters typically come with two potentiometers to adjust *voltage* and *current*. To digitally control this, there are a few possible approaches:
 
@@ -26,3 +35,5 @@ The latter is *Richards* approach, and there are at least two advantages over th
 The schematics below explain the general idea and approach:
 
 <img src="images/voltage injection fundamentals_w.svg" width="90%" height="90%" />
+
+
