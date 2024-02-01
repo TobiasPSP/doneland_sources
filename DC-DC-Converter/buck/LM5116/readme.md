@@ -9,19 +9,19 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 <img src="images/LM5116_all_w.png" width="90%" height="90%" />
 
-> The board above costs around €4 including heat sinks and is a *heavy-duty* workhorse for hobbyist projects. It supports both *constant voltage* and *constant current*, settable via two clearly marked potentiometers. Turn them *rightwards* to *increase* output voltage and current, respectively.
+> The board above costs around €4 including heat sinks and is a *heavy-duty* workhorse for hobbyist projects. It supports both *constant voltage* and *constant current*, settable via two clearly marked potentiometers. Turn them *rightwards* to *increase* their setting, and *leftwards* to *decrease*. 
 >
-> :warning: The board comes with a tiny shift switch at the *input* terminal. Make sure this switch is in *ON* position or else there will be no output voltage.
+> :warning: The board comes with a tiny switch at the *input* terminal. Make sure this switch is in *ON* position or else there will be no output voltage.
 >
 > To adjust the voltage, connect a voltmeter to the output terminal, then turn the potentiometer marked **CV** (turn *right* to *raise* and *left* to *lower*).
 >
-> To adjust the maximum current, connect a load to the output terminal (preferrably a dedicated electronic load device where you can vary the load, but any load will do) and check whether it receives the current it needs. Place an ampere meter in series but keep in mind that multimeters can measure large current only for a few moments. A much better way of displaying the current is to use a dedicated electronic load, or to measure the current with a **DC** clamp ampere meter.
+> To adjust the *constant current* requires a load to be connected to the output terminal (preferrably a dedicated electronic load device where you can vary the load, but any load will do).
 >
-> A red LED close to the *input* terminals lights up when the **Buck** converter is *not limiting* the current. If it is *off* (*not fully bright* to be precise, dim light counts as *off*), turn the potentiometer marked as **CC** to the *right* to allow the **Buck** converter to supply *more* current (raising the *constant current* setting).
+> You can now measure the current that flows at the output terminal with a **DC** clamp ampere meter (do *not* use simple multimeters for the currents at play here. They typically support high currents only for a few seconds).
 >
-> If the red LED is fully *on*, turn the potentiometer marked **CC** left-wards. This lowers the *constant current*. Play with the **CC** potentiometer until you have set the *constant current* to the maximum value you need.
-> 
-> If you find that the breakout board provides much less current than **20A** regardless of what you do, make sure your *input power supply* is capable of providing *enough energy* in the first place. The **Buck** can't generate current out of nowhere.
+> A red *LED* close to the *input terminal* tells you if your output is *above* the *constant current*: if the LED is *dim* or *off*, then the **Buck** converter actively lowers the current (by lowering the voltage). You would have to turn the **CC* potentiometer rightwards to *increase* the *constant voltage* until the red *LED* is *fully on* again if you wanted to allow such current.
+>
+> If you find that the breakout board provides much less current than **20A** before it starts to drop the voltage, regardless of what you do, make sure your *input power supply* is capable of providing *enough energy* in the first place. The **Buck** can't generate current out of nothing.
 >
 > For example, if you supply *24V* and want to draw *10A* at *12V*, your power supply must be capable of supplying at least *24V* at *5A*. If it does not, or if you have accidentally set it to some *constant current* cap, the **LM5116** tries to maintain the *constant current* by gradually *decreasing the voltage*.
 
