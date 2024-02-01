@@ -38,7 +38,7 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 > [!TIP]
 > The maximum output current of **20A** requires heat sinks. Fortunately, many breakout boards come with them premounted. That said, you should test and experiment for yourself to see at which parameters the **LM5116** gets too hot.
 >
-> This depends on how much "work" it needs to do, so it is related to the actual *input* and *output* voltages you have set, and the voltage difference between them. So you might get away with a fairly cool **LM5116* at high currents for hours, while other setups may experience excess heat even after short times.
+> This depends on how much "work" it needs to do, so it is related to the actual *input* and *output* voltages you have set, and the voltage difference between them. So you might get away with a fairly cool **LM5116** at high currents for hours, while other setups may experience excess heat even after short times.
 >
 > One cause of excessive heat is when you *do not supply enough input power*: if the power source cannot provide enough current to drive the output terminal, the **LM5116** works very hard to try and provide the set *constant current* nevertheless (i.e. by lowering the voltage). This is inefficient and makes no sense. You should always use the *constant current* setting to limit the output current to a safe level that does not cause excessive *input currents* that your *input power supply* cannot provide.
 
