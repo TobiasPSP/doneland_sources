@@ -25,4 +25,4 @@ The latter is *Richards* approach, and there are at least two advantages over th
 
 The schematics below explain the general idea and approach:
 
-<img src="images/basic principle of voltage injection_bg.svg" width="90%" height="90%" />
+<img src="images/basic principle of voltage injection.svg" width="90%" height="90%" />
