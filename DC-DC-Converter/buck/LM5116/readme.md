@@ -7,9 +7,13 @@ Input 6-100V, Output 1.215-80V (often limited to 32V to protect *condensators* u
 
 The **LM5116** from *Texas Instruments* is a popular step-down converter capable of outputting significant currents of up to *20A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
-
 <img src="images/LM5116_all_w.png" width="90%" height="90%" />
+
+> The board above costs around €4 including heat sinks and is a *heavy-duty* workhorse for hobbyist projects. It supports both *constant voltage* and *constant current*, settable via two clearly marked potentiometers. Turn them *rightwards* to *increase* output voltage and current, respectively.
+>
+> If you find that the breakout board cuts down at output currents below **20A**, even though you have turned the *constant current* potentiometer all the way to the right, make sure your *input power supply* is capable of providing *enough energy*.
+>
+> If you for example supply *24V* and want to draw *10A* at *12V*, your power supply must be capable of supplying at least *24V* at *5A*. If it does not, or if you have accidentally set it to some *constant current* cap, the **LM5116** tries to maintain the *constant current* by gradually *decreasing the voltage*.
 
 > [!IMPORTANT]  
 > Boards can *differ considerably*: not all boards support all **LM5116** features.
