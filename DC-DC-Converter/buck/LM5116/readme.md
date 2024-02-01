@@ -9,7 +9,7 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
 
-<img src="images/LM5116_all_w.png" width="70%" height="70%" />
+<img src="images/LM5116_all_w.png" width="90%" height="90%" />
 
 > [!IMPORTANT]  
 > Boards can *differ considerably*: not all boards support all **LM5116** features.
