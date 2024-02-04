@@ -91,5 +91,8 @@ Since the voltage drop typically is a very low voltage, no additional *voltage d
 >
 > In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution.
 
+### Building And Testing
+
+The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
 
 
