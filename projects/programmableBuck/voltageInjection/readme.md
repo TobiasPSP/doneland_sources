@@ -109,6 +109,10 @@ The actual *building* and testing, including *programming* the microprocessor an
 Once the microcontroller knows the exact *voltage* and *current*, it can start controlling the **Buck** converter, asking to increase or decrease *voltage* and/or *current*. How this is done is the clever trick and special beauty of this solution:
 
 * **Potentiometers**: By design and stand-alone, the **Buck** converter controls *constant voltage* and *constant current* via two manually operated potentiometers. Both potentiometers are marked **W103** so they are **10K**.
-* **Constant Voltage**: To keep the voltage constant, the voltage regulator *XL4016* inside the **Buck** converter uses a *voltage divider*, consisting of a 270R fixed resistor and the potentiometer. 
+* **Constant Voltage**: To keep the voltage constant, the voltage regulator *XL4016* inside the **Buck** converter uses a *voltage divider*, consisting of a 270R fixed resistor *R3* and the potentiometer *RV1*.
+
+The potentiometer *RV1* controls the feedback voltage that the *XL4015* receives. To digitally control the *constant voltage*, a *DAC* (digital-to-analog converter) is later feeding in external control voltage to mimick a physical change in potentiometer setting.
 
 <img src="images/voltageControl_w.png" width="90%" height="90%" />
+
+* **Constant Current**: To keep the *current* constant, a second potentiometer is used similarly, and again, a *DAC* is used to feed in the external voltage necessary to raise the control voltage as if the potentiometer setting was changed.
