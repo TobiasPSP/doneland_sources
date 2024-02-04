@@ -104,4 +104,10 @@ Since the voltage drop typically is a very low voltage, no additional *voltage d
 
 The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
 
+## Step 2: Regulating the **Buck** Controller
+
+Once the microcontroller knows the exact *voltage* and *current*, it can start controlling the **Buck** converter, asking to increase or decrease *voltage* and/or *current*. How this is done is the clever trick and special beauty of this solution:
+
+* **Potentiometers**: By design and stand-alone, the **Buck** converter controls *constant voltage* and *constant current* via two manually operated potentiometers. 
+
 
