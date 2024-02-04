@@ -46,11 +46,18 @@ Let*s look at this part first. Viewed isolated, it is much easier to understand,
 
 <img src="images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
-### ADS1115 - Converting Analog To Digital
+### ADS1115 - Reads Voltages
 
 The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 12-bit *ADC* (Analog-To-Digital-Converter). 
 
 It comes with four inputs marked as *AIN0* to *AIN3*. The chip communicates via **I2C** so it is connected to the microcontroller with just two wires: *SCL* and *SDA*.
+
+> [!NOTE]  
+> Most microcontrollers like *Arduino* and *ESP8266* come with their own *ADC* built-in. You could use the built-in *ADC* and save a bit.
+>
+> However, the built-in *ADC*s are much less precise and much more susceptible to external influences. In an application that is designed to control output *voltage* and *current* of a power supply you need precise and robust readings. After all, you cannot have an unexpected voltage surge just because there is noise on the line.
+>
+> It's well invested money to use external *ADC*s in your projects. After all, a *ADS1115* cost less than €2 and is well worth it.
 
 ### Measuring Voltage
 
