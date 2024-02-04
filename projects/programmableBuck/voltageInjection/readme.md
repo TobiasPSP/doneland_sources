@@ -41,7 +41,7 @@ The latter is *Richards* approach, and there are at least two advantages over th
 
 ## Basic Setup
 
-The schematics below explain the general idea and approach:
+The schematics below explain the general idea:
 
 <img src="images/xl4015programmable_t_w.png" width="90%" height="90%" />
 
