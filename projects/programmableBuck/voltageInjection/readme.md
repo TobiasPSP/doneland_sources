@@ -34,6 +34,6 @@ The latter is *Richards* approach, and there are at least two advantages over th
 
 The schematics below explain the general idea and approach:
 
-<img src="images/voltage injection fundamentals_w.svg" width="90%" height="90%" />
+<img src="images/xl4015programmable_t_w.png" width="90%" height="90%" />
 
 
