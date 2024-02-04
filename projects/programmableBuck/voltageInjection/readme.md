@@ -34,6 +34,13 @@ The latter is *Richards* approach, and there are at least two advantages over th
 
 The schematics below explain the general idea and approach:
 
-<img src="images/voltage injection fundamentals_w.svg" width="90%" height="90%" />
+<img src="images/xl4015programmable_t_w.png" width="90%" height="90%" />
+
+At the heart of this design is a microcontroller (*ESP8266*) that reads the *voltage* and *current* and then generates the appropriate voltages that need to be injected into the **Buck** breakout board. Let's break this into separate steps for better understanding, and to help building this project in separately debuggable parts. 
+
+## Step 1: Reading Voltage And Current
+
+The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. That's why I am looking at this part first. You can use this logic for many other purposes as well. We are basically creating a digital *Multimeter* that could also be used to monitor batteries or build *Coloumbmeters*.
+
 
 
