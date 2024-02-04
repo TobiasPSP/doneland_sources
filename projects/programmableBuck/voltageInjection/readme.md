@@ -61,9 +61,7 @@ It comes with four inputs marked as *AIN0* to *AIN3*. The chip communicates via 
 
 ### Measuring Voltage
 
-The *voltage* is measured by *AIN0* and *AIN1*.
-
-*AIN0* is connected to the positive *output* voltage, and *AIN1* is connected to **GND**. The measured *difference* is the *output voltage*.
+The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the positive *output* voltage, and *AIN1* is connected to **GND**. The measured *difference* is the *output voltage*.
 
 > [!IMPORTANT]  
 > Most *ADC*s can measure only a limited voltage range and are very sensitive to over-voltage. That's why the *ADS11215* cannot measure the output voltage directly. It is too high.
