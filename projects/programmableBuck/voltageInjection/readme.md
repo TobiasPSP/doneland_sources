@@ -89,9 +89,7 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 
 *Current* cannot be measured directly. An *ADC* can measure *voltage* only. One way of measuring *current* is by measuring the *voltage drop* at a low-resistance *shunt* resistor.
 
-The **Buck** converter used here has a shunt resistor mounted on its back and uses it internally to measure the output current. The shunt resistor is connected in series between **GND** input and **GND** output.
-
-That's why the other two *ADC* inputs (*AIN2* and *AIN3*) are connected to the **output GND** and the **input GND**.
+The **Buck** converter used here has a shunt resistor mounted on its back and uses it internally to measure the output current. The shunt resistor is connected in series between **GND** input and **GND** output: the other two *ADC* inputs (*AIN2* and *AIN3*) are therefore connected to the **output GND** and the **input GND**.
 
 Since the voltage drop typically is a very low voltage, no additional *voltage divider* is required here. 
 
