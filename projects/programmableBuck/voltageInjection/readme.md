@@ -61,7 +61,7 @@ It comes with four inputs marked as *AIN0* to *AIN3*. The chip communicates via 
 
 ### Measuring Voltage
 
-Measuring the voltage outputted by the **Buck** converter is simple because that is what *ADC*s do: measure an analog *voltage* and report it back digitally. The *voltage* is measured by *AIN0* and *AIN1*.
+The *voltage* is measured by *AIN0* and *AIN1*.
 
 *AIN0* is connected to the positive *output* voltage, and *AIN1* is connected to **GND**. The measured *difference* is the *output voltage*.
 
