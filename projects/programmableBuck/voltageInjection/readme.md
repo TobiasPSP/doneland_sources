@@ -42,7 +42,7 @@ At the heart of this design is a microcontroller (*ESP8266*) that reads the *vol
 
 The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. 
 
-That's why I am looking at this part first. You can use this logic for many other purposes as well. We are basically creating a digital *Multimeter* that could also be used to monitor batteries or build *Coloumbmeters*.
+Let*s look at this part first. Viewed isolated, it is much easier to understand, and you can re-use this logic for many other purposes, i.e. to monitor batteries or build your own *Coloumbmeters*.
 
 <img src="images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
