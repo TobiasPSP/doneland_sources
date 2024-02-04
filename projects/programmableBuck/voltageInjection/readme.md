@@ -53,7 +53,7 @@ The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and prec
 It comes with four inputs marked as *AIN0* to *AIN3*. The chip communicates via **I2C** so it is connected to the microcontroller with just two wires: *SCL* and *SDA*.
 
 > [!NOTE]  
-> Most microcontrollers like *Arduino* and *ESP8266* come with their own *ADC* built-in. You could use the built-in *ADC* and save a bit.
+> Most microcontrollers like *Arduino* and *ESP8266* come with their own *ADC* built-in. You could skip the *ADS1115* and use the built-in *ADC* instead to save a bit.
 >
 > However, the built-in *ADC*s are much less precise and much more susceptible to external influences. In an application that is designed to control output *voltage* and *current* of a power supply you need precise and robust readings. After all, you cannot have an unexpected voltage surge just because there is noise on the line.
 >
