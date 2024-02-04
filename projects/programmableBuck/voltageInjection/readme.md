@@ -113,4 +113,11 @@ Once the microcontroller knows the exact *voltage* and *current*, it can start c
 
 <img src="images/voltageControl_w.png" width="90%" height="90%" />
 
-* **Constant Current**: To keep the *current* constant, a second potentiometer is used similarly, and again, a *DAC* is used to feed in the external voltage necessary to raise the control voltage as if the potentiometer setting was changed.
+* **Constant Current**: To keep the *current* constant, a second potentiometer is used similarly, and again, a *DAC* is later used to feed in the external voltage necessary to raise the control voltage as if the potentiometer setting was changed.
+
+### DAC Adds External Voltage
+
+To mimick a different potentiometer setting, additional voltage is needed and needs to be injected at each of the potentiometers. 
+
+**DAC**s (Digital-to-Analog Converters) deliver exactly the voltage that a microcontroller tells them to. In this project, *two DAC*s are required, one for each potentiometer. The *MCP4725* is a cheap and readily available 12bit DAC precise enough to control *voltage* and *current* in granular steps.
+
