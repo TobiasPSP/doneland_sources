@@ -45,7 +45,9 @@ The schematics below explain the general idea:
 
 <img src="images/xl4015programmable_t_w.png" width="90%" height="90%" />
 
-At the heart of this design is a microcontroller (*ESP8266*) that reads the *voltage* and *current* and then generates the appropriate voltages that need to be injected into the **Buck** breakout board. Let's break this into separate steps for better understanding, and to help building this project in separately debuggable parts. 
+At the heart of this design is a microcontroller (*ESP8266*) that reads the *voltage* and *current* and then generates the appropriate voltages that need to be injected into the **Buck** breakout board. 
+
+Let's break this into separate steps for better understanding, and to help building this project in separately debuggable parts. 
 
 ## Step 1: Reading Voltage And Current
 
