@@ -10,7 +10,7 @@ Recently, I came across an [Instructables](https://www.instructables.com/DIgital
 > [!TIP]
 > Boards like the one above run at less than €1.50 and provide realistic *3-4A* of current. By default, you manually set the output *voltage* and *current* using trim potentiometers.
 >
-> When you get these, make sure you order the ones with *two* potentiometers (very similar looking ones come with just *one* potentiometer and support *constant voltage* only).
+> When you get these, make sure you order the ones with **two potentiometers** (very similar looking ones come with just *one* potentiometer and support *constant voltage* only).
 >
 > You might want to visit places like *AliExpress* as price differences are huge: you get them for as high as €15 and as low as €1 (I just got 4 for € 3.38, €0.85 per unit, including customs and delivery).
 
