@@ -49,9 +49,6 @@ At the heart of this design is a microcontroller (*ESP8266*) that reads the *vol
 
 Let's break this story into separate parts for better understanding:
 
-* [Reviewing Functional Steps](1 Functional Parts)
+* (Reviewing Functional Steps)[1 Functional Parts]: Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
 
-To mimick a different potentiometer setting, additional voltage is needed and needs to be injected at each of the potentiometers. 
-
-**DAC**s (Digital-to-Analog Converters) deliver exactly the voltage that a microcontroller tells them to. In this project, *two DAC*s are required, one for each potentiometer. The *MCP4725* is a cheap and readily available 12bit DAC precise enough to control *voltage* and *current* in granular steps.
 
