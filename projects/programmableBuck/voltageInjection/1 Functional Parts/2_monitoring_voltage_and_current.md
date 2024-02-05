@@ -10,15 +10,11 @@ Here is the part of the schematics that does this:
 <img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
 > [!TIP]
-> To create the digitally controllable **Buck** converter, all we need is a way for the microprocessor to know the *voltage* and *current*.
+> There are many ways to monitor *voltage* and *current*. You don't need to measure using the concept presented here. If you have an alternative way that you feel more confident with, go ahead. You can then skip this part and move on to the [next part](3_injecting_voltage.md).
 >
-> Using an **ADS1115** and taking advantage of the *shunt resistor* built into the **Buck** converter is one clever way of doing this. There are other ways to monitor *voltage* and *current*, though, that may be more appealing to you.
->
-> You could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor* necessarily), or use your own *shunt resistor*.
+> For example, you could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor* necessarily), or use your own *shunt resistor*.
 >
 > In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution. They are also super cheap. However, most of them use *R100* shunt resistors and can only handle a maximum of **3A**.
->
-> Takeaway: if you already *have* a digitally controllable way of monitoring *voltage* and *current* that you are comfortable with, you could skip this entire part, use your own monitoring solution, and directly move on to the [next part](3_injecting_voltage.md).
 
 <details>
 <summary>	:information_source: How Voltage And Current Are Measured</summary></details<br/>
