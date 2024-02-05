@@ -31,6 +31,7 @@ According to the schematics, we need a total of *six* wires to connect to the **
 
 </details>
 
+<img src="../images/XL4015_cable_2_w.png" width="90%" height="90%" />
 
 ### Next Step
 
