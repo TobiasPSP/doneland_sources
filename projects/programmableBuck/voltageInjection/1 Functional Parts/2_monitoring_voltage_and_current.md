@@ -59,5 +59,5 @@ The actual *building* and testing, including *programming* the microprocessor an
 
 ## Next Step
 
-Now that our microcontroller can monitor *voltage* and *current*, it is timne to *control* them. This is done by *injecting* voltages into the **Buck** controller to mimick a change in the manual potentiometers. [The next part has the details](3_injecting_voltage.md).
+Now that our microcontroller can monitor *voltage* and *current*, it is time to *control* them. This is done by *injecting* voltages into the **Buck** controller to mimick a change in the manual potentiometers. [The next part has the details](3_injecting_voltage.md).
 
