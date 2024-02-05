@@ -39,7 +39,7 @@ The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and prec
 
 ## Solder Points
 
-To measure voltage and current, add wires to the **Buck** converter at the marked pins:
+To measure voltage and current, add wires to the **Buck** converter at the marked pins below. If you use a 6-pin connector, then you can easily attach and detach your control logic later (i.e. to test it with different **Buck** converters).
 
 <img src="../images/step1 interface with buck_w.png" width="90%" height="90%" />
 
