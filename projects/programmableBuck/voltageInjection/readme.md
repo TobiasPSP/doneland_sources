@@ -27,7 +27,7 @@ So I visited Roberts [github](https://github.com/roberttidey/WifiPowerSupply) re
 
 Below you can follow me with my steps to rebuild the digitally controllable power supply, and if you, too, catch fire, easily follow along and you build your own.
 
-### Approaches To Digital Controllability
+### Strategies
 
 Off-the-shelf **Buck** converters typically come with two potentiometers to adjust *voltage* and *current*. To digitally control this, there are a few approaches:
 
