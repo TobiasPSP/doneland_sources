@@ -12,7 +12,7 @@ You can re-use this logic for many other purposes, i.e. to monitor batteries or 
 > [!TIP]
 > To create the digitally controllable **Buck** converter, all we need is a way for the microprocessor to know the *voltage* and *current*.
 >
-> Using an **ADS1115** and taking advantage of the *shunt resistor* built into the **Buck** converter is one clever way of doing this. There are other ways to do this, too.
+> Using an **ADS1115** and taking advantage of the *shunt resistor* built into the **Buck** converter is one clever way of doing this. There are other ways to monitor *voltage* and *current*, though, that may be more appealing to you.
 >
 > You could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor*), or use your own *shunt resistor*.
 >
