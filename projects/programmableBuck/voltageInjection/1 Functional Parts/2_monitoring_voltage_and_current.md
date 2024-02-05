@@ -55,6 +55,9 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 
 Coincidentally, the **Buck** converter used has a shunt resistor built-in on its back and uses it internally to measure the output current. The shunt resistor is connected in series between **GND** input and **GND** output: the other two *ADC* inputs (*AIN2* and *AIN3*) are therefore connected to the **output GND** and the **input GND**.
 
+Since the voltage drop typically is a very low voltage, no additional *voltage divider* is required here. 
+
+
 > [!NOTE]  
 > Should you *not* find a big black *R050* *shunt resistor* on the back of your **Buck** converter then you might be using a different model.
 >
@@ -62,7 +65,6 @@ Coincidentally, the **Buck** converter used has a shunt resistor built-in on its
 >
 > The external **CC** logic consists primarily of a *shunt resistor* (to measure current, like we do), a *potentiometer* to adjust *constant current* (so these boards have *two* potentiometers and not just one), and an *OpAmp* (that produces the actual control signal to tell the *XL4015* to lower its voltage when there is an over-current).
 
-Since the voltage drop typically is a very low voltage, no additional *voltage divider* is required here. 
 
 
 ## Building And Testing
