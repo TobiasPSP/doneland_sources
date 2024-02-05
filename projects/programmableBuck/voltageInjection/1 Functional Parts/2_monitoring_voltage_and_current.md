@@ -49,7 +49,7 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 >
 > I may be overlooking the obvious, and will investigate further, but on first sight it appears as if *AIN1* could safely be used for other purposes: *AIN0' would yield the same result when used in default *single pin* mode.
 
-### Meassuring Current (Indirectly Via Voltage)
+### Measuring Current (Indirectly Via Voltage)
 
 *Current* cannot be measured directly. An *ADC* can measure *voltage* only. So we are measuring the *voltage drop* at a low-resistance *shunt* resistor instead.
 
