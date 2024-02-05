@@ -39,7 +39,7 @@ The latter is *Richards* approach, and there are at least two advantages over th
 * **More granularity**: affordable high voltage digital resistors are 8bit (256 steps) whereas *DAC*s typically have 12-16 bits (more precise control)
 * **Less Tweaking**: to use digital potentiometers, you first need to remove the physical potentiometers. While desoldering them is no rocket science, it is a significant change in the **Buck** device. To *inject* voltage, in contrast, you do not touch the **Buck** breakout board at all. There are just three easily-identifyable solder pins where you need to attach wires.
 
-## Basic Setup
+## The Plan
 
 The schematics below explain the general idea:
 
