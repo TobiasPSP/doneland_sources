@@ -45,4 +45,4 @@ I opzted for adding a pluggable connector to the backside with all required cont
 
 ### Next Step
 
-Now that the interface to the **Buck** controller is in place, we need a way for the microcontroller to attach to it and perform its first task: monitoring *voltage* and *current*. [Here is how](2_monitoring_voltage_and_current.md)
+Now that the interface to the **Buck** controller is in place, we need a way for the microcontroller to attach to it and perform its first task: monitoring *voltage* and *current*. [The next part explains this](2_monitoring_voltage_and_current.md).
