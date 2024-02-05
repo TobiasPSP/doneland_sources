@@ -30,7 +30,7 @@ According to the schematics, we need a total of *six* wires to connect to the **
 
 ### Soldering Wires
 
-I opted for adding a pluggable connection to the backside with all required contacts so later the **Buck** converter can easily be separated from the *digital control unit*. You can of course use plain wires and interface directly with the digital control we are going to build.
+I opted for adding a pluggable connector to the backside so later the **Buck** converter can easily be separated from the *digital control unit*. You can of course use plain wires and interface directly with the digital control we are going to build.
 
 Here is a close-up of the solder points:
 
