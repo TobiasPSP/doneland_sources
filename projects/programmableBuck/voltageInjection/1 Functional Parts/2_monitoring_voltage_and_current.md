@@ -55,7 +55,7 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 
 Coincidentally, the **Buck** converter used has a shunt resistor built-in on its back and uses it internally to measure the output current. The shunt resistor is connected in series between **GND** input and **GND** output: the other two *ADC* inputs (*AIN2* and *AIN3*) are therefore connected to the **output GND** and the **input GND**.
 
-Since the voltage drop typically is a very low voltage, no additional *voltage divider* is required here. 
+Since the voltage drop is typically a very low voltage, no additional *voltage divider* is required here. 
 
 
 > [!NOTE]  
