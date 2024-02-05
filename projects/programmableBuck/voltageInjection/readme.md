@@ -49,6 +49,6 @@ At the heart of this design is a microcontroller (*ESP8266*) that reads the *vol
 
 Let's break this story into separate parts for better understanding:
 
-* (Reviewing Functional Steps)[1 Functional Parts]: Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
+* (Reviewing Functional Steps)[1%20Functional%20Parts]: Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
 
 
