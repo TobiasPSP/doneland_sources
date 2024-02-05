@@ -5,7 +5,7 @@
 
 The digital control we are building here is an *external component* and does not require any changes in the stock **Buck** converter. All we need is a way to interface with it:
 
-<img src="../images/buck_interface_t.png" width="60%" height="60%" />
+<img src="../images/buck_interface_w.png" width="60%" height="60%" />
 
 The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
 
@@ -28,7 +28,9 @@ According to the schematics, we need a total of *six* wires to connect to the **
 * **Controlling Constant Current**: Same goes for current settings: our injected voltage goes into the *middle* leg of the **CC** *potentiometer* pin.
 * **0V Reference**: We also need a **0V** reference (more later) which is accessible at the **CC** *potentiometer*.
 
+Here is a close-up of the solder points:
 
+<img src="../images/buck_interface_solderpoints_w.png" width="60%" height="60%" />
 
 > [!TIP]
 > Of course, our digital control needs its own power supply as well. Since I don't want to power it externally, we will be using a separate mini buck converter that takes a high *DC* voltage and outputs the stable *3.3V* needed for an *ESP8266*.
