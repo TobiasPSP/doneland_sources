@@ -9,6 +9,18 @@ You can re-use this logic for many other purposes, i.e. to monitor batteries or 
 
 <img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
+> [!TIP]
+> To create the digitally controllable **Buck** converter, all we need is a way for the microprocessor to know the *voltage* and *current*.
+>
+> Using an **ADS1115** and taking advantage of the *shunt resistor* built into the **Buck** converter is one clever way of doing this. There are many alternatives, though.
+>
+> You could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor*), or use your own *shunt resistor*.
+>
+> In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution. They are also super cheap. However, most of them use *R100* shunt resistors and can only handle a maximum of **3A**.
+>
+> So if you already *have* a digitally controllable way of monitoring *voltage* and *current*, you could skip this entire part, use your own solution, and directly move on to the [next part](3_injecting_voltage.md).
+
+
 ### Analog-To-Digital Converter (ADC) Reads Voltages
 
 The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 12-bit *ADC* (Analog-To-Digital-Converter). 
@@ -52,12 +64,6 @@ Coincidentally, the **Buck** converter used has a shunt resistor built-in on its
 
 Since the voltage drop typically is a very low voltage, no additional *voltage divider* is required here. 
 
-> [!TIP]
-> To create the digitally controllable **Buck** converter, all we need is a way for the microprocessor to know the *voltage* and *current*.
->
-> Using an **ADS1115** and taking advantage of the *shunt resistor* built into the **Buck** converter (as illustrated here) is one clever way of doing so. There are many alternatives, though. You could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor*), or use your own *shunt resistor*.
->
-> In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution. They are also super cheap. However, most of them use *R100* shunt resistors and can only handle a maximum of **3A**. 
 
 ## Building And Testing
 
