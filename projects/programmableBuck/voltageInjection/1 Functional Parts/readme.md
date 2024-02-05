@@ -7,14 +7,14 @@ The digital control we are building here is an *external component* and does not
 
 According to the schematics, six connection points are needed:
 
-|  Pin |  Description |
-| --- | --- |
-| GND IN | Measure current |
-| GND OUT | Measure current |
-| V+ OUT | Measure voltage |
-| POT1 | Voltage control |
-| POT2.1 | Current control |
-| POT2.2 | 0V reference |
+|  Pin |  Description | Color Wire |
+| --- | --- | --- |
+| GND IN | Measure current | 	:white_square_button: Black |
+| GND OUT | Measure current | :black_square_button: White |
+| V+ OUT | Measure voltage | :red_square: Red |
+| POT1 | Voltage control | :yellow_square: Yellow |
+| POT2.1 | Current control | :orange_square: Orange |
+| POT2.2 | 0V reference | :green_square: Green |
 
 * **Measuring Current**: The **Buck** controller connects **GND IN** with **GND OUT** across a *R050* shunt resistor used internally to meassure the current. Since we also need to know the current, we too measure the voltage drop. For this, all we need is access to the terminals **GND IN** and **GND OUT**.
 * **Measuring Voltage**: To measure the output voltage, we also need access to the terminal **V+ OUT**. Voltage can then directly measured either against **GND IN** or **GND OUT** (the voltage drop at the shunt resistor is neglectible and can also be adjusted by software later)
