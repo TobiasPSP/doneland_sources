@@ -1,11 +1,9 @@
 # Step 2: Monitoring Voltage And Current
 :stopwatch: Reading time: 5 minutes.
 
-## Theory
+## Concept
 
-The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. This part looks at *how* a microcontroller like the *ESP8266* can monitor *current* and *voltage* of *any* power supply.
-
-You can re-use this logic for many other purposes, i.e. to monitor batteries or build your own *Coloumbmeters*.
+The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. Here is the part of the schematics that does this:
 
 <img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
@@ -20,6 +18,9 @@ You can re-use this logic for many other purposes, i.e. to monitor batteries or 
 >
 > Takeaway: if you already *have* a digitally controllable way of monitoring *voltage* and *current* that you are comfortable with, you could skip this entire part, use your own monitoring solution, and directly move on to the [next part](3_injecting_voltage.md).
 
+<details>
+<summary>How Voltage And Current Are Measured</summary></details<br/>
+  
 
 ### Analog-To-Digital Converter (ADC) Reads Voltages
 
@@ -65,10 +66,13 @@ Since the voltage drop is typically a very low voltage, no additional *voltage d
 >
 > The external **CC** logic consists primarily of a *shunt resistor* (to measure current, like we do), a *potentiometer* to adjust *constant current* (so these boards have *two* potentiometers and not just one), and an *OpAmp* (that produces the actual control signal to tell the *XL4015* to lower its voltage when there is an over-current).
 
+</details>
+
 ## Solder Points
 
 To measure voltage and current, add wires to the **Buck** converter at the marked pins:
 
+<img src="../images/step1 interface with buck_w.png" width="90%" height="90%" />
 
 
 The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
