@@ -40,7 +40,7 @@ The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and prec
 
 To measure voltage and current, add wires to the **Buck** converter at the marked pins below:
 
-<img src="../images/step1 interface with buck_w.png" width="90%" height="90%" />
+<img src="../images/step1 interface with buck_w.png" width="50%" height="50%" />
 
 
 ## Designing The Microcontroller Hardware Setup
