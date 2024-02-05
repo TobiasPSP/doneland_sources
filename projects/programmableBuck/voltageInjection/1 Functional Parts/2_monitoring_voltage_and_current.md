@@ -65,9 +65,11 @@ Since the voltage drop is typically a very low voltage, no additional *voltage d
 >
 > The external **CC** logic consists primarily of a *shunt resistor* (to measure current, like we do), a *potentiometer* to adjust *constant current* (so these boards have *two* potentiometers and not just one), and an *OpAmp* (that produces the actual control signal to tell the *XL4015* to lower its voltage when there is an over-current).
 
+## Solder Points
+
+To measure voltage and current, add wires to the **Buck** converter at the marked pins:
 
 
-## Building And Testing
 
 The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
 
