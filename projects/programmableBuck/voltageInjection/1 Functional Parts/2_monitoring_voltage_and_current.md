@@ -10,7 +10,7 @@ Here is the part of the schematics that does this:
 <img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
 > [!TIP]
-> There are many ways to monitor *voltage* and *current*. If you prefer an alternative way that you feel more confident with, go ahead. You can then skip this part and move on to the [next part](3_injecting_voltage.md). ALl that matters is that your microcontroller knows the *current* and *voltage* at the output pins of the **Buck** converter.
+> There are many ways to monitor *voltage* and *current*. If you prefer an alternative way that you feel more confident with, go ahead. You can then skip this part and move on to the [next part](3_injecting_voltage.md). Al that matters is that your microcontroller knows the *current* and *voltage* at the output pins of the **Buck** converter.
 >
 > For example, you could use a *hall sensor* to measure *current* (i.e. if you wanted to adapt this concept to different **Buck** converters that have no easily accessible *shunt resistor* necessarily), or use your own *shunt resistor*.
 >
