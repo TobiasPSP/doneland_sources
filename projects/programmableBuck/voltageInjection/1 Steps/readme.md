@@ -37,7 +37,7 @@ The microcontroller needs to know the actual *voltage* and *current* before it c
 
 Let*s look at this part first. Viewed isolated, it is much easier to understand, and you can re-use this logic for many other purposes, i.e. to monitor batteries or build your own *Coloumbmeters*.
 
-<img src="images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
+<img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
 ### ADS1115 - Reads Voltages
 
@@ -93,4 +93,4 @@ Once the microcontroller knows the exact *voltage* and *current*, it can start c
 * **Potentiometers**: By design and stand-alone, the **Buck** converter controls *constant voltage* and *constant current* via two manually operated potentiometers. Both potentiometers are marked **W103** so they are **10K**.
 * **Constant Voltage**: To keep the voltage constant, the voltage regulator *XL4016* inside the **Buck** converter uses a *voltage divider*, consisting of a 270R fixed resistor and the potentiometer. 
 
-<img src="images/voltageControl_w.png" width="90%" height="90%" />
+<img src="../images/voltageControl_w.png" width="90%" height="90%" />
