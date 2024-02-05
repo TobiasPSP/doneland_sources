@@ -31,6 +31,8 @@ According to the schematics, we need a total of *six* wires to connect to the **
 
 </details>
 
+Plain wires will do but if you have a 6-pin connector at hand, this lets you later easily attach and detach your digital control logic to the **Buck** converter (i.e. to test different **Buck** converters).
+
 <img src="../images/XL4015_cable_2_w.png" width="20%" height="20%" />
 
 ### Next Step
