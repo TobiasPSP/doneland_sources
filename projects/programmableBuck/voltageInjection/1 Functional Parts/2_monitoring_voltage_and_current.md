@@ -1,53 +1,15 @@
-# Implementation Steps
+# Step 2: Monitoring Voltage And Current
 :stopwatch: Reading time: 5 minutes.
 
-## Step 1: Interfacing With Buck Converter
+## Quick Overview
 
-The digital control we are building here is an *external component* and does not require any changes in the stock **Buck** converter. All we need is a way to interface with it:
+The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. This part looks at *how* a microcontroller like the *ESP8266* can monitor *current* and *voltage* of *any* power supply.
 
-<img src="../images/buck_interface_w.png" width="60%" height="60%" />
-
-The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
-
-I opzted for adding a pluggable connection to the backside with all required contacts so later the **Buck** converter can easily be separated from the *digital control unit*.
-
-According to the schematics, we need a total of *six* wires to connect to the **Buck** controller:
-
-|  Pin |  Description | Color Wire |
-| --- | --- | --- |
-| GND IN | Measure current | 	:white_square_button: Black |
-| GND OUT | Measure current | :black_square_button: White |
-| V+ OUT | Measure voltage | :red_square: Red |
-| POT1 | Voltage control | :yellow_square: Yellow |
-| POT2.1 | Current control | :orange_square: Orange |
-| POT2.2 | 0V reference | :green_square: Green |
-
-* **Measuring Current**: The **Buck** controller connects **GND IN** with **GND OUT** across a *R050* shunt resistor used internally to meassure the current. Since we also need to know the current, we too measure the voltage drop. For this, all we need is access to the terminals **GND IN** and **GND OUT**.
-* **Measuring Voltage**: To measure the output voltage, we also need access to the terminal **V+ OUT**. Voltage can then directly measured either against **GND IN** or **GND OUT** (the voltage drop at the shunt resistor is neglectible and can also be adjusted by software later)
-* **Controlling Constant Voltage**: To digitally control constant voltage, we need a connection to the voltage sensor pin of the **XL4015** which can conveniently be accessed at one of the *CV* *portentiometer* pins.
-* **Controlling Constant Current**: Same goes for current settings: our injected voltage goes into the *middle* leg of the **CC** *potentiometer* pin.
-* **0V Reference**: We also need a **0V** reference (more later) which is accessible at the **CC** *potentiometer*.
-
-Here is a close-up of the solder points:
-
-<img src="../images/buck_interface_solderpoints_w.png" width="60%" height="60%" />
-
-> [!TIP]
-> Of course, our digital control needs its own power supply as well. Since I don't want to power it externally, we will be using a separate mini buck converter that takes a high *DC* voltage and outputs the stable *3.3V* needed for an *ESP8266*.
->
-> Even though it seems tempting to choose the *output* voltage as it is lower than the *input* voltage and thus would be closer to what we need, resulting in higher efficiency, the solution is more robust when powering the digital control via the *input* power.
->
-> Else, if we ever choose to **turn off** the **Buck** controller programmatically, i.e. to enter some energy savings mode, we'd cut off ourselves from power. If we wanted to power our digital control via the interface we are designing here, thus we would need a seventh wire to expose **V+ IN**.
-
-## Step 2: Reading Voltage And Current
-
-The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. 
-
-Let*s look at this part first. Viewed isolated, it is much easier to understand, and you can re-use this logic for many other purposes, i.e. to monitor batteries or build your own *Coloumbmeters*.
+You can re-use this logic for many other purposes, i.e. to monitor batteries or build your own *Coloumbmeters*.
 
 <img src="../images/voltage_and_current_measurement_t_w.png" width="90%" height="90%" />
 
-### ADS1115 - Reads Voltages
+### Analog-To-Digital Converter (ADC) Reads Voltages
 
 The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 12-bit *ADC* (Analog-To-Digital-Converter). 
 
@@ -75,7 +37,7 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 >
 > I may be overlooking the obvious, and will investigate further, but on first sight it appears as if *AIN1* could safely be used for other purposes: *AIN0' would yield the same result when used in default *single pin* mode.
 
-### Meassuring Current
+### Meassuring Current (Indirectly Via Voltage)
 
 *Current* cannot be measured directly. An *ADC* can measure *voltage* only. One way of measuring *current* is by measuring the *voltage drop* at a low-resistance *shunt* resistor.
 
@@ -94,11 +56,8 @@ Since the voltage drop typically is a very low voltage, no additional *voltage d
 
 The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
 
-## Step 3: Regulating the **Buck** Controller
 
-Once the microcontroller knows the exact *voltage* and *current*, it can start controlling the **Buck** converter, asking to increase or decrease *voltage* and/or *current*. How this is done is the clever trick and special beauty of this solution:
+### Next Step
 
-* **Potentiometers**: By design and stand-alone, the **Buck** converter controls *constant voltage* and *constant current* via two manually operated potentiometers. Both potentiometers are marked **W103** so they are **10K**.
-* **Constant Voltage**: To keep the voltage constant, the voltage regulator *XL4016* inside the **Buck** converter uses a *voltage divider*, consisting of a 270R fixed resistor and the potentiometer. 
+Now that our microcontroller can monitor *voltage* and *current*, it is timne to *control* them. This is done by *injecting* voltages into the **Buck** controller to mimick a change in the manual potentiometers. [The next part has the details](3_injecting_voltage.md).
 
-<img src="../images/voltageControl_w.png" width="90%" height="90%" />
