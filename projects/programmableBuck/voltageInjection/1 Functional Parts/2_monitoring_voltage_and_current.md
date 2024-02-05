@@ -19,9 +19,6 @@ Here is the part of the schematics that does this:
 <details>
 <summary>	:information_source: How Voltage And Current Are Measured</summary></details<br/>
   
-
-### Analog-To-Digital Converter (ADC) Reads Voltages
-
 The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 16-bit *ADC* (Analog-To-Digital-Converter). 
 
 * **Do not use internal *ADC***: While you could try and use the on-board *ADC* that comes with your microprocessor, the €1-2 spent for an external *ADC* like *ADS1115* are well invested. It has a much higher precision and robustness. That's important when its readings are supposed to control voltage and currency.
