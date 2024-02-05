@@ -5,7 +5,7 @@
 
 The digital control we are building here is an *external component* and does not require any changes in the stock **Buck** converter. All we need is a way to interface with it:
 
-<img src="../images/buck_interface_t.png" width="90%" height="90%" />
+<img src="../images/buck_interface_t.png" width="60%" height="60%" />
 
 The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
 
