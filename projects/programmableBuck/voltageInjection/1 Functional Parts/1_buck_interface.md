@@ -3,7 +3,7 @@
 
 ## Soldering Wires To Buck Converter
 
-The digital control we are building is a completely separate *external component* and does not require any structural changes in the stock **Buck** converter. All we need is a way to interface with it:
+The **Buck** controller is not changed in any way. The digital control we want to add is a completely separate *external component*. We just need a way to interface them.
 
 <img src="../images/buck_interface_w.png" width="60%" height="60%" />
 
