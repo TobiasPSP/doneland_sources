@@ -18,7 +18,7 @@ You can re-use this logic for many other purposes, i.e. to monitor batteries or 
 >
 > In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution. They are also super cheap. However, most of them use *R100* shunt resistors and can only handle a maximum of **3A**.
 >
-> So if you already *have* a digitally controllable way of monitoring *voltage* and *current*, you could skip this entire part, use your own solution, and directly move on to the [next part](3_injecting_voltage.md).
+> Takeaway: if you already *have* a digitally controllable way of monitoring *voltage* and *current* that you are comfortable with, you could skip this entire part, use your own monitoring solution, and directly move on to the [next part](3_injecting_voltage.md).
 
 
 ### Analog-To-Digital Converter (ADC) Reads Voltages
