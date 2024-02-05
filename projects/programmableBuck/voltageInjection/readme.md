@@ -47,7 +47,7 @@ The schematics below explain the general idea:
 
 At the heart of this design is a microcontroller (*ESP8266*) that reads the *voltage* and *current* and then generates the appropriate voltages that need to be injected into the **Buck** breakout board. 
 
-Let's break this story into separate parts for better understanding:
+Let's break this journey into parts for better understanding:
 
 * [Reviewing Functional Steps](1%20Functional%20Parts): Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
 
