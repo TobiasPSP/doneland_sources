@@ -3,7 +3,7 @@
 
 ## Concept
 
-The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. 
+The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do, so the next step is to implement a way how the microcontroller can find out these values.
 
 Here is the part of the schematics that does this:
 
