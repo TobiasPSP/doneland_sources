@@ -23,7 +23,7 @@ You can re-use this logic for many other purposes, i.e. to monitor batteries or 
 
 ### Analog-To-Digital Converter (ADC) Reads Voltages
 
-The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 12-bit *ADC* (Analog-To-Digital-Converter). 
+The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and precise 16-bit *ADC* (Analog-To-Digital-Converter). 
 
 It comes with four inputs marked as *AIN0* to *AIN3*. The chip communicates via **I2C** so it is connected to the microcontroller with just two wires: *SCL* and *SDA*.
 
