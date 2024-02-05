@@ -38,12 +38,28 @@ The *voltage* and *current* measuring is done by a **ADS1115**: a cheap and prec
 
 ## Solder Points
 
-To measure voltage and current, add wires to the **Buck** converter at the marked pins below. If you use a 6-pin connector, then you can easily attach and detach your control logic later (i.e. to test it with different **Buck** converters).
+To measure voltage and current, add wires to the **Buck** converter at the marked pins below:
 
 <img src="../images/step1 interface with buck_w.png" width="90%" height="90%" />
 
 
-The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
+## Designing The Microcontroller Hardware Setup
+
+On the other end of your connector, the six cables are consumed by an *ESP8266* microcontroller. Let's quickly recap the six pins and their assignments:
+
+
+|  Pin |  Description | Color Wire |
+| --- | --- | --- |
+| 1 GND IN | Measure current | 	:white_square_button: Black |
+| 2 GND OUT | Measure current | :black_square_button: White |
+| 3 V+ OUT | Measure voltage | :red_square: Red |
+| 4 POT1 | Voltage control | :yellow_square: Yellow |
+| 5 POT2.1 | Current control | :orange_square: Orange |
+| 6 POT2.2 | 0V reference | :green_square: Green |
+
+For the measuring part, we need pins 1, 2, and 3 only.
+
+(Remainder TBD and in the works - check back soon)
 
 
 ## Next Step
