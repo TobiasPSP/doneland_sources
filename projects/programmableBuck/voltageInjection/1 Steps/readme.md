@@ -5,7 +5,7 @@
 
 Recently, I came across an [Instructables](https://www.instructables.com/DIgital-Controlled-Bench-Power-Supply/) article from *Robert Tidey* where he built a digitally controlled bench power supply based on readily available and cheap *XL4015*-based **5A CV CC** *Buck* breakout boards.
 
-<img src="images/xl4015_cvcc.png" width="60%" height="60%" />
+<img src="./images/xl4015_cvcc.png" width="60%" height="60%" />
 
 > [!TIP]
 > Boards like the one above run at less than €1.50 and provide realistic *3-4A* of current. By default, you manually set the output *voltage* and *current* using trim potentiometers.
