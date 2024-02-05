@@ -7,6 +7,9 @@ The digital control we are building here is an *external component* and does not
 
 <img src="../images/buck_interface_t.png" width="90%" height="90%" />
 
+The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
+
+I opzted for adding a pluggable connection to the backside with all required contacts so later the **Buck** converter can easily be separated from the *digital control unit*.
 
 According to the schematics, six connection points are needed:
 
