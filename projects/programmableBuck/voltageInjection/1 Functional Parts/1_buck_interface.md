@@ -5,12 +5,13 @@
 
 The **Buck** controller is not changed in any way. The digital control we want to add is a completely separate *external component*. We just need a way to interface them.
 
-<img src="../images/buck_interface_w.png" width="60%" height="60%" />
+These are the connection points we need access to:
 
-The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
+<img src="../images/step1 interface with buck_w.png" width="90%" height="90%" />
 
-### Identifying Required Connection Points
-
+<details>
+  <summary>:information_source: Why we need access to these six pins</summary>
+  
 According to the schematics, we need a total of *six* wires to connect to the **Buck** controller:
 
 |  Pin |  Description | Color Wire |
@@ -28,20 +29,8 @@ According to the schematics, we need a total of *six* wires to connect to the **
 * **Controlling Constant Current**: Same goes for current settings: our injected voltage goes into the *middle* leg of the **CC** *potentiometer* pin.
 * **0V Reference**: We also need a **0V** reference (more later) which is accessible at the **CC** *potentiometer*.
 
-### Attaching Interface
+</details>
 
-Here is a close-up of the solder points:
-
-<img src="../images/buck_interface_solderpoints_w.png" width="60%" height="60%" />
-
-I opzted for adding a pluggable connector to the backside with all required contacts so later the **Buck** converter can easily be separated from the *digital control unit*.
-
-> [!TIP]
-> Of course, our digital control needs its own power supply as well. Since I don't want to power it externally, we will be using a separate mini buck converter that takes a high *DC* voltage and outputs the stable *3.3V* needed for an *ESP8266*.
->
-> Even though it seems tempting to choose the *output* voltage as it is lower than the *input* voltage and thus would be closer to what we need, resulting in higher efficiency, the solution is more robust when powering the digital control via the *input* power.
->
-> Else, if we ever choose to **turn off** the **Buck** controller programmatically, i.e. to enter some energy savings mode, we'd cut off ourselves from power. If we wanted to power our digital control via the interface we are designing here, thus we would need a seventh wire to expose **V+ IN**.
 
 ### Next Step
 
