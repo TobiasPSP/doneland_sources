@@ -1,7 +1,7 @@
 # Step 2: Monitoring Voltage And Current
 :stopwatch: Reading time: 5 minutes.
 
-## Quick Overview
+## Theory
 
 The microcontroller needs to know the actual *voltage* and *current* before it can tell the **Buck** breakout board what to do. This part looks at *how* a microcontroller like the *ESP8266* can monitor *current* and *voltage* of *any* power supply.
 
@@ -52,12 +52,12 @@ Since the voltage drop typically is a very low voltage, no additional *voltage d
 >
 > In fact, there are cheap boards available based on *INA226* or *INA3221* that do *current* and *voltage* measuring via *I2C* as a one-stop solution. They are also super cheap. However, most of them use *R100* shunt resistors and can only handle a maximum of **3A**. 
 
-### Building And Testing
+## Building And Testing
 
 The actual *building* and testing, including *programming* the microprocessor and adjusting the raw input readings from *ADS1115* to display the measured *voltage* and *current* on a *OLED* display can be found here (TBD, coming soon).
 
 
-### Next Step
+## Next Step
 
 Now that our microcontroller can monitor *voltage* and *current*, it is timne to *control* them. This is done by *injecting* voltages into the **Buck** controller to mimick a change in the manual potentiometers. [The next part has the details](3_injecting_voltage.md).
 
