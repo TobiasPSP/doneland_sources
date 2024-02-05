@@ -44,7 +44,9 @@ The *voltage* is measured by *AIN0* and *AIN1*: *AIN0* is connected to the posit
 Coincidentally, the **Buck** converter used has a shunt resistor built-in on its back and uses it internally to measure the output current. The shunt resistor is connected in series between **GND** input and **GND** output: the other two *ADC* inputs (*AIN2* and *AIN3*) are therefore connected to the **output GND** and the **input GND**.
 
 > [!NOTE]  
-> Should you *not* find a big black *R050* *shunt resistor* on the back of your **Buck** converter then you might be using a different model. Natively, the *XL4015* chip used in these converters supports just *constant voltage* but does *not* support *constant current*. It is the discrete logic on the breakout board that *adds* *constant current* capabilities, and there are breakout boards out there that look much alike but are missing the additional **CC** logic (in which case you can still use the board in this project, but you will only be able to control voltage, not current).
+> Should you *not* find a big black *R050* *shunt resistor* on the back of your **Buck** converter then you might be using a different model.
+>
+> Natively, the *XL4015* chip used in these converters supports just *constant voltage* but does *not* support *constant current*. It is the discrete logic on the breakout board that *adds* *constant current* capabilities, and there are breakout boards out there that look much alike but are missing the additional **CC** logic (in which case you can still use the board in this project, but you will only be able to control voltage, not current).
 >
 > The external **CC** logic consists primarily of a *shunt resistor* (to measure current, like we do), a *potentiometer* to adjust *constant current* (so these boards have *two* potentiometers and not just one), and an *OpAmp* (that produces the actual control signal to tell the *XL4015* to lower its voltage when there is an over-current).
 
