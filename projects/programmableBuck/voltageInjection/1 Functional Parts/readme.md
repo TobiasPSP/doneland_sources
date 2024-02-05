@@ -13,7 +13,7 @@ The image shows the backside of the **Buck** converter. The big **R050** *shunt 
 
 According to the schematics, we need a total of *six* wires to connect to the **Buck** controller:
 
-|  Pin |  Description | Color Wire |
+|  Pin |  Description | Wire Color |
 | --- | --- | --- |
 | GND IN | Measure current | 	:white_square_button: Black |
 | GND OUT | Measure current | :black_square_button: White |
