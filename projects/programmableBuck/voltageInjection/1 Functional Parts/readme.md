@@ -3,7 +3,7 @@
 
 ## Digitally Controlled Buck Converter In 3 Steps
 
-* **Part 1: Interface**: First we add a physical interface to the stock **Buck** converter by identifying the pins we need access to, then soldering wires or a connector to it. [Part 1](1_buck_interface.md)
+* **[Part 1](1_buck_interface.md): Interface**: First we add a physical interface to the stock **Buck** converter by identifying the pins we need access to, then soldering wires or a connector to it.
 * **Part 2: Monitoring Voltage And Current**: Next, we connect a microcontroller to the interface and use it to monitor *voltage* and *current*. At this point, the **Buck** converter has a digital display showing its output parameters, but *constant voltage* and *constant current* still need to be set manually via *potentiometers* on the **Buck**. [Part 2](2_monitoring_voltage_and_current.md)
 * **Part 3: Digitally Controlling The Buck**: Finally, we also implement the *voltage injection* part where the microcontroller actively feeds back voltages into the **Buck** controller to mimick the behavior when the two *potentiometers* are manually changed. [Part 3](3_injecting_voltage.md)
 
