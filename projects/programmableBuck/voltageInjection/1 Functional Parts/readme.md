@@ -9,11 +9,11 @@ The digital control we are building here is an *external component* and does not
 
 The image shows the backside of the **Buck** converter. The big **R050** *shunt resistor* is easily identifyable. 
 
-I opzted for adding a pluggable connection to the backside with all required contacts so later the **Buck** converter can easily be separated from the *digital control unit*.
+### Identifying Connection Points
 
 According to the schematics, we need a total of *six* wires to connect to the **Buck** controller:
 
-|  Pin |  Description | Color Wire |
+|  Pin |  Description | Wire Color |
 | --- | --- | --- |
 | GND IN | Measure current | 	:white_square_button: Black |
 | GND OUT | Measure current | :black_square_button: White |
@@ -27,6 +27,10 @@ According to the schematics, we need a total of *six* wires to connect to the **
 * **Controlling Constant Voltage**: To digitally control constant voltage, we need a connection to the voltage sensor pin of the **XL4015** which can conveniently be accessed at one of the *CV* *portentiometer* pins.
 * **Controlling Constant Current**: Same goes for current settings: our injected voltage goes into the *middle* leg of the **CC** *potentiometer* pin.
 * **0V Reference**: We also need a **0V** reference (more later) which is accessible at the **CC** *potentiometer*.
+
+### Soldering Wires
+
+I opted for adding a pluggable connector to the backside so later the **Buck** converter can easily be separated from the *digital control unit*. You can of course use plain wires and interface directly with the digital control we are going to build.
 
 Here is a close-up of the solder points:
 
