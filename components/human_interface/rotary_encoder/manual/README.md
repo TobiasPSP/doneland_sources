@@ -45,7 +45,7 @@ When you purchase a *really really raw* **Rotary Encoder**, you just get an enco
 
 A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
 
-<img src="images/RotaryEncoder_Board3.png" width="50%" height="50%" />
+<img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
 
 > [!IMPORTANT]  
 > Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
