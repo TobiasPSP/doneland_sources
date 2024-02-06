@@ -48,7 +48,7 @@ A bit easier to work with are breakout boards: they provide easily accessible pi
 <img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
 
 > [!IMPORTANT]  
-> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
+> Do not confuse these breakout boards with *smart* **Rotary Encoders** mentioned above. 
 
 Here is the schematic of such a breakout board:
 
