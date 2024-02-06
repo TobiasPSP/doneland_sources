@@ -10,14 +10,15 @@ Working with **Rotary Encoders** directly can be painful, though, because they s
 
 What they cannot work around is the fact that *raw* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press it, you need a total of **5** GPIO switches.
 
-That's why there are also *advanced* **Rotary Encoders** (discussed elsewhere): the encoder is mounted on a separate breakout board with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. 
+That's why there are also *advanced* **Rotary Encoders** (discussed elsewhere): the encoder is mounted on a separate breakout board with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** look like:
 
 <img src="images/RotaryEncoder_Smart.png" width="30%" height="30%" />
 
+In the image, you can clearly identify the dedicated microprocessor on the back of the board.
 
 Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
 
-In this section, I am looking at working with **Rotary Encoders** directly.
+In this section, we are looking at the *raw* **Rotary Encoders** and how you work with them directly.
 
 ## Testing A *Raw* Rotary Encoder
 
