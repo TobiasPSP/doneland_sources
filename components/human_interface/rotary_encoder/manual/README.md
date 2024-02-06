@@ -16,6 +16,8 @@ In this section, I am looking at working with **Rotary Encoders** directly.
 
 ## Testing A *Raw* Rotary Encoder
 
+Here is a test setup to examine how a directly connected **Rotary Encoder** can be used.
+
 For this test, you need this:
 
 * **Microprocessor**: I am using an *ESP8266*.
@@ -26,3 +28,7 @@ For this test, you need this:
 > If you have never worked with *OLED* displays before, then you should now. Of course you could output information to the *IDE*s serial monitor and skip the *OLED* stuff. But after all, we are all creating gadgets and fun electronics for the real world, so serial monitor output is really no fun.
 >
 > *OLED* displays are so inexpensive, so readily available, and so easy to use that you shouldn't hesitate to routinely add them to your microcontroller projects for outputting information in a fun and intuitive way.
+
+### Schematics
+
+
