@@ -2,23 +2,17 @@
 :stopwatch: Reading time: 10 minutes.
 
 ## *Raw* and *Advanced* Rotary Encoders
-Let's quickly define the terms:
+A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. This is what I am going to demonstrate here.
 
-* A *raw* rotary encoder is just the physical device, without any additional parts or electronic components that post-process its signals.
-* An *advanced* rotary encoder is a *raw* rotary encoder embedded in supporting hardware.
+Working with **Rotary Encoders** directly can be painful, though, because they send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. The burden is on the firmware (your software). Luckily, there are ready-to-use libraries that take over most of the tricky part.
 
-In this section, I am looking into using *simple* **Rotary Encoders**.
+What they cannot work around is the fact that *raw* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press it, you need a total of **5** GPIO switches.
 
-### Pro and Con
-There are actually just two good reasons for using *raw* **Rotary Encoders in your projects:
+That's why there are also *advanced* **Rotary Encoders** (discussed elsewhere): the encoder is mounted on a separate breakout board with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. 
 
-* **Cheap and Available**: **Rotary Encoders** are readily available in many forms and shapes, and they are very inexpensive.
-* **Simple and Small**: since you are dealing with all of the challenges and shortcomings of *raw* **Rotary Encoders** yourself, in your software, you can save physical space as you don't need any other supporting components.
+Such boards typically communicate via *IC2* so only two GPIO pins are needed (not five), and they are shared among all other *I2C* devices: so if you increase the number of **Rotary Encoders** in your project, the number of required GPIO pins does not change.
 
-On the *Con* side:
-
-* **Many I/O Pins Required**: a *raw* **Rotary Encoder** requires at least **4** GPIO pins. If the encoder also acts as a switch when you press it, you need a total of **5** GPIO pins. Plus as many wires. Most microprocessors have a very limited number of GPIOs. This is a scarce and valuable resource. 
-* **Complex Programming**: the **Rotary Encoder** sends raw impulses to your microprocessor. You (your firmware) needs to interpret these and figure out i.e. in which direction (and how fast) the encoder is moving. The software needs to deal with noisy (bouncing) keys, too. Your microprocessor will have to spend a significant part of its capabilities just on interpreting the encoder signals. Your software gets more complex, too. 
+In this section, I am looking at working with **Rotary Encoders** directly.
 
 ## Testing A *Raw* Rotary Encoder
 
