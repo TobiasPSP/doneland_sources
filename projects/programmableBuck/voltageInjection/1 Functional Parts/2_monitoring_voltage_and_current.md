@@ -57,7 +57,9 @@ On the other end of your connector, the six cables are consumed by an *ESP8266* 
 | 5 POT2.1 | Current control | :orange_square: Orange |
 | 6 POT2.2 | 0V reference | :green_square: Green |
 
-For the measuring part, we need pins 1, 2, and 3 only.
+For the measuring part, we need pins 1, 2, and 3 only. Here is the schematics:
+
+<img src="../images/programmable_buck_components_w.png" width="50%" height="50%" />
 
 (Remainder TBD and in the works - check back soon)
 
