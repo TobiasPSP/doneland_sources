@@ -158,7 +158,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 >
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
-<img src="images/tester.jpg" width="40%" height="40%" />
+<img src="images/tester.jpg" width="30%" height="30%" />
 
 
 If you have neither a *component tester* device nor the data sheet, then there are a few rules of thumb though (use at own risk):
