@@ -4,6 +4,8 @@
 ## *Raw* and *Advanced* Rotary Encoders
 A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. This is what I am going to demonstrate here.
 
+<img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
+
 Working with **Rotary Encoders** directly can be painful, though, because they send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. The burden is on the firmware (your software). Luckily, there are ready-to-use libraries that take over most of the tricky part.
 
 What they cannot work around is the fact that *raw* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press it, you need a total of **5** GPIO switches.
