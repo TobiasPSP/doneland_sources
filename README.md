@@ -17,7 +17,7 @@ This repository grows as I move along. I'd be thrilled if some of the content is
 
 Single parts of electrical circuits with one dominant function:
 
-* [Transistors](transistor)
+* [Transistors](components/transistor)
 
 ## DC-DC Converters
 
@@ -27,7 +27,7 @@ Chips are typically sold embedded in a ready-to-go breakout board.
 
 ### Buck-Converter (lowering the voltage)
 
-* [XL4005](DC-DC-Converter/buck/XL4005)
-* [XL4015](DC-DC-Converter/buck/XL4015)
-*  [XL4016](DC-DC-Converter/buck/XL4016)
+* [XL4005](components/DC-DC-Converter/buck/XL4005)
+* [XL4015](components/DC-DC-Converter/buck/XL4015)
+*  [XL4016](components/DC-DC-Converter/buck/XL4016)
 
