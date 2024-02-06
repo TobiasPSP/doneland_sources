@@ -1,33 +1,35 @@
-# **Electronics101** Start Page
+# Raw Rotary Encoders
+:stopwatch: Reading time: 10 minutes.
 
-Welcome to this repository: here you find information about electronic components, microcontrollers, plus many examples illustrating actual usage.
+## *Raw* and *Advanced* Rotary Encoders
+Let's quickly define the terms:
 
-All content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate and safe practical use.
+* A *raw* rotary encoder is just the physical device, without any additional parts or electronic components that post-process its signals.
+* An *advanced* rotary encoder is a *raw* rotary encoder embedded in supporting hardware.
 
-> [!TIP]
-> If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an [issue](/../../issues), or visit the [discussion](/../../discussions) forum.
-> 
-> We focus on *practically relevant* information. Please do not file an issue if you feel that there is an *academic* issue with terminology used or explanations given.
-> 
-> Should you find information that is simply *wrong* or would even lead to *damage* or *malfunction*, or if you'd like to share own *practically relevant* experience, you are most welcome.
+In this section, I am looking into using *simple* **Rotary Encoders**.
 
-This repository grows as I move along. I'd be thrilled if some of the content is useful for you.
+### Pro and Con
+There are actually just two good reasons for using *raw* **Rotary Encoders in your projects:
 
-## Discrete Components
+* **Cheap and Available**: **Rotary Encoders** are readily available in many forms and shapes, and they are very inexpensive.
+* **Simple and Small**: since you are dealing with all of the challenges and shortcomings of *raw* **Rotary Encoders** yourself, in your software, you can save physical space as you don't need any other supporting components.
 
-Single parts of electrical circuits with one dominant function:
+On the *Con* side:
 
-* [Transistors](components/basic/transistor)
+* **Many I/O Pins Required**: a *raw* **Rotary Encoder** requires at least **4** GPIO pins. If the encoder also acts as a switch when you press it, you need a total of **5** GPIO pins. Plus as many wires. Most microprocessors have a very limited number of GPIOs. This is a scarce and valuable resource. 
+* **Complex Programming**: the **Rotary Encoder** sends raw impulses to your microprocessor. You (your firmware) needs to interpret these and figure out i.e. in which direction (and how fast) the encoder is moving. The software needs to deal with noisy (bouncing) keys, too. Your microprocessor will have to spend a significant part of its capabilities just on interpreting the encoder signals. Your software gets more complex, too. 
 
-## DC-DC Converters
+## Testing A *Raw* Rotary Encoder
 
-Chips that can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
+For this test, you need this:
 
-Chips are typically sold embedded in a ready-to-go breakout board.
+* **Microprocessor**: I am using an *ESP8266*.
+* **Rotary Encoder**: I am using a vanilla type with built-in switch (5-pn model)
+* **OLED Display**: I am using a vanilla *I2C* 0.96 inch *SSD1306* display
 
-### Buck-Converter (lowering the voltage)
-
-* [XL4005](components/power/DC-DC-Converter/buck/XL4005)
-* [XL4015](components/power/DC-DC-Converter/buck/XL4015)
-*  [XL4016](components/power/DC-DC-Converter/buck/XL4016)
+> [!NOTE]  
+> Instead of outputting feedback to the *OLED* display, you could as well write to the serial monitor.
+>
+> *OLED* displays are inexpensive, readily available, and easy to use. That's why I prefer them over serial debug messaging.
 
