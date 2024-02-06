@@ -33,7 +33,7 @@ For this test, you need this:
 
 When you purchase a *really raw* **Rotary Encoder**, you get an encoder switch which looks similar to a potentiometer and has four or five "legs", two on one side and two or three on the other:
 
-<img src="images/rotaryEncoder_RawPins_w" width="50%" height="50%" />
+<img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
 Most of the time, **Rotary Encoders** are used mounted on a very simple breakout board which typically adds three pullup resistors and provides easily accessible output pins:
 
