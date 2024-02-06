@@ -1,20 +1,22 @@
 # Raw Rotary Encoders
 :stopwatch: Reading time: 10 minutes.
 
-## *Raw* and *Advanced* Rotary Encoders
-A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. The image shows an actual *raw* **Rotary Encoder** at the left side. Often, they are mounted to a simple breakout board like the one on the right side:
+## *Raw* and *Smart* Rotary Encoders
+A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. 
+
+The picture below shows a *raw* **Rotary Encoder** at the left side. Often, they are mounted to a simple breakout board like the one on the right side:
 
 <img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
 
-Working with **Rotary Encoders** directly can be painful, though, because they send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. The burden is on the firmware (your software). Luckily, there are ready-to-use libraries that take over most of the tricky part.
+Working with **Rotary Encoders** directly can be painful, though, because they are *dumb* devices and send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. To work with these, the firmware (your software) needs to be smart and know how to identify and interpret the raw signals. Luckily, there are ready-to-use libraries that take over most of the tricky part.
 
 What they cannot work around is the fact that *raw* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press it, you need a total of **5** GPIO switches.
 
-That's why there are also *advanced* **Rotary Encoders** (discussed elsewhere): the encoder is mounted on a separate breakout board with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** look like:
+That's why there are also *smart* **Rotary Encoders** (discussed elsewhere): the encoder comes with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** can look like:
 
 <img src="images/RotaryEncoder_Smart.png" width="30%" height="30%" />
 
-In the image, you can clearly identify the dedicated microprocessor on the back of the board.
+In the picture, you can clearly identify the dedicated microprocessor that makes this **Rotary Encoder** smart.
 
 Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
 
@@ -37,12 +39,16 @@ For this test, you need this:
 
 ### Different Types
 
-When you purchase a *really raw* **Rotary Encoder**, you get an encoder switch which looks similar to a potentiometer and has four or five "legs", two on one side and two or three on the other:
+When you purchase a *really really raw* **Rotary Encoder**, you just get an encoder switch which looks similar to a potentiometer. It has four or five "legs", two on one side and two or three on the other:
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
-Most of the time, **Rotary Encoders** are used mounted on a very simple breakout board which typically adds three pullup resistors and provides easily accessible output pins:
+A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
 
+<img src="images/RotaryEncoder_Board3.png" width="50%" height="50%" />
+
+> [!IMPORTANT]  
+> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
 
 Here is the schematic of such a breakout board:
 
