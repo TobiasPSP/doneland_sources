@@ -2,7 +2,7 @@
 :stopwatch: Reading time: 10 minutes.
 
 ## *Raw* and *Advanced* Rotary Encoders
-A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. This is what I am going to demonstrate here.
+A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. The image shows an actual *raw* **Rotary Encoder** at the left side. Often, they are mounted to a simple breakout board like the one on the right side:
 
 <img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
 
