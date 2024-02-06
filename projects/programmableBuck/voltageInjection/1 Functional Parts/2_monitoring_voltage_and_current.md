@@ -59,7 +59,24 @@ On the other end of your connector, the six cables are consumed by an *ESP8266* 
 
 For the measuring part, we need pins 1, 2, and 3 only. Here is the schematics:
 
+This is the parts list we need for now:
+
+* **Microcontroller**: 1x *ESP8266* (I used a *Wemos D1 Mini* breakout board at €1-2)
+* **Analog-Digital-Converter (ADC)**: 1x *ADS1115* (I used the super-mini breakout board at less than €2)
+* **Voltage Divider**: 2x resistor (*1K* and *10K*) to lower the output voltage and meet the *ADS1115* range
+* **OLED Display**: 1x generic 0.96 inch *I2C OLED* display (optional, most any *SSD1306* controlled *OLED* device will work. I used one from *AliExpress* for about €1)
+* **Rotary Encoder**: 1x generic *I2C Rotary Encoder* (optional, I used [this one](https://www.duppa.net/shop/i2cencoder-mini-with-soldered-accessory/?v=3a52f3c22ed6) at less than €3.
+* **5V Power Supply**: add a power supply for the *ESP8266* of your choice. This can be a battery, a USB port, a voltage regulator that takes the power from the **Buck** controller input or output, etc.
+
 <img src="../images/programmable_buck_components_w.png" width="50%" height="50%" />
+
+> [!NOTE]  
+> Terminals in the below schematics make it simple to add (or not add) external components such as a display and/or a rotary encoder.
+>
+> * 2-port terminal to provide 5V input power for the microprocessor
+> * 4-port terminal to optionally connect a *I2C OLED display (SSD1306)*
+> * 5-port terminal to optionally connect a *I2C Rotary Encoder Knob*
+> * 6-port terminal to connect to the **Buck** controller we want to digitally control
 
 (Remainder TBD and in the works - check back soon)
 
