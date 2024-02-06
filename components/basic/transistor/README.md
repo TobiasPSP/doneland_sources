@@ -165,11 +165,7 @@ If you have neither a *component tester* device nor the data sheet, then there a
 
 ## Plastic Casing With Flat Side
 
-*BJT* transistory typically come in a black plastic casing with one *flat* side which is the *front* side. To identify the pins, look at the flat side and keep the pins pointing downwards:
-
-* **NPN**: (from left to right) the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
-* **PNP**: (from left to right) the order is reversed, and the pins are *Emitter*, *Base*, *Collector*
-
+*BJT* transistory typically come in a black plastic casing with one *flat* side which is the *front* side. To identify the pins, look at the flat side and keep the pins pointing downwards: from left to right, the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
 
 <img src="images/bjt_pins.PNG" width="50%" height="50%" />
 
