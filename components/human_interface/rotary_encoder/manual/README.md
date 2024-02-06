@@ -12,6 +12,9 @@ What they cannot work around is the fact that *raw* **Rotary Encoders** require 
 
 That's why there are also *advanced* **Rotary Encoders** (discussed elsewhere): the encoder is mounted on a separate breakout board with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. 
 
+<img src="images/RotaryEncoder_Smart.png" width="50%" height="50%" />
+
+
 Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
 
 In this section, I am looking at working with **Rotary Encoders** directly.
