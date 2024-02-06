@@ -29,6 +29,21 @@ For this test, you need this:
 >
 > *OLED* displays are so inexpensive, so readily available, and so easy to use that you shouldn't hesitate to routinely add them to your microcontroller projects for outputting information in a fun and intuitive way.
 
+### Different Types
+
+When you purchase a *really raw* **Rotary Encoder**, you get an encoder switch which looks similar to a potentiometer and has four or five "legs", two on one side and two or three on the other:
+
+PIC RAW RE
+
+Most of the time, **Rotary Encoders** are used mounted on a very simple breakout board which typically adds three pullup resistors and provides easily accessible output pins:
+
+
+Here is the schematic of such a breakout board:
+
+
+
+
+
 ### Schematics
 
 
