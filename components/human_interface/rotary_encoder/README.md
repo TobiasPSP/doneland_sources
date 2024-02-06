@@ -1,12 +1,27 @@
-# Raw Rotary Encoders
+# Rotary Encoders
 :stopwatch: Reading time: 10 minutes.
 
-## *Raw* and *Smart* Rotary Encoders
-A *raw* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. 
+## Endless Turns And A Switch
+
+**Rotary Encoders** look similar to *potentiometers* but they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
+
+To register when the knob turns, the **Rotary Encoder** internally has two switches and a disk with holes. WHen you turn the encoder knob, the disk turns. Whenever a hole in the disk passes the two switches, they get contact to **GND**, one after the other.
+
+When you turn the knob in one direction, then switch A gets contact before switch B, and when you turn the knob in the other direction, it is the other way around.
+
+Some **Rotary Encoder** have a third (and independent) switch that is activated when the knob is pressed.
+
+
+
 
 The picture below shows a *raw* **Rotary Encoder** at the left side. Often, they are mounted to a simple breakout board like the one on the right side:
 
 <img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
+
+
+## *Raw* and *Smart* 
+A **Rotary Encoder** is just the physical device itself, basically consisting of three switches. You can directly connect it to your microcontroller and work with it. 
+
 
 Working with **Rotary Encoders** directly can be painful, though, because they are *dumb* devices and send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. To work with these, the firmware (your software) needs to be smart and know how to identify and interpret the raw signals. Luckily, there are ready-to-use libraries that take over most of the tricky part.
 
