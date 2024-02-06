@@ -1,24 +1,24 @@
-# "Dumb" Rotary Encoders
+# Rotary Encoders
 :stopwatch: Reading time: 10 minutes.
 
-## "Dumb" And "Smart"
-A *dumb* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. 
+## "Simple" And "Smart"
+A *simple* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. 
 
-The picture below shows a *dumb* **Rotary Encoder** (left). Often, they are mounted to a simple breakout board (right):
+The picture below shows a *simple* **Rotary Encoder** (left). Often, they are mounted to a breakout board (right):
 
 <img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
 
-Working with *dumb* **Rotary Encoders** directly can be painful, though: since they are *dumb* devices, they send raw data that needs to be post-processed and interpreted in order to properly figure out what the **Rotary Encoder** is actually doing. 
+Working with *simple* **Rotary Encoders** directly can be painful, though: since they are in essence *dumb* switches, they send raw data that needs to be post-processed and interpreted in order to properly figure out what the **Rotary Encoder** is actually doing. 
 
-The smart *post-processing* is done by your software (firmware) and your microcontroller. Luckily, there are ready-to-use libraries that handle most of the tricky parts.
+The smart *post-processing* needs to be done by your software (firmware) and your microcontroller. Luckily, there are ready-to-use libraries that handle most of the tricky parts and work reliably.
 
-What libraries cannot work around is the fact that *dumb* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press on it, you even need a total of **5** GPIO switches.
+What libraries cannot work around though is the fact that *simple* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press on it, you even need a total of **5** GPIO switches.
 
-That's why there are also *smart* **Rotary Encoders**: the encoder comes bundled with its own specialized mini-processor who does all the heavy lifting (so you and your microprocessor don't have to worry about it anymore): signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** can look like:
+That's why there are *smart* **Rotary Encoders**, too: they basically bundle their own specialized mini-processor who take over the heavy lifting that normally you would have to do: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** can look like:
 
 <img src="images/RotaryEncoder_Smart.png" width="30%" height="30%" />
 
-In the picture, you can clearly identify the dedicated microprocessor that makes this **Rotary Encoder** smart.
+In the picture, you see the dedicated microprocessor that makes this **Rotary Encoder** smart.
 
 Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
 
