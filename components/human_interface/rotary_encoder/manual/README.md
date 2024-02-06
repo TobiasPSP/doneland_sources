@@ -19,7 +19,7 @@ In this section, I am looking at working with **Rotary Encoders** directly.
 For this test, you need this:
 
 * **Microprocessor**: I am using an *ESP8266*.
-* **Rotary Encoder**: I am using a vanilla type with built-in switch (5-pn model)
+* **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
 * **OLED Display**: I am using a vanilla *I2C* 0.96 inch *SSD1306* display
 
 > [!NOTE]  
