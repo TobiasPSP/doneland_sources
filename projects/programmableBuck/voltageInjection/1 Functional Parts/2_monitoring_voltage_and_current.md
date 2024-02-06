@@ -68,6 +68,10 @@ This is the parts list we need for now:
 * **Rotary Encoder**: 1x generic *I2C Rotary Encoder* (optional, I used [this one](https://www.duppa.net/shop/i2cencoder-mini-with-soldered-accessory/?v=3a52f3c22ed6) at less than €3.
 * **5V Power Supply**: add a power supply for the *ESP8266* of your choice. This can be a battery, a USB port, a voltage regulator that takes the power from the **Buck** controller input or output, etc.
 
+### Doing The Wiring
+
+Here are the schematics to connect the parts list from above:
+
 <img src="../images/programmable_buck_components_w.png" width="50%" height="50%" />
 
 > [!NOTE]  
