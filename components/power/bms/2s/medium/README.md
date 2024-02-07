@@ -1,16 +1,9 @@
-# 2S BMS for Small Loads
+# 2S BMS for Medium Loads
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
 
-For projects with small current needs in the range of *3A* with occasional spikes of up to *5A*, a tiny breakout board can provide all the protection features needed. 
-
-The board dinmensions are a mere 3.6cm x 0.7cm at 2mm overall height. The total cost including customs and shipping is around € 0.50/piece when ordered in quantities of 10.
-
-> [!TIP]
-> There are BMS boards with much higher specs at similar cost. It still makes a lot of sense to look into this module because of its size. 
->
-> If your project does not require huge currents, then why waste precious space when you can get all the required battery protection in such a small form factor?
+For projects with medium current needs in the range of *8A* with occasional spikes of up to *15A*, at 4.1cm x 1.6cm x 0.35cm a small and reasonably-priced breakout board delivers the required protection features. The total cost including customs and shipping is around € 0.80/piece when ordered in quantities of 10.
 
 ## Setup
 
@@ -31,13 +24,7 @@ Here is the list of protection features:
 | Feature | Support | Trigger Threshold |
 | --- | --- | --- |
 | Over voltage | yes | >4.25-4.35V |
-| Over discharge | yes | <2.3-3V |
-| Max continuous current | yes | 3A |
-| Max peak current | yes | 5A |
-| Sort circuit | yes | resettable by initiating a charge |
-
-This is the list of charging features:
-
-
-
-<img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
+| Over discharge | yes | <2.5-3V |
+| Max continuous current | yes | 8A |
+| Max peak current | yes | 15A |
+| Short circuit | yes | resettable by initiating a charge |
