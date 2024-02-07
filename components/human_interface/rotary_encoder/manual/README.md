@@ -27,18 +27,16 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
-However, these breakout boards unexpectedly now require one additional connection to **V+**. A total of **5** wires are now required to connect the **Rotary Encoder**. Why is that?
-
-The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
+Breakout typically have one more pin called **V+**. You do not need to connect this pin. If you do, this is what happens:
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
-The breakout board simply adds three *pull-up resistors* that make sure that all three output pins are *pulled up* when the switch is *open*. The only reason why the boards have an additional **+** (or **V+**) pin is to provide positive voltage for these pullup resistors to pull the outputs up.
+When positive voltage is (optionally) supplied to pin **+**, it is supplied to three *pullup resistors* that in turn *pull up* the output pins. 
 
 > [!TIP]
-> Simply leave the **+** pin unconnected on such breakout boards if you don't have a wire to spare. If you do, the breakout board is no longer pulling the outputs up. That's all.
+> You *can* supply positive voltage to the **+** pin. It's completely optional, and you should do this only if you need to actively *pull up* the output pins. 
 >
-> You probably do not need the pullup resistors anyway. Most microcontrollers feature GPIOs that have built-in pullup resistors that you can easily activate by software.
+> Since microcontroller GPIOs typically have built-in pullup resistors that you can easily activate by software, in most cases the **+** pin is not needed.
 
 
 
