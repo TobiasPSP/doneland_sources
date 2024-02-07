@@ -34,4 +34,4 @@ Here is the list of protection features:
 | Over discharge | yes | <2.3-3V |
 | Max continuous current | yes | 3A |
 | Max peak current | yes | 5A |
-| Sort circuit | yes | resettable by initiating a charge |
+| Short circuit | yes | resettable by initiating a charge |
