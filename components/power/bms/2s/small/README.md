@@ -35,9 +35,3 @@ Here is the list of protection features:
 | Max continuous current | yes | 3A |
 | Max peak current | yes | 5A |
 | Sort circuit | yes | resettable by initiating a charge |
-
-This is the list of charging features:
-
-
-
-<img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
