@@ -58,7 +58,6 @@ Here is the code:
 #define SW_PIN D5   // pin D5 connected to the rotary encoder's SW (SWITCH) pin
 
 // define modes of movement
-
 #define DIRECTION_R 0   // turned right
 #define DIRECTION_L 1   // turned left
 
@@ -69,7 +68,6 @@ int CLKstate;
 int buttonState;
 int prev_CLKstate;
 int prev_buttonState;
-
 
 void setup() {
   // make sure the baud rate matches your settings
@@ -83,8 +81,6 @@ void setup() {
   // initialize the previous CLK state (status of internal switch A)
   prev_CLKstate = digitalRead(CLK_PIN);
   prev_buttonState = digitalRead(SW_PIN);
-
-
 }
 
 void loop() {
@@ -132,7 +128,5 @@ void loop() {
     // remember current state for next time:
     prev_buttonState = buttonState; 
   }
-
 }
-
 ```
