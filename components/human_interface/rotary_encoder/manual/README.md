@@ -6,6 +6,13 @@
 ## Rotary Encoder Pins
 Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go. Here is the pin-out for most encoder types:
 
+| Pin | Description |
+| --- | --- |
+| OUT A | Sometimes also called **CLK**. Connects to switch A inside the encoder |
+| OUT B | Sometimes also called **DT**. Connects to switch B inside the encoder |
+| SWITCH | Connects to the (optional) third switch that is enabled by pressing the encoder knob |
+| GND | Ground. Both pins marked as **GND** are not connected. You must supply **GND** to both of them |
+
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
 When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics look like this:
