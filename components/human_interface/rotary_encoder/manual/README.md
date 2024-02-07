@@ -49,7 +49,7 @@ Connect the **Rotary Encoder** to the microcontroller as described above. It doe
 
 Here is the code:
 
-````c++
+```c++
 #include <Arduino.h>
 
 // define input pins
