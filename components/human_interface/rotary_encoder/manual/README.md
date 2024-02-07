@@ -27,7 +27,7 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
-Breakout boards typically have one more pin called **V+**. You do not need to connect this pin. If you do, this is what happens:
+Breakout boards typically have one more pin labelled **+** or **V+**. You do not need to connect this pin. If you do, this is what happens:
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
