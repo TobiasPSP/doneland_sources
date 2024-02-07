@@ -27,11 +27,11 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
-However, these breakout boards require **5** wires, one additional connection to **V+** is required. Why is that?
+However, these breakout boards unexpectedly now require one additional connection to **V+**. A total of **5** wires are now required to connect the **Rotary Encoder**. Why is that?
 
 The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
 
-<img src="images/rotarySimpleBreakoutWithLogic_w.png" width="40%" height="40%" />
+<img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
 The breakout board simply adds three *pull-up resistors* that make sure that all three output pins are *pulled up* when the switch is *open*. The only reason why the boards have an additional **+** (or **V+**) pin is to provide positive voltage for these pullup resistors to pull the outputs up.
 
