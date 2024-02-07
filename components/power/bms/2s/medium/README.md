@@ -3,7 +3,9 @@
 
 ## Overview
 
-For projects with medium current needs in the range of *8A* with occasional spikes of up to *15A*, at 4.1cm x 1.6cm x 0.35cm a small and reasonably-priced breakout board delivers the required protection features. The total cost including customs and shipping is around € 0.80/piece when ordered in quantities of 10.
+For projects with medium current needs in the range of *8A* with occasional spikes of up to *15A*, at 4.1cm x 1.6cm x 0.35cm a small and reasonably-priced breakout board delivers the required protection features. 
+
+The total cost including customs and shipping is around € 0.80/piece when ordered in quantities of 10.
 
 ## Setup
 
