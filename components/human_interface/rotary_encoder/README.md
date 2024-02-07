@@ -3,74 +3,34 @@
 
 ## Endless Turns And A Switch
 
-**Rotary Encoders** look similar to *potentiometers* but they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
+**Rotary Encoders** are *input devices*. While they look similar to *potentiometers*, they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
 
-To register when the knob turns, the **Rotary Encoder** internally has two switches and a disk with holes. WHen you turn the encoder knob, the disk turns. Whenever a hole in the disk passes the two switches, they get contact to **GND**, one after the other.
+To register when the knob turns, the **Rotary Encoder** internally has a disk with holes and two switches. When you turn the encoder knob, the disk turns. Whenever a hole in the disk passes the two switches, they get contact to **GND**, one after the other.
 
-When you turn the knob in one direction, then switch A gets contact before switch B, and when you turn the knob in the other direction, it is the other way around.
+When you turn the knob in *one* direction, then switch A gets contact before switch B, and when you turn the knob in the *other* direction, it is the other way around. The *frequency* of impulses sent by both switches indicates the speed in which the knob is turned.
 
 Some **Rotary Encoder** have a third (and independent) switch that is activated when the knob is pressed.
-
-
-
 
 The picture below shows a *raw* **Rotary Encoder** at the left side. Often, they are mounted to a simple breakout board like the one on the right side:
 
 <img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
 
+## *Smart* **Rotary Encoders** 
+Internally, a **Rotary Encoder** is a very simple construct consisting of a disk and two or three switches. When you connect a **Rotary Encoder** *directly* to your microcontroller, then *you* have to do all the heavy-lifting yourself:
 
-## *Raw* and *Smart* 
-A **Rotary Encoder** is just the physical device itself, basically consisting of three switches. You can directly connect it to your microcontroller and work with it. 
+* **Debouncing**: mechanical switches *bounce* (when pressed, they can vibrate and send more than just one impulse). You would have to electrically or in software *debounce* the encoder input.
+* **Signal Analysis/Post-Processing**: as the encoder is just sending two phase-shifted *High/Low* signals from its two internal switches, your software needs to figure out the direction of phase shift to determine the rotational direction, and analyze the signal frequency to determine the rotational speed.
 
+Fortunately, there are a lot of libraries available that take care of these things. Two things remain, though, that the libraries can't leverage when you work directly with **Rotary Encoders**:
 
-Working with **Rotary Encoders** directly can be painful, though, because they are *dumb* devices and send raw data that needs to be post-processed and interpreted in order to figure out what the **Rotary Encoder** is actually doing. To work with these, the firmware (your software) needs to be smart and know how to identify and interpret the raw signals. Luckily, there are ready-to-use libraries that take over most of the tricky part.
+* **Many GPIO Pins**: You need one wire per switch plus **GND**, so depending on whether the encoder has an additional *press* switch, between *3* and *4* wires and between *2* and *3* GPIO pins.
+* **CPU Load**: Whenever the **Rotary Encoder** moves, your CPU has work to do, on top of the monitoring load.
 
-What they cannot work around is the fact that *raw* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press it, you need a total of **5** GPIO switches.
-
-That's why there are also *smart* **Rotary Encoders** (discussed elsewhere): the encoder comes with its own mini-processor who does all the heavy lifting: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** can look like:
+That's why there are also *smart* **Rotary Encoders**: all of the hassle described above is shiftet over to a dedicated microprocessor. Here is a picture of such a *smart* **Rotary Encoders**:
 
 <img src="images/RotaryEncoder_Smart.png" width="30%" height="30%" />
 
-In the picture, you can clearly identify the dedicated microprocessor that makes this **Rotary Encoder** smart.
+You can clearly see the dedicated microprocessor that makes this **Rotary Encoder** *smart*.
 
-Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
-
-In this section, we are looking at the *raw* **Rotary Encoders** and how you work with them directly.
-
-## Testing A *Raw* Rotary Encoder
-
-Here is a test setup to examine how a directly connected **Rotary Encoder** can be used.
-
-For this test, you need this:
-
-* **Microprocessor**: I am using an *ESP8266*.
-* **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
-* **OLED Display**: I am using a vanilla *I2C* 0.96 inch *SSD1306* display
-
-> [!NOTE]  
-> If you have never worked with *OLED* displays before, then you should now. Of course you could output information to the *IDE*s serial monitor and skip the *OLED* stuff. But after all, we are all creating gadgets and fun electronics for the real world, so serial monitor output is really no fun.
->
-> *OLED* displays are so inexpensive, so readily available, and so easy to use that you shouldn't hesitate to routinely add them to your microcontroller projects for outputting information in a fun and intuitive way.
-
-### Different Types
-
-When you purchase a *really really raw* **Rotary Encoder**, you just get an encoder switch which looks similar to a potentiometer. It has four or five "legs", two on one side and two or three on the other:
-
-<img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
-
-A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
-
-<img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
-
-> [!IMPORTANT]  
-> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
-
-Here is the schematic of such a breakout board:
-
-
-
-
-
-### Schematics
-
+Such boards typically communicate via *IC2*: just two wires are needed (not four), and just two GPIO pins. These GPIO pins are shared among all other *I2C* devices, too. If you increase the number of **Rotary Encoders** in your project or use other *I2C* devices like *OLED* screens, the number of required GPIO stays the same.
 
