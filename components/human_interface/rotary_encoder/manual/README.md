@@ -38,43 +38,102 @@ When positive voltage is (optionally) supplied to pin **+**, it is supplied to t
 >
 > Since microcontroller GPIOs typically have built-in pullup resistors that you can easily activate by software, in most cases the **+** pin is not needed and should not be connected.
 
-
-
-
-
+## Live Working Example
 
 For this test, you need this:
 
 * **Microprocessor**: I am using an *ESP8266*.
 * **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
-* **OLED Display**: I am using a vanilla *I2C* 0.96 inch *SSD1306* display
 
-> [!NOTE]  
-> If you have never worked with *OLED* displays before, then you should now. Of course you could output information to the *IDE*s serial monitor and skip the *OLED* stuff. But after all, we are all creating gadgets and fun electronics for the real world, so serial monitor output is really no fun.
->
-> *OLED* displays are so inexpensive, so readily available, and so easy to use that you shouldn't hesitate to routinely add them to your microcontroller projects for outputting information in a fun and intuitive way.
+Connect the **Rotary Encoder** to the microcontroller as described above. It does not matter whether you are using a pure mechanical **Rotary Encoder** or a breakout board. If you do use a breakout board, leave the **+**/**V+** pin unconnected.
 
-### Different Types
+Here is the code:
 
-When you purchase a *really really raw* **Rotary Encoder**, you just get an encoder switch which looks similar to a potentiometer. It has four or five "legs", two on one side and two or three on the other:
+````c++
+#include <Arduino.h>
 
+// define input pins
+#define CLK_PIN D7  // pin D7 connected to the rotary encoder's CLK (OUT A) pin
+#define DT_PIN D6   // pin D6 connected to the rotary encoder's DT (OUT B) pin
+#define SW_PIN D5   // pin D5 connected to the rotary encoder's SW (SWITCH) pin
 
+// define modes of movement
 
-A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
+#define DIRECTION_R 0   // turned right
+#define DIRECTION_L 1   // turned left
 
-<img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
-
-> [!IMPORTANT]  
-> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
-
-Here is the schematic of such a breakout board:
-
-
-
-
-
-### Schematics
+// define state variables
+int counter = 0;
+int direction = DIRECTION_R;
+int CLKstate;
+int buttonState;
+int prev_CLKstate;
+int prev_buttonState;
 
 
+void setup() {
+  // make sure the baud rate matches your settings
+  Serial.begin(115200);
+
+  // configure pins and activate pullup
+  pinMode(CLK_PIN, INPUT_PULLUP);
+  pinMode(DT_PIN, INPUT_PULLUP);
+  pinMode(SW_PIN, INPUT_PULLUP);
+  
+  // initialize the previous CLK state (status of internal switch A)
+  prev_CLKstate = digitalRead(CLK_PIN);
+  prev_buttonState = digitalRead(SW_PIN);
+
+
+}
+
+void loop() {
+  // manually monitoring and post-processing rotary encoder signals
+  
+  // monitor the rotating knob first:
+
+  // check current state of switch A
+  CLKstate = digitalRead(CLK_PIN);
+
+  // any change from before? Then is it now ON (HIGH)?
+  if (CLKstate != prev_CLKstate && CLKstate == HIGH) {
+    // let's check switch B to find out the direction
+    // in clockwise direction, A fires before B, so switch B should be HIGH 
+    // (HIGH = switch is NOT ON (all inputs are pulled up and connect to GND when switch is active))
+    if (digitalRead(DT_PIN) == HIGH) {
+      counter++;
+      direction = DIRECTION_R;
+    } else {
+      counter--;
+      direction = DIRECTION_L;
+    }
+
+    Serial.print("Direction: ");
+    if (direction == DIRECTION_R)
+      Serial.print("to the right");
+    else
+      Serial.print("to the left");
+
+    Serial.print(" - Increments: ");
+    Serial.println(counter);
+  }
+
+  // remember current state for next time
+  prev_CLKstate = CLKstate;
+
+  // pins are HIGH by default and switch to LOW when a switch contacts GND:
+  buttonState = digitalRead(SW_PIN);
+  if (buttonState != prev_buttonState) 
+  {
+    if (buttonState == LOW)
+      Serial.println("The button was PRESSED.");
+    else
+      Serial.println("The button was RELEASED.");
+    // remember current state for next time:
+    prev_buttonState = buttonState; 
+  }
+
+}
+```
 
 
