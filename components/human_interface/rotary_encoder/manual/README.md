@@ -1,4 +1,4 @@
-# Connecting Directly
+# Using Mechanical Rotary Encoder
 :stopwatch: Reading time: 10 minutes.
 
 <img src="images/RotaryRight.png" width="10%" height="10%" />
@@ -7,6 +7,10 @@
 Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go. Here is the pin-out for most encoder types:
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
+
+When hooking up such a mechanical **Rotary Encoder* to your microprocessor, the schematics look like this:
+
+<img src="images/wiring_RotaryEncoder.png" width="50%" height="50%" />
 
 
 For this test, you need this:
