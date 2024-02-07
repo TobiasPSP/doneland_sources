@@ -1,7 +1,7 @@
 # Connecting Directly
 :stopwatch: Reading time: 10 minutes.
 
-<img src="images/RotaryRight.png" width="50%" height="50%" />
+<img src="images/RotaryRight.png" width="10%" height="10%" />
 
 ## Live Test
 Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go.
