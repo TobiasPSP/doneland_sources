@@ -10,4 +10,5 @@ With the voltage range of 3.7V-4.2V for LiIon and LiPo batteries, this results i
 To safely operate *2S* battery packs, you can add a cheap and powerful *BMS* system:
 
 [Small loads (up to 3A)](small)
+
 [Medium loads (up to 8A)](medium)
