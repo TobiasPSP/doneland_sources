@@ -3,8 +3,11 @@
 
 <img src="images/RotaryRight.png" width="10%" height="10%" />
 
-## Live Test
-Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go.
+## Rotary Encoder Pins
+Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go. Here is the pin-out for most encoder types:
+
+<img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
+
 
 For this test, you need this:
 
@@ -21,7 +24,7 @@ For this test, you need this:
 
 When you purchase a *really really raw* **Rotary Encoder**, you just get an encoder switch which looks similar to a potentiometer. It has four or five "legs", two on one side and two or three on the other:
 
-<img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
+
 
 A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
 
