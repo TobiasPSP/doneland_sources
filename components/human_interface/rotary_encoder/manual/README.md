@@ -23,7 +23,7 @@ To connect the **Rotary Encoder** to the microprocessor you need **4** wires and
 
 ### Using Breakout Boards
 
-A bit easier to work with are breakout boards: they provide pins: 
+A bit easier to work with are simple and readily available breakout boards that have a mechnical **Rotary Encoder** soldered right on to them:
 
 <img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
 
