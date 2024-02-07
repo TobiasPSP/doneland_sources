@@ -8,7 +8,7 @@ Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how t
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
-When hooking up such a mechanical **Rotary Encoder* to your microprocessor, the schematics look like this:
+When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics look like this:
 
 <img src="images/wiring_RotaryEncoder.png" width="50%" height="50%" />
 
