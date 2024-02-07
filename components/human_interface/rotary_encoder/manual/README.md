@@ -15,9 +15,26 @@ Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how t
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
-When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics look like this:
+When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics could look like this:
 
 <img src="images/wiring_RotaryEncoder.png" width="50%" height="50%" />
+
+To connect the **Rotary Encoder** to the microprocessor you need **4** wires and **3** GPIO pins, one for each physical switch.
+
+### Using Breakout Boards
+
+A bit easier to work with are breakout boards: they provide pins: 
+
+<img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
+
+> [!IMPORTANT]  
+> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
+
+It may be confusing that breakout boards have an additional pin marked **+** or **V+**, so they need an additional wire to supply a positive voltage. Why is that? The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
+
+
+
+
 
 
 For this test, you need this:
