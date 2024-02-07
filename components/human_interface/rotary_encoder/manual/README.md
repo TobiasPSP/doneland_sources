@@ -27,10 +27,9 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
 
-> [!IMPORTANT]  
-> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
+However, these breakout boards require **5** wires, one additional connection to **V+** is required. Why is that?
 
-It may be confusing that breakout boards have an additional pin marked **+** or **V+**, so they need an additional wire to supply a positive voltage. Why is that? The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
+The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
 
 
 
