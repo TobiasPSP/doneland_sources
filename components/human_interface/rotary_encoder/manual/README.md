@@ -25,11 +25,20 @@ To connect the **Rotary Encoder** to the microprocessor you need **4** wires and
 
 A bit easier to work with are simple and readily available breakout boards that have a mechnical **Rotary Encoder** soldered right on to them:
 
-<img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
+<img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
 However, these breakout boards require **5** wires, one additional connection to **V+** is required. Why is that?
 
 The schematics provide the answer. Here is the schematic taken from above with the added circuitry from the breakout board:
+
+<img src="images/rotarySimpleBreakoutWithLogic_w.png" width="40%" height="40%" />
+
+The breakout board simply adds three *pull-up resistors* that make sure that all three output pins are *pulled up* when the switch is *open*. The only reason why the boards have an additional **+** (or **V+**) pin is to provide positive voltage for these pullup resistors to pull the outputs up.
+
+> [!TIP]
+> Simply leave the **+** pin unconnected on such breakout boards if you don't have a wire to spare. If you do, the breakout board is no longer pulling the outputs up. That's all.
+>
+> You probably do not need the pullup resistors anyway. Most microcontrollers feature GPIOs that have built-in pullup resistors that you can easily activate by software.
 
 
 
