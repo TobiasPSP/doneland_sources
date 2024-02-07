@@ -1,32 +1,10 @@
-# Rotary Encoders
+# Connecting Directly
 :stopwatch: Reading time: 10 minutes.
 
-## "Simple" And "Smart"
-A *simple* **Rotary Encoder** is just the physical device itself. You can directly connect it to your microcontroller and work with it. 
+<img src="images/RotaryRight.png" width="50%" height="50%" />
 
-The picture below shows a *simple* **Rotary Encoder** (left). Often, they are mounted to a breakout board (right):
-
-<img src="images/rawRotaryEncoders.png" width="50%" height="50%" />
-
-Working with *simple* **Rotary Encoders** directly can be painful, though: since they are in essence *dumb* switches, they send raw data that needs to be post-processed and interpreted in order to properly figure out what the **Rotary Encoder** is actually doing. 
-
-The smart *post-processing* needs to be done by your software (firmware) and your microcontroller. Luckily, there are ready-to-use libraries that handle most of the tricky parts and work reliably.
-
-What libraries cannot work around though is the fact that *simple* **Rotary Encoders** require **4** GPIO pins. If the encoder acts as a switch when you press on it, you even need a total of **5** GPIO switches.
-
-That's why there are *smart* **Rotary Encoders**, too: they basically bundle their own specialized mini-processor who take over the heavy lifting that normally you would have to do: signal interpretation, noise, post-processing, communication. This is what *smart* **Rotary Encoders** can look like:
-
-<img src="images/RotaryEncoder_Smart.png" width="30%" height="30%" />
-
-In the picture, you see the dedicated microprocessor that makes this **Rotary Encoder** smart.
-
-Such boards typically communicate via *IC2*: just two GPIO pins are needed (not five), and they are shared among all other *I2C* devices. If you increase the number of **Rotary Encoders** in your project, the number of required GPIO stays the same.
-
-In this section, we are looking at the *dumb* **Rotary Encoders** and how you work with them directly.
-
-## Testing A *Dumb* Rotary Encoder
-
-Here is a test setup to examine how a directly connected **Rotary Encoder** can be used.
+## Live Test
+Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go.
 
 For this test, you need this:
 
@@ -41,16 +19,16 @@ For this test, you need this:
 
 ### Different Types
 
-When you purchase a **Rotary Encoder**, you just get an encoder switch. It has four or five "legs", two on one side and two or three on the other:
+When you purchase a *really really raw* **Rotary Encoder**, you just get an encoder switch which looks similar to a potentiometer. It has four or five "legs", two on one side and two or three on the other:
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
 
-Easier to work with are breakout boards: the encoder is soldered to a simple board: 
+A bit easier to work with are breakout boards: they provide easily accessible pins and come with three pullup resistors. 
 
 <img src="images/rotaryEncoder_simple_board.png" width="50%" height="50%" />
 
 > [!IMPORTANT]  
-> Do not confuse these breakout boards with *smart* **Rotary Encoders** mentioned above. These simple breakout boards just embed the **Rotary Encoder** and three pullup resistors. No smart post-processing.
+> Do not confuse these breakout boards with *smart* **Rotary Encoders* mentioned above. 
 
 Here is the schematic of such a breakout board:
 
@@ -59,5 +37,7 @@ Here is the schematic of such a breakout board:
 
 
 ### Schematics
+
+
 
 
