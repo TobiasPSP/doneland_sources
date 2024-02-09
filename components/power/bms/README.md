@@ -6,13 +6,19 @@
 All types of *lithium*-based rechargable batteries store enormous amounts of energy. They need electronic protection for safe operation:
 
 * **Fire Hazard**: the stored energy can erupt in flames or explode when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds where the battery cannot store the excess energy anymore.
-* **Battery Damage**: Completely discharging a battery below safe voltages can cause permanent damage due to irreversible structural damages of the battery chemistry.
+* **Permanent Battery Damage**: permanent damage (loss of battery capacity or complete destruction) may occur when the battery is fully discharged. Discharge must stop at a certain minimum voltage. Else, the battery chemistry will experience irreversible structural damage. 
 
-**BMS** are electronic circuits that protect from these risks. 
+A **BMS** is an electronic circuit that protect from these risks. Without a **BMS**, it is very easy to run into serious problems while using *lithium* batteries:
+
+* You charge the battery and leave the charger connected. Without a **BMS** (or a clever charger), your *lithium* battery will eventually catch fire.
+* You connect a device to your battery and leave it *on*, then walk away. Once the battery is completely drained, it also is permanently damaged.
+* You accidentally connect both poles of the battery and produce a short circuit. Enormous currents will flow and can hurt you, or the battery explodes.
+
+That's why most quality *lithium* batteries come with a basic **BMS** already integrated into them.
 
 ### Important Protection Features
 
-These protection features should be handled by a *BMS*:
+*BMS* should have at minimum these key protection features:
 
 | Feature | Typical Threshold | Description |
 | --- | --- | --- |
