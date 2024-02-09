@@ -21,12 +21,10 @@ When you use such batteries to power your projects and devices, in many cases yo
 ### Battery Voltage Ranges
 
 | Chemistry | Min V | Max V | Nominal | 
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | 
 | LiIon | 2.7V | 4.2V | 3.7V | 
 | LiPo | 3V | 4.2V | 3.7V | 
 | LiFePo4 | 2.5V | 3.65V | 3.2 | 
-| NiCad |
-| LeadAcid |
 
 * **Minimum Voltage**: If you continue to *discharge* the battery below *minimum voltage*, it can get permanently damaged. If you *charge* a battery that has a below-minimum voltage, much of the energy may be converted to heat, potentially leading to fire and explosion.
 * **Maximum Voltage**: When *charging* a battery, the voltage increases up to the *maximum voltage* when it is fully loaded. When you continue to charge a battery beyond its *maximum voltage*, the energy can no longer be stored and is converted to heat, potentially leading to fire and explosion.
