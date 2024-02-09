@@ -33,10 +33,6 @@ When you use such batteries to power your projects and devices, in many cases yo
 <details>
   <summary>Energy Density</summary><br/>
 
- ### Voltage Differences
-  
-
-
 ### Energy Density and Use Cases
 
 * *LiIon* and *LiPo* batteries have a very high energy density. They are used when space restraints exist and when weight is a consideration (i.e. in drones).
