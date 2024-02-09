@@ -6,7 +6,7 @@ While *svg* vector image files are great for lossless scaling, *svg* images in w
 
 That's why I needed to convert *svg* images (i.e. plotted schematics from *KiCAD*) to *png* images. *PNG* is a well-established standard, compressed resulting in small file sizes, with support for transparency. 
 
-Being pixel images, rendering is not object to browser type. This provides much better controllable user experience.
+*Png* being pixel images, rendering is not object to browser type. This provides much better controllable user experience.
 
 The conversion process needs a way to control the *png* image dimensions and output high-quality hi-res *png* images. Often, high-definition screens are used today to browse websites, and to leverage this resolution and provide the user with a "lossless" scaling experience, images for websites needed to be a width of 3000px at minimum.
 
