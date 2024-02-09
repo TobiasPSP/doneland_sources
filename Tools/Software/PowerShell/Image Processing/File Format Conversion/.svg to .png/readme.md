@@ -2,7 +2,7 @@
 
 ## Objective
 
-While *svg* vector image files are great for lossless scaling, *svg* images in websites may be rendered differently based on platform and browser, or not render at all.
+While *svg* vector image files are great for lossless scaling, *svg* images in websites may be rendered differently based on platform and browser, or do not render at all.
 
 That's why I needed to convert *svg* images (i.e. plotted schematics from *KiCAD*) to *png* images. *PNG is a well-established standard, compressed, with support for transparency. 
 
