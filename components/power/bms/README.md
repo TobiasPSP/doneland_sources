@@ -3,22 +3,33 @@
 
 ## Overview
 
-Modern *lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. 
+*Lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. Protection is needed for safe operation:
 
-Even small batteries can wreck havoc when the battery is short ciruited and catch fire, and while these batteries are a solid source of portable power, they can be damaged and destroyed by wrong *charging* and *discharging*.
+* **Fire Hazard**: The stored energy can erupt in seconds when the battery is physically damaged or short circuited and cause fire or explosions. Likewise, the battery can erupt in flames when it is *charged* below or above safe voltage thresholds.
+* **Battery Damage**: Discharging below safe voltages can permanently damage the battery due to irreversible structural damages.
 
-*Battery Management Systems* (BMS) are electronic circuits that you can add to provide the necessary protection. Most high-quality batteries come with a *BMS* built-in. They are then labelled *protected*.
+*Battery Management Systems* (BMS) are electronic circuits that help prevent damages. Often, simple *BMS* are already built into batteries. 
 
-When you use such batteries to power your projects and devices, in many cases you should add your own *BMS*. For example, if you build your own *power banks*, *power packs*, or generally connect more than one battery *in series*, you need your own *BMS* to *balance* the individual batteries during charging.
+> [!IMPORTANT]  
+> Once you add individual batteries in *series* to get a higher output voltage, you should always add your own *BMS*.
 
-> [!CAUTION]
-> Below, I am discussing handling the commonly used *lithium ion* and *lithium polymer* batteries. The thresholds mentioned below may vary slightly for different manufacturers and are a general rule of thumb. Always consult the data sheet of the battery you actually use.
->
-> If you use batteries with different chemistry, for example a *LiFePo4* battery, and even more *lead* or *NiCad*, very different thresholds and concepts may apply.
->
-> The following battery chemistries are in wide use:
 
-### Battery Voltage Ranges
+### Important Protection Features
+
+The following protection features should be provided by a *BMS*:
+
+| Feature | Typical Threshold | Description |
+| --- | --- | --- |
+| Over voltage | >4.3V | Protects fire hazard from *over-charging*. When batteries are charged, voltage slowly rises. At a threshold voltage, it is fully charged and cannot store additional energy. If you charge beyond this point, the energy is converted to heat and may cause a fire or explosion |
+| Over discharge | <2.3-3V | Protects battery from permanent damage. When you draw energy from a battery below a threshold voltage, its internal chemistry starts to change irreversibly, and the battery permanently loses capacity or does not work anymore at all. |
+| Short circuit | varies | Protects fire hazard from *over-current*. Every battery can provide a maximum discharge current. If more current is drawn, or in the worst case if the battery output is short circuited, the battery releases so much energy in such a short time that resulting heat can set the battery on fire. A *BMS* sets a maximum current and - similar to a fuse - cuts off the load when the current is exceeded. Often resettable by initiating a charge. |
+| Balancing | n/a | Protects from unevenly charging batteries (when the *BMS* controls more than one battery) by monitoring the voltages of all connected batteries individually, and adding extra charge to individual batteries if they lag behind other cells. Balancing improves overall battery lifetime and protects from over- or under-charging scenarios. Balancing is a protection for *charging*. During *discharge*, balancing is typically not required or useful.
+
+### Battery Voltage Thresholds
+
+The threshold voltages a *BMS* needs to monitor can vary based on cell chemistry and manufacturer. Always consult the data sheet of the battery you are actually using.
+
+There are rules of thumb:
 
 | Chemistry | Min V | Max V | Nominal | 
 | --- | --- | --- | --- | 
@@ -29,31 +40,3 @@ When you use such batteries to power your projects and devices, in many cases yo
 * **Minimum Voltage**: If you continue to *discharge* the battery below *minimum voltage*, it can get permanently damaged. If you *charge* a battery that has a below-minimum voltage, much of the energy may be converted to heat, potentially leading to fire and explosion.
 * **Maximum Voltage**: When *charging* a battery, the voltage increases up to the *maximum voltage* when it is fully loaded. When you continue to charge a battery beyond its *maximum voltage*, the energy can no longer be stored and is converted to heat, potentially leading to fire and explosion.
 * **Nominal Voltage**: When in operation, the battery *on average* delivers the *nominal voltage*. Lithium batteries generally have a very flat voltage discharge curve, so between *minimum* and *maximum* voltage, the battery will deliver the *nominal voltage* for a very long period of time.
-
-<details>
-  <summary>Energy Density</summary><br/>
-
-### Energy Density and Use Cases
-
-* *LiIon* and *LiPo* batteries have a very high energy density. They are used when space restraints exist and when weight is a consideration (i.e. in drones).
-* *LiPo* batteries come as pouches in various sizes and shapes. They are often used inside of devices where space constraints exist.
-* *LiFePo4* batteries have a slightly lower energy density. To store the same amount of energy, they are a bit bulkier and heavier. Other than *LiPo* and *LiIon*, *LiFePo4* batteries do not typically explode when damaged and are considered much safer. They also can provide a much higher discharge current.  Both is important when dealing with large energy capacities. *LiFePo4* is more robust, too: with a lifespan of 10 years and 3000 recharge cycles, they last much longer than other battery chemistries. *LiFePo4* is used in *high capacity* batteries and when space and weight is no constraint, i.e. boats, RC, photo voltaic storage, emergency power supply.  
-
-Energy density is the amount of energy stored, measured either by weight (*Wh/kg* - Watt hours per kilogram) or by volume (*Wh/l* - Watt hours per liter).
-
-The chart below (taken from [MDPI](https://www.mdpi.com/1996-1073/12/6/1074/htm)) illustrates the fundamental differences in energy density between different battery chemistries. The key takeaway is that all *lithium*-based batteries have a much higher energy density compared to older technology such as *NiMH*, *NiCad*, let alone *lead acid* car batteries.
-
-<img src="images/density.jpg" width="80%" height="80%" />
-</details>
-
-### Important Protection Features
-
-The following protection features are important and should be provided by the *BMS* you choose:
-
-| Feature | Typical Threshold | Description |
-| --- | --- | --- |
-| Over voltage | >4.3V | Protects the battery from *over-charging*. When empty batteries are charged, their voltage slowly rises. When the battery is fully charged, it typically has a 4.2V voltage
-
-Whenever you connect more than one battery in *series*
-[Small loads (up to 3A)](small)
-[Medium loads (up to 8A)](medium)
