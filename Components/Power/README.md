@@ -12,7 +12,7 @@ In this section I discuss components used for **Power Management**:
 * **[Protecting Lithium Batteries](BMS):** Rechargeable batteries can provide power, too. For safe operations, both *charging* and *discharging* needs careful attention and protection. That's what a **BMS** (*Battery Management System*) does. Here, I am discussing what a **BMS** does, which types there are, and when you need one. I am also looking at readily available low-cost **BMS** breakout boards that you can easily add to your projects.
 
 ### Measuring And Monitoring
-* **[Measuring Current](Measuring Current):** There are many very good reasons why measuring *current* can be useful, and I am sharing some ideas here. Primarily though, I look at different ways to safely measure *currents*, both small currents and huge currents. 
+* **[Measuring Current](Measuring%20Currents):** There are many very good reasons why measuring *current* can be useful, and I am sharing some ideas here. Primarily though, I look at different ways to safely measure *currents*, both small currents and huge currents. 
 
 **Rotary Encoders** are *input devices*. While they look similar to *potentiometers*, they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
 
