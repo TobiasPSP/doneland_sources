@@ -15,14 +15,10 @@ When you use such batteries to power your projects and devices, in many cases yo
 > Below, I am discussing handling the commonly used *lithium ion* and *lithium polymer* batteries. The thresholds mentioned below may vary slightly for different manufacturers and are a general rule of thumb. Always consult the data sheet of the battery you actually use.
 >
 > If you use batteries with different chemistry, for example a *LiFePo4* battery, and even more *lead* or *NiCad*, very different thresholds and concepts may apply.
+>
+> The following battery chemistries are in wide use:
 
-<details>
-  <summary>How Do LiIon, LiPo, LiFePo4, etc Batteries Differ?</summary><br/>
-
- ### Voltage Differences
-  
-The following battery chemistries are in wide use:
-<br/><br/>
+### Battery Voltage Ranges
 
 | Chemistry | Min V | Max V | Nominal | 
 | --- | --- | --- | --- | --- |
@@ -36,9 +32,12 @@ The following battery chemistries are in wide use:
 * **Maximum Voltage**: When *charging* a battery, the voltage increases up to the *maximum voltage* when it is fully loaded. When you continue to charge a battery beyond its *maximum voltage*, the energy can no longer be stored and is converted to heat, potentially leading to fire and explosion.
 * **Nominal Voltage**: When in operation, the battery *on average* delivers the *nominal voltage*. Lithium batteries generally have a very flat voltage discharge curve, so between *minimum* and *maximum* voltage, the battery will deliver the *nominal voltage* for a very long period of time.
 
-> Internally, lithium batteries of all types use different cell chemistry, and science evolves.
->
-> This is why the numbers presented may vary slightly for the batteries you actually use. Always consult the battery data sheet from its manufacturer.
+<details>
+  <summary>Energy Density</summary><br/>
+
+ ### Voltage Differences
+  
+
 
 ### Energy Density and Use Cases
 
