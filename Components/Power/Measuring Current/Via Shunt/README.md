@@ -6,7 +6,9 @@ When you connect a known *resistor* in series with a load, then the *voltage dro
 
 Obviously, the measurement should not influence the circuitry: the inserted resistor must have a *very low* value in the range of only a few *milliohm*. Such resistors are called **Shunt**.
 
-When you add a **Shunt** to your circuit, almost all of the current passes the low-resistance **Shunt** directly. Only a tiny fraction is used by the *voltmeter* to measure the voltage drop at the **Shunt**. The current is equal to the voltage drop across the shunt resistor divided by the resistance of the shunt resistor.
+When you add a **Shunt** to your circuit, almost all of the current passes the low-resistance **Shunt** directly. Only a tiny fraction is used by the *voltmeter* to measure the voltage drop at the **Shunt**. 
+
+The *current* flowing is equal to the *voltage drop* across the **Shunt** divided by the resistance of the **Shunt**.
 
 ## Selecting a Shunt
 
