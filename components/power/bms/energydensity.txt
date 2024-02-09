@@ -1,0 +1,17 @@
+
+<details>
+  <summary>Energy Density</summary><br/>
+
+### Energy Density and Use Cases
+
+* *LiIon* and *LiPo* batteries have a very high energy density. They are used when space restraints exist and when weight is a consideration (i.e. in drones).
+* *LiPo* batteries come as pouches in various sizes and shapes. They are often used inside of devices where space constraints exist.
+* *LiFePo4* batteries have a slightly lower energy density. To store the same amount of energy, they are a bit bulkier and heavier. Other than *LiPo* and *LiIon*, *LiFePo4* batteries do not typically explode when damaged and are considered much safer. They also can provide a much higher discharge current.  Both is important when dealing with large energy capacities. *LiFePo4* is more robust, too: with a lifespan of 10 years and 3000 recharge cycles, they last much longer than other battery chemistries. *LiFePo4* is used in *high capacity* batteries and when space and weight is no constraint, i.e. boats, RC, photo voltaic storage, emergency power supply.  
+
+Energy density is the amount of energy stored, measured either by weight (*Wh/kg* - Watt hours per kilogram) or by volume (*Wh/l* - Watt hours per liter).
+
+The chart below (taken from [MDPI](https://www.mdpi.com/1996-1073/12/6/1074/htm)) illustrates the fundamental differences in energy density between different battery chemistries. The key takeaway is that all *lithium*-based batteries have a much higher energy density compared to older technology such as *NiMH*, *NiCad*, let alone *lead acid* car batteries.
+
+<img src="images/density.jpg" width="80%" height="80%" />
+</details>
+
