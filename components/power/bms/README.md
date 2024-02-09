@@ -3,7 +3,9 @@
 
 ## Overview
 
-Modern *lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. Even small batteries can wreck havoc when the battery is short ciruited, and while these batteries are a solid source of portable power, they can be damaged and destroyed by wrong *charging* and *discharging*.
+Modern *lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. 
+
+Even small batteries can wreck havoc when the battery is short ciruited and catch fire, and while these batteries are a solid source of portable power, they can be damaged and destroyed by wrong *charging* and *discharging*.
 
 *Battery Management Systems* are electronic circuits designed to provide the necessary protection. Most high-quality batteries come with a *BMS* built-in. They are then labelled *protected*.
 
