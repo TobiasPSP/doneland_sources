@@ -5,7 +5,7 @@
 
 All types of *lithium*-based rechargable batteries store enormous amounts of energy. They need electronic protection for safe operation:
 
-* **Fire Hazard**: The stored energy can erupt in flames or explode when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds where the battery cannot store the excess energy anymore.
+* **Fire Hazard**: the stored energy can erupt in flames or explode when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds where the battery cannot store the excess energy anymore.
 * **Battery Damage**: Completely discharging a battery below safe voltages can cause permanent damage due to irreversible structural damages of the battery chemistry.
 
 **BMS** are electronic circuits that protect from these risks. 
