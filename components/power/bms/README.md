@@ -3,20 +3,16 @@
 
 ## Overview
 
-*Lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. Protection is needed for safe operation:
+All types of *lithium*-based rechargable batteries store enormous amounts of energy. They need electronic protection for safe operation:
 
-* **Fire Hazard**: The stored energy can erupt in flames when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds.
-* **Battery Damage**: Discharging below safe voltages can permanently damage the battery due to irreversible structural damages.
+* **Fire Hazard**: its stored energy can erupt in flames or explode when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds where the battery cannot store the excess energy anymore.
+* **Battery Damage**: Completely discharging a battery below safe voltages can cause permanent damage due to irreversible structural damages of the battery chemistry.
 
-*Battery Management Systems* (BMS) are electronic circuits that help prevent damages. Often, simple *BMS* are already built into batteries. 
-
-> [!IMPORTANT]  
-> Once you add individual batteries in *series* to get a higher output voltage, you should always add your own *BMS*.
-
+**BMS** are electronic circuits that protect from these risks. 
 
 ### Important Protection Features
 
-The following protection features should be provided by a *BMS*:
+These protection features should be handled by a *BMS*:
 
 | Feature | Typical Threshold | Description |
 | --- | --- | --- |
@@ -40,3 +36,16 @@ There are rules of thumb:
 * **Minimum Voltage**: If you continue to *discharge* the battery below *minimum voltage*, it can get permanently damaged. If you *charge* a battery that has a below-minimum voltage, much of the energy may be converted to heat, potentially leading to fire and explosion.
 * **Maximum Voltage**: When *charging* a battery, the voltage increases up to the *maximum voltage* when it is fully loaded. When you continue to charge a battery beyond its *maximum voltage*, the energy can no longer be stored and is converted to heat, potentially leading to fire and explosion.
 * **Nominal Voltage**: When in operation, the battery *on average* delivers the *nominal voltage*. Lithium batteries generally have a very flat voltage discharge curve, so between *minimum* and *maximum* voltage, the battery will deliver the *nominal voltage* for a very long period of time.
+
+## Do I Need A BMS?
+
+Most quality batteries come with their **BMS** built-in without you noticing it. They are to some degree protected.
+
+Adding your own **BMS** is always a good idea since you probably do not know the specs of the built-in **BMS** and whether it covers all important risks.
+
+Once you start building your own battery constructs, i.e. by combining multiple batteries, you *should always* add your own **BMS**. 
+
+> [!TIP]
+> When you connect multiple batteries *in series* to get a higher output voltage, your **BMS** should have a *balancer* feature that kicks in during *charging* (it's not in use during *discharge*):
+>
+> the balancer makes sure each cell voltage is monitored individually. Without balancing, one battery could already be fully charged when another is not, resulting either in partially loaded batteries or risk of *over-charging* a battery.
