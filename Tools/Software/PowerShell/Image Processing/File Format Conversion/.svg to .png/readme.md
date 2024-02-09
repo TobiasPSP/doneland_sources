@@ -1,17 +1,28 @@
-# PowerShell One-Liners
+# Exporting SVG To PNG
 
-## Export SVG To PNG
+## Objective
 
-Using *Inkscape* to convert a svg image (i.e. a "plot" export from *KiCAD*) to a PNG image.
+While *svg* vector image files are great for lossless scaling, *svg* images in websites may be rendered differently based on platform and browser, or not render at all.
 
-The command line takes the path to the svg image from the clipboard, so I typically first hold `SHIFT`, then right-click the svg file I want to convert, and then in the context menu choose *Copy as path*. 
+That's why I needed to convert *svg* images (i.e. plotted schematics from *KiCAD*) to *png* images. *PNG is a well-established standard, compressed, with support for transparency. 
 
-Next, I run the command line below and find the converted PNG image file in the same folder.
+Being pixel images, rendering is not object to browser type. This provides much better controllable user experience.
+
+The conversion process needs a way to control the *png* image dimensions and output high-quality hi-res *png* images. Often, high-definition screens are used today to browse websites, and to leverage this resolution and provide the user with a "lossless" scaling experience, images for websites needed to be a width of 3000px at minimum.
+
+## Solution
+Using *Inkscape* to convert a *svg* image (i.e. a "plot" export from *KiCAD*) to a *png* image.
+
+The command below runs in a **PowerShell** console and takes the path to the *svg* image from the clipboard.
+
+I typically first hold `SHIFT`, then right-click the *svg* file to convert, then choose *Copy as path* in the context menu.
+
+Next, I run the command line below. The converted *png* image file will be saved to the same folder where the input *svg* image file is stored.
 
 ```powershell
 inkscape --export-type="png" --export-width=3000 $(Get-Clipboard)
 ```
 > [!IMPORTANT]  
-> To be able to call *inkscape* this way, you need to add the path to the folder in which incscape.exe is located in, to your **PATH* environment variable.
+> Add the absolute path to *inkscape.exe* to the **PATH** environment variable in *user* scope.
 >
-> Else, you need to specify the absolute path name to the inkscape.exe file.
+> Only then will **PowerShell** (or any console) find the command *inkscape*. Without adjusting the environment variable, you have to specify the full absolute path name to *inkscape.exe* which is impractical.
