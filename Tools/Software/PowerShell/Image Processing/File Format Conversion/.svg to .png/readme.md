@@ -8,7 +8,7 @@ That's why I needed to convert *svg* images (i.e. plotted schematics from *KiCAD
 
 *Png* being pixel images, rendering is not object to browser type. This provides much better controllable user experience.
 
-The conversion process needs a way to control the *png* image dimensions and output high-quality hi-res *png* images. Often, high-definition screens are used today to browse websites, and to leverage this resolution and provide the user with a "lossless" scaling experience, images for websites needed to be a width of 3000px at minimum.
+The conversion process needs a way to control the *png* image dimensions and output high-quality hi-res *png* images. High-definition screens are used today to browse websites. To leverage this resolution and provide visitors with a "lossless" scaling experience, images for websites need to be a width of 3000px at minimum.
 
 ## Solution
 Using *Inkscape* to convert a *svg* image (i.e. a "plot" export from *KiCAD*) to a *png* image.
