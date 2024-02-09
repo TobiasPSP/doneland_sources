@@ -5,7 +5,7 @@
 
 *Lithium ion*, *lithium polymer*, and *LiFePo4* rechargable batteries store huge amounts of energy. Protection is needed for safe operation:
 
-* **Fire Hazard**: The stored energy can erupt in seconds when the battery is physically damaged or short circuited and cause fire or explosions. Likewise, the battery can erupt in flames when it is *charged* below or above safe voltage thresholds.
+* **Fire Hazard**: The stored energy can erupt in flames when the battery is physically damaged or short circuited, or when it is *charged* below or above safe voltage thresholds.
 * **Battery Damage**: Discharging below safe voltages can permanently damage the battery due to irreversible structural damages.
 
 *Battery Management Systems* (BMS) are electronic circuits that help prevent damages. Often, simple *BMS* are already built into batteries. 
@@ -21,7 +21,7 @@ The following protection features should be provided by a *BMS*:
 | Feature | Typical Threshold | Description |
 | --- | --- | --- |
 | Over voltage | >4.3V | Protects fire hazard from *over-charging*. When batteries are charged, voltage slowly rises. At a threshold voltage, it is fully charged and cannot store additional energy. If you charge beyond this point, the energy is converted to heat and may cause a fire or explosion |
-| Over discharge | <2.3-3V | Protects battery from permanent damage. When you draw energy from a battery below a threshold voltage, its internal chemistry starts to change irreversibly, and the battery permanently loses capacity or does not work anymore at all. |
+| Over discharge | <2.3-3V | Protects battery from permanent damage. When you draw energy from a battery below a threshold voltage, its internal chemistry starts to change irreversibly, and the battery permanently loses capacity or does not work anymore at all. *Charging* a battery below this threshold requires extra care as the battery cannot store much energy. When charged with normal currents, most of the energy is converted to heat and can cause fire or explosion. When the battery is below this threshold, the *BMS* must disable charging or charge with a *reduced* current until the minimum voltage threshold is reached. |
 | Short circuit | varies | Protects fire hazard from *over-current*. Every battery can provide a maximum discharge current. If more current is drawn, or in the worst case if the battery output is short circuited, the battery releases so much energy in such a short time that resulting heat can set the battery on fire. A *BMS* sets a maximum current and - similar to a fuse - cuts off the load when the current is exceeded. Often resettable by initiating a charge. |
 | Balancing | n/a | Protects from unevenly charging batteries (when the *BMS* controls more than one battery) by monitoring the voltages of all connected batteries individually, and adding extra charge to individual batteries if they lag behind other cells. Balancing improves overall battery lifetime and protects from over- or under-charging scenarios. Balancing is a protection for *charging*. During *discharge*, balancing is typically not required or useful.
 
