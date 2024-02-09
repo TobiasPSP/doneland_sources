@@ -25,4 +25,4 @@ inkscape --export-type="png" --export-width=3000 $(Get-Clipboard)
 > [!IMPORTANT]  
 > Add the absolute path to *inkscape.exe* to the **PATH** environment variable in *user* scope.
 >
-> Only then will **PowerShell** (or any console) find the command *inkscape*. Without adjusting the environment variable, you have to specify the full absolute path name to *inkscape.exe* which is impractical.
+> Only then will **PowerShell** (or any console) find the command *inkscape*. Without adjusting the environment variable, you have to specify the full absolute path name to *inkscape.exe* whenever you want to run it - which is impractical.
