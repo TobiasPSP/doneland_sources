@@ -32,7 +32,7 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 First place the components onto your bread board and wire them according to the schematics. Here is a close-up:
 
-<img src="images/ina226_basic_breadboard.png" width="100%" height="100%" />
+<img src="images/ina226_basic_breadboard1.png" width="100%" height="100%" />
 
 Connect the output wires to build a 4-wire terminal:
 
