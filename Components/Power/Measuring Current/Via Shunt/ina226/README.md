@@ -8,7 +8,7 @@
 
 The maximum measured *voltage* is *36V*. The maximum measured *current* depends on the value of the **Shunt**.
 
-The measured values can be read by a microcontroller via *I2C*.
+Because of its high-resolution 16-bit *ADC*, and because **INA226** automatically averages multiple samples, it produces very accurate and reliable readings. All of its measured and calculated values can be read by a microcontroller via *I2C*.
 
 ### Shunt Value and Maximum Current
 
