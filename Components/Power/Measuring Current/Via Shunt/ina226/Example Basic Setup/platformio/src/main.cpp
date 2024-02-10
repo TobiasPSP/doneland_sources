@@ -1,15 +1,12 @@
+/*
+  this example was slightly adaped from the many examples published here: https://wolles-elektronikkiste.de/ina226
+*/
+
 #include <Arduino.h>
 #include <Wire.h>
-#include <INA226_WE.h>
-#define I2C_ADDRESS 0x40
+#include <INA226_WE.h>       
+#define I2C_ADDRESS 0x40    // I2C address, can be adjusted via solder bridges on breakout board
 
-/* There are several ways to create your INA226 object:
- * INA226_WE ina226 = INA226_WE()              -> uses Wire / I2C Address = 0x40
- * INA226_WE ina226 = INA226_WE(ICM20948_ADDR) -> uses Wire / I2C_ADDRESS
- * INA226_WE ina226 = INA226_WE(&wire2)        -> uses the TwoWire object wire2 / I2C_ADDRESS
- * INA226_WE ina226 = INA226_WE(&wire2, I2C_ADDRESS) -> all together
- * Successfully tested with two I2C busses on an ESP32
- */
 INA226_WE ina226 = INA226_WE(I2C_ADDRESS);
 
 void setup() {
@@ -17,15 +14,24 @@ void setup() {
   Serial.begin(115200);
   Wire.begin();
   ina226.init();
-  ina226.setResistorRange(0.01, 8.0);
-/* If the current values delivered by the INA226 differ by a constant factor
-     from values obtained with calibrated equipment you can define a correction factor.
-     Correction factor = current delivered from calibrated equipment / current delivered by INA226
+
+  /* by default, a R100 shunt resistor is expected
+     for breakout boards with R010, uncomment line below:
   */
-  ina226.setCorrectionFactor(0.8877);
+  //ina226.setResistorRange(0.01, 8.0);
   
-  /* Set Number of measurements for shunt and bus voltage which shall be averaged
-  * Mode *     * Number of samples *
+  /* fine-tune current measurements by adding a correction factor
+     Calculate factor as follows:
+     factor = real current / INA226 measured current
+  */
+  //ina226.setCorrectionFactor(0.8877);
+  
+  /* how many samples should be combined and averaged?
+  Reporting back individual measurements (default) is *not* recommended as
+  values may vary due to noise and other factors.
+  The higher the sample rate the more resilient are measurements but the less responsive are the results
+  
+  Possible values:
   AVERAGE_1            1 (default)
   AVERAGE_4            4
   AVERAGE_16          16
@@ -35,11 +41,11 @@ void setup() {
   AVERAGE_512        512
   AVERAGE_1024      1024
   */
-  ina226.setAverage(AVERAGE_128); // choose mode and uncomment for change of default
+  ina226.setAverage(AVERAGE_128); // use at least a few samples to average in order to cut out noise and erratic values
 
   /* Set conversion time in microseconds
-     One set of shunt and bus voltage conversion will take: 
-     number of samples to be averaged x conversion time x 2
+     Required time to read a value:
+     Samples to be averaged x conversion time x 2
      
      * Mode *         * conversion time *
      CONV_TIME_140          140 µs
@@ -51,19 +57,19 @@ void setup() {
      CONV_TIME_4156       4.156 ms
      CONV_TIME_8244       8.244 ms  
   */
-  ina226.setConversionTime(CONV_TIME_8244); //choose conversion time and uncomment for change of default
+  ina226.setConversionTime(CONV_TIME_8244); // if measurement is not time critical, choose a high value
   
-  /* Set measure mode
+  /* Available measurement modes:
   POWER_DOWN - INA226 switched off
   TRIGGERED  - measurement on demand
   CONTINUOUS  - continuous measurements (default)
   */
-  //ina226.setMeasureMode(CONTINUOUS); // choose mode and uncomment for change of default
+  //ina226.setMeasureMode(TRIGGERED); // uncomment if you want to manually trigger single measurements
   
+  Serial.println("Test starts.");
   
-  Serial.println("INA226 Current Sensor Example Sketch - Continuous");
-  
-  ina226.waitUntilConversionCompleted(); //if you comment this line the first data might be zero
+  // read one set of data
+  ina226.waitUntilConversionCompleted(); 
 }
 
 void loop() {
@@ -85,13 +91,14 @@ void loop() {
   Serial.print("Load Voltage [V]: "); Serial.println(loadVoltage_V);
   Serial.print("Current[mA]: "); Serial.println(current_mA);
   Serial.print("Bus Power [mW]: "); Serial.println(power_mW);
-  if(!ina226.overflow){
-    Serial.println("Values OK - no overflow");
-  }
-  else{
+  if(ina226.overflow) {
     Serial.println("Overflow! Choose higher current range");
+  }
+  else {
+    Serial.println("Values OK - no overflow");
   }
   Serial.println();
   
-  delay(3000);
+  # print results every 2 seconds:
+  delay(2000);
 }
