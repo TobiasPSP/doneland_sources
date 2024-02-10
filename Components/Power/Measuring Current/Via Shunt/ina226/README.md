@@ -38,7 +38,7 @@ Always test and measure breakout boards with integrated **Shunts** yourself and 
 
 ## Pin Layout
 
-Typical **INA226* breakout boards come with 8 pins:
+Typical **INA226** breakout boards come with 8 pins:
 
 | Pin Label | Description |
 | --- | --- |
