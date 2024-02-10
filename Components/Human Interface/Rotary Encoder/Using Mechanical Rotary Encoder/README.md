@@ -10,10 +10,17 @@ Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how t
 | --- | --- | --- |
 | OUT A | CLK | connects to switch A inside the encoder |
 | OUT B | DT | connects to switch B inside the encoder |
+| GND | | connects to the other end of both switches A and B |
 | SWITCH | SW | connects to the (optional) third switch that is enabled by pressing the encoder knob |
-| GND | GND | both pins marked as **GND** are not connected. You must supply **GND** to both of them |
+| GND |  | connects to the other end of the press switch |
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
+
+> [!IMPORTANT]  
+> Both **GND** pins work independent and are not connected. You must connect *both* **GND** pins to **GND**.
+>
+> Obviously you can connect both **GND** pins right at the **Rotary Encoder* end and save one wire when connecting the **Rotary Encoder** to your microcontroller.
+
 
 When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics could look like this:
 
