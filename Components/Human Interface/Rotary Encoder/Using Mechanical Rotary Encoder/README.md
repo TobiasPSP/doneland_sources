@@ -40,7 +40,7 @@ You do not need to connect pin **V+** and can ignore it. If you do connect it, t
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
-When positive voltage is (optionally) supplied to pin **+**, it is supplied to three *pullup resistors* that in turn *pull up* the output pins. 
+When positive voltage is (optionally) supplied to pin **+**, it powers three *pullup resistors* that in turn *pull up* the output pins. 
 
 > [!TIP]
 > You *can* supply positive voltage to the **+** pin. It's completely optional, and you should do this only if you need to actively *pull up* the output pins. 
