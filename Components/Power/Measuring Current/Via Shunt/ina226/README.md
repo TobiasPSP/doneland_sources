@@ -4,6 +4,8 @@
 ## Quick overview
 **INA226** is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
 
+**INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than €2/piece. 
+
 <img src="images/ina226_soldered.png" width="40%" height="40%" />
 
 **INA226** internally uses a 16-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
@@ -18,7 +20,7 @@ Because of its high-resolution 16-bit *ADC* and automatic internal *averaging* o
 
 #### Integrated Shunts
 
-**INA226** is available as breakout board with an integrated **Shunt**. The most common presoldered **Shunt** is *R100* (0.1 Ohm). In theory, this enables the breakout board to measure a maximum *current* of *0.8A*. 
+When using breakout boards, the most common presoldered **Shunt** is *R100* (0.1 Ohm). In theory, this enables the breakout board to measure a maximum *current* of *0.8A*. 
 
 Less often you find boards with a *R010* **Shunt** (0.01 Ohm) which increases the maximum *current* to *8A* at the expense of precision. Boards with a *R002* **Shunt** can measure up to *20A*.
 
