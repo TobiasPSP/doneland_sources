@@ -16,7 +16,7 @@ Because of its high-resolution 16-bit *ADC* and automatic internal *averaging* o
 
 ### Shunt Value and Maximum Current
 
-**INA226** does not measure *current* directly. Instead, it measures the *voltage drop* at a **Shunt** resistor. The resistance of the **Shunt* determines the maximum *current* that you can measure.
+**INA226** does not measure *current* directly. Instead, it measures the *voltage drop* at a **Shunt** resistor. The resistance of the **Shunt** determines the maximum *current* that you can measure.
 
 #### Integrated Shunts
 
