@@ -26,7 +26,7 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
-<img src="images/ina226_basic1.png" width="40%" height="40%" />
+<img src="images/ina226_basic.png" width="40%" height="40%" />
 
 
 
