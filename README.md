@@ -17,7 +17,7 @@ This repository grows as I move along. I'd be thrilled if some of the content is
 
 Single parts of electrical circuits with one dominant function:
 
-* [Transistors](components/basic/transistor)
+* [Transistors](Components/Basic/Transistor)
 
 ## DC-DC Converters
 
