@@ -39,9 +39,18 @@ Here is a close-up:
 
 <img src="images/ina226_basic_breadboard1.png" width="100%" height="100%" />
 
-Connect the output wires to build a 4-wire terminal:
+### Adding a Terminal
 
-<img src="images/ina226_basic_terminal1.png" width="70%" height="70%" />
+Next, create a *terminal* to connect the *load*. You can use a *4-pin terminal* or just 4 individual clamps (like I did). You also need a short black wire:
+
+<img src="images/ina226_basic_terminal1.png" width="50%" height="50%" />
+
+Here is how to connect the wires:
+
+* Take the red wire coming from **IN+** and one end of the short black wire that you prepared. Add a clamp on each of these two cables, and combine them with some scotch tape. Lebel them **Power**.
+* Take the black wire coming from **IN+** and place a clamp on it. Then take the free end of the black wire that you just added, and combine it with the black wire coming from **GND**, then place one clamp on them both. Combine both clamps and label them **Load**.
+
+
 
 
 
