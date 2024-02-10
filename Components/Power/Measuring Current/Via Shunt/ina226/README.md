@@ -51,29 +51,24 @@ Typical **INA226* breakout boards come with 8 pins:
 | GND | Common GND |
 | VCC | 3.3V/5V supply for INA226 |
 
-The pin purpose is best understood when pins are broken down by functionality: 
+* **VCC** and **GND** supply the breakout board with the power it needs to operate. Both *3.3V* and *5V* are supported.
+* **SDA** and **SCL** are the typical *I2C* pins used to communicate measured values to a microcontroller.
 
-### Power Supply for INA226
+## How to Connect a Load
+To measure *voltage* and *current*, you tyoically need *four* probes: two wires to the positive and negative pole of the power supply to measure the *voltage*, and two wires the cut the circuit to insert the **Shunt** and connect it in series. In reality, you just need *three* probes because depending on whether you measure on the *high* (positive) or *low* (negative) side, two probes will either both be **GND** or **V+**.
 
-**VCC** and **GND** supply the breakout board with the power it needs to operate. Both *3.3V* and *5V* are supported.
+To translate this to the **INA226** breakout board, it is important to understand how it measures the *voltage*: in addition the *voltage drop* across the **Shunt**, it measures the *voltage drop* across the *load*. By summing up both, the total *voltage* is calculated.
 
-### Communication
-
-**SDA** and **SCL** are the typical *I2C* pins used to communicate measured values to a microcontroller.
-
-### Load
-
-**INA226** measures *two voltage drops*, one across the **Shunt**, and one across the *Load* (which is basically just another resistance). This explains why the breakout board has *four* pins for measurements:
+The *four* probes (pins) involved in *current* and *voltage* measuring for the **INA226** look like this:
 
 <img src="images/principle_clean.png" width="40%" height="40%" />
 
-The *current* is determined by measuring the *voltage drop* across the **Shunt**. The *voltage* is measured by *adding* the measured *voltage drops* across the **Shunt** (already known via the current measurement) and across the *load*. 
-
-When you look at the circuit above, this explains how the *load* needs to be connected to the breakout board:
+This helps understanding how the external circuit that you want to measure needs to be connected to the breakout board:
 
 * The *load* needs to be connected to *VBS* and *GND*
 * The *Power Source* for the *load* needs to be connected to *VIN+* and *GND*
-* *VIN-* and *VBS* need to be connected
+
+As outlined above, in reality for combined *current* and *voltage* measurements, only *three* probes (pins) are needed. In this *high side* setup, *VIN+* and *VBS* are connected to the same spot and can be combined.
 
 Here is the complete circuit for a *high side* setup (measuring the current on the *positive* side of the *load*):
 
