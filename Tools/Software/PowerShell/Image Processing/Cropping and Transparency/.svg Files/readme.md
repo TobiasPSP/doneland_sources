@@ -7,6 +7,8 @@ For example, in *github* when the user has choosen a *dark* theme, a transparent
 
 In order for *svg* images to render predictably, a solid background needs to be added, regardless of whether the *svg* is used *directly* on a web page, or whether it first will be converted to a pixel-based image format such as *png*.
 
+In addition, many *svg* images are surrounded by excessive *whitespace*. For example, when you *plot* a *KiCAD* schematic, the *svg* image contains the entire page and not just the schematics. A method is needed to remove the excessive whitespace.
+
 
 ## Solution
 The *PowerShell* module **SvgFormatter** provides the function `Format-Svg` which can both *crop* a *svg* image by removing surrounding whitespace, and *add a solid background*.
