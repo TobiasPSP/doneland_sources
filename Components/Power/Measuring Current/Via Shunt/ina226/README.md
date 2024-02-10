@@ -61,7 +61,7 @@ To translate this to the **INA226** breakout board, it is important to understan
 
 The *four* probes (pins) involved in *current* and *voltage* measuring for the **INA226** look like this:
 
-<img src="images/principle_clean.png" width="40%" height="40%" />
+<img src="images/principle.png" width="40%" height="40%" />
 
 This helps understanding how the external circuit that you want to measure needs to be connected to the breakout board:
 
