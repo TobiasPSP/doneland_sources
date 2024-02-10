@@ -29,7 +29,7 @@ The *real* maximum current that you can measure with this type of breakout board
 * **Overall resistance**: In addition to the resistance of the soldered **Shunt**, there can be more resistances adding up. Cheap breakout boards use PCBs that add additional resistance in their paths. Likely, the overall resistance is *higher* than expected.
 * **Conductance**: A small PCB cannot conduct high currents. Since the **Shunt** is connected *in series* with the load, the *full total currency* is flowing through it. The practical maximum current - regardless of **Shunt** - is most likely limited to *5-8A*, depending on PCB quality.
 
-Takeaway: always test and measure breakout boards with integrated **Shunts** to find out their true maximum *current*.
+Always test and measure breakout boards with integrated **Shunts** yourself and individually board-by-board to find out their true maximum *current*.
 
 > [!TIP]
 > Should the breakout board max out even on low currents (indicating that the **Shunt** resistance is too high), you can try and short circuit the integrated **Shunt** resistor. Often, the low-quality internal resistance of the *PCB* all by itself is acting well enough as a **Shunt**.
