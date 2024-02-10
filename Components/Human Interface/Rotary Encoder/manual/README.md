@@ -64,8 +64,8 @@ Here is the code:
 #define SW_PIN D5   // pin D5 connected to rotary encoder SW (SWITCH)
 
 // define modes of movement
-#define DIRECTION_R 0   // turned right
-#define DIRECTION_L 1   // turned left
+#define DIRECTION_R 0   // right turn
+#define DIRECTION_L 1   // left turn
 
 // define state variables
 int counter = 0;
@@ -92,7 +92,7 @@ void setup() {
 void loop() {
   // manually monitoring and post-processing rotary encoder signals
   
-  // monitor the rotating knob first:
+  // monitor the rotating knob:
 
   // check current state of switch A
   CLKstate = digitalRead(CLK_PIN);
@@ -123,7 +123,10 @@ void loop() {
   // remember current state for next time
   prev_CLKstate = CLKstate;
 
-  // pins are HIGH by default and switch to LOW when a switch contacts GND:
+  // monitor the button press (pressing on knob):
+
+  // pins are HIGH by default (pulled up)
+  // they switch to LOW when a switch activates (connects to GND):
   buttonState = digitalRead(SW_PIN);
   if (buttonState != prev_buttonState) 
   {
