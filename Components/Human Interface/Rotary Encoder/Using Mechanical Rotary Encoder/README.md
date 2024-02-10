@@ -19,7 +19,7 @@ Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how t
 > [!IMPORTANT]  
 > Both **GND** pins work independently and are not connected. You must connect *both* **GND** pins to **GND**.
 >
-> Obviously you can connect both **GND** pins right at the **Rotary Encoder* end and save one wire when connecting the **Rotary Encoder** to your microcontroller.
+> Obviously you can connect both **GND** pins right at the **Rotary Encoder** end and save one wire when connecting the **Rotary Encoder** to your microcontroller.
 
 
 When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics could look like this:
