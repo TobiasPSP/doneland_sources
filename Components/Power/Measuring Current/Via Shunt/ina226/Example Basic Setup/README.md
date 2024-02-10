@@ -13,7 +13,7 @@ For this project you need the following parts:
 * **1x INA226 breakout board**: I am using a cheap board with mounted *R100* **Shunt**
 
 ## Preparing the INA226 Breakout Board
-Add header pins, and solder two wires to the large solder pads for **IN+** and **IN-**:
+Choose which side of the breakout board should face up, then add header pins, and solder two wires to the large solder pads for **IN+** and **IN-**. 
 
 <img src="images/ina226_soldered.png" width="40%" height="40%" />
 
@@ -25,6 +25,10 @@ Add header pins, and solder two wires to the large solder pads for **IN+** and *
 Here is the circuit for this *high side* setup (measuring the current on the *positive* side of the *load*):
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
+
+<img src="images/ina226_basic1.png" width="40%" height="40%" />
+
+
 
 
 
