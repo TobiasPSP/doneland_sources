@@ -28,8 +28,6 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
-## Working Example
-
 First place the components onto your bread board and wire them according to the schematics. Things to watch out for:
 
 * Do not forget to onnect pins **IN-** and **VBS**
@@ -54,7 +52,12 @@ And this is how to connect the wires:
 * Take the red wire coming from **IN+** and one end of a *new short black wire*. Add a clamp on each of these two cables, and combine them with some scotch tape. Lebel them **Power**.
 * Take the black wire coming from **IN+** and place a clamp on it. Then take the free end of the black wire that you just added, and combine it with the black wire coming from **GND**, then place one clamp on them both. Combine both clamps and label them **Load**.
 
+## Code
 
+Next, *build* and *upload* the firmware to run the hardware:
+
+* **PlatformIO:** use the project in the subfolder [platformio}(platformio) and load it in *VSCode*.
+* **Arduino IDE:** use the sketch in the subfolder [arduinoide](arduinoide) and load it into the *Arduino IDE*
 
 
 
