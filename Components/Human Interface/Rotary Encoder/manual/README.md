@@ -45,9 +45,12 @@ For this test, you need this:
 * **Microprocessor**: I am using an *ESP8266*.
 * **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
 
-<img src="images/simple_circuit_1.png" width="50%" height="50%" />
+Wire everything according to the circuit layout depicted above. It does not matter whether you are using a pure mechanical **Rotary Encoder** or a breakout board. If you do use a breakout board, leave the **+**/**V+** pin unconnected.
 
-Connect the **Rotary Encoder** to the microcontroller as described above. It does not matter whether you are using a pure mechanical **Rotary Encoder** or a breakout board. If you do use a breakout board, leave the **+**/**V+** pin unconnected.
+* Connect the microcontroller **GND** (*G*) to both **GND** pins at the **Rotary Encoder**
+* Connect the remaining three pins coming from the **Rotary Encoder** to GPIO pins of your choice. The code below assumes that you connect **Switch A/CLK** to **D7**, **Switch B/DT** to **D6**, and **Switch/SW** to **D5**. 
+
+<img src="images/simple_circuit_1.png" width="50%" height="50%" />
 
 Here is the code:
 
@@ -55,9 +58,10 @@ Here is the code:
 #include <Arduino.h>
 
 // define input pins
-#define CLK_PIN D7  // pin D7 connected to the rotary encoder's CLK (OUT A) pin
-#define DT_PIN D6   // pin D6 connected to the rotary encoder's DT (OUT B) pin
-#define SW_PIN D5   // pin D5 connected to the rotary encoder's SW (SWITCH) pin
+// if you use a Rotary Encoder breakout board, leave pin V+ unconnected
+#define CLK_PIN D7  // pin D7 connected to rotary encoder CLK (OUT A)
+#define DT_PIN D6   // pin D6 connected to rotary encoder DT (OUT B)
+#define SW_PIN D5   // pin D5 connected to rotary encoder SW (SWITCH)
 
 // define modes of movement
 #define DIRECTION_R 0   // turned right
@@ -132,3 +136,10 @@ void loop() {
   }
 }
 ```
+
+> [!NOTE]  
+> The sketch defines all three GPIO pins as *INPUT_PULLUP*: the internal built-in pullup resistor is used. There is no need to externally pull up the pins.
+>
+> When you use a breakout board, *do not connect* the pin **V+**. This disables the external pullup resistors on the breakout board.
+
+When you upload and run the sketch, the serial output reports every movement and key press of the **Rotary Encoder**.
