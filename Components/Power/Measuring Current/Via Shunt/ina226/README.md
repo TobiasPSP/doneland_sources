@@ -2,7 +2,7 @@
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
-**INA226** is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
+[**INA226**](materials/ina226_datasheet.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
 
 **INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than €2/piece. 
 
