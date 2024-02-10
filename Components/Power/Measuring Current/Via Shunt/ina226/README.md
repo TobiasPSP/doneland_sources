@@ -74,6 +74,10 @@ Here is the complete circuit for a *high side* setup (measuring the current on t
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
+## Examples
 
+Here are available example sketches:
+
+* [**Basic Setup**:](Example%20Basic%20Setup)
 
 
