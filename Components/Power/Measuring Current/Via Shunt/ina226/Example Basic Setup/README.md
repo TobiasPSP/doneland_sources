@@ -30,7 +30,12 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 ## Working Example
 
-First place the components onto your bread board and wire them according to the schematics. Here is a close-up:
+First place the components onto your bread board and wire them according to the schematics. Things to watch out for:
+
+* Do not forget to onnect pins **IN-** and **VBS**
+* Add a black wire to **GND** and leave the other end unconnected for now. You will need it for the terminal later.
+
+Here is a close-up:
 
 <img src="images/ina226_basic_breadboard1.png" width="100%" height="100%" />
 
