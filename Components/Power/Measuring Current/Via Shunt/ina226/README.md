@@ -78,6 +78,6 @@ Here is the complete circuit for a *high side* setup (measuring the current on t
 
 Here are available example sketches:
 
-* [**Basic Setup**:](Example%20Basic%20Setup)
+* [**Basic Setup**:](Example%20Basic%20Setup) Setting up a **INA226** breakout board with an **ESP8266** microcontroller to perform *voltage* and *current* measurements. Includes necessary *library* and complete *platform.io* project.
 
 
