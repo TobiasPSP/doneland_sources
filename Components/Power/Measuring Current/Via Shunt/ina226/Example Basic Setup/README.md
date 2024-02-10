@@ -51,7 +51,7 @@ You can use a *4-pin terminal* or just 4 individual clamps (like I did). You als
 
 And this is how to connect the wires:
 
-* Take the red wire coming from **IN+** and one end of the short black wire that you prepared. Add a clamp on each of these two cables, and combine them with some scotch tape. Lebel them **Power**.
+* Take the red wire coming from **IN+** and one end of a *new short black wire*. Add a clamp on each of these two cables, and combine them with some scotch tape. Lebel them **Power**.
 * Take the black wire coming from **IN+** and place a clamp on it. Then take the free end of the black wire that you just added, and combine it with the black wire coming from **GND**, then place one clamp on them both. Combine both clamps and label them **Load**.
 
 
