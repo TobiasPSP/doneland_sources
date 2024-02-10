@@ -36,6 +36,39 @@ Always test and measure breakout boards with integrated **Shunts** yourself and 
 >
 > If you need to measure larger *currents*, consider removing the presoldered **Shunt** and connecting an external **Shunt** rated for higher currents.
 
+## Pin Layout
+
+Typical **INA226* breakout boards come with 8 pins:
+
+| Pin Label | Description |
+| --- | --- |
+| IN+ | Positive Voltage for Load Circuit |
+| IN- | Negative Voltage for Load Circuit |
+| VBS | Bus Voltage |
+| ALE | Alert |
+| SDA | I2C SDA |
+| SCL | I2C SCL |
+| GND | Common GND |
+| VCC | 3.3V/5V supply for INA226 |
+
+The pin purpose is best understood when pins are broken down by functionality: 
+
+### Power Supply for INA226
+
+**VCC** and **GND** supply the breakout board with the power it needs to operate.
+
+### Communication
+
+**SDA** and **SCL** are the typical *I2C* pins used to communicate measured values to a microcontroller.
+
+### Load
+
+The *voltage* of the load circuit is measured by **IN+** and **GND**.
+
+The *current* of the load circuit is measured by **IN-** and **GND**.
+
+
+
 
 ## Testing Setup
 
