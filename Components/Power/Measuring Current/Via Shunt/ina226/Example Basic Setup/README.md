@@ -36,7 +36,7 @@ First place the components onto your bread board and wire them according to the 
 
 Connect the output wires to build a 4-wire terminal:
 
-<img src="images/ina226_basic_terminal.png" width="100%" height="100%" />
+<img src="images/ina226_basic_terminal1.png" width="70%" height="70%" />
 
 
 
