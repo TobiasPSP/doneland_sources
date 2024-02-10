@@ -63,14 +63,19 @@ The pin purpose is best understood when pins are broken down by functionality:
 
 ### Load
 
-The *voltage* of the load circuit is measured by **IN+** and **GND**.
+**INA226** measures *two voltage drops*, one across the **Shunt**, and one across the *Load* (which is basically just another resistance). This explains why the breakout board has *four* pins for measurements:
 
-The *current* of the load circuit is measured by **IN-** and **GND**.
+<img src="images/principle_clean.png" width="40%" height="40%" />
 
+The *current* is determined by measuring the *voltage drop* across the **Shunt**. The *voltage* is measured by *adding* the measured *voltage drops* across the **Shunt** (already known via the current measurement) and across the *load*. 
 
+When you look at the circuit above, this explains how the *load* needs to be connected to the breakout board:
 
+* The *load* needs to be connected to *VBS* and *GND*
+* The *Power Source* for the *load* needs to be connected to *VIN+* and *GND*
+* *VIN-* and *VBS* need to be connected
 
-## Testing Setup
+Here is the complete circuit for a *high side* setup (measuring the current on the *positive* side of the *load*):
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
