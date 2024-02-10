@@ -1,6 +1,8 @@
 # Example: INA226 Basic Setup
 :stopwatch: Reading time: 10 minutes.
 
+<img src="images/ina226_basic.png" width="40%" height="40%" />
+
 ## Quick overview
 In this example, a typical breakout board with **INA226** is connected to an **ESP8266**, and basic *voltage* and *current* measurements are performed. 
 
@@ -26,7 +28,7 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
-<img src="images/ina226_basic.png" width="40%" height="40%" />
+
 
 
 
