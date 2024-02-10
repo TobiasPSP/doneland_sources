@@ -55,7 +55,7 @@ Typical **INA226** breakout boards come with 8 pins:
 * **SDA** and **SCL** are the typical *I2C* pins used to communicate measured values to a microcontroller.
 
 ## How to Connect a Load
-To measure *voltage* and *current*, you tyoically need *four* probes: two wires to the positive and negative pole of the power supply to measure the *voltage*, and two wires the cut the circuit to insert the **Shunt** and connect it in series. In reality, you just need *three* probes because depending on whether you measure on the *high* (positive) or *low* (negative) side, two probes will either both be **GND** or **V+**.
+To measure *voltage* and *current*, you typically need *four* probes: two wires to the positive and negative pole of the power supply to measure the *voltage*, and two wires the cut the circuit to insert the **Shunt** and connect it in series. In reality, you just need *three* probes because depending on whether you measure on the *high* (positive) or *low* (negative) side, two probes will either both be **GND** or **V+**.
 
 To translate this to the **INA226** breakout board, it is important to understand how it measures the *voltage*: in addition the *voltage drop* across the **Shunt**, it measures the *voltage drop* across the *load*. By summing up both, the total *voltage* is calculated.
 
