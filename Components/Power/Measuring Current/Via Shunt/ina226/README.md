@@ -55,7 +55,7 @@ The pin purpose is best understood when pins are broken down by functionality:
 
 ### Power Supply for INA226
 
-**VCC** and **GND** supply the breakout board with the power it needs to operate.
+**VCC** and **GND** supply the breakout board with the power it needs to operate. Both *3.3V* and *5V* are supported.
 
 ### Communication
 
