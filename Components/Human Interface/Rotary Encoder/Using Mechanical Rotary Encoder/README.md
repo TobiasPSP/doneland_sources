@@ -10,10 +10,17 @@ Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how t
 | --- | --- | --- |
 | OUT A | CLK | connects to switch A inside the encoder |
 | OUT B | DT | connects to switch B inside the encoder |
+| GND | | connects to the other end of both switches A and B |
 | SWITCH | SW | connects to the (optional) third switch that is enabled by pressing the encoder knob |
-| GND | GND | both pins marked as **GND** are not connected. You must supply **GND** to both of them |
+| GND |  | connects to the other end of the press switch |
 
 <img src="images/rotaryEncoder_RawPins_w.png" width="50%" height="50%" />
+
+> [!IMPORTANT]  
+> Both **GND** pins work independently and are not connected. You must connect *both* **GND** pins to **GND**.
+>
+> Obviously you can connect both **GND** pins right at the **Rotary Encoder** end and save one wire when connecting the **Rotary Encoder** to your microcontroller.
+
 
 When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the schematics could look like this:
 
@@ -27,16 +34,18 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
-Breakout boards typically have one more pin labelled **+** or **V+**. You do not need to connect this pin. If you do, this is what happens:
+Breakout boards combine both physical **GND** pins to just *one* **GND** output pin. However, they typically have one *new* pin labelled **+** or **V+**, though, whoch frequently raises confusion. 
+
+You do not need to connect pin **V+** and can ignore it. If you do connect it, this is what happens:
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
-When positive voltage is (optionally) supplied to pin **+**, it is supplied to three *pullup resistors* that in turn *pull up* the output pins. 
+When positive voltage is (optionally) supplied to pin **+**, it powers three *pullup resistors* that in turn *pull up* the output pins. 
 
 > [!TIP]
 > You *can* supply positive voltage to the **+** pin. It's completely optional, and you should do this only if you need to actively *pull up* the output pins. 
 >
-> Since microcontroller GPIOs typically have built-in pullup resistors that you can easily activate by software, in most cases the **+** pin is not needed and should not be connected.
+> Microcontroller GPIOs typically have built-in pullup resistors that you can easily activate by software. In most cases the **+** pin is not needed, and you can save one wire by ignoring this pin.
 
 ## Live Working Example
 
