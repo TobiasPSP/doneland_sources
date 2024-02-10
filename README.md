@@ -13,21 +13,29 @@ All content focuses on *practical use* and quick success. It may not always be s
 
 This repository grows as I move along. I'd be thrilled if some of the content is useful for you.
 
-## Discrete Components
+## Basic Components
 
 Single parts of electrical circuits with one dominant function:
 
 * [Transistors](Components/Basic/Transistor)
 
-## DC-DC Converters
+## Power
 
-Chips that can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
+### [BMS (Battery Management Systems)](Components/Power/BMS)
 
-Chips are typically sold embedded in a ready-to-go breakout board.
+Modern rechargeable *lithium*-based batteries can be damaged or catch fire when used wrongly. **BMS** are electronic components designed to *protect* batteries from a number of mishaps.
+
+
+### DC-DC Converters
+
+They can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
+
+Controllers are typically sold in a ready-to-go breakout board.
 
 ### Buck-Converter (lowering the voltage)
 
-* [XL4005](components/power/DC-DC-Converter/buck/XL4005)
-* [XL4015](components/power/DC-DC-Converter/buck/XL4015)
-*  [XL4016](components/power/DC-DC-Converter/buck/XL4016)
+* [LM5116](Components/Power/DC-DC-Converters/buck/LM5116)
+* [XL4005](Components/Power/DC-DC-Converters/buck/XL4005)
+* [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
+* [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
 
