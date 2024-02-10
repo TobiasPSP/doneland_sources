@@ -4,6 +4,8 @@
 ## Quick overview
 **INA226** is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
 
+<img src="images/ina226_soldered.png" width="40%" height="40%" />
+
 **INA226** internally uses a 16-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
 
 The maximum measured *voltage* is *36V*. The maximum measured *current* depends on the value of the **Shunt**.
