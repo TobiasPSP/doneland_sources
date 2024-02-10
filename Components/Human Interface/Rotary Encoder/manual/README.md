@@ -45,6 +45,8 @@ For this test, you need this:
 * **Microprocessor**: I am using an *ESP8266*.
 * **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
 
+<img src="images/simple_circuit_1.png" width="50%" height="50%" />
+
 Connect the **Rotary Encoder** to the microcontroller as described above. It does not matter whether you are using a pure mechanical **Rotary Encoder** or a breakout board. If you do use a breakout board, leave the **+**/**V+** pin unconnected.
 
 Here is the code:
