@@ -1,76 +1,28 @@
-# INA226 Current And Voltage Monitoring
+# Example: INA226 Basic Setup
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
-[**INA226**](https://www.ti.com/lit/ds/symlink/ina226.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
+In this example, a typical breakout board with **INA226** is connected to an **ESP8266**, and basic *voltage* and *current* measurements are performed. 
 
-**INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than €2/piece. 
+This is a good example to test-drive your **INA226** and get to know its functionality.
+
+## Parts List
+For this project you need the following parts:
+
+* **1x ESP8266 microprocessor**: I am using a *Wemos D1 Mini* in this example.
+* **1x INA226 breakout board**: I am using a cheap board with mounted *R100* **Shunt**
+
+## Preparing the INA226 Breakout Board
+Add header pins, and solder two wires to the large solder pads for **IN+** and **IN-**:
 
 <img src="images/ina226_soldered.png" width="40%" height="40%" />
 
-**INA226** internally uses a 16-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
-
-The maximum measured *voltage* is *36V*. The maximum measured *current* depends on the value of the **Shunt**.
-
-Because of its high-resolution 16-bit *ADC* and automatic internal *averaging* of multiple samples, it produces very accurate and reliable readings. All of its measured and calculated values can be read by a microcontroller via *I2C*.
-
-### Shunt Value and Maximum Current
-
-**INA226** does not measure *current* directly. Instead, it measures the *voltage drop* at a **Shunt** resistor. The resistance of the **Shunt** determines the maximum *current* that you can measure.
-
-#### Integrated Shunts
-
-When using breakout boards, the most common presoldered **Shunt** is *R100* (0.1 Ohm). In theory, this enables the breakout board to measure a maximum *current* of *0.8A*. 
-
-Less often you find boards with a *R010* **Shunt** (0.01 Ohm) which increases the maximum *current* to *8A* at the expense of precision. Boards with a *R002* **Shunt** can measure up to *20A*.
-
-The *real* maximum current that you can measure with this type of breakout board depends on two factors:
-
-* **Overall resistance**: In addition to the resistance of the soldered **Shunt**, there can be more resistances adding up. Cheap breakout boards use PCBs that add additional resistance in their paths. Likely, the overall resistance is *higher* than expected.
-* **Conductance**: A small PCB cannot conduct high currents. Since the **Shunt** is connected *in series* with the load, the *full total currency* is flowing through it. The practical maximum current - regardless of **Shunt** - is most likely limited to *5-8A*, depending on PCB quality.
-
-Always test and measure breakout boards with integrated **Shunts** yourself and individually board-by-board to find out their true maximum *current*.
-
 > [!TIP]
-> Should the breakout board max out even on low currents (indicating that the **Shunt** resistance is too high), you can try and *short circuit* the integrated **Shunt** resistor. Often, the low-quality internal resistance of the *PCB* all by itself is acting well enough as a **Shunt**.
+> Pins **IN+** and **IN-** are *connected in series* with the load. Relatively high currents pass these pins.
 >
-> If you need to measure larger *currents*, consider removing the presoldered **Shunt** and connecting an external **Shunt** rated for higher currents.
+> That's why most breakout boards expose these pins *twice*: as part of the header pins, and on the opposide side via two larger solder pads. It is recommended that you solder larger diameter wires to these solder pads.
 
-## Pin Layout
-
-Typical **INA226** breakout boards come with 8 pins:
-
-| Pin Label | Description |
-| --- | --- |
-| IN+ | Positive Voltage for Load Circuit |
-| IN- | Negative Voltage for Load Circuit |
-| VBS | Bus Voltage |
-| ALE | Alert |
-| SDA | I2C SDA |
-| SCL | I2C SCL |
-| GND | Common GND |
-| VCC | 3.3V/5V supply for INA226 |
-
-* **VCC** and **GND** supply the breakout board with the power it needs to operate. Both *3.3V* and *5V* are supported.
-* **SDA** and **SCL** are the typical *I2C* pins used to communicate measured values to a microcontroller.
-
-## How to Connect a Load
-To measure *voltage* and *current*, you typically need *four* probes: two wires to the positive and negative pole of the power supply to measure the *voltage*, and two wires the cut the circuit to insert the **Shunt** and connect it in series. In reality, you just need *three* probes because depending on whether you measure on the *high* (positive) or *low* (negative) side, two probes will either both be **GND** or **V+**.
-
-To translate this to the **INA226** breakout board, it is important to understand how it measures the *voltage*: in addition the *voltage drop* across the **Shunt**, it measures the *voltage drop* across the *load*. By summing up both, the total *voltage* is calculated.
-
-The *four* probes (pins) involved in *current* and *voltage* measuring for the **INA226** look like this:
-
-<img src="images/principle.png" width="40%" height="40%" />
-
-This helps understanding how the external circuit that you want to measure needs to be connected to the breakout board:
-
-* The *load* needs to be connected to *VBS* and *GND*
-* The *Power Source* for the *load* needs to be connected to *VIN+* and *GND*
-
-As outlined above, in reality for combined *current* and *voltage* measurements, only *three* probes (pins) are needed. In this *high side* setup, *VIN+* and *VBS* are connected to the same spot and can be combined.
-
-Here is the complete circuit for a *high side* setup (measuring the current on the *positive* side of the *load*):
+Here is the circuit for this *high side* setup (measuring the current on the *positive* side of the *load*):
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
