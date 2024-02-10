@@ -11,7 +11,7 @@ All content focuses on *practical use* and quick success. It may not always be s
 > 
 > Should you find information that is simply *wrong* or would even lead to *damage* or *malfunction*, or if you'd like to share own *practically relevant* experience, you are most welcome.
 
-This repository grows as I move along. I'd be thrilled if some of the content is useful for you.
+This repository is a work in progress. When you visit next week, chances are that you'll see the topic list below grow. So feel free to check back often.
 
 ## Basic Components
 
@@ -21,14 +21,25 @@ Single parts of electrical circuits with one dominant function:
 
 ## Power
 
+### [Measuring Current and Voltage](Components/Power/Measuring%20Current)
+
+Knowing the actual *voltage* and *current* is a prerequisite for data logging, electronic fuses, power supplies, chargers and so much more. I am looking into different ways to measure *voltage* and *current*.
+
+
+
+
 ### [BMS (Battery Management Systems)](Components/Power/BMS)
 
 Modern rechargeable *lithium*-based batteries can be damaged or catch fire when used wrongly. **BMS** are electronic components designed to *protect* batteries from a number of mishaps.
 
 
-### DC-DC Converters
+### [DC-DC Converters](Components/Power/DC-DC-Converters)
 
 They can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
+
+For example, *current* can be measured [via *shunts*](Components/Power/Measuring%20Current/Via%20Shunt), and there are excellent and cheap controllers that may do out-of-the box exactly what you need:
+
+* [INA226](Components/Power/Measuring%20Current/Via%20Shunt/ina226)
 
 Controllers are typically sold in a ready-to-go breakout board.
 
@@ -39,3 +50,8 @@ Controllers are typically sold in a ready-to-go breakout board.
 * [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
 * [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
 
+## Human Interface
+
+Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
+
+* [Rotary Encoders](Components/Human%20Interface/Rotary%20Encoder)
