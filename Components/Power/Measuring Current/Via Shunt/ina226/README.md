@@ -32,7 +32,7 @@ The *real* maximum current that you can measure with this type of breakout board
 Always test and measure breakout boards with integrated **Shunts** yourself and individually board-by-board to find out their true maximum *current*.
 
 > [!TIP]
-> Should the breakout board max out even on low currents (indicating that the **Shunt** resistance is too high), you can try and short circuit the integrated **Shunt** resistor. Often, the low-quality internal resistance of the *PCB* all by itself is acting well enough as a **Shunt**.
+> Should the breakout board max out even on low currents (indicating that the **Shunt** resistance is too high), you can try and *short circuit* the integrated **Shunt** resistor. Often, the low-quality internal resistance of the *PCB* all by itself is acting well enough as a **Shunt**.
 >
 > If you need to measure larger *currents*, consider removing the presoldered **Shunt** and connecting an external **Shunt** rated for higher currents.
 
