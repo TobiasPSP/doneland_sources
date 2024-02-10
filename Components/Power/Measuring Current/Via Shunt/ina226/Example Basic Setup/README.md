@@ -28,6 +28,17 @@ Here is the circuit for this *high side* setup (measuring the current on the *po
 
 <img src="images/ina226_circuit1.png" width="40%" height="40%" />
 
+## Working Example
+
+First place the components onto your bread board and wire them according to the schematics. Here is a close-up:
+
+<img src="images/ina226_basic_breadboard.png" width="100%" height="100%" />
+
+Connect the output wires to build a 4-wire terminal:
+
+<img src="images/ina226_basic_terminal.png" width="100%" height="100%" />
+
+
 
 
 
