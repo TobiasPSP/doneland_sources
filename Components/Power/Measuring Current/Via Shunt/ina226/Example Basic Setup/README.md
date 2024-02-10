@@ -56,8 +56,8 @@ And this is how to connect the wires:
 
 Next, *build* and *upload* the firmware to run the hardware:
 
-* **PlatformIO:** use the project in the subfolder [platformio}(platformio) and load it in *VSCode*.
-* **Arduino IDE:** use the sketch in the subfolder [arduinoide](arduinoide) and load it into the *Arduino IDE*
+* **PlatformIO:** use the project in the subfolder [platformio](platformio) and load it in *VSCode*.
+* **Arduino IDE:** use the sketch in the subfolder [arduino](arduino) and load it into the *Arduino IDE*
 
 
 
