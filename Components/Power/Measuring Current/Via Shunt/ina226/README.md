@@ -37,5 +37,10 @@ Always test and measure breakout boards with integrated **Shunts** yourself and 
 > If you need to measure larger *currents*, consider removing the presoldered **Shunt** and connecting an external **Shunt** rated for higher currents.
 
 
+## Testing Setup
+
+<img src="images/ina226_circuit1.png" width="40%" height="40%" />
+
+
 
 
