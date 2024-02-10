@@ -34,7 +34,7 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 <img src="images/rotaryEncoder_simple_board.png" width="40%" height="40%" />
 
-Breakout boards combine both physical **GND** pins to just *one* **GND** output pin. They typically have one more pin labelled **+** or **V+**, though. 
+Breakout boards combine both physical **GND** pins to just *one* **GND** output pin. However, they typically have one *new* pin labelled **+** or **V+**, though, whoch frequently raises confusion. 
 
 You do not need to connect pin **V+**. If you do, this is what happens:
 
