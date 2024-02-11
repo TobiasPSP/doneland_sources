@@ -9,7 +9,7 @@ All information is structured in a tree-like hierarchy for easy discovery.
 
 This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
 
-> This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original sources are visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
+> This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 >
 > Both places are great to read and dive into the content, and I urge you to try them both.
 >
