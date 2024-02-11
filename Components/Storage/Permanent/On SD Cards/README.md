@@ -43,7 +43,11 @@ The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. The newer
 
 **SD Card Modules** are small breakout boards with a **SD Card** slot. They can read and write data and communicate with microcontrollers using a **SPI** connection (4 GPIO pins).
 
-Most **SD Card Modules** are 3.3V devices and work well with *ESP8266*. 5V devices such as *Arduinos* often work, too, because most **SD Card Modules** are *5V-tolerant*. In 5V projects, consult the data sheet. If in doubt, use a *level shifter*.
+Things to watch out for before buying a **SD Card Module**:
+
+* **Voltage:** Does the module support the voltage you use? Internally, **SD Card Modules** use 3.3V technology. Breakout boards often add voltage regulators. Modules can have both *3.3V* and *5V* pins. Occasionally, modules have *just a 5V* pin and are unsuitable for *ESP8266* and other *3.3V* environments. To operate them with 3.3V, you would have to manually cut printed wires on the board to disable the internal voltage regulator. A better choice is to pick a module with the correct voltage requirements in the first place.
+* **SD Card Format:** Most modules have slots for small *microSD* cards and do not support the original *SD Card* format.
+* **SD Card Size:** Some modules impose restrictions on the maximum size of **SD Cards**. They can handle a maximum size of *8GB* or even *2GB* only.
 
 ### Pin Layout
 
@@ -58,8 +62,12 @@ Most **SD Card Modules** come with six pins:
 | MISO |   |
 | GND | Ground pin **G** |
 
+Some modules feature an additional *5V* pin and use a voltage regulator when this pin is used.
+
 > [!NOTE]  
-> Essentially, the pins resemble the *power supply* (**VCC** and **GND**) and *communications* via *SPI*. Different microcontrollers have different *SPI* pins. *SPI* pins are typically fixed.
+> Essentially, the pins resemble the *power supply* (**VCC** and **GND**) and *communications* via *SPI*.
+>
+> Different microcontrollers have different *SPI* pins. Most *SPI* pins are typically fixed and assigned to specific microcontroller pins. **CS** can be freely assigned to any suitable *GPIO* pin.
 >
 > If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
 
