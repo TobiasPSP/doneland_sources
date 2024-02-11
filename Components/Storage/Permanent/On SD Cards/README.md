@@ -23,13 +23,13 @@ Modern SD cards employ advanced wear-leveling technology for even distribution o
 
 ### Speed
 
-Data transfer speed relies on (a) the type of SD card and (b) the capabilities of the SD card reader board. For typical data logging applications, read and write access times are no issue.
+For typical data logging applications, read and write access times are no issue.
 
 ### Size
 
-SD cards can store enourmous amounts of data. The initial SD cards stored already up to *2GB*. Modern SD cards have lifted this limit to beyond *128GB*.
+The initial SD cards stored up to *2GB*. Modern SD cards can store *128GB* and more.
 
-These huge storage capacities are seldom needed in microcontroller projects. Always make sure the **SD Card Module** *and* the libraries you intend to use supports SD cards with the size you want. Some limit the maximum size to *4GB* or even *2GB*. Most work with all sizes.
+Always make sure the **SD Card Module** *and* the libraries you intend to use support SD cards with the size you have. 
 
 > [!NOTE]  
 > *4GB* is the maximum amount of memory addresses that can directly be addressed by *32 bit*.
@@ -37,30 +37,30 @@ These huge storage capacities are seldom needed in microcontroller projects. Alw
 
 ### Physical Dimensions
 
-The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. The newer *microSD* format is considerably smaller: 11x15x1mm.
+The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. Newer *microSD* format is considerably smaller: 11x15x1mm. Many **SD Card modules** support only the *microSD* form factor.
 
 ## SD Card Modules
 
-**SD Card Modules** are small breakout boards with a **SD Card** slot. They can read and write data and communicate with microcontrollers using a **SPI** connection (4 GPIO pins).
+**SD Card Modules** are small breakout boards with a slot to fit in the **SD Card**. They read and write data and communicate with microcontrollers using **SPI** (4 GPIO pins).
 
-Things to watch out for before buying a **SD Card Module**:
+Things to watch out for before choosing a **SD Card Module**:
 
-* **Voltage:** Does the module support the voltage you use? Internally, **SD Card Modules** use 3.3V technology. Breakout boards often add voltage regulators. Modules can have both *3.3V* and *5V* pins. Occasionally, modules have *just a 5V* pin and are unsuitable for *ESP8266* and other *3.3V* environments. To operate them with 3.3V, you would have to manually cut printed wires on the board to disable the internal voltage regulator. A better choice is to pick a module with the correct voltage requirements in the first place.
-* **SD Card Format:** Most modules have slots for small *microSD* cards and do not support the original *SD Card* format.
-* **SD Card Size:** Some modules impose restrictions on the maximum size of **SD Cards**. They can handle a maximum size of *8GB* or even *2GB* only.
+* **Voltage:** Internally, **SD Card Modules** use 3.3V technology. Breakout boards may expose a *3.3V* pin, may have both a *3.3V* and *5V* pin and use an internal voltage regulator when needed, or seldomly just have a *5V* pin (in which case these modules do not work with *ESP8266* and other 3.3V microcontrollers unless you manually cut wires on the breakout board to disable the voltage regulator).
+* **SD Card Format:** Most modules have slots for small *microSD* cards and do not support the bulky classic *SD Card* format any more.
+* **SD Card Size:** Some modules impose restrictions on the maximum size of **SD Cards**. They handle a maximum size of *8GB*, *4GB* or even just *2GB*.
 
 ### Pin Layout
 
-Most **SD Card Modules** come with six pins:
+**SD Card Modules** come with at least six pins:
 
 | Pin Label | ESP8266 (adjust pins for other microcontrollers accordingly) |
 | --- | --- |
 | VCC | 3.3V (may be 5V tolerant, check datasheet) |
-| CS |   |
-| MOSI |  |
-| CLK |   |
-| MISO |   |
 | GND | Ground pin **G** |
+| CS | D8 (adjustable)  |
+| MOSI | D7 |
+| CLK | D5 |
+| MISO | D6  |
 
 Some modules feature an additional *5V* pin and use a voltage regulator when this pin is used.
 
@@ -70,6 +70,10 @@ Some modules feature an additional *5V* pin and use a voltage regulator when thi
 > Different microcontrollers have different *SPI* pins. Most *SPI* pins are typically fixed and assigned to specific microcontroller pins. **CS** can be freely assigned to any suitable *GPIO* pin.
 >
 > If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
+
+### Schematics
+
+
 
 ## Preparing SD Cards
 
