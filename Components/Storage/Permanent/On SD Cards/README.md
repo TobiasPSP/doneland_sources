@@ -73,6 +73,15 @@ Some modules feature an additional *5V* pin and use a voltage regulator when thi
 
 ### Schematics
 
+This is the schematics to connect a **SD Card Module** to a *ESP8266*:
+
+<img src="images/basic_schematic.png" width="80%" height="80%" />
+
+
+### Breadboard
+
+This is what the actual wiring on a breadboard looks like:
+
 
 
 ## Preparing SD Cards
