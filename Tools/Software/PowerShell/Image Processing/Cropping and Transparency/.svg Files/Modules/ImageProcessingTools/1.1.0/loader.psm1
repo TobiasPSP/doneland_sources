@@ -4,3 +4,4 @@
 . $PSScriptRoot\Test-FileLock.ps1
 . $PSScriptRoot\Test-HexValue.ps1
 . $PSScriptRoot\Test-ImageMetadata.ps1
+. $PSScriptRoot\Remove-FileNameSuffix.ps1

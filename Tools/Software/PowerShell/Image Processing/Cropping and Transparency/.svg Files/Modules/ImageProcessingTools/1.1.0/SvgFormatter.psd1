@@ -5,7 +5,7 @@
 RootModule = 'loader.psm1'
 
 # Version Number
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.1.0'
 
 # Unique Module ID
 GUID = '5ec0aa9a-b6a5-4cac-8e40-b6f692d421a7'
@@ -62,13 +62,13 @@ NestedModules = @()
 FunctionsToExport = '*'
 
 # List of exportable cmdlets
-CmdletsToExport = @('Format-Svg','Test-ImageMetadata')
+CmdletsToExport = @('Format-Svg','Test-ImageMetadata', 'Remove-FileNameSuffix')
 
 # List of exportable variables
 VariablesToExport = '*'
 
 # List of exportable aliases
-AliasesToExport = '*'
+AliasesToExport = 'rf'
 
 # List of all modules contained in this module
 ModuleList = @()
