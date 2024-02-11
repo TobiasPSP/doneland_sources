@@ -73,6 +73,7 @@ Some modules feature an additional *5V* pin and use a voltage regulator when thi
 
 ### Schematics
 
+<img src="images/basic_schematic.png" width="80%" height="80%" />
 
 
 ## Preparing SD Cards
