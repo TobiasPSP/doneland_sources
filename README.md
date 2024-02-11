@@ -31,31 +31,33 @@ Single parts of electrical circuits with one dominant function:
 
 Knowing the actual *voltage* and *current* is a prerequisite for data logging, electronic fuses, power supplies, chargers and so much more. I am looking into different ways to measure *voltage* and *current*.
 
+One way to measure *current* is [via *shunts*](Components/Power/Measuring%20Current/Via%20Shunt), and there are excellent and cheap controllers that may do out-of-the box exactly what you need:
 
-
+* [INA226](Components/Power/Measuring%20Current/Via%20Shunt/ina226)
 
 ### [BMS (Battery Management Systems)](Components/Power/BMS)
 
 Modern rechargeable *lithium*-based batteries can be damaged or catch fire when used wrongly. **BMS** are electronic components designed to *protect* batteries from a number of mishaps.
 
-
 ### [DC-DC Converters](Components/Power/DC-DC-Converters)
 
 They can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
 
-For example, *current* can be measured [via *shunts*](Components/Power/Measuring%20Current/Via%20Shunt), and there are excellent and cheap controllers that may do out-of-the box exactly what you need:
-
-* [INA226](Components/Power/Measuring%20Current/Via%20Shunt/ina226)
-
 Controllers are typically sold in a ready-to-go breakout board.
 
-### Buck-Converter (lowering the voltage)
+#### Buck-Converter (lowering the voltage)
 
 * [LM5116](Components/Power/DC-DC-Converters/buck/LM5116)
 * [XL4005](Components/Power/DC-DC-Converters/buck/XL4005)
 * [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
 * [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
 
+
+## Human Interface
+
+Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
+
+* [Rotary Encoders](Components/Human%20Interface/Rotary%20Encoder)
 
 ## Projects
 
@@ -70,8 +72,3 @@ I am using a set of tools that I share with you:
 * **[Cropping and Adding Solid Backgrounds for *svg* Images](Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files):** I have written a **PowerShell Module** that provides a new *cmdlet*: `Format-Svg`. With this *cmdlet*, I am prettifying *svg* schematics drawings produced by *KiCAD*. The *cmdlet* can crop and automatically remove excess whitespace, and it can automatically add solid backgrounds.
 *  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me. 
 
-## Human Interface
-
-Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
-
-* [Rotary Encoders](Components/Human%20Interface/Rotary%20Encoder)
