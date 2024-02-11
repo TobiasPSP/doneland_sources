@@ -1,15 +1,22 @@
 # Permanent Storage on SD Cards
 :stopwatch: Reading time: 10 minutes.
 
+
+<img src="images/wiringOverview" width="40%" height="40%" />
+
+
 ## Overview
 
 SD Cards (memory cards) can store large amounts of data permanently, and since SD cards can be removed, they are an excellent way of transferring data (i.e. sensor data) to a PC to do evaluations. 
 
+
+<img src="images/card_formats2.png" width="40%" height="40%" />
+
 ### Life Span
 
-There is no definite life span of SD Cards and last at least 10 to 30 years. 
+There is no definite life span of SD Cards and they can probably last 10 to 30 years. 
 
-SD cards primarily use a special type of Flash memory called *NAND*. Flash memory in general has a finite number of write cycles. Saving, deleting, and re-writing data contributes to the wear of SD cards.
+SD cards use a special type of Flash memory called *NAND*. Flash memory in general has a finite number of write cycles. Saving, deleting, and re-writing data contributes to the wear of SD cards.
 
 Modern SD cards employ advanced wear-leveling technology for even distribution of data across all memory cells. When you store relatively small amounts of data, the overall life-span is further extended.
 
@@ -42,6 +49,12 @@ The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. Newer *mi
 ## SD Card Modules
 
 **SD Card Modules** are small breakout boards with a slot to fit in the **SD Card**. They read and write data and communicate with microcontrollers using **SPI** (4 GPIO pins).
+
+<img src="images/sdcard_moduleBasic.png" width="40%" height="40%" />
+
+There are also *Shields* available for *specific* microcontrollers such as the *Wemos D1 Mini*. *Shields* are breakout boards that are designed to be pin-compatible with a host board. *Shields* can be mounted directly on the microprocessor board and require no wiring:
+
+<img src="images/piggy3.png" width="40%" height="40%" />
 
 Things to watch out for before choosing a **SD Card Module**:
 
@@ -82,9 +95,26 @@ This is the schematics to connect a **SD Card Module** to a *ESP8266*:
 
 This is what the actual wiring on a breadboard looks like:
 
+<img src="images/wiring.png" width="80%" height="80%" />
+
+If you use a *Shield* instead, no wiring is required. Just make sure you stack the *Shield* on top of your microcontroller board in a pin-compatible orientation.
+
+
+<img src="images/sdcard_shield_stacked.png" width="80%" height="80%" />
+
+Then use header pins and solder or stick them together.
+
+<img src="images/piggy1flat.png" width="40%" height="40%" />
+
+## Code
+
+
+
 
 
 ## Preparing SD Cards
+
+
 
 Before use, it is recommended to *format* **SD Cards**. Formatting completely erases the **SD Card** and adds a *file system structure*. On Windows, **SD Cards** can be formatted like any other drive using *Windows Explorer*. 
 
