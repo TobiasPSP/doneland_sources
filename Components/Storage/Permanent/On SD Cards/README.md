@@ -279,7 +279,8 @@ Here are a few thoughts when things don't work at first:
 * If the sketch above cannot find the *SD card reader*, first check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
 * If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
 * Make sure you fully inserted a *SD card* that you have tested on your PC before and that is working correctly. When no *SD card* is inserted or when the *SD card* is not working right, the sketch won't find the *SD card module* or can produce random errors.
-* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but available. Some *SD card modules* have size limitations. Also make sure you formatted the *SD card* with the *FAT* filesystem.
+* Make sure your *SD card* is using the **FAT** or **FAT32** filesystem, not **exFAT**. If your *SD card* is larger than *32GB*, manually re-format it with the **FAT32** filesystem (as described above). 
+* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but definitely available. 
 
 
 
