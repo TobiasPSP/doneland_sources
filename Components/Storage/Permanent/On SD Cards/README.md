@@ -2,7 +2,7 @@
 :stopwatch: Reading time: 10 minutes.
 
 
-<img src="images/wiringOverview" width="40%" height="40%" />
+<img src="images/wiringOverview.png" width="40%" height="40%" />
 
 
 ## Overview
