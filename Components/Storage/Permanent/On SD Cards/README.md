@@ -117,7 +117,7 @@ The pins for the *SPI* connection are predefined by the microprocessor hardware.
 The sketch below illustrates the basic I/O operations: listing SD card contents, creating a file, writing to it, appending it, and reading it.
 
 > [!CAUTION]
-> Before you *build*, *upload* and *monitor* the sketch, make sure you inserted a *SD Card*. The *SD Card Module* is only operational when a *SD card* is inserted and else will not respond.
+> Before you *build*, *upload* and *monitor* the sketch, make sure you insert a *SD Card*. The *SD Card Module* is only operational when a *SD card* is inserted and else will not respond.
 >
 > If things still don't work for you, please check the next paragraph on how to adequately *prepare* the *SD card*.
 
