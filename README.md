@@ -1,17 +1,21 @@
 # Welcome to **Done Land** 
 
-Welcome to this repository: here you find information about electronic components, microcontrollers, plus many examples illustrating actual usage.
+Welcome to this place where I *document* and *explain* things that I encounter during my projects. It can be fundamentals, data sheets, hints and practical tips about electronics, microcontrollers, tools, and scripts. All content focuses on quick *facts* and *no nonsense* information rather than scientific accuracy. 
 
-All content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate and safe practical use.
+I am trying to *structure* the information in a most meaningful tree-like hierarchy for easy discovery.
 
 > [!TIP]
-> If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an [issue](https://github.com/TobiasPSP/doneland/issues), or visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
-> 
-> We focus on *practically relevant* information. Please do not file an issue if you feel that there is an *academic* issue with terminology used or explanations given.
-> 
-> Should you find information that is simply *wrong* or would even lead to *damage* or *malfunction*, or if you'd like to share own *practically relevant* experience, you are most welcome.
+> If you find typos or would like to add *practically relevant* comments or corrections, please file an [issue](https://github.com/TobiasPSP/doneland/issues). If you have questions or would like to get in touch, visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
 
 This repository is a work in progress. When you visit next week, chances are that you'll see the topic list below grow. So feel free to check back often.
+
+> This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original sources are visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
+>
+> Both places are great to read and dive into the content, and I urge you to try them both. The website may feel more focused. Once you get used to the *github repository structure* though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
+>
+> Website mirroring is done automatically by *github*. The generated website may still have minor formatting deficiencies. Unfortunately, *github pages* does not yet fully support all *github markdown* that I used in my content.
+
+Content is structured in major categories:
 
 ## Basic Components
 
