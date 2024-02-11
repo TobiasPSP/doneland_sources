@@ -99,6 +99,6 @@ void loop() {
   }
   Serial.println();
   
-  # print results every 2 seconds:
+   //print results every 2 seconds:
   delay(2000);
 }
