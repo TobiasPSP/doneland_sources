@@ -11,7 +11,7 @@ This repository is a work in progress. When you visit next week, chances are tha
 
 > This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original sources are visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 >
-> Both places are great to read and dive into the content, and I urge you to try them both. The website may feel more focused. Once you get used to the *github repository structure* though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
+> Both places are great to read and dive into the content, and I urge you to try them both. The website may feel more focused. Once you get used to the *github repository* user interface though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
 >
 > Website mirroring is done automatically by *github*. The generated website may still have minor formatting deficiencies. Unfortunately, *github pages* does not yet fully support all *github markdown* that I used in my content.
 
