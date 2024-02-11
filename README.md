@@ -7,7 +7,7 @@ I am trying to *structure* the information in a most meaningful tree-like hierar
 > [!TIP]
 > If you find typos or would like to add *practically relevant* comments or corrections, please file an [issue](https://github.com/TobiasPSP/doneland/issues). If you have questions or would like to get in touch, visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
 
-This repository is a work in progress. When you visit next week, chances are that you'll see the topic list below grow. So feel free to check back often.
+This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
 
 > This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original sources are visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 >
