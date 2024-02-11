@@ -5,7 +5,7 @@ Welcome to this repository: here you find information about electronic component
 All content focuses on *practical use* and quick success. It may not always be scientifically correct down to the last detail as long as it is simple to understand and of immediate and safe practical use.
 
 > [!TIP]
-> If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an [issue](/../../issues), or visit the [discussion](/../../discussions) forum.
+> If you find *practically* incorrect statements or would like to add your own tricks and insights, please go to the menu on top of this page and file an [issue](https://github.com/TobiasPSP/doneland/issues), or visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
 > 
 > We focus on *practically relevant* information. Please do not file an issue if you feel that there is an *academic* issue with terminology used or explanations given.
 > 
