@@ -56,6 +56,20 @@ Controllers are typically sold in a ready-to-go breakout board.
 * [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
 * [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
 
+
+## Projects
+
+Here is a list of my current projects I am chewing on:
+
+* **[Digitally controllable Buck Converter](Projects/Programmable%20Buck%20Converter/Via%20Voltage%20Injection)**: You can get powerful **Buck** converters (breakout boards that can lower the *voltage* and provide *constant voltage* (CV) and *constant current* (CC)) for just a few Euro. In this project I want to add a simple way of controlling *CV* and *CC* digitally, i.e. via a microcontroller. Once that works, a digitally controllable **Buck** converter is the basis for intelligent chargers and many follow-up projects.
+
+## Tools
+
+I am using a set of tools that I share with you:
+
+* **[Cropping and Adding Solid Backgrounds for *svg* Images](Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files):** I have written a **PowerShell Module** that provides a new *cmdlet*: `Format-Svg`. With this *cmdlet*, I am prettifying *svg* schematics drawings produced by *KiCAD*. The *cmdlet* can crop and automatically remove excess whitespace, and it can automatically add solid backgrounds.
+*  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me. 
+
 ## Human Interface
 
 Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
