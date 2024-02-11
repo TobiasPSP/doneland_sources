@@ -58,4 +58,4 @@ function Remove-FileNameSuffix
 }
 ```
 
-I added this function to my [service module]
+I added this function to my *PowerShell* service module [ImageProcessingTools](https://github.com/TobiasPSP/doneland/tree/main/Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files/Modules).
