@@ -100,7 +100,7 @@ This is what the actual wiring on a breadboard looks like:
 If you use a *Shield* instead, no wiring is required. Just make sure you stack the *Shield* on top of your microcontroller board in a pin-compatible orientation.
 
 
-<img src="images/sdcard_shield_stacked.png" width="80%" height="80%" />
+<img src="images/sdcard_shield_stacked.png" width="40%" height="40%" />
 
 Then use header pins and solder or stick them together.
 
@@ -108,17 +108,171 @@ Then use header pins and solder or stick them together.
 
 ## Code
 
+Code samples are downloadable for [platformio]() and [Arduino]().
 
+Include the libraries *SPI.h* and *SD.h*. They are included in the *Arduino framework* by default.
 
+The pins for the *SPI* connection are predefined by the microprocessor hardware. In the code, adjust the pin for *chipSelect*. In this example, **D8** is used. Make sure the baudrate for the serial output matches your *IDE* settings. The example uses a baudrate of 115200.
 
+The sketch below illustrates the basic I/O operations: listing SD card contents, creating a file, writing to it, appending it, and reading it.
+
+> [!CAUTION]
+> Before you *build*, *upload* and *monitor* the sketch, make sure you inserted a *SD Card*. The *SD Card Module* is only operational when a *SD card* is inserted and else will not respond.
+>
+> If things still don't work for you, please check the next paragraph on how to adequately *prepare* the *SD card*.
+
+```c++
+#include <Arduino.h>
+#include <SPI.h>
+#include <SD.h>
+
+/*
+ * D5 = CLK
+ * D6 = MISO
+ * D7 = MOSI
+ * D8 = CS
+*/
+
+// CS (chip select) is freely configurable. In this example, D8 is used:
+const int chipSelect = D8;
+const String FILENAME = "samplefile.txt";
+
+File myFile;
+
+// helper function to dump folder content:
+void printDirectory(File dir, int numTabs) {
+   while(true) {
+     File entry =  dir.openNextFile();
+     if (! entry) {
+       // no more files
+       break;
+     }
+     for (uint8_t i=0; i<numTabs; i++) {
+       Serial.print('\t');
+     }
+     Serial.print(entry.name());
+     if (entry.isDirectory()) {
+       Serial.println("/");
+       printDirectory(entry, numTabs+1);
+     } else {
+       // files have sizes, directories do not
+       Serial.print("\t\t");
+       Serial.println(entry.size(), DEC);
+     }
+     entry.close();
+   }
+}  
+
+// illustrates how to dump folder content recursively:
+void listDriveContent() {
+  // Demo 1: list content of inserted SD card
+  File root;
+  root = SD.open("/");
+
+  printDirectory(root, 0);
+}
+
+void testFileExists(String filename) {
+  if (SD.exists(filename)) {
+    Serial.println("File exists.");
+  }
+  else {
+    Serial.println("File doesn't exist.");
+  }
+}
+
+// demonstrates how to create files and write text
+void addTextToFile(String filename, String text) {
+  // Only one file can be open at a time,
+  // Make sure you ALWAYS close files after use as quickly as possible
+  myFile = SD.open(filename, FILE_WRITE);
+
+  if (myFile) {
+    Serial.println("Writing text");
+    myFile.println(text);
+    myFile.close();
+
+    Serial.println("File written.");
+  } else {
+    // on failure emit a message
+    Serial.println("Error writing to file.");
+  }
+}
+
+void readFile(String filename) {
+  myFile = SD.open(filename, FILE_READ);
+  if (myFile) {
+    Serial.println("Reading file content:");
+    // read character by character until end of file is reached:
+    while (myFile.available()) {
+      Serial.write(myFile.read());
+      // small delay so you can see how the data is read char by char:
+      delay(100);
+    }
+    myFile.close();
+  } else {
+    Serial.println("Unable to open file for reading.");
+  }
+}
+
+void setup()
+{
+  // adjust baud rate to match your IDE or platformio.ini settings:
+  Serial.begin(115200);
+
+  Serial.print("Initializing SD card...");
+
+  // make sure you inserted a SD card, and the inserted SD card matches the requirements
+  // (i.e. FAT formatted, size within maximum size limits of SD card reader)
+
+  // some modules will not initialize without inserted SD card
+  if (!SD.begin(chipSelect)) {
+    Serial.println("SD Card module not found. Make sure you inserted a SD card.");
+    return;
+  }
+
+  Serial.println("SD Card module found.");
+  
+  listDriveContent();
+  testFileExists("zumsel.abc");
+  addTextToFile(FILENAME, "Hello World!");
+  testFileExists(FILENAME);
+  addTextToFile(FILENAME, "more text");
+  readFile(FILENAME);
+  
+}
+
+void loop() {
+}
+```
 
 ## Preparing SD Cards
 
+To limit sources of faults, before you use a *SD card*, you should first try it in a *PC*. It is not uncommon for older *SD cards* to simply not work correctly anymore:
+
+* Insert the SD card into your PC. If your PC has no SD card reader (many do), you might want to get a cheap USB card reader. After all, the whole point of using *SD cards* is to carry sensor and other data over from your DIY devices to your computer.
+* Check whether the SD card is correctly identified by your PC. If the PC prompts you to format the SD card, do format it. Use the *FAT* filesystem.
+* Open the *SD card drive* in *explorer*, and copy a few files on it.
+* Eject the *SD card*, wait a minute, then re-insert the card. Check whether the card still works and whether you can retrieve the stored files.
+
+Now you can insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
+
+Some boards have a *snap* mechanism while others simply slide the card in and out without any lock. 
+
+With *snap* mechanisms, you need to gently *push* the *SD card* to release them from the slot when you want to remove them.
+
+## Troubleshooting
+
+Here are a few thoughts when things don't work at first:
+
+* If the sketch above cannot find the *SD card reader*, first check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
+* If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
+* Make sure you fully inserted a *SD card* that you have tested on your PC before and that is working correctly. When no *SD card* is inserted or when the *SD card* is not working right, the sketch won't find the *SD card module* or can produce random errors.
+* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but available. Some *SD card modules* have size limitations. Also make sure you formatted the *SD card* with the *FAT* filesystem.
 
 
-Before use, it is recommended to *format* **SD Cards**. Formatting completely erases the **SD Card** and adds a *file system structure*. On Windows, **SD Cards** can be formatted like any other drive using *Windows Explorer*. 
 
-The *file system* should be either **FAT** or **exFAT**. **FAT** is limited to a maximum size of *4GB*. It is the most compatible file system format. **exFAT** may not be supported by the **SD Card Reader**.
+
 
 
 
