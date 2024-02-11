@@ -1,8 +1,8 @@
 # Welcome to **Done Land** 
 
-Welcome to this place where I *document* and *explain* things that I encounter during my projects. It can be fundamentals, data sheets, hints and practical tips about electronics, microcontrollers, tools, and scripts. All content focuses on quick *facts* and *no nonsense* information rather than scientific accuracy. 
+Welcome to this place where I *document* and *explain* things as I encounter them during my projects. These can be fundamentals, data sheets, hints or just practical tips about electronics, microcontrollers, tools, and scripts. My content focuses on quick and useful *facts* and *no nonsense* information rather than scientific accuracy. 
 
-I am trying to *structure* the information in a most meaningful tree-like hierarchy for easy discovery.
+All information is structured in a tree-like hierarchy for easy discovery.
 
 > [!TIP]
 > If you find typos or would like to add *practically relevant* comments or corrections, please file an [issue](https://github.com/TobiasPSP/doneland/issues). If you have questions or would like to get in touch, visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
