@@ -255,6 +255,17 @@ To limit sources of faults, before you use a *SD card*, you should first try it 
 * Open the *SD card drive* in *explorer*, and copy a few files on it.
 * Eject the *SD card*, wait a minute, then re-insert the card. Check whether the card still works and whether you can retrieve the stored files.
 
+> [!IMPORTANT]  
+> When your *SD card* is larger than **32GB**, it is by default formatted with the *exFAT* filesystem, and *Windows* won't provide visible options to go back to the older *FAT32* filesystem.
+>
+>  *SD card modules* and their libraries require the *FAT* filesystem, however. They cannot work with *exFAT*.
+>
+> You can change the *SD card* filesystem to *FAT* via a console command. Press `Win+R`, then launch either `cmd` or `powershell`, and enter this command (assuming that drive *E:* is your *SD card* drive - adjust the drive letter accordingly): `format /FS:FAT32 e:`. This command may take an hour time as it is completely re-formatting the drive. *QuickFormat* cannot change the filesystem to *FAT*.
+>
+> Even if your *SD card* is larger than *32GB*, you won't lose storage capacity by reformatting to *FAT32*. As it turns out, *FAT32* supports drive sizes of up to *2TB* and file sizes of up to *4GB*, and so do most operating systems.
+>
+> The *FAT32* file size limitation of *4GB* is the primary reason why *exFAT* was invented: your sensor projects can  quite happily live with a maximum file size of *4GB*, others (like *4K Video Cameras*) can't. With *exFAT* file sizes of up to *128PB* can be stored. 
+
 Now you can insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
 Some boards have a *snap* mechanism while others simply slide the card in and out without any lock. 
