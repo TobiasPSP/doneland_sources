@@ -1,80 +1,118 @@
-# Welcome to **Done Land** 
+# Hyde
 
-Welcome to this place where I *document* and *explain* things as I encounter them during my projects. These can be fundamentals, data sheets, hints or just practical tips about electronics, microcontrollers, tools, and scripts. My content focuses on quick and useful *facts* and *no nonsense* information rather than scientific accuracy. 
+Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-All information is structured in a tree-like hierarchy for easy discovery.
-
-> [!TIP]
-> If you find typos or would like to add *practically relevant* comments or corrections, please file an [issue](https://github.com/TobiasPSP/doneland/issues). If you have questions or would like to get in touch, visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
-
-This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
-
-> This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
->
-> Both places are great to read and dive into the content, and I urge you to try them both.
->
-> The website may feel more focused. Once you get used to the *github repository* user interface though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
->
-> Website mirroring is done automatically by *github*. The generated website may still have minor formatting deficiencies. Unfortunately, *github pages* does not yet fully support all *github markdown* that I used in my content.
-
-Content is structured in major categories:
-
-## Basic Components
-
-Single parts of electrical circuits with one dominant function:
-
-* [Transistors](Components/Basic/Transistor)
-
-## Storage
-
-In this section I am looking at ways to permanently store data such as sensor readings, etc.:
-
-* [Reading and Writing SD Cards](Components/Storage/Permanent/On%20SD%20Cards)
-
-## Power
-
-### [Measuring Current and Voltage](Components/Power/Measuring%20Current)
-
-Knowing the actual *voltage* and *current* is a prerequisite for data logging, electronic fuses, power supplies, chargers and so much more. I am looking into different ways to measure *voltage* and *current*.
-
-One way to measure *current* is [via *shunts*](Components/Power/Measuring%20Current/Via%20Shunt), and there are excellent and cheap controllers that may do out-of-the box exactly what you need:
-
-* [INA226](Components/Power/Measuring%20Current/Via%20Shunt/ina226)
-
-### [BMS (Battery Management Systems)](Components/Power/BMS)
-
-Modern rechargeable *lithium*-based batteries can be damaged or catch fire when used wrongly. **BMS** are electronic components designed to *protect* batteries from a number of mishaps.
-
-### [DC-DC Converters](Components/Power/DC-DC-Converters)
-
-They can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
-
-Controllers are typically sold in a ready-to-go breakout board.
-
-#### Buck-Converter (lowering the voltage)
-
-* [LM5116](Components/Power/DC-DC-Converters/buck/LM5116)
-* [XL4005](Components/Power/DC-DC-Converters/buck/XL4005)
-* [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
-* [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
+![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
 
 
-## Human Interface
+## Contents
 
-Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
+- [Usage](#usage)
+- [Options](#options)
+  - [Sidebar menu](#sidebar-menu)
+  - [Sticky sidebar content](#sticky-sidebar-content)
+  - [Themes](#themes)
+  - [Reverse layout](#reverse-layout)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-* [Rotary Encoders](Components/Human%20Interface/Rotary%20Encoder)
 
-## Projects
+## Usage
 
-Here is a list of my current projects I am chewing on:
+Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
 
-* **[Digitally controllable Buck Converter](Projects/Programmable%20Buck%20Converter/Via%20Voltage%20Injection)**: You can get powerful **Buck** converters (breakout boards that can lower the *voltage* and provide *constant voltage* (CV) and *constant current* (CC)) for just a few Euro. In this project I want to add a simple way of controlling *CV* and *CC* digitally, i.e. via a microcontroller. Once that works, a digitally controllable **Buck** converter is the basis for intelligent chargers and many follow-up projects.
 
-## Tools
+## Options
 
-I am using a set of tools that I share with you:
+Hyde includes some customizable options, typically applied via classes on the `<body>` element.
 
-* **[Cropping and Adding Solid Backgrounds for *svg* Images](Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files):** I have written a **PowerShell Module** that provides a new *cmdlet*: `Format-Svg`. With this *cmdlet*, I am prettifying *svg* schematics drawings produced by *KiCAD*. The *cmdlet* can crop and automatically remove excess whitespace, and it can automatically add solid backgrounds.
-*  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me. 
 
+### Sidebar menu
+
+Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
+```
+---
+layout: page
+title: About
+---
+```
+
+**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
+
+
+### Sticky sidebar content
+
+By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disable this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+
+```html
+<!-- Default sidebar -->
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    ...
+  </div>
+</div>
+
+<!-- Modified sidebar -->
+<div class="sidebar">
+  <div class="container">
+    ...
+  </div>
+</div>
+```
+
+
+### Themes
+
+Hyde ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
+
+![Hyde in red](https://f.cloud.github.com/assets/98681/1831229/42b0b354-7384-11e3-8462-31b8df193fe5.png)
+
+There are eight themes available at this time.
+
+![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
+
+To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+
+```html
+<body class="theme-base-08">
+  ...
+</body>
+```
+
+To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+
+### Reverse layout
+
+![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
+
+Hyde's page orientation can be reversed with a single class.
+
+```html
+<body class="layout-reverse">
+  ...
+</body>
+```
+
+
+## Development
+
+Hyde has two branches, but only one is used for active development.
+
+- `master` for development.  **All pull requests should be submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+
+
+## Author
+
+**Mark Otto**
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
+
+
+## License
+
+Open sourced under the [MIT license](LICENSE.md).
+
+<3
