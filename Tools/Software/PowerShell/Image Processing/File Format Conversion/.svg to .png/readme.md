@@ -1,4 +1,4 @@
-# Exporting SVG To PNG
+﻿# Exporting SVG To PNG
 
 ## Objective
 
@@ -26,3 +26,5 @@ inkscape --export-type="png" --export-width=3000 $(Get-Clipboard)
 > Add the absolute path to *inkscape.exe* to the **PATH** environment variable in *user* scope.
 >
 > Only then will **PowerShell** (or any console) find the command *inkscape*. Without adjusting the environment variable, you have to specify the full absolute path name to *inkscape.exe* whenever you want to run it - which is impractical.
+
+*(article:742764021812243012)*

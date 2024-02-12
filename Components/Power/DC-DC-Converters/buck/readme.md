@@ -1,4 +1,4 @@
-# Buck Converters
+﻿# Buck Converters
 :stopwatch: Reading time: 8 minutes.
 
 ## Quick Overview
@@ -60,3 +60,5 @@ In short, a **Buck** converter is reducing the voltage much similar to a *resist
 The *switching frequency* of a **Buck** converter determines the size of the *coil* and *capacitor*. The higher the switching frequency, the shorter the two *on* and *off* phases are, so less energy needs to be temporarily stored, and components can be smaller.
 
 At the same time, with higher frequency the energy must be stored and retured more often. Any loss associated with this process increases. Higher switching frequencies can therefore decrease efficiency.
+
+*(article:642031021812243012)*

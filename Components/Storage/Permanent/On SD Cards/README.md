@@ -1,4 +1,4 @@
-# Permanent Storage on SD Cards
+﻿# Permanent Storage on SD Cards
 :stopwatch: Reading time: 10 minutes.
 
 
@@ -315,15 +315,6 @@ If the sketch above cannot even find the *SD card reader*, work your way through
 * If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
 * Make sure you fully inserted a *SD card* that you have tested on your PC before and that is working correctly. When no *SD card* is inserted or when the *SD card* is not working right, the sketch won't find the *SD card module* or can produce random errors.
 * Make sure your *SD card* is using the **FAT** or **FAT32** filesystem, not **exFAT**. If your *SD card* is larger than *32GB*, manually re-format it with the **FAT32** filesystem (as described above). 
-* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but definitely available. 
+* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but definitely available.
 
-
-
-
-
-
-
-
-
-
-
+*(article:708854021812243012)*

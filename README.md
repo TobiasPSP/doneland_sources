@@ -1,4 +1,4 @@
-# Welcome to **Done Land** 
+﻿# Welcome to **Done Land** 
 
 Welcome to this place where I *document* and *explain* things as I encounter them during my projects. These can be fundamentals, data sheets, hints or just practical tips about electronics, microcontrollers, tools, and scripts. My content focuses on quick and useful *facts* and *no nonsense* information rather than scientific accuracy. 
 
@@ -76,5 +76,6 @@ Here is a list of my current projects I am chewing on:
 I am using a set of tools that I share with you:
 
 * **[Cropping and Adding Solid Backgrounds for *svg* Images](Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files):** I have written a **PowerShell Module** that provides a new *cmdlet*: `Format-Svg`. With this *cmdlet*, I am prettifying *svg* schematics drawings produced by *KiCAD*. The *cmdlet* can crop and automatically remove excess whitespace, and it can automatically add solid backgrounds.
-*  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me. 
+*  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me.
 
+*(article:548798021812243012)*

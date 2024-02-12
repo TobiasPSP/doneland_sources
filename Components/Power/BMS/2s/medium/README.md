@@ -1,11 +1,11 @@
-# 2S BMS for Medium Loads
+﻿# 2S BMS for Medium Loads
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
 
 For projects with medium current needs in the range of *8A* with occasional spikes of up to *15A*, at 4.1cm x 1.6cm x 0.35cm a small and reasonably-priced breakout board delivers the required protection features. 
 
-The total cost including customs and shipping is around € 0.80/piece when ordered in quantities of 10.
+The total cost including customs and shipping is around â‚¬ 0.80/piece when ordered in quantities of 10.
 
 ## Setup
 
@@ -30,3 +30,5 @@ Here is the list of protection features:
 | Max continuous current | yes | 8A |
 | Max peak current | yes | 15A |
 | Short circuit | yes | resettable by initiating a charge |
+
+*(article:626074021812243012)*
