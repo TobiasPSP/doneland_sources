@@ -25,6 +25,12 @@ Single parts of electrical circuits with one dominant function:
 
 * [Transistors](Components/Basic/Transistor)
 
+## Storage
+
+In this section I am looking at ways to permanently store data such as sensor readings, etc.:
+
+* [Reading and Writing SD Cards](Components/Storage/Permanent/On%20SD%20Cards)
+
 ## Power
 
 ### [Measuring Current and Voltage](Components/Power/Measuring%20Current)
