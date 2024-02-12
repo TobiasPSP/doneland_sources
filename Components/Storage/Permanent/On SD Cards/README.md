@@ -262,7 +262,7 @@ To limit sources of faults, before you use a *SD card*, first try it on a *PC*. 
 >
 > If the dialog shows a filesystem other than *FAT32* (i.e. *exFAT* or *NTFS*), you need to convert it to *FAT32* before you can use it. See below for instructions.
 
-<img src="images/1exfat.png" width="80%" height="80%" />
+<img src="images/1exfat.PNG" width="80%" height="80%" />
 
 Once your *SD card* has passed all checks, insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
@@ -278,7 +278,7 @@ With *snap* mechanisms, you need to gently *push* the *SD card* to release them 
 2. In the *File System* dropdown list, choose *FAT32*. If you cannot see this option, the *SD card* is larger than *4GB*. You then need to do the format using the console command described below.
 3. Check *Quick Format*, then click *Start*.
 
-<img src="images/2format.png" width="80%" height="80%" />
+<img src="images/2format.PNG" width="80%" height="80%" />
 
 If the dialog does not list the *FAT32* file system, then use a more powerful console command:
 
@@ -292,25 +292,17 @@ You then need the help of 3rd party tools. Most freeware tools for this purpose 
 
 Once you downloaded and installed the *free* version, a window opens and shows all partitions of all disk drives in your computer. 
 
-<img src="images/3minitool.png" width="80%" height="80%" />
+<img src="images/3minitool.PNG" width="80%" height="80%" />
 
 In the lower part of the window, identify the partition that represents your *SD card* drive, and right-click it. Choose *Format*. This time, the *Format* dialog offers all available file systems. Select *FAT32*, then click *OK*.
 
-<img src="images/4formatFat32.png" width="80%" height="80%" />
+<img src="images/4formatFat32.PNG" width="80%" height="80%" />
 
 This adds the job to a task list. In the left lower section of the main window below *Operations Pending* you see the formatting job. Click *Apply* to actually perform the formatting.
 
 The *SD card* is now running the *FAT32* file system and can be used with the *SD card module*. Its size hasn't changed. This way, you can now use *SD cards* with *64GB* in size (or more) with your *SD card module.
 
-<img src="images/fat32.png" width="80%" height="80%" />
-
-
-
-
-
-
-
-
+<img src="images/fat32.PNG" width="80%" height="80%" />
 
 
 ## Troubleshooting
