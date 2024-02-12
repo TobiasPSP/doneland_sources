@@ -264,7 +264,17 @@ To limit sources of faults, before you use a *SD card*, first try it on a *PC*. 
 >
 > Even if your *SD card* is larger than *32GB*, you won't lose storage capacity by reformatting to *FAT32*. As it turns out, *FAT32* supports drive sizes of up to *2TB* and file sizes of up to *4GB*, and so do most operating systems.
 >
-> The *FAT32* file size limitation of *4GB* is the primary reason why *exFAT* was invented: your sensor projects can  quite happily live with a maximum file size of *4GB*, others (like *4K Video Cameras*) can't. With *exFAT* file sizes of up to *128PB* can be stored. 
+> The *FAT32* file size limitation of *4GB* is the primary reason why *exFAT* was invented: your sensor projects can  quite happily live with a maximum file size of *4GB*, others (like *4K Video Cameras*) can't. With *exFAT* file sizes of up to *128PB* can be stored.
+
+```
+PS C:\Users\Tobias> format /FS:FAT32 e:
+Insert new disk for drive E:
+and press ENTER when ready...
+The type of the file system is EXFAT.
+The new file system is FAT32.
+Verifying 59.5 GB
+66 percent completed.
+```
 
 Now insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
@@ -276,7 +286,9 @@ With *snap* mechanisms, you need to gently *push* the *SD card* to release them 
 
 A few thoughts when things don't work at first:
 
-* If the sketch above cannot find the *SD card reader*, first check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
+If the sketch above cannot even find the *SD card reader*, work your way through these items:
+
+* Double-check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
 * If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
 * Make sure you fully inserted a *SD card* that you have tested on your PC before and that is working correctly. When no *SD card* is inserted or when the *SD card* is not working right, the sketch won't find the *SD card module* or can produce random errors.
 * Make sure your *SD card* is using the **FAT** or **FAT32** filesystem, not **exFAT**. If your *SD card* is larger than *32GB*, manually re-format it with the **FAT32** filesystem (as described above). 
