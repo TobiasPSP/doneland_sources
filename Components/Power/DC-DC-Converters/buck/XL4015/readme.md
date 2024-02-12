@@ -1,4 +1,4 @@
-﻿# XL4015
+# XL4015
 :stopwatch: Reading time: 4 minutes.
 
 Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
@@ -7,7 +7,7 @@ Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
 
 The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as â‚¬ 1.00 in total:
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as € 1.00 in total:
 
 <img src="images/xl4015_boards.png" width="100%" height="100%" />
 
@@ -42,4 +42,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 [Data Sheet](materials/XL4015_datasheet.pdf)
 
-*(article:666965021812243012)*
+
