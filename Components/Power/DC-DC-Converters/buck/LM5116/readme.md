@@ -1,4 +1,4 @@
-# LM5116
+﻿# LM5116
 :stopwatch: Reading time: 4 minutes.
 
 Input 6-100V, Output 1.215-80V (often limited to 32V to protect *condensators* used in breakout board, Current 20A, CV, CC
@@ -9,7 +9,7 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 <img src="images/LM5116_all_w.png" width="90%" height="90%" />
 
-> The board above costs around €4 including heat sinks and is a *heavy-duty* workhorse for hobbyist projects. It supports both *constant voltage* and *constant current*, settable via two clearly marked potentiometers. Turn them *rightwards* to *increase* their setting, and *leftwards* to *decrease*. 
+> The board above costs around â‚¬4 including heat sinks and is a *heavy-duty* workhorse for hobbyist projects. It supports both *constant voltage* and *constant current*, settable via two clearly marked potentiometers. Turn them *rightwards* to *increase* their setting, and *leftwards* to *decrease*. 
 >
 > :warning: The board comes with a tiny switch at the *input* terminal. Make sure this switch is in *ON* position or else there will be no output voltage.
 >
@@ -52,4 +52,4 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 [Data Sheet](materials/LM5116_datasheet.pdf)
 
-
+<sup><sub>*(article:136145021812241121)*</sub></sup>

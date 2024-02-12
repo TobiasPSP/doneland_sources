@@ -1,4 +1,4 @@
-# Measuring Current Via Shunt
+﻿# Measuring Current Via Shunt
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
@@ -16,5 +16,4 @@ The most important spec for a **Shunt** is the maximum *current* it is supposed 
 
 Most **Shunts** are designed to drop *50mV*, *75mV*, or *100mV* when operating at their maximum rated current.
 
-
-
+<sup><sub>*(article:187013021812241121)*</sub></sup>

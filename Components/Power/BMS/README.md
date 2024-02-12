@@ -1,4 +1,4 @@
-# Battery Management System (BMS)
+﻿# Battery Management System (BMS)
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
@@ -55,3 +55,5 @@ Once you start building your own battery constructs, i.e. by combining multiple 
 > When you connect multiple batteries *in series* to get a higher output voltage, your **BMS** should have a *balancer* feature that kicks in during *charging* (it's not in use during *discharge*):
 >
 > the balancer makes sure each cell voltage is monitored individually. Without balancing, one battery could already be fully charged when another is not, resulting either in partially loaded batteries or risk of *over-charging* a battery.
+
+<sup><sub>*(article:103239021812241121)*</sub></sup>

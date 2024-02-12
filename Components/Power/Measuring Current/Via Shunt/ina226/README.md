@@ -1,10 +1,10 @@
-# INA226 Current And Voltage Monitoring
+﻿# INA226 Current And Voltage Monitoring
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
 [**INA226**](https://www.ti.com/lit/ds/symlink/ina226.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
 
-**INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than €2/piece. 
+**INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than â‚¬2/piece. 
 
 <img src="images/ina226_soldered.png" width="40%" height="40%" />
 
@@ -80,4 +80,4 @@ Here are available example sketches:
 
 * [**Basic Setup**:](Example%20Basic%20Setup) Setting up a **INA226** breakout board with an **ESP8266** microcontroller to perform *voltage* and *current* measurements. Includes necessary *library* and complete *platform.io* project.
 
-
+<sup><sub>*(article:191002021812241121)*</sub></sup>

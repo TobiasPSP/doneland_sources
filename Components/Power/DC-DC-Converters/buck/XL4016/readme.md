@@ -1,4 +1,4 @@
-# XL4016
+﻿# XL4016
 :stopwatch: Reading time: 4 minutes.
 
 Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
@@ -7,7 +7,7 @@ Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
 
 The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for € 6-10:
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for â‚¬ 6-10:
 
 <img src="images/XL4016_cv_w.png" width="70%" height="70%" />
 
@@ -42,4 +42,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 [Data Sheet](materials/XL4016_datasheet.pdf)
 
-
+<sup><sub>*(article:168060021812241121)*</sub></sup>

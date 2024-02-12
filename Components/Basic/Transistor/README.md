@@ -1,4 +1,4 @@
-# Transistors - Practical Summary
+﻿# Transistors - Practical Summary
 :stopwatch: Reading time: 10 minutes.
 
 ## Quick overview
@@ -156,7 +156,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 > [!TIP]
 > Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
 >
-> You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
+> You may even want to look into purchasing a dedicated transistor test device. They are available for around â‚¬20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
 <img src="images/tester.jpg" width="30%" height="30%" />
 
@@ -179,8 +179,4 @@ Pins are arranged circularly. There is a tab in the rim of the housing. Typicall
 
 ### MOSFETs
 
-
-
-
-
-
+<sup><sub>*(article:059353021812241121)*</sub></sup>

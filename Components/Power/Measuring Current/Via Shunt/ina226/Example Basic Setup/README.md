@@ -1,4 +1,4 @@
-# Example: INA226 Basic Setup
+﻿# Example: INA226 Basic Setup
 :stopwatch: Reading time: 10 minutes.
 
 <img src="images/ina226_basic.png" width="40%" height="40%" />
@@ -59,12 +59,4 @@ Next, *build* and *upload* the firmware to run the hardware:
 * **PlatformIO:** use the project in the subfolder [platformio](platformio) and load it in *VSCode*.
 * **Arduino IDE:** use the sketch in the subfolder [arduino](arduino) and load it into the *Arduino IDE*
 
-
-
-
-
-
-
-
-
-
+<sup><sub>*(article:196983021812241121)*</sub></sup>
