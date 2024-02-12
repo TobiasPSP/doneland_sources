@@ -256,29 +256,62 @@ To limit sources of faults, before you use a *SD card*, first try it on a *PC*. 
 * Eject the *SD card*, wait a minute, then re-insert the card. Check whether the card still works and whether you can retrieve the stored files.
 
 > [!IMPORTANT]  
-> When your *SD card* is larger than **32GB**, it is by default formatted with the *exFAT* filesystem, and *Windows* won't provide visible options to go back to the older *FAT32* filesystem.
+> *SD Card modules* can only read and write *SD cards* formatted with the *FAT32* filesystem. *SD cards* larger than *4GB* typically are formatted using the *exFAT* filesystem. Such *SD cards* will not work in *SD card modules*.
 >
-> *SD card modules* and their libraries require the *FAT32* filesystem, however. They cannot work with *exFAT*.
+> You can find out the current filesystem by right-clicking the *SD card* drive in *Windows Explorer*. Choose *Properties*. The dialog shows the file system in use.
 >
-> You can change the *SD card* filesystem to *FAT32* via a console command. Press `Win+R`, then launch either `cmd` or `powershell`, and enter this command (assuming that drive *E:* is your *SD card* drive - adjust the drive letter accordingly): `format /FS:FAT32 e:`. This command may take an hour time as it is completely re-formatting the drive. *QuickFormat* cannot change the filesystem to *FAT32*.
->
-> *SD cards* larger than *32GB* cannot be converted to *FAT32* with the built-in operating system tools, though. To convert a *SD card* larger than *32GB* to *FAT32*, you need to either shrink the partition to less than *32GB* (and lose the exceeding storage capacity), or use freeware tools like the [MiniTool Partition Wizard](https://de.minitool.com/downloadcenter/).
+> If the dialog shows a filesystem other than *FAT32* (i.e. *exFAT* or *NTFS*), you need to convert it to *FAT32* before you can use it. See below for instructions.
 
-```
-PS C:\Users\Tobias> format /FS:FAT32 e:
-Insert new disk for drive E:
-and press ENTER when ready...
-The type of the file system is EXFAT.
-The new file system is FAT32.
-Verifying 59.5 GB
-66 percent completed.
-```
+<img src="images/1exfat.png" width="80%" height="80%" />
 
-Now insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
+Once your *SD card* has passed all checks, insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
 Some boards have a *snap* mechanism while others simply slide the card in and out without any lock. 
 
 With *snap* mechanisms, you need to gently *push* the *SD card* to release them when you want to eject and remove them.
+
+## Converting SD Card Media to FAT32
+
+*SD cards* smaller than *32GB* can be converted to *FAT32* using the built-in *Windows* tools:
+
+1. Right-click the *SD card* drive in *Windows Explorer*, then choose *Format*.
+2. In the *File System* dropdown list, choose *FAT32*. If you cannot see this option, the *SD card* is larger than *4GB*. You then need to do the format using the console command described below.
+3. Check *Quick Format*, then click *Start*.
+
+<img src="images/2format.png" width="80%" height="80%" />
+
+If the dialog does not list the *FAT32* file system, then use a more powerful console command:
+
+1. Press `WIN+R`, then launch `cmd` or `powershell`. A console windows opens.
+2. Enter this command: `format /FS:FAT32 e:`. Replace `e:` with the drive letter of your *SD card* drive.
+3. Press `ENTER`. The process may take an hour.
+
+If the command does not complete successfully and instead complains that the *SD card* is "too large", then it is probably larger than *32GB*. Microsoft has decided to not support formatting drives larger than *32GB* to *FAT32* even though this is technically possible, and most operating systems (including *Windows*) do support *FAT32* drives of up to *2TB*.
+
+You then need the help of 3rd party tools. Most freeware tools for this purpose do not work in *Windows 10/11* anymore. [MiniTool Partition Wizard](https://de.minitool.com/downloadcenter/) still does, and its *free* and functionally limited version fortunately covers the file system conversion.
+
+Once you downloaded and installed the *free* version, a window opens and shows all partitions of all disk drives in your computer. 
+
+<img src="images/3minitool.png" width="80%" height="80%" />
+
+In the lower part of the window, identify the partition that represents your *SD card* drive, and right-click it. Choose *Format*. This time, the *Format* dialog offers all available file systems. Select *FAT32*, then click *OK*.
+
+<img src="images/4formatFat32.png" width="80%" height="80%" />
+
+This adds the job to a task list. In the left lower section of the main window below *Operations Pending* you see the formatting job. Click *Apply* to actually perform the formatting.
+
+The *SD card* is now running the *FAT32* file system and can be used with the *SD card module*. Its size hasn't changed. This way, you can now use *SD cards* with *64GB* in size (or more) with your *SD card module.
+
+<img src="images/fat32.png" width="80%" height="80%" />
+
+
+
+
+
+
+
+
+
 
 ## Troubleshooting
 
