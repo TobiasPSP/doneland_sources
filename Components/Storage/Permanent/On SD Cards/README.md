@@ -248,7 +248,7 @@ void loop() {
 
 ## Preparing SD Cards
 
-To limit sources of faults, before you use a *SD card*, you should first try it in a *PC*. It is not uncommon for older *SD cards* to simply not work correctly anymore:
+To limit sources of faults, before you use a *SD card*, first try it on a *PC*. It is not uncommon for older *SD cards* to simply not work correctly anymore:
 
 * Insert the SD card into your PC. If your PC has no SD card reader (many do), you might want to get a cheap USB card reader. After all, the whole point of using *SD cards* is to carry sensor and other data over from your DIY devices to your computer.
 * Check whether the SD card is correctly identified by your PC. If the PC prompts you to format the SD card, do format it. Use the *FAT* filesystem.
@@ -258,23 +258,23 @@ To limit sources of faults, before you use a *SD card*, you should first try it 
 > [!IMPORTANT]  
 > When your *SD card* is larger than **32GB**, it is by default formatted with the *exFAT* filesystem, and *Windows* won't provide visible options to go back to the older *FAT32* filesystem.
 >
->  *SD card modules* and their libraries require the *FAT* filesystem, however. They cannot work with *exFAT*.
+> *SD card modules* and their libraries require the *FAT32* filesystem, however. They cannot work with *exFAT*.
 >
-> You can change the *SD card* filesystem to *FAT* via a console command. Press `Win+R`, then launch either `cmd` or `powershell`, and enter this command (assuming that drive *E:* is your *SD card* drive - adjust the drive letter accordingly): `format /FS:FAT32 e:`. This command may take an hour time as it is completely re-formatting the drive. *QuickFormat* cannot change the filesystem to *FAT*.
+> You can change the *SD card* filesystem to *FAT32* via a console command. Press `Win+R`, then launch either `cmd` or `powershell`, and enter this command (assuming that drive *E:* is your *SD card* drive - adjust the drive letter accordingly): `format /FS:FAT32 e:`. This command may take an hour time as it is completely re-formatting the drive. *QuickFormat* cannot change the filesystem to *FAT32*.
 >
 > Even if your *SD card* is larger than *32GB*, you won't lose storage capacity by reformatting to *FAT32*. As it turns out, *FAT32* supports drive sizes of up to *2TB* and file sizes of up to *4GB*, and so do most operating systems.
 >
 > The *FAT32* file size limitation of *4GB* is the primary reason why *exFAT* was invented: your sensor projects can  quite happily live with a maximum file size of *4GB*, others (like *4K Video Cameras*) can't. With *exFAT* file sizes of up to *128PB* can be stored. 
 
-Now you can insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
+Now insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
 Some boards have a *snap* mechanism while others simply slide the card in and out without any lock. 
 
-With *snap* mechanisms, you need to gently *push* the *SD card* to release them from the slot when you want to remove them.
+With *snap* mechanisms, you need to gently *push* the *SD card* to release them when you want to eject and remove them.
 
 ## Troubleshooting
 
-Here are a few thoughts when things don't work at first:
+A few thoughts when things don't work at first:
 
 * If the sketch above cannot find the *SD card reader*, first check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
 * If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
