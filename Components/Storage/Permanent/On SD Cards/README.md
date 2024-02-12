@@ -262,9 +262,7 @@ To limit sources of faults, before you use a *SD card*, first try it on a *PC*. 
 >
 > You can change the *SD card* filesystem to *FAT32* via a console command. Press `Win+R`, then launch either `cmd` or `powershell`, and enter this command (assuming that drive *E:* is your *SD card* drive - adjust the drive letter accordingly): `format /FS:FAT32 e:`. This command may take an hour time as it is completely re-formatting the drive. *QuickFormat* cannot change the filesystem to *FAT32*.
 >
-> Even if your *SD card* is larger than *32GB*, you won't lose storage capacity by reformatting to *FAT32*. As it turns out, *FAT32* supports drive sizes of up to *2TB* and file sizes of up to *4GB*, and so do most operating systems.
->
-> The *FAT32* file size limitation of *4GB* is the primary reason why *exFAT* was invented: your sensor projects can  quite happily live with a maximum file size of *4GB*, others (like *4K Video Cameras*) can't. With *exFAT* file sizes of up to *128PB* can be stored.
+> *SD cards* larger than *32GB* cannot be converted to *FAT32* with the built-in operating system tools, though. To convert a *SD card* larger than *32GB* to *FAT32*, you need to either shrink the partition to less than *32GB* (and lose the exceeding storage capacity), or use freeware tools like the [MiniTool Partition Wizard](https://de.minitool.com/downloadcenter/).
 
 ```
 PS C:\Users\Tobias> format /FS:FAT32 e:
