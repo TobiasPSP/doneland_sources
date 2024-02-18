@@ -1,81 +1,49 @@
 ﻿# Welcome to **Done Land** 
 
-Welcome to this place where I *document* and *explain* things as I encounter them during my projects. These can be fundamentals, data sheets, hints or just practical tips about electronics, microcontrollers, tools, and scripts. My content focuses on quick and useful *facts* and *no nonsense* information rather than scientific accuracy. 
+**My place for Makers, Geeks, Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
 
-All information is structured in a tree-like hierarchy for easy discovery.
+I am originally a *software and automation expert* but a few years ago, I started to realize how useful and important it is to also dive into *electronics* and and the world of *microprocessors* like **ESP8266**. There is a huge community, great resources and tons of ideas. 
+
+#### Why bother making things when there is *Amazon* and *AliExpress*?
+
+Here is why: a good friend needed a device that *monitors loud noise*, and when the volume is over a threshold, he wanted to *cut off electricity* and *Internet access*. This device was supposed to be deployed into his daughters' room. 
+
+You can't buy these things. But you can make them. And it doesn't take much, neither money nor time. It does take knowledge, though. And it is great fun to learn how hardware works, and to push your own limits.
+
+#### Thank You, Community!
+
+On my personal journey into electronics, I visited many great resources, watched well-made youtube videos, and am extremely grateful for the generous sharing of so many people in forums, on youtube, or websites like *instructables*.
+
+What irritated me a bit though was that in forums the same questions were asked over and over again, and rather than just giving a no nonsense answer, often the key information was burried in a lot of noise.
+
+Working hard in my other jobs, the one thing that is scarce is *time*: I wished there were more places that provide just the knowledge in a well discoverable way. 
+
+#### Giving Back
+
+Now was the time to give back to the community, and while working on my projects and personal learning curve, I started to take the time and *document* my findings. 
+
+The result is this website. It is a huge *work in progress*, and aside from *electronics* I am also working many nights on *web design*, *github actions* and *image processing*, just to mention a few things, in my effort to provide you with a clean and discoverable information resource. 
+
+
+#### Feel Free to Contribute, Too!
+
+You are cordially invited to harvest as much information from here as you wish, and if you come across errors or would like to contribute, please leave a comment.
+
+> [!NOTE]
+> This website and its content is all about *practical* know-how and may not always be academically perfect. Please spare your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe. While that's great, at this place what matters most is that things are *understandable* and of immediate practical use - even at the expense of slight inaccuracies or simplifications that a true electrical engineer would never allow.  
 
 > [!TIP]
 > If you find typos or would like to add *practically relevant* comments or corrections, please file an [issue](https://github.com/TobiasPSP/doneland/issues). If you have questions or would like to get in touch, visit the [discussion](https://github.com/TobiasPSP/doneland/discussions) forum.
-
-This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
-
-> This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 >
-> Both places are great to read and dive into the content, and I urge you to try them both.
->
-> The website may feel more focused. Once you get used to the *github repository* user interface though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
->
-> Website mirroring is done automatically by *github*. The generated website may still have minor formatting deficiencies. Unfortunately, *github pages* does not yet fully support all *github markdown* that I used in my content.
+> This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
 
-Content is structured in major categories:
+#### You Choose: Visit Github, or Visit the Web
+This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 
-## Basic Components
+Both places are great to read and dive into the content, and I urge you to try them both.
 
-Single parts of electrical circuits with one dominant function:
+The website may feel more focused. Once you get used to the *github repository* user interface though, visiting the repo directly is much more powerful: in the top pane, you always have easy access to all file-based resources, and on the left you can easily navigate the sites' tree structure.
 
-* [Transistors](Components/Basic/Transistor)
-
-## Storage
-
-In this section I am looking at ways to permanently store data such as sensor readings, etc.:
-
-* [Reading and Writing SD Cards](Components/Storage/Permanent/On%20SD%20Cards)
-
-## Power
-
-### [Measuring Current and Voltage](Components/Power/Measuring%20Current)
-
-Knowing the actual *voltage* and *current* is a prerequisite for data logging, electronic fuses, power supplies, chargers and so much more. I am looking into different ways to measure *voltage* and *current*.
-
-One way to measure *current* is [via *shunts*](Components/Power/Measuring%20Current/Via%20Shunt), and there are excellent and cheap controllers that may do out-of-the box exactly what you need:
-
-* [INA226](Components/Power/Measuring%20Current/Via%20Shunt/ina226)
-
-### [BMS (Battery Management Systems)](Components/Power/BMS)
-
-Modern rechargeable *lithium*-based batteries can be damaged or catch fire when used wrongly. **BMS** are electronic components designed to *protect* batteries from a number of mishaps.
-
-### [DC-DC Converters](Components/Power/DC-DC-Converters)
-
-They can *lower* or *raise* an input voltage. Important part of a *power supply* to ensure your devices and projects receive the appropriate *voltage* and/or *current*.
-
-Controllers are typically sold in a ready-to-go breakout board.
-
-#### Buck-Converter (lowering the voltage)
-
-* [LM5116](Components/Power/DC-DC-Converters/buck/LM5116)
-* [XL4005](Components/Power/DC-DC-Converters/buck/XL4005)
-* [XL4015](Components/Power/DC-DC-Converters/buck/XL4015)
-* [XL4016](Components/Power/DC-DC-Converters/buck/XL4016)
-
-
-## Human Interface
-
-Most electronic projects require human input and interaction. There are a number of *human interface devices* worth looking into:
-
-* [Rotary Encoders](Components/Human%20Interface/Rotary%20Encoder)
-
-## Projects
-
-Here is a list of my current projects I am chewing on:
-
-* **[Digitally controllable Buck Converter](Projects/Programmable%20Buck%20Converter/Via%20Voltage%20Injection)**: You can get powerful **Buck** converters (breakout boards that can lower the *voltage* and provide *constant voltage* (CV) and *constant current* (CC)) for just a few Euro. In this project I want to add a simple way of controlling *CV* and *CC* digitally, i.e. via a microcontroller. Once that works, a digitally controllable **Buck** converter is the basis for intelligent chargers and many follow-up projects.
-
-## Tools
-
-I am using a set of tools that I share with you:
-
-* **[Cropping and Adding Solid Backgrounds for *svg* Images](Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files):** I have written a **PowerShell Module** that provides a new *cmdlet*: `Format-Svg`. With this *cmdlet*, I am prettifying *svg* schematics drawings produced by *KiCAD*. The *cmdlet* can crop and automatically remove excess whitespace, and it can automatically add solid backgrounds.
-*  **[Exporting *svg* to *png* Files](Tools/Software/PowerShell/Image%20Processing/File%20Format%20Conversion/.svg%20to%20.png):** There are many ways to export *svg* vector graphics to *png* pixel image files but most of them aren't very flexible and i.e. cannot remove transparency or export in extra high resolution. I am using the free *Inkscape* software and control it via *console commands*. That works excellent for me.
+Website mirroring is done automatically by *github*. The generated website may still have minor formatting deficiencies. Unfortunately, *github pages* does not yet fully support all *github markdown* that I used in my content.
 
 <sup><sub>*(article:035941021812241121)*</sub></sup>
