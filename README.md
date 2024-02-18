@@ -4,13 +4,13 @@
 
 I am originally a *software and automation expert* but a few years ago, I started to realize how useful and important it is to also dive into *electronics* and and the world of *microprocessors* like **ESP8266**. There is a huge community, great resources and tons of ideas. 
 
-#### Why bother making things when there is *Amazon* and *AliExpress*?
+## Why bother making things when there is *Amazon* and *AliExpress*?
 
 Here is why: a good friend needed a device that *monitors loud noise*, and when the volume is over a threshold, he wanted to *cut off electricity* and *Internet access*. This device was supposed to be deployed into his daughters' room. 
 
 You can't buy these things. But you can make them. And it doesn't take much, neither money nor time. It does take knowledge, though. And it is great fun to learn how hardware works, and to push your own limits.
 
-#### Thank You, Community!
+## Thank You, Community!
 
 On my personal journey into electronics, I visited many great resources, watched well-made youtube videos, and am extremely grateful for the generous sharing of so many people in forums, on youtube, or websites like *instructables*.
 
@@ -18,14 +18,14 @@ What irritated me a bit though was that in forums the same questions were asked 
 
 Working hard in my other jobs, the one thing that is scarce is *time*: I wished there were more places that provide just the knowledge in a well discoverable way. 
 
-#### Giving Back
+## Giving Back
 
 Now was the time to give back to the community, and while working on my projects and personal learning curve, I started to take the time and *document* my findings. 
 
 The result is this website. It is a huge *work in progress*, and aside from *electronics* I am also working many nights on *web design*, *github actions* and *image processing*, just to mention a few things, in my effort to provide you with a clean and discoverable information resource. 
 
 
-#### Feel Free to Contribute, Too!
+## Feel Free to Contribute, Too!
 
 You are cordially invited to harvest as much information from here as you wish, and if you come across errors or would like to contribute, please leave a comment.
 
