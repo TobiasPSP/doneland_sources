@@ -1,4 +1,6 @@
-﻿# Welcome to DONE.LAND! 
+<img src="/assets/images/landing.jpg" width="80%" height="80%" />
+ 
+ # Welcome to DONE.LAND! 
 
 > **My place for Makers, Geeks, Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
 
