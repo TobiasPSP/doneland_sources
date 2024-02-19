@@ -2,7 +2,7 @@
  
 # Welcome to DONE.LAND! 
 
-> **A Place for Makers, Geeks, Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
+> **A Place for Makers, Geeks and the Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
 
 I am originally a *software and automation expert* but started to realize how useful and important it is to also dive into *electronics* and and the world of *microprocessors* like **ESP8266**. 
 
