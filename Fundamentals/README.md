@@ -2,7 +2,7 @@
  
 # Fundamentals
 
-> **Understanding Fundamental Electronic Parts**
+> **Understanding Fundamental Electronic Parts Including Specs, Hints and Examples**
 
 *Breakout boards* and *microcontrollers* are an efficient way of quickly plugging together working electronic devices. There's only very little need to understand the *fundamentals* of electronics.
 
