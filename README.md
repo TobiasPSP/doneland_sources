@@ -40,11 +40,13 @@ If you do come across errors or would like to add a piece of knowledge, please l
 > [!NOTE]
 > This website is about *practical* know-how and may not always be academically correct. Please save your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe. While that's great, what solely matters *here* is that things are *understandable* and of *practical use* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow.  
 
-If you find typos or would like to add *practically relevant* comments and corrections, the simplest form of feedback is to leave a comment below.
+Here are your paths to contribute:
 
-A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
+* **Comments:** If you find typos or would like to add *practically relevant* comments and corrections, the simplest form of feedback is to leave a comment below.
 
-The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
+* **Discussions:** A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
+
+* **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
 
 ## Visit Github, or Visit the Web
 This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
