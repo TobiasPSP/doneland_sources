@@ -2,7 +2,7 @@
  
 # Tools
 
-> **Introducing Tools and Utilities that Helped Me a Lot**
+> **Introducing Tools and Utilities that I Love and Recommend - Better Results in Less Time**
 
 Good tools save time and nerve, plus they often improve the quality of your work. 
 
@@ -10,10 +10,8 @@ In this section I am introducing all *tools* and *utilities* that help me do ele
 
 ## Creating Great Schematics
 
-For example, I use the free *KiCAD* software to draw schematics. Unfortunately, the only way of exporting available it to "plot" the schematics page to *SVG* vector image. 
+Here is an example: I use the free *KiCAD* software to draw schematics (so *KiCad* definitely is a mention in my *software* category). While *KiCAD* is an excellent software for doing schematics, once you want to *export* them to file, there are severe limitations: all you can do is "plot" the entire schematics page to *SVG* vector image.
 
-On my website, I prefer more predictable *PNG* images. So I created a *PowerShell* module with the tools to take the *svg* file created by *KiCAD*, *crop* the excessive whitespace and replace it by a margin, and then convert the *svg* file to a hi-res *PNG*.
-
-As you see, the tools in this section may not exclusively be related to electronics. I organized my tools in categories for easy discovery. Check out the left sidebar.
+If you just want a hi-res *png* schematics image file, a lot of post-processing steps are needed. I automated them with the help of *PowerShell* and created a *PowerShell* module with all the necessary commands to *crop* the excessive whitespace, replace it by a margin, optionally add a solid color background, and then convert the *svg* file to a hi-res *PNG*.
 
 <sup><sub>*(article:802658022319242618)*</sub></sup>
