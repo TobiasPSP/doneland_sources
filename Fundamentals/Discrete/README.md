@@ -2,7 +2,7 @@
  
 # Discrete Parts
 
-> **Discrete devices are disparate components like resistors, diodes or transistors. I'll document them here as I encounter them in my projects.**
+> **Discrete Devices are Disparate Components like Resistors, Diodes or Transistors. I'll Document Them Here as I Encounter Them in My Projects.**
 
 **Discrete** devices (parts, components, you name it) are electronic components that are *disparate*: you can't break them up in smaller units. They are the basic ingredients for anything more complex, like a *IC*, a *microprocessor*, or a complete *device*.
 
