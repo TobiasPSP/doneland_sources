@@ -12,10 +12,14 @@ There's no need for you to visit this section unless you're hungry for more.
 
 In this section I look at the *discrete* parts of electronics like *transistors*, *resistors*, *capacitors* and *coils*. Understanding these building blocks of *breakout boards* and *ICs* can be awesome, and sometimes even necessary.
 
-## Enabling You to Do More
+## Do More With Less
 
 What if you just want to have a *latched push button* to power on and off your device? What if your button needs to switch a much bigger load than it could handle or would be safe to do?
 
 That's what you can put together with a few *transistors* and *resistors*. Yes, there may be even *breakout boards* for *latched buttons* and *switching MosFETs*. Using discrete parts gives you more flexibility, cheaper cost and smaller form factors.
+
+## Discrete Components
+
+[Discrete](discrete) components are the most basic electronic parts that cannot be divided any further, like *transistors* or *resistors*.
 
 <sup><sub>*(article:690257022219240756)*</sub></sup>
