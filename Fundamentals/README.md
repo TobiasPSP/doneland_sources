@@ -18,4 +18,4 @@ What if you just want to have a *latched push button* to power on and off your d
 
 That's what you can put together with a few *transistors* and *resistors*. Yes, there may be even *breakout boards* for *latched buttons* and *switching MosFETs*. Using discrete parts gives you more flexibility, cheaper cost and smaller form factors.
 
-
+<sup><sub>*(article:690257022219240756)*</sub></sup>
