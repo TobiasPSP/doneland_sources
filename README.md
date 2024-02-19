@@ -2,11 +2,13 @@
  
 # Welcome to DONE.LAND! 
 
-> **My place for Makers, Geeks, Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
+> **My Place for Makers, Geeks, Technically Inspired who Enjoy Playing with Electronics and Microprocessors**
 
-I am originally a *software and automation expert* but a few years ago, I started to realize how useful and important it is to also dive into *electronics* and and the world of *microprocessors* like **ESP8266**. There is a huge community, great resources and tons of ideas. 
+I am originally a *software and automation expert* but started to realize how useful and important it is to also dive into *electronics* and and the world of *microprocessors* like **ESP8266**. 
 
-## Why bother making things when there is *Amazon* and *AliExpress*?
+There is a huge community, great resources and tons of ideas. 
+
+## Why bother when there is *Amazon* and *AliExpress*?
 
 Here is why: a good friend needed a device that *monitors loud noise*, and when the volume is over a threshold, he wanted to *cut off electricity* and *Internet access*. This device was supposed to be deployed into his daughters' room. 
 
@@ -14,11 +16,11 @@ You can't buy these things. But you can make them. And it doesn't take much, nei
 
 ## Thank You, Community!
 
-On my personal journey into electronics, I visited many great resources, watched well-made youtube videos, and am extremely grateful for the generous sharing of so many people in forums, on youtube, or websites like *instructables*.
+On my personal journey into electronics, I visited many great resources, watched well-made YouTube videos, and am extremely grateful for the generous sharing of so many people in forums, on youtube, or websites like *instructables*.
 
-What irritated me a bit though was that in forums the same questions were asked over and over again, and rather than just giving a no nonsense answer, often the key information was burried in a lot of noise.
+What irritated me a bit was that in forums the *same* questions were asked over and over again, and rather than just giving a no nonsense answer, often the key information was burried in a lot of noise.
 
-Working hard in my other jobs, the one thing that is scarce is *time*: I wished there were more places that provide just the knowledge in a well discoverable way. 
+Working hard in other jobs, the *one thing* that is scarce is *time*: I wished there were more places that provide just the knowledge in a well discoverable way. 
 
 ## Giving Back
 
@@ -39,7 +41,7 @@ You are cordially invited to harvest as much information from here as you wish, 
 >
 > This repository is a work in progress. When you visit next week, chances are that you'll see many more topics. Feel free to check back often.
 
-#### You Choose: Visit Github, or Visit the Web
+## Visit Github, or Visit the Web
 This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 
 Both places are great to read and dive into the content, and I urge you to try them both.
