@@ -1,4 +1,4 @@
-<img src="/assets/images/investigate.jpg" width="80%" height="80%" />
+﻿<img src="/assets/images/investigate.jpg" width="80%" height="80%" />
  
 # Components
 
@@ -10,3 +10,4 @@ For almost anything there is a rich choice of *Breakout Boards* and *Components*
 
 Simply pick a *category* in the left sidebar, then click on the *topic* that interests you.
 
+<sup><sub>*(article:034697021719240341)*</sub></sup>
