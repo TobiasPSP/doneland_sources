@@ -38,9 +38,7 @@ You are cordially invited to harvest as much information from here as you wish. 
 If you do come across errors or would like to add a piece of knowledge, please leave a comment below.
 
 > [!NOTE]
-> This website is about *practical* know-how and may not always be academically correct.
-> Please save your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe.
-> While that's great, what solely matters *here* is that things are *understandable* and of *practical use* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow.  
+> This website is about *practical* know-how and may not always be academically correct. Please save your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe. While that's great, what solely matters *here* is that things are *understandable* and of *practical use* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow.  
 
 If you find typos or would like to add *practically relevant* comments and corrections, the simplest form of feedback is to leave a comment below.
 
