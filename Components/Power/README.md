@@ -4,7 +4,7 @@
 
 > **Check Out Power Devices: Regulators, Batteries, BMS**
 
-Electronics of any kind are driven by *electrical power*, so this section is all about *feeding power to your devices*. 
+Electronics of any kind are driven by *electrical power*, and this section is all about *feeding power to your devices*. 
 
 This includes *voltage* and *current regulators* that you can use for your devices to provide a stable and safe *voltage* (or *current*). 
 
