@@ -1,12 +1,16 @@
-﻿# Transistors - Practical Summary
-:stopwatch: Reading time: 10 minutes.
+﻿<img src="/assets/images/dam1.jpg" width="80%" height="80%" />
 
-## Quick overview
+# Transistors
+
+> **Transistors are Electronic Switches. They Can Amplify Currents, Too. A Tiny Control Signal can Control Huge Loads.**
+
+
 Transistors work similar to a dam, and while a *valve wheel* in a dam *controls how much water can flow* through it, the transistor control pin (called *base* or *gate*) controls how much current can flow through the remaining two pins. 
 
 Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
-<img src="images/damIntro1.jpg" width="80%" height="80%" />
+
+## Switch or Potentiometer?
 
 A transistor typically acts either as **switch** or **potentiometer**:
 
@@ -14,7 +18,10 @@ A transistor typically acts either as **switch** or **potentiometer**:
 
 **Amplifier**:  By slowly increasing *voltage* or *current* to the control pin, the transistor works like a variable resistor and slowly increases or decreases its resistance between the other two pins. So a transistor can be used like a potentiometer, and the use case of a *switch* (above) is just an extreme example of this (cranking the potentiometer fully open or closed). Unlike a real potentiometer, the transistor can support significant currents. So a tiny voltage or current change at the control pin can result in a massive current change between the other two pins. This is how a transistor *amplifier* operates.
 
-### Circuit Symbols
+> [!NOTE]
+> Can a transistor *really* act like a *variable resistor*? Yes, but.... Producing *highly accurate* resistances would be pretty difficult, considering production differences and linear ranges of *transistors*. That's why *transistors* are typically used as a *switch* or to *amplify* currents. For precise resistances, use passive *resistors* or *digitally controllable resistors* (*ICs*).
+
+## Circuit Symbols
 
 In schematics, you identify transistors by these symbols:
 
@@ -55,7 +62,7 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 </details>
 
-### Transistor Families: BJT and FET
+## Transistor Families: BJT and FET
 
 There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
 
@@ -66,7 +73,7 @@ There are two fundamental transistor types available: classic *BJT* transistors 
 
 (*from left to right*: *MOSFET*, *BJT*, and a *Power BJT*)
 
-### Legs and Terminals
+## Legs and Terminals
 
 Transistors have three connectors (legs):
 
@@ -90,7 +97,7 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
   That said, for *practical* aspects and *hobbyist* level, it is perfectly ok to go by the simple "control pin" and two "load current" pins paradigm.
 </details>
 
-### Types: NPN, PNP, N-Channel, P-Channel
+## Types: NPN, PNP, N-Channel, P-Channel
 
 Transistors come in *N* and in *P* types. **FET** transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. As with the pin terminology, you can simplify and consider just two fundamental types of transistors: **N-Type** (*NPN* and *N-Channel*) and **P-Type** (*PNP* and *P-Channel*):
 
@@ -106,7 +113,7 @@ Transistors come in *N* and in *P* types. **FET** transistors are called *n-Chan
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. 
 
-#### Examples With BJT Transistors
+### Examples With BJT Transistors
 
 Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
 
@@ -118,7 +125,7 @@ Both schematics below do the same thing and control a load via a push button. Th
 > [!IMPORTANT]  
 > Note how the transistor in the right circuit is *flipped vertically*. In the *left* circuit, the *emitter* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *emitter* (marked with arrow) is on *top* and connected to the *positive* side.
 
-#### Examples With FET Transistors
+### Examples With FET Transistors
 
 The same circuitry can also be designed with *FET* transistors:
 
@@ -145,7 +152,7 @@ If you (or your microcontroller output) cannot provide the required voltage, you
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
 
-# Identifying Legs and Terminals
+## Identifying Legs and Terminals
 
 Transistors of all types have three legs. Obviously, it is crucial to identify the correct terminals. 
 
@@ -156,7 +163,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 > [!TIP]
 > Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
 >
-> You may even want to look into purchasing a dedicated transistor test device. They are available for around â‚¬20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
+> You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
 <img src="images/tester.jpg" width="30%" height="30%" />
 
@@ -177,6 +184,7 @@ Pins are arranged circularly. There is a tab in the rim of the housing. Typicall
 
 > :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
-### MOSFETs
+
+> Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET 
 
 <sup><sub>*(article:059353021812241121)*</sub></sup>
