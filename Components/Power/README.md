@@ -1,9 +1,14 @@
-﻿# Power
-:stopwatch: Reading time: 10 minutes.
+﻿<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
 ## Power-Related Components
 
-In this section I discuss components used for **Power Management**:
+> **In This Section I Discuss Components Used for Power Management: Buck, Boost, Constant Current and Constant Voltage**
+
+Electronics of any kind are driven by *electrical power*, so this section is all about *feeding power to your devices*. 
+
+This includes *voltage* and *current regulators* that you can use for your devices to provide a stable and safe *voltage* (or *current*). 
+
+It also *batteries* and their *battery management systems*, and I am talking about the most fundamental thing of them all: safely *measuring voltage* and *current*.
 
 ### Constant Voltage (CV) / Constant Current (CC)
 * **[Adjusting Voltage And/Or Limiting Current](DC-DC-Converters)**: I am looking at *Buck* and *Boost* converters, and combinations, and explain differences between readily available breakout boards.
@@ -13,5 +18,7 @@ In this section I discuss components used for **Power Management**:
 
 ### Measuring And Monitoring
 * **[Measuring Current](Measuring%20Current)**: There are many very good reasons why measuring *current* can be useful, and I am sharing some ideas here. Primarily though, I look at different ways to safely measure *currents*, both small currents and huge currents.
+
+> Tags: Voltage, Current, Regulator, Battery, BMS, Constant Voltage, Constant Current, CC, CV
 
 <sup><sub>*(article:097251021812241121)*</sub></sup>
