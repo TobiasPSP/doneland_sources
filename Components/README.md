@@ -8,7 +8,7 @@ Often you might know *what* you want to do but are uncertain *how* to do it, or 
 
 For almost anything there is a rich choice of *Breakout Boards* and *Components* available. I have categorized them for you, show-case them and share the differences, test results, and true specs.
 
-* **[Power](Power):** All about *Power*-related devices. I cover *voltage* and *current regulators*, *constant voltage* and *constant current*, *batteries*, *charger*, *BMS (battery management systems)*, and I'll cover the best ways of actually *measuring voltage* and *current*.
+* **[Power](/Components/Power):** All about *Power*-related devices. I cover *voltage* and *current regulators*, *constant voltage* and *constant current*, *batteries*, *charger*, *BMS (battery management systems)*, and I'll cover the best ways of actually *measuring voltage* and *current*.
 
 
 <sup><sub>*(article:034697021719240341)*</sub></sup>
