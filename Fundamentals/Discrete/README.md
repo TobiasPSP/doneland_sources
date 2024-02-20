@@ -15,4 +15,5 @@
 > [!NOTE]
 > All of these definitions are somewhat arbitrary. Sometimes, even *ICs* (like *OpAmps*) and *voltage regulators* are called *discrete* and are added to the *active* components. Here, whenever I talk about *discrete* components I mean *really basic* electronic elements that can't be subdivided. *ICs* and even more so *voltage regulators* are complex circuits consisting of a whole bunch of transistors, capacitors, resistors, and coils. It beats me why something like this should ever be called *discrete*.
 
+> Tags: Discrete, Active, Passive
 <sup><sub>*(article:760020022319243957)*</sub></sup>
