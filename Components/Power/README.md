@@ -1,6 +1,6 @@
 ﻿<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-## Power-Related Components
+# Power-Related Components
 
 > **Check Out Power Devices: Regulators, Batteries, BMS**
 
