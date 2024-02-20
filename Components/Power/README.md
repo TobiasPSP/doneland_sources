@@ -2,7 +2,7 @@
 
 ## Power-Related Components
 
-> **In This Section I Discuss Components Used for Power Management: Buck, Boost, Constant Current and Constant Voltage**
+> **Check Out Power Devices: Regulators, Batteries, BMS**
 
 Electronics of any kind are driven by *electrical power*, so this section is all about *feeding power to your devices*. 
 
