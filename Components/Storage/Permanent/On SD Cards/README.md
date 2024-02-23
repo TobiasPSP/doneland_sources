@@ -270,7 +270,14 @@ Some boards have a *snap* mechanism while others simply slide the card in and ou
 
 With *snap* mechanisms, you need to gently *push* the *SD card* to release them when you want to eject and remove them.
 
+
 ## Converting SD Card Media to FAT32
+
+> [!IMPORTANT]  
+> Before you format a SD Card, make sure it is not *write protected*: try and copy a file to it. If this fails, you need to remove the write protection. If there is no physical switch on the SD Card to remove write protection, the reason can also be your SD Card reader in your PC. Try rebooting the PC, and if this doesn't help, try using a USB external SD Card reader.
+
+
+### Using Built-In Tools
 
 *SD cards* smaller than *32GB* can be converted to *FAT32* using the built-in *Windows* tools:
 
@@ -285,6 +292,8 @@ If the dialog does not list the *FAT32* file system, then use a more powerful co
 1. Press `WIN+R`, then launch `cmd` or `powershell`. A console windows opens.
 2. Enter this command: `format /FS:FAT32 e:`. Replace `e:` with the drive letter of your *SD card* drive.
 3. Press `ENTER`. The process may take an hour.
+
+### Using 3rd Party Tools for Big Drives 
 
 If the command does not complete successfully and instead complains that the *SD card* is "too large", then it is probably larger than *32GB*. Microsoft has decided to not support formatting drives larger than *32GB* to *FAT32* even though this is technically possible, and most operating systems (including *Windows*) do support *FAT32* drives of up to *2TB*.
 
