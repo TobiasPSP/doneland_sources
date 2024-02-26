@@ -1,4 +1,4 @@
-﻿# XL4005
+# XL4005
 :stopwatch: Reading time: 4 minutes.
 
 Input 5-32V, Output 0.8-30V, Current 5A, CV, CC
@@ -7,7 +7,7 @@ Input 5-32V, Output 0.8-30V, Current 5A, CV, CC
 
 The **XL4005** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for â‚¬ 2-4:
+The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for EUR 2-4:
 
 <img src="images/xl4005_example_w.png" width="70%" height="70%" />
 
@@ -50,4 +50,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 [Data Sheet](materials/XL4005_datasheet.pdf)
 
-<sup><sub>*(article:154098021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/dc-dc-converters/buck/xl4005?334106020426240854)

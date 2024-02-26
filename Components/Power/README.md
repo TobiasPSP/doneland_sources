@@ -1,4 +1,4 @@
-﻿<img src="/assets/images/power.jpg" width="80%" height="80%" />
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
 # Power-Related Components
 
@@ -21,4 +21,4 @@ It also *batteries* and their *battery management systems*, and I am talking abo
 
 > Tags: Voltage, Current, Regulator, Battery, BMS, Constant Voltage, Constant Current, CC, CV
 
-<sup><sub>*(article:097251021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power?220411020426240854)

@@ -1,11 +1,11 @@
-﻿# 2S BMS for Small Loads
+# 2S BMS for Small Loads
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
 
 For projects with small current needs in the range of *3A* with occasional spikes of up to *5A*, a tiny breakout board can provide all the protection features needed. 
 
-The board dinmensions are a mere 3.6cm x 0.7cm at 2mm overall height. The total cost including customs and shipping is around â‚¬ 0.50/piece when ordered in quantities of 10.
+The board dinmensions are a mere 3.6cm x 0.7cm at 2mm overall height. The total cost including customs and shipping is around EUR 0.50/piece when ordered in quantities of 10.
 
 > [!TIP]
 > There are BMS boards with much higher specs at similar cost. It still makes a lot of sense to look into this module because of its size. 
@@ -36,4 +36,4 @@ Here is the list of protection features:
 | Max peak current | yes | 5A |
 | Short circuit | yes | resettable by initiating a charge |
 
-<sup><sub>*(article:118194021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/bms/2s/small?300197020426240854)

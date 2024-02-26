@@ -1,4 +1,4 @@
-﻿# Using Mechanical Rotary Encoder
+# Using Mechanical Rotary Encoder
 :stopwatch: Reading time: 10 minutes.
 
 <img src="images/RotaryRight.png" width="10%" height="10%" />
@@ -156,4 +156,4 @@ void loop() {
 
 When you upload and run the sketch, the serial output reports every movement and key press of the **Rotary Encoder**.
 
-<sup><sub>*(article:085282021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/human%20interface/rotary%20encoder/using%20mechanical%20rotary%20encoder?155584020426240854)

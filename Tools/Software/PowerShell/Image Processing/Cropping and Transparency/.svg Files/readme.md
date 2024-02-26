@@ -1,4 +1,4 @@
-﻿# Cropping and Background Image
+# Cropping and Background Image
 
 ## Objective
 Vector images in SVG format have a transparent background. When published on web pages, their content may beconme unreadable based on user preferences.
@@ -32,4 +32,4 @@ Format-Svg -Title 'Some Title Text' -Description 'Some Description' -Width 10 -W
 
 If you want to additionally add a solid-color background and remove transparency, add the appropriate parameters to the command.
 
-<sup><sub>*(article:232889021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/tools/software/powershell/image%20processing/cropping%20and%20transparency/.svg%20files?670085020426240854)

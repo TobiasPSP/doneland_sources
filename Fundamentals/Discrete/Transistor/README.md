@@ -1,4 +1,4 @@
-﻿<img src="/assets/images/dam1.jpg" width="80%" height="80%" />
+<img src="/assets/images/dam1.jpg" width="80%" height="80%" />
 
 # Transistors
 
@@ -163,7 +163,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 > [!TIP]
 > Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
 >
-> You may even want to look into purchasing a dedicated transistor test device. They are available for around €20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
+> You may even want to look into purchasing a dedicated transistor test device. They are available for around EUR 10-20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
 <img src="images/tester.jpg" width="30%" height="30%" />
 
@@ -185,6 +185,6 @@ Pins are arranged circularly. There is a tab in the rim of the housing. Typicall
 > :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
 
-> Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET 
+> Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET
 
-<sup><sub>*(article:059353021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/fundamentals/discrete/transistor?555391020426240854)

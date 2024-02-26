@@ -1,4 +1,4 @@
-﻿# Battery Management System (BMS)
+# Battery Management System (BMS)
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
@@ -56,4 +56,4 @@ Once you start building your own battery constructs, i.e. by combining multiple 
 >
 > the balancer makes sure each cell voltage is monitored individually. Without balancing, one battery could already be fully charged when another is not, resulting either in partially loaded batteries or risk of *over-charging* a battery.
 
-<sup><sub>*(article:103239021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/bms?260305020426240854)

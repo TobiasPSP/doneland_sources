@@ -1,4 +1,4 @@
-﻿# 2S - Using 2 Batteries in Series
+# 2S - Using 2 Batteries in Series
 :stopwatch: Reading time: 10 minutes.
 
 ## Overview
@@ -12,4 +12,4 @@ To safely operate *2S* battery packs, you can add a cheap and powerful *BMS* sys
 * [Small loads (up to 3A)](small)   
 * [Medium loads (up to 8A)](medium)
 
-<sup><sub>*(article:108220021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/bms/2s?268282020426240854)

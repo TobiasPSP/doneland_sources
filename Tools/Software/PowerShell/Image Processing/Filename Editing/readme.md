@@ -1,4 +1,4 @@
-﻿# Bulk-Edit File Names
+# Bulk-Edit File Names
 
 I use an online service to remove picture backgrounds and add transparency. 
 
@@ -60,4 +60,4 @@ function Remove-FileNameSuffix
 
 I added this function to my *PowerShell* service module [ImageProcessingTools](https://github.com/TobiasPSP/doneland/tree/main/Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files/Modules).
 
-<sup><sub>*(article:245853021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/tools/software/powershell/image%20processing/filename%20editing?682051020426240854)

@@ -1,4 +1,4 @@
-﻿<img src="/assets/images/baking.jpg" width="80%" height="80%" />
+<img src="/assets/images/baking.jpg" width="80%" height="80%" />
  
 # Fundamentals
 
@@ -20,6 +20,6 @@ That's what you can put together with a few *transistors* and *resistors*. Yes, 
 
 ## Discrete Components
 
-[Discrete](/Fundamentals/Discrete) components are the most basic electronic parts that cannot be divided any further, like *transistors* or *resistors*. 
+[Discrete](/Fundamentals/Discrete) components are the most basic electronic parts that cannot be divided any further, like *transistors* or *resistors*.
 
-<sup><sub>*(article:690257022219240756)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/fundamentals?520483020426240854)

@@ -1,4 +1,4 @@
-﻿# Controlling Buck Converter Via Voltage Injection
+# Controlling Buck Converter Via Voltage Injection
 :stopwatch: Reading time: 20 minutes.
 
 ## Quick Overview
@@ -8,11 +8,11 @@ Recently, I came across an [Instructables](https://www.instructables.com/DIgital
 <img src="images/xl4015_cvcc.png" width="40%" height="40%" />
 
 > [!TIP]
-> Boards like the one above run at less than â‚¬1.50 and provide realistic *3-4A* of current. By default, you manually set the output *voltage* and *current* using trim potentiometers.
+> Boards like the one above run at less than EUR *3-4A* of current. By default, you manually set the output *voltage* and *current* using trim potentiometers.
 >
 > When you get these, make sure you order the ones with **two potentiometers** (very similar ones come with just **one potentiometer** and support *constant voltage* only).
 >
-> You might want to visit places like *AliExpress* as price differences are huge: you get them for as much as â‚¬15 and as low as â‚¬1 (I just got 4 for â‚¬ 3.38, â‚¬0.85 per unit, including customs and delivery).
+> You might want to visit places like *AliExpress* as price differences are huge: you get them for as much as EUR 0.85 per unit, including customs and delivery).
 
 I immediately catched fire as this sounded like a clever technique, possibly adoptable to other (and possibly more powerful) *buck* converters, and useful to so many projects:
 
@@ -51,4 +51,4 @@ Let's break this journey into parts for better understanding:
 
 * [Reviewing Functional Steps](1%20Functional%20Parts): Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
 
-<sup><sub>*(article:217928021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/projects/programmable%20buck%20converter/via%20voltage%20injection?622212020426240854)

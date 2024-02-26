@@ -1,4 +1,4 @@
-﻿<img src="/assets/images/butler.jpg" width="80%" height="80%" />
+<img src="/assets/images/butler.jpg" width="80%" height="80%" />
  
 # Tools
 
@@ -14,4 +14,4 @@ Here is an example: I use the free *KiCAD* software to draw schematics (so *KiCa
 
 If you just want a hi-res *png* schematics image file, a lot of post-processing steps are needed. I automated them with the help of *PowerShell* and created a *PowerShell* module with all the necessary commands to *crop* the excessive whitespace, replace it by a margin, optionally add a solid color background, and then convert the *svg* file to a hi-res *PNG*.
 
-<sup><sub>*(article:802658022319242618)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/tools?649141020426240854)

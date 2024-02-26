@@ -1,4 +1,4 @@
-﻿# Buck Converters
+# Buck Converters
 :stopwatch: Reading time: 8 minutes.
 
 ## Quick Overview
@@ -61,4 +61,4 @@ The *switching frequency* of a **Buck** converter determines the size of the *co
 
 At the same time, with higher frequency the energy must be stored and retured more often. Any loss associated with this process increases. Higher switching frequencies can therefore decrease efficiency.
 
-<sup><sub>*(article:130162021812241121)*</sub></sup>
+[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/dc-dc-converters/buck?311168020426240854)
