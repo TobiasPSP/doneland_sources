@@ -7,11 +7,11 @@
 
 **Rotary Encoders** are *input devices*. While they look similar to *potentiometers*, they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
 
-## Endless Turns And A Switch
-
 To register when the knob turns, the **Rotary Encoder** internally has a disk with holes and two switches. When you turn the encoder knob, the disk turns. Whenever a hole in the disk passes the two switches, they get contact to **GND**, one after the other.
 
 When you turn the knob in *one* direction, then switch A gets contact before switch B, and when you turn the knob in the *other* direction, it is the other way around. The *frequency* of impulses sent by both switches indicates the speed in which the knob is turned.
+
+## Confirmation Button
 
 Some **Rotary Encoder** have a third (and independent) switch that is activated when the knob is pressed.
 
@@ -37,6 +37,10 @@ That's why there are also *smart* **Rotary Encoders**: all of the hassle describ
 You can clearly see the dedicated microprocessor that makes this **Rotary Encoder** *smart*.
 
 Such boards typically communicate via *IC2*: just two wires are needed (not four), and just two GPIO pins. These GPIO pins are shared among all other *I2C* devices, too. If you increase the number of **Rotary Encoders** in your project or use other *I2C* devices like *OLED* screens, the number of required GPIO stays the same.
+
+## Examples
+
+* **[Mechanical Rotary Encoder](Mechanical%20Rotary%20Encoder):** I hook up a "pure* mechanical **Rotary Encoder** to a microprocessor. This bare-bone example works beautifully for simple use cases and does not need any special libraries. It illustrates the essentials you need to know when working with **Rotary Encoders**. 
 
 > Tags: HID, Control, Encoder, User Interface, Switch
 
