@@ -1,9 +1,9 @@
-# LM5116
-:stopwatch: Reading time: 4 minutes.
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-Input 6-100V, Output 1.215-80V (often limited to 32V to protect *condensators* used in breakout board, Current 20A, CV, CC
+# LM5116 Buck Converter
 
-## Quick Overview
+> Input 6-100V, Output 1.215-80V, Often Limited to 32V to Protect Condensators, Current 20A, CV, CC
+
 
 The **LM5116** from *Texas Instruments* is a popular step-down converter capable of outputting significant currents of up to *20A*. 
 
@@ -51,5 +51,7 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 | Softstart | yes, programmable |
 
 [Data Sheet](materials/LM5116_datasheet.pdf)
+
+> Tags: Buck, CC, CV, 20A, 36V
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/lm5116?325130020426240854)

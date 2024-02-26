@@ -1,9 +1,9 @@
-# XL4016
-:stopwatch: Reading time: 4 minutes.
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
+# XL4016 Buck Converter
 
-## Quick Overview
+> Input 5-40V, Output 1.2-36V, Current 8A, CV, CC
+
 
 The **XL4016** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *8A*. 
 
@@ -41,5 +41,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Thermal Protection | yes |
 
 [Data Sheet](materials/XL4016_datasheet.pdf)
+
+> Tags: Buck, CC, CV, 8A, 40V
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4016?368014020426240854)

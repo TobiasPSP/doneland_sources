@@ -1,5 +1,9 @@
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
+
+
 # Example: INA226 Basic Setup
-:stopwatch: Reading time: 10 minutes.
+
+> It is Not Obvious at First How a INA226 Chip Needs to be Hooked Up to Measure Current and Voltage. Here is an Example.
 
 <img src="images/ina226_basic.png" width="40%" height="40%" />
 
@@ -58,5 +62,7 @@ Next, *build* and *upload* the firmware to run the hardware:
 
 * **PlatformIO:** use the project in the subfolder [platformio](platformio) and load it in *VSCode*.
 * **Arduino IDE:** use the sketch in the subfolder [arduino](arduino) and load it into the *Arduino IDE*
+
+> Tags: Measure, Current, Voltage, Shunt, INA, INA226, Example
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt/ina226/examplebasicsetup?413892020426240854)

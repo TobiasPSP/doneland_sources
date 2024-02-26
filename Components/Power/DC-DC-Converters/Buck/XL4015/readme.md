@@ -1,9 +1,9 @@
-# XL4015
-:stopwatch: Reading time: 4 minutes.
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
 
-## Quick Overview
+# XL4015 Buck Converter
+
+> Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
 
 The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
 
@@ -41,5 +41,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Thermal Protection | yes |
 
 [Data Sheet](materials/XL4015_datasheet.pdf)
+
+> Tags: Buck, CC, CV, 36V, 5A
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4015?344080020426240854)

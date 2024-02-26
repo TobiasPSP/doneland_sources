@@ -1,15 +1,13 @@
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
+
+
 # Buck Converters
-:stopwatch: Reading time: 8 minutes.
 
-## Quick Overview
+> Buck Converters Lower DC Voltage and Ensure a Given Voltage. Some Can Limit Current, Too.
 
-**Buck** converters are electronic circuits that can *lower* **DC** voltage, and the output voltage of a **Buck** converter is always lower than its input voltage.
+There are many ways of lowering the voltage, for example a *voltage divider* (using *resistors*). In fact, *any* load will reduce the voltage by consuming part of the energy available.
 
-## Principle
-
-There are many simple ways of lowering a voltage, for example a *voltage divider* (using *resistors*). In fact, *any* load will reduce the voltage by consuming part of the energy.
-
-If you want to lower the voltage *without* consuming energy though (i.e. dissipating heat), you need a **Buck** converter.
+If you want to lower the voltage *without* consuming energy though (i.e. wasting energy by dissipating some of it as heat), you need a **Buck** converter.
 
 ### Turning Input Voltage On And Off
 
@@ -60,5 +58,7 @@ In short, a **Buck** converter is reducing the voltage much similar to a *resist
 The *switching frequency* of a **Buck** converter determines the size of the *coil* and *capacitor*. The higher the switching frequency, the shorter the two *on* and *off* phases are, so less energy needs to be temporarily stored, and components can be smaller.
 
 At the same time, with higher frequency the energy must be stored and retured more often. Any loss associated with this process increases. Higher switching frequencies can therefore decrease efficiency.
+
+> Tags: Buck, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck?311168020426240854)

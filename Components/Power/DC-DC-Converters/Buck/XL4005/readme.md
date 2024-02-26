@@ -1,9 +1,8 @@
-# XL4005
-:stopwatch: Reading time: 4 minutes.
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-Input 5-32V, Output 0.8-30V, Current 5A, CV, CC
+# XL4005 Buck Converter
 
-## Quick Overview
+> Input 5-32V, Output 0.8-30V, Current 5A, CV, CC
 
 The **XL4005** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
 
@@ -49,5 +48,7 @@ The chip is sold separately and also embedded in a complete breakout, board read
 | Thermal Protection | yes |
 
 [Data Sheet](materials/XL4005_datasheet.pdf)
+
+> Tags: Buck, CC, CV, 32V, 5A
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4005?334106020426240854)

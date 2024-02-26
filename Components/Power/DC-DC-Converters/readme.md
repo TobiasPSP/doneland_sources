@@ -1,7 +1,10 @@
-# DC-DC Converters
-:stopwatch: Reading time: 10 minutes.
+<img src="/assets/images/power.jpg" width="80%" height="80%" />
 
-## Quick Overview
+
+# DC-DC Converters
+
+> Lower or Raise DC Voltage, Drive Devices Off a Battery, and Create Smart Battery Chargers
+
 
 *DC-DC Converter* change an input *DC* voltage to a different output *DC* voltage. They cannot work with *AC*.
 
@@ -57,5 +60,7 @@ More advanced *DC-DC Converters* can also produce a *constant current* (**CC**):
 
 * **Protection**: **CC** can protect you from accidental shortcuts: if the output is shortened, only a safe maximum current will flow, and the *DC-DC Converter* will automatically lower the voltage to almost 0V in this case, protecting you from burning wires and damaged components.
 * **LED**: *LEDs* are *current-driven*. They need a certain current to light up brightly. This is why you typically add a *current-limiting resistor* to *LEDs*. Instead, you could also supply the *LEDs* directly from a **CC** power source. This is even better than using resistors because not every LED is equal, and what really matters in the end is the exact *current* that is supplied. A resistor is always just an approximation.
+
+> Tags: Buck, Boost, DC, Voltage, Regulator, Charger, Constant Current, Constant Voltage, CC, CV
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters?305183020426240854)
