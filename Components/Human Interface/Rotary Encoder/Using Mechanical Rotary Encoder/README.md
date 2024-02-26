@@ -156,4 +156,4 @@ void loop() {
 
 When you upload and run the sketch, the serial output reports every movement and key press of the **Rotary Encoder**.
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/human%20interface/rotary%20encoder/using%20mechanical%20rotary%20encoder?155584020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder?155584020426240854)

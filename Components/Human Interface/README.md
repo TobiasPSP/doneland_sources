@@ -20,4 +20,4 @@ If you'd like to provide more (and possibly *textual*) information, the next bes
 
 > Tags: Overview, Interface, HID
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/human%20interface?082780020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/humaninterface?082780020426240854)

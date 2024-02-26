@@ -59,4 +59,4 @@ Next, *build* and *upload* the firmware to run the hardware:
 * **PlatformIO:** use the project in the subfolder [platformio](platformio) and load it in *VSCode*.
 * **Arduino IDE:** use the sketch in the subfolder [arduino](arduino) and load it into the *Arduino IDE*
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuring%20current/via%20shunt/ina226/example%20basic%20setup?413892020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt/ina226/examplebasicsetup?413892020426240854)

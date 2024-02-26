@@ -40,4 +40,4 @@ Such boards typically communicate via *IC2*: just two wires are needed (not four
 
 > Tags: HID, Control, Encoder, User Interface, Switch
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/human%20interface/rotary%20encoder?082780020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/humaninterface/rotaryencoder?082780020426240854)
