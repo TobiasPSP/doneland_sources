@@ -40,7 +40,7 @@ Such boards typically communicate via *IC2*: just two wires are needed (not four
 
 ## Examples
 
-* **[Mechanical Rotary Encoder](Mechanical%20Rotary%20Encoder):** I hook up a "pure* mechanical **Rotary Encoder** to a microprocessor. This bare-bone example works beautifully for simple use cases and does not need any special libraries. It illustrates the essentials you need to know when working with **Rotary Encoders**. 
+* **[Mechanical Rotary Encoder](Using%20Mechanical%20Rotary%20Encoder):** I hook up a "pure* mechanical **Rotary Encoder** to a microprocessor. This bare-bone example works beautifully for simple use cases and does not need any special libraries. It illustrates the essentials you need to know when working with **Rotary Encoders**. 
 
 > Tags: HID, Control, Encoder, User Interface, Switch
 
