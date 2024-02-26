@@ -8,9 +8,9 @@ In this section I am reviewing the **Human Interface** components I like and use
 
 ## Input Devices
 
-One of the most versatile and powerful *input user device* is the [Rotary Encoder](rotaryencoder). It requires not much space yet allows users to control even sophisticated menu structures. 
+One of the most versatile and powerful *input user device* is the [Rotary Encoder](Rotary%20Encoder). It requires not much space yet allows users to control even sophisticated menu structures. 
 
-Because of this, [Rotary Encoders](rotaryencoder) are common-place these days in cars and on all kinds of devices. 
+Because of this, [Rotary Encoders](Rotary%20Encoder) are common-place these days in cars and on all kinds of devices. 
 
 ## Output Devices
 
