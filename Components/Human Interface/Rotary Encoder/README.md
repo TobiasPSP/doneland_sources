@@ -1,5 +1,8 @@
+<img src="/assets/images/rotaryEncoderHeader1_800.png" width="80%" height="80%" />
+
 # Rotary Encoders
-:stopwatch: Reading time: 10 minutes.
+
+> **Using Rotary Encoders as a Cheap, Versatile and Robust Way for Users to Interact with Your Devices**
 
 ## Endless Turns And A Switch
 
@@ -33,5 +36,7 @@ That's why there are also *smart* **Rotary Encoders**: all of the hassle describ
 You can clearly see the dedicated microprocessor that makes this **Rotary Encoder** *smart*.
 
 Such boards typically communicate via *IC2*: just two wires are needed (not four), and just two GPIO pins. These GPIO pins are shared among all other *I2C* devices, too. If you increase the number of **Rotary Encoders** in your project or use other *I2C* devices like *OLED* screens, the number of required GPIO stays the same.
+
+> Tags: HID, Control, Encoder, User Interface, Switch
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/human%20interface/rotary%20encoder?082780020426240854)
