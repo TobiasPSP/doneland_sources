@@ -1,10 +1,13 @@
+<img src="/assets/images/rotaryEncoderHeader1_800.png" width="80%" height="80%" />
+
 # Using Mechanical Rotary Encoder
-:stopwatch: Reading time: 10 minutes.
+
+> You can use a pure *machanical Rotary Encoder* directly with your microprocessor. There is no need for a breakout board.
 
 <img src="images/RotaryRight.png" width="10%" height="10%" />
 
 ## Rotary Encoder Pins
-Let's hook up a mechanical **Rotary Encoder** to a microcontroller and see how things go. Here is the pin-out for most encoder types:
+Here is the pin-out for most encoder types:
 
 | Pin | Common Label | Description |
 | --- | --- | --- |
@@ -155,5 +158,7 @@ void loop() {
 > When you use a breakout board, *do not connect* the pin **V+**. This disables the external pullup resistors on the breakout board.
 
 When you upload and run the sketch, the serial output reports every movement and key press of the **Rotary Encoder**.
+
+> Tags: HID, Rotary Encoder, Example, Code, Pins
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder?155584020426240854)
