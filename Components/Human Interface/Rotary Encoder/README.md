@@ -34,4 +34,4 @@ You can clearly see the dedicated microprocessor that makes this **Rotary Encode
 
 Such boards typically communicate via *IC2*: just two wires are needed (not four), and just two GPIO pins. These GPIO pins are shared among all other *I2C* devices, too. If you increase the number of **Rotary Encoders** in your project or use other *I2C* devices like *OLED* screens, the number of required GPIO stays the same.
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/human%20interface/rotary%20encoder?082780020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/human%20interface/rotary%20encoder?082780020426240854)

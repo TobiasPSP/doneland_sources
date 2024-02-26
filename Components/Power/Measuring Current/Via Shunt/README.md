@@ -16,4 +16,4 @@ The most important spec for a **Shunt** is the maximum *current* it is supposed 
 
 Most **Shunts** are designed to drop *50mV*, *75mV*, or *100mV* when operating at their maximum rated current.
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/measuring%20current/via%20shunt?379984020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuring%20current/via%20shunt?379984020426240854)

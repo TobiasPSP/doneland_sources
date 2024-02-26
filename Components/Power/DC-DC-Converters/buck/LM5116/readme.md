@@ -52,4 +52,4 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 [Data Sheet](materials/LM5116_datasheet.pdf)
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/dc-dc-converters/buck/lm5116?325130020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/lm5116?325130020426240854)

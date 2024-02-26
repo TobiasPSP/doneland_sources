@@ -42,4 +42,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 [Data Sheet](materials/XL4016_datasheet.pdf)
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/dc-dc-converters/buck/xl4016?368014020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4016?368014020426240854)

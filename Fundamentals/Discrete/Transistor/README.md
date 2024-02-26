@@ -187,4 +187,4 @@ Pins are arranged circularly. There is a tab in the rim of the housing. Typicall
 
 > Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/fundamentals/discrete/transistor?555391020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals/discrete/transistor?555391020426240854)

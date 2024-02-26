@@ -51,4 +51,4 @@ Let's break this journey into parts for better understanding:
 
 * [Reviewing Functional Steps](1%20Functional%20Parts): Identifying what is needed: interface to **Buck** converter, *voltage* and *current* sensor, and *injector* for control voltages.
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/projects/programmable%20buck%20converter/via%20voltage%20injection?622212020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/projects/programmable%20buck%20converter/via%20voltage%20injection?622212020426240854)

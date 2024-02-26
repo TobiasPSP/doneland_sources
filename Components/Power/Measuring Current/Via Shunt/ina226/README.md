@@ -80,4 +80,4 @@ Here are available example sketches:
 
 * [**Basic Setup**:](Example%20Basic%20Setup) Setting up a **INA226** breakout board with an **ESP8266** microcontroller to perform *voltage* and *current* measurements. Includes necessary *library* and complete *platform.io* project.
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/components/power/measuring%20current/via%20shunt/ina226?383973020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuring%20current/via%20shunt/ina226?383973020426240854)

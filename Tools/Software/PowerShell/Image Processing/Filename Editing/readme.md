@@ -60,4 +60,4 @@ function Remove-FileNameSuffix
 
 I added this function to my *PowerShell* service module [ImageProcessingTools](https://github.com/TobiasPSP/doneland/tree/main/Tools/Software/PowerShell/Image%20Processing/Cropping%20and%20Transparency/.svg%20Files/Modules).
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/tools/software/powershell/image%20processing/filename%20editing?682051020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/tools/software/powershell/image%20processing/filename%20editing?682051020426240854)

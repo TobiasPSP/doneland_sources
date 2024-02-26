@@ -53,4 +53,4 @@ This repository is mirrored as a website at [powershell.one/doneland](https://po
 
 Both places are great to read and dive into the content, and I urge you to try them both. You'll find a link at the bottom of each article that points you to the mirrored sibling.
 
-[Visit Page on Website](https://github.com/tobiaspsp/doneland_sources/?850401020426240754)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/index.html?850401020426240754)
