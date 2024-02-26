@@ -2,11 +2,12 @@
 
 # Rotary Encoders
 
-> **Using Rotary Encoders as a Cheap, Versatile and Robust Way for Users to Interact with Your Devices**
+> **Using Rotary Encoders are a Cheap, Versatile and Robust Way for Users to Interact with Your Devices**
 
-## Endless Turns And A Switch
 
 **Rotary Encoders** are *input devices*. While they look similar to *potentiometers*, they are completely different: a **Rotary Encoder** knob can be endlessly turned right or left, and when you press the encoder, it often additionally works like a switch (i.e. to confirm a setting).
+
+## Endless Turns And A Switch
 
 To register when the knob turns, the **Rotary Encoder** internally has a disk with holes and two switches. When you turn the encoder knob, the disk turns. Whenever a hole in the disk passes the two switches, they get contact to **GND**, one after the other.
 
