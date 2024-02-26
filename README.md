@@ -49,8 +49,7 @@ Here are your paths to contribute:
 * **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
 
 ## Visit Github, or Visit the Web
-This repository is mirrored as a website at [powershell.one/doneland](https://powershell.one/doneland/). The original material is visible and accessible at [github.com/TobiasPSP/doneland](https://github.com/TobiasPSP/doneland).
 
-Both places are great to read and dive into the content, and I urge you to try them both. You'll find a link at the bottom of each article that points you to the mirrored sibling.
+This repository is mirrored as a [website](https://powershell.one/doneland_test/index.html). The original material is visible and accessible here at github. For easy accessibility, you find links and buttons at the end of each page that take you to the respective sibling.
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/index.html?850401020426240754)
