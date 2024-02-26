@@ -4,7 +4,8 @@
 
 > **Introducing Tools and Utilities that I Love and Recommend - Better Results in Less Time**
 
-Good tools save time and nerve, plus they often improve the quality of your work. 
+
+Efficient tools save time and nerve, plus they often improve the quality of your work. 
 
 In this section I am introducing all *tools* and *utilities* that help me do electronics and documenting what I do.
 
