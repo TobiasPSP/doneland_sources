@@ -12,4 +12,4 @@ To safely operate *2S* battery packs, you can add a cheap and powerful *BMS* sys
 * [Small loads (up to 3A)](small)   
 * [Medium loads (up to 8A)](medium)
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/2s?268282020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/2s?268282020426240854) - last edited 2024-02-27

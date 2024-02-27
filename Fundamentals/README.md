@@ -22,4 +22,4 @@ That's what you can put together with a few *transistors* and *resistors*. Yes, 
 
 [Discrete](/Fundamentals/Discrete) components are the most basic electronic parts that cannot be divided any further, like *transistors* or *resistors*.
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals?520483020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals?520483020426240854) - last edited 2024-02-27

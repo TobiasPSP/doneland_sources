@@ -56,4 +56,4 @@ Once you start building your own battery constructs, i.e. by combining multiple 
 >
 > the balancer makes sure each cell voltage is monitored individually. Without balancing, one battery could already be fully charged when another is not, resulting either in partially loaded batteries or risk of *over-charging* a battery.
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms?260305020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms?260305020426240854) - last edited 2024-02-27

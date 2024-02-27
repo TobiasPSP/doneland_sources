@@ -61,4 +61,4 @@ At the same time, with higher frequency the energy must be stored and retured mo
 
 > Tags: Buck, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck?311168020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck?311168020426240854) - last edited 2024-02-27

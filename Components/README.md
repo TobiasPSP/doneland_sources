@@ -10,4 +10,4 @@ For almost anything there is a rich choice of *Breakout Boards* and *Components*
 
 * **[Power](Power):** All about *Power*-related devices. I cover *voltage* and *current regulators*, *constant voltage* and *constant current*, *batteries*, *charger*, *BMS (battery management systems)*, and I'll cover the best ways of actually *measuring voltage* and *current*.
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components?061835020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components?061835020426240854) - last edited 2024-02-27

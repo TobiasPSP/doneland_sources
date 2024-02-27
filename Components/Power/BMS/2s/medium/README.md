@@ -31,4 +31,4 @@ Here is the list of protection features:
 | Max peak current | yes | 15A |
 | Short circuit | yes | resettable by initiating a charge |
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/2s/medium?275263020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/2s/medium?275263020426240854) - last edited 2024-02-27

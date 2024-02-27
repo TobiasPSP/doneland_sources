@@ -19,4 +19,4 @@ Most **Shunts** are designed to drop *50mV*, *75mV*, or *100mV* when operating a
 
 > Tags: Measure, Current, Shunt, Voltage Drop
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt?379984020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt?379984020426240854) - last edited 2024-02-27

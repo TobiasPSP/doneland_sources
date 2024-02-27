@@ -44,4 +44,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 > Tags: Buck, CC, CV, 8A, 40V
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4016?368014020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4016?368014020426240854) - last edited 2024-02-27

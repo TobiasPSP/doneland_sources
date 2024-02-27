@@ -65,4 +65,4 @@ Next, *build* and *upload* the firmware to run the hardware:
 
 > Tags: Measure, Current, Voltage, Shunt, INA, INA226, Example
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt/ina226/examplebasicsetup?413892020426240854)
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent/viashunt/ina226/examplebasicsetup?413892020426240854) - last edited 2024-02-27
