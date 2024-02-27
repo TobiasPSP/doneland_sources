@@ -29,7 +29,7 @@ In schematics, you identify transistors by these symbols:
 
 
 <details>
-  <summary>:information_source: Slight Symbol Variants</summary>
+  <summary>Slight Symbol Variants</summary>
   
   <br/>
 You may run across slight variations of these symbols, however for most practical purposes, you can focus on the four different transistor types depicted above and can safely ignore the rest of this paragraph if you are in a rush.<br/><br/>
@@ -64,10 +64,10 @@ The symbol either identifies a *Darlington* transistor by a **double line** at t
 
 ## Transistor Families: BJT and FET
 
-There are two fundamental transistor types available: classic *BJT* transistors and *FET* transistors:
+There are two fundamental transistor types available:  *BJT* and *FET*:
 
-* **BJT**: most commonly used transistors in hobbyist projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between the control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they would shortcut the circuit and go up in flames (very much like LEDs). 
-* **MOSFET**: They are typically used to switch high current loads such as lamps, Power-LEDs, motors, heaters, etc. **FET** are controlled by *voltage* (electrical field) and do not need a protective resistor at their *gate* because their internal resistance between the control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway.
+* **BJT**: most commonly used transistors in *hobbyist* projects. They are used for logic and for switching *small* loads such as LED. **BJT** are controlled by *current* and need a protective resistor at their *base* because their internal resistance between control pin and the *collector* is *very low*. So without a protective resistor or another current-limiting component at their *base* (i.e. a conductor), they shortcut the circuit and go up in flames (very much like LEDs). 
+* **MosFET**: typically used to switch *high current loads* such as lamps, Power-LEDs, motors, heaters, etc. **MosFET** are controlled by *voltage* (electrical field) and do not necessarily need a protective resistor at their *gate* because their internal resistance between control pin and the *source* pin is *very high* so there is no significant current flow between these two pins under any circumstances anyway. You may want to add a protective resistor anyway when controlling big **MosFET** via microcontroller *GPIO*s: such **MosFET** have a considerable *capacitance* and can initially draw a high current that might be too much for a *GPIO* pin.
 
 <img src="images/transistor_types_real_.png" width="30%" height="30%" />
 
@@ -77,13 +77,14 @@ There are two fundamental transistor types available: classic *BJT* transistors 
 
 Transistors have three connectors (legs):
 
-* **Base**/**Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
-* **Collector**/**Source** and **Emitter**/**Drain**: these remaining two pins carry the *load current*.
+* **Base** or **Gate** (Control): this is the control input that tells the transistor how much power it should pass between the other two pins. 
+* **Collector** or **Source**: these remaining two pins carry the *load current*.
+* **Emitter** or **Drain**: these remaining two pins carry the *load current*.
 
-The load current flows between **Collector**/**Source** and **Emitter**/**Drain**. The *direction* of current flow depends on the transistor type.
+The load flows between **Collector** and **Emitter** (for **BJT**), respectively between **Source** and **Drain** (for **MosFET**). The *direction* of current flow depends on the transistor type.
 
 <details>
-  <summary>:information_source: Why Transistor Pins Have So Many Names</summary><br/>
+  <summary>Why do Transistor Pins Have Different Names?</summary><br/>
 
   
   The terms *base*, *collector*, and *emitter* are used with *BJT* transistors whereas the terms *gate*, *source*, and *drain* are used with *FET* transistors. Regardless, their purpose is similar.
@@ -97,7 +98,37 @@ The load current flows between **Collector**/**Source** and **Emitter**/**Drain*
   That said, for *practical* aspects and *hobbyist* level, it is perfectly ok to go by the simple "control pin" and two "load current" pins paradigm.
 </details>
 
-## Types: NPN, PNP, N-Channel, P-Channel
+### Identifying Legs and Terminals
+
+Obviously, it is crucial to identify the correct "legs" of a transistor before use. 
+
+> [!CAUTION]  
+> The only *dependable* ways of determining the pins is either review the *data sheet* for the *particular transistor type*, or to physically *test* the transistor. Only very few transistors actually show distinct pin markings on their housing. 
+
+
+> [!TIP]
+> Many multimeters have built-in transistor test capabilities when you switch the dial to the **hFE** setting.
+> You may even want to look into purchasing a dedicated transistor test device. They are available for around EUR 10-20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
+
+<img src="images/tester.jpg" width="30%" height="30%" />
+
+
+If you have neither a *component tester* device nor the data sheet, then there are a few rules of thumb though (use at own risk):
+
+### Plastic Casing With Flat Side
+
+*BJT* transistory typically come in a black plastic casing with one *flat* side which is the *front* side. To identify the pins, look at the flat side and keep the pins pointing downwards: from left to right, the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
+
+<img src="images/bjt_pins.PNG" width="50%" height="50%" />
+
+> [!CAUTION] 
+> The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+
+### Metal housed "can" type
+
+Pins are arranged circularly. There is a tab in the rim of the housing. Typically, the pin closest to the tab is *Emitter*, the opposite pin is *Collector*, and inbetween is *Base*.
+
+## Types: N and P
 
 Transistors come in *N* and in *P* types. **FET** transistors are called *n-Channel* and *p-Channel*, whereas **BJT** transistors are called *NPN* and *PNP*. As with the pin terminology, you can simplify and consider just two fundamental types of transistors: **N-Type** (*NPN* and *N-Channel*) and **P-Type** (*PNP* and *P-Channel*):
 
@@ -114,7 +145,7 @@ Transistors come in *N* and in *P* types. **FET** transistors are called *n-Chan
 
 Choosing between **N-Type** and **P-Type** transistors depends entirely on *where* you want to place the transistor in your schematics, and whether you want to control them with a positive or negative signal. 
 
-### Examples With BJT Transistors
+### Example: BJT Transistor in Action
 
 Both schematics below do the same thing and control a load via a push button. The left schematic uses an **NPN** transistor, and the right schematic uses a **PNP** transistor:
 
@@ -127,7 +158,7 @@ Both schematics below do the same thing and control a load via a push button. Th
 > [!IMPORTANT]  
 > Note how the transistor in the right circuit is *flipped vertically*. In the *left* circuit, the *emitter* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *emitter* (marked with arrow) is on *top* and connected to the *positive* side.
 
-### Examples With FET Transistors
+### Example: MosFET Transistor in Action
 
 The same circuitry can also be designed with *FET* transistors:
 
@@ -141,7 +172,7 @@ The same circuitry can also be designed with *FET* transistors:
 * **P-Type** (*right circuit*): the **P-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *GND* (or a *lower* voltage than *source*). The current flows from *source* to *drain*. The *source* (marked with arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, a *pull up* resistor is required to safely keep the *base* positive when the *FET* is supposed to be *off*.
 
 <details>
-  <summary>:information_source: Controlling FETs With Microcontrollers</summary><br/>
+  <summary>Controlling FETs With Microcontrollers</summary><br/>
 
 When you plan to control the *gate* of a *FET* transistor by a microprocessor, you *must* add a current limiting resistor between your digital output pin and *gate*. *FET* transistors have a *capacitance*, so they act like a *capacitor*. When you turn on the *MOSFET*, it can momentarily draw a huge current of up to a couple of Amperes that may easily destroy your digital output pin. A current limiting resistor in series protects your microprocessor output (not the *FET*).  
   
@@ -155,35 +186,7 @@ If you (or your microcontroller output) cannot provide the required voltage, you
 > Commonly used **NPN** transistors are *2N2222*, *2N3904*, *TIP120*   
 > Commonly used **PNP** transistors are *2N2907*, *2N3906*
 
-## Identifying Legs and Terminals
 
-Transistors of all types have three legs. Obviously, it is crucial to identify the correct terminals. 
-
-> [!CAUTION]  
-> The only *dependable* ways of determining the pins is either review the *data sheet* for the *particular transistor type* you want to use, or to physically *test* the transistor. Only very few transistors actually show distinct pin markings on their housing. 
-
-
-> [!TIP]
-> Many multimeters have built-in transistor test capabilities when you switch the dial to the **hFE** setting.
-> You may even want to look into purchasing a dedicated transistor test device. They are available for around EUR 10-20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
-
-<img src="images/tester.jpg" width="30%" height="30%" />
-
-
-If you have neither a *component tester* device nor the data sheet, then there are a few rules of thumb though (use at own risk):
-
-## Plastic Casing With Flat Side
-
-*BJT* transistory typically come in a black plastic casing with one *flat* side which is the *front* side. To identify the pins, look at the flat side and keep the pins pointing downwards: from left to right, the pins are: *Collector*, *Base*, *Emitter* (remember "CuBE").
-
-<img src="images/bjt_pins.PNG" width="50%" height="50%" />
-
-> [!CAUTION] 
-> The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
-
-## Metal housed "can" type
-
-Pins are arranged circularly. There is a tab in the rim of the housing. Typically, the pin closest to the tab is *Emitter*, the opposite pin is *Collector*, and inbetween is *Base*.
 
 > [!CAUTION] 
 > The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
