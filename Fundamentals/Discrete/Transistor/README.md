@@ -44,7 +44,7 @@ You may run across slight variations of these symbols, however for most practica
 </details>
 
 <details>
-  <summary>:information_source: Special Purpose Transistors</summary>
+  <summary>Special Purpose Transistors</summary>
   <br/>
 In schematics, you may come across special purpose transistors in preconfigured setups:
 
