@@ -66,7 +66,7 @@ Wire everything according to the circuit layout depicted above. It does not matt
 
 Here is the code:
 
-```c
+```Arduino
 #include <Arduino.h>
 
 // define input pins
