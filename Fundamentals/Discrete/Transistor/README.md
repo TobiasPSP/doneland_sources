@@ -108,6 +108,7 @@ Transistors come in *N* and in *P* types. **FET** transistors are called *n-Chan
 > **N-Type**, **N-Channel**, and **NPN** all are **n***egative* at their emitter (the pin marked with the arrow), and require a *positive* control signal   
 > **P-Type**, **P-Channel**, and **PNP** all are **p***ositive* at their emitter (the pin marked with the arrow), and require a *negative* control signal   
 
+
 > [!IMPORTANT]  
 > The arrow in the transistor symbol *does not* generally indicate the direction of the current. Only for *BJT* transistors, the arrow  points into the direction of current. With *FET* transistors, the arrow points into the *opposite* direction however. The reason for this inconsistency again is historic: in *FET* transistors, the arrow points into the direction of *internal* electron flow.
 
@@ -122,6 +123,7 @@ Both schematics below do the same thing and control a load via a push button. Th
 * **N-Type** (*left circuit*): the **NPN** *BJT* transistor switches the load *on* when the *base* is connected to *positive* voltage. The current flows from *collector* to *emitter*. The *emitter* (the pin with the arrow) is **N***egative* (as in **N**PN or **N**-Type). A current limiting resistor makes sure the *base* current is not excessive.  
 * **P-Type** (*right circuit*): the **PNP** transistor switches the load *on* when the *base* is connected to *GND* (0V). The current flows from *emitter* to *collector*. The *emitter* (the pin with the arrow) is **P***ositive* (as in **P**NP or **P**-Type). A current limiting resistor again makes sure the *base* current is not excessive. 
 
+
 > [!IMPORTANT]  
 > Note how the transistor in the right circuit is *flipped vertically*. In the *left* circuit, the *emitter* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *emitter* (marked with arrow) is on *top* and connected to the *positive* side.
 
@@ -133,6 +135,7 @@ The same circuitry can also be designed with *FET* transistors:
 
 > [!IMPORTANT]  
 > Note how the transistor in the right curcuit is again *flipped vertically*. In the *left* circuit, the *source* (marked with arrow) is on the *bottom* and connected to **GND**. In the *right* circuit, the *source* (marked with arrow) is on *top* and connected to the *positive* side.
+
 
 * **N-Type** (*left circuit*): the **N-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *positive* voltage.  The current flows from *drain* to *source*. The *source* (marked with arrow) is **N***egative* (as in **N**PN or **N**-Type). Since *FET* transistors have a *high resistance* between *gate* and *source*, they do not require a current limiting resistor because there is no way a destructive current could flow anyway. Instead, since *FET*s are controlled by tiny *voltages* at their *gate*, the *gate* must now use a *pull down* resistor that connects the *gate* with **GND**. This keeps the *gate* from floating in an undefined state. So the *pull down resistor* safely pulls the *gate* to ground when there is no control signal.   
 * **P-Type** (*right circuit*): the **P-Channel** *FET* transistor switches the load *on* when the *gate* is connected to *GND* (or a *lower* voltage than *source*). The current flows from *source* to *drain*. The *source* (marked with arrow) is **P***ositive* (as in **P**NP or **P**-Type). Again, the *gate* does not need a protective current limiting resistor. Instead, a *pull up* resistor is required to safely keep the *base* positive when the *FET* is supposed to be *off*.
@@ -161,8 +164,7 @@ Transistors of all types have three legs. Obviously, it is crucial to identify t
 
 
 > [!TIP]
-> Many multimeters have built-in transistor test capabilities when you switch the dial to the *hFE* setting.
->
+> Many multimeters have built-in transistor test capabilities when you switch the dial to the **hFE** setting.
 > You may even want to look into purchasing a dedicated transistor test device. They are available for around EUR 10-20 and tell you exactly not just the pins but also the N- or P-type and many additional useful parameters.
 
 <img src="images/tester.jpg" width="30%" height="30%" />
@@ -176,15 +178,17 @@ If you have neither a *component tester* device nor the data sheet, then there a
 
 <img src="images/bjt_pins.PNG" width="50%" height="50%" />
 
-> :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+> [!CAUTION] 
+> The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
 ## Metal housed "can" type
 
 Pins are arranged circularly. There is a tab in the rim of the housing. Typically, the pin closest to the tab is *Emitter*, the opposite pin is *Collector*, and inbetween is *Base*.
 
-> :warning: The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
+> [!CAUTION] 
+> The default pin arrangement is not mandatory, and there are many exceptions to the rule. So always look up the transistor type you are using and verify the pin assignment in its data sheet!
 
 
 > Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals/discrete/transistor?555391020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals/discrete/transistor?555391020426240854) - last edited 2024-02-24
