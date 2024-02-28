@@ -86,17 +86,23 @@ And the best thing is: you are not *exposing your privacy*: when you sign up wit
 
 </details>
 
-> [!NOTE]
-> This website is about *practical* know-how and may not always be academically correct. Please save your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe. While that's great, what solely matters *here* is that things are *understandable* and of *practical use* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow.  
-
 Here are your paths to contribute:
 
 * **Discussions:** A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
 
 * **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
 
+
 > [!NOTE]
-> If you are viewing this page as part of the *website*, you'll find two buttons at the bottom of each web page: one directs you to the content page of the *Github Repository* that feeds the web page, and the other button lets you file an *issue*. If you are viewing this page on *Github*, you'll find a link to the sibling web page at the bottom.
+> Before you submit feedback: this website is about *practical* know-how and may not always be academically correct. If you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something, then that's great but not necessarily what I am looking for. 
+>
+> If you have feedback to make things more *understandable* or *easier* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow - then I'd be thrilled to hear from you. Even more so if you come across outright false or - may God forbid - dangerous content.  
+
+> [!TIP]
+> If you are viewing this page as part of the *website*, you'll find two buttons at the bottom of each web page: one directs you to the content page of the *Github Repository* that feeds the web page, and the other button lets you file an *issue*.
+>
+> If you are viewing this page on *Github*, you'll find a link to the sibling web page at the bottom.
+>
 > When you use the button *Submit Issue* on the website, the new issue is seeded with the backlink to the page so I better know what you are talking about. If you open an *issue* manually, make sure you include a link to the page with the problem yourself.
 
 ## Visit Github, or Visit the Web
