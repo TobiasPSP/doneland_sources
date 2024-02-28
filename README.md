@@ -57,17 +57,59 @@ While working on electronics and on this site, occasionally I come across tasks 
 
 Whenever that happens I start to search for *new tools*, and if I can't find any, I create my own. In [Tools](Tools) I am show-casing all tools I find helpful. I am also sharing the *commands* and *PowerShell Modules* I created to help me produce better results in less time.
 
+
+## Split Personality: Github and The Web
+
+My [website](https://powershell.one/doneland_test/index.html) is driven by my [Github Repository](https://github.com/TobiasPSP/doneland_sources). I am using the latter to create, organize and maintain my content. Whenever the *Github Repo* changes, this is automatically pushed to the website. So you find the same content on both places.
+
+The original material is visible and accessible here at github. For easy accessibility, you find links and buttons at the end of each page that take you to the respective sibling.
+
+### Browsing the Website...
+
+I personally often visit the [website](https://powershell.one/doneland_test/index.html) for browsing and looking around. It's the *consumer* side for when you are preoccupied with what *you* are currently doing, and just looking for information.
+
+> [!TIP]
+> If you are currently viewing this from within *Github*, you can easily switch to the website version of any page: at the bottom you always find a link that takes you to the website sibling.
+
+### ...and Browsing Github
+
+Whenever you want to participate and i.e. file an *issue* or join *discussions*, the [Github Repository](https://github.com/TobiasPSP/doneland_sources) may be a better place to navigate. It provides you at the top with all the usual *Github* collaboration tools.
+
+It's also a great place when you want to work with the *resources* that may be attached to an article: there is always a *file explorer* at the top and the content text at the bottom. So it's easy to browse the attached resources.
+
+Here is an example: [this article](Components/Human%20Interface/Rotary%20Encoder/Using%20Mechanical%20Rotary%20Encoder) explains how to hook up a *Rotary Encoder* to a microprocessor. 
+
+You can start reading the article as a [Webpage](https://powershell.one/doneland_test/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder). Once you are ready to dig deeper and actually use the attached code, i.e. in *platformio* or the *Arduino IDE*, simply switch to the [Github Repo Version](https://github.com/TobiasPSP/doneland_sources/tree/main/Components/Human%20Interface/Rotary%20Encoder/Using%20Mechanical%20Rotary%20Encoder) of the same page. One easy way is to use the *green* button **Show on Github** that you find at the bottom of any webpage on my site.
+
+Now you see the *file explorer* in the upper half and can easily navigate the example subfolders. 
+
+> [!TIP]
+> Within my *Github Repo*, any subfolder that starts *capitalized* is meant to be a *public resource*. So any folder you see that starts with a capital letter invites you to click on it and see what's inside.
+> Any subfolder in *all lower-case* is used for other things, i.e. stores the images for the article. You can visit these, too, of course, but most likely it's a waste of time.
+
+
+
 ## Feel Free to Contribute, Too!
 
 You are cordially invited to harvest as much information from here as you wish. No need for giving back anything.
 
-It is more than likely though that you know much more than I do in many areas, so if you come across obvious errors or have additional information, I'd be thrilled if you contribute.
+You probably know much more than I do in many areas. If you come across *embarrassing errors* or have *additional information*, I'd be thrilled if you contribute.
 
-I am *not* using the classic *commenting systems* like *Disqus*. If you'd like to get in touch and/or provide content, please use one of the paths outlined below.
+Here are your paths to contribute:
+
+* **Discussions:** A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
+
+* **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
+
+
+
+> [!TIP]
+> On each website page, at the bottom you find two buttons. One is labelled **Show on Github** (which brings you to the content page of the *Github Repository* as mentioned before), and the other one is labelled **Submit Issue** (this one lets you file an *issue* that lets you can report errors or add information).
+> The button also seeds the issue with the *backlink to the article*. If you file an issue *manually* directly inside *Github*, please add a backlink to what you are referring to. This way I can quickly understand what you are trying to tell me.
 
 <details><summary>Why would you not use a commenting plugin at the bottom of each page?</summary><br/>
 
-Here is why:
+I am *not* using the classic *commenting systems* like *Disqus*. Here is why:
 
 * **Spam** and **Ads**: I once used *Disqus* and actually liked it - until they started to inject tons of *ads* into my site. I want this resource to be as clean and distraction-free as possible and not see advertisements for things I do not support. I then reviewed many other *commenting plugins* but they all were either *ad-driven*, *expensive* or vulnerable to *spam*.
 * **Actionable** and **Accountable**: I want your input to be *actionable* and keep you informed how your input was used. With classic *commenting systems*, there is no way of following up.
@@ -86,28 +128,6 @@ And the best thing is: you are not *exposing your privacy*: when you sign up wit
 
 </details>
 
-Here are your paths to contribute:
 
-* **Discussions:** A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
-
-* **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
-
-
-> [!NOTE]
-> Before you submit feedback: this website is about *practical* know-how and may not always be academically correct. If you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something, then that's great but not necessarily what I am looking for. 
->
-> If you have feedback to make things more *understandable* or *easier* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow - then I'd be thrilled to hear from you. Even more so if you come across outright false or - may God forbid - dangerous content.  
-
-
-> [!TIP]
-> If you are viewing this page as part of the *website*, you'll find two buttons at the bottom of each web page: one directs you to the content page of the *Github Repository* that feeds the web page, and the other button lets you file an *issue*.
->
-> If you are viewing this page on *Github*, you'll find a link to the sibling web page at the bottom.
->
-> When you use the button *Submit Issue* on the website, the new issue is seeded with the backlink to the page so I better know what you are talking about. If you open an *issue* manually, make sure you include a link to the page with the problem yourself.
-
-## Visit Github, or Visit the Web
-
-This repository is mirrored as a [website](https://powershell.one/doneland_test/index.html). The original material is visible and accessible here at github. For easy accessibility, you find links and buttons at the end of each page that take you to the respective sibling.
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/index.html?850401020426240754) - last edited 2024-02-27
