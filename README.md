@@ -98,6 +98,7 @@ Here are your paths to contribute:
 >
 > If you have feedback to make things more *understandable* or *easier* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow - then I'd be thrilled to hear from you. Even more so if you come across outright false or - may God forbid - dangerous content.  
 
+
 > [!TIP]
 > If you are viewing this page as part of the *website*, you'll find two buttons at the bottom of each web page: one directs you to the content page of the *Github Repository* that feeds the web page, and the other button lets you file an *issue*.
 >
