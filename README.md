@@ -9,15 +9,14 @@ I am originally a *software and automation expert* but started to realize how us
 There is a huge community, great resources and tons of ideas. Right here, you find information and ideas about the parts, components and microprocessors I came across.
 
 <details>
-<summary>Why bother making things when there is Amazon and AliExpress?</summary>
+<summary>Why bother making things when there is Amazon and AliExpress?</summary><br/>
 
 Here is why: a good friend needed a device that *monitors loud noise*, and when the volume is over a threshold, he wanted to *cut off electricity* and *Internet access*. This device was supposed to be deployed into his daughters' room. 
 
 You can't buy these things. But you can make them. And it doesn't take much, neither money nor time. It does take knowledge, though. And it is rewarding fun each time you *understand* something new and extend your skill set.
 
 </details>
-
-## Thank You, Community!
+<details><summary>And why does this site exist?</summary><br/>
 
 I visited many great resources, watched well-made YouTube videos, and am grateful for the generous sharing of so many people in forums, on youtube, or websites like *instructables*.
 
@@ -25,11 +24,10 @@ What irritated me was that in the web, the *same* questions were asked over and 
 
 The *one thing* that is scarce for most people is *quality time*: I wished there were more places that provide just the knowledge in a well discoverable way. 
 
-## Giving Back
-
 While working on my projects and experiments, I decided to take the time and *document* my findings. The result is this website. 
 
 It is a huge *work in progress*, and aside from *electronics* I am also working many nights on *web design*, *github actions* and *image processing*, just to mention a few, in my effort to provide you and me with a clean and discoverable information resource. 
+</details>
 
 
 ## Feel Free to Contribute, Too!
