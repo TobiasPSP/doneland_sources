@@ -1,50 +1,58 @@
+<img src="/assets/images/treasureChest.png" width="100%" height="100%" />
+ 
+
 # Permanent Storage on SD Cards
-:stopwatch: Reading time: 10 minutes.
 
+> SD Cards are Cost-Effective to Permanently Store Data. You Can Also Use Them To Export Data From A Device To Your PC.
 
-<img src="images/wiringOverview.png" width="40%" height="40%" />
-
-
-## Overview
 
 SD Cards (memory cards) can store large amounts of data permanently, and since SD cards can be removed, they are an excellent way of transferring data (i.e. sensor data) to a PC to do evaluations. 
 
 
 <img src="images/card_formats2.png" width="40%" height="40%" />
 
-### Life Span
+
+Let's first cover some fundamental facts and then dive into everything you need to hook up **SD Card** read and write capabilities to your project.
+
+## Life Span
 
 There is no definite life span of SD Cards and they can probably last 10 to 30 years. 
 
-SD cards use a special type of Flash memory called *NAND*. Flash memory in general has a finite number of write cycles. Saving, deleting, and re-writing data contributes to the wear of SD cards.
+SD cards use a type of Flash memory called *NAND*. Flash memory in general has a *finite number of write cycles*. Saving, deleting, and re-writing data contributes to the wear of SD cards.
 
-Modern SD cards employ advanced wear-leveling technology for even distribution of data across all memory cells. When you store relatively small amounts of data, the overall life-span is further extended.
+Modern SD cards employ advanced *wear-leveling* technology for even distribution of data across all memory cells. When you store relatively small amounts of data, the overall life-span is further extended.
 
 > [!TIP]
-> Flash memory (including SD cards) is not ideal for storing sensor data in high frequency. This increases the wear and tear of the card.
+> While flash memory (including SD cards) is not perfect for continuous writing in high frequency (as is the case when logging sensor data), *realistically* they are great *especially* for storing sensor data (aka small amounts of data). Here is why: 
 >
-> That said, if you use SD cards to store sensor data in a measuring device, while it is in operation it may indeed stress SD cards. Typically though such devices are used only occasionally and for limited time. Using SD cards can be a cheap and reliable way of storing the data even for devices that log data in high frequency.
+> Assume you are writing 100 bytes of sensor data every second. That's 6KB per minute, and 360KB per hour. So you accumulate 8MB per day, or 260MB per month. Let's say you record for a year: 3GB of data.
 >
-> If you need a more *resilient* way of permanent data store (and the data is relatively small), you may want to also look into the new *FRAM* storage which does not wear out.
+> Todays' **SD Cards** come with storage capacities of 32GB and more. So you could log your sensor data every second for 10 years just to fill the **SD Card** *once*. Assuming each memory unit sustains just 1000 read/writes, you would have to continuously log sensor data for 10.000 years until its *finite number of write cycles* hit you. We all will be long gone by then I am afraid.
 
 
-### Speed
 
-For typical data logging applications, read and write access times are no issue.
+## Speed
 
-### Size
+Different types of **SD Cards** support different read and write speeds. This is important just when transferring big data, i.e. inside a 4K camera. For typical data logging applications, read and write access times are no issue, and even the cheapest **SD Cards** should suffice.
 
-The initial SD cards stored up to *2GB*. Modern SD cards can store *128GB* and more.
+## Size
 
-Always make sure the **SD Card Module** *and* the libraries you intend to use support SD cards with the size you have. 
-
-> [!NOTE]  
-> *4GB* is the maximum amount of memory addresses that can directly be addressed by *32 bit*.
+The initial SD cards stored up to *2GB*. Modern SD cards can store *128GB* and much more.
 
 
-### Physical Dimensions
+## Physical Dimensions
 
-The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. Newer *microSD* format is considerably smaller: 11x15x1mm. Many **SD Card modules** support only the *microSD* form factor.
+Now this is important: **SD Cards** come in different sizes. Make sure you purchase an **SD Card Reader** that matches the size of your **SD Cards**.
+
+The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. Newer *microSD* are much smaller: 11x15x1mm. Many **SD Card modules** support only the *microSD* form factor.
+
+> [!NOTE]
+> If you just want to equip your device with additional permanent storage, the much smaller *microSD* cards are probably best. They are so small they easily fit even into small devices.
+>
+> Should you want to use **SD Cards** to *export* data from your device to your PC, then fiddling with the *microSD* cards is no fun. The *regular sized* **SD Cards** are probably a more practical choice here.
+>
+> It can also be a matter of availability: if you still have a pile of **SD Cards** from cameras and other devices that you no longer need then choosing a matching **SD Card Reader** seems reasonable. And if you want to carry the sensor data to your PC, you might want to check whether your PC has a built-in **PC Card Reader**, and which size.
+
 
 ## SD Card Modules
 
@@ -84,7 +92,12 @@ Some modules feature an additional *5V* pin and use a voltage regulator when thi
 >
 > If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
 
-### Schematics
+
+
+<img src="images/wiringOverview.png" width="40%" height="40%" />
+
+
+## Connecting SD Card Readers
 
 This is the schematics to connect a **SD Card Module** to a *ESP8266*:
 
@@ -326,4 +339,6 @@ If the sketch above cannot even find the *SD card reader*, work your way through
 * Make sure your *SD card* is using the **FAT** or **FAT32** filesystem, not **exFAT**. If your *SD card* is larger than *32GB*, manually re-format it with the **FAT32** filesystem (as described above). 
 * If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but definitely available.
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/storage/permanent/onsdcards?443812020426240854) - last edited 2024-02-27
+> Tags: Example, SD Card, Storage, FAT32, Filesystem
+
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/storage/permanent/onsdcards?097439021728243911) - last edited 2024-02-28
