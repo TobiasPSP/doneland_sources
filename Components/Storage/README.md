@@ -14,7 +14,7 @@ If you'd like to keep data (i.e. sensor data) safe even during power losses or r
 
 Probably the easiest and most versatile method is to use cheap **SD Cards**. They provide gigabytes of storage volume and cost only a few bucks. Maybe you want to even recycle an old **SD Card** from your old camera.
 
-To read and write to **SD Cards**, you need an [SD Card Reader](Components/Storage/Permanent/On%20SD%20Cards). They are really cheap to get at around 1 Euro. [Here is an article](Components/Storage/Permanent/On%20SD%20Cards) with all the details you need to know to hook up an **SD Card Reader** to your project. 
+To read and write to **SD Cards**, you need an [SD Card Reader](Permanent/On%20SD%20Cards). They are really cheap to get at around 1 Euro. [Here is an article](Permanent/On%20SD%20Cards) with all the details you need to know to hook up an **SD Card Reader** to your project. 
 
 > Tags: Data, SD Card, Permanent Storage
 
