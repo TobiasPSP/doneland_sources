@@ -3,7 +3,7 @@
 
 # Permanent Storage on SD Cards
 
-> SD Cards are Cost-Effective to Permanently Store Data. You Can Also Use Them To Export Data From A Device To Your PC.
+> SD Cards are Cost-Effective to Permanently Store Data. Plus You Can Use Them To Export Data From A Device To Your PC.
 
 
 SD Cards (memory cards) can store large amounts of data permanently, and since SD cards can be removed, they are an excellent way of transferring data (i.e. sensor data) to a PC to do evaluations. 
@@ -12,46 +12,46 @@ SD Cards (memory cards) can store large amounts of data permanently, and since S
 <img src="images/card_formats2.png" width="40%" height="40%" />
 
 
-Let's first cover some fundamental facts and then dive into everything you need to hook up **SD Card** read and write capabilities to your project.
+Let's cover some fundamental facts and then dive into everything you need to hook up **SD Card Readers** to your project.
 
 ## Life Span
 
 There is no definite life span of SD Cards and they can probably last 10 to 30 years. 
 
-SD cards use a type of Flash memory called *NAND*. Flash memory in general has a *finite number of write cycles*. Saving, deleting, and re-writing data contributes to the wear of SD cards.
+SD cards use a type of Flash memory called *NAND*. Flash memory has a *finite number of write cycles*. Saving, deleting, and re-writing data contributes to the wear of SD cards.
 
 Modern SD cards employ advanced *wear-leveling* technology for even distribution of data across all memory cells. When you store relatively small amounts of data, the overall life-span is further extended.
 
 > [!TIP]
 > While flash memory (including SD cards) is not perfect for continuous writing in high frequency (as is the case when logging sensor data), *realistically* they are great *especially* for storing sensor data (aka small amounts of data). Here is why: 
->
 > Assume you are writing 100 bytes of sensor data every second. That's 6KB per minute, and 360KB per hour. So you accumulate 8MB per day, or 260MB per month. Let's say you record for a year: 3GB of data.
->
 > Todays' **SD Cards** come with storage capacities of 32GB and more. So you could log your sensor data every second for 10 years just to fill the **SD Card** *once*. Assuming each memory unit sustains just 1000 read/writes, you would have to continuously log sensor data for 10.000 years until its *finite number of write cycles* hit you. We all will be long gone by then I am afraid.
 
 
 
 ## Speed
 
-Different types of **SD Cards** support different read and write speeds. This is important just when transferring big data, i.e. inside a 4K camera. For typical data logging applications, read and write access times are no issue, and even the cheapest **SD Cards** should suffice.
+Different types of **SD Cards** support different read and write speeds. This is important when transferring *big data*, i.e. inside a 4K camera. 
+
+For typical data logging applications, read and write access times are no issue, and even the cheapest **SD Cards** should suffice.
 
 ## Size
 
 The initial SD cards stored up to *2GB*. Modern SD cards can store *128GB* and much more.
 
+Even if you just need a few kilobytes or megabytes for your sensor data, choosing a high capacity **SD Card** can still be benefitial to extend its lifetime, especially when you log data in high frequency (see above, *wear levelling*)
+
 
 ## Physical Dimensions
 
-Now this is important: **SD Cards** come in different sizes. Make sure you purchase an **SD Card Reader** that matches the size of your **SD Cards**.
+**SD Cards** come in two different sizes. Make sure you purchase an **SD Card Reader** that matches the size of your **SD Cards**.
 
-The *classic* SD cards are the largest with dimensions of 24x32x2.1mm. Newer *microSD* are much smaller: 11x15x1mm. Many **SD Card modules** support only the *microSD* form factor.
+The *classic* SD cards are *large* with dimensions of 24x32x2.1mm. Newer *microSD* are much smaller: 11x15x1mm. 
 
 > [!NOTE]
-> If you just want to equip your device with additional permanent storage, the much smaller *microSD* cards are probably best. They are so small they easily fit even into small devices.
->
-> Should you want to use **SD Cards** to *export* data from your device to your PC, then fiddling with the *microSD* cards is no fun. The *regular sized* **SD Cards** are probably a more practical choice here.
->
-> It can also be a matter of availability: if you still have a pile of **SD Cards** from cameras and other devices that you no longer need then choosing a matching **SD Card Reader** seems reasonable. And if you want to carry the sensor data to your PC, you might want to check whether your PC has a built-in **PC Card Reader**, and which size.
+> If you want to equip your device with additional permanent storage and do not plan to *change* the **SD Card** frequently, *microSD* cards are best. They are so small they easily fit even into small devices.
+> Should you want to use **SD Cards** for *portability* and *export* data from your device to your PC, then fiddling with *microSD* cards is impractical. The *regular sized* **SD Cards** are better.
+> Maybe it's a matter of availability, too: still have **SD Cards** from cameras and other devices stockpiling in your drawer? Choosing a matching **SD Card Reader** seems reasonable then. And if you want to carry the sensor data to your PC, check whether your PC has a built-in **PC Card Reader**, and which size it is.
 
 
 ## SD Card Modules
@@ -64,11 +64,11 @@ There are also *Shields* available for *specific* microcontrollers such as the *
 
 <img src="images/piggy3.png" width="40%" height="40%" />
 
-Things to watch out for before choosing a **SD Card Module**:
+Things to watch out for before choosing a particular **SD Card Module**:
 
 * **Voltage:** Internally, **SD Card Modules** use 3.3V technology. Breakout boards may expose a *3.3V* pin, may have both a *3.3V* and *5V* pin and use an internal voltage regulator when needed, or seldomly just have a *5V* pin (in which case these modules do not work with *ESP8266* and other 3.3V microcontrollers unless you manually cut wires on the breakout board to disable the voltage regulator).
-* **SD Card Format:** Most modules have slots for small *microSD* cards and do not support the bulky classic *SD Card* format any more.
-* **SD Card Size:** Some modules impose restrictions on the maximum size of **SD Cards**. They handle a maximum size of *8GB*, *4GB* or even just *2GB*.
+* **SD Card Size:** Most modules have slots for small *microSD* cards and do not support the bulky classic *SD Card* format any more.
+* **Module Size:** There are many different modules available that come in much different sizes. If space is limited make sure you choose a slim board. 
 
 ### Pin Layout
 
@@ -87,9 +87,7 @@ Some modules feature an additional *5V* pin and use a voltage regulator when thi
 
 > [!NOTE]  
 > Essentially, the pins resemble the *power supply* (**VCC** and **GND**) and *communications* via *SPI*.
->
 > Different microcontrollers have different *SPI* pins. Most *SPI* pins are typically fixed and assigned to specific microcontroller pins. **CS** can be freely assigned to any suitable *GPIO* pin.
->
 > If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
 
 
