@@ -1,4 +1,4 @@
-<img src="/assets/images/power.jpg" width="80%" height="80%" />
+<img src="/assets/images/lightning.png" width="100%" height="100%" />
 
 # Power-Related Components
 
