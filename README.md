@@ -29,23 +29,75 @@ While working on my projects and experiments, I decided to take the time and *do
 It is a huge *work in progress*, and aside from *electronics* I am also working many nights on *web design*, *github actions* and *image processing*, just to mention a few, in my effort to provide you and me with a clean and discoverable information resource. 
 </details>
 
+## Components
+
+Whenever I come across a new *component* like a display, a regulator or whatnot, I am documenting it in the [Components](components) section.
+
+It's a great place to *compare* components and find out which is best suited for a particular idea. 
+
+It's also helpful to *review specs*. Vendors like *AliExpress* often do not provide *all* the necessary specs, and occasionally the specs they do mention are wrong or apply only in very unrealistic scenarios.
+
+If a *component* requires *software*, i.e. to work with a [Rotary Encoder](Components/Human%20Interface/Rotary%20Encoder) or a display, often you'll also find *example code* and references to the libraries you need.
+
+## Fundamentals
+
+*Learning* is a great part of any journey into microelectronics as most of us probably are no genuine electrical engineers. 
+
+Whenever I hit something *fundamentally new*, I'll add it to [Fundamentals](Fundamentals) for easy lookup. For example, [Transistors](Fundamentals/Discrete/Transistor) play a *fundamental* role in almost any circuit. If you can't remember the difference between *P-* and *N-*, or would like to find the best transistor type for a given task, go have a look.
+
+
+## Projects
+
+*Projects* are what drives me. In my projects, I can combine *components* to *test* ideas and *invent* new gizmos. So in [Projects](Projects) I document my projects in a step-by-step way that anyone can rebuild (and expand and improve) them.
+
+
+## Tools
+
+While working on electronics and on this site, occasionally I come across tasks that are *hard to do*, and the reason most often is that I am missing the appropriate *tools*.
+
+Whenever that happens I start to search for *new tools*, and if I can't find any, I create my own. In [Tools](Tools) I am show-casing all tools I find helpful. I am also sharing the *commands* and *PowerShell Modules* I created to help me produce better results in less time.
 
 ## Feel Free to Contribute, Too!
 
-You are cordially invited to harvest as much information from here as you wish. No need to give back anything.
+You are cordially invited to harvest as much information from here as you wish. No need for giving back anything.
 
-If you do come across errors or would like to add a piece of knowledge, please leave a comment below.
+It is more than likely though that you know much more than I do in many areas, so if you come across obvious errors or have additional information, I'd be thrilled if you contribute.
+
+I am *not* using the classic *commenting systems* like *Disqus*. If you'd like to get in touch and/or provide content, please use one of the paths outlined below.
+
+<details><summary>Why would you not use a commenting plugin at the bottom of each page?</summary><br/>
+
+Here is why:
+
+* **Spam** and **Ads**: I once used *Disqus* and actually liked it - until they started to inject tons of *ads* into my site. I want this resource to be as clean and distraction-free as possible and not see advertisements for things I do not support. I then reviewed many other *commenting plugins* but they all were either *ad-driven*, *expensive* or vulnerable to *spam*.
+* **Actionable** and **Accountable**: I want your input to be *actionable* and keep you informed how your input was used. With classic *commenting systems*, there is no way of following up.
+
+That's why I decided to use the same *professional* "commenting systems" used in software development: *issues*. Similar to a tracking system, you can post *issues*, and whenever you do, a distinct thread is opened that can be followed up and resolved.
+
+For more *unspecific* contact, I also enabled *Github Discussions* which works like a classic *discussion forum*. 
+
+Either way, both are driven by *Github*, and to participate you need a (free) *Github Account*. You cannot post anonymously. And that's a great benefit.
+
+For you, it is easy and *completely free* to set up a *Github Account* (if you have none yet). It comes with a ton of benefits for you: you could create your own repos (like this one), and connect with many other *Github* users.
+
+For me, it's the best way to *lock out spammers* and also *come back to you*: when you ask a question or generously contribute knowledge, I can mention you, give credit, and send back feedback to you.
+
+And the best thing is: you are not *exposing your privacy*: when you sign up with *Github*, you get a *anonymized email address*. *Github* manages the message exchange between you and me, but no one can harvest your *email address* and spam you. 
+
+</details>
 
 > [!NOTE]
 > This website is about *practical* know-how and may not always be academically correct. Please save your time if you are concerned about *perfect terminology* or would like to highlight the *true physical processes* of something I describe. While that's great, what solely matters *here* is that things are *understandable* and of *practical use* - even at the expense of slight inaccuracies or over-simplifications that a true electrical engineer would never allow.  
 
 Here are your paths to contribute:
 
-* **Comments:** If you find typos or would like to add *practically relevant* comments and corrections, the simplest form of feedback is to leave a comment below.
-
 * **Discussions:** A slightly more sophisticated approach is to visit the [discussion](https://github.com/TobiasPSP/doneland_sources/discussions) forum.
 
 * **Filing Issues:** The best way to add content or fix typos is to file an [issue](https://github.com/TobiasPSP/doneland_sources/issues). This incorporates your input into a managed "ticket system" and helps keeping track of what has been fixed, and what still needs attention.
+
+> [!NOTE]
+> If you are viewing this page as part of the *website*, you'll find two buttons at the bottom of each web page: one directs you to the content page of the *Github Repository* that feeds the web page, and the other button lets you file an *issue*. If you are viewing this page on *Github*, you'll find a link to the sibling web page at the bottom.
+> When you use the button *Submit Issue* on the website, the new issue is seeded with the backlink to the page so I better know what you are talking about. If you open an *issue* manually, make sure you include a link to the page with the problem yourself.
 
 ## Visit Github, or Visit the Web
 
