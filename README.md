@@ -6,15 +6,16 @@
 
 I am originally a *software and automation expert* but started to realize how useful it is to dive into *electronics* and the world of *microprocessors* like **ESP8266**. 
 
-There is a huge community, great resources and tons of ideas. 
+There is a huge community, great resources and tons of ideas. Right here, you find information and ideas about the parts, components and microprocessors I came across.
 
-## Why bother when there is *Amazon* and *AliExpress*?
-
-Why would anyone bother *building electronics yourself*?
+<details>
+<summary>Why bother making things when there is Amazon and AliExpress?</summary>
 
 Here is why: a good friend needed a device that *monitors loud noise*, and when the volume is over a threshold, he wanted to *cut off electricity* and *Internet access*. This device was supposed to be deployed into his daughters' room. 
 
 You can't buy these things. But you can make them. And it doesn't take much, neither money nor time. It does take knowledge, though. And it is rewarding fun each time you *understand* something new and extend your skill set.
+
+</details>
 
 ## Thank You, Community!
 
