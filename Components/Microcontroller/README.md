@@ -64,7 +64,7 @@ These *CPUs* are more modern than the ones used in *Arduinos* and come with *wir
 > [!TIP]
 > The *Expressif* microcontrollers are so powerful and popular that in fact *Arduino* has released its latest family members using this microcontroller, too, now.
 
-<img src="images/esp32_family1_t.png" width="80%" height="80%" />
+<img src="images/esp32_family1_t.png" width="100%" height="100%" />
 
 From *left to right*: **ESP32 C3** from *Seeed*, **ESP8266** *D1 Mini clone*, **ESP32 WROOM 32D** *dev board*.
 
@@ -83,7 +83,7 @@ It is very well suited for the vast majority of *DIY projects*.
 
 The **D1 Mini** (including clones) probably is the most popular board design: it is *cheap*, *compact*, comes with *WiFi* capabilities, has sufficient *memory* (tyically 4MB), provides enough *GPIO* pins for most projects (9 of which 5 are freely usable), has one *ADC* and supports *SPI* and *I2C* interfaces.
 
-<img src="images/esp8266_angleback_t.png" width="80%" height="80%" />
+<img src="images/esp8266_angleback_t.png" width="60%" height="60%" />
 
 It is based on the *Expressif ESP8266EX* chip, basically the only *ESP8266* chip widely used.
 
@@ -92,7 +92,7 @@ It is based on the *Expressif ESP8266EX* chip, basically the only *ESP8266* chip
 The **Pro** version of **ESP8266** is a marketing gag and refers to a different board layout. Its most prominent "advantages* are a *ceramic antenna* instead of the simple *PCB antenna* and more memory: most **ESP8266** come with *16MB* instead of *4MB* memory (but watch out, some feature just 8MB or just 4MB).
 
 
-<img src="images/esp8266_mini_pro_front_unsharp_t.png" width="80%" height="80%" />
+<img src="images/esp8266_mini_pro_front_unsharp_t.png" width="60%" height="60%" />
 
 On the negative side is an *unshielded* version of **ESP8266** (not covered by a shiny silver metal box) that has no *FCC ID*, and the same lame *voltage regulator* you find on the cheapest **ESP8266 clones*.
 
@@ -126,11 +126,11 @@ Despite its many additional features, **ESP32** are not necessarily bigger in si
 
 The **ESP32 C3**-based board from **Seeed** for example is tiny:
 
-<img src="images/esp32_c3_seed_top_front_t.png" width="80%" height="80%" />
+<img src="images/esp32_c3_seed_top_front_t.png" width="40%" height="40%" />
 
 If you do not need a *USB Connector*, you can further cut board size. The picture below shows an **ESP8266** on such a board. The same form factor is available for **ESP32**, effectively reducing the board size to the size of the actual microcontroller and a few supporting elements like a *ceramic WiFI antenna*:
 
-<img src="images/esp8266_wo_USB_t.png" width="80%" height="80%" />
+<img src="images/esp8266_wo_USB_t.png" width="40%" height="40%" />
 
 > [!NOTE]
 > If you *do choose* a board w/o dedicated *USB connector* you will need an external *programmer board* to connect to and send your software (called *firmware*) to the microcontroller.
@@ -191,7 +191,7 @@ The original **ESP32** was called *WROOM*. A variant with extra *pSRAM* was call
 
 Here is a picture of a **ESP32 WROOM-32D**:
 
-<img src="images/esp_wroom_top_front2_t.png" width="80%" height="80%" />
+<img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
 
 When you purchase **ESP32** dev boards, look for the fine print in the type:
 
@@ -212,7 +212,7 @@ The **S2** is focused on *low energy consumption* and comes with just one core, 
 
 Here is a picture of a **S2 Mini** sharing the **ESP8266 D1 Mini** form factor (note the dual-row terminals):
 
-<img src="images/s2_mini_top_overview_t.png" width="80%" height="80%" />
+<img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
 
 
 Differences between **S2** and the original **ESP32**:
@@ -280,7 +280,7 @@ In addition, the **S3** comes with *AI Acceleration Support*: the *MCU* (math co
 
 The **ESP32 C3** marks a fundamental change in processor architecture as it now uses *RISC-V*. The **C3** is a *very fast* one-core microcontroller.
 
-<img src="images/esp32_c3_seed_top_front_t.png" width="80%" height="80%" />
+<img src="images/esp32_c3_seed_top_front_t.png" width="40%" height="40%" />
 
 Here is the list of removed or reduced features compared to **ESP32**:
 
@@ -338,6 +338,5 @@ Here is the list of enhancements compared to the **C3**:
 The number of **SPI** was reduced from 3 to 1.
 
 
-* **[Power](Power):** All about *Power*-related devices. I cover *voltage* and *current regulators*, *constant voltage* and *constant current*, *batteries*, *charger*, *BMS (battery management systems)*, and I'll cover the best ways of actually *measuring voltage* and *current*.
 
 > Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano
