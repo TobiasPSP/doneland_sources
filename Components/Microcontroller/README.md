@@ -37,7 +37,7 @@ The supporting boards can come from a variety of sources. Aside from the *origin
 > I'll examine the *power regulator* issue with **ESP8266** clones in a separate article in more detail and show how you can tell whether your board may have a power issue, and ways to resolve this.
 
 
-Clones for other microcontrollers are typically flawless, especially **ESP32** clones. 
+Clones for *other* microcontrollers are typically flawless. This issue affects predominantly **ESP8266** clones. To reiterate: **ESP32** clones are not affected.
 
 
 ### Innovation Through Clones
@@ -50,7 +50,6 @@ Sometimes, clones can be highly *innovative*, too. Have a look at these two micr
 <sup>**Arduino Mega**, a clone in the original form factor (*left*) and a clone in a much smaller form factor with the same feature set (*right*, called **Arduino Mega Pro**)</sup>
 
 
-Let's now take a look at the most popular microcontroller families and their family members.
 
 > [!NOTE]
 > Because of unclear copyright arrangements, in 2015 one of the original inventors started a new brand name called **Genuino** and new partnerships with *Adafruit*, *Seeed* and others to produce the hardware. Today, *Arduino* as a brand and as a hardware producer has lost a lot of its impact. Over time, boards became technically outdated and relatively over-priced. The market today is dominated by much cheaper *clones* that base on the *open-sourced* designs.
@@ -416,6 +415,6 @@ The number of **SPI** was reduced from 3 to 1.
 > [!CAUTION]
 > As of this writing, the **C6** does not support the *Arduino Framework* yet. You cannot currently program it using the *Arduino IDE* or *platformio*. Instead, you must use the *ESP-IDF* from *Expressif*. This is going to change soonish, and eventually, the **C6**, too, will support the universal *ArduinoIDE*.
 
-> Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano
+> Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano, S2, S3, C2, C3, C6, Clone, Power Regulator,
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/microcontroller?765626031601243831) - last edited 2024-03-01
