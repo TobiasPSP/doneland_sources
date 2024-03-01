@@ -340,3 +340,5 @@ The number of **SPI** was reduced from 3 to 1.
 
 
 > Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano
+
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/microcontroller?765626031601243831) - last edited 2024-03-01
