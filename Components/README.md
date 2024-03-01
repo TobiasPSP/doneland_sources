@@ -19,5 +19,4 @@ Many modern *DIY projects* these days use *microcontrollers*.
 
 Whether you are into *Arduinos* or would like to finally understand the differences between *ESP8266*, *ESP32*, *Wroom*, or whatnot, the [Microcontrollers](/components/microcontroller) section has you covered.
 
-
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components?061835020426240854) - last edited 2024-02-27
