@@ -2,7 +2,7 @@
  
 # Microcontrollers
 
-> They Manage Sensors, LEDs And Other Components Much Cheaper Than Implementing The Same With Discrete Elements.
+> They Manage Sensors, LEDs And Other Components Much Cheaper Than Implementations With Discrete Elements Only.
 
 What started in *PCs* and carried over to devices like *Smartphones* is now common-place even for *DIY projects*: instead of trying to implement features exclusively with *discrete elements* like transistors and some *ICs*, it is much easier and more *cost-effective* to add a **microcontroller**.
 
@@ -14,7 +14,7 @@ In this section you learn more about the typical microcontrollers used in *DIY p
 
 > [!CAUTION]
 > There are hardware differences of course, and while *code examples* will run on all microcontrollers, there may be minor hardware adjustments needed, i.e. you might need to review and adjust the GPIO pins used.
-> Be aware that *Arduinos* are **5V** devices whereas *ESPs* use *3.3V*.
+> Be aware that *Arduinos* are **5V** devices whereas *ESPs* use **3.3V**.
 
 
 ## Originals and Clones
@@ -413,7 +413,8 @@ Here is the list of enhancements compared to the **C3**:
 
 The number of **SPI** was reduced from 3 to 1.
 
-
+> [!CAUTION]
+> As of this writing, the **C6** does not support the *Arduino Framework* yet. You cannot currently program it using the *Arduino IDE* or *platformio*. Instead, you must use the *ESP-IDF* from *Expressif*. This is going to change soonish, and eventually, the **C6**, too, will support the universal *ArduinoIDE*.
 
 > Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano
 
