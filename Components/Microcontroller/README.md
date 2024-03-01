@@ -2,71 +2,138 @@
  
 # Microcontrollers
 
-> Smart Microcontrollers Manage Sensors, LEDs And Other Components. Today, They Are The Heart And Soul of Many DIY Devices And Much Cheaper Than Trying To Achieve The Same With Discrete Elements.
+> They Manage Sensors, LEDs And Other Components Much Cheaper Than Implementing The Same With Discrete Elements.
 
 What started in *PCs* and carried over to devices like *Smartphones* is now common-place even for *DIY projects*: instead of trying to implement features exclusively with *discrete elements* like transistors and some *ICs*, it is much easier and more *cost-effective* to add a **microcontroller**.
 
-In this section you learn more about the typical microcontrollers used in *DIY projects* and what they can do for you.
+In this section you learn more about the typical microcontrollers used in *DIY projects*, how they differ, and what they can do for you.
+
+> [!TIP]
+> Programming a microcontroller today is fundamentally the same, regardless of vendor and microcontroller type you choose, thanks to the *Arduino Framework*: all microcontrollers listed below understand the same code.
+
+
+> [!CAUTION]
+> There are hardware differences of course, and while *code examples* will run on all microcontrollers, there may be minor hardware adjustments needed, i.e. you might need to review and adjust the GPIO pins used.
+> Be aware that *Arduinos* are **5V** devices whereas *ESPs* use *3.3V*.
+
 
 ## Originals and Clones
 
-Below I introduce the most popular microcontrollers and highlight their specs, pros and cons. At the heart of these microcontroller boards is always a *CPU* which is probably the only truly *unique* part.
+At the heart of any microcontroller board is always a *CPU* which is  the only truly *unique* part.
 
-The supporting boards in contrast can come from a variety of sources. Aside from the *original company* that came up with a particular design, there are numerous *clones* available that *copied* the design. These *clones* are *much cheaper* and typically work very well, too.
+The supporting boards can come from a variety of sources. Aside from the *original company* that came up with a particular design, there are numerous *clones* available that *copied* the (open-source) design. These *clones* are *much cheaper* and typically work very well, too.
 
-However, *clones* are no perfect copy. Typically, they save money and production cost by using cheaper components. That's ok for most cases except one: the *power regulator*. *Clones* frequently use inferior or outright unsuitable *power regulators*: they can hardly provide enough power for the *CPU* alone. Once you start adding additional components like sensors or displays, you may run into issues, and the board may stop working. 
+<img src="images/clones2_t.png" width="80%" height="80%" />
 
-I'll examine this issue in more detail below and show how you can tell whether your board may have a power issue, and ways to resolve this.
+<sup>**Nano Every**, a clone (*left*) and the original (*right*)</sup>
+
+### Power Regulator Trap
+
+*Clones* are no perfect copy. Typically, they save money and production cost by using cheaper components. That's ok for most cases except one: **power regulators**.
+
+**ESP8266** *clones* are known for commonly using inferior or outright unsuitable *power regulators*: they can hardly provide the power for the *CPU* alone. Once you start adding additional components like sensors or displays, you may run into issues, and the board may stop working. With a more expensive *original*, you may get a higher component quality (if that's worth the price difference for you).
 
 > [!TIP]
-> You can *program* any of the microcontrollers below using the **Arduino IDE** or the more modern and capable **platformio** that plugs into the free **VSCode** editor. 
-> That is possible because all of the *non-Arduino* microcontrollers listed below support the *Arduino Framework*, so they understand the same code.
-> There are fundamental differences though when it comes to voltage and *GPIO* pins. While *Arduinos* are **5V** devices, the **ESP** family of microcontrollers are **3.3V** devices. And while **GPIO** pins work fundamentally the same, their names (labels) can be different.
-> In a nutshell, today using any of the microcontrollers listed below is equally easy or hard. Most example code works interchangeably but at minimum you may have to review and adjust *GPIO* pin assignments.
+> I'll examine the *power regulator* issue with **ESP8266** clones in a separate article in more detail and show how you can tell whether your board may have a power issue, and ways to resolve this.
+
+
+Clones for other microcontrollers are typically flawless, especially **ESP32** clones. 
+
+
+### Innovation Through Clones
+
+
+Sometimes, clones can be highly *innovative*, too. Have a look at these two microcontroller boards. They are functionally identical yet the left (clone) has a dramatically smaller footprint:
+
+<img src="images/arduino_mega_vs_mini_t.png" width="80%" height="80%" />
+
+<sup>**Arduino Mega**, a clone in the original form factor (*left*) and a clone in a much smaller form factor with the same feature set (*right*, called **Arduino Mega Pro**)</sup>
+
+
+Let's now take a look at the most popular microcontroller families and their family members.
+
+> [!NOTE]
+> Because of unclear copyright arrangements, in 2015 one of the original inventors started a new brand name called **Genuino** and new partnerships with *Adafruit*, *Seeed* and others to produce the hardware. Today, *Arduino* as a brand and as a hardware producer has lost a lot of its impact. Over time, boards became technically outdated and relatively over-priced. The market today is dominated by much cheaper *clones* that base on the *open-sourced* designs.
+
 
 
 ## Arduino Family
 
-The *Arduino family of microcontrollers* made microcontrollers for *DIY projects* popular. They were *very easy to use*, and the free *development environment*, **Arduino IDE**, worked out of the box without any configuration. So the *entry level* for *Arduinos* is very low.
+Around 2005, the *Arduino family of microcontrollers* started to open up the world of microcontrollers to the general public. From the start, they were *very easy to use*. The free *development environment*, **Arduino IDE**, works out of the box for *Arduinos*, no configuration needed. The *entry level* for *Arduinos* is very low.
 
-The first family members were bulky though and came with limited memory and only a few *GPIO* pins. Features were improved over time, and footprint cut down. 
+<img src="images/arduino_nano_every_original_back_logo_t.png" width="80%" height="80%" />
+
+*Arduinos* were originally based on *ATMega* microcontrollers, and the boards were developed and produced by *Arduino LLC*. The name *Arduino* was borrowed from a bar where the founders liked to hang out.
+
+The first boards were bulky, slow (using *ATMega8*), and came with very limited memory and only a few *GPIO* pins. 
+
+Resources were improved over time, and footprint cut down. 
+
+<img src="images/arduino_mega_top_front_t.png" width="80%" height="80%" />
+
+<sup>This *original* **Arduino Nano Every** has a relatively small form factor and plenty of GPIOs</sup>
+
+Today, there is a vast [Arduino Ecosystem](https://docs.arduino.cc/hardware/) with a variety of boards and processors.
+
+### Software Development for Microcontrollers
+
+It may appear a bit displaced to talk about the software to program microcontrollers in the middle of this *Arduino* section - after all, this is a general topic that is important to all microcontrollers.
+
+#### Arduino IDE...
+
+Since *Arduinos* started the journey, their *programming software* called **Arduino IDE**, too, initially was a one-kind-of-its-own. Many users know, love and hate just this one software for programming microcontrollers.
+
+While this software is tailored towards *Arduinos* (for which it was created), it can be extended to other microcontrollers as well. You can use it to program any of the microcontrollers listed here. Still, non-Arduino boards are often second-class citizen and require manual configuration.
+
+#### ...and platformio
+
+*Arduino* hardware today often feels stale, out-dated and over-priced. The *Arduino IDE*, too, is not up-to-date anymore and lacks modern editing capabilities. 
+
+Many users move to the free [platformio](https://platformio.org/install/ide?install=vscode) development environment which can be plugged into the free Microsoft *VSCode* editor.
+
+*Platformio* is hardware-agnostic and treats all microcontroller families the same. It may require a bit more time to get it up and running but once you are there, you never want to go back.
+
+> [!TIP]
+> There are many more *development environments* available for microcontrollers, for example *Expressif*, the company that produces the **ESP** family of microcontrollers, offers its own free dev environment [ESP-IDF](https://idf.espressif.com/) specifically tailored towards **ESP** microcontrollers.
 
 ### Arduino Mega and Nano
 
-The two most popular *Arduino* family members highlight the progress in this area well: on the *right* you see the *Arduino Mega* which added many more *GPIO* pins to control more complex scenarios. Its footprint was huge though. 
+The two most popular *Arduino* family members illustrate the evolution: 
 
-On the *left* you see the *Arduino Nano* which delivered almost the same features in a much smaller form factor:
 
 <img src="images/arduino_mega_top_front2_t.png" width="80%" height="80%" />
 
+<sup>Arduino Mega (*right*) and Arduino Nano (*left*, almost the same features in a much smaller form factor)</sup>
+
 ### Pros and Cons
 
-The biggest **PROS** for *Arduinos* is the *huge community*, the vast number of *examples*, and the *ease of use*. 
+The biggest **PROS** for *Arduinos* are the *huge community*, the vast number of *code examples*, and the *ease of use*. 
 
 There are important **CONS**, too:
 
 * **No Wireless:** *Arduinos* do not come with any wireless support. You cannot connect them to the Internet, your home WiFi, or use *Bluetooth*.
-* **Limited Memory:** Even though modern *Arduinos* have added more memory and *GPIO* pins, especially their memory is still very limited, and when you create more sophisticated firmware, it is not unusual to run into compilation errors due to lacking memory.
+* **Limited Memory:** modern *Arduinos* have added more memory and *GPIO* pins, but memory is still limited. When you create more sophisticated firmware, it is not unusual to run into compilation errors due to lack of memory.
 * **High Energy Consumption:** Should you plan to run your devices on solar or battery power then *power consumption* becomes an issue, and *Arduinos* typically need relatively much power.
-* **High Price:** The *original Arduinos* and even most *clones* are relatively expensive compared to other microcontrollers.
-* **Big Size:** Even though some *Arduinos* like the *Nano* are comparably small, compared to other microcontroller boards they are still *big* and make your devices bigger than needed, too.
+* **Expensive:** The *original Arduinos* and even most *clones* are relatively expensive compared to other microcontrollers.
+* **Big:** some *Arduinos* like the *Nano* are comparably small, yet compared to other microcontroller boards they are still *huge* and make your devices bigger.
 
 > [!NOTE]
-> I started my first steps with *Arduino*, like so many others, too. Because of the *cons* listed above, I soon switched to other microcontrollers, though. 
-> That is why the examples on this site are focused on **ESP8266** and **ESP32**.
+> I started my first steps with *Arduino*, like so many others. Because of the *cons* listed above, I soon switched to other microcontrollers, though. That is why the examples on this site are focused on **ESP8266** and **ESP32**.
 
-## Expressif ESP8266 and ESP32 Family
 
-Another very popular family of microcontroller boards is based on the *CPUs* from *Expressif*, namely the **ESP8266** and the **ESP32**.
 
-These *CPUs* are more modern than the ones used in *Arduinos* and come with *wireless functionality* built-in: the smaller **ESP8266** has **WiFi-Support**, and the **ESP32** adds **Bluetooth-Support**. 
+## ESP8266 and ESP32 Family from Expressif
+
+Another very popular family of microcontroller boards is based on the *CPUs* from *Expressif*, namely the **ESP8266** that surfaced in 2014, and the **ESP32** that followed in 2016 - roughly at the same time when the *Arduino* star started to sink due to internal disputes and copyright issues.
+
+Expressifs' **ESP** *cPUs* are much more powerful than the *ATMegas* used by *Arduino*. They come with *WiFi* capabilities built-in, and the **ESP32** adds **Bluetooth-Support**. 
 
 > [!TIP]
-> The *Expressif* microcontrollers are so powerful and popular that in fact *Arduino* has released its latest family members using this microcontroller, too, now.
+> The *Expressif* **ESP32** microcontrollers are so powerful and popular that in fact *Arduino* has switched horses, too, and released its first **ESP32** board in 2023: the [Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/).
 
 <img src="images/esp32_family1_t.png" width="100%" height="100%" />
 
-From *left to right*: **ESP32 C3** from *Seeed*, **ESP8266** *D1 Mini clone*, **ESP32 WROOM 32D** *dev board*.
+<sup>from *left to right ordered by size*: **ESP32 C3** from *Seeed*, **ESP8266** *D1 Mini clone*, **ESP32 WROOM 32D** *dev board*.</sup>
 
 These are industrial-grade CPUs used in many commercial devices. They have very low energy consumption and effective *sleep modes*, making them suitable for battery-driven devices as well.
 
@@ -85,14 +152,18 @@ The **D1 Mini** (including clones) probably is the most popular board design: it
 
 <img src="images/esp8266_angleback_t.png" width="60%" height="60%" />
 
+<sup>The *ESP8266 D1 Mini* is one of the most popular **ESP8266** boards in use.</sup>
+
 It is based on the *Expressif ESP8266EX* chip, basically the only *ESP8266* chip widely used.
 
 ### ESP8266 Pro
 
-The **Pro** version of **ESP8266** is a marketing gag and refers to a different board layout. Its most prominent "advantages* are a *ceramic antenna* instead of the simple *PCB antenna* and more memory: most **ESP8266** come with *16MB* instead of *4MB* memory (but watch out, some feature just 8MB or just 4MB).
+The **Pro** version of **ESP8266** appears to be merely a marketing gag and refers to a different board layout. Its most visible "advantages* are a *ceramic antenna* instead of the simple *PCB antenna* and more memory: most **ESP8266 Pro** come with *16MB* instead of *4MB* memory (but watch out, some feature just 8MB or just 4MB).
 
 
 <img src="images/esp8266_mini_pro_front_unsharp_t.png" width="60%" height="60%" />
+
+<sup>The **ESP8266 Pro** is almost as expensive as a full-fledged **ESP32** and not a good choice.</sup>
 
 On the negative side is an *unshielded* version of **ESP8266** (not covered by a shiny silver metal box) that has no *FCC ID*, and the same lame *voltage regulator* you find on the cheapest **ESP8266 clones*.
 
@@ -128,12 +199,14 @@ The **ESP32 C3**-based board from **Seeed** for example is tiny:
 
 <img src="images/esp32_c3_seed_top_front_t.png" width="40%" height="40%" />
 
+<sup>**ESP32** boards can be extremely small yet very powerful</sup>
+
 If you do not need a *USB Connector*, you can further cut board size. The picture below shows an **ESP8266** on such a board. The same form factor is available for **ESP32**, effectively reducing the board size to the size of the actual microcontroller and a few supporting elements like a *ceramic WiFI antenna*:
 
 <img src="images/esp8266_wo_USB_t.png" width="40%" height="40%" />
 
-> [!NOTE]
-> If you *do choose* a board w/o dedicated *USB connector* you will need an external *programmer board* to connect to and send your software (called *firmware*) to the microcontroller.
+<sup>Boards without USB connector and UART are even smaller but require an external programmer to transfer the firmware.</sup>
+
 
 ### ESP Processor Family
 
@@ -189,9 +262,9 @@ The *original **ESP32*** was launched in 2016 and raised the *feature bar* as ou
 
 The original **ESP32** was called *WROOM*. A variant with extra *pSRAM* was called *WROVER*. There are dev boards with a built-in *PCB antenna*, and boards with an *IPX connector* to connect a *real external antenna* for more reach.
 
-Here is a picture of a **ESP32 WROOM-32D**:
-
 <img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
+
+<sup>**ESP32 WROOM-32D**</sup>
 
 When you purchase **ESP32** dev boards, look for the fine print in the type:
 
@@ -210,9 +283,10 @@ In 2020, *Expressif* released both the *S-Series* and the first member of the *C
 
 The **S2** is focused on *low energy consumption* and comes with just one core, less *SRAM* and no *Bluetooth* support. This reduces energy consumption from 100uA of a regular **ESP32** to just 22uA.
 
-Here is a picture of a **S2 Mini** sharing the **ESP8266 D1 Mini** form factor (note the dual-row terminals):
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
+
+<sup>A powerful **ESP32 S2 Mini** sharing the **ESP8266 D1 Mini** form factor. Note the dual-row terminals.</sup>
 
 
 Differences between **S2** and the original **ESP32**:
@@ -281,6 +355,8 @@ In addition, the **S3** comes with *AI Acceleration Support*: the *MCU* (math co
 The **ESP32 C3** marks a fundamental change in processor architecture as it now uses *RISC-V*. The **C3** is a *very fast* one-core microcontroller.
 
 <img src="images/esp32_c3_seed_top_front_t.png" width="40%" height="40%" />
+
+<sup>**ESP32 C3** produced by *Seeed*</sup>
 
 Here is the list of removed or reduced features compared to **ESP32**:
 
