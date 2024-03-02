@@ -91,14 +91,27 @@ Here are some "string counting" examples:
 * If you connect *two batteries in parallel*, this would be a **1S** system. If you connect the same two batteries *in series*, you would have a **2S** system.
 * Should you use a total of *six* batteries, *two* of each connected *in parallel*, and then the three pairs *connected in series*, you would have a **3S** system.
 
-### Selecting a BMS
+## 1S BMS
 
-Here is the gallery of the most commonly available **BMS** breakout boards:
+Most quality batteries come with a **BMS** built-in, but if you want to make sure you can add a **1S BMS**. This is a *must* if you decide to connect multiple batteries *in parallel* because now the total current raises considerably, introducing new risks that your **1S BMS** should mitigate.
 
-* **1S BMS:** Most quality batteries come with a **BMS** built-in, but if you want to make sure you can add a **1S BMS**. This is a *must* if you decide to connect multiple batteries *in parallel* because now the total current raises considerably, introducing new risks that your **1S BMS** should mitigate.
-* [2S BMS](2s):** Connecting two batteries in series raises the voltage in the range of *6.4-8.2V* (depending on state of battery charge) which is good for powering many microcontroller boards. You should add a **Buck** regulator that takes the battery voltage and reduces it to *exactly the voltage you need*.
-* [3S BMS](3s): Three batteries *in series* result in a voltage in the range of *9.6-12.6V*. 
-* [4S BMS](4s): Four batteries *in series* gets you a voltage in the range of *12.8-16.8V*. This configuration is used when you need *12V output*. Just add a **Buck** regulator to reduce the voltage range to the specific output voltage you need, i.e. *12V*.
+## 2S BMS
+
+Connecting two batteries in series raises the voltage in the range of *6.4-8.2V* (depending on state of battery charge) which is good for powering many microcontroller boards. You should add a **Buck** regulator that takes the battery voltage and reduces it to *exactly the voltage you need*.
+
+[Here](2s) is a list of popular ready-to-use **2S BMS*.
+
+## 3S BMS
+
+Three batteries *in series* result in a voltage in the range of *9.6-12.6V*.
+
+[Here](3s) is a list of popular ready-to-use **3S BMS*.
+
+## 4S BMS
+
+Four batteries *in series* gets you a voltage in the range of *12.8-16.8V*. This configuration is used when you need *12V output*. Just add a **Buck** regulator to reduce the voltage range to the specific output voltage you need, i.e. *12V*.
+
+[Here](4s) is a list of popular ready-to-use **4S BMS*.
 
 
 > Tags: BMS, Battery, Balancer, Charging, Protection
