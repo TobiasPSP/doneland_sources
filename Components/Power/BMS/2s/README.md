@@ -3,15 +3,15 @@
 
 # 2S - Using 2 Batteries in Series
 
-> 2S BMS Protect Two (Groups of) Batteries And Should Have Balancing Capabilities To Fully Charge Both Batteries.
+> 2S BMS Protect Two (Groups of) Batteries From Mishap. Combined With Balancing Capabilities They Are A Perfect Fit For Your Batteries.
 
-A **2S BMS** is right when you want to protect *two* batteries (or groups of batteries connected *in parallel*) that are connected *in series*. 
+A **2S BMS** is needed when you want to protect *two* batteries (or groups of batteries connected *in parallel*) that are connected *in series*. 
 
-Each lithium battery typically has a voltage between *3.2V* and *4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *6.4V* and *8.4V*.
+Each lithium battery typically has a voltage between *3.2V* - *4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *6.4V* - *8.4V*.
 
 ## Selecting a Safe Current
 
-Once you know you need a **2S BMS**, the second decision to select the appropriate **BMS** is the *maximum current* you want it to allow.
+Once you know you need a **2S BMS**, the second decision to select an appropriate **BMS** is the *maximum current* you want it to allow.
 
 > [!TIP]
 > One of the risks a **BMS** protects is *over-current*. By adding the appropriate **BMS** to your battery, you essentially also get a *fuse*: should your load require *more power* than anticipated, the **BMS** shuts down the connection.
@@ -45,11 +45,83 @@ What we discussed applies to *one* battery. If you connect batteries *in paralle
 
 ### Maximum Current That Makes Sense
 
-Once you know the *technically safe maximum current*, you can start thinking about the **real** *maximum current*: what is the *maximum current* your load will need under the most demanding conditions? 
+Once you know the *technically safe maximum current*, you can start thinking about the **real** *maximum current*: what is the *maximum current* your load will need under the most demanding conditions? Most likely, it is *much lower* than the technically maximum current.
 
-Add a reasonable safety margin, and now you know the maximum current your **BMS** should allow.
+Add a reasonable safety margin and you know the maximum current your **BMS** should support.
 
-## Selection of 2S BMS
+## 3A
+
+For currents up to **3A**, you can use a very small **BMS**:
+
+<img src="/images/bms_2s_3a_top_angle_t.png" width="100%" height="100%" />
+
+The connectors are located on the back:
+
+<img src="/images/bms_2s_3a_bottom_t.png" width="100%" height="100%" />
+
+This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
+
+The output voltage is available at **P+** and **p-**.
+
+## 8A
+
+For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
+
+<img src="/images/bms_2s_8A_top_angle_t.png" width="100%" height="100%" />
+
+The terminals are accessible both from top and bottom.
+
+
+<img src="/images/bms_2s_8a_bottom_t.png" width="100%" height="100%" />
+
+This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
+
+The output voltage is available at **P+** and **p-**.
+
+## 10A
+
+For currents up to **10A**, a very *compact* board is available:
+
+<img src="/images/2s_10a_top_angle_t.png" width="100%" height="100%" />
+
+Unfortunately, the compactness of the board did not leave room for markings on the front side. Instead, the markings for the soldering pads were printed on the *back side*:
+
+
+<img src="/images/2s_10a_bottom_t.png" width="100%" height="100%" />
+
+On the other end, the board has a big soldering pad marked as **B-** which is accessible from both sides, and two smaller ones marked **B1** and **B+** on the backside whereas the solder pads are accessible on the front.
+
+This is a *balanced* board. Connect one battery to **B-** (-) and **B1** (+), and connect the other battery to **B1** (-) and **B+** (+).
+
+The output voltage is available at **B+** and **C-**. These two pads are accessible from both sides.
+
+
+## 20A
+
+
+For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load, like this one:
+
+<img src="/images/bms_2s_20a_top_angle_t.png" width="100%" height="100%" />
+
+All terminals are accessible both from top and bottom.
+
+
+<img src="/images/bms_2s_20a_bottom_t.png" width="100%" height="100%" />
+
+This is a *balanced* board. Connect one battery to **0V** (-) and **4.2V** (+), and connect the other battery to **4.2V** (-) and **8.4V** (+). 
+
+The output voltage is available at **+** and **-** located in the inside of the board.
+
+
+
+
+
+
+
+
+
+
+
 
 Here are commonly available **2S BMS**:
 
