@@ -6,9 +6,9 @@
 > Lower or Raise DC Voltage, Drive Devices Off a Battery, and Create Smart Battery Chargers
 
 
-*DC-DC Converter* change an input *DC* voltage to a different output *DC* voltage. They cannot work with *AC*.
+*DC-DC Converter* change a range of input *DC* voltage to a specific fixed output *DC* voltage. They cannot work with *AC*.
 
-For *AC* circuits, *transformers* are used to change one voltage into another using alternating *magnetic fields*. Since *DC* does not use *alternate* current and thus does not produce alternating magnetic fields, transformers do not work for *DC*.
+> For *AC* circuits, *transformers* are used to change one voltage into another using alternating *magnetic fields*. Since *DC* does not use *alternate* current and thus does not produce alternating magnetic fields, transformers do not work for *DC*.
 
 *DC-DC Converters* change the voltage electronically by using components that can temporarily store energy, such as *capacitors* or *coils*. In combination with a high frequency *switch* (transistor), they can add or reduce voltage as needed, producing a *constant voltage* (**CV**).
 
