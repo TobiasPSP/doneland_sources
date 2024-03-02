@@ -53,11 +53,11 @@ Add a reasonable safety margin and you know the maximum current your **BMS** sho
 
 For currents up to **3A**, you can use a very small **BMS**:
 
-<img src="/images/bms_2s_3a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_3a_top_angle_t.png" width="100%" height="100%" />
 
 The connectors are located on the back:
 
-<img src="/images/bms_2s_3a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_3a_bottom_t.png" width="100%" height="100%" />
 
 This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
 
@@ -67,12 +67,12 @@ The output voltage is available at **P+** and **p-**.
 
 For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
 
-<img src="/images/bms_2s_8A_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_8A_top_angle_t.png" width="100%" height="100%" />
 
 The terminals are accessible both from top and bottom.
 
 
-<img src="/images/bms_2s_8a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_8a_bottom_t.png" width="100%" height="100%" />
 
 This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
 
@@ -82,12 +82,12 @@ The output voltage is available at **P+** and **p-**.
 
 For currents up to **10A**, a very *compact* board is available:
 
-<img src="/images/2s_10a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/2s_10a_top_angle_t.png" width="100%" height="100%" />
 
 Unfortunately, the compactness of the board did not leave room for markings on the front side. Instead, the markings for the soldering pads were printed on the *back side*:
 
 
-<img src="/images/2s_10a_bottom_t.png" width="100%" height="100%" />
+<img src="images/2s_10a_bottom_t.png" width="100%" height="100%" />
 
 On the other end, the board has a big soldering pad marked as **B-** which is accessible from both sides, and two smaller ones marked **B1** and **B+** on the backside whereas the solder pads are accessible on the front.
 
@@ -101,12 +101,12 @@ The output voltage is available at **B+** and **C-**. These two pads are accessi
 
 For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load, like this one:
 
-<img src="/images/bms_2s_20a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_20a_top_angle_t.png" width="100%" height="100%" />
 
 All terminals are accessible both from top and bottom.
 
 
-<img src="/images/bms_2s_20a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_20a_bottom_t.png" width="100%" height="100%" />
 
 This is a *balanced* board. Connect one battery to **0V** (-) and **4.2V** (+), and connect the other battery to **4.2V** (-) and **8.4V** (+). 
 
