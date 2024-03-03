@@ -10,6 +10,15 @@ Single batteries often come with a *basic* **BMS** built-in. If you want more co
 If you connect multiple batteries *in parallel* to build a battery pack with more power, you should always add your own **1S BMS**.
 
 
+> [!IMPORTANT]
+> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
+> *Locked state* is entered whenever *over-current protection* was triggered. 
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *4.2-4.5V* to its output terminal.
+
+
+
+All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are not compatible with *LiFePo4* batteries because *LiFePo4* uses different cell voltages.
+
 ## 5A
 
 For currents up to **5A**, you can use a very simple **BMS**:
@@ -24,6 +33,16 @@ Its long metal sleeves are designed to be fitted to *18650 LiIon Cells* using sp
 On the backside, there are two terminals marked **B+** and **B-** that are identical to the metal sleeves and go to the battery.
 
 The output voltage is available at the terminals **P+** and **P-** in the middle of the backside.
+
+### Specs
+
+
+| Protection | Threshold | Release | Delay |
+| --- | --- | --- | --- | 
+| Over-Charge | >4.3V | <4.1V | 70ms |
+| Over-Discharge | <2.4V | >3.0V | 35ms |
+| Over-Current | 5-6A | | |
+
 
 > Tags: Battery, BMS, 1S
 

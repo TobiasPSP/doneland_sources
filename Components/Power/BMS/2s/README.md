@@ -10,8 +10,19 @@ A **2S BMS** is needed to protect *two* batteries (or groups of batteries connec
 Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *6.4V*-*8.4V*.
 
 
+> [!IMPORTANT]
+> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
+> *Locked state* is entered whenever *over-current protection* was triggered. 
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *8.4-9.0V* to its output terminal.
 
 
+
+> [!CAUTION]
+> When connecting batteries to your **BMS**, make sure you use *wires* with sufficient diameter for the anticipated *high currents*.
+> Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
+
+
+All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are not compatible with *LiFePo4* batteries because *LiFePo4* uses different cell voltages.
 
 ## 3A
 
@@ -32,6 +43,20 @@ Connect the batteries like this:
 
 The output voltage is available at **P+** and **P-**.
 
+
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.3V |
+| Over-Discharge | <2.3V |
+| Over-Current | 5A | 
+| Short Circuit | yes,resettable | 
+| Continuous Current | 3A |
+| Size | 6.6x36.2mm |
+
+
+
 ## 8A
 
 For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
@@ -49,6 +74,19 @@ Connect the batteries like this:
 * Second battery string to **BM** (-) and **B+** (+)
 
 The output voltage is available at **P+** and **P-**.
+
+
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.3V | 
+| Over-Discharge | <2.5V | 
+| Over-Current | 15A | 
+| Short Circuit | yes,resettable | 
+| Continuous Current | 8A |
+| Size | 41x16x3.5mm |
+
 
 ## 10A
 
@@ -72,6 +110,25 @@ Connect the batteries like this:
 The output voltage is available at **B+** and **C-**. These two pads are accessible from both sides.
 
 
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.3V | 
+| Over-Discharge | <2.3-2.5V | 
+| Over-Current | 16A | 
+| Short Circuit | yes,resettable, 200mS delay | 
+| Continuous Current | 10A |
+| Size | 24x11x2mm |
+
+
+### Charging
+
+When *charging* batteries through this **BMS**, the charging voltage needs to be *8.4V*. The **BMS** limits the charging current to *10A*.
+
+> [!CAUTION]
+> This board is available as **1S BMS** also and looks almost the same. The **1S BMS** is lacking the **B1** terminal.
+
 ## 20A
 
 
@@ -93,6 +150,23 @@ Connect the batteries like this:
 
 The output voltage is available at **+** and **-** located in the inside of the board.
 
+
+
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.3V | 
+| Over-Discharge | <2.3-2.5V | 
+| Over-Current | 25A | 
+| Short Circuit | yes,resettable, 200mS delay | 
+| Continuous Current | 20A (may need heat sink) |
+| Size | 48x20x3.4mm |
+
+
+### Charging
+
+When *charging* batteries through this **BMS**, the charging voltage needs to be *8.4-9.0V*. The **BMS** limits the charging current to *10A*.
 
 
 > Tags: Battery, BMS, 2S

@@ -9,6 +9,19 @@ A **3S BMS** is needed to protect *three* batteries (or groups of batteries conn
 
 Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect three of them *in series*, the **BMS** needs to handle a voltage in the range of *9.6V*-*12.6V*.
 
+> [!IMPORTANT]
+> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
+> *Locked state* is entered whenever *over-current protection* was triggered. 
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *12.6-13.0V* to its output terminal.
+
+
+
+> [!CAUTION]
+> When connecting batteries to your **BMS**, make sure you use *wires* with sufficient diameter for the anticipated *high currents*.
+> Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
+
+
+All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are not compatible with *LiFePo4* batteries because *LiFePo4* uses different cell voltages.
 
 ## 20A
 
@@ -32,6 +45,22 @@ All terminals are also available at the bottom:
 
 <img src="images/3S_20A_bottom_t.png" width="100%" height="100%" />
 
+
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.25V |
+| Over-Discharge | <2.5V |
+| Over-Current | 60A (100ms delay) | 
+| Short Circuit | yes,resettable | 
+| Continuous Current | 20A |
+| Size | 59x20x3.4mm |
+
+
+### Charging
+
+When *charging* batteries through this **BMS**, the charging voltage needs to be *12.6-13.0V*. The **BMS** limits the charging current to *10A*.
 
 
 > Tags: Battery, BMS, 3S
