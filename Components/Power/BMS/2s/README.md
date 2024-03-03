@@ -25,7 +25,7 @@ The connectors are located on the back:
 
 This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
 
-The output voltage is available at **P+** and **p-**.
+The output voltage is available at **P+** and **P-**.
 
 ## 8A
 
@@ -40,7 +40,7 @@ The terminals are accessible both from top and bottom.
 
 This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
 
-The output voltage is available at **P+** and **p-**.
+The output voltage is available at **P+** and **P-**.
 
 ## 10A
 
@@ -77,17 +77,6 @@ This is a *balanced* board. Connect one battery to **0V** (-) and **4.2V** (+), 
 The output voltage is available at **+** and **-** located in the inside of the board.
 
 
-
-
-
-
-
-
-
-
-
-
-Here are commonly available **2S BMS**:
 
 > Tags: Battery, BMS, 2S
 
