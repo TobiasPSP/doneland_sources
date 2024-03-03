@@ -21,7 +21,7 @@ For currents up to **3A**, you can use a very small **BMS**:
 
 The connectors are located on the back:
 
-<img src="images/bms_2s_3a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_3a_wiring.png" width="100%" height="100%" />
 
 
 Connect the batteries like this:
@@ -40,7 +40,7 @@ For currents up to **8A**, a board with more powerful *MosFET* like this one is 
 
 The terminals are accessible both from top and bottom.
 
-<img src="images/bms_2s_8a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_8a_wiring.png" width="100%" height="100%" />
 
 
 Connect the batteries like this:
@@ -82,7 +82,7 @@ For currents up to **20A**, you need a bigger board with more *MosFETs* that sha
 All terminals are accessible both from top and bottom.
 
 
-<img src="images/bms_2s_20a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_20a_wiring.png" width="100%" height="100%" />
 
 
 Connect the batteries like this:
