@@ -92,7 +92,7 @@ The output voltage is available at **P+** and **P-**.
 
 For currents up to **10A**, a very *compact* board is available:
 
-<img src="images/2s_10a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/2S_10A_top_angle_t.png" width="100%" height="100%" />
 
 Unfortunately, the compactness of the board did not leave room for markings on the front side. Instead, the markings for the soldering pads were printed on the *back side*:
 
