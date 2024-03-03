@@ -7,13 +7,11 @@
 
 A **2S BMS** is needed to protect *two* batteries (or groups of batteries connected *in parallel*) that are connected *in series*. 
 
-Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *6.4V*-*8.4V*.
-
 
 > [!IMPORTANT]
 > **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
 > *Locked state* is entered whenever *over-current protection* was triggered. 
-> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *8.4-9.0V* to its output terminal.
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
 
 
 
@@ -22,11 +20,9 @@ Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of 
 > Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
 
 
-All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are not compatible with *LiFePo4* batteries because *LiFePo4* uses different cell voltages.
-
 ## 3A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **3A**, you can use a very small **BMS**:
@@ -62,7 +58,7 @@ The output voltage is available at **P+** and **P-**.
 
 ## 8A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
@@ -96,7 +92,7 @@ The output voltage is available at **P+** and **P-**.
 
 ## 10A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **10A**, a very *compact* board is available:
@@ -140,7 +136,7 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 ## 20A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load, like this one:

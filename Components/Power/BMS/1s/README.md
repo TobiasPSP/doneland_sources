@@ -13,7 +13,7 @@ If you connect multiple batteries *in parallel* to build a battery pack with mor
 > [!IMPORTANT]
 > **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
 > *Locked state* is entered whenever *over-current protection* was triggered. 
-> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *4.2-4.5V* to its output terminal.
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
 
 
 ## 5A

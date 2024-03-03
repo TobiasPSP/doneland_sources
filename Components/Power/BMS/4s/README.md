@@ -7,13 +7,11 @@
 
 A **4S BMS** is needed to protect *four* batteries (or groups of batteries connected *in parallel*) that are connected *in series*. 
 
-Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *12.8V*-*16.8V*.
-
 
 > [!IMPORTANT]
 > **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
 > *Locked state* is entered whenever *over-current protection* was triggered. 
-> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *16.8-17.0V* to its output terminal.
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
 
 
 
@@ -26,7 +24,7 @@ All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are
 
 ## 8A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 For currents up to **8A**, you can use a **BMS** with a square form factor. This makes it ideal for battery packs with four *18650 LiIon* cells but can also be used for other lithium batteries including *LiPo*:
 
@@ -70,7 +68,7 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 ## 15A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **15A**, a board with four powerful *MosFET* like this one can be used:
@@ -107,7 +105,7 @@ The output voltage is available at **P+** and **P-**.
 
 ## 25A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **25A**, this rounded multi-purpose board is available:

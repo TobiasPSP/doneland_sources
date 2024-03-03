@@ -7,12 +7,11 @@
 
 A **3S BMS** is needed to protect *three* batteries (or groups of batteries connected *in parallel*) that are connected *in series*. 
 
-Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect three of them *in series*, the **BMS** needs to handle a voltage in the range of *9.6V*-*12.6V*.
 
 > [!IMPORTANT]
 > **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
 > *Locked state* is entered whenever *over-current protection* was triggered. 
-> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *12.6-13.0V* to its output terminal.
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
 
 
 
@@ -25,7 +24,7 @@ All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are
 
 ## 20A
 
-[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
 For currents up to **20A**, here is a rugged and balanced **BMS**:
