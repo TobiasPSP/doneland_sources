@@ -134,7 +134,7 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load, like this one:
 
-<img src="images/bms_2s_20a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2S_20A_top_angle_t.png" width="100%" height="100%" />
 
 All terminals are accessible both from top and bottom.
 
