@@ -23,7 +23,7 @@ Connect the batteries like this:
 * Second battery string to **4.2V** (-) and **8.4V** (+)
 * Third battery string to **8.4V** (-) and **12.6V** (+)
 
-<img src="images/3S_20A_top_t.png" width="100%" height="100%" />
+<img src="images/3s_20a_wiring.png" width="100%" height="100%" />
 
 The output voltage is available at the terminals marked  **+** and **-**.
 

@@ -18,7 +18,7 @@ For currents up to **8A**, you can use a **BMS** with a square form factor. This
 
 There are quite a few connectors on this board that are accessible only from the top. Make sure you connect your batteries correctly.
 
-<img src="images/4s_8a_top_t.png" width="100%" height="100%" />
+<img src="images/4s_8a_wiring.png" width="100%" height="100%" />
 
 Connect the batteries like this:
 
@@ -48,7 +48,7 @@ Connect the batteries like this:
 * Third battery string to **VM** (-) and **VH** (+)
 * Forth battery string to **VH** (-) and **B+** (+) 
 
-<img src="images/bms_4s_15a_top_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_15a_wiring.png" width="100%" height="100%" />
 
 
 The terminals are accessible both from top and bottom.
@@ -79,7 +79,7 @@ Connect the batteries like this:
 
 The output voltage is available at **P+** and **P-**. These two pads are accessible from both sides.
 
-<img src="images/bms_4s_25A_top_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_25a_wiring.png" width="100%" height="100%" />
 
 
 
