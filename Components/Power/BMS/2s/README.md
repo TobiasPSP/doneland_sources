@@ -23,7 +23,12 @@ The connectors are located on the back:
 
 <img src="images/bms_2s_3a_bottom_t.png" width="100%" height="100%" />
 
-This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
+
+Connect the batteries like this:
+
+* First battery string to **B-** (-) and **BM** (+)
+* Second battery string to **BM** (-) and **B+** (+)
+
 
 The output voltage is available at **P+** and **P-**.
 
@@ -35,10 +40,13 @@ For currents up to **8A**, a board with more powerful *MosFET* like this one is 
 
 The terminals are accessible both from top and bottom.
 
-
 <img src="images/bms_2s_8a_bottom_t.png" width="100%" height="100%" />
 
-This is a *balanced* board. Connect one battery to **B-** (-) and **BM** (+), and connect the other battery to **BM** (-) and **B+** (+). 
+
+Connect the batteries like this:
+
+* First battery string to **B-** (-) and **BM** (+)
+* Second battery string to **BM** (-) and **B+** (+)
 
 The output voltage is available at **P+** and **P-**.
 
@@ -55,7 +63,11 @@ Unfortunately, the compactness of the board did not leave room for markings on t
 
 On the other end, the board has a big soldering pad marked as **B-** which is accessible from both sides, and two smaller ones marked **B1** and **B+** on the backside whereas the solder pads are accessible on the front.
 
-This is a *balanced* board. Connect one battery to **B-** (-) and **B1** (+), and connect the other battery to **B1** (-) and **B+** (+).
+
+Connect the batteries like this:
+
+* First battery string to **B-** (-) and **B1** (+)
+* Second battery string to **B1** (-) and **B+** (+)
 
 The output voltage is available at **B+** and **C-**. These two pads are accessible from both sides.
 
@@ -72,7 +84,12 @@ All terminals are accessible both from top and bottom.
 
 <img src="images/bms_2s_20a_bottom_t.png" width="100%" height="100%" />
 
-This is a *balanced* board. Connect one battery to **0V** (-) and **4.2V** (+), and connect the other battery to **4.2V** (-) and **8.4V** (+). 
+
+Connect the batteries like this:
+
+* First battery string to **0V** (-) and **4.2V** (+)
+* Second battery string to **4.2V** (-) and **8.4V** (+)
+
 
 The output voltage is available at **+** and **-** located in the inside of the board.
 
