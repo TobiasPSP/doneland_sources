@@ -9,52 +9,9 @@ A **2S BMS** is needed to protect *two* batteries (or groups of batteries connec
 
 Each lithium battery has a voltage between *3.2V*-*4.2V*, depending on state of charge. When you connect two of them *in series*, the **BMS** needs to handle a voltage in the range of *6.4V*-*8.4V*.
 
-## Selecting Maximum Current
-
-A **BMS** limits the maximum current. Selecting the appropriate **BMS** requires that you know the *maximum current* you want it to allow.
-
-> [!TIP]
-> One of the risks a **BMS** protects is *over-current*. By adding the appropriate **BMS** to your battery, you essentially also get a *fuse*: should your load require *more power* than anticipated, the **BMS** shuts down the connection.
-> Since **BMS** are not designed to routinely handle *over-current* and *short circuits*, still *do use* a fuse. If the **BMS** encounters an *over-current*, it may permanently shut-down the connection until you re-connect it with a charger.
-
-### Maximum Current
-
-The *maximum current* you want to allow *cannot be higher* than the *maximum technically safe current*. 
-
-Let's first quantify the absolute maximum current safely possible for your battery pack:
-
-The *maximum technically safe current* is determined by the batteries you use. As a rule of thumb, *lithium batteries* sustain a maximum discharge rate of *3C* where **C** stands for the *battery capacity*. 
-
-> If your battery has a *capacity* of *3.000mAh*, then this is **1C**. The maximum safe discharge current would then be *9A* (3x3.000mA).
->
-> With 10.000mAh batteries, the maximum safe discharge current would be *30A*.
-
-That's just a rule of thumb though. Be careful, and always look up the datasheet of the actual batteries *you use*. There are huge variations.
-
-* Cheap *LiPo* batteries may allow a maximum discharge current of as low as *0.3C*.
-
-* *Big LiFePo4* batteries can deliver *10-30C* and more.
 
 
-<details><summary>How batteries connected *in parallel* increase current</summary><br/>
 
-What has been discussed so far applies to *one* battery. When you connect batteries *in parallel*, the voltage stays the same but the *maximum possible current* raises as all batteries now *share* the load.
-
-* If you connect *two* batteries *in parallel*, this *doubles* the maximum safe current. 
-* Connecting *ten* batteries *in parallel* raises the maximum allowable current *tenfold*.
-
-> [!TIP]
-> If your battery does not sustain the maximum current you need, connecting more batteries *in parallel* is your option to *raise the current* to the level you need.
-
-</details>
-
-### Real Maximum Current
-
-The *technically possible* maximum current often is much higher than the *real needs* of the load you want to power.
-
-What is the *maximum current* your load will need under the most demanding conditions? 
-
-Add a reasonable safety margin, and you now know the maximum current your **BMS** should allow.
 
 ## 3A
 
