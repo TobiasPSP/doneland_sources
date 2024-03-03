@@ -110,7 +110,7 @@ There are plenty of ready-to-go **BMS** breakout boards available that are much 
 Let's examine the basic parameters you need in order to select the appropriate **BMS**:
 
 * **Strings:** How many batteries do you want to connect *in series*? In other words: what is the intended *total output voltage* of your battery pack?
-* **Current:** What is the maximum current you want to draw? In other words: at which current should the **BMS** disconnect the batteries to protect them?
+* **Current:** What is the maximum current you want to draw? In other words: at which current should the **BMS** disconnect the batteries to protect them (and also *protect your load* should it cause a short circuit or suffer another failure)?
 * **Balancer:** Do you need *balancing capabilities*? In other words: do you use more than one battery and want to charge it through the **BMS**? 
 
 ### Understanding *Strings*: 1S, 2S, 3S, 4S...
@@ -136,7 +136,7 @@ A **BMS** limits the maximum current. That is one of its fundamental protection 
 Selecting the appropriate **BMS** requires that you know the *maximum current* you want to draw from your batteries.
 
 > [!TIP]
-> One of the risks a **BMS** protects is *over-current*. By adding the appropriate **BMS** to your battery, you essentially also get a *fuse*: should your load require *more power* than anticipated, the **BMS** shuts down the connection.
+> One of the risks a **BMS** protects is *over-current*. By adding the appropriate **BMS** to your battery, you essentially also get a *fuse*: should your load require *more power* than anticipated, the **BMS** cuts off power.
 > Since **BMS** are not designed to routinely handle *over-current* and *short circuits*, still *do use* a fuse. If the **BMS** encounters an *over-current*, it may permanently shut-down the connection until you re-connect it with a charger.
 
 #### Absolute Maximum Current
