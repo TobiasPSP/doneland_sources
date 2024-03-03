@@ -16,10 +16,9 @@ If you connect multiple batteries *in parallel* to build a battery pack with mor
 > To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply *4.2-4.5V* to its output terminal.
 
 
-
-All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are not compatible with *LiFePo4* batteries because *LiFePo4* uses different cell voltages.
-
 ## 5A
+
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 For currents up to **5A**, you can use a very simple **BMS**:
 

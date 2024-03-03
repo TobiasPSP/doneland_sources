@@ -26,6 +26,8 @@ All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are
 
 ## 8A
 
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
 For currents up to **8A**, you can use a **BMS** with a square form factor. This makes it ideal for battery packs with four *18650 LiIon* cells but can also be used for other lithium batteries including *LiPo*:
 
 <img src="images/4s_8a_top_angle_t.png" width="100%" height="100%" />
@@ -68,6 +70,9 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 ## 15A
 
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
+
 For currents up to **15A**, a board with four powerful *MosFET* like this one can be used:
 
 <img src="images/bms_4s_15A_top_angle_t.png" width="100%" height="100%" />
@@ -101,6 +106,9 @@ The output voltage is available at **P+** and **P-**.
 
 
 ## 25A
+
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
 
 For currents up to **25A**, this rounded multi-purpose board is available:
 
@@ -155,6 +163,25 @@ This is a *multipurpose* board and can be used for **3S**, **4S**, and **5S**. T
 | 2 | 0R | unconnected |unconnected |
 | 3 | 0R | 0R |unconnected |
 | 4 | 0R | unconnected |unconnected |
+
+> [!TIP]
+> *0R* refers to a 0-Ohm resistor (a solder bridge). If you'd like to change the configuration of your **BMS**, you can remove **0R** resistors (to switch to *unconnected*), or *bridge* the pads with solder (to switch to *0R*). No need to try and move around and re-solder the tiny *0R* resistors.
+
+For **3S BMS**, connect the batteries like this:
+
+* First battery string to **B-** (-) and **B1** (+)
+* Third battery string to **B1** (-) and **B2** (+)
+* Forth battery string to **B2** (-) and **B+** (+)
+
+For **5S BMS** connect the batteries like this:
+
+Connect the batteries like this:
+
+* First battery string to **B-** (-) and **A** (+)
+* Second battery string to **A** (-) and **B** (+)
+* Third battery string to **B** (-) and **B1** (+)
+* Forth battery string to **B1** (-) and **B2** (+)
+* Fifth battery string to **B2** (-) and **B+** (+)
 
 > Tags: Battery, BMS, 4S
 

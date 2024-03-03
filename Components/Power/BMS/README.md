@@ -25,32 +25,83 @@ That's why most quality *lithium* batteries come with a basic **BMS** already in
 
 ## Important Protection Features
 
-*BMS* must provide *at minimum* these key protection features:
+A sufficient *BMS* must provide these key protection features:
 
-| Feature | Typical Threshold | Description |
-| --- | --- | --- |
-| Over voltage | >4.3V | Prevents **fire hazard** from *over-charging*. When batteries are charged, voltage slowly rises. At a threshold voltage, it is fully charged and cannot store additional energy. If you keep charging *beyond* this point, any additional energy is converted to heat and may eventually cause a fire or explosion |
-| Over discharge | <2.3-3V | Prevents **permanent battery damage**. When you draw energy from a battery below a threshold voltage, its internal chemistry starts to change irreversibly, and the battery permanently loses capacity or does not work anymore at all. This feature also prevents **fire hazard**: *Charging* a battery below this threshold requires extra care as the battery cannot store much energy. When charged with normal currents, most of the energy is converted to heat and can cause fire or explosion. When the battery is below this threshold, the *BMS* must disable charging or charge with a *reduced* current until the minimum voltage threshold is reached. |
-| Short circuit | varies | Protects **fire hazard** from *over-current*. Every battery can provide a maximum discharge current. If more current is drawn, or in the worst case if the battery output is short circuited, the battery releases so much energy in such a short time that resulting heat can set the battery on fire. A *BMS* sets a maximum current and - similar to a fuse - cuts off the load when the current is exceeded. Often resettable by initiating a charge. |
-| Balancing | n/a | Protects from unevenly charging batteries (when the *BMS* controls more than one battery) by monitoring the voltages of all connected batteries individually, and adding extra charge to individual batteries if they lag behind other cells. Balancing improves overall battery lifetime and protects from **over- or under-charging** scenarios. Balancing is a protection for *charging*. During *discharge*, balancing is typically not required or useful.
+* Over-Current Protection
+* Over-Charge Protection
+* Over-Discharge Protection
+* Load Balancing
+
+<details><summary>What is *over-current protection*?</summary><br/>
+
+*Over-current protection* cuts off the battery once the *current* exceeds a certain threshold. Typically, *over-current protection* kicks in when the current roughly exceeds *double* of the continuous (normal) maximum current.
+
+When this happens, i.e. due to a short circuit, the **BMS** enters *lockdown mode*. To *reset* it, connect it to a charger.
+
+*Over-current protection* protects **fire hazards**: every battery can provide a maximum discharge current. If more current is drawn, the battery releases so much energy in such a short time that resulting heat can set the battery on fire. 
+
+In addition, this also protects your *load*. Should it encounter a failure or cause a short circuit, power will be quickly removed.
+
+Most **BMS** have a latency of 100-200ms before *over-current protection* cuts off power.
+</details>
+
+<details><summary>What is *over-charge protection*?</summary><br/>
+
+This kind of protection becomes important when you *charge* your battery through the **BMS**.
+
+During *charging*, the *voltage* raises steadily until the battery is fully charged. The **BMS** monitors the *voltage*. If the voltage exceeds a threshold that indicates that the battery is *fully charged* and cannot accept any more energy, the **BMS** cuts off the battery.
+
+*Over-charge protection* prevents **fire hazards** from *over-charging*. If you keep charging an already fully charged battery, the additional energy coming from your charger can no longer be stored by the battery and is now converted to heat. Without *over-charge protection*, your battery would gradually heat up until it eventually causes a fire or explodes.
+
+</details>
+
+<details><summary>What is *over-discharge protection*?</summary><br/>
+
+When you draw energy from your battery, its voltage slowly falls. When the battery is almost empty, and you continue to draw energy, its internal cell chemistry will suffer irreversible damage, and your battery will permamently lose capacity or stop working at all.
+
+The **BMS** monitors the battery voltage. When it falls below a threshold, indicating that the battery is almost empty, the **BMS** cuts off the load from the battery.
+
+If the battery voltage has already fallen below this threshold, and you start *charging* the battery, *over-discharge protection* unfolds a second protection mechanism: it limits the *current* that the charger can deliver to the *over-discharged* battery until it reaches safe voltage levels.
+
+This prevents yet another **fire hazard**: a lithium battery that is *completely* empty cannot store energy in the same way a *healthy* battery can. If you would charge it at normal current, most of the charging energy could not be stored and would start to heat up the battery. Eventually, the battery could catch fire or explode.
+
+By limiting the current until the battery reaches a safe voltage level (and thus normal storage behavior), even completely drained batteries can be safely charged.
+</details>
+
+<details><summary>What is *balancing*?</summary><br/>
+
+When you connect more than one battery *in series*, the overall voltage is higher than the voltage of the individual batteries.
+
+If you charged all batteries together, you would no longer be able to monitor *individual* battery voltages. Since batteries are not 100% identical, chances are one battery would be fully charged while another battery would still need energy.
+
+*Balancing* protects from unevenly charging batteries by monitoring the voltages of all connected batteries individually, and adding extra charge to individual batteries if they lag behind other cells. 
+
+When a **BMS** includes *balancing*, each battery is connected *individually* to the **BMS**. Typically, at the begin and at the end of your battery string, there is a *large* solder pad. This is where the bulk of charging current is fed.
+
+Then there are *smaller* solder pads for connecting *each junction* of two batteries. These connections feed the (much lower) *balancing current* to *individually* boost the charge of a particular cell that lags behind.
+
+Balancing is a protection for *charging* and not used during *discharging*.
+
+</details>
+
+> [!TIP]
+> When you review specs for **BMS** and their voltage threshold for *over-discharge protection*, you may be surprised to see the threshold voltage often about *0.5V below* the typically recommended thresholds. Keep in mind that *over-discharge protection* monitors the battery *under load*. When you draw energy from a lithium battery, its voltage drops by as much as *0.5V*. In order to not accidentally cut off power prematurely, *over-discharge protection* voltage thresholds take this into account.
 
 ### Battery Voltage Thresholds
 
-The threshold voltages a *BMS* needs to monitor *vary based on cell chemistry* and manufacturer. Always consult the data sheet of the battery you are actually using.
+The threshold voltages a *BMS* needs to monitor *vary based on cell chemistry* and manufacturer. That's why you need a **BMS** made specifically *for your battery type*.
 
-There are rules of thumb:
-
-| Chemistry | Min V | Max V | Nominal | 
+| Chemistry | Min V (Empty) | Max V (Full) | Nominal (During Operation) | 
 | --- | --- | --- | --- | 
 | LiIon | 2.7V | 4.2V | 3.7V | 
 | LiPo | 3V | 4.2V | 3.7V | 
 | LiFePo4 | 2.5V | 3.65V | 3.2 | 
 
-These are the important thresholds to monitor:
+<sup>*(typical values, consult your battery data sheet)*</sup>
 
-* **Minimum Voltage**: If you continue to *discharge* the battery below *minimum voltage*, it can get permanently damaged. If you *charge* a battery that has a below-minimum voltage, much of the energy may be converted to heat, potentially leading to fire and explosion.
-* **Maximum Voltage**: When *charging* a battery, the voltage increases up to the *maximum voltage* when it is fully loaded. When you continue to charge a battery beyond its *maximum voltage*, the energy can no longer be stored and is converted to heat, potentially leading to fire and explosion.
-* **Nominal Voltage**: When in operation, the battery *on average* delivers the *nominal voltage*. Lithium batteries generally have a very flat voltage discharge curve, so between *minimum* and *maximum* voltage, the battery will deliver the *nominal voltage* for a very long period of time.
+As you see, *LiIon* and *LiPo* batteries display roughly the same behavior and voltages. You can use the same **BMS** for both battery types.
+
+*LiFePo4* batteries display significantly different voltages and thus need different **BMS** that honor their voltage thresholds.
 
 ## Using a *Balanced* BMS
 
@@ -77,12 +128,12 @@ Typically, this *current limit* is much higher than it should be for charging yo
 
 To *charge* a battery with a **BMS** alone, you would need to supply the proper *charging voltage* for your batteries:
 
-| Strings (batteries connected *in series* ) | Charging Voltage |
-| --- | --- |
-| 1S (one battery) | 4.2V |
-| 2S (two batteries) | 8.4V |
-| 3S (three batteries) | 12.6V |
-| 4S (four batteries) | 16.8V |
+| Strings (batteries connected *in series* ) | LiIon/LiPo | LiFePo4 |
+| --- | --- | --- |
+| 1S (one battery) | 4.2V | 3.65V |
+| 2S (two batteries) | 8.4V | 7.3V |
+| 3S (three batteries) | 12.6V | 10.95V |
+| 4S (four batteries) | 16.8V | 14.6V |
 
 > [!TIP]
 > When building *battery packs*, always add a proper **BMS** *and* a separate *charger* board that takes the desired charging input voltage (i.e. USB 5V) and supplies it to the **BMS** output terminals for even distribution to the batteries.
@@ -107,11 +158,15 @@ You could be intrigued to build your own **BMS** circuit. Don't do it.
 
 There are plenty of ready-to-go **BMS** breakout boards available that are much cheaper than even the total component cost if built your own.
 
-Let's examine the basic parameters you need in order to select the appropriate **BMS**:
+There are *4 questions* to be answered to select the appropriate **BMS**:
 
-* **Strings:** How many batteries do you want to connect *in series*? In other words: what is the intended *total output voltage* of your battery pack?
-* **Current:** What is the maximum current you want to draw? In other words: at which current should the **BMS** disconnect the batteries to protect them (and also *protect your load* should it cause a short circuit or suffer another failure)?
-* **Balancer:** Do you need *balancing capabilities*? In other words: do you use more than one battery and want to charge it through the **BMS**? 
+1. **Battery Chemistry:** you either need a **BMS** designed for *LiIon/LiPo*, or for *LiFePo4*. 
+2. **Strings:** How many batteries do you want to connect *in series*? In other words: what is the intended *total output voltage* of your battery pack?
+3. **Current:** What is the maximum current you want to draw? In other words: at which current should the **BMS** disconnect the batteries to protect them (and also *protect your load* should it cause a short circuit or suffer another failure)?
+4. **Balancer:** Do you need *balancing capabilities*? In other words: do you use more than one battery and want to charge it through the **BMS**? 
+
+> [!CAUTION]
+> Never use a **BMS** designed for *LiPo/LiIon* and connect *LiFePo4* batteries to it (or vice versa). The safe voltage range for *LiIon/LiPo* is *2.8-4.2V* whereas the safe voltage range for *LiFePo4* is *2.5-3.65V*. Your **BMS** must enforce the safe voltage levels appropriate for the battery type you use.
 
 ### Understanding *Strings*: 1S, 2S, 3S, 4S...
 
@@ -195,19 +250,19 @@ This is a *must* if you decide to connect multiple batteries *in parallel* becau
 
 ## 2S BMS
 
-Connecting two batteries in series raises the voltage in the range of *6.4-8.2V* (depending on state of battery charge) which is good for powering many microcontroller boards. You should add a **Buck** regulator that takes the battery voltage and reduces it to *exactly the voltage you need*.
+
 
 [Here](2s) is a list of popular ready-to-use **2S BMS*.
 
 ## 3S BMS
 
-Three batteries *in series* result in a voltage in the range of *9.6-12.6V*.
+
 
 [Here](3s) is a list of popular ready-to-use **3S BMS*.
 
 ## 4S BMS
 
-Four batteries *in series* gets you a voltage in the range of *12.8-16.8V*. This configuration is used when you need *12V output*. Just add a **Buck** regulator to reduce the voltage range to the specific output voltage you need, i.e. *12V*.
+
 
 [Here](4s) is a list of popular ready-to-use **4S BMS*.
 

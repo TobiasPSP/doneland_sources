@@ -26,6 +26,9 @@ All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are
 
 ## 3A
 
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
+
 For currents up to **3A**, you can use a very small **BMS**:
 
 <img src="images/bms_2s_3a_top_angle_t.png" width="100%" height="100%" />
@@ -59,6 +62,9 @@ The output voltage is available at **P+** and **P-**.
 
 ## 8A
 
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
+
 For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
 
 <img src="images/bms_2s_8A_top_angle_t.png" width="100%" height="100%" />
@@ -89,6 +95,9 @@ The output voltage is available at **P+** and **P-**.
 
 
 ## 10A
+
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
 
 For currents up to **10A**, a very *compact* board is available:
 
@@ -130,6 +139,8 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 > This board is available as **1S BMS** also and looks almost the same. The **1S BMS** is lacking the **B1** terminal.
 
 ## 20A
+
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
 
 
 For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load, like this one:

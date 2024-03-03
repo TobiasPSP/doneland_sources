@@ -25,6 +25,9 @@ All **BMS** listed below are designed for *LiIon* and *LiPo* batteries. They are
 
 ## 20A
 
+[LiIon/LiPo](#){:.button.button--primary.button--rounded.button--sm}
+
+
 For currents up to **20A**, here is a rugged and balanced **BMS**:
 
 <img src="images/3S_20A_top_angle_t.png" width="100%" height="100%" />
