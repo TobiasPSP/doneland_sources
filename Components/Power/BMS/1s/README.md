@@ -18,7 +18,7 @@ For currents up to **5A**, you can use a very simple **BMS**:
 
 Its long metal sleeves are designed to be fitted to *18650 LiIon Cells* using spot welding but you can shorten the connector terminals and solder them to *LiPo* as well.
 
-<img src="images/1s_5a_bottom-t.png" width="100%" height="100%" />
+<img src="images/1s_5a_wiring.png" width="100%" height="100%" />
 
 
 On the backside, there are two terminals marked **B+** and **B-** that are identical to the metal sleeves and go to the battery.

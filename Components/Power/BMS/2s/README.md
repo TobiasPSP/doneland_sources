@@ -59,7 +59,7 @@ For currents up to **10A**, a very *compact* board is available:
 Unfortunately, the compactness of the board did not leave room for markings on the front side. Instead, the markings for the soldering pads were printed on the *back side*:
 
 
-<img src="images/2s_10a_bottom_t.png" width="100%" height="100%" />
+<img src="images/2s_10a_wiring.png" width="100%" height="100%" />
 
 On the other end, the board has a big soldering pad marked as **B-** which is accessible from both sides, and two smaller ones marked **B1** and **B+** on the backside whereas the solder pads are accessible on the front.
 
