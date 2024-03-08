@@ -41,7 +41,7 @@ An efficiency of *96%* states that 4% of the energy is lost in heat. The amount 
 If you supply **12V** and would like to get **5V** and **3A**, then these calculations apply:
 
 * The total *output* energy is **5V** x **3A** = **15W**.
-* At *96%* efficiency, *4%* of *input* energy is lost. You need **15W** x **100%** / **96%** = **15.625W** at the *input*
+* At *96%* efficiency, *4%* of *input* energy is lost. You need **15W** x **100%** / **96%** = **15.625W** at the *input* (and **0.625W** dissipate as heat)
 * When you drive the *input* with **12V**, you need **15.625W** / **12V** = **1.3A**
 
 The *XL4015* has a **maximum** efficiency of *96%*. Efficiency is very different for different *input* and *output voltage* scenarios.
