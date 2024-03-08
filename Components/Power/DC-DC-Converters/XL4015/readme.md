@@ -130,7 +130,7 @@ Most probably the *XL4015* will be mounted on a supporting breakout board but yo
 
 The company *Tenstar* supposingly were the first to come up with a very popular **Buck** converter breakout board design that has been *cloned* numerous times since it surfaced.
 
-<img src="images/xl4015_buck_5a_tenstar_top_angle_overview_t.png" width="100%" height="100%" />
+<img src="images/xl4015_buck_5a_tenstar_top_angle_overview_t.png" width="50%" height="50%" />
 
 > [!TIP]
 > The board color is **black** which distinguishes it from most *clones* that use a **red** board.
@@ -139,7 +139,7 @@ The company *Tenstar* supposingly were the first to come up with a very popular 
 
 The board comes with two *screw terminals* to easily connect input and output power.
 
-<img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="100%" height="100%" />
+<img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="50%" height="50%" />
 
 ### Two Potentiometers
 
@@ -149,7 +149,7 @@ One important detail to look out for are the *two potentiometers*: they indicate
 
 There is also a special version of this breakout board available that comes with a mounted *display shield* to display the *voltage* and *current*.
 
-<img src="images/xl4015_buck_5a_tenstar_display_top_poti_t.png" width="100%" height="100%" />
+<img src="images/xl4015_buck_5a_tenstar_display_top_poti_t.png" width="50%" height="50%" />
 
 The *display shield* is not just mounted to a regular **Buck** board. The **Buck** board has a modified design and uses different trim potentiometers that can be adjusted from the side (instead from top).
 
@@ -159,7 +159,7 @@ A typical characteristic of this board is a prominent **R050** shunt resistor th
 
 > The batch of *Tenstar **Buck** boards* I received showed a *very dirty* back side full of residue that you should clean with some iso alcohol before use.
 
-<img src="images/xl4015_buck_5a_tenstar_bottom_dirty_t.png" width="100%" height="100%" />
+<img src="images/xl4015_buck_5a_tenstar_bottom_dirty_t.png" width="50%" height="50%" />
 
 
 > Tags: Buck, CC, CV, 36V, 5A
