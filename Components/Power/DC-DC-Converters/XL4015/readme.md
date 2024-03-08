@@ -16,69 +16,92 @@ Here are the key specs for this chip:
 | Max *Output* Current | 5A |
 | Max Continuous Power | 40W |
 | Minimum Voltage Difference | 0.3V |
+
+And here are the design specs:
+
+| Spec | Value |
+| --- | --- |
 | Switching Frequency | fixed 180kHz |
 | Efficiency | up to 96% |
 | Short Circuit Protection | yes |
 | Constant Current Function  | yes |
 | Thermal Protection | yes |
+| Max Junction Temperature | 125C |
 | Design | PWM-Buck |
 
 > [!WARNING]
 > These are the maximum *chip* values. Neither are they intended for constant use, nor may they apply to a *breakout board* that uses this chip along with other components and designs that may be *less capable*. Always also check the *breakout board* specs.
 
+
+<details><summary>What does *Efficiency* mean?</summary><br/>
+
+Any *voltage regulator* converts a *input* voltage to a different *output* voltage, and this process has losses (causes heat). The *efficiency* states how much of the *input* energy is actually ending up at the *output* terminal.
+
+An efficiency of *96%* states that 4% of the energy is lost in heat. The amount of heat generated depends on the total amount of energy you feed into the regulator.
+
+If you supply **12V** and would like to get **5V** and **3A**, then these calculations apply:
+
+* The total *output* energy is **5V** x **3A** = **15W**.
+* At *96%* efficiency, *4%* of *input* energy is lost. You need **15W** x **100%** / **96%** = **15.625W** at the *input*
+* When you drive the *input* with **12V**, you need **15.625W** / **12V** = **1.3A**
+
+The *XL4015* has a **maximum** efficiency of *96%*. Efficiency is very different for different *input* and *output voltage* scenarios.
+
+* When you reduce **24V** to **12V** and draw **4A** at the *output* side (i.e. to run a car cooling box off a truck battery), efficiency is *93%* (according to data sheet).
+* When you reduce **12V** to **5V** and draw **5A** at the *output* side (i.e. to operate USB devices from a car lighter jack or power a microcontroller), efficiency is just *87%*.
+
+* This illustrates another important consideration: *heat sinks*.
+
+In the latter example, **5V** @ **5A** result in **25W** power. The lost energy at *87% efficiency* is ( **25W** / **0.96**) - **25W**: **1.04W**. So in this scenario, the voltage regulator also works like a *1W heater element*. Make sure your housing and device design allows *1W* worth of heat to be dissipated. If it is less, your device will continuously heat up until it breaks.
+
+
+*XL4015* efficiency is generally controlled by these scenarios:
+
+* **<200mA Output Current:** when drawing currents *less than 200mA*, efficiency is worst and can drop to as low as 62%. This regulator is therefore *not ideal* to power small microcontroller circuits.
+* **>3A Output Current:** Output currents above *3A* hurt efficiency over-proportionally across all voltages.
+* **Voltage Difference:** the *higher* the voltage difference between *input* and *output*, the *lower* the efficiency. Converting **36V** to **5V** drops efficiency to around *80%* whereas converting **12V** to **5V** keeps efficiency above *90%* most of the time. 
+
+</details>
+
 ## Common Pitfalls
 
-Here are the common *novice* misperceptions and pitfalls that frequently cause breakout boards to go off in flames:
+This are the common *novice* misperceptions that cause breakout boards to go off in flames:
 
 * **Maximum Current:** The *maximum* current (of **5A** for this chip) does not mean that any breakout board using this chip can produce **5A** output. It is the absolute *maximum* the chip can sustain, typically only for *short periods of time*, and only when additional *heat sinks* are in place.
 * **Maximum Power:** An important rating is often missing in the specs: the *overall power* the regulator can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**.
 * **Consider *both*:** To operate a regulator safely, neither exceed the maximum current *nor* the maximum power:
   * should you operate this regulator at an output voltage of **5V**, the maximum power of **40W** would allow a maximum current of **8A** however the maximum allowable current is **5A**. Thus, when operated at **5V** output, the maximum power is just **25W**.
   * operating the regulator at an output voltage of **24V** cannot provide the maximum current of **5A** because this would result in a power of **120W**. At **24V** output, the maximum allowable current is **1.6A**.
-* **Input Voltage > Output Voltage:** this is a **Buck** regulator. It *reduces* the input voltage. Even though the *output voltage* has a wide selectable range of *1.25-32V*, once you choose an *output voltage*, this limits the range of allowable *input* voltages:
+* **Short Circuit Protection:** While the *XL4015* comes with *short-circuit protection*, this does not mean that you can do without a *fuse* - or keep the output short-circuited for a long period of time: the *XL4015* can reduce switching frequency from 180kHz to 48kHz when short-circuited but *will not* disconnect the output. It will ultimately run into its *thermal protection* which *wears down and can eventually damage* the chip. *Short-circuit protection* is meant to protect from *very short* instances.
+* **Input Voltage > Output Voltage:** this is a **Buck** regulator. It *reduces* the input voltage. Once you set an *output voltage*, this limits the range of allowable *input* voltages:
   * The regulator supports *input* voltages in the range of *8-36V*. If you set the regulator to an *output* voltage of *12V*, the *input* voltage now must be in the range of *12.3-36V* (add *0.3V* to the *output voltage*: this is the *minimum voltage difference* found in the specs above).
    
 <details><summary>What does *Switching Frequency* mean?</summary><br/>
 
+The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to be relatively *low*. 
+
+Low switching frequencies must store *more* energy per switch so they increase component size (for *coils* and *inductors*), weight, and cost. At the same time, this can improve *efficiency*, especially when larger currents are required.
+
+Another positive effect of *low* switching frequencies is less *EMI* (electromagnetic interference). Using regulators with *low* switching frequencies like the *XL4015* seems especially appropriate for *DIY projects* where *makers* seldom pay attention to *EMI protection*.
+
+There are trade-offs to. Regulators with *high* switching frequencies (up in the range of several MHz) are much smaller. They need to switch only very small amounts of energy because due to the high frequency, they switch much more often. This can result in less *output voltage ripple*. For the same reasons, regulators with *high* switching frequency can *respond faster* to changes in load and output impedance. In general, *high* switching frequencies produce more stable output voltages (*steady-state*).
+
+
 
 </details>
 
+## Pins
 
-converter capable of outputting significant currents of up to *5A*. 
+Most probably the *XL4015* will be mounted on a supporting breakout board but you can operate the chip by itself, too, and design your own **Buck** converter around it:
 
-The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as EUR 1.00 in total:
-
-<img src="images/xl4015_boards.png" width="100%" height="100%" />
-
-> [!IMPORTANT]  
-> Boards can *differ considerably*: not all boards support all **XL4015** features.
-> 
-> Some boards come with just *one* potentiometer to setup a *constant voltage* only (i.e. left board in above image). This is sufficient if you i.e. plan to use the converter to supply a constant voltage to a microprocessor from a 8-36V input range.
-> 
-> At practically same cost, different boards provide *two* potentiometers (i.e. right board in above image), so in addition to a *constant voltage*, you can also set a maximum *constant current*. This can be an important requirement, i.e. when you plan to use it for battery charging or to drive LEDs.
->
-> If you plan to stock your electronic lab, I recommend you choose boards with *two* potentiometers for maximum flexibility.
-
-| Property | Value |
-| --- | --- |
-| Input Voltage | 8-36V |
-| Output Voltage | 1.2-32V |
-| Max Output Current | 5A |
-| Efficiency | up to 96% |
-| Switching Frequency | 180kHz |
-
-> [!TIP]
-> The maximum output current of **5A** requires to add a heat sink to the chip. While the **XL4015** is dependable and rugged, avoid exploting its maximum specs. Boards using **XL4015** run well for long-time output currents of **3-4A**.
->
-> Stable output current also depends on the voltage difference between input and output. The lower the difference, the less work needs to be done, and the more stable output current and less heat is produced.
-
-| Feature | Supported |
-| --- | --- |
-| Constant Current | yes |
-| Output Shortcut Protection | yes |
-| Over Voltage Protection | no |
-| Thermal Protection | yes |
-
+| Pin | Name | Description |
+| --- | --- | --- |
+| 1 | GND | Make sure you connect it outside a supporting Schottky diode to prevent switching current spikes to backfire as noise into the chip |
+| 2 | FB | Feedback. Typically a resistor voltage divider senses the actual output voltage and reports it through this pin (feedback threshold voltage is 1.25V) so that the chip knows whether adjustments are needed |
+| 3 | SW | Output positive voltage |
+| 4 | VC | Connects a 1uF bypass capacitor to VIN |
+| 5 | VIN | Input positive voltage. Use large capacitor to GND to control noise |
+ 
 [Data Sheet](materials/XL4015_datasheet.pdf)
 
 > Tags: Buck, CC, CV, 36V, 5A
