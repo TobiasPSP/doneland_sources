@@ -17,7 +17,10 @@ Here are the key specs for this chip:
 | Max Continuous Power | 40W |
 | Minimum Voltage Difference | 0.3V |
 
-And here are the design specs:
+> [!IMPORTANT]
+> The actual *XL4015 chip* can handle **5A** across all voltages, however the *overall power* that a breakout board using the *XL4015* can provide can be limited. It depends on supporting components such as *MosFET*, *coils*, and *capacitors*. As a *rule of thumb*, typical breakout boards using *XL4015* can *safely and continuously* handle around *40W* (with peaks at *80W*).
+
+Here are the chip design specs:
 
 | Spec | Value |
 | --- | --- |
