@@ -11,16 +11,12 @@ The **XL4015** from *XLSEMI* is a popular step-down (**Buck**) voltage regulator
 
 Here are the key specs for this chip:
 
-
-
 | Spec | Value |
 | --- | --- |
 | *Input* Voltage | 8V-36V |
 | *Output* Voltage | 1.25V-32V |
 | Max *Output* Current | 5A |
 | Minimum Voltage Difference | 0.3V |
-| Max Continuous Power in Breakout Boards | 40W |
-
 
 
 > [!IMPORTANT]
@@ -131,7 +127,9 @@ Most probably the *XL4015* will be mounted on a supporting breakout board but yo
 [Data Sheet](materials/XL4015_datasheet.pdf)
 
 
-## Simple Constant Voltage Buck Converter
+## 50/75W CV Buck Converter
+
+[50W](#){:.button.button--success.button--rounded.button--sm}[CV](#){:.button.button--success.button--rounded.button--sm}
 
 Even though the *XL4015* comes with *constant current* functionality built-in, some breakout boards do not utilize this functionality and provide *constant voltage* (**CV**) only. You can easily recognize these boards by the *one* trim potentiometer (instead of *two*):
 
@@ -180,48 +178,65 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 > Any of the boards showcased here can be destroyed by overloading them: keep in mind that the maximum power is **50W**, so when your *input* voltage is **24V**, the maximum current is **2A** (not **5A**), and with a good extra *heat sink* you might push this to a maximum of **3A**.
 > These boards work best when *not* pushed to their limits, though.
 
-## Tenstar CC CV 75W Buck Converter
+## 50/75W CV CC Buck Converter
 
-The company *Tenstar* supposingly were the first to come up with a very popular **Buck** converter breakout board design that has been *cloned* numerous times since it surfaced.
+[50W](#){:.button.button--success.button--rounded.button--sm}[CV](#){:.button.button--success.button--rounded.button--sm}
+
 
 <img src="images/xl4015_buck_5a_tenstar_top_angle_overview_t.png" width="50%" height="50%" />
 
-> [!TIP]
-> The board color is **black** which distinguishes it from most *clones* that use a **red** board.
+This is a very popular breakout board that is available in a number of slight variations. Boards work fundamentally the same. Here are the differences:
 
-The coil of this board is placed *horizontally* so it does not stick out and needs less real estate compared to a *vertically* mounted coil.
+| Item | Difference |
+| --- | --- |
+| Board Color | red, black |
+| LED Colors | red,green,blue / red,red,blue / all red |
+| Schottky Diode | TS1010, SS54, SS56 |
+| LED description printed on backside | yes / no |
+| Coil placement | upright / flat |
+
 
 <details><summary>Hardware Design Review</summary><br/>
 
-Let's review the hardware from the side of the *two input power screw terminals*:
-
+All board variants use the same fundamental components.
 
 <img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="50%" height="50%" />
 
-
-### Buck Regulator
+### XL4015 Buck Regulator
 
 The five-leg *XL4015* main regulator chip is located close to the two *input screw terminals*. 
 
-Right next to it, again close to the *input terminal*, is a electrolyte capacitor with a printed voltage. This capacitor is connected directly to the *input* power, so its maximum voltage determines *the real maximum voltage* you can feed into this module. Typically, the boards feature **35V** capacitors and allow a maximum input voltage of **32V**.
+Next to it and close to the *input terminal*, is one of two electrolyte capacitors with a printed voltage. This capacitor is connected directly to the *input* power, so its maximum voltage tolerance must be higher than the maximum *input voltage*.
 
 ### Schottky-Diode
 
-In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* in scenarios where the **Buck** converter is connected to *batteries*. 
+In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* for the *input terminal* (protection against accidentally swapping **+** and **-**. 
 
-The type of diode varies (*TS1010*, *SS54*, *SS56*) as long as the diode supports a maximum current of **5A** and a voltage of *at least the maximum input voltage*.
+
+> [!NOTE]
+> There is no *reverse voltage protection* diode for the *output terminals*. If you plan to use the board as a charger you should add a *Schottky* diode to the output. Else, the board can drain connected batteries when not powered.
+
+The type of diode varies among board variants (*TS1010*, *SS54*, *SS56*). All of these diodes support the *maximum current* of **5A**.
 
 ### LM358 OpAmp
 
-At the side of the *two output terminals*, a *LM358* operational amplifier is located. It is used to implement the *constant current* functionality.
+At the side of the *two output terminals*, a *LM358* operational amplifier is found. It is used to implement the *constant current* functionality.
 
-### 78L05 Voltage Regulator
+### 78L05 Voltage Regulator and TL431 Voltage Reference
 
 Next to the OpAmp, you find a *78L05* voltage regulator that provides a stable *5V* power source capable of 100mA. 
 
-### TL431 Voltage Reference
+Next to the voltage regulator, a *TL431* provides a programmable *voltage reference*. 
 
-Next to the latter a *TL431* is located which is a programmable *voltage reference*. 
+### Shunt-Resistor
+
+On the backside, a **R050** shunt resistor is mounted that is connecting the negative *input* and *output* terminal. The voltage drop across the shunt is connected to the *XL4015* feedback pin to control the *output* voltage. 
+
+> Should the back of your module be dirty with residue like in the picture, clean it with *isopropanol alcohol* before first use.
+
+<img src="images/xl4015_buck_5a_tenstar_bottom_dirty_t.png" width="50%" height="50%" />
+
+
 
 </details>
 
@@ -231,21 +246,48 @@ Next to the latter a *TL431* is located which is a programmable *voltage referen
 
 The board comes with *three* LEDs, two located at the *output terminals*, and third one next to the *XL4015*. 
 
-* **Full:** the green LED closest to the *output terminals* lights up when the *input terminals* are connected to power but *no load* is drawing energy from the *output terminals*. This is the equivalent of a battery being fully charged and no longer drawing energy.
-* **Charging:** the blue LED next to the latter lights when there is a load connected to the *output terminal* that draws current. This is the equivalent of a battery being charged.
+* **Full:** the (green or red) LED closest to the *output terminals* lights up when the *input terminals* are connected to power but *no load* is drawing energy from the *output terminals*. This is the equivalent of a battery being fully charged and no longer drawing energy.
+* **Charging:** the (blue or red) LED next to the latter lights when there is a load connected to the *output terminal* that draws current. This is the equivalent of a battery being charged.
 * **Constant Current:** the red LED next to the *XL4015* lights up when the *constant current* mode is active. This is the case whenever the *output current* is going to exceed the maximum current you set with the trim poti closer to the *output terminals*.
-*  
+  
 
 > [!NOTE]
-> The original boards used three differently colored LEDs. Some cloned boards copied this while other boards today use three red LEDs instead.
+> The original board design comes with three differently colored LEDs and is clearly preferrable. You can identify it by the printed LED description on the board back side. The next best choice is the *black* board from *Tenstar* that uses one *blue* and two *red* LEDs. All other tested boards use all *red* LEDs which are much harder to interpret.
 
-#### Setting CV and CC
+### Setting CV and CC
 
-There are two *10K* (*W103*) *trim potentiometers* to set *constant voltage* and *constant current*:
+To set the desired *constant voltage* and *constant current*, there are two blue multi-turn *10K* (*W103*) *trim potentiometers*:
 
-* **Constant Voltage:** Use the *trim pot* directly next to the *XL4015* to set the *output voltage*. Turn the screw *counter-clockwise* to lower the voltage, and *clockwise* to raise it. You cannot raise it above the *input voltage* you are supplying. If you supply a relatively low voltage, it may take a considerably number of spins in *counter-clockwise* direction to visibly lower the voltage.
+#### Setting Constant Voltage
 
-*  **Constant Current:** Use the *trim pot* that is located next to the electrolytic converter to set the *maximum current* you want to allow. To do this safely, either connect an *electronic load* to the *output terminals*, or connect a *real* load to it and place a *multimeter* in *Ampere*-mode in series. **Do not short circuit the output terminals to set constant current. This can destroy the board.** Next, turn the potentiometer screw *counter-clockwise* to lower the *constant current* until you see the current change. It may take a number of turns of the screw in *counter-clockwise* direction until the current changes.
+The trim pot next to the *XL4015* controls the *constant voltage*: turn it *clockwise* to *increase* the voltage. The maximum voltage cannot be higher than the *input voltage* you are supplying.
+
+> [!TIP]
+> Always set the *constant voltage* first. This sets the *maximum possible output voltage*.
+
+To set the *constant voltage*, connect the *input* to a power source, and connect the *output* to a *multimeter* in *Voltage* mode. Make sure the multimeter voltage range is high enough to measure voltages up to your *input voltage*.
+
+The multimeter should display the actual *voltage* at the *output terminal* now. 
+
+If this voltage is equal to the *input* voltage, turn the trim pot *counter-clockwise* until the multimeter starts to display lower voltages. It can take multiple *counter-clockwise* turns of the trim pot until you see the *output voltage* change.
+
+#### Setting Constant Current
+
+The trim pot next to the *output terminals* controls the *constant voltage*: turn it *clockwise* to *increase* the current.
+
+To set the *constant current*, turn the trim pot *all the way counter-clockwise* until each new turn just produces a *click* sound. This sets the *constant current* to the lowest setting. Then connect the *input* to a power source, and connect your load to the *output terminals*. 
+
+The *red constant current LED* next to the *XL4015* lights up. Turn the trim pot now *clockwise* until your load (i.e. LED) receives sufficient power. If your load is *over-current sensitive* (like LEDs) you may want to add a multimeter in *Ampere* mode *in series* to your load to read the actual current. 
+
+If your load is *not sensitive* towards over-current, after you connected it to the *output terminals*, simply turn the trim pot *clockwise* until the *red constant current LED* turns *completely off* (no flicker or dim light). Now the current is limited to just a bit over the current that your load currently draws. 
+
+> [!TIP]
+> If you own an *electronic load*, setting *constant current* can be extra safe and precise: you can set the *constant current* before you actually connect any *real load*, and the electronic load provides you with precise information about the *current*.
+>
+> Connect your electronic load to the *output terminals*. Next, set the load to the desired current (**never ever** exceed the board specs: **50W** or **5A**, whichever is **lower**). Turn on the load now.
+>
+> It draws precisely the set amount of current now. If the *constant current LED* next to the *XL4015* is *on*, turn the trim pot *clockwise* until the LED switches off completely (no flicker or dim light). If the LED is *off*, turn the trim pot *counter-clockwise* until the LED is *on*, then turn it *clockwise* again until the LED is completely off.
+
 
 <details><summary>How do Constant Voltage and Constant Current Really Work?</summary><br/>
 
@@ -261,24 +303,20 @@ Typically, *constant voltage* is active by default, and with it you set the *upp
 
 </details>
 
-
-
-
 ### Version With Display Shield
 
 There is also a special version of this breakout board available that comes with a mounted *display shield* to display the *voltage* and *current*.
 
 <img src="images/xl4015_buck_5a_tenstar_display_top_poti_t.png" width="50%" height="50%" />
 
-The *display shield* is not just mounted to a regular **Buck** board. The **Buck** board has a modified design and uses different trim potentiometers that can be adjusted from the side (instead from top).
+The *display shield* uses a modified **Buck** board design where the trim potentiometers can be adjusted from the side (instead of from top).
 
-### Shunt-Resistor
+#### Using the Display Shield
 
-A typical characteristic of this board is a prominent **R050** shunt resistor that is mounted on its back.
+Connect *input power* and *load* as you would with any other board. The display shield is active automatically and shows *voltage* and *current*. The shield is electrically connected to the **Buck** regulator board via the four screws that mount the shield on top of the regulator board. There are *no wires* to connect.
 
-> The batch of *Tenstar **Buck** boards* I received showed a *very dirty* back side full of residue that you should clean with some iso alcohol before use.
-
-<img src="images/xl4015_buck_5a_tenstar_bottom_dirty_t.png" width="50%" height="50%" />
+> [!NOTE]
+> The display shield comes with a two- and a three-pin connector next to the LED displays. These connectors are without function. You can remove them if they are in the way.
 
 
 ### Using For Charging 
@@ -301,15 +339,7 @@ A typical characteristic of this board is a prominent **R050** shunt resistor th
 
 <sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
 
-## Cloned CC CV 75W Buck Converter
 
-
-
-| Item | Difference |
-| --- | --- |
-| Schottky Diode | TS1010, SS54, SS56 |
-
-
-> Tags: Buck, CC, CV, 36V, 5A
+> Tags: Buck, CC, CV
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/xl4015?344080020426240854) - last edited 2024-02-27
