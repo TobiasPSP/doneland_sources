@@ -133,6 +133,13 @@ Even though the *XL4015* comes with *constant current* functionality built-in, s
 
 <img src="images/xl4015_buck_cvonly_top_left_t.png" width="50%" height="50%" />
 
+> [!TIP]
+> This **Buck** converter is perfectly suitable to supply power to your DIY devices as this typically requires a *constant voltage*.
+> Use as a LED power supply is *limited* as you can drive LEDs by voltage only. Since this board has *no constant current*, you cannot drive LEDs by current (which is the preferred way).
+> Use as a *battery charger* is not possible as *constant current* is lacking.
+
+### Hardware Design
+
 These *very simple* **Buck** converters feature through-hole connectors for *input* and *output* power on both ends, and a printed arrow on the back side indicates the direction of power flow.
 
 <img src="images/xl4015_buck_cvonly_bottom_t.png" width="50%" height="50%" />
@@ -167,7 +174,7 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 > Any of the boards showcased here can be destroyed by overloading them: keep in mind that the maximum power is **50W**, so when your *input* voltage is **24V**, the maximum current is **2A** (not **5A**), and with a good extra *heat sink* you might push this to a maximum of **3A**.
 > These boards work best when *not* pushed to their limits, though.
 
-## Tenstar CC CV Buck Converter
+## Tenstar CC CV 75W Buck Converter
 
 The company *Tenstar* supposingly were the first to come up with a very popular **Buck** converter breakout board design that has been *cloned* numerous times since it surfaced.
 
@@ -176,15 +183,58 @@ The company *Tenstar* supposingly were the first to come up with a very popular 
 > [!TIP]
 > The board color is **black** which distinguishes it from most *clones* that use a **red** board.
 
-### Terminals
+The coil of this board is placed *horizontally* so it does not stick out and needs less real estate compared to a *vertically* mounted coil. 
 
-The board comes with two *screw terminals* to easily connect input and output power.
-
-<img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="50%" height="50%" />
+Most *clones* use *vertically* mounted coils (some stick to *horizontal coils*) in an effort to improve heat dissipation.
 
 ### Two Potentiometers
 
 One important detail to look out for are the *two potentiometers*: they indicate that this board supports both *constant voltage* (**CV**) and *constant current* (**CC**). Not all *XL4015* breakout boards do.
+
+### Hardware Design
+
+Let's start the hardware design review from the side of the *two input power screw terminals*:
+
+
+<img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="50%" height="50%" />
+
+
+#### Buck Regulator
+
+The five-leg *XL4015* main regulator chip is located close to the two *input screw terminals*. 
+
+Right next to it, again close to the *input terminal*, is a electrolyte capacitor with a printed voltage. This capacitor is connected directly to the *input* power, so its maximum voltage determines *the real maximum voltage* you can feed into this module. Typically, the boards feature **35V** capacitors and allow a maximum input voltage of **32V**.
+
+#### Schottky-Diode
+
+In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* in scenarios where the **Buck** converter is connected to *batteries*. 
+
+The type of diode varies (*TS1010*, *SS54*, *SS56*) as long as the diode supports a maximum current of **5A** and a voltage of *at least the maximum input voltage*.
+
+#### LM358 OpAmp
+
+At the side of the *two output terminals*, a *LM358* operational amplifier is located. It is used to implement the *constant current* functionality.
+
+#### 78L05 Voltage Regulator
+
+Next to the OpAmp, you find a *78L05* voltage regulator that provides a stable *5V* power source capable of 100mA. 
+
+#### TL431 Voltage Reference
+
+Next to the latter a *TL431* is located which is a programmable *voltage reference*. 
+
+### Using the Module
+
+The board comes with *three* LEDs, two located at the *output terminals*, and third one next to the *XL4015*. 
+
+In addition, there are two *trom potentiometers* that are used to set *constant voltage* and *constant current*. They are otherwise identical (*W103*: 10KOhm).
+
+* **Setting Constant Voltage:** Use the *trim pot* directly next to the *XL4015* to set the *output voltage*. Turn the screw *counter-clockwise* to lower the voltage, and *clockwise* to raise it. You cannot raise it above the *input voltage* you are supplying. If you supply a relatively low voltage, it may take a considerably number of spins in *counter-clockwise* direction to visibly lower the voltage.
+
+*  
+
+
+
 
 ### Version With Display Shield
 
@@ -202,6 +252,30 @@ A typical characteristic of this board is a prominent **R050** shunt resistor th
 
 <img src="images/xl4015_buck_5a_tenstar_bottom_dirty_t.png" width="50%" height="50%" />
 
+
+### Using For Charging 
+
+### Specs
+
+| Feature | Value |
+| --- | --- |
+| Input | 5-32V |
+| Output | 0.8-30V |
+| Maximum Current | 5A |
+| Maximum Power | 50W |
+| With Heat Sink | 75W |
+| Reverse Voltage Protection | yes |
+| Low Battery Protection | yes |
+| Reverse Polarity Protection | no |
+| Size | 26.5x51.5x14.0mm |
+<sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
+
+## Cloned CC CV 75W Buck Converter
+
+
+| Item | Difference |
+| --- | --- |
+| Schottky Diode | TS1010, SS54, SS56 |
 
 > Tags: Buck, CC, CV, 36V, 5A
 
