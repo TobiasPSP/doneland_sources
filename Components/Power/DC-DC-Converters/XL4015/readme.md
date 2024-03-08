@@ -126,6 +126,47 @@ Most probably the *XL4015* will be mounted on a supporting breakout board but yo
  
 [Data Sheet](materials/XL4015_datasheet.pdf)
 
+
+## Simple Constant Voltage Buck Converter
+
+Even though the *XL4015* comes with *constant current* functionality built-in, some breakout boards do not utilize this functionality and provide *constant voltage* (**CV**) only. You can easily recognize these boards by the *one* trim potentiometer (instead of *two*):
+
+<img src="images/xl4015_buck_cvonly_top_left_t.png" width="50%" height="50%" />
+
+These *very simple* **Buck** converters feature through-hole connectors for *input* and *output* power on both ends, and a printed arrow on the back side indicates the direction of power flow.
+
+<img src="images/xl4015_buck_cvonly_bottom_t.png" width="50%" height="50%" />
+
+Often, you can get these converters for cheap in packs of 3 or 5 from places like *Amazon*.
+
+A small LED beneath the trim potentiometer lights up when powered.
+
+### Setting Output Voltage
+
+To set the desired fixed output voltage, connect a multimeter to the output, set its range to the **200V** range (or any range that safely covers your input voltage), then connect the *input power*.
+
+The multimeter shows the actual *output* voltage. This voltage *cannot be higher than your input voltage*.
+
+Now turn the trim potentiometer in either direction and watch the voltage change at your multimeter.
+
+### Specs
+
+| Feature | Value |
+| --- | --- |
+| Input | 4-38V |
+| Output | 1.25-36V |
+| Maximum Current | 5A |
+| Maximum Power | 50W |
+| With Heat Sink | 75W |
+| Reverse Voltage Protection | yes |
+| Reverse Polarity Protection | no |
+<sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
+
+> [!TIP]
+> The *quality* of these boards varies greatly: they can work great, and they can be dead out of the box. You get what you paid for.
+> Any of the boards showcased here can be destroyed by overloading them: keep in mind that the maximum power is **50W**, so when your *input* voltage is **24V**, the maximum current is **2A** (not **5A**), and with a good extra *heat sink* you might push this to a maximum of **3A**.
+> These boards work best when *not* pushed to their limits, though.
+
 ## Tenstar CC CV Buck Converter
 
 The company *Tenstar* supposingly were the first to come up with a very popular **Buck** converter breakout board design that has been *cloned* numerous times since it surfaced.
