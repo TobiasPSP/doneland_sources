@@ -7,7 +7,7 @@
 
 The **XL4015** from *XLSEMI* is a popular step-down (**Buck**) voltage regulator chip that is used in many cheap breakout boards.
 
-<img src="images/xl4015_buck_5a_top_side_t.png" width="100%" height="100%" />
+<img src="images/xl4015_buck_5a_top_side_t.png" width="50%" height="50%" />
 
 Here are the key specs for this chip:
 
