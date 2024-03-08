@@ -20,8 +20,7 @@ Here are the key specs for this chip:
 
 
 > [!IMPORTANT]
-> The actual *XL4015 chip* can handle **5A** across all voltages, however the *overall power* that a breakout board using the *XL4015* can provide **is further limited**. It depends on supporting components such as *MosFET*, *coils*, and *capacitors*. As a *rule of thumb*, typical breakout boards using *XL4015* can *safely and continuously* handle around *40W* (with peaks at *80W*).
-
+> The *XL4015 chip* can handle **5A** but *you cannot draw **5A** for all *output voltages*. The *maximum power* breakout boards and their additional components can handle is **50W** (**75W** with additional heat sink). So if your *output voltage* is *above 10V*, you need to take into account the maximum power as well and reduce the maximum current accordingly. Else, the board will quickly heat up, start to smoke, and be irreversibly damaged.
 
 | Spec | Value |
 | --- | --- |
@@ -79,14 +78,12 @@ That said, even with a relatively lower efficiency, the *XL4015* still performs 
 
 Here is a list of the common *novice misperceptions* that cause breakout boards to go off in flames and sad faces:
 
-* **Maximum Current:** The *maximum* current (of **5A** for this chip) does not mean that any breakout board using this chip can produce **5A** output *at any output voltage*. It is the absolute *maximum* the chip can sustain, typically only for *short periods of time*, and only when additional *heat sinks* are in place.
-* **Maximum Power:** An important rating (for **breakout boards using this chip**) is often missing: the *overall power* the *breakout board* can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**. So while the breakout board you bought *may indeed safely produce **5A** (at a low output voltage)*, the same **5A** may *kill* the board and cause a *fire* when you draw them from a *higher* output voltage. The total *watts* are what counts.
-* **Consider *both*:** To operate a regulator safely, neither exceed the maximum current *nor* the maximum power:
-  * should you operate this regulator at an output voltage of **5V**, the maximum power of **40W** would allow a maximum current of **8A** however the maximum allowable current is **5A**. Thus, when operated at **5V** output, the maximum power is just **25W**.
-  * operating the regulator at an output voltage of **24V** cannot provide the maximum current of **5A** because this would result in a power of **120W**. At **24V** output, the maximum allowable current is **1.6A**.
-* **Short Circuit Protection:** While the *XL4015* comes with *short-circuit protection*, this does not mean that you can do without a *fuse* - or keep the output short-circuited for a long period of time: the *XL4015* can reduce switching frequency from 180kHz to 48kHz when short-circuited but *will not* disconnect the output. It will ultimately run into its *thermal protection* which *wears down and can eventually damage* the chip. *Short-circuit protection* is meant to protect from *very short* instances.
+* **Maximum Current:** The *maximum* current is **5A or the maximum handling power of the board** - *whichever is **lower***. The boards discussed here handle a maximum power of **50W** (up to **75** when proper heat sinks are added).
+  * **50W** allow a current of **10A** at **5V** output. The absolute maximum *current* for the *XL4015* is **5A** though. So at **5V** output, the maximum current is **25W**.
+  * At **24V** output, **5A** would be **120W** which massively exceeds the **50W**. To stay within **50W**, at **24V** output the maximum current is **2A**.
+* **Short Circuit Protection:** While the *XL4015* comes with *short-circuit protection*, you cannot skip a *fuse* nor can you keep the *output terminals* shortened for an extended period of time. The *XL4015* *reduces* switching frequency from 180kHz to 48kHz when short-circuited but *will not* disconnect the output. It will ultimately run into its *thermal protection* which *wears down and can eventually damage* the chip. *Short-circuit protection* is meant to protect from *very short* and momentary events.
 * **Input Voltage > Output Voltage:** this is a **Buck** regulator. It *reduces* the input voltage. Once you set an *output voltage*, this limits the range of allowable *input* voltages:
-  * The regulator supports *input* voltages in the range of *8-36V*. If you set the regulator to an *output* voltage of *12V*, the *input* voltage now must be in the range of *12.3-36V* (add *0.3V* to the *output voltage*: this is the *minimum voltage difference* found in the specs above).
+  * The regulator supports *input* voltages in the range of *8-36V*. If you set the regulator to an *output* voltage of *12V*, the *input* voltage now is in the range of *12.3-36V* (add *0.3V* to the *output voltage*: this is the *minimum voltage difference* found in the specs above).
    
 <details><summary>What does "Switching Frequency" mean?</summary><br/>
 
@@ -274,6 +271,9 @@ If this voltage is equal to the *input* voltage, turn the trim pot *counter-cloc
 #### Setting Constant Current
 
 The trim pot next to the *output terminals* controls the *constant voltage*: turn it *clockwise* to *increase* the current.
+
+> [!WARNING]
+> **Do not** short-circuit the *output terminals* to set the *constant current*. The *XL4015* is not *short-circuit proof* for long periods of time and can easily be destroyed this way.
 
 To set the *constant current*, turn the trim pot *all the way counter-clockwise* until each new turn just produces a *click* sound. This sets the *constant current* to the lowest setting. Then connect the *input* to a power source, and connect your load to the *output terminals*. 
 
