@@ -92,7 +92,9 @@ The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to
 
 ### Benefits of Low Switching Frequency
 
-Low switching frequencies must store *more* energy per switch so they increase component size (for *coils* and *inductors*), weight, and cost. At the same time, this can improve *efficiency*, especially when larger currents are required.
+Low switching frequencies must store *more* energy per switch so they must increase component size (for *coils* and *inductors* so that they can actually store more energy) which increases board size, weight, and cost. 
+
+At the same time, this can improve *efficiency* though, especially when larger currents are required: each time energy needs to be transferred back and forth, losses occur. With lower frequency, losses happen less frequent.
 
 Another positive effect of *low* switching frequencies is less *EMI* (electromagnetic interference). Using regulators with *low* switching frequencies like the *XL4015* seems especially appropriate for *DIY projects* where *makers* seldom pay attention to *EMI protection*.
 
