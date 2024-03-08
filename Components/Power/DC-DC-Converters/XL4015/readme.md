@@ -126,4 +126,4 @@ Most probably the *XL4015* will be mounted on a supporting breakout board but yo
 
 > Tags: Buck, CC, CV, 36V, 5A
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck/xl4015?344080020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/xl4015?344080020426240854) - last edited 2024-02-27
