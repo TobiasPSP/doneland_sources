@@ -7,7 +7,7 @@
 
 The **XL4015** from *XLSEMI* is a popular step-down (**Buck**) voltage regulator chip that is used in many cheap breakout boards.
 
-<img src="images/xl4015_buck_5a_top_side_t.png" width="50%" height="50%" />
+<img src="images/xl4015_buck_5a_tenstar_top_angle_overview_t.png" width="50%" height="50%" />
 
 Here are the key specs for this chip:
 
@@ -139,8 +139,8 @@ Even though the *XL4015* comes with *constant current* functionality built-in, s
 
 > [!TIP]
 > This **Buck** converter is perfectly suitable to supply power to your DIY devices as this typically requires a *constant voltage*.
-> Use as a LED power supply is *limited* as you can drive LEDs by voltage only. Since this board has *no constant current*, you cannot drive LEDs by current (which is the preferred way).
-> Use as a *battery charger* is not possible as *constant current* is lacking.
+> 
+> Use as a LED power supply is *limited* as you can drive LEDs by voltage only. Since this board has *no constant current*, you cannot drive LEDs by current (which is the preferred way). Use as a *battery charger* is not possible as *constant current* is lacking.
 
 ### Hardware Design
 
@@ -189,55 +189,77 @@ The company *Tenstar* supposingly were the first to come up with a very popular 
 > [!TIP]
 > The board color is **black** which distinguishes it from most *clones* that use a **red** board.
 
-The coil of this board is placed *horizontally* so it does not stick out and needs less real estate compared to a *vertically* mounted coil. 
+The coil of this board is placed *horizontally* so it does not stick out and needs less real estate compared to a *vertically* mounted coil.
 
-Most *clones* use *vertically* mounted coils (some stick to *horizontal coils*) in an effort to improve heat dissipation.
+<details><summary>Hardware Design Review</summary><br/>
 
-### Two Potentiometers
-
-One important detail to look out for are the *two potentiometers*: they indicate that this board supports both *constant voltage* (**CV**) and *constant current* (**CC**). Not all *XL4015* breakout boards do.
-
-### Hardware Design
-
-Let's start the hardware design review from the side of the *two input power screw terminals*:
+Let's review the hardware from the side of the *two input power screw terminals*:
 
 
 <img src="images/xl4015_buck_5a_tenstar_top_2_t.png" width="50%" height="50%" />
 
 
-#### Buck Regulator
+### Buck Regulator
 
 The five-leg *XL4015* main regulator chip is located close to the two *input screw terminals*. 
 
 Right next to it, again close to the *input terminal*, is a electrolyte capacitor with a printed voltage. This capacitor is connected directly to the *input* power, so its maximum voltage determines *the real maximum voltage* you can feed into this module. Typically, the boards feature **35V** capacitors and allow a maximum input voltage of **32V**.
 
-#### Schottky-Diode
+### Schottky-Diode
 
 In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* in scenarios where the **Buck** converter is connected to *batteries*. 
 
 The type of diode varies (*TS1010*, *SS54*, *SS56*) as long as the diode supports a maximum current of **5A** and a voltage of *at least the maximum input voltage*.
 
-#### LM358 OpAmp
+### LM358 OpAmp
 
 At the side of the *two output terminals*, a *LM358* operational amplifier is located. It is used to implement the *constant current* functionality.
 
-#### 78L05 Voltage Regulator
+### 78L05 Voltage Regulator
 
 Next to the OpAmp, you find a *78L05* voltage regulator that provides a stable *5V* power source capable of 100mA. 
 
-#### TL431 Voltage Reference
+### TL431 Voltage Reference
 
 Next to the latter a *TL431* is located which is a programmable *voltage reference*. 
 
+</details>
+
 ### Using the Module
+
+#### Status LED
 
 The board comes with *three* LEDs, two located at the *output terminals*, and third one next to the *XL4015*. 
 
-In addition, there are two *trom potentiometers* that are used to set *constant voltage* and *constant current*. They are otherwise identical (*W103*: 10KOhm).
-
-* **Setting Constant Voltage:** Use the *trim pot* directly next to the *XL4015* to set the *output voltage*. Turn the screw *counter-clockwise* to lower the voltage, and *clockwise* to raise it. You cannot raise it above the *input voltage* you are supplying. If you supply a relatively low voltage, it may take a considerably number of spins in *counter-clockwise* direction to visibly lower the voltage.
-
+* **Full:** the green LED closest to the *output terminals* lights up when the *input terminals* are connected to power but *no load* is drawing energy from the *output terminals*. This is the equivalent of a battery being fully charged and no longer drawing energy.
+* **Charging:** the blue LED next to the latter lights when there is a load connected to the *output terminal* that draws current. This is the equivalent of a battery being charged.
+* **Constant Current:** the red LED next to the *XL4015* lights up when the *constant current* mode is active. This is the case whenever the *output current* is going to exceed the maximum current you set with the trim poti closer to the *output terminals*.
 *  
+
+> [!NOTE]
+> The original boards used three differently colored LEDs. Some cloned boards copied this while other boards today use three red LEDs instead.
+
+#### Setting CV and CC
+
+There are two *10K* (*W103*) *trim potentiometers* to set *constant voltage* and *constant current*:
+
+* **Constant Voltage:** Use the *trim pot* directly next to the *XL4015* to set the *output voltage*. Turn the screw *counter-clockwise* to lower the voltage, and *clockwise* to raise it. You cannot raise it above the *input voltage* you are supplying. If you supply a relatively low voltage, it may take a considerably number of spins in *counter-clockwise* direction to visibly lower the voltage.
+
+*  **Constant Current:** Use the *trim pot* that is located next to the electrolytic converter to set the *maximum current* you want to allow. To do this safely, either connect an *electronic load* to the *output terminals*, or connect a *real* load to it and place a *multimeter* in *Ampere*-mode in series. **Do not short circuit the output terminals to set constant current. This can destroy the board.** Next, turn the potentiometer screw *counter-clockwise* to lower the *constant current* until you see the current change. It may take a number of turns of the screw in *counter-clockwise* direction until the current changes.
+
+<details><summary>How do Constant Voltage and Constant Current Really Work?</summary><br/>
+
+A **Buck** regulator like the *XL4015* is a *voltage* regulator that can do *just one thing*: *lower* the voltage *below* the *input voltage*.
+
+* *Constant voltage* keeps the output voltage strictly fixed at the voltage you set.
+* *Constant current* is *also* controlling the *voltage*, but not to a static value: while *constant voltage* sets the voltage to *one fixed value no matter what*, *constant current* is automatically *decreasing* the voltage until the current drops below the threshold.
+
+From this it becomes evident that there can only be *one* mode active at a time: *either constant voltage*, **or** *constant current*. 
+
+Typically, *constant voltage* is active by default, and with it you set the *upper voltage limit*: the voltage will *never* be higher than this limit.
+*Constant current* can *lower* the voltage, though: whenever the *current* exceeds the threshold you set, lowering the voltage lowers the current.
+
+</details>
 
 
 
