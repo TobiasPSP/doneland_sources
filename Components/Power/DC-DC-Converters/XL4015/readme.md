@@ -169,7 +169,8 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 | Maximum Current | 5A |
 | Maximum Power | 50W |
 | With Heat Sink | 75W |
-| Reverse Voltage Protection | yes |
+| Reverse Voltage Protection at Input | yes |
+| Reverse Voltage Protection at Output | no |
 | Reverse Polarity Protection | no |
 
 
@@ -212,7 +213,7 @@ Next to it and close to the *input terminal*, is one of two electrolyte capacito
 
 ### Schottky-Diode
 
-In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* for the *input terminal* (protection against accidentally swapping **+** and **-**. 
+In-between the capacitor and the coil is a *Schottky diode* located that provides *reverse voltage protection* for the *input terminal*.
 
 
 > [!NOTE]
@@ -336,7 +337,8 @@ Connect *input power* and *load* as you would with any other board. The display 
 | Maximum Current | 5A |
 | Maximum Power | 50W |
 | With Heat Sink | 75W |
-| Reverse Voltage Protection | yes |
+| Reverse Voltage Protection at Input | yes |
+| Reverse Voltage Protection at Output | no |
 | Low Battery Protection | yes |
 | Reverse Polarity Protection | no |
 | Size | 26.5x51.5x14.0mm |
