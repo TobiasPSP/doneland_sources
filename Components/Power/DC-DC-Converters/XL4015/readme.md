@@ -137,9 +137,10 @@ Even though the *XL4015* comes with *constant current* functionality built-in, s
 <img src="images/xl4015_buck_cvonly_top_left_t.png" width="50%" height="50%" />
 
 > [!TIP]
-> This **Buck** converter is perfectly suitable to supply power to your DIY devices as this typically requires a *constant voltage*.
-> 
-> Use as a LED power supply is *limited* as you can drive LEDs by voltage only. Since this board has *no constant current*, you cannot drive LEDs by current (which is the preferred way). Use as a *battery charger* is not possible as *constant current* is lacking.
+> This **Buck** converter is perfectly suitable to supply power to your DIY devices as this typically requires a *constant voltage*. Its newer revisions come with decent *EMI* (electromagnetic interference) protection, too.
+>
+> Whenever your use case requires *constant voltage* though (i.e. to drive LED or use it as a battery charger), this breakout board is unsuitable.
+
 
 ### Hardware Design
 
