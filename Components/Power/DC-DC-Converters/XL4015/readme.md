@@ -20,7 +20,6 @@ Here are the key specs for this chip:
 > [!IMPORTANT]
 > The actual *XL4015 chip* can handle **5A** across all voltages, however the *overall power* that a breakout board using the *XL4015* can provide **is further limited**. It depends on supporting components such as *MosFET*, *coils*, and *capacitors*. As a *rule of thumb*, typical breakout boards using *XL4015* can *safely and continuously* handle around *40W* (with peaks at *80W*).
 
-Here are the chip design specs:
 
 | Spec | Value |
 | --- | --- |
@@ -31,9 +30,6 @@ Here are the chip design specs:
 | Thermal Protection | yes |
 | Max Junction Temperature | 125C |
 | Design | PWM-Buck |
-
-> [!WARNING]
-> These are the maximum *chip* values. Neither are they intended for constant use, nor may they apply to a *breakout board* that uses this chip along with other components and designs that may be *less capable*. Always also check the *breakout board* specs.
 
 
 <details><summary>What does *Efficiency* mean?</summary><br/>
