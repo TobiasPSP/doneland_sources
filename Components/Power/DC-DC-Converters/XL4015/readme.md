@@ -89,6 +89,8 @@ Here is a list of the common *novice misperceptions* that cause breakout boards 
 
 The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to be relatively *low*. 
 
+> Occasionally vendors claim a switching frequency of *300kHz*. This frequency refers to the *XL4005* regulator though that was sometiems replaced by the *XL4015*. The *XL4015* switching frequency cannot be modified and is always 180kHz during normal operation.
+
 ### Benefits of Low Switching Frequency
 
 Low switching frequencies must store *more* energy per switch so they must increase component size (for *coils* and *inductors* so that they can actually store more energy) which increases board size, weight, and cost. 
