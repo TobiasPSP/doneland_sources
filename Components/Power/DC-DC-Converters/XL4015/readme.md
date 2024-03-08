@@ -71,7 +71,7 @@ That said, even with a relatively lower efficiency, the *XL4015* still performs 
 
 ## Common Pitfalls
 
-This are the common *novice* misperceptions that cause breakout boards to go off in flames:
+Here is a list of the common *novice* misperceptions that cause breakout boards to go off in flames:
 
 * **Maximum Current:** The *maximum* current (of **5A** for this chip) does not mean that any breakout board using this chip can produce **5A** output. It is the absolute *maximum* the chip can sustain, typically only for *short periods of time*, and only when additional *heat sinks* are in place.
 * **Maximum Power:** An important rating is often missing in the specs: the *overall power* the regulator can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**.
