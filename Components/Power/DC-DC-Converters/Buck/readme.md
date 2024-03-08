@@ -63,7 +63,7 @@ At the same time, with higher frequency the energy must be stored and retured mo
 
 Here is a list to popular **Buck** regulator chips along with commonly available and ready-to-use *breakout boards* that use these:
 
-* **[XL4015 from XLSEMI](.\XL4015)
+* **[XL4015 from XLSEMI](/XL4015)**
 
 > Tags: Buck, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC
 
