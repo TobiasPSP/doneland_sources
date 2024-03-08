@@ -34,7 +34,7 @@ Here are the key specs for this chip:
 
 <details><summary>What does "Efficiency" mean?</summary><br/>
 
-Any *voltage regulator* converts a *input* voltage to a different *output* voltage, and this process has losses (causes heat). The *efficiency* states how much of the *input* energy is actually ending up at the *output* terminal.
+Any *voltage regulator* converts a *input* voltage to a different *output* voltage, and this process has losses (causes heat). The *efficiency* states how much of the *input* energy is actually ending up at the *output* terminal, and how much is lost as heat:
 
 An efficiency of *96%* states that 4% of the energy is lost in heat. The amount of heat generated depends on the total amount of energy you feed into the regulator.
 
