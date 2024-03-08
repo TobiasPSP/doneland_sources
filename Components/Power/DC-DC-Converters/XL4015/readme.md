@@ -1,11 +1,50 @@
 <img src="/assets/images/power.jpg" width="80%" height="80%" />
 
 
-# XL4015 Buck Converter
+# XL4015 Voltage Regulator
 
-> Input 8-36V, Output 1.2-32V, Current 5A, CV, CC
+> Buck-Regulator from XLSEMI: 5A, 36V, 180kHz
 
-The **XL4015** from *XLSEMI* is a popular step-down converter capable of outputting significant currents of up to *5A*. 
+The **XL4015** from *XLSEMI* is a popular step-down (**Buck**) voltage regulator chip that is used in many cheap breakout boards.
+
+Here are the key specs for this chip:
+
+| Spec | Value |
+| --- | --- |
+| *Input* Voltage | 8V-36V |
+| *Output* Voltage | 1.25V-32V |
+| Max *Output* Current | 5A |
+| Max Continuous Power | 40W |
+| Minimum Voltage Difference | 0.3V |
+| Switching Frequency | fixed 180kHz |
+| Efficiency | up to 96% |
+| Short Circuit Protection | yes |
+| Constant Current Function  | yes |
+| Thermal Protection | yes |
+| Design | PWM-Buck |
+
+> [!WARNING]
+> These are the maximum *chip* values. Neither are they intended for constant use, nor may they apply to a *breakout board* that uses this chip along with other components and designs that may be *less capable*. Always also check the *breakout board* specs.
+
+## Common Pitfalls
+
+Here are the common *novice* misperceptions and pitfalls that frequently cause breakout boards to go off in flames:
+
+* **Maximum Current:** The *maximum* current (of **5A** for this chip) does not mean that any breakout board using this chip can produce **5A** output. It is the absolute *maximum* the chip can sustain, typically only for *short periods of time*, and only when additional *heat sinks* are in place.
+* **Maximum Power:** An important rating is often missing in the specs: the *overall power* the regulator can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**.
+* **Consider *both*:** To operate a regulator safely, neither exceed the maximum current *nor* the maximum power:
+  * should you operate this regulator at an output voltage of **5V**, the maximum power of **40W** would allow a maximum current of **8A** however the maximum allowable current is **5A**. Thus, when operated at **5V** output, the maximum power is just **25W**.
+  * operating the regulator at an output voltage of **24V** cannot provide the maximum current of **5A** because this would result in a power of **120W**. At **24V** output, the maximum allowable current is **1.6A**.
+* **Input Voltage > Output Voltage:** this is a **Buck** regulator. It *reduces* the input voltage. Even though the *output voltage* has a wide selectable range of *1.25-32V*, once you choose an *output voltage*, this limits the range of allowable *input* voltages:
+  * The regulator supports *input* voltages in the range of *8-36V*. If you set the regulator to an *output* voltage of *12V*, the *input* voltage now must be in the range of *12.3-36V* (add *0.3V* to the *output voltage*: this is the *minimum voltage difference* found in the specs above).
+   
+<details><summary>What does *Switching Frequency* mean?</summary><br/>
+
+
+</details>
+
+
+converter capable of outputting significant currents of up to *5A*. 
 
 The chip is sold separately and also embedded in a complete breakout, board ready-to-go, for as little as EUR 1.00 in total:
 
