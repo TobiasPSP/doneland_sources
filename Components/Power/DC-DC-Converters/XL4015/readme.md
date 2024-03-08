@@ -49,7 +49,8 @@ The *XL4015* has a **maximum** efficiency of *96%*. Efficiency is very different
 * When you reduce **24V** to **12V** and draw **4A** at the *output* side (i.e. to run a car cooling box off a truck battery), efficiency is *93%* (according to data sheet).
 * When you reduce **12V** to **5V** and draw **5A** at the *output* side (i.e. to operate USB devices from a car lighter jack or power a microcontroller), efficiency is just *87%*.
 
-* This illustrates another important consideration: *heat sinks*.
+
+This illustrates another important consideration: *heat sinks*.
 
 In the latter example, **5V** @ **5A** result in **25W** power. The lost energy at *87% efficiency* is ( **25W** / **0.96**) - **25W**: **1.04W**. So in this scenario, the voltage regulator also works like a *1W heater element*. Make sure your housing and device design allows *1W* worth of heat to be dissipated. If it is less, your device will continuously heat up until it breaks.
 
@@ -58,7 +59,13 @@ In the latter example, **5V** @ **5A** result in **25W** power. The lost energy 
 
 * **<200mA Output Current:** when drawing currents *less than 200mA*, efficiency is worst and can drop to as low as 62%. This regulator is therefore *not ideal* to power small microcontroller circuits.
 * **>3A Output Current:** Output currents above *3A* hurt efficiency over-proportionally across all voltages.
-* **Voltage Difference:** the *higher* the voltage difference between *input* and *output*, the *lower* the efficiency. Converting **36V** to **5V** drops efficiency to around *80%* whereas converting **12V** to **5V** keeps efficiency above *90%* most of the time. 
+* **Voltage Difference:** the *higher* the voltage difference between *input* and *output*, the *lower* the efficiency. Converting **36V** to **5V** drops efficiency to around *80%* whereas converting **12V** to **5V** keeps efficiency above *90%* most of the time.
+* **Very Low Output Voltage:** the *lower* the *output* voltage, the less efficient. It is more efficient to reduce **24V** to **12V** (*12V* drop) than to reduce **12V** to **5V** (just a *7V* drop, should be *more* efficient but the *output* voltage is *very low*
+
+The *XL4015* is best if operated in the mid-range. It suffers when you move towards it *edge cases*, either by drawing *too little* or *too much* **current**, or by using *a very high input* or a *very low output* voltage.
+
+That said, even with a relatively lower efficiency, the *XL4015* still performs well even in edge cases. Just don't over-do it. The lesser the efficiency and the higher the current you draw, the better should be your *heat sink*.
+
 
 </details>
 
