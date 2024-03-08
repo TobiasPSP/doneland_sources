@@ -96,7 +96,7 @@ Low switching frequencies must store *more* energy per switch so they must incre
 
 At the same time, this can improve *efficiency* though, especially when larger currents are required: each time energy needs to be transferred back and forth, losses occur. With lower frequency, losses happen less frequent.
 
-Another positive effect of *low* switching frequencies is less *EMI* (electromagnetic interference). Using regulators with *low* switching frequencies like the *XL4015* seems especially appropriate for *DIY projects* where *makers* seldom pay attention to *EMI protection*.
+Another positive effect of *low* switching frequencies is less *EMI* (electromagnetic interference). Using regulators with *low* switching frequencies like the *XL4015* are well-suited for *DIY projects* where *makers* seldom pay attention to proper *EMI protection*, and where miniaturization is not critical.
 
 ### Benefits of High Switching Frequency
 
@@ -104,7 +104,7 @@ There are advantages for *high* switching frequencies, too: Regulators with *hig
 
 They need to switch only very small amounts of energy because due to the high frequency, they switch much more often. 
 
-This can result in less *output voltage ripple*. For the same reasons, regulators with *high* switching frequency can *respond faster* to changes in load and output impedance. In general, *high* switching frequencies produce more stable output voltages (*steady-state*).
+This can result in less *output voltage ripple*. For the same reasons, regulators with *high* switching frequency can *respond faster* to changes in load and output impedance. In general, *high* switching frequencies produce more stable output voltages (*steady-state*). They are ideal for highly integrated devices such as *smartphones*.
 
 
 
