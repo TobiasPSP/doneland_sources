@@ -24,12 +24,12 @@ Here are the key specs for this chip:
 | Spec | Value |
 | --- | --- |
 | Switching Frequency | fixed 180kHz |
-| Efficiency | up to 96% |
 | Short Circuit Protection | yes |
 | Constant Current Function  | yes |
 | Thermal Protection | yes |
 | Max Junction Temperature | 125C |
 | Design | PWM-Buck |
+| Efficiency | up to 96% |
 
 
 <details><summary>What does "Efficiency" mean?</summary><br/>
