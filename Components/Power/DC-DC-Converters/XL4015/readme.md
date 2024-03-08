@@ -277,7 +277,7 @@ If this voltage is equal to the *input* voltage, turn the trim pot *counter-cloc
 The trim pot next to the *output terminals* controls the *constant voltage*: turn it *clockwise* to *increase* the current.
 
 > [!WARNING]
-> **Do not** short-circuit the *output terminals* to set the *constant current*. The *XL4015* is not *short-circuit proof* for long periods of time and can easily be destroyed this way.
+> **Do not** short-circuit the *output terminals* to set the *constant current*. The *XL4015* is not *short-circuit proof* for long periods of time and can be destroyed this way.
 
 To set the *constant current*, turn the trim pot *all the way counter-clockwise* until each new turn just produces a *click* sound. This sets the *constant current* to the lowest setting. Then connect the *input* to a power source, and connect your load to the *output terminals*. 
 
