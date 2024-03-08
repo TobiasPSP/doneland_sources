@@ -76,7 +76,7 @@ That said, even with a relatively lower efficiency, the *XL4015* still performs 
 
 ## Common Pitfalls
 
-Here is a list of the common *novice misperceptions* that cause breakout boards to go off in flames and sad faces:
+Here is a list of common *misperceptions* that can cause breakout boards to go off in flames:
 
 * **Maximum Current:** The *maximum* current is **5A or the maximum handling power of the board** - *whichever is **lower***. The boards discussed here handle a maximum power of **50W** (up to **75** when proper heat sinks are added).
   * **50W** allow a current of **10A** at **5V** output. The absolute maximum *current* for the *XL4015* is **5A** though. So at **5V** output, the maximum current is **25W**.
@@ -89,7 +89,7 @@ Here is a list of the common *novice misperceptions* that cause breakout boards 
 
 The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to be relatively *low*. 
 
-> Occasionally vendors claim a switching frequency of *300kHz*. This frequency refers to the *XL4005* regulator though that was sometiems replaced by the *XL4015*. The *XL4015* switching frequency cannot be modified and is always 180kHz during normal operation.
+> Occasionally vendors claim a switching frequency of *300kHz*. This frequency refers to the *XL4005* regulator. The *XL4015* switching frequency cannot be modified and is always 180kHz during normal operation.
 
 ### Benefits of Low Switching Frequency
 
