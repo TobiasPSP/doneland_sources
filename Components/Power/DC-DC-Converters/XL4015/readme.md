@@ -20,7 +20,7 @@ Here are the key specs for this chip:
 
 
 > [!IMPORTANT]
-> The *XL4015 chip* can handle *a maximum* of **5A** only for output voltages *below 10V*. For higher voltages, the limit is **50W** (**75W** with additional heat sink). Exceeding these values massively heats up and then destroys the board.
+> The *XL4015 chip* can handle *a maximum* of **5A** only for output voltages *below 10V*. For higher voltages, the limit is **50W** (**75W** with additional heat sink). Exceeding these values permanently destroys the board.
 
 | Spec | Value |
 | --- | --- |
