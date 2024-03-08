@@ -38,6 +38,8 @@ Any *voltage regulator* converts a *input* voltage to a different *output* volta
 
 An efficiency of *96%* states that 4% of the energy is lost in heat. The amount of heat generated depends on the total amount of energy you feed into the regulator.
 
+#### Examples
+
 If you supply **12V** and would like to get **5V** and **3A**, then these calculations apply:
 
 * The total *output* energy is **5V** x **3A** = **15W**.
@@ -49,11 +51,13 @@ The *XL4015* has a **maximum** efficiency of *96%*. Efficiency is very different
 * When you reduce **24V** to **12V** and draw **4A** at the *output* side (i.e. to run a car cooling box off a truck battery), efficiency is *93%* (according to data sheet).
 * When you reduce **12V** to **5V** and draw **5A** at the *output* side (i.e. to operate USB devices from a car lighter jack or power a microcontroller), efficiency is just *87%*.
 
+#### Getting Rid of Heat 
 
 This illustrates another important consideration: *heat sinks*.
 
 In the latter example, **5V** @ **5A** result in **25W** power. The lost energy at *87% efficiency* is ( **25W** / **0.96**) - **25W**: **1.04W**. So in this scenario, the voltage regulator also works like a *1W heater element*. Make sure your housing and device design allows *1W* worth of heat to be dissipated. If it is less, your device will continuously heat up until it breaks.
 
+#### How Efficiency is Affected
 
 *XL4015* efficiency is generally controlled by these scenarios:
 
@@ -86,9 +90,13 @@ Here is a list of the common *novice* misperceptions that cause breakout boards 
 
 The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to be relatively *low*. 
 
+#### Advantages for Low Switching Frequency
+
 Low switching frequencies must store *more* energy per switch so they increase component size (for *coils* and *inductors*), weight, and cost. At the same time, this can improve *efficiency*, especially when larger currents are required.
 
 Another positive effect of *low* switching frequencies is less *EMI* (electromagnetic interference). Using regulators with *low* switching frequencies like the *XL4015* seems especially appropriate for *DIY projects* where *makers* seldom pay attention to *EMI protection*.
+
+#### Advantages for High Switching Frequency
 
 There are advantages for *high* switching frequencies, too: Regulators with *high* switching frequencies (up in the range of several MHz) are much smaller. 
 
