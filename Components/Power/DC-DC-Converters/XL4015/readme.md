@@ -113,9 +113,9 @@ This can result in less *output voltage ripple*. For the same reasons, regulator
 
 ## Pins
 
-Most probably the *XL4015* will be mounted *ready-to-go* on a breakout board with all of its necessary supporting components like *coils*, *capacitors*, and *MosFETs*. 
+Usually the *XL4015* is part of a *ready-to-go* breakout board that comes equipped with all the other necessary supporting components like *coils*, *capacitors*, and *MosFETs*. 
 
-You can use the chip by itself, too, and design your own **Buck** converter around it:
+You can of course also use the chip by itself and design your own **Buck** converter around it:
 
 | Pin | Name | Description |
 | --- | --- | --- |
