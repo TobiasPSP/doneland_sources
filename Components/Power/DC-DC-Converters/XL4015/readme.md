@@ -207,7 +207,7 @@ All board variants use the same fundamental components.
 
 The five-leg *XL4015* main regulator chip is located close to the two *input screw terminals*. 
 
-Next to it and close to the *input terminal*, is one of two electrolyte capacitors with a printed voltage. This capacitor is connected directly to the *input* power, so its maximum voltage tolerance must be higher than the maximum *input voltage*.
+Next to it and close to the *input terminal*, is one of two electrolyte capacitors with a printed voltage. This capacitor is connected directly to the *input* power, so make sure the printed *maximum voltage tolerance* is higher than the maximum *input voltage*.
 
 ### Schottky-Diode
 
