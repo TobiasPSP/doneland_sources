@@ -20,7 +20,7 @@ Here are the key specs for this chip:
 
 
 > [!IMPORTANT]
-> The *XL4015 chip* can handle **5A** but *you cannot draw **5A** for all *output voltages*. The *maximum power* breakout boards and their additional components can handle is **50W** (**75W** with additional heat sink). So if your *output voltage* is *above 10V*, you need to take into account the maximum power as well and reduce the maximum current accordingly. Else, the board will quickly heat up, start to smoke, and be irreversibly damaged.
+> The *XL4015 chip* can handle *a maximum* of **5A** only for output voltages *below 10V*. For higher voltages, the limit is **50W** (**75W** with additional heat sink). Exceeding these values massively heats up and then destroys the board.
 
 | Spec | Value |
 | --- | --- |
