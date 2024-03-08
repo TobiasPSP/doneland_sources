@@ -59,6 +59,12 @@ The *switching frequency* of a **Buck** converter determines the size of the *co
 
 At the same time, with higher frequency the energy must be stored and retured more often. Any loss associated with this process increases. Higher switching frequencies can therefore decrease efficiency.
 
+## Popular Buck Regulators
+
+Here is a list to popular **Buck** regulator chips along with commonly available and ready-to-use *breakout boards* that use these:
+
+* **[XL4015 from XLSEMI](.\XL4015)
+
 > Tags: Buck, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC
 
 :eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/dc-dc-converters/buck?311168020426240854) - last edited 2024-02-27
