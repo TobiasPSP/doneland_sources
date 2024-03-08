@@ -177,9 +177,7 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 <sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
 
 > [!TIP]
-> The *quality* of these boards varies greatly: they can work great, and they can be dead out of the box. You get what you paid for.
-> Any of the boards showcased here can be destroyed by overloading them: keep in mind that the maximum power is **50W**, so when your *input* voltage is **24V**, the maximum current is **2A** (not **5A**), and with a good extra *heat sink* you might push this to a maximum of **3A**.
-> These boards work best when *not* pushed to their limits, though.
+> These boards work best when *not* pushed to their limits. When you test them with various loads and voltages, simply make sure they do not *heat up*.
 
 ## 50/75W CV CC Buck Converter
 
