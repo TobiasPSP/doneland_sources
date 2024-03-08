@@ -32,7 +32,7 @@ Here are the key specs for this chip:
 | Design | PWM-Buck |
 
 
-<details><summary>What does *Efficiency* mean?</summary><br/>
+<details><summary>What does "Efficiency" mean?</summary><br/>
 
 Any *voltage regulator* converts a *input* voltage to a different *output* voltage, and this process has losses (causes heat). The *efficiency* states how much of the *input* energy is actually ending up at the *output* terminal.
 
@@ -75,7 +75,7 @@ This are the common *novice* misperceptions that cause breakout boards to go off
 * **Input Voltage > Output Voltage:** this is a **Buck** regulator. It *reduces* the input voltage. Once you set an *output voltage*, this limits the range of allowable *input* voltages:
   * The regulator supports *input* voltages in the range of *8-36V*. If you set the regulator to an *output* voltage of *12V*, the *input* voltage now must be in the range of *12.3-36V* (add *0.3V* to the *output voltage*: this is the *minimum voltage difference* found in the specs above).
    
-<details><summary>What does *Switching Frequency* mean?</summary><br/>
+<details><summary>What does "Switching Frequency" mean?</summary><br/>
 
 The *XL4015* uses a *fixed* switching frequency of 180kHz which is considered to be relatively *low*. 
 
