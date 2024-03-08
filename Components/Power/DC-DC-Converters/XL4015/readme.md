@@ -11,6 +11,8 @@ The **XL4015** from *XLSEMI* is a popular step-down (**Buck**) voltage regulator
 
 Here are the key specs for this chip:
 
+
+
 | Spec | Value |
 | --- | --- |
 | *Input* Voltage | 8V-36V |
@@ -18,6 +20,8 @@ Here are the key specs for this chip:
 | Max *Output* Current | 5A |
 | Minimum Voltage Difference | 0.3V |
 | Max Continuous Power in Breakout Boards | 40W |
+
+
 
 > [!IMPORTANT]
 > The actual *XL4015 chip* can handle **5A** across all voltages, however the *overall power* that a breakout board using the *XL4015* can provide **is further limited**. It depends on supporting components such as *MosFET*, *coils*, and *capacitors*. As a *rule of thumb*, typical breakout boards using *XL4015* can *safely and continuously* handle around *40W* (with peaks at *80W*).
@@ -167,6 +171,8 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 | With Heat Sink | 75W |
 | Reverse Voltage Protection | yes |
 | Reverse Polarity Protection | no |
+
+
 <sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
 
 > [!TIP]
@@ -257,6 +263,7 @@ A typical characteristic of this board is a prominent **R050** shunt resistor th
 
 ### Specs
 
+
 | Feature | Value |
 | --- | --- |
 | Input | 5-32V |
@@ -268,14 +275,18 @@ A typical characteristic of this board is a prominent **R050** shunt resistor th
 | Low Battery Protection | yes |
 | Reverse Polarity Protection | no |
 | Size | 26.5x51.5x14.0mm |
+
+
 <sup>*(always double-check the data sheet or manual of *your* board. There are many different variants available that all look and behave similar but not necessarily identical)*</sup>
 
 ## Cloned CC CV 75W Buck Converter
 
 
+
 | Item | Difference |
 | --- | --- |
 | Schottky Diode | TS1010, SS54, SS56 |
+
 
 > Tags: Buck, CC, CV, 36V, 5A
 
