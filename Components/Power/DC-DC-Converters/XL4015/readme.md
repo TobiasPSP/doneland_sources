@@ -74,7 +74,7 @@ That said, even with a relatively lower efficiency, the *XL4015* still performs 
 Here is a list of the common *novice* misperceptions that cause breakout boards to go off in flames:
 
 * **Maximum Current:** The *maximum* current (of **5A** for this chip) does not mean that any breakout board using this chip can produce **5A** output. It is the absolute *maximum* the chip can sustain, typically only for *short periods of time*, and only when additional *heat sinks* are in place.
-* **Maximum Power:** An important rating is often missing in the specs: the *overall power* the regulator can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**.
+* **Maximum Power:** An important rating is often missing in the specs: the *overall power* the regulator can provide (in *Watts*). **40W** allows a current of **8A** at **5V**, but only a current of **1.6A** at **24V**. So while the breakout board you bought *may indeed safely produce **5A** (at a low output voltage)*, the same **5A** may *kill* the board and cause a *fire* when you draw them from a *higher* output voltage. The total *watts* are what counts.
 * **Consider *both*:** To operate a regulator safely, neither exceed the maximum current *nor* the maximum power:
   * should you operate this regulator at an output voltage of **5V**, the maximum power of **40W** would allow a maximum current of **8A** however the maximum allowable current is **5A**. Thus, when operated at **5V** output, the maximum power is just **25W**.
   * operating the regulator at an output voltage of **24V** cannot provide the maximum current of **5A** because this would result in a power of **120W**. At **24V** output, the maximum allowable current is **1.6A**.
