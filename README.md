@@ -60,13 +60,13 @@ Whenever that happens I start to search for *new tools*, and if I can't find any
 
 ## Split Personality: Github and The Web
 
-My [website](https://done.land/index.html) is driven by my [Github Repository](https://github.com/TobiasPSP/doneland_sources). I am using the latter to create, organize and maintain my content. Whenever the *Github Repo* changes, this is automatically pushed to the website. So you find the same content on both places.
+My [website](https://done.land) is driven by my [Github Repository](https://github.com/TobiasPSP/doneland_sources). I am using the latter to create, organize and maintain my content. Whenever the *Github Repo* changes, this is automatically pushed to the website. So you find the same content on both places.
 
 The original material is visible and accessible here at github. For easy accessibility, you find links and buttons at the end of each page that take you to the respective sibling.
 
 ### Browsing the Website...
 
-I personally often visit the [website](https://done.land/index.html) for browsing and looking around. It's the *consumer* side for when you are preoccupied with what *you* are currently doing, and just looking for information.
+I personally often visit the [website](https://done.land) for browsing and looking around. It's the *consumer* side for when you are preoccupied with what *you* are currently doing, and just looking for information.
 
 > [!TIP]
 > If you are currently viewing this from within *Github*, you can easily switch to the website version of any page: at the bottom you always find a link that takes you to the website sibling.
