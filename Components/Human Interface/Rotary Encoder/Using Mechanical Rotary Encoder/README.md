@@ -161,4 +161,4 @@ When you upload and run the sketch, the serial output reports every movement and
 
 > Tags: HID, Rotary Encoder, Example, Code, Pins
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder?155584020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder?155584020426240854) - last edited 2024-02-27

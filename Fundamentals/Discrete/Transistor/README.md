@@ -194,4 +194,4 @@ If you (or your microcontroller output) cannot provide the required voltage, you
 
 > Tags: Transistor, Fundamentals, Overview, Pins, BJT, MosFET
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/fundamentals/discrete/transistor?555391020426240854) - last edited 2024-02-24
+:eye:&nbsp;[Visit Page on Website](https://done.land/fundamentals/discrete/transistor?555391020426240854) - last edited 2024-02-24

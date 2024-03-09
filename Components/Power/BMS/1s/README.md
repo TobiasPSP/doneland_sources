@@ -45,4 +45,4 @@ The output voltage is available at the terminals **P+** and **P-** in the middle
 
 > Tags: Battery, BMS, 1S
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/1s?268282020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/1s?268282020426240854) - last edited 2024-02-27

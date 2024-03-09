@@ -183,4 +183,4 @@ Connect the batteries like this:
 
 > Tags: Battery, BMS, 4S
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/4s?268282020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/4s?268282020426240854) - last edited 2024-02-27

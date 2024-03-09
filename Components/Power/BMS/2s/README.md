@@ -178,4 +178,4 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 > Tags: Battery, BMS, 2S
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/bms/2s?268282020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s?268282020426240854) - last edited 2024-02-27

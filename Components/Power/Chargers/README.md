@@ -73,4 +73,4 @@ The *Buck* regulator would still not be a safe charger because what's missing is
 
 > Tags: Charger, CC, CV, Battery
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/chargers?247473031903243238) - last edited 2024-03-03
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/chargers?247473031903243238) - last edited 2024-03-03

@@ -9,4 +9,4 @@
 
 > Tags: Measure, Current, Voltage Drop, Hall Effect, Shunt
 
-:eye:&nbsp;[Visit Page on Website](https://powershell.one/doneland_test/components/power/measuringcurrent?376991020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/measuringcurrent?376991020426240854) - last edited 2024-02-27
