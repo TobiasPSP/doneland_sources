@@ -128,9 +128,9 @@ You can of course also use the chip by itself and tailor your own **Buck** conve
 [Data Sheet](materials/XL4015_datasheet.pdf)
 
 
-## 50/75W CV Buck Converter
+## CV 50/75W Buck Converter  
 
-[50W](#){:.button.button--success.button--rounded.button--sm}[CV](#){:.button.button--success.button--rounded.button--sm}
+[50W](#){:.button.button--success.button--rounded.button--sm}&nbsp;[CV](#){:.button.button--success.button--rounded.button--sm}
 
 Even though the *XL4015* comes with *constant current* functionality built-in, some breakout boards do not utilize this functionality and provide *constant voltage* (**CV**) only. You can easily recognize these boards by the *one* trim potentiometer (instead of *two*):
 
@@ -179,9 +179,9 @@ Now turn the trim potentiometer in either direction and watch the voltage change
 > [!TIP]
 > These boards work best when *not* pushed to their limits. When you test them with various loads and voltages, simply make sure they do not *heat up*.
 
-## 50/75W CV CC Buck Converter
+## CV CC 50/75W Buck Converter  
 
-[50W](#){:.button.button--success.button--rounded.button--sm}[CV](#){:.button.button--success.button--rounded.button--sm}
+[50W](#){:.button.button--success.button--rounded.button--sm}&nbsp;[CV](#){:.button.button--success.button--rounded.button--sm}&nbsp;[CC](#){:.button.button--success.button--rounded.button--sm}
 
 
 <img src="images/xl4015_buck_5a_tenstar_top_angle_overview_t.png" width="50%" height="50%" />
