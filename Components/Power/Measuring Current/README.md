@@ -29,7 +29,7 @@ Today, *digital* voltmeters are more common. They add an **ADC** (Analog-Digital
 
 The example of the *analog voltmeter* has already illustrated that there is a close relationship between *current* and *voltage*. 
 
-Both *together* move electrons and produce various physical effects that can be measured. The principle of measuring *current* and *voltage* is the same: you look at appropriate physical effects that can be correlated to the flow of *current* or *voltage*
+Both *together* move electrons and produce various physical effects that can be measured. The principle of measuring *current* and *voltage* is the same: you look at appropriate physical effects that can be correlated to the flow of *current* or *voltage*. When some parts of the *Ohms law* formula are *known* or *fixed*, you can calculate the other parts.
 
 There are *two* physical effects proportional to the flow of *current*:
 
