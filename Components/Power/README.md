@@ -4,20 +4,23 @@
 
 > **Check Out Power Devices: Regulators, Batteries, BMS**
 
-Electronics of any kind are driven by *electrical power*, and this section is all about *feeding power to your devices*. 
+Electronics of any kind are driven by *electrical power*, and this section is all about *handling electrical power*. 
 
-This includes *voltage* and *current regulators* that you can use for your devices to provide a stable and safe *voltage* (or *current*). 
+## Voltage and Current
 
-It also *batteries* and their *battery management systems*, and I am talking about the most fundamental thing of them all: safely *measuring voltage* and *current*.
+All starts with *voltage* and *current* - and the many ways how to *[measure](Measuring%20Current)* and *monitor* them. This is the foundation on which *multimeters*, *oscilloscopes* but also devices like *voltage regulators* and *battery protection systems* (BMS) operate.
 
-### Constant Voltage (CV) / Constant Current (CC)
-* **[Adjusting Voltage And/Or Limiting Current](DC-DC-Converters)**: I am looking at *Buck* and *Boost* converters, and combinations, and explain differences between readily available breakout boards.
 
-### Batteries
-* **[Protecting Lithium Batteries with a BMS](BMS)**: Rechargeable batteries are a great power source. For safe operations, both *charging* and *discharging* needs careful attention and protection. That's what a **BMS** (*Battery Management System*) does. Here, I am discussing what a **BMS** does, which types there are, and when you need one. I am also looking at readily available low-cost **BMS** breakout boards that you can easily add to your projects.
+## Constant Voltage (CV) / Constant Current (CC)
 
-### Measuring And Monitoring
-* **[Measuring Current](Measuring%20Current)**: There are many very good reasons why measuring *current* can be useful, and I am sharing some ideas here. Primarily though, I look at different ways to safely measure *currents*, both small currents and huge currents.
+At minimum, you need to supply a *stable voltage* to your devices. Neither a simple *AC* power supply nor a *battery* alone are sufficient because their output voltage *fluctuates* and may not even be at all in the *voltage range* your device requires. 
+You need a *constant voltage* [regulator](DC-DC-Converters) that accepts a wide range of input voltage and provides a *fixed* and *stable* output voltage.
+
+## Batteries
+
+Rechargeable batteries are a great power source. For safe operations, both *charging* and *discharging* needs careful monitoring and protection. 
+
+That's what a [BMS](BMS) (*Battery Management System*) does: it carefully monitors both *voltage* and *current* to make sure you are not *over-charging* or drawing *too much energy* from your battery.
 
 > Tags: Voltage, Current, Regulator, Battery, BMS, Constant Voltage, Constant Current, CC, CV
 
