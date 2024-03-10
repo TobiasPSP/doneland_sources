@@ -23,7 +23,7 @@ Essentially, an analog voltmeter is using the magnetic field produced by a *curr
 
 ### Digital Voltmeters
 
-Today, *digital* voltmeters are more common. They use an **ADC** (Analog-Digital-Converter) to convert analog voltage to a digital signal that is then displayed.
+Today, *digital* voltmeters are more common. They add an **ADC** (Analog-Digital-Converter) to convert analog voltage to a digital signal that is then displayed.
 
 ## Measuring Current
 
