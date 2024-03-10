@@ -17,7 +17,7 @@ Voltmeters have a *high internal resistance*. This is necessary because essentia
 Classic analog voltmeters use a coil or iron part that responds to the *magnetic field* produced by the electrical current. The amount of deflection of the pointer is proportional to the current flowing through the coil, which, in turn, is proportional to the voltage being measured. Since the *internal resistance* of the voltmeter is known, the amount of *current* flowing through it is directly proportional to the *voltage*:
 
 * **5V:** When the voltmeter is connected to **5V** and has a known internal resistance of *500 Ohm*, according to *Ohms law* the *current* then is *U / R = I*, thus *5V/500Ohm = 10mA*. The current of *10mA* produces a magnetic field of 4x10-8 Tesla which moves the indicator of the analog voltmeter.
-* **10V:** When the voltmeter is connected to **10V** and continues to have a known internal resistance of *500 Ohm*, according to *Ohms law* the *current* then is *U / R = I*, thus *10V/500Ohm = 20mA*. The current of *10mA* produces a magnetic field of *double the strength*: 8x10-8 Tesla which moves the indicator of the analog voltmeter *twice* as much.
+* **10V:** When the voltmeter is connected to **10V** and continues to have a known internal resistance of *500 Ohm*, according to *Ohms law* the *current* now is *U / R = I*, thus *10V/500Ohm = 20mA*. The current of *20mA* produces a magnetic field of *double the strength*: 8x10-8 Tesla which moves the indicator of the analog voltmeter *twice* as much.
 
 Essentially, an analog voltmeter is using the magnetic field produced by a *current* to show the *voltage*. This is possible because the internal *resistance* of the voltmeter is known and *fixed*.
 
