@@ -8,7 +8,9 @@ Electronics of any kind are driven by *electrical power*, and this section is al
 
 ## Voltage and Current
 
-All starts with *voltage* and *current* - and the many ways how to *[measure](Measuring%20Current)* and *monitor* them. This is the foundation on which *multimeters*, *oscilloscopes* but also devices like *voltage regulators* and *battery protection systems* (BMS) operate.
+All starts with *voltage* and *current* - and the many ways to *[measure](Measuring%20Current)* and *monitor* both. 
+
+This is the foundation on which *multimeters*, *oscilloscopes* but also devices like *voltage regulators* and *battery protection systems* (BMS) operate.
 
 
 ## Constant Voltage (CV) / Constant Current (CC)
