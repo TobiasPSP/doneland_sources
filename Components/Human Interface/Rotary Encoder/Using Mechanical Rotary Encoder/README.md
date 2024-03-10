@@ -51,7 +51,7 @@ When positive voltage is (optionally) supplied to pin **V+**, it powers three *p
 
 > [!TIP]
 > Connect **V+** only *if you need* to actively *pull up* the GPIO pins. 
-> Microcontroller GPIOs typically have *built-in pullup resistors* that you activate by software. That's why in most cases the **V+** pin is not needed. Save one wire by ignoring the pin.
+> Microcontroller GPIOs typically have *built-in pullup resistors* that you activate by software. Then the **V+** pin is not helping in any way. Save one wire by ignoring the pin.
 
 ## Live Working Example
 
