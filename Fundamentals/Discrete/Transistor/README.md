@@ -10,8 +10,7 @@ Transistors work similar to a dam, and while a *valve wheel* in a dam *controls 
 Depending on transistor type, the control pin that is telling the transistor what to do is driven either by *voltage* or by *current*.  
 
 > [!NOTE]
-> *Transistors* are typically used as *switch* in **DC** circuits or to *amplify* low-current low-frequency **AC**.
-> 
+> *Transistors* are typically used as *switch* in **DC** circuits or to *amplify* low-current low-frequency **AC**.   
 > To switch **AC**, *thyristors* are used.
 
 
