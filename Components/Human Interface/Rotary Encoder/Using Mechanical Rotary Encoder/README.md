@@ -39,7 +39,11 @@ A bit easier to work with are simple and readily available breakout boards that 
 
 Breakout boards combine both physical **GND** pins to just *one* **GND** output pin. They typically add one *new* pin labelled **+** or **V+**, though, which frequently raises confusion. 
 
-You do not need to connect pin **V+** and can ignore it. If you do connect it, this is what happens:
+> [!TIP]
+> You do not need to connect pin **V+** and can ignore it.
+
+
+If you do connect **V+** with the positive voltage supply, this is what happens:
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
