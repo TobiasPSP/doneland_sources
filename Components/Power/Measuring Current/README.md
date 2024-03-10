@@ -10,7 +10,7 @@ Both *voltage* and *current* are measured as *voltages*: an *Ampere-Meter* inter
 
 The voltmeter is connected in parallel to the circuit or device whose voltage is to be measured: the positive terminal of the voltmeter is connected to the point in the circuit where you want to measure voltage, and the negative terminal is connected to the reference point (usually ground). 
 
-Voltmeters have a *high internal resistance*. This is necessary because essentially, with a Voltmeter you are*short-circuiting* your circuit. Due to the high internal resistance, nothing bad happens, and only a very small current flows.
+Voltmeters have a *high internal resistance*. This is necessary because essentially, with a Voltmeter you are *short-circuiting* your circuit. Due to the high internal resistance, nothing bad happens, and only a very small current flows.
 
 ### Analog Voltmeters
 
