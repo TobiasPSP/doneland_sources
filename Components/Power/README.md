@@ -17,7 +17,7 @@ This is the foundation on which tools like *multimeters*, *oscilloscopes* but al
 
 At minimum, you need to supply a *stable voltage* to your devices. Neither a simple *AC* power supply nor a *battery* alone are sufficient because their output voltage *fluctuates* and may not even be at all in the *voltage range* your device requires. 
 
-You frequently need a *constant voltage* [regulator](DC-DC-Converters) that accepts a wide range of input voltage and provides a *fixed* and *stable* output voltage.
+You frequently need a *constant voltage* [regulator](DC-DC-Converters) that accepts a wide range of input voltage and provides a *fixed* and *stable* robust output voltage.
 
 ## Batteries
 
