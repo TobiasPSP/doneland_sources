@@ -20,7 +20,7 @@ Depending on maximum current, a *shunt* can be a tiny **SMD** resistor or a huge
 Here is an example calculation for a maximum current of **5A** and a desired *voltage drop* of **100mA**:
 
 * **0.02 Ohm:** The required *shunt* resistance is according to *Ohms Law*: *U = R * I*, *R = U / I*, thus *0.1V / 5A = 0.02 Ohm*. Keep in mind that *shunt* resistors must be *very precise* and should not change their resistance when they heat up.
-* **0.5W:** The *shunt* would also need to be rated for *P = U * I*, thus *0.1V * 5A = 0.5W*. This would be the *minimum* rating, and you should double it as a safety margin.
+* **0.5W:** The *shunt* would also need to be rated for *P = U * I*, thus *0.1V * 5A = 0.5W*. This would be the *minimum* rating, and you should double it as a safety margin and to prevent heating and its adverse effects on resistance stability.
 
 
 > Tags: Measure, Current, Shunt, Voltage Drop
