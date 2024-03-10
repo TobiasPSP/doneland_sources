@@ -17,9 +17,9 @@ The most important spec for a *shunt* is the maximum *current* it is supposed to
 
 Depending on maximum current, a *shunt* can be a tiny **SMD** resistor or a huge external stripe of metal. For large currents, you can even build your own *shunt* from a piece of wire.
 
-Here is an example calculation:
+Here is an example calculation for a maximum current of **5A** and a desired *voltage drop* of **100mA**:
 
-* **0.02 Ohm:** To measure a maximum current of **5A** and get a voltage drop of *100mV* at this current, the *shunt* resistance is *U = R * I*, *R = U / I*, thus *0.1V / 5A = 0.02 Ohm*. The maximum *power* passing through the *shunt* would be *5A * 
+* **0.02 Ohm:** The required *shunt* resistance is according to *Ohms Law* calculated like this: *U = R * I*, *R = U / I*, thus *0.1V / 5A = 0.02 Ohm*. The maximum *power* passing through the *shunt* would be *5A * 
 * **0.5W:** The *shunt* would also need to be rated for *P = U * I*, thus *0.1V * 5A = 0.5W*. This would be the *minimum* rating, and you should double it as a safety margin.
 
 
