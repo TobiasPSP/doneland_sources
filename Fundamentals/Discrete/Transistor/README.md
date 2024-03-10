@@ -11,6 +11,7 @@ Depending on transistor type, the control pin that is telling the transistor wha
 
 > [!NOTE]
 > *Transistors* are typically used as *switch* in **DC** circuits or to *amplify* low-current low-frequency **AC**.
+> 
 > To switch **AC**, *thyristors* are used.
 
 
