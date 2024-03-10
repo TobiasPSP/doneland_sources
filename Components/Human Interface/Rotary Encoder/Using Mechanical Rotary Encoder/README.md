@@ -57,8 +57,8 @@ When positive voltage is (optionally) supplied to pin **V+**, it powers three *p
 
 For this test, you need this:
 
-* **Microprocessor**: I am using an *ESP8266*.
-* **Rotary Encoder**: I am using a vanilla encoder with built-in switch (5-pn model)
+* **Microprocessor**: The example uses a *ESP8266*.
+* **Rotary Encoder**: The example uses a vanilla encoder with built-in switch (5-pin model) without a breakout board.
 
 Wire everything according to the circuit layout depicted above. It does not matter whether you are using a pure mechanical **Rotary Encoder** or a breakout board. If you do use a breakout board, leave the **+**/**V+** pin unconnected.
 
@@ -157,8 +157,7 @@ void loop() {
 
 > [!NOTE]  
 > The sketch defines all three GPIO pins as *INPUT_PULLUP*: the internal built-in pullup resistor is used. There is no need to externally pull up the pins.
->
-> When you use a breakout board, *do not connect* the pin **V+**. This disables the external pullup resistors on the breakout board.
+> Should you use a *rotary encoder breakout board*, leave the pin **V+** unconnected to disable the *external pullup resistors* on the breakout board.
 
 When you upload and run the sketch, the serial output reports every movement and key press of the **Rotary Encoder**.
 
