@@ -2,7 +2,7 @@
 
 # Using Mechanical Rotary Encoder
 
-> You can use a pure *machanical Rotary Encoder* directly with your microprocessor. There is no need for a breakout board.
+> Use a Simple Mechanical Rotary Encoder Directly With A Microprocessor. No Need For Breakout Boards Or Libraries.
 
 <img src="images/RotaryRight.png" width="10%" height="10%" />
 
