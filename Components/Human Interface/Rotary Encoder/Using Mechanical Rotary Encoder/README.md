@@ -47,12 +47,11 @@ If you do connect **V+** with the positive voltage supply, this is what happens:
 
 <img src="images/rotarySimpleBreakoutWithLogic_w.png" width="60%" height="60%" />
 
-When positive voltage is (optionally) supplied to pin **+**, it powers three *pullup resistors* that in turn *pull up* the output pins. 
+When positive voltage is (optionally) supplied to pin **V+**, it powers three *pullup resistors* that in turn *pull up* the output pins. 
 
 > [!TIP]
-> You *can* supply positive voltage to the **+** pin. It's completely optional, and you should do this only if you need to actively *pull up* the output pins. 
->
-> Microcontroller GPIOs typically have built-in pullup resistors that you can easily activate by software. In most cases the **+** pin is not needed, and you can save one wire by ignoring this pin.
+> Connect **V+** only *if you need* to actively *pull up* the GPIO pins. 
+> Microcontroller GPIOs typically have *built-in pullup resistors* that you activate by software. That's why in most cases the **V+** pin is not needed. Save one wire by ignoring the pin.
 
 ## Live Working Example
 
