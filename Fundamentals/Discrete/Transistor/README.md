@@ -16,7 +16,7 @@ Depending on transistor type, the control pin that is telling the transistor wha
 
 ## Switch or Potentiometer?
 
-A transistor typically acts either as **switch** or **potentiometer**:
+A transistor typically acts either as **switch** (in **DC** circuits) or **amplifier** (similar to a *potentiometer*):
 
 **Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive), acting like a physical **switch**. Rather than you flipping a real switch, the transistor is controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, so tiny non-powerful low-voltage buttons or small currents and voltages can control huge currents or dangerous voltages. 
 
