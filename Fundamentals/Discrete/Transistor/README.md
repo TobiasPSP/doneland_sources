@@ -18,7 +18,7 @@ Depending on transistor type, the control pin that is telling the transistor wha
 
 A transistor typically acts either as **switch** (in **DC** circuits) or **amplifier** (similar to a *potentiometer*):
 
-**Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive), acting like a physical **switch**. Rather than you flipping a real switch, the transistor is controlled electronically. In fact, in many scenarios power transistors (*MOSFETs*) are used this way to replace slow and power-hungry mechanical relais, so tiny non-powerful low-voltage buttons or small currents and voltages can control huge currents or dangerous voltages. 
+**Switch**: the transistor is either fully *on* (fully conductive), or completely *off* (non-conductive), acting like a physical **switch**. Rather than you flipping a real switch, the transistor is controlled electronically. In many scenarios power transistors (*MosFETs*) are used this way to replace slow and power-hungry mechanical relais: tiny low-voltage buttons (or in general, small currents and voltages) can control huge currents and dangerous voltages. 
 
 **Amplifier**:  By slowly increasing *voltage* or *current* to the control pin, the transistor works like a variable resistor and slowly increases or decreases its resistance between the other two pins. So a transistor can be used like a potentiometer, and the use case of a *switch* (above) is just an extreme example of this (cranking the potentiometer fully open or closed). Unlike a real potentiometer, the transistor can support significant currents. So a tiny voltage or current change at the control pin can result in a massive current change between the other two pins. This is how a transistor *amplifier* operates.
 
