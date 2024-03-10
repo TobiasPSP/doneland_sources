@@ -29,7 +29,7 @@ When hooking up such a mechanical **Rotary Encoder** to your microprocessor, the
 
 <img src="images/wiring_RotaryEncoder.png" width="50%" height="50%" />
 
-To connect the **Rotary Encoder** to the microprocessor you need **4** wires and **3** GPIO pins, one for each physical switch.
+A total of **four** wires and **three** GPIO pins are required, one for each physical switch.
 
 ### Using Breakout Boards
 
