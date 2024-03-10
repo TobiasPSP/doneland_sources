@@ -23,7 +23,7 @@ A transistor typically acts either as **switch** (in **DC** circuits) or **ampli
 **Amplifier**:  By slowly increasing *voltage* or *current* to the control pin, the transistor works like a variable resistor and slowly increases or decreases its resistance between the other two pins. So a transistor can be used like a potentiometer, and the use case of a *switch* (above) is just an extreme example of this (cranking the potentiometer fully open or closed). Unlike a real potentiometer, the transistor can support significant currents. So a tiny voltage or current change at the control pin can result in a massive current change between the other two pins. This is how a transistor *amplifier* operates.
 
 > [!NOTE]
-> Can a transistor *really* act like a *variable resistor*? Yes, but.... Producing *highly accurate* resistances would be pretty difficult, considering production differences and linear ranges of *transistors*. That's why you still need passive *resistors* or *digitally controllable resistors* (*ICs*) if you need precise resistances.
+> Can a transistor *really* act like a *variable resistor*? Producing *highly accurate* resistances would be difficult, considering production differences and linear ranges of *transistors*. That's why you still need passive *resistors* or *digitally controllable resistors* (*ICs*) whenever you need precise resistances.
 
 ## Circuit Symbols
 
