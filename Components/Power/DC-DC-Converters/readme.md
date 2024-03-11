@@ -31,6 +31,8 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
   While all of this may be crucial in microelectronics and consumer devices such as tablets and phones, for hobbyist projects it does not matter much. That's why most *DC-DC Converter* breakout boards are relatively bulky and use switching frequencies in the lower range.
 </details>
 
+There are *two* types of regulators: **Buck** (to lower the *input* voltage) and **Boost** (to raise it).
+
 > [!NOTE]  
 > With pure **Buck** or **Boost**, the output voltage must be higher (**Buck**) or lower (**Boost**) than the input voltage. 
 >
