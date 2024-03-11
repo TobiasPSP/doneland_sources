@@ -5,8 +5,9 @@
 
 > Lower or Raise DC Voltage, Drive Devices Off a Battery, and Create Smart Battery Chargers
 
+A *DC-DC Converter* takes a variable *input* voltage and changes it to a fixed *output* voltage. When the converter supports *constant current*, it can then *further reduce* the voltage so that the current never exceeds a given threshold.
 
-*DC-DC Converter* change a range of input *DC* voltage to a specific fixed output *DC* voltage. They cannot work with *AC*.
+These regulators work with **DC**. They cannot work with *AC*.
 
 > For *AC* circuits, *transformers* are used to change one voltage into another using alternating *magnetic fields*. Since *DC* does not use *alternate* current and thus does not produce alternating magnetic fields, transformers do not work for *DC*.
 
