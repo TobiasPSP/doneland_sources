@@ -34,7 +34,7 @@ The typical switching frequency is in the range of 50-500kHz, and depending impl
 There are *two* types of regulators: **Buck** (to lower the *input* voltage) and **Boost** (to raise it).
 
 > [!NOTE]  
-> With pure **Buck** or **Boost**, the output voltage must be higher (**Buck**) or lower (**Boost**) than the input voltage. 
+> With pure **Buck** or **Boost**, the output voltage must *always* be higher (**Buck**) or lower (**Boost**) than the input voltage. 
 >
 > For example, even if a **Buck** converter supports an input voltage range of 8-32V and an output voltage range from 1.25-28V, once you actually supply a voltage, the output voltage *must always be lower* than the input voltage. If you supplied 10V, you now can only produce an output voltage of 1.25-10V (practically rather 1.25-9.5V as there needs to be a certain voltage difference between input and output).
 > 
