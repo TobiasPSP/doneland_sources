@@ -15,7 +15,9 @@ Their conversion of electric power to *light* is so efficient that **LED** typic
 
 One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. When you connect **LED** directly to a power source can *instantly destroy* them. The **LED** *low resistance* behaves like a wire that you use to *short-circuit* your power supply: for a fraction of a second, a *huge current* flows and causes your **LED** to burn up, almost like a *fuse*.
 
-**You must always limit the *current* that you supply to a LED**. [Read more here](Current) to find out how you can safely control the **LED** *current* and calculate the *resistance* for appropriate *series resistors*, or use *constant voltage* or *constant current* power supply.
+**You must always limit the *current* that you supply to a LED**. 
+
+[Read more here](Current) to find out *how* you can safely control the **LED** *current* and *calculate the resistance* for a *series resistor*. You'll also learn more on using *constant voltage* or *constant current* to drive single **LED** as well as **LED Strips**.
 
 ## Standard Hobbyist LEDs
 
