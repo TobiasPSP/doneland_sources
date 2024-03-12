@@ -6,7 +6,7 @@
 
 **LED** get destroyed immediately if you run them off normal power sources: their *very low* internal resistance would cause a short-circuit and in a blink of a moment burn the **LED** and destroy it forever.
 
-To safely operate **LED**, you must limit the *current* supplied to the **LED**. There are three popular ways to do this:
+To safely operate **LED**, you must limit the *current* supplied to the **LED**. There are two popular ways to do this:
 
 * via a **Series Resistor** or a **Constant Voltage** power supply
 * by using a **Constant Current** power supply
