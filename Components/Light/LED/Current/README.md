@@ -30,15 +30,15 @@ For hobbyist projects, a *series resistor* is simple, cheap and typically suffic
 
 ### Calculating Resistor Value
 
-The basic principle here is a common *voltage divider*: when you connect multiple resistors in series, the total voltage is *divided* across the individual resistors proportionally to their resistances.
+The basic principle is a *voltage divider*: when you connect multiple resistors in series, the total voltage is *divided* across the individual resistors proportionally to their resistances.
 
-In a *traditional* voltage divider, you need to know the total *voltage* and then the *required voltage* and the *load resistance*. 
+In a *traditional* voltage divider, to calculate the required *resistance* you need to know the total *voltage*, the *required voltage* and the *load resistance*. 
 
-That's a problem because the **LED** resistance is typically not known. So you need to calculate the resistance using alternate parameters. These values are needed:
+That's a problem for **LED** because their resistance is typically not known (and can vary). So you need to calculate the resistance using alternate parameters. These values are needed:
 
 * Required **LED** voltage
 * Required **LED** current
-* The *voltage* you want to use to power the **LED**
+* The *voltage* you want to apply to power the **LED**
 
 Here are three practical approaches to find out these values for *your particular* **LED**:
 
