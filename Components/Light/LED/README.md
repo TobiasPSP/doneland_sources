@@ -40,8 +40,8 @@ It is important to connect **+** and **-** to the correct "legs" of the **LED**.
 
 
 > [!TIP]
-> You can identify the *anode* even when **LEDs** are already *wired* or the "legs" have been shortened, and you cannot see the original difference in length anymore.    
-> Look inside the **LED** head: you'll identify a *wider* metal part, and a relatively *short* one. The *short* one belongs to the *anode* (**+**)
+> You can identify the *anode* even when **LEDs** are already *wired* or the "legs" have been cut and shortened.       
+> Look inside the **LED** head: you'll identify a *wider* metal part, and a relatively *short* pin. The *short* pin is connected to the *anode* (**+**), and the wider *triangle*-like part is connected to the *cathode* (**-** or **GND**)
 
 
 
