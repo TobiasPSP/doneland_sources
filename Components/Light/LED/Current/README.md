@@ -40,7 +40,7 @@ That's a problem for **LED** because their resistance is typically not known (an
 * Required **LED** current
 * The *voltage* you want to apply to power the **LED**
 
-Here are three practical approaches to find out these values for *your particular* **LED**:
+There are three approaches to find out the values needed for *your particular* **LED** to then calculate the approriate *resistance* for the protective *series resistor*:
 
 #### ...When You Know The LED Specs
 
