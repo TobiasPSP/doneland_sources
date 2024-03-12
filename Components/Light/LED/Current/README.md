@@ -12,8 +12,9 @@ To safely operate **LED**, you must limit the *current* supplied to the **LED**.
 * by using a **Constant Current** power supply
 
 > [!NOTE]
-> The *only important* task is to supply the correct *current* to an **LED**: the only robust way is to use a **constant current** power supply.   
-> Supplying a specific *voltage* to the **LED** (by using a *series resistor* or a *constant voltage* power supply) is *not* providing a *constant* current: **LED** are not perfectly identical and can vary in *resistance*. Factors like *temperature* change their *resistance*, too. All of this *changes the current* they receive when supplying a fixed *voltage*. 
+> It is *only relevant* to supply the correct *current* to the **LED**: using a **constant current** power supply guarantees that.   
+> Supplying a specific *voltage* to the **LED** (using a *series resistor* or a *constant voltage* power source) is *not really* providing a *constant* current:
+> **LED** are not perfectly identical and can vary in *resistance*. Factors like *temperature* *further change* their *resistance*. All of this *affects the current* they receive when supplied by a *fixed voltage*. 
 
 
 ## Using a LED Series Resistor
