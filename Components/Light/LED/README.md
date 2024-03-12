@@ -31,7 +31,13 @@ The picture shows already wired **LED**, and you can identify the *resistor* tha
 
 ### Anode and Cathode
 
-It is important to connect **+** and **-** to the correct "legs" of the **LED**. With most **LED**, one "leg" is *shorter* than the other.
+It is important to connect **+** and **-** to the correct "legs" of the **LED**. 
+
+> [!NOTE]
+> **LED** are *diodes* so *current* can flow in just one direction. When you accidentally connect the **LED** legs to the wrong polarity, the **LED** won't emit light. Worse though, **LED** have a very low *reverse voltage* of just *5V*. If you apply a voltage in *wrong polarity* to a **LED** that is above *5V*, you can *destroy it*.
+> Most often, though, connecting the wrong polarity to a **LED** is not doing permanent harm because **LED** are used with some sort of *current limiting* (as discussed elsewhere). Just never try and use **LED** as a *real diode replacement*.
+
+With most **LED**, one "leg" is *shorter* than the other.
 
 * **Anode (+):** the **longer** leg is connected to the *anode* and needs a *positive* voltage
 * **Cathode (-):** the **shorter** leg is connected to the *cathode* and needs a connection to *ground*
