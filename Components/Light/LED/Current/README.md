@@ -65,7 +65,7 @@ If **LED** type and specs are *unknown*, there are well-known *rules of thumb* b
 > *White* **LED** are made from *blue* **LED** and share their specs.    
 > *Amber* **LED** can either be made from *orange* **LED** (and then share their specs), or can be also made from *blue* **LED** (in which case their specs are similar to those)   
 
-Low-power indicator **LED** typically use a *current* of *5-20mA*. Other **LED** may need drastically different *currents*. High power *Cree* **LED** used in flashlights and emergency vehicles typically use *1-2A*.
+Regarding *current*, low-power indicator **LED** typically need a *current* of *5-20mA*. Other **LED** may use drastically higher *currents*: High power *Cree* **LED** for use in flashlights and emergency vehicles typically need *1-2A*.
 
 > [!TIP]
 > Some **LED** like *green* ones have a large *voltage range*. Always start with the lowest *voltage*, calculate the *resistance* for it (below), and then test-drive. Measure the *current* with a multimeter. If it is much lower than the expected current, you now know that the **LED** uses a higher *forward voltage*, and you can lower the *resistance*.
@@ -73,9 +73,7 @@ Low-power indicator **LED** typically use a *current* of *5-20mA*. Other **LED**
 
 ### Identifying LED Specs by Testing
 
-Probably the best and most precise way of identifying the specs you need for *resistance calculation* is to *test* the **LED**. This is technically most interesting as it exposes much of how **LEDs** truly work. show the *current* already
-
-For this you need:
+Probably the most interesting and precise way of identifying the specs of your **LED** is to *test* them. This exposes much of how **LEDs** truly work. For this you need:
 
 * A *power supply* with *variable voltage* in the range of *1.5-4V*
 * Optionally an Ampere-Meter (multimeter or clamp) in case your *power supply* does *not* show the *current*
