@@ -11,9 +11,9 @@ Their conversion of electric power to *light* is so efficient that **LED** typic
 
 ## Rugged Yet Simple to Destroy
 
-**LED** are *rugged* and last longer and are more resilient to *mechanical* stress than most other light sources. One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. When you connect **LED** directly to a power source can *instantly destroy* them.
+**LED** are *rugged* and last longer and are *more resilient* to *mechanical* stress than most other light sources. 
 
-Due to its *low resistance*, an **LED** acts like a wire that you use to *short-circuit* your power supply: a *huge current* flows and causes your **LED** to be burned, almost like a *fuse*.
+One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. When you connect **LED** directly to a power source can *instantly destroy* them. The **LED** *low resistance* behaves like a wire that you use to *short-circuit* your power supply: for a fraction of a second, a *huge current* flows and causes your **LED** to burn up, almost like a *fuse*.
 
 **You must always limit the *current* that you supply to a LED**. [Read more here](Current) to find out how you can safely control the **LED** *current* and calculate the *resistance* for appropriate *series resistors*, or use *constant voltage* or *constant current* power supply.
 
