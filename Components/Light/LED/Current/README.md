@@ -40,24 +40,18 @@ That's a problem for **LED** because their resistance is typically not known (an
 * Required **LED** current
 * The *voltage* you want to apply to power the **LED**
 
-There are three approaches to find out the values needed for *your particular* **LED** to then calculate the approriate *resistance* for the protective *series resistor*:
+Here are three approaches to find out the values needed for *your particular* **LED** to then calculate the approriate *resistance* for the protective *series resistor*:
 
 #### ...When You Know The LED Specs
 
-If you know your exact **LED** type you can look up the required specs in its data sheet to calculate the *resistance*. Often, the vendor that sold the **LED** to you publishes these values, too. 
-
-These are the specs you need to look up:
+If you know the specs of your *particular* **LED** (taken from its data sheet or vendor information), you are all set. This is what you need to know: 
 
 * Required **LED** voltage (its *forward voltage*), typically in the range of *1.5V-4.0V*
 * Required **LED** current: for simple indicator **LED** typically in the range of *5-20mA*
 
-Make sure you look up the *exact* values for the type and color of **LED** you intend to use.
-
-If you can't do that, move to the following section for *educated guesses* based on color and type of your **LED**.
-
 #### ...When You Don't Know LED Specs
 
-If you don't know your specific **LED** type or don't have the data sheet or vendor information at hand, then there are well-known *rules of thumb* based on the **LED** color and the materials the **LED** consists of:
+If **LED** type and specs are *unknown*, there are well-known *rules of thumb* based on **LED** color and materials **LED** are made of:
 
 | Color | Forward Voltage | Material |
 | --- | --- | --- |
