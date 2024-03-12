@@ -112,24 +112,22 @@ Now you can read the values required to calculate the *resistance* from your pow
 Let's assume you want to power a normal *red* indicator **LED** off a *car battery*, and you *don't know* the exact values for your **LED*. Then this is the data to calculate with, taken from the *rules of thumb* table above:
 
 * Total voltage: *13.8V* (controlled by you, can be any voltage *above* the **LED** voltage)
-* Required **LED** voltage: *1.8V* (guessed, you may start with *1.6V* to be extra safe)
-* Required **LED** current: *10mA* (guessed, you could probably go up to *20mA*)
+* Required **LED** voltage: *1.8V* (guessed for a *red* **LED**, you may start with *1.6V* to be extra safe)
+* Required **LED** current: *10mA* (guessed for a typical *indicator* **LED**, you could probably go up to *20mA*)
 
 #### How much voltage should the resistor remove?
 
-The required *voltage drop* that the resistor should cause is then *your supply voltage - LED voltage* = *13.8V - 1.8V* = *12.0V*
+Now you need the required *voltage drop* that the resistor should cause. It is *your supply voltage - LED voltage* = *13.8V - 1.8V* = *12.0V*
 
 #### Finding Out The Required Resistance
 
-The required *resistance* is now calculated using *Ohms Law*: *12V / 0.01A (10mA) = 1.200 Ohm*. 
+The required *resistance* is finally calculated using *Ohms Law*: *12V / 0.01A (10mA) = 1.200 Ohm*. 
 
-Round this value up to the next available resistor value you have. In this case, a *1.2KOhm* resistor would work.
+Round this value *up* to the next available resistor value you have. In this case, a *1.2KOhm* resistor would work.
 
 ## Using Constant Voltage
 
-*Constant voltage* is the same as using a *series resistor*: you, too, supply the **LED** forward voltage to the **LED**(s).
-
-Only in this case, you are using a *constant voltage* power supply instead of *dropping excess voltage* using a simple *voltage divider*.
+*Constant voltage* is the same as using a *series resistor*: you again supply the **LED** forward voltage to the **LED**(s). Only in this case, you are using a *constant voltage* power supply to provide this voltage directly instead of *dropping excess voltage* using a *series resistor*.
 
 > [!NOTE]
 > *Constant voltage* power supplies are *much more efficient* than *voltage dividers* because they do not *waste* excess energy through *heat*. They are therefore suited even for *higher powered* **LED** and **LED strips**.    
