@@ -25,7 +25,7 @@ Voltage influences the total power in two ways:
 
 ## AC and DC
 
-In **AC**, the polarity changes contiuously many times per second, and *current* flows *back and forth*. The *voltage* is not constant but rather an *average voltage*. Typically, electrical household power is **AC** (due to the way how it is generated and transported to you).
+In **AC**, the polarity changes continuously many times per second, and *current* flows *back and forth*. The *voltage* is not constant but rather an *average voltage*. Typically, electrical household power is **AC** (due to the way how it is generated and transported to you).
 
 In **DC**, the polarity does not change, and *current* always flows in the *same* direction. Typically, *battery power* and electrical power provided by *power adapters* is **DC**.
 
