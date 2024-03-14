@@ -36,7 +36,7 @@ In **DC**, the polarity does not change, and *current* always flows in the *same
 
 ## Voltage Sources
 
-Voltage exists whenever there is a difference in electric charge between two points. This difference can be produced in a number of ways:
+Voltage exists whenever there is a difference in electric charge between two points. This difference can exist in a number of ways:
 
 * **Battery:** a *battery* uses *chemistry* to store more electrons on one side than on the other. It is a **DC** source. Since a *battery* stores electrons to produce the *voltage*, it deplets over time, and while you use it, the *voltage* slowly decreases.
 * **Power Supply:** electrical energy is produced elsewhere as **AC** and delivered to your home. A *power supply* converts the energy to **DC** and lowers the voltage to safe levels that you then can use. *Power supplies* deliver *endless* energy with a constant voltage (as long as you pay your bills).
