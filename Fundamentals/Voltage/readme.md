@@ -2,7 +2,7 @@
 
 # Voltage
 
-> Voltage Is Electric Pressure Or Tension. It Is The Power That Drives Current Through Resistance. 
+> Voltage Is Electric Pressure, Tension Or Generally Difference In Electrons. It Is The Power That Drives Current Through Resistance. 
 
 *Voltage* defines the *power* to surpass a *resistance*. The *higher* the *voltage*, the *more resistance* can be overcome. 
 
