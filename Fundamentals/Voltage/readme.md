@@ -6,7 +6,7 @@
 
 *Voltage* defines the *power* to surpass a *resistance*. The *higher* the *voltage*, the *more resistance* can be overcome. 
 
-That's why *voltages above **30V*** are considered *dangerous*: higher voltages can surpass the *resistance* of the human skin and drive a harmful *current* through your body. That's also why *DIY projects* typically use *voltages* well below **30V**.
+That's why *voltages above **30V*** are considered *dangerous*: higher voltages can surpass the *resistance* of the human skin and drive a harmful *current* through your body. Voltages *below **30V*** cannot do this and are considered *safe*. That's why *DIY projects* typically use *voltages* well below **30V**.
 
 ## Voltage and Current
 
