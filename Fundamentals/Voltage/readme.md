@@ -50,7 +50,7 @@ A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power s
 
 The amount of work the *moving water* (aka total amount of moving electrons) can do, for example driving a generator, depends *both* on the *speed* (voltage) and the *pipe diameter* (volume of water, aka current).
 
-This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* in the pipework, *more pressure* (voltage) is needed to drive water through it. If the *bottleneck* is severe and the pressure is *low*, no water flows.
+This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel) and the pressure is *low*, no water flows (the paddle wheel won't move).
 
 
 
