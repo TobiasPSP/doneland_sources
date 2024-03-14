@@ -40,15 +40,15 @@ Voltage exists whenever there is a difference in electric charge between two poi
 
 * **Battery:** a *battery* uses *chemistry* to store more electrons on one side than on the other. It is a **DC** source. Since a *battery* stores electrons to produce the *voltage*, its supply is *limited* and deplets over time, and while you use it, the *voltage* slowly decreases because the *difference* in electrons on both poles of the battery decreases.
 * **Power Supply:** electrical energy is produced elsewhere (**AC**) and delivered to your home. A *power supply* converts the energy from **AC** to **DC** and lowers the voltage to safe levels that you then can use. *Power supplies* deliver *endless* energy with a constant voltage (as long as you pay your bills).
-* **Dynamo:** similar to a power plant, you, too, can *generate* electrical energy by converting *physical movement*. A *dynamo* moves *magnets* embedded in a *coil* to produce alternating magnetic fields that *induce* electrical current. Like a power plant, this is **AC**.
+* **Generator:** similar to a power plant, you, too, can *generate* electrical energy by converting *physical movement*. A *dynamo* or *generator* moves *magnets* embedded in a *coil* to produce alternating magnetic fields that *induce* electrical current. Like a power plant, this is **AC**.
 * **Photovoltaic:** *Solar cells* use substrates that convert the energy of natural *light* into *electrical power* and produce **DC**. The *voltage* depends largely on the *amount of light* which is why you cannot use *solar cells* directly. You need a *voltage regulator* to convert the wide range of incoming voltage to a fixed *output voltage* that you can use.
 * **Static electricity and Lightning:** when air is dry (and less conductive), huge amounts of electrons can gather on surfaces. When enough electrons cumulate, the resulting *voltage* can be so incredibly high that even very high resistances such as *air* can conduct this voltage. The results are *little sparks* (with *electrostatic discharges*) and *huge thunderbolts* (with *thunderstorms*). Even though *electrostatic discharge* is not dangerous due to the low *current*, it may be enough energy to destroy sensitive semiconductor components you play with. That's why you shouldn't touch their pins or use *ground straps* to prevent electrons from building up.
 
 ## Hydraulic Analogy
 
-A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power source) is driving water through a closed circuit of pipework, then *voltage* is the *speed* of the water (depending on the speed of the pump), and *current* is the *amount* of water (depending on the pipe diameter and the total volume of water moved). 
+A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power source) is driving water through a closed circuit of pipework, then *voltage* is the *speed* of the water (depending on the speed of the pump), and *current* is the *amount* of water (depending on the pipe diameter and the volume of the pump). 
 
-The amount of work the *moving water* (aka total amount of moving electrons) can do, for example driving a turbine, depends *both* on the *speed* (voltage) and the *pipe diameter* (volume of water, aka current).
+The amount of work the *moving water* (aka total amount of moving electrons) can do, for example driving a generator, depends *both* on the *speed* (voltage) and the *pipe diameter* (volume of water, aka current).
 
 This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* in the pipework, *more pressure* (voltage) is needed to drive water through it. If the *bottleneck* is severe and the pressure is *low*, no water flows.
 
