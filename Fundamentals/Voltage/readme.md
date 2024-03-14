@@ -46,7 +46,7 @@ Voltage exists whenever there is a difference in electric charge between two poi
 
 ## Hydraulic Analogy
 
-A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power source) is driving water through a closed circuit of pipework, then *voltage* is the *speed* of the water (depending on the speed of the pump), and *current* is the *amount* of water (depending on the pipe diameter and the total amount of water moved). 
+A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power source) is driving water through a closed circuit of pipework, then *voltage* is the *speed* of the water (depending on the speed of the pump), and *current* is the *amount* of water (depending on the pipe diameter and the total volume of water moved). 
 
 The amount of work the *moving water* (aka total amount of moving electrons) can do, for example driving a turbine, depends *both* on the *speed* (voltage) and the *pipe diameter* (volume of water, aka current).
 
