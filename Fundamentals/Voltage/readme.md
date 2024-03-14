@@ -30,7 +30,7 @@ In **AC**, the polarity changes contiuously many times per second, and *current*
 In **DC**, the polarity does not change, and *current* always flows in the *same* direction. Typically, *battery power* and electrical power provided by *power adapters* is **DC**.
 
 > [!NOTE]
-> In most *hobbyist projects*, you use **DC** and therefore need a *battery*, or a *power adapter* to convert **AC** to **DC**.
+> In most *hobbyist projects*, you use **DC** and therefore need a *battery*, or a *power adapter* to convert **AC** to **DC**.   
 > The reason **AC** exists at all is that it can be easily *generated* using magnetic fields in *dynamos* and *turbines*, and that **AC** can be efficiently transmitted over long distances because **AC** voltage can be easily raised or lowered using transformers.
 > To transport energy, the *higher* the voltage, the *lower* the *current* can be. This reduces losses through *heat* and is the reason why electrical transmission lines use super high voltages like 1.200kV and more.
 
