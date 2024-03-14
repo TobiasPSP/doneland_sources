@@ -20,7 +20,7 @@ Voltage influences the total power in two ways:
 * If the voltage is too low to penetrate a given *resistance*, no *current* can flow at all, and the total power is null.
 
 > [!NOTE]
-> To clarify: if you touch wires connected to a **5V** voltage, *no current at all* will flow through your body because the *voltage* is too low to drive electrons through the resistance of your skin.
+> To clarify: if you touch wires connected to a **5V** voltage, *no current at all* will flow through your body because the *voltage* is too low to drive electrons through the resistance of your skin.   
 > To operate devices, you also need a certain *minimum voltage*. For example, **LED** have an internal resistance, similar to your skin. **LED** define a *forward voltage* (minimum voltage) that must be present for *current* to flow. Voltages below their *forward voltage* will keep **LED** dark.
 
 ## AC and DC
