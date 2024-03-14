@@ -8,6 +8,8 @@
 
 That's why *voltages above **30V*** are considered *dangerous*: higher voltages can surpass the *resistance* of the human skin and drive a harmful *current* through your body. Voltages *below **30V*** cannot do this and are considered *safe*. That's why *DIY projects* typically use *voltages* well below **30V**.
 
+> **30V** is a *conservative* threshold. Healthy and *dry* skin will not conduct electricity below **50V**. However, when skin gets *wet* or has lacerations, even voltage below **40V** can be *lethal*. By keeping voltages below **30V**, you make sure electricity cannot penetrate your skin even under the most adverse conditions.
+
 ## Voltage and Current
 
 The *total electric power* (in *Watts*) is defined as *voltage x current*. This total power is the energy that can do work for you.
