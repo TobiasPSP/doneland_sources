@@ -151,3 +151,5 @@ The most fundamental *spec* of every **LED** is the *current* it needs. Using a 
 
 
 > Tags: LED, Resistor, Constant Current, Constant Voltage, Forward Voltage
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/current?958801030815241553) - last edited 2024-03-15
