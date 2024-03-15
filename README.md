@@ -94,13 +94,13 @@ Below, you can leave a comment or join *discussions*.
 
 ### Submit Your Own Reviews or Articles
 
-You are cordially invited to participate even more (if you like). 
+You are cordially invited to participate even more (if you like). Each article is *publicly attributed to its author* next to its title. That's currently always me. 
 
-At the top of each article each article is *attributed to its author* (which currently is just me). 
+If you are just as much into electronics like I am and don't want to organize and run a website just to share and show your findings and ideas, then please *do contact me* (by clicking the link *Contact* at the bottom of each page). 
 
-If you are just as much into electronics like I am but don't want to organize and run a website just to share and show your findings or ideas, then please *do contact me* (by clicking the link *Contact* at the bottom of each page).
+I love to *review devices*, *explain technology & concepts in simple terms*, *show off little projects*, etc pp - maybe you do, too. 
 
-If we're on the same page and ideas resonate, then maybe we all see awesome articles from *you* on this site soon. 
+If ideas resonate, maybe we'll see awesome articles from *you*, too, on this site soon. 
 
 > [!CAUTION]
 > Bear in mind this is a non-profit site. All I do here is driven solely by fun and passion.
