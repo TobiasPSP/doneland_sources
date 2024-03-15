@@ -92,9 +92,15 @@ Then again, you probably know much more than I do in so many areas. If you have 
 
 Below, you can leave a comment or join *discussions*. 
 
-You are cordially invited to participate even more (if you like). At the top of each article you can see that each article is *attributed to its author* (which currently is just me). If you are just as much into electronics like me but don't want to run a website just to share and show, then please *do contact me* (by clicking the link *Contact* at the bottom of each page).
+### Submit Your Own Reviews or Articles
 
-If we're on the same page, then maybe we'll see awesome articles from *you* on this site, too. 
+You are cordially invited to participate even more (if you like). 
+
+At the top of each article each article is *attributed to its author* (which currently is just me). 
+
+If you are just as much into electronics like I am but don't want to organize and run a website just to share and show your findings or ideas, then please *do contact me* (by clicking the link *Contact* at the bottom of each page).
+
+If we're on the same page and ideas resonate, then maybe we all see awesome articles from *you* on this site soon. 
 
 > [!CAUTION]
 > Bear in mind this is a non-profit site. All I do here is driven solely by fun and passion.
