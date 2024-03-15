@@ -60,18 +60,19 @@ Whenever that happens I start to search for *new tools*, and if I can't find any
 
 ## Split Personality: Github and The Web
 
-My [website](https://done.land) is driven by my [Github Repository](https://github.com/TobiasPSP/doneland_sources). 
+The website [done.land]()https://done.land) is driven by a [github repository](https://github.com/TobiasPSP/doneland_sources). You can visit either one of these siblings.
 
-* The *public* [Github Repository](https://github.com/TobiasPSP/doneland_sources) contains all content and hosts all [Comments](https://github.com/TobiasPSP/doneland_sources/issues) and [Discussions](https://github.com/TobiasPSP/doneland_sources/discussions)
-* The website [done.land](https://done.land) is *automatically generated* off the repository materials and provides a great browsing and reading experience.
+The *repository* keeps and organizes all content, and also hosts all [Comments](https://github.com/TobiasPSP/doneland_sources/issues) and [Discussions](https://github.com/TobiasPSP/doneland_sources/discussions).
+
+The *website* is *automatically generated* off of the repository. It provides the final browsing and reading experience.
 
 ### Benefits and Advantages
 
 You can enjoy both places, each has its own advantages:
 
-* **Data Oriented:** the *repository* is *data driven*, and in the upper part you always see an *explorer-like file view*. This is especially helpful for articles with extensive attached code examples, but you can also *navigate* the site by clicking *folders*. By convention, folder names starting with a *capital letter* are public content. When a folder name is *all lower-case*, you can still look inside it but most likely its content serves internal purposes and is boring.
-* **Search Oriented:** the *website* is *search-oriented*. Click the *search icon* in the upper right corner to quickly search for terms or model names. The *right* sidebar provides easy *headline navigation*, and the *left sidebar* lists *related topics*
-I am using the latter to create, organize and maintain my content. Whenever the *Github Repo* changes, this is automatically pushed to the website. So you find the same content on both places.
+* **Data Oriented:** the *repository* is *data driven*, and in the upper part you always see an *explorer-like file view*. This is especially helpful for articles with extensive attached code examples, but you can also *navigate* the site by clicking *folders*. By convention, folder names starting with a *capital letter* are public content. When a folder name is *all lower-case*, you can still explore it but most likely its content serves internal purposes and looking inside is as thrilling as unscrewing the cover of your *coffee machine* (when you really just want a *cappucchino*).
+* **Search Oriented:** the *website* is *search-oriented*: click the *search icon* in the upper right corner to quickly search for terms or model names. The *right* sidebar provides easy *headline navigation*, and the *left sidebar* lists *related topics*
+
 
 ### Switching Back and Forth
 
