@@ -60,7 +60,7 @@ Whenever that happens I start to search for *new tools*, and if I can't find any
 
 ## Split Personality: Github and The Web
 
-The website [done.land]()https://done.land) is driven by a [github repository](https://github.com/TobiasPSP/doneland_sources). You can visit either one of these siblings.
+The website [done.land](https://done.land) is driven by a [github repository](https://github.com/TobiasPSP/doneland_sources). You can visit either one of these siblings.
 
 The *repository* keeps and organizes all content, and also hosts all [Comments](https://github.com/TobiasPSP/doneland_sources/issues) and [Discussions](https://github.com/TobiasPSP/doneland_sources/discussions).
 
