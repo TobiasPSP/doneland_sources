@@ -78,9 +78,6 @@ You can enjoy both places, each has its own advantages:
 
 You can easily switch between *Github* and the *Web*: at the bottom of each page, you find *links* respective *buttons* to switch to the *sibling page*.
 
-> [!TIP]
-> If you are currently viewing this from within *Github*, you can easily switch to the website version of any page: at the bottom you always find a link that takes you to the website sibling.
-
 Here is an example: [this article](Components/Human%20Interface/Rotary%20Encoder/Using%20Mechanical%20Rotary%20Encoder) explains how to hook up a *Rotary Encoder* to a microprocessor. 
 
 You can start reading the article as a [Webpage](https://done.land/components/humaninterface/rotaryencoder/usingmechanicalrotaryencoder). Once you are ready to dig deeper and actually use the attached code, i.e. in *platformio* or the *Arduino IDE*, simply switch to the [Github Repo Version](https://github.com/TobiasPSP/doneland_sources/tree/main/Components/Human%20Interface/Rotary%20Encoder/Using%20Mechanical%20Rotary%20Encoder) of the same page. One easy way is to use the *green* button **Show on Github** that you find at the bottom of any webpage on my site.
