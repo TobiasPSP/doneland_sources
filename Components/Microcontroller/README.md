@@ -415,6 +415,6 @@ The number of **SPI** was reduced from 3 to 1.
 > [!CAUTION]
 > As of this writing, the **C6** does not support the *Arduino Framework* yet. You cannot currently program it using the *Arduino IDE* or *platformio*. Instead, you must use the *ESP-IDF* from *Expressif*. This is going to change soonish, and eventually, the **C6**, too, will support the universal *ArduinoIDE*.
 
-> Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano, S2, S3, C2, C3, C6, Clone, Power Regulator,
+> Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano, S2, S3, C2, C3, C6, Clone, Power Regulator
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller?765626031601243831) - last edited 2024-03-01
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller?765626031601243831) - last edited 2024-03-15
