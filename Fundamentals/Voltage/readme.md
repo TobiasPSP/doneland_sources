@@ -52,6 +52,6 @@ The amount of work the *moving water* (aka total amount of moving electrons) can
 
 This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel) and the pressure is *low* (low voltage), no water flows (the paddle wheel won't move at all). A *minimum pressure* (minimum voltage) is required.
 
-> Tags: Voltage, Tension, Resistance, Power, Watt, Current
+> Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC
 
 :eye:&nbsp;[Visit Page on Website](https://done.land/fundamentals/voltage?928463030815241653) - last edited 2024-03-15
