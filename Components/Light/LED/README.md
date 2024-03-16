@@ -271,7 +271,7 @@ Occasionally you may come across *preconfectioned* **LED** that have already *wi
 
 <img src="images/led_normal_back_t.png" width="50%" height="50%" />
 
-Hopefully, *wire color* lets you identify *anode* (red wire) and *cathode* (black wire). If not, above you learned a trick to identify the *anode* by looking *inside the **LED** head.
+Hopefully, *wire color* lets you identify *anode* (red wire) and *cathode* (black wire). If not, above you learned a trick to identify the *anode* by looking *inside the **LED** head*.
 
 Take a close look at the wire to check whether a *series resistor* was already added. In the picture above you see a *bulky shape* in the section of the *shrink tubing*. When a *series resistor* is already in place, then this **LED** is preconfigured for a given voltage. Often, preconfigured **LED** are ready-to-use in automotive areas (**12V**).
 
