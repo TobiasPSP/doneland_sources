@@ -63,7 +63,7 @@ The *classic* SD cards are *large* with dimensions of 24x32x2.1mm. Newer *microS
 > [!TIP]
 > It is not strictly necessary to use a **SD Card Module**. These modules simply provide an easy **SD Card** mount and forward the appropriate contacts to your microcontroller. **SD Card Modules** for **5V** microcontrollers add a *level shifter*. 
 > **SD Cards** come with a *SPI* interface already built-in so no complex external components are required.   
-> Without a **SD Card Module**, manually connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.   
+> Without a **SD Card Module**, manually connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.
 > Supply voltage to the **SD Card** via its contacts *VDD* and *VSS/GND* but keep in mind that they are **3.3V** devices. To operate them with a **5V** microcontroller like an *Arduino*, add an appropriate *level shifter*.   
 > Then again, **SD Card Modules* are so cheap that the only sensible reason for directly connecting **SD Cards** would be a challenging device size or cases where you simply want to add permanent storage to your microcontroller.
 
