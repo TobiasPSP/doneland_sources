@@ -42,7 +42,9 @@ To transport energy, the *higher* the voltage, the *lower* the *current* can be 
 
 ## Voltage Sources
 
-Voltage exists whenever there is a difference in electric charge between two points. This difference can exist in a number of ways:
+Voltage exists whenever there is a difference in electric charge between two points: this creates an *electric field* in-between these two points that can move (*apply force* or *induce energy into*) electrically charged particles (*electrons*). 
+
+This *potential difference* can exist in a number of ways:
 
 * **Battery:** a *battery* uses *chemistry* to store more electrons on one side than on the other. It is a **DC** source. Since a *battery* stores electrons to produce the *voltage*, its supply is *limited* and deplets over time, and while you use it, the *voltage* slowly decreases because the *difference* in electrons on both poles of the battery decreases.
 * **Power Supply:** electrical energy is produced elsewhere (**AC**) and delivered to your home. A *power supply* converts the energy from **AC** to **DC** and lowers the voltage to safe levels that you then can use. *Power supplies* deliver *endless* energy with a constant voltage (as long as you pay your bills).
