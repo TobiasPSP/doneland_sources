@@ -38,6 +38,9 @@ The *longer* leg is the *anode* (**+**).
 > You can identify the *anode* even when **LEDs** are already *wired* or the "legs" have been cut and shortened.       
 > Look inside the **LED** head: you'll identify a *wider* metal part, and a relatively *short* pin. The *short* pin is connected to the *anode* (**+**), and the wider *triangle*-like part is connected to the *cathode* (**-** or **GND**)
 
+
+<img src="images/led_generic_find_anode_t.png" width="50%" height="50%" />
+
 ### More Legs
 
 **LED** with *more* than two legs serve special purposes and use *multiple* internal **LED**. 
@@ -62,7 +65,207 @@ Consult the data sheet to identify the pins and their purpose.
 
 ## Standard Hobbyist LEDs
 
-Anyone in electronics has come across the classic standard LEDs that typically come in two diameters: 3mm and 5mm:
+Anyone in electronics has come across the classic standard LEDs that typically come in two diameters - 3mm and 5mm:
+
+<img src="images/led_generic_size_t.png" width="50%" height="50%" />
+
+### Standard LED Not Very Efficient
+
+These *cheap standard indicator* **LED** are neither very bright nor very efficient: at *20mA*, they consume relatively much energy for relatively low light output. They are still very useful for *indicator* purposes or just to play around.
+
+They come in many different colors:
+
+<img src="images/led_generic_size_t.png" width="50%" height="50%" />
+
+
+
+### Calculating Series Resistor
+
+For classic 3- or 5mm hobbyist **LED**, calculating the necessary *series resistor* value is straight-forward: the **LED** current is well known (20mA), and the **LED** *forward voltage* can be guessed from the **LED** color.
+
+> [!CAUTION]
+> The light color emitted by a **LED** is based on the materials used, and while the *current* is the same, the *forward voltage* differs considerably for each color. You need a *different series resistor* for each color. The suggested *series resistor* values below are *guesses* based on standard values. Always make sure you double-check with the data sheet and vendor information of *your* **LED**. Use at own risk.
+
+I am using a small **PowerShell** script to calculate below values. The results show the suggested *series resistor* for a particular **LED** color and is calculated for an operating voltage of **5V**, **9V**, **12V**, and **24V**:
+
+````
+PS> 5,9,12,24  | Get-LedResistor -Color yellow, orange, red, green, blue, white | Format-Table -AutoSize
+
+WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
+Required Resistor (Ohm) Operating Voltage (V) Led Current (mA) Led Voltage (V) Led Color
+----------------------- --------------------- ---------------- --------------- ---------
+                   6250                     5               20             1.8 yellow   
+                   6452                     5               20             1.9 orange   
+                   6667                     5               20               2 red      
+                   7692                     5               20             2.4 green    
+                  10000                     5               20               3 blue     
+                  11111                     5               20             3.2 white
+
+  
+                   2778                     9               20             1.8 yellow   
+                   2817                     9               20             1.9 orange   
+                   2857                     9               20               2 red      
+                   3030                     9               20             2.4 green    
+                   3333                     9               20               3 blue     
+                   3448                     9               20             3.2 white    
+
+
+                   1961                    12               20             1.8 yellow   
+                   1980                    12               20             1.9 orange   
+                   2000                    12               20               2 red      
+                   2083                    12               20             2.4 green    
+                   2222                    12               20               3 blue     
+                   2273                    12               20             3.2 white    
+
+
+                    901                    24               20             1.8 yellow   
+                    905                    24               20             1.9 orange   
+                    909                    24               20               2 red      
+                    926                    24               20             2.4 green    
+                    952                    24               20               3 blue     
+                    962                    24               20             3.2 white    
+````
+
+> The table shows the values *for a particular shipment of these **LED*** that I received. They can serve as *rough estimates* but always make sure you check the data sheet or vendor information for *your* **LED** types.
+
+<details><summary>PowerShell Script to calculate **LED** resistance values</summary><br/>
+
+Here is the **PowerShell** script that was used above to calculate the **LED** *series resistor* values:
+
+```powershell
+function Get-LedResistor
+{
+  [CmdletBinding(DefaultParameterSetName='ForwardVoltage')]
+  param
+  (
+    [Parameter(Mandatory,ValueFromPipeline)]
+    [double]
+    $OperatingVoltage,
+    
+    
+    [Parameter(Mandatory,ParameterSetName='precise')]
+    [double]
+    $ForwardVoltage,
+    
+    [Parameter(Mandatory,ParameterSetName='guess')]
+    [ValidateSet('yellow','orange','red','green','blue','white')]
+    [string[]]
+    $Color,
+    
+    [int]
+    $Current = 20    
+  )
+
+  begin
+  {
+    $colorToVoltage = @{
+      yellow = 1.8
+      orange = 1.9
+      red = 2.0
+      green = 2.4
+      blue = 3.0
+      white = 3.2
+    }
+  }
+  process
+  {
+    $Color | ForEach-Object {
+      $curColor = $_
+      if ($PSCmdlet.ParameterSetName -eq 'guess')
+      {
+        $ForwardVoltage = $colorToVoltage[$curColor]
+      }
+      else
+      {
+        $curColor = $colorToVoltage.GetEnumerator() | 
+        Sort-Object { [Math]::Abs($_.Value - $ForwardVoltage)  } | 
+        Select-Object -First 1 -ExpandProperty Key
+      }
+    
+      $voltageDrop = $OperatingVoltage - $ForwardVoltage
+      $resistance = $Current * 1000 / $voltageDrop
+  
+      [PSCustomObject]@{
+        'Required Resistor (Ohm)' = $resistance -as [Int]
+        'Operating Voltage (V)'   = $OperatingVoltage
+        'Led Current (mA)'        = $Current
+        'Led Voltage (V)'         = $ForwardVoltage
+        'Led Color'               = $curColor
+      }
+    }
+  }
+  end
+  {
+    if ($PSCmdlet.ParameterSetName -eq 'guess')
+    {
+      Write-Warning "LED Forward Voltage was guessed from color and can be completely different. Use at own risk."
+    }
+  }
+}
+```
+
+Run this script inside a **PowerShell** *console* or **IDE** like *Windows PowerShell ISE* or *VSCode* to define the new command `Get-LedResistor'.
+
+Next, use the command inside the same PowerShell session like below. As you will see, **PowerShell** commands are *extremely powerful and versatile*, and this one new command can calculate one individual resistor as well as *a resistor table* for a *wide range of operating voltages*:
+
+````
+PS> Get-LedResistor -OperatingVoltage 3.3 -Color red -Current 10
+
+
+Required Resistor (Ohm) : 7692
+Operating Voltage (V)   : 3.3
+Led Current (mA)        : 10
+Led Voltage (V)         : 2
+Led Color               : red
+
+WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
+
+
+
+PS> Get-LedResistor -OperatingVoltage 10 -Current 15 -ForwardVoltage 2.2
+
+
+Required Resistor (Ohm) : 1923
+Operating Voltage (V)   : 10
+Led Current (mA)        : 15
+Led Voltage (V)         : 2.2
+Led Color               : green
+
+
+
+
+PS> 3..24 | Get-LedResistor -Current 15 -Color blue | Select-Object -Property required*, *operat*
+
+WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
+Required Resistor (Ohm) Operating Voltage (V)
+----------------------- ---------------------
+                                            3
+15000                                       4
+7500                                        5
+5000                                        6
+3750                                        7
+3000                                        8
+2500                                        9
+2143                                       10
+1875                                       11
+1667                                       12
+1500                                       13
+1364                                       14
+1250                                       15
+1154                                       16
+1071                                       17
+1000                                       18
+938                                        19
+882                                        20
+833                                        21
+789                                        22
+750                                        23
+714                                        24
+````
+
+</details>
+
+### Wired and Preconfigured
 
 <img src="images/led_normal_back_t.png" width="50%" height="50%" />
 
@@ -90,9 +293,14 @@ Otherwise, they work like regular **LED**.
 
 These **LED** come with *four* legs, one at each side of the square.
 
-Typically one side has two *holes*. The pins on this side are the *anodes* (**+**).
+Typically one side has two *holes*. The pins on this side are the *anodes* (**+**). The picture below shows both *a rounded edge* (on the left side) and the two *holes* (on the right side), even though both are a bit hard to identify on first look:
 
-One corner of the square can also be *rounded*. When viewed from *top* and turned so that the *round* corner is on the lower right, then the two pins at the bottom are the *cathodes*.
+<img src="images/led_piranha_edge_and_hole_t.png" width="50%" height="50%" />
+
+The *rounded edge* can also help to identify the pins: when viewed from *top* and turned so that the *round* corner is on the lower right, then the two pins at the bottom are the *cathodes*. The picture below shows both the *rounded edge* and the two *cathode* pins:
+
+<img src="images/led_piranha_edge_t.png" width="50%" height="50%" />
+
 
 > [!TIP]
 > Typically, both *anodes* and both *cathodes* are internally connected. You need to connect only *one* anode and cathode, and use only *one series resistor*.
