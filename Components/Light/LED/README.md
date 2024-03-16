@@ -75,8 +75,8 @@ These *cheap standard indicator* **LED** are neither very bright nor very effici
 
 They come in many different colors:
 
-<img src="images/led_generic_size_t.png" width="50%" height="50%" />
 
+<img src="images/led_generic_group1_t" width="50%" height="50%" />
 
 
 ### Calculating Series Resistor
@@ -265,9 +265,19 @@ Required Resistor (Ohm) Operating Voltage (V)
 
 </details>
 
-### Wired and Preconfigured
+### Wired and Preconfectioned LED
+
+Occasionally you may come across *preconfectioned* **LED** that have already *wires* attached to them:
 
 <img src="images/led_normal_back_t.png" width="50%" height="50%" />
+
+Hopefully, *wire color* lets you identify *anode* (red wire) and *cathode* (black wire). If not, above you learned a trick to identify the *anode* by looking *inside the **LED** head.
+
+Take a close look at the wire to check whether a *series resistor* was already added. In the picture above you see a *bulky shape* in the section of the *shrink tubing*. When a *series resistor* is already in place, then this **LED** is preconfigured for a given voltage. Often, preconfigured **LED** are ready-to-use in automotive areas (**12V**).
+
+> [!TIP]
+> If in doubt, take a bench power supply and set it to a safe minimum voltage like **1.5V**. Then connect the **LED** and slowly raise the voltage.
+> If the **LED** does not emit light at above **3.8V** (and you haven't accidentally reversed polarity), then a *series resistor* must have obviously been added.
 
 The picture shows already wired **LED**, and you can identify the *resistor* that was added to one leg of the **LED**. These **LEDs** were already tailored to work with a specific voltage.
 
@@ -423,6 +433,10 @@ Depending on type and color, *Cree* **LED** typically have a maximum current of 
 <img src="images/led_cree_star_row_t.png" width="50%" height="50%" />
 
 Typically, these **LED** are mounted to metal *LED Stars* available in various diameters: even though *Cree* **LED** are relatively *efficient*, when run close to their maximum *current* they do produce significant *heat* and cannot be run without a proper heat sink.
+
+<img src="images/heatsink_t.png" width="50%" height="50%" />
+
+<sup><sub>Always make sure you use a proper heat sink or even active cooling for high performance **LED**</sub></sup>
 
 > [!TIP]
 > Like with generic high performance **LED**, running **LED** at considerably less current (i.e. half of their maximum) than their maximum ratings can reduce heat problems while still emitting massively bright light.
