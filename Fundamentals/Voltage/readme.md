@@ -48,9 +48,9 @@ Voltage exists whenever there is a difference in electric charge between two poi
 
 A good way of picturing *voltage* is a hydraulic analogy. When a *pump* (power source) is driving water through a closed circuit of pipework, then *voltage* is the *speed* of the water (depending on the speed of the pump), and *current* is the *amount* of water (depending on the pipe diameter and the volume of the pump). 
 
-The amount of work the *moving water* (aka total amount of moving electrons) can do, for example driving a generator, depends *both* on the *speed* (voltage) and the *pipe diameter* (volume of water, aka current).
+Both the *speed* (voltage) and the *amount* (current) of water *together* determine the total amount of water (energy) delivered.
 
-This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel) and the pressure is *low* (low voltage), no water flows (the paddle wheel won't move at all). A *minimum pressure* (minimum voltage) is required.
+This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel, high resistance) and the pressure is *low* (low voltage), no water flows at all (the paddle wheel won't move even a bit). A *minimum pressure* (minimum voltage) is required for any given resistance.
 
 > Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC
 
