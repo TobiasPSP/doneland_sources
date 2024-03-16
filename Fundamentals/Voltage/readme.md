@@ -75,7 +75,7 @@ That's why *semiconductors* need *two breakdown voltages*, one for each directio
 * **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless.
 
 > [!NOTE]
-> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied* (their *breakdown voltage*): an *insulator* is a material that *conducts* at a *high voltage only* (because it has a *high breakdown voltage*) whereas a *conductor* has a much lower *resistance* (aka *breakdown voltage*) and conducts always, even at very low *voltages*.
+> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied* (their *breakdown voltage*): an *insulator* (like *plastic*) is a material that *conducts* at a *high voltage only* (because it has a *high breakdown voltage*) whereas a *conductor* (like *metal*) has a much lower *resistance* (aka *breakdown voltage*) and conducts always, even at very low *voltages*.
 
 This electrical phenomenon has *practical importance* in many cases, including these:
 
