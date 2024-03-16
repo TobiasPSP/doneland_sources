@@ -3,7 +3,7 @@
 
 # 1S - Protecting Single Batteries 
 
-> 1S BMS Protect One (Groups of) Batteries From Mishap.
+> 1S BMS Protect One (Group of) Batteries From Mishap.
 
 Single batteries often come with a *basic* **BMS** built-in. If you want more control over the protection features, you can select and add your own **1S BMS** according to your needs.
 
