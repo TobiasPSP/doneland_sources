@@ -71,7 +71,7 @@ Both terms become important with *semiconductors* like *diodes* or *transistors*
 * For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters. They don't have a separate *forward voltage* because the direction of current makes no difference to them.
 
 > [!NOTE]
-> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts even at very low *voltages*.
+> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts always, even at very low *voltages*.
 
 This electrical phenomenon has *practical importance* in many cases, including these:
 
