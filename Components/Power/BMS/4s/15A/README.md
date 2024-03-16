@@ -1,0 +1,60 @@
+<img src="/assets/images/battery.png" width="100%" height="100%" />
+
+
+# 4S 15A Battery Management Systems (BMS)
+
+> BMS For Four Battery Strings And 15A Max Current
+
+
+> [!NOTE]
+> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
+> *Locked state* is entered whenever *over-current protection* was triggered. 
+> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
+
+
+
+> [!CAUTION]
+> When connecting batteries to your **BMS**, make sure you use *wires* with sufficient diameter for the anticipated *high currents*.
+> Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
+
+
+
+
+## 15A
+
+[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
+
+
+For currents up to **15A**, a board with four powerful *MosFET* like this one can be used:
+
+<img src="images/bms_4s_15A_top_angle_t.png" width="100%" height="100%" />
+
+Connect the batteries like this:
+
+* First battery string to **B-** (-) and **VL** (+)
+* Second battery string to **VL** (-) and **VM** (+)
+* Third battery string to **VM** (-) and **VH** (+)
+* Forth battery string to **VH** (-) and **B+** (+) 
+
+<img src="images/bms_4s_15a_wiring.png" width="100%" height="100%" />
+
+
+The terminals are accessible both from top and bottom.
+
+The output voltage is available at **P+** and **P-**.
+
+<img src="images/bms_4s_15a_bottom_t.png" width="100%" height="100%" />
+
+### Specs
+
+| Protection | Threshold | 
+| --- | --- | 
+| Over-Charge | >4.25V |
+| Over-Discharge | 2.5V |
+| Over-Current | 20-30A | 
+| Short Circuit | yes,resettable | 
+| Continuous Current | 15A (10A w/o heat sink) |
+| Size | 50x22x4mm |
+
+
+> Tags: Battery, BMS, 4S, 15A
