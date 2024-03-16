@@ -52,6 +52,19 @@ Both the *speed* (voltage) and the *amount* (current) of water *together* determ
 
 This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel, high resistance) and the pressure is *low* (low voltage), no water flows at all (the paddle wheel won't move even a bit). A *minimum pressure* (minimum voltage) is required for any given resistance.
 
-> Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC
+## Breakdown Voltage
+
+The *breakdown voltage* (*minimum voltage* to pass a *resistance*) is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*.
+
+> [!NOTE]
+> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts even at very low *voltages*. 
+
+This becomes important in a number of situations, including these:
+
+* **Insulator:** An insulator insulates only up to a certain voltage. Once a voltage exceeds the *breakdown voltage* of the insulator, it is no longer an *insulator* but instead becomes a *conductor*.
+* **Diodes:** The breakdown voltage is the minimum reverse voltage that makes the diode conduct appreciably in reverse. Some devices (such as TRIACs) also have a forward breakdown voltage.
+* **LED:** An easier-to-understand example is a **LED** which is an insulator at voltages below its *forward voltage*. Once voltage reaches or exceeds the *forward voltage*, the **LED** becomes a *conductor* and starts to emit light. 
+
+> Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC, Forward Voltage, Breakdown Voltage, Isulator
 
 :eye:&nbsp;[Visit Page on Website](https://done.land/fundamentals/voltage?928463030815241653) - last edited 2024-03-15
