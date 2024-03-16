@@ -30,9 +30,15 @@ In **AC**, the polarity changes continuously many times per second, and *current
 In **DC**, the polarity does not change, and *current* always flows in the *same* direction. Typically, *battery power* and electrical power provided by *power adapters* is **DC**.
 
 > [!NOTE]
-> In most *hobbyist projects*, you use **DC** and therefore need a *battery*, or a *power adapter* to convert **AC** to **DC**.   
-> The reason **AC** exists at all is that it can be easily *produced* using magnetic fields in *generators* and *turbines*, and that **AC** can be efficiently transmitted over long distances because **AC** voltage can be easily raised or lowered using transformers.
-> To transport energy, the *higher* the voltage, the *lower* the *current* can be. This reduces losses through *heat* and is the reason why electrical transmission lines use super high voltages like 1.200kV and more.
+> If you rub something, it gets *hot*: you applied a *force*. It does not really matter though whether you *rub* back and forth (**AC**), or *drag* something behind you in one direcion (**DC**).
+> In either way, *friction* (*resistance*) was overcome, and this applied *force* produces *heat*.
+> In the same way, both **AC** and **DC** can perform work. It does not matter whether *electrons* travel from **A** to **B**, or whether they just *vibrate*, as long as they *move*.
+
+In most *hobbyist projects*, you use **DC** and therefore need a *battery*, or a *power adapter* to convert **AC** to **DC**.   
+
+The reason **AC** exists at all is that it can be easily *produced* using magnetic fields in *generators* and *turbines*, and that **AC** can be efficiently transmitted over long distances because **AC** voltage can be easily raised or lowered using transformers.
+
+To transport energy, the *higher* the voltage, the *lower* the *current* can be. This reduces losses through *heat* and is the reason why electrical transmission lines use super high voltages like 1.200kV and more.
 
 ## Voltage Sources
 
