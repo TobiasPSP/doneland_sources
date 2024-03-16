@@ -42,7 +42,7 @@ To transport energy, the *higher* the voltage, the *lower* the *current* can be 
 
 ## Voltage Sources
 
-Voltage exists whenever there is a difference in electric charge between two points: this creates an *electric field* in-between these two points that can move (*apply force* or *induce energy into*) electrically charged particles (*electrons*). 
+Voltage exists whenever there is a difference in electric charge between two points: this creates an *electric field* between these two points that can in turn move (*apply force* or *induce energy into*) electrically charged particles (*electrons*). 
 
 This *potential difference* can exist in a number of ways:
 
