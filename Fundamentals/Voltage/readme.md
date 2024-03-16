@@ -62,7 +62,7 @@ This also explains the *minimum voltage* required to pass a *resistance*: if the
 
 ## Breakdown and Forward Voltage
 
-Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*. Put simple: it is the *voltage* at which a material changes from being an *insulator* to becoming a *conductor*.
+Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a material to experience *electrical breakdown* and become *electrically conductive*. Put simple: it is the *voltage* at which a material changes from being an *insulator* to becoming a *conductor*.
 
 For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters, and there is no separate *forward voltage* because the direction of current makes no difference to them.
 
