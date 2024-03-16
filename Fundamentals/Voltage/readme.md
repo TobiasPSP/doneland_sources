@@ -62,9 +62,14 @@ This also explains the *minimum voltage* required to pass a *resistance*: if the
 
 ## Breakdown and Forward Voltage
 
-Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*.
+Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*. Put simple: it is the *voltage* at which a material changes from being an *insulator* to becoming a *conductor*.
 
-Both terms become important with *semiconductors* like *diodes* or *transistors*: here, the current behaves differently depending on its *direction* (which is why they are called **semi**conductors in the first place):
+For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters, and there is no separate *forward voltage* because the direction of current makes no difference to them.
+
+***Semi*conductors* (like *diodes* or *transistors*) are different: as their name implies, they act *differently* depending on the *direction* of *electric field* (polarity). 
+
+That's why *semiconductors* need *two breakdown voltages*, one for each direction of electric current. To better differentiate, the second *breakdown* voltage is called *forward voltage*:
+
 
 * **Forward Voltage:** this is the voltage at which *electric breakdown* occurs for *current* in the *forward direction*. A *diode* for example is designed to conduct *current* only in *one direction*, however it does so only when the *voltage* exceeds its *forward voltage*. For *silicon diodes*, this is roughly *0.6-1.0V*, and below this voltage, a *diode* would not conduct current *in either direction*.
 * **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless.
