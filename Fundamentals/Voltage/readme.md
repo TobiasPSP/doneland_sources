@@ -66,7 +66,7 @@ Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it 
 
 For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters, and there is no separate *forward voltage* because the direction of current makes no difference to them.
 
-***Semi*conductors* (like *diodes* or *transistors*) are different: as their name implies, they act *differently* depending on the *direction* of *electric field* (polarity). 
+***Semi**conductors* (like *diodes* or *transistors*) are different: as their name implies, they act *differently* depending on the *direction* of *electric field* (polarity). 
 
 That's why *semiconductors* need *two breakdown voltages*, one for each direction of electric current. To better differentiate, the second *breakdown* voltage is called *forward voltage*:
 
