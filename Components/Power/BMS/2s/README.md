@@ -20,10 +20,14 @@ A **2S BMS** is needed to protect *two* batteries (or groups of batteries connec
 > When connecting batteries to your **BMS**, make sure you use *wires* with sufficient diameter for the anticipated *high currents*.
 > Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
 
-[BMS 2S 3A](3A)
-[BMS 2S 8A](8A)
-[BMS 2S 10A](10A)
-[BMS 2S 20A](20A)
+## List of BMS
+
+Here is a list of actual **BMS** breakout boards, separated by *maximum current*:
+
+* [BMS 2S 3A](3A)
+* [BMS 2S 8A](8A)
+* [BMS 2S 10A](10A)
+* [BMS 2S 20A](20A)
 
 
 
