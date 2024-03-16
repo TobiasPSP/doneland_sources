@@ -63,4 +63,4 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 > Tags: Battery, BMS, 4S, 8A
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/4s?268282020426240854) - last edited 2024-02-27
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/4s/8a?268282020426240854) - last edited 2024-02-27
