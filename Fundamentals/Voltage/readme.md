@@ -17,7 +17,7 @@ The *total electric power* (in *Watts*) is defined as *voltage x current*. This 
 Voltage influences the total power in two ways:
 
 * The higher the voltage, the more *power* can be driven through a *resistance*
-* If the voltage is too low to penetrate a given *resistance*, no *current* can flow at all, and the total power is null.
+* If the voltage is too low to penetrate a given *resistance*, no *current* will flow at all, and the total power is null.
 
 > [!NOTE]
 > To clarify: if you touch wires connected to a **5V** voltage, *no current at all* will flow through your body because the *voltage* is too low to drive electrons through the resistance of your skin.   
