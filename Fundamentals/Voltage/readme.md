@@ -79,7 +79,7 @@ In metals one or more of the negatively charged electrons in each atom (*conduct
 
 When *voltage* is applied, it creates an *electric field* that applies force to *electrically charged particles* such as *electrons*. 
 
-* **Metal:** At a *low voltage*, the *electric field* is weak. Its force, albeit weak, is still strong enough to move the freely movable electrons in *metas*: a *current* flows, the metal *conducts* despite the *low voltage*. 
+* **Metal:** At a *low voltage*, the *electric field* is weak. Its force, albeit weak, is still strong enough to move the freely movable electrons in *metals*: a *current* flows, the metal *conducts* despite the *low voltage*. 
 * **Plastics:** The *electrons* in *plastics* or *ceramics* are tightly bound to their atoms. This force is much stronger than the weak force of the *electric field* at *low voltage*.
 
 When the *voltage* exceeds a certain threshold (the *breakdown voltage*), the *electric field* becomes so strong that it exceeds the force of the atoms, and their *electrons* suddenly start to move. This moment is called *electrical breakdown*.
