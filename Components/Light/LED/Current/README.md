@@ -4,9 +4,9 @@
 
 > Everything You Need To Know To Limit LED Current And Operate Them Safely
 
-**LED** get destroyed immediately if you run them off normal power sources: their *very low* internal resistance would cause a short-circuit and in a blink of a moment burn the **LED** and destroy it forever.
+**LED** get destroyed immediately if you run them off normal power sources: their *very low* internal resistance causes a short-circuit and in a blink of a moment burn the **LED** and destroy it forever - almost like a fuse.
 
-To safely operate **LED**, you must limit the *current* supplied to the **LED**. There are two popular ways to do this:
+To safely operate **LED**, you need to limit the *current* supplied to the **LED**. There are two popular ways to do this:
 
 * via a **Series Resistor** or a **Constant Voltage** power supply
 * by using a **Constant Current** power supply
@@ -19,10 +19,11 @@ To safely operate **LED**, you must limit the *current* supplied to the **LED**.
 
 ## Using a LED Series Resistor
 
-For hobbyist projects, a *series resistor* is simple, cheap and typically sufficient. The resistor and the **LED** form a classic *voltage divider*: the **LED** gets the voltage necessary to drive the appropriate *current*.
+For hobbyist projects and low-powered indicator **LED**, a *series resistor* is simple, cheap and typically sufficient. The resistor and the **LED** form a classic *voltage divider*: the **LED** gets the voltage necessary to drive the appropriate *current*.
 
 > [!CAUTION]
 > A *voltage divider* can only *lower* the input voltage. The input voltage must be *higher* than the *forward voltage* needed by the **LED**.
+
 
 > [!NOTE]
 > A *voltage divider* is a very *inefficient* way of reducing the *voltage*: excess energy is converted to *heat* and wasted. A *series resistor* should only be considered for *low power* indicator **LED**. 
