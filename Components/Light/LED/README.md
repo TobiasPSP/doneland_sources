@@ -76,7 +76,7 @@ These *cheap standard indicator* **LED** are neither very bright nor very effici
 They come in many different colors:
 
 
-<img src="images/led_generic_group1_t" width="50%" height="50%" />
+<img src="images/led_generic_group1_t.png" width="50%" height="50%" />
 
 
 ### Calculating Series Resistor
