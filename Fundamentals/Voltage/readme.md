@@ -31,7 +31,7 @@ In **DC**, the polarity does not change, and *current* always flows in the *same
 
 > [!NOTE]
 > In most *hobbyist projects*, you use **DC** and therefore need a *battery*, or a *power adapter* to convert **AC** to **DC**.   
-> The reason **AC** exists at all is that it can be easily *generated* using magnetic fields in *dynamos* and *turbines*, and that **AC** can be efficiently transmitted over long distances because **AC** voltage can be easily raised or lowered using transformers.
+> The reason **AC** exists at all is that it can be easily *produced* using magnetic fields in *generators* and *turbines*, and that **AC** can be efficiently transmitted over long distances because **AC** voltage can be easily raised or lowered using transformers.
 > To transport energy, the *higher* the voltage, the *lower* the *current* can be. This reduces losses through *heat* and is the reason why electrical transmission lines use super high voltages like 1.200kV and more.
 
 ## Voltage Sources
