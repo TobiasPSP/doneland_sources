@@ -61,11 +61,12 @@ The *classic* SD cards are *large* with dimensions of 24x32x2.1mm. Newer *microS
 <img src="images/sdcard_moduleBasic.png" width="40%" height="40%" />
 
 > [!TIP]
-> It is not strictly necessary to use a **SD Card Module**. When you closely examine these, you will notice that there are almost no components on them.
-> **SD Cards** come with a *SPI* interface built-in, and **SD Card Modules** are just a convenient way to mount a **SD Card** and connect its contacts to the microcontroller.
-> If you want to directly connect a **SD Card** to your microcontroller, connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.
+> It is not strictly necessary to use a **SD Card Module**. These modules simply provide an easy **SD Card** mount and forward the appropriate contacts to your microcontroller. **SD Card Modules** for **5V** microcontrollers add a *level shifter*. 
+> That's because **SD Cards** come with a *SPI* interface built-in. 
+> Without a **SD Card Module**, manually connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.
 > Supply voltage to the **SD Card** via its contacts *VDD* and *VSS/GND* but keep in mind that they are **3.3V** devices. To operate them with a **5V** microcontroller like an *Arduino*, add an appropriate *level shifter*.
-> 
+> Then again, **SD Card Modules* are so cheap that the only sensible reason for directly connecting **SD Cards** would be a challenging device size or cases where you simply want to add permanent storage to your microcontroller.
+
 
 There are also *Shields* available for *specific* microcontrollers such as the *Wemos D1 Mini*. *Shields* are breakout boards that are designed to be pin-compatible with a host board. *Shields* can be mounted directly on the microprocessor board and require no wiring:
 
