@@ -59,7 +59,8 @@ Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it 
 Both terms become important with *semiconductors* like *diodes* or *transistors*: here, the current behaves differently depending on its *direction* (which is why they are called **semi**conductors in the first place):
 
 * **Forward Voltage:** this is the voltage at which *electric breakdown* occurs for *current* in the *forward direction*. A *diode* for example is designed to conduct *current* only in *one direction*, however it does so only when the *voltage* exceeds its *forward voltage*. For *silicon diodes*, this is roughly *0.6-1.0V*, and below this voltage, a *diode* would not conduct current *in either direction*.
-* **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless. For non-semiconducting materials, *breakdown voltage* is all that matters. They don't have a separate *forward voltage* because the direction of current makes no difference for them.
+* **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless.
+* For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters. They don't have a separate *forward voltage* because the direction of current makes no difference to them.
 
 > [!NOTE]
 > Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts even at very low *voltages*.
