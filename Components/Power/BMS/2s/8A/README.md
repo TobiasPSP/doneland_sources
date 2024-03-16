@@ -28,7 +28,7 @@
 
 For currents up to **8A**, a board with more powerful *MosFET* like this one is necessary:
 
-<img src="images/bms_2s_8A_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_8a_top_angle_t.png" width="100%" height="100%" />
 
 The terminals are accessible both from top and bottom.
 
