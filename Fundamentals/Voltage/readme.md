@@ -52,18 +52,45 @@ Both the *speed* (voltage) and the *amount* (current) of water *together* determ
 
 This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or move the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel, high resistance) and the pressure is *low* (low voltage), no water flows at all (the paddle wheel won't move even a bit). A *minimum pressure* (minimum voltage) is required for any given resistance.
 
-## Breakdown Voltage
+## Breakdown and Forward Voltage
 
-The *breakdown voltage* (*minimum voltage* to pass a *resistance*) is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*.
+Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a portion of a material to experience *electrical breakdown* and become *electrically conductive*.
+
+Both terms become important with *semiconductors* like *diodes* or *transistors*: here, the current behaves differently depending on its *direction* (which is why they are called **semi**conductors in the first place):
+
+* **Forward Voltage:** this is the voltage at which *electric breakdown* occurs for *current* in the *forward direction*. A *diode* for example is designed to conduct *current* only in *one direction*, however it does so only when the *voltage* exceeds its *forward voltage*. For *silicon diodes*, this is roughly *0.6-1.0V*, and below this voltage, a *diode* would not conduct current *in either direction*.
+* **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless. For non-semiconducting materials, *breakdown voltage* is all that matters. They don't have a separate *forward voltage* because the direction of current makes no difference for them.
 
 > [!NOTE]
-> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts even at very low *voltages*. 
+> Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied*: an *insulator* is a material that *conducts* at a *high voltage only* whereas a *conductor* has a much lower *resistance* and conducts even at very low *voltages*.
 
-This becomes important in a number of situations, including these:
+This electrical phenomenon has *practical importance* in many cases, including these:
 
-* **Insulator:** An insulator insulates only up to a certain voltage. Once a voltage exceeds the *breakdown voltage* of the insulator, it is no longer an *insulator* but instead becomes a *conductor*.
-* **Diodes:** The breakdown voltage is the minimum reverse voltage that makes the diode conduct appreciably in reverse. Some devices (such as TRIACs) also have a forward breakdown voltage.
-* **LED:** An easier-to-understand example is a **LED** which is an insulator at voltages below its *forward voltage*. Once voltage reaches or exceeds the *forward voltage*, the **LED** becomes a *conductor* and starts to emit light. 
+* **Insulator:** An insulator insulates only up to a certain voltage. Once a voltage exceeds the *breakdown voltage* of the insulator, it is no longer an *insulator* and becomes a *conductor* instead. You need to carefully select the *insulation material* for higher voltages to make sure it really insulates. This also explains why *switches* are rated for certain maximum voltages: once voltages exceed the limit, the *air* insulating the small distance between the two contacts inside the switch becomes *conductive*, and *sparks* can form.
+* **Diodes:** Diodes are components that conduct only in one direction. If a large enough negative voltage is applied to the diode, though, a diode will give in and allow current to flow in the reverse direction. This large negative voltage is called the *breakdown voltage*. Some diodes are actually designed to operate in the breakdown region, but for most normal diodes it's not good for them to be subjected to large negative voltages. For normal diodes this breakdown voltage is around -50V to -100V, or even more negative.
+* **LED:** A **LED** is an insulator at voltages below its *forward voltage*. Once voltage reaches or exceeds the *forward voltage*, the **LED** becomes a *conductor* and starts to emit light. At the same time, **LED** have a *very low breakdown voltage* of just **5V**: applying power in wrong polarity can easily destroy them.
+
+<details><summary>How does electrical breakdown actually work?</summary><br/>
+
+*Metals* are considered "good" *conductors* (they conduct even at very *low voltages*), whereas *plastics* insulate. Why do these materials behave so differently?
+
+In metals one or more of the negatively charged electrons in each atom (*conduction electrons*) are free to move about the crystal lattice. In materials like *plastics* and *ceramics* ("bad" *conductors*), all electrons are tightly bound to atoms.
+
+When *voltage* is applied, it creates an *electric field* that applies force to *electrically charged particles* such as *electrons*. 
+
+* **Metal:** At a *low voltage*, the *electric field* is weak. Its force, albeit weak, is still strong enough to move the freely movable electrons in *metas*: a *current* flows, the metal *conducts* despite the *low voltage*. 
+* **Plastics:** The *electrons* in *plastics* or *ceramics* are tightly bound to their atoms. This force is much stronger than the weak force of the *electric field* at *low voltage*.
+
+When the *voltage* exceeds a certain threshold (the *breakdown voltage*), the *electric field* becomes so strong that it exceeds the force of the atoms, and their *electrons* suddenly start to move. This moment is called *electrical breakdown*.
+
+In essence, *electrical breakdown* in a material occurs when the electric field becomes strong enough to pull electrons from the molecules of the material, ionizing them. 
+
+Once *electric breakdown* occurs, the released electrons are suddenly accelerated by the field and strike other atoms, creating more free electrons and ions in a chain reaction, flooding the material with charged particles. This is why (almost) no *current* flows below a certain *voltage*, and why any material suddenly becomes *conductive* once *voltage* exceeds a certain threshold.
+
+At *which voltage* this occurs is just a matter of the given material, its inner structure and how strongly its atoms bind the *electrons*. This is measured in *volts per centimeter*: it characterizes the *dielectric strength* (or *conductivity*) of a material.
+
+</details>
+
 
 > Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC, Forward Voltage, Breakdown Voltage, Isulator
 
