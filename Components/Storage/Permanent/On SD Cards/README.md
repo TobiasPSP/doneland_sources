@@ -65,7 +65,7 @@ The *classic* SD cards are *large* with dimensions of 24x32x2.1mm. Newer *microS
 > **SD Cards** come with a *SPI* interface already built-in so no complex external components are required.   
 > Without a **SD Card Module**, manually connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.
 > Supply voltage to the **SD Card** via its contacts *VDD* and *VSS/GND* but keep in mind that they are **3.3V** devices. To operate them with a **5V** microcontroller like an *Arduino*, add an appropriate *level shifter*.   
-> Then again, **SD Card Modules* are so cheap that the only sensible reason for directly connecting **SD Cards** would be a challenging device size or cases where you simply want to add permanent storage to your microcontroller.
+> Then again, **SD Card Modules** are so cheap that the only sensible reason for directly connecting **SD Cards** would be a challenging device size or cases where you simply want to add permanent storage to your microcontroller.
 
 
 There are also *Shields* available for *specific* microcontrollers such as the *Wemos D1 Mini*. *Shields* are breakout boards that are designed to be pin-compatible with a host board. *Shields* can be mounted directly on the microprocessor board and require no wiring:
