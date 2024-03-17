@@ -2,9 +2,9 @@
  
 # LED (Light Emitting Diodes)
 
-> LEDs Can Be Flexibly Shaped, Produce Light In Any Color Efficiently, Last Forever and Cost Very Little
+> LEDs Can Be Flexibly Shaped, Produce Light In Any Color Efficiently, Last Forever and Cost Little
 
-**LED**s (*light emitting diodes*) are *semiconductors* that work like a *diode* but emit *light*.
+**LED**s (*light emitting diodes*) are *semiconductors* that work like a *diode* yet their main feature is that they emit *light*.
 
 Their conversion of electric power to *light* is so efficient that **LED** typically do not produce *heat* (very high powered **LED** still do): they are said to produce *cold light*.
 
@@ -13,41 +13,57 @@ Their conversion of electric power to *light* is so efficient that **LED** typic
 
 **LED** are *rugged* and last longer and are *more resilient* to *mechanical* stress than most other light sources. 
 
-One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. When you connect **LED** directly to a power source can *instantly destroy* them. The **LED** *low resistance* behaves like a wire that you use to *short-circuit* your power supply: for a fraction of a second, a *huge current* flows and causes your **LED** to burn up, almost like a *fuse*.
+One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. 
 
-**You must always limit the *current* that you supply to a LED**. 
+When you connect an **LED** directly to a power source, it will almost *instantly burn up*. The **LED** *low resistance* behaves similar to a wire or a *fuse* (which have a *low resistance*, too): 
 
-[Read more here](Current) to find out *how* you can safely control the **LED** *current* and *calculate the resistance* for a *series resistor*. You'll also learn more on using *constant voltage* or *constant current* to drive single **LED** as well as **LED Strips**.
+When you *short-circuit* your power supply with them, for a fraction of a second a *huge current* flows and *heats up* and ultimately destroys both. The very same happens with **LED**. 
+
+To operate **LED** safely, you must always *limit the current* that can flow through the **LED**. There are [many ways](Current) to *limit current*. In hobbyist projects, a simple *series resistor* is the most popular one.
 
 ## Identifying Anode and Cathode
 
-It is important to connect **+** and **-** to the correct "legs" of the **LED**. 
+Since **LED** are semiconductors and conduct current in one direction only, it is crucial to connect it to the correct *polarity*. The two *legs* of a **LED** are called *anode* (**+**) and *cathode* (**-**).
 
-> [!NOTE]
-> **LED** are *diodes* so *current* can flow in just one direction. When you accidentally connect the **LED** legs to the wrong polarity, the **LED** won't emit light. Worse though, **LED** have a very low *reverse voltage* of just *5V*. If you apply a voltage in *wrong polarity* to a **LED** that is above *5V*, you can *destroy it*.
-> Most often, though, connecting the wrong polarity to a **LED** is not doing permanent harm because **LED** are used with some sort of *current limiting* (as discussed elsewhere). Just never try and use **LED** as a *real diode replacement*.
+<details><summary>Forward Voltage, Reverse Voltage, and Breakdown Voltage</summary><br/>
+
+Any material has a *breakdown voltage*: at this voltage, it becomes *conductive*. 
+
+Semiconductors (like **LED**) have **two** *breakdown voltages*: the *forward voltage* is the *breakdown voltage* for the "normal" current that flows from **+** to **-** (in the *correct* or *intended* direction). *Reverse voltage* is the *breakdown voltage* when current flows the opposite direction.
+
+When you connect a **LED** correctly to **+** and **-**, once the applied voltage exceeds the **LED** *forward voltage*, the **LED** starts to emit light. Typically, **LED** *forward voltages* are in the range of *1.6-4.0V*, depending on their *color* and the materials they were made of.
+
+When you connect a **LED** *incorrectly* and accidentally *reverse polarity*, the **LED** acts like a *diode* and will not conduct. Since **LED** were never designed to be *diodes*, no effort was made to optimize their *reverse voltage*. Compared to *real diodes*, the *reverse voltage* for **LED** is *very low* and around **5V**.
+
+So once the voltage of your *incorrectly connected power* exceeds **5V**, the **LED** starts to conduct but cannot utilize the power to produce light. The power instead is converted to *heat* and ultimatively destroys the **LED**.
+
+When you use a current-limiting *series resistor* or some other means of *current limit*, you are protected against accidental *reverse voltage* as well: even though the voltage may exceed the *reverse voltage*, only a very small *current* flows which is not powerful enough to cause real damage. 
+</details>
+
+Let's examine different **LED** types and their "legs" next and correctly identify *anode* and *cathode*.
 
 ### Two Legs
 
-The *longer* leg is the *anode* (**+**). 
+Classic *indicator **LED*** have *two* "legs". The *longer* leg is the *anode* (**+**). 
 
 <img src="images/led_square_many_top_t.png" width="50%" height="50%" />
 
 
 > [!TIP]
-> You can identify the *anode* even when **LEDs** are already *wired* or the "legs" have been cut and shortened.       
-> Look inside the **LED** head: you'll identify a *wider* metal part, and a relatively *short* pin. The *short* pin is connected to the *anode* (**+**), and the wider *triangle*-like part is connected to the *cathode* (**-** or **GND**)
-
+> Since most **LED** are transparent, you can look *inside* the **LED**, too, to identify the *anode*. This is useful if the **LED** is already wired or its "legs" have been shortened or cut off otherwise.     
+> Inside the **LED**, you see a *short* metal piece that is always connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
 
 <img src="images/led_generic_find_anode_t.png" width="50%" height="50%" />
 
-### More Legs
+### More Than Two Legs
 
-**LED** with *more* than two legs serve special purposes and use *multiple* internal **LED**. 
+**LED** with *more* than two legs serve special purposes. Here are some examples:
 
-#### Simple Multi-Color
+#### Multi-Color LED
 
 These **LED** can be *bi-color* (three legs) or *RGB* (four legs). They always use a distinct physical **LED** per color inside.
+
+<img src="images/led_dual_overview_t.png" width="50%" height="50%" />
 
 The *longest* leg is the *common connection*: whether this is the *anode* (**+**) or *cathode* (**-**) depends on the particular **LED** type and construction. 
 
@@ -56,34 +72,35 @@ The remaining legs connect to the individual internal **LED**.
 > [!WARNING]
 > The **LED** specs like *current* and *forward voltage* are based on *color*, so in *bi-color* and *RGB* **LED**, each internal **LED** has *different* requirements and needs a different *series resistor*.
 
-#### Programmable
+#### Programmable LED
 
-*Smart* **LED** (like WS2812) have *four* or more legs and use an internal chip to drive the internal **LED**.
+*Smart* **LED** (like *WS2812*) have *four* or more legs and use an internal chip to drive the internal **LED**.
 
-Consult the data sheet to identify the pins and their purpose.
+<img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
+> [!TIP]
+> *Smart* **LED** like the *WS2812* are *much easier* to use than regular **RGB LED**: you need to supply *only one voltage*, and the internal chip takes care of supplying the correct *current* to each individual **LED**. With *regular **RGB LED**, you need to use separate *series resistors* for *each color*.
+> *Smart* **LED** can also be *daisy chained* which dramatically reduces the number of required *wires*. Since they are *digitally controlled*, a *microcontroller* is mandatory to operate them.
 
 ## Standard Hobbyist LEDs
 
-Anyone in electronics has come across the classic standard LEDs that typically come in two diameters - 3mm and 5mm:
+Anyone in electronics has come across the classic standard LEDs that typically come in two diameters: 3mm and 5mm.
 
 <img src="images/led_generic_size_t.png" width="50%" height="50%" />
 
-### Standard LED Not Very Efficient
+### Not Very Efficient
 
-These *cheap standard indicator* **LED** are neither very bright nor very efficient: at *20mA*, they consume relatively much energy for relatively low light output. They are still very useful for *indicator* purposes or just to play around.
-
-They come in many different colors:
-
+*Cheap standard indicator* **LED** are neither very bright nor very efficient: at *20mA*, they consume relatively *much* energy for relatively *low* light output. They are still very popular (and sufficient) for *indicator* purposes or just to play around and come in many colors:
 
 <img src="images/led_generic_group1_t.png" width="50%" height="50%" />
 
-
 ### Calculating Series Resistor
 
-For classic 3- or 5mm hobbyist **LED**, calculating the necessary *series resistor* value is straight-forward: the **LED** current is well known (20mA), and the **LED** *forward voltage* can be guessed from the **LED** color.
+For low power 3- or 5mm hobbyist **LED**, typically a *series resistor* is used for *current limiting*. It can be quickly calculated based on the well known **LED** *current* (20mA) and the typically well-known *forward voltages* (based on **LED** color).
 
 > [!CAUTION]
+> 
+>
 > The light color emitted by a **LED** is based on the materials used, and while the *current* is the same, the *forward voltage* differs considerably for each color. You need a *different series resistor* for each color. The suggested *series resistor* values below are *guesses* based on standard values. Always make sure you double-check with the data sheet and vendor information of *your* **LED**. Use at own risk.
 
 I am using a small **PowerShell** script to calculate below values. The results show the suggested *series resistor* for a particular **LED** color and is calculated for an operating voltage of **5V**, **9V**, **12V**, and **24V**:
