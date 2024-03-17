@@ -14,15 +14,32 @@ As *cheap indicator* **LED**, they are designed to emit a noticeable colored *li
 
 ## Not Very Efficient
 
-These **LED** are neither very bright nor very efficient: at *20mA*, they consume relatively *much* energy for relatively *low* light output. Because of their low *currents*, they get away with it and despite their *inefficiencies* do not produce much heat nor do they need *heat sinks*.
+These **LED** are neither very bright nor very efficient: at *20mA*, they consume relatively *much* energy for relatively *low* light output. Because of their low *currents*, they get away with it and despite their *inefficiencies* do not produce much heat or need *heat sinks*.
 
 What matters more is their *low price* and the many available colors:
 
 <img src="images/led_generic_group1_t.png" width="50%" height="50%" />
 
+## Wiring: Anode and Cathode
+
+Classic *indicator **LED*** have *two* "legs". The *longer* leg is the *anode* (**+**). 
+
+<img src="images/led_generic_find_anode_t.png" width="50%" height="50%" />
+
+
+Since most **LED** are transparent, you can look *inside* the **LED**. This is useful if the **LED** is already wired or its "legs" have been shortened or cut off otherwise.     
+
+Inside the **LED** head, a *short* metal piece is connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
+
+
+
+
+
 ## Calculating Series Resistor
 
-Due to their low power, cheap *series resistors* are used for *current limiting*. The required resistor value can quickly be calculated based on the well known **LED** *current* (20mA) and the also well-known *forward voltages* (based on **LED** color).
+Due to their low power, cheap *series resistors* are used for *current limiting*. 
+
+The required resistor value can quickly be calculated based on the well known **LED** *current* (20mA) and the also well-known *forward voltages* (based on **LED** color).
 
 > [!CAUTION]
 > Each **LED** *color* has its own *forward voltage*. Do not use a *series resistor* for a *blue* **LED** on a *red* **LED**.
@@ -219,12 +236,10 @@ You may come across *preconfectioned* **LED** that have *wires* already attached
 > Wired **LED** often already come with a *series resistor* that hides inside the *shrink tube* (like seen in the picture above). In this case, the **LED** is already preconfigured for a particular operating voltage.
 
 
-> [!TIP]
-> To find out the intended operating voltage of such **LED**, take a bench power supply and set it to a safe minimum voltage like **1.5V**. Then connect the **LED** and slowly raise the voltage.   
-> If the **LED** does not emit light at above **3.8V** (and you haven't accidentally reversed polarity), then a *series resistor* must have obviously been added. Raise the voltage until the **LED** start to emit light.
 
 *Indicator* **LED** exist in many different shapes and forms and can also be *square*, *clear* or *fogged*. They all work the same.
 
+<img src="images/led_square_many_top_t.png" width="50%" height="50%" />
 
 
 > Tags: LED, Light, Anode, Cathode

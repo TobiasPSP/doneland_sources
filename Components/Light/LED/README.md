@@ -48,16 +48,7 @@ Let's examine the fundamental **LED** types and identify their *anode* and *cath
 
 ### Two Legs
 
-Classic *indicator **LED*** have *two* "legs". The *longer* leg is the *anode* (**+**). 
 
-<img src="images/led_square_many_top_t.png" width="50%" height="50%" />
-
-
-> [!TIP]
-> Since most **LED** are transparent, you can look *inside* the **LED**. This is useful if the **LED** is already wired or its "legs" have been shortened or cut off otherwise.     
-> Inside the **LED** head, a *short* metal piece is connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
-
-<img src="images/led_generic_find_anode_t.png" width="50%" height="50%" />
 
 ### More Than Two Legs
 
