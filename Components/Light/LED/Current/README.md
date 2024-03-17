@@ -160,7 +160,8 @@ For example, when you connect *six red* **LED** *in series*, the *total forward 
 
 > [!CAUTION]
 > Be aware that this does not allow for much variation of operating voltage. If you connected the string of *six* **LED** to your car battery, the *true* operating voltage may be in the range of *11.8-13.8V*, depending on *state of charge*.
-> This would apply a voltage of *1.97-2.3V* to each individual **LED**. Most of the time you would get away with this but using a *series resistor*, or controlling *voltage* or *current* through a power supply is protecting your **LED** better.
+> This would apply a voltage of *1.97-2.3V* to each individual **LED**. Most of the time you would get away with this. Using a *series resistor*, or controlling *voltage* or *current* through a power supply is protecting your **LED** better, though.
+> The more **LED** you daisy chain, and the *higher* the *total forward voltage* is, the less important are variations in operating voltage. That is why *cheap* **LED** *flood lights* designed to be operated by *110/220V* often use this approach: when you connect *110* **LED** *in series*, even a variation of **10V** in input voltage would change the individual **LED** voltage just by **0.1V**.
 
 
 > Tags: LED, Resistor, Constant Current, Constant Voltage, Forward Voltage
