@@ -95,7 +95,7 @@ There are only a few *fundamental* **LED** types, though:
 
 ## Standard Indicator LEDs
 
-[Indicator LED](Classic Indicator LED) are *cheap* and *simple to use*. Many hobbyist projects use these.
+[Indicator LED](Classic%20Indicator%20LED) are *cheap* and *simple to use*. Many hobbyist projects use these.
 
 <img src="images/led_generic_group1_t.png" width="50%" height="50%" />
 
