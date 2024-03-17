@@ -7,7 +7,8 @@
 Probably anyone in electronics has come across the classic standard LEDs that come in two diameters: 3mm and 5mm.
 
 
-As *cheap indicator* **LED**, all they are designed for is to emit a noticeable colored *light* to *indicate* a given *state* to the user - or to just *play around*.
+As *cheap indicator* **LED**, they are designed to emit a noticeable colored *light* to *indicate* a given *state*. That is not much which is why these **LED** are *cheap* and popular among hobbyists to play around with.
+
 
 <img src="images/led_generic_size_t.png" width="50%" height="50%" />
 
