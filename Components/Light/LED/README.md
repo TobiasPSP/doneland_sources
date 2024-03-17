@@ -13,11 +13,15 @@ Their conversion of electric power to *light* is so efficient that **LED** typic
 
 **LED** are *rugged* and last longer and are *more resilient* to *mechanical* stress than most other light sources. 
 
+### Low Internal Resistance
+
 One pecularity makes them very *delicate and sensitive*, though: they have a *low internal resistance*. 
 
 When you connect an **LED** directly to a power source, it will almost *instantly burn up*. The **LED** *low resistance* behaves similar to a wire or a *fuse* (which have a *low resistance*, too): 
 
 When you *short-circuit* your power supply with them, for a fraction of a second a *huge current* flows and *heats up* and ultimately destroys both. The very same happens with **LED**. 
+
+### Always Control Current
 
 To operate **LED** safely, you must always *limit the current* that can flow through the **LED**. There are [many ways](Current) to *limit current*. In hobbyist projects, a simple *series resistor* is the most popular one.
 
@@ -40,7 +44,7 @@ So once the voltage of your *incorrectly connected power* exceeds **5V**, the **
 When you use a current-limiting *series resistor* or some other means of *current limit*, you are protected against accidental *reverse voltage* as well: even though the voltage may exceed the *reverse voltage*, only a very small *current* flows which is not powerful enough to cause real damage. 
 </details>
 
-Let's examine different **LED** types and their "legs" next and correctly identify *anode* and *cathode*.
+Let's examine the fundamental **LED** types and identify their *anode* and *cathode*.
 
 ### Two Legs
 
@@ -50,37 +54,38 @@ Classic *indicator **LED*** have *two* "legs". The *longer* leg is the *anode* (
 
 
 > [!TIP]
-> Since most **LED** are transparent, you can look *inside* the **LED**, too, to identify the *anode*. This is useful if the **LED** is already wired or its "legs" have been shortened or cut off otherwise.     
-> Inside the **LED**, you see a *short* metal piece that is always connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
+> Since most **LED** are transparent, you can look *inside* the **LED**. This is useful if the **LED** is already wired or its "legs" have been shortened or cut off otherwise.     
+> Inside the **LED** head, a *short* metal piece is connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
 
 <img src="images/led_generic_find_anode_t.png" width="50%" height="50%" />
 
 ### More Than Two Legs
 
-**LED** with *more* than two legs serve special purposes. Here are some examples:
+**LED** with *more* than two legs serve special purposes. Here are common examples:
 
 #### Multi-Color LED
 
-These **LED** can be *bi-color* (three legs) or *RGB* (four legs). They always use a distinct physical **LED** per color inside.
+They can be *bi-color* (three legs) or *RGB* (four legs) and internally always use a distinct physical **LED** per color.
 
 <img src="images/led_dual_overview_t.png" width="50%" height="50%" />
 
-The *longest* leg is the *common connection*: whether this is the *anode* (**+**) or *cathode* (**-**) depends on the particular **LED** type and construction. 
+The *longest* leg is the *common connection*: whether *anode* (**+**) or *cathode* (**-**) depends on the particular **LED** type. 
 
 The remaining legs connect to the individual internal **LED**.
 
 > [!WARNING]
-> The **LED** specs like *current* and *forward voltage* are based on *color*, so in *bi-color* and *RGB* **LED**, each internal **LED** has *different* requirements and needs a different *series resistor*.
+> In *bi-color* and *RGB* **LED**, each internal **LED** has *different* requirements and needs a different *series resistor*.
 
 #### Programmable LED
 
-*Smart* **LED** (like *WS2812*) have *four* or more legs and use an internal chip to drive the internal **LED**.
+*Smart* **LED** (like *WS2812*) have *four* or more legs and use an integrated chip to drive its internal **LED**.
 
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
 > [!TIP]
-> *Smart* **LED** like the *WS2812* are *much easier* to use than regular **RGB LED**: you need to supply *only one voltage*, and the internal chip takes care of supplying the correct *current* to each individual **LED**. With *regular **RGB LED**, you need to use separate *series resistors* for *each color*.
-> *Smart* **LED** can also be *daisy chained* which dramatically reduces the number of required *wires*. Since they are *digitally controlled*, a *microcontroller* is mandatory to operate them.
+> Thanks to the on-board chip, you need to supply *only one voltage* to all internal **LED**.
+> *Smart* **LED** can be *daisy chained* which drastically reduces the *wiring*.
+> Since they are *digitally controlled*, a *microcontroller* is mandatory to operate them.
 
 ## Standard Hobbyist LEDs
 
