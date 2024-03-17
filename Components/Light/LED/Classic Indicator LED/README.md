@@ -9,7 +9,7 @@ Probably anyone in electronics has come across the classic standard LEDs that co
 <img src="images/led_generic_size_t.png" width="50%" height="50%" />
 
 
-As *cheap indicator* **LED**, they are designed to emit a noticeable colored *light* to *indicate* a given *state*. That is not much which is why these **LED** are *cheap* and popular among hobbyists to play around with.
+As *cheap indicator* **LED**, they are designed to emit a noticeable colored *light* to *indicate* a given *state*. That is not much asked - which is why these **LED** are *cheap* and popular among hobbyists to play around with.
 
 
 ## Not Very Efficient
