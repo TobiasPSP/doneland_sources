@@ -6,10 +6,11 @@
 
 **LED** get destroyed immediately if you run them off normal power sources: their *very low* internal resistance causes a short-circuit and in a blink of a moment burn the **LED** and destroy it forever - almost like a fuse.
 
-To safely operate **LED**, you need to limit the *current* supplied to the **LED**. There are two popular ways to do this:
+To safely operate **LED**, you need to limit the *current* supplied to the **LED**. There are *three* popular ways to do this:
 
 * via a **Series Resistor** or a **Constant Voltage** power supply
 * by using a **Constant Current** power supply
+* by *daisy-chaining* multiple **LED**
 
 > [!NOTE]
 > It is *only relevant* to supply the correct *current* to the **LED**: using a **constant current** power supply guarantees that.   
@@ -149,6 +150,17 @@ The most fundamental *spec* of every **LED** is the *current* it needs. Using a 
 > If you use **LED** with a *forward voltage* of *3.5V* each, though, you can connect *10 **LED** in series*. They now have a *total forward voltage* of *35V* which is well in the *voltage range* of the power supply.   
 > The power supply would now drive the *10 **LED** and provide the *constant current* of *700mA* to each of the **LED** in your string.   
 
+## Daisy-Chaining Multiple LED
+
+Each **LED** has its specific *forward voltage*, and a *red* **LED** may have a *forward voltage* of *2.0V*.
+
+When you connect *multiple* **LED** *in series*, the individual *forward voltages* sum up.
+
+For example, when you connect *six red* **LED** *in series*, the *total forward voltage* is *2.0V x 6 = 12V*. You can connect these *six* **LED** directly to a **12V** power supply without the need of *series resistors*.
+
+> [!CAUTION]
+> Be aware that this does not allow for much variation of operating voltage. If you connected the string of *six* **LED** to your car battery, the *true* operating voltage may be in the range of *11.8-13.8V*, depending on *state of charge*.
+> This would apply a voltage of *1.97-2.3V* to each individual **LED**. Most of the time you would get away with this but using a *series resistor*, or controlling *voltage* or *current* through a power supply is protecting your **LED** better.
 
 
 > Tags: LED, Resistor, Constant Current, Constant Voltage, Forward Voltage
