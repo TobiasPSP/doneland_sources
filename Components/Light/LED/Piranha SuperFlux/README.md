@@ -46,3 +46,5 @@ Here is a picture of the *built-in lens* designed to emit the light in almost al
 
 
 > Tags: LED, Light, Anode, Cathode, Piranha, Superflux
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/piranhasuperflux?634085031318243445) - last edited 2024-03-18
