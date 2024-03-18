@@ -14,7 +14,7 @@ What sets them apart is that internally, they use *two* separate **LED** with di
 <img src="images/led_dual_overview_t.png" width="50%" height="50%" />
 
 > [!NOTE]
-> You could as well use a *RGB* **LED** to show different colors. For *indicator* purposes where just *two* states matter, *dual color* **LED** are simpler (and thus cheaper).
+> You could as well use a *RGB* **LED** to show different colors. For *indicator* purposes where just *two* states matter, *dual color* **LED** are simpler (and cheaper).
 
 ## Identifying Anode and Cathode
 
