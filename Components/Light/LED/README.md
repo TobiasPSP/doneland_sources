@@ -58,9 +58,7 @@ When you use a current-limiting *series resistor* or some other means of *curren
 
 <img src="images/led_strawhat_top_t.png" width="50%" height="50%" />
 
-In all other aspects, they work like regular **LED**.
 
-<img src="images/led_strawhat_multiple_top_t.png" width="50%" height="50%" />
 
 
 ## Piranha / SuperFlux LED
