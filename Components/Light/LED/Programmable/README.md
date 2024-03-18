@@ -31,15 +31,12 @@ Primarily targeted towards *strips* and *matrix*-configurations involving *many*
 
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
-These individual **LED** are a very smart idea when designing devices with many *indicator* **LED**: 
-
-Instead of wiring each **LED** separately, and instead of investing *one precious GPIO pin* per **LED**, you  use the same *one-wire-protocol* used in **LED** strips to control *all your indicator **LED*** with just *one GPIO pin* - the ability to display any available color is an added extra bonus.
+These individual **LED** are a very smart idea when designing devices with many *indicator* **LED**: Instead of wiring each **LED** separately, and instead of investing *one precious GPIO pin* per **LED**, you  use the same *one-wire-protocol* used in **LED** strips to control *all your indicator **LED*** with just *one GPIO pin* - the ability to display any available color is an added extra bonus.
 
 
 
 > [!NOTE]
-> Some vendors call *programmable **LED*** based on the **WS2812* chip *NeoPixel*.
-Some vendors call this **LED** type *NeoPixel*.
+> Some vendors call *programmable **LED*** based on the *WS2812* chip *NeoPixel*.
 
 ### Advantages
 
