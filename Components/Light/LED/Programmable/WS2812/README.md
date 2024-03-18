@@ -12,27 +12,12 @@
 > *Smart* **LED** can be *daisy chained* which drastically reduces the *wiring*.
 > Since they are *digitally controlled*, a *microcontroller* is mandatory to operate them.
 
+Sophisticated **LED Strips** often use *WS2812* **LED** that come with full RGB color, an internal controller chip *per LED*, and *four* legs.
 
-## Form Factors
-
-Sophisticated **LED Strips** often use *WS2812* **LED** that come with full RGB color, an internal controller chip *per LED*, and *four* connectors: two for supplying power, and one each for *data in* and *data out*. *data out* then forwards the received data to the *next* **LED**.
-
-> [!NOTE]
-> A clever signal protocol makes sure that *each* **LED** in this string is *individually addressable* even though all **LED** are connected by just *one wire*.   
-> Simplified, each **LED** increments a counter in the data protocoll when the signal passes. This way, each **LED** knows its position in the string. *Commands* to change *color* or *brightness* can therefore be addressed to an individual **LED** in the string based on its position.
-
-**LED** *matrix displays* are essentially a variant of an **LED** *strip*, just in a different form factor:
-
-<img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
-
-
-While primarily targeted towards *strips* and *matrix*-configurations with *many* **LED**, *programmable* **LED** also come as *single* **LED** in a traditional form factor:
-
+These **LED** are available in many different forms and shapes and are not restricted to **LED strips**. They are also available as *regular individual **LED***.
 
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
-> [!NOTE]
-> Some vendors call *programmable **LED*** based on the **WS2812* chip *NeoPixel*.
 Some vendors call this **LED** type *NeoPixel*.
 
 ### Advantages
@@ -90,4 +75,4 @@ Over time, I am adding practical examples on how to operate *programmable **LED*
 
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, Programmable LED
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable?668154031318243445) - last edited 2024-03-18
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/ws2812?668154031318243445) - last edited 2024-03-18
