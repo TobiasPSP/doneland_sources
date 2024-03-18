@@ -26,10 +26,16 @@ Sophisticated **LED Strips** often use *WS2812* **LED** that come with full RGB 
 <img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
 
 
-While primarily targeted towards *strips* and *matrix*-configurations with *many* **LED**, *programmable* **LED** also come as *single* **LED** in a traditional form factor:
+Primarily targeted towards *strips* and *matrix*-configurations involving *many* **LED**, *programmable* **LED** are available as *single* **LED** in a traditional form factor, too:
 
 
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
+
+These individual **LED** are a very smart idea when designing devices with many *indicator* **LED**: 
+
+Instead of wiring each **LED** separately, and instead of investing *one precious GPIO pin* per **LED**, you  use the same *one-wire-protocol* used in **LED** strips to control *all your indicator **LED*** with just *one GPIO pin* - the ability to display any available color is an added extra bonus.
+
+
 
 > [!NOTE]
 > Some vendors call *programmable **LED*** based on the **WS2812* chip *NeoPixel*.
