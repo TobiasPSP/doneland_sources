@@ -17,11 +17,7 @@ To identify *anode* and *cathode*, closely examine the *piranha* **LED**. Use a 
 * **Anodes:** On one side you can identify two *holes*. The pins on this side are the *anodes* (**+**).
 * **Cathodes:** One *edge* is *rounded*. When you look at the **LED** from the top and place the *rounded edge* to the *lower right* side, then the *bottom pins* are the *cathodes*
 
-The picture below shows both *a rounded edge* (on the left side) and the two *holes* (on the right side). Both are a bit hard to identify on first look:
-
-<img src="images/led_piranha_edge_and_hole_t.png" width="50%" height="50%" />
-
-The next picture below also shows both the *rounded edge* and the two *cathode* pins from a different angle. The *rounded edge* is positioned at the *lower right*, so the two pins seen in the picture are the *cathodes*.
+The picture shows both the *rounded edge* and the two *cathode* pins from a different angle. The *rounded edge* is positioned at the *lower right*, so the two pins seen in the picture are the *cathodes*.
 
 <img src="images/led_piranha_edge_t.png" width="50%" height="50%" />
 
@@ -38,9 +34,7 @@ The next picture below also shows both the *rounded edge* and the two *cathode* 
 
 Even though not required with the *regular* types, for added robustness you can connect *anode* and *cathode* with two separate wires each.
 
-<img src="images/led_piranha_top_t.png" width="50%" height="50%" />
-
-Here is a picture of the *built-in lens* designed to emit the light in almost all directions:
+Here you can see the *built-in lens* on to of the housing that is designed to emit the light in almost all directions (wide viewing angle):
 
 <img src="images/led_piranha_pile_top_t.png" width="50%" height="50%" />
 
