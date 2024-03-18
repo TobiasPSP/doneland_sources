@@ -5,9 +5,9 @@
 > Mix Any Color: Red, Green And Blue LED Combined Provide A Universal Color LED
 
 
-*RGB** **LED** contain at minimum three separate **LED** in the colors *red*, *green*, and *blue*. In addition, *cold white* and *warm white* **LED** can be added to provide more levels of *brightness* and *contrast*.
+*RGB* **LED** contain at minimum three separate **LED** in the colors *red*, *green*, and *blue*. In addition, *cold white* and *warm white* **LED** can be added to provide more levels of *brightness* and *contrast*.
 
-<img src="images/rgbled_t.png" width="50%" height="50%" />
+<img src="images/rgbled_t.png" width="30%" height="30%" />
 
 > [!NOTE]
 > Please do not confuse **RGB LED** with *programmable **RGB LED***. Simple **RGB LED** (as discussed here) are often used in *cheap* **LED** *strips*: they can change color, but they can change the color only for the entire strip.   
