@@ -23,6 +23,11 @@ In all other aspects, they work like regular **LED**.
 
 <img src="images/led_strawhat_front_t.png" width="50%" height="50%" />
 
+> [!TIP]
+> Like with any **LED**, you can identify the *anode* (**+**) also by *looking inside* the **LED** head: the "leg" that leads to the *pin shaped contact* inside the **LED** head is the *anode*. The *cup-shaped* larger metal piece connects to the *cathode*.
+
+
+
 
 > Tags: LED, Light, Anode, Cathode, Straw Hat
 
