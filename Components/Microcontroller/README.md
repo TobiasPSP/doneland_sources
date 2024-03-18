@@ -39,6 +39,21 @@ The supporting boards can come from a variety of sources. Aside from the *origin
 
 Clones for *other* microcontrollers are typically flawless. This issue affects predominantly **ESP8266** clones. To reiterate: **ESP32** clones are not affected.
 
+### CH9102, CP210x, CH340
+
+Many microcontroller boards come with chips to connect to your PC via USB. That is crucial for most users in order to upload firmware.
+
+There a boards with various chip types available. Here are the differences:
+
+| OS | CH9102 | CP210x | CH340 |
+| --- | --- | --- | --- |
+| Windows | yes | yes | yes |
+| MacOS | yes | yes | driver needed |
+| Speed Mbps | 4 | 12 | 2 |
+
+On *Windows* you can use all chips. For maximum transfer speed, try and choose boards with *CP210x*.
+
+On *Apple*, try to avoid *CH340* unless you are ok with potentially having to search for and install an appropriate driver for it.
 
 ### Innovation Through Clones
 
