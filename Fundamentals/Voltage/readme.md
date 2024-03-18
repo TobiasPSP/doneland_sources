@@ -60,19 +60,18 @@ Both the *speed* (voltage) and the *amount* (current) of water *together* determ
 
 This also explains the *minimum voltage* required to pass a *resistance*: if there is a *bottleneck* (resistor, load, paddle wheel) in the pipework, *more pressure* (voltage) is needed to drive water through it or overcome the initial resistance of the load/paddle wheel. If the *bottleneck* is severe (heavy paddle wheel, high resistance) and the pressure is *low* (low voltage), no water flows at all (the paddle wheel won't move even a bit). A *minimum pressure* (minimum voltage) is required for any given resistance.
 
-## Breakdown and Forward Voltage
+## Breakdown and Forward/Reverse Voltage
 
-Both *breakdown voltage* and *forward voltage* describe the same phenomenon: it is the minimum voltage that causes a material to experience *electrical breakdown* and become *electrically conductive*. Put simple: it is the *voltage* at which a material changes from being an *insulator* to becoming a *conductor*.
+Both *breakdown voltage* and the terms *forward voltage* and *reverse voltage* describe the same phenomenon: it is the *minimum voltage* that causes a material to experience *electrical breakdown* and become *electrically conductive*. Put simple: it is the *voltage* at which a material changes from being an *insulator* to becoming a *conductor*.
 
-For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters, and there is no separate *forward voltage* because the direction of current makes no difference to them.
+For non-semiconducting materials like *metal* or *plastics*, *breakdown voltage* is all that matters, and there is no separate *forward* or *reverse voltage* because the direction of current makes no difference to them.
 
 ***Semi**conductors* (like *diodes* or *transistors*) are different: as their name implies, they act *differently* depending on the *direction* of *electric field* (polarity). 
 
-That's why *semiconductors* need *two breakdown voltages*, one for each direction of electric current. To better differentiate, the second *breakdown* voltage is called *forward voltage*:
-
+That's why *semiconductors* need *two breakdown voltages*, one for each direction of electric current. To better differentiate, their *breakdown voltages* are called *forward voltage* (for current flowing from **+** to **-**) and *reverse voltage* (for currents flowing the opposite direction). Occasionally, *reverse voltage* is called *breakdown voltage*.
 
 * **Forward Voltage:** this is the voltage at which *electric breakdown* occurs for *current* in the *forward direction*. A *diode* for example is designed to conduct *current* only in *one direction*, however it does so only when the *voltage* exceeds its *forward voltage*. For *silicon diodes*, this is roughly *0.6-1.0V*, and below this voltage, a *diode* would not conduct current *in either direction*.
-* **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless.
+* **Reverse Voltage** or **Breakdown Voltage:** this is the same, just for the *other direction*: a *diode* for example blocks current in reverse direction, yet when *voltage exceeds* its *breakdown voltage*, it becomes conductive nonetheless.
 
 > [!NOTE]
 > Materials are classified as *insulators* and *conductors* but this differentiation depends really only on the *voltage applied* (their *breakdown voltage*): an *insulator* (like *plastic*) is a material that *conducts* at a *high voltage only* (because it has a *high breakdown voltage*) whereas a *conductor* (like *metal*) has a much lower *resistance* (aka *breakdown voltage*) and conducts always, even at very low *voltages*.
@@ -81,8 +80,8 @@ This electrical phenomenon has *practical importance* in many cases, including t
 
 * **Safe Voltages:** The human skin has a *breakdown voltage* of *40-50V* so playing with *voltages* below this threshold is considered *safe*: there is no risk of *electrocution* because *at this low voltage*, the human skin is an *insulator*. 
 * **Insulator:** An insulator insulates only up to a certain voltage. Once a voltage exceeds the *breakdown voltage* of the insulator, it is no longer an *insulator* and becomes a *conductor* instead. You need to carefully select the *insulation material* for higher voltages to make sure it really insulates. This also explains why *switches* are rated for certain maximum voltages: once voltages exceed the limit, the *air* insulating the small distance between the two contacts inside the switch becomes *conductive*, and *sparks* can form. And it explains why you *can get electrocuted* when playing directly with *110/220V* household *voltage* while at the same time you can safely play with even the hugest batteries, generators or power supplies as long as they are below **30V**.
-* **Diodes:** Diodes are components that conduct only in one direction. If a large enough negative voltage is applied to the diode, though, a diode will give in and allow current to flow in the reverse direction. This large negative voltage is again the *breakdown voltage*. Some diodes are actually designed to operate in the breakdown region, but for most normal diodes it's not good for them to be subjected to large negative voltages. For normal diodes this breakdown voltage is around -50V to -100V, or even more negative.
-* **LED:** A **LED** is an insulator at voltages below its *forward voltage*. Once voltage reaches or exceeds the *forward voltage*, the **LED** becomes a *conductor* and starts to emit light. At the same time, **LED** have a *very low breakdown voltage* of just **5V**: applying power in wrong polarity can easily destroy them.
+* **Diodes:** Diodes are components that conduct only in one direction. If a large enough negative voltage is applied to the diode, though, a diode will give in and allow current to flow in the reverse direction. This large negative voltage is again the *reverse voltage*. Some diodes are actually designed to operate in the reverse breakdown region, but for most normal diodes it's not good for them to be subjected to large negative voltages. For normal diodes this *reverse voltage* or *breakdown voltage* is around -50V to -100V, or even more negative.
+* **LED:** A **LED** is an insulator at voltages below its *forward voltage*. Once voltage reaches or exceeds the *forward voltage*, the **LED** becomes a *conductor* and starts to emit light. At the same time, **LED** have a *very low reverse voltage* of just **5V**: applying power in wrong polarity can destroy them.
 
 <details><summary>How does electrical breakdown actually work?</summary><br/>
 
