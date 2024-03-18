@@ -6,7 +6,6 @@
 
 *Smart* **LED** have *four* or more legs and use an integrated chip to drive its internal **LED**.
 
-<img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
 > [!TIP]
 > Thanks to the on-board chip, you need to supply *only one voltage* to all internal **LED**.
