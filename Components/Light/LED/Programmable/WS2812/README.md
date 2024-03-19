@@ -47,6 +47,11 @@ In 2017 major improvements were backported from its rarely available and expensi
 > The change in *reset time* can cause *breaking changes* when your projects drive these controllers with *extremely low* reset times. To fix, review the libraries you use and make sure you increase the *reset time* to *roubust* values of **>280us**.   
 
 
+## Datasheet
+
+The original [datasheet](materials/ws2812b_datasheet_original.pdf) of the initial *WS2812B* version was published by the American company *Adafruit*.
+
+Around 2017, the *WS2812B* specifications changed (see above), and the manufacturer released a [new datasheet](materials/ws2812b_datasheet_revised.pdf).
 
 
 > Tags: WS2812, WS2812B, LED, RGB, NeoPixel, Controller, 5V

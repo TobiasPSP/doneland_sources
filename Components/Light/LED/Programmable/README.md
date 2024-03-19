@@ -23,34 +23,33 @@ Whenever the control signal passes a **LED** in this string, the individual **LE
 
 Since then, the controller chip was further reduced in size and finally *integrated* into the **LED** itself for further simplification. Today, these are the most common controller chips:
 
-| Item | WS2811 | WS2812 | WS2813 | WS2815 | SK6812 | SK9822 |
-| ---  | ---    | ---    | ---    | ---    | ---    | ---    |
-| LED  | any    | 5050/3535/2020 | 5050 | 5050 |    |        |
-| Color | Single/RGB | RGB | RGB/RGBW | RGB |       |        |
-| Voltage (V) | 5/12/24 | 5 | 5 | 12           |    |        |
-| Voltage Drop | Low | High | High | Low       |    |        |
-| Data Frequency (kHz) | 800 | 800 | 800 | 800 |    |        |
-| Refresh Rate (Hz) | 800 | 400/2000 | 2000 | 4000     |    |        |
-| Reset Time (us) | 250 | 50/280 | 250 | 280      |    |        |
-| LED/m | 30/60/72/96/102/204 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144 |  |   |
-| Channels | 3 | 3 | 4 | 4 |                   |    |        |
-| Connections | Power + Data | Power + Data | Power + 2xData | Power + 2xData |  |  |
-| Fail Safe | no | no | yes | yes |            |    |        |
-| Price | low | medium | high | high |         |    |        |
+| Item | [WS2811](WS2811) | [WS2812](WS2812) | [WS2813](WS2813) | WS2815 | [SK6812](SK6812) | [SK6822](SK6822) | [APA102](APA102) |
+| ---  | ---    | ---    | ---    | ---    | ---    | ---    | --- |
+| LED  | any    | 5050/3535/2020 | 5050 | 5050 | 5050  |    5050    | 5050 |
+| Color | Single/RGB | RGB | RGB/RGBW | RGB |  RGBW     |   RGBW     | RGB |
+| Voltage (V) | 5/12/24 | 5 | 5 | 12           |  5  |    5    | 5V |
+| Voltage Drop | Low | High | High | Low       |  Medium  | Medium       | High |
+| Data Frequency (kHz) | 800 | 800 | 800 | 800 |  800  |   800     | 4Mhz SPI |
+| Refresh Rate (Hz) | 800 | 400/2000 | 2000 | 4000     | 1200   |  1200      | 19.2kHz |
+| Reset Time (us) | 250 | 50/280 | 250 | 280      | 80   |   50     | SPI |
+| LED/m | 30/60/72/96/102/204 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144	  | unspecified |
+| Channels | 3 | 3 | 4 | 4 |                   |   3 |    3    |
+| Connections | Power + Data | Power + Data | Power + 2xData | Power + 2xData | Power + 2xData | Power + SPI |
+| Fail Safe | no | no | yes | yes |      yes      |  no  |    
+| Price | low | medium | high | high |    low     | low   | high |   
 
 These *controllers* can be embedded in various different *single color*, *RGB*, and *RGBW* **LED**. 
 
 > [!TIP]
 > The *brightness* and *quality of color* of *programmable **LED*** and **LED strips** does not depend on the *controller* but rather on the particular **LED** *type* the *controller* is embedded in, and on *how many of these **LED** are used per *length* or *area*.
 
-### Special Case: WS2811
 
-The *WS2811* is *special* because it is the *only* **separate general purpose controller chip** that is *not embedded* in a particular **LED**.
+### Colors
 
-It can control *three channels*, so it is up to you and your individual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
+Each **LED** *brightness* can be controlled in *256* steps. 
 
-> [!TIP]
-> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** (using *one* channel per *color*) so you can control **LED**s only in *groups of three*. **White LED strips** based on *WS2811* usually hook up each *single color* **LED** to one distinct channel: each **LED** is *individually* controllable.
+For a *RGB* **LED**, the total number of colors that can be displayed is *256^3 = 16777216).
+
 
 
 ### Voltage Drop
@@ -76,7 +75,11 @@ This data frequency is *fixed* and determined by the mentioned communications pr
 ### Update Frequency (Refresh)
 This parameter controls *flicker*, especially when video recording.
 
-The *update frequency* controls how often per second the controller refreshes the **LED**. The initial *WS2812B* for example came with an *update frequency* of *400Hz*. This relatively low frequency caused visible *flicker* when video recording a scene illuminated with these **LED**.
+Controllers use *PWM* (*pulse width modulation*) to control the *brightness* of a **LED**. This is not only important for overall brightness but also for *mixing red, green and blue* to emit all other colors.
+
+Unless you are selecting a *pure red*, *green* or *blue* at *full brightness*, *PWM* is active.
+
+The *update frequency* controls how often per second *PWM* refreshes the **LED**. The initial *WS2812B* for example came with an *update frequency* of *400Hz*. This relatively low frequency caused visible *flicker* when video recording a scene illuminated with these **LED**.
 
 Recent *WS2812B* versions now use a much higher *update frequency* of *2000Hz* and eliminate this *flicker*. Other controller types used higher frequencies from begin on.
 
