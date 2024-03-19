@@ -53,23 +53,6 @@ It can control *three channels*, so it is up to you and your individual setup wh
 > Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** (using *one* channel per *color*) so you can control **LED**s only in *groups of three*.   
 > **White LED strips** based on *WS2811* usually hook up each *single color* **LED** to one distinct channel: each **LED** is *individually* controllable.
 
-### Special Case #2: WS2812
-
-The *WS2812* is the most popular and widely used controller type. It has seen a number of revisions. Today, *WS2812B* is used.
-
-In 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number. These *improved WS2812B* are still sold as *WS2182B*, making them indistinguishable from their predecessors.
-
-*WS2812B* **LED** can therefore have significantly different properties:
-
-* **Refresh Rate:** increased from 400Hz to 2000Hz for flicker free recordings in HD video.
-* **Reduced Current:** *RGB port* current was reduced from *17.5mA* to *16.5mA*. The slight decrease in brightness is not visible and may also be compensated by more efficient **LED** today.
-* **Reset Time:** increased from *50us* to *280us*
-
-> [!CAUTION]
-> The change in *reset time* can cause *breaking changes* when your projects drive these controllers with *extremely low* reset times. To fix, review the libraries you use and make sure you increase the *reset time* to *roubust* values of **>280us**.   
-
-
-
 
 ### Voltage Drop
 
@@ -323,6 +306,15 @@ LedCount Type StripType StripLengthCm
      180 RGB  144LED/m            125
      216 RGB  144LED/m            150
 ````
+
+### Fail Safe
+
+The initial controllers like *WS2811* and *WS2812* came with the revolutionary *one-wire* data line.
+
+Soon it was appreciated that *one* data line is nice from a point of *wiring*, but *bad* from a point of *reliability*: once a *single controller* fails, all remaining **LED** in that string also fail because they no longer receive the data signal.
+
+That is why today there are also controllers like the *WS2813* and *WS2815* that come with *two* data wires. The data signal can skip *one failed* controller (but not *two* or more).
+
 
 ## Form Factors
 
