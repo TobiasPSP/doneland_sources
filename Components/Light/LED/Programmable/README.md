@@ -50,7 +50,7 @@ The *WS2811* is *special* because it is the *only* **separate general purpose co
 It can control *three channels*, so it is up to you and your individual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
 
 > [!TIP]
-> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** so you can control **LED**s only in *groups of three*.   
+> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** (using *one* channel per *color*) so you can control **LED**s only in *groups of three*.   
 > **White LED strips** based on *WS2811* hook up each *single color* **LED** to one distinct channel: each **LED*** is *individually* controllable.
 
 ### Special Case #2: WS2812
