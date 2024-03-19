@@ -45,9 +45,9 @@ These *controllers* can be embedded in various different *single color*, *RGB*, 
 
 ### Special Case #1: WS2811
 
-The *WS2811* is *special* because it is the *only* **separate general purpose controller chip** that is not embedded in a particular **LED**.
+The *WS2811* is *special* because it is the *only* **separate general purpose controller chip** that is *not embedded* in a particular **LED**.
 
-It can control *three channels*, so it is up to you and yourindividual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
+It can control *three channels*, so it is up to you and your individual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
 
 > [!TIP]
 > Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** so you can control **LED**s only in *groups of three*.   
