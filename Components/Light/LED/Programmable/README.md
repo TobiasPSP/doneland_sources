@@ -136,7 +136,7 @@ The maximum frame rate calculated is the limit set by the **LED** *controller*. 
 
 Here is a **PowerShell** script that you can use to calculate frame rates for **LED strips**:
 
-<details><summary>PowerShell Frameate Calculator</summary><br/>
+<details><summary>PowerShell Framerate Calculator</summary><br/>
 
 
 Run this script in a **PowerShell** shell to define the new command `Get-LedStripDetail`:
