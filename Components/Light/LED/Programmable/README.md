@@ -109,7 +109,7 @@ This parameter affects the *smoothness* of animations and the *promptness* of *c
 
 The **LED** controller uses a *reset time* after each data package that it processed before it is ready to process the next. This improves *robustness* because it clearly *distinguishes* one data package from the next. This is also why *extending* the *reset time* is a good thing, and most controller types today use significantly *longer reset times* than initially.
 
-Even the popular *WS2812B* today uses a *reset time* of *280us* while the initial batch of *WS2812B* used *50us*.
+Even the popular *WS2812B* today uses a *reset time* of *280us* while the initial batch used *50us*.
 
 > [!NOTE]
 > Keep in mind that the *reset time* is added only at the end of each *update*. When your microcontroller updates the *color* and *brightness* of i.e. 100 **LED** in your string, it sends 100 individual configurations, each with the address of the particular **LED**, and **only then** adds the *reset time*.
