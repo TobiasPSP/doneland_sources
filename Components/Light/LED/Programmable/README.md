@@ -116,8 +116,10 @@ Even the popular *WS2812B* today uses a *reset time* of *280us* while the initia
 > So the influence of the *reset time* on the maximum possible *frame rate* (updates per second) is neglectible.   
 
 
+
+
 > [!CAUTION]
-> Make sure the libraries and the code you use account for *reset times* **>280uS** to be compatible with *any* **LED** controller.
+> Make sure the libraries and the code you use account for *reset times* **>280us** to be compatible with *any* **LED** controller.
 
 
 
