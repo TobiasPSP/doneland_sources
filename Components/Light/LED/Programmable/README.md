@@ -105,13 +105,21 @@ Recent *WS2812B* versions now use a much higher *update frequency* of *2000Hz* a
 
 
 ### Reset Time
-This parameter affects the *smoothness* of animations and the *promptness* of *color* and *brightness* changes. It is one of four factors that control the effective *frame rate* you can achieve.
+This parameter affects the *smoothness* of animations and the *promptness* of *color* and *brightness* changes, but only very marginally. 
 
-The **LED** controller needs a *reset time* after each data package that it processed before it is ready to process the next. The *reset time* in modern controllers is in the range of *250-280us* (note that in *WS2812*, the initial *reset time* of *50us* was silently changed to *280us* in 2017).
+The **LED** controller uses a *reset time* after each data package that it processed before it is ready to process the next. This improves *robustness* because it clearly *distinguishes* one data package from the next. This is also why *extending* the *reset time* is a good thing, and most controller types today use significantly *longer reset times* than initially.
+
+Even the popular *WS2812B* today uses a *reset time* of *280us* while the initial batch of *WS2812B* used *50us*.
 
 > [!NOTE]
-> The *reset time* is basically the *gap* that must exist between different data packages in the control line.   
-> *Increasing* this gap from initially *50us* to nowerdays *250-280us* makes the communications protocol more robus at the expense of lesser updates per second.
+> Keep in mind that the *reset time* is added only at the end of each *update*. When your microcontroller updates the *color* and *brightness* of i.e. 100 **LED** in your string, it sends 100 individual configurations, each with the address of the particular **LED**, and **only then** adds the *reset time*.
+> So the influence of the *reset time* on the maximum possible *frame rate* (updates per second) is neglectible.   
+
+
+> [!CAUTION]
+> Make sure the libraries and the code you use account for *reset times* **>280uS** to be compatible with *any* **LED** controller.
+
+
 
 ### Frame Rate
 
