@@ -35,7 +35,7 @@ The standby power consumption is very high compared to more modern controllers. 
 
 ## Datasheet
 
-[WS2811 datasheet](materials/ws2811_datasheet) 
+[WS2811 datasheet](/materials/ws2811_datasheet) 
 
 
 
