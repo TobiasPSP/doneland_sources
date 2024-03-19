@@ -239,10 +239,10 @@ function Get-LedStripDetail
     }
   }
 }
+```
 
 </details>
 
-```
 
 #### Calculating Framerate Based on LED Count
 
