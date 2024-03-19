@@ -12,12 +12,16 @@ Programmable **LED** are *much simpler* to operate than *simple RGB* **LED**:
 * **Daisy Chain:** **LED** can be daisy-chained which reduces dramatically the *wiring*. Each **LED** in the string can still be controlled *individually*. 
 
 > [!NOTE]
-> Programmable **LED** do need a digital control signal. They are perfect for microcontroller projects. They cannot be used without one, though.
+> Programmable **LED** do need a digital control signal. They are perfect for microcontroller projects. They cannot be used without one. If you don't want to program your own *microcontroller*, there are numerous cheap ready-to-use **RGB Contollers* available.
 
 ## Controllers
-Since native **RGB LED** are difficult to operate, it was obvious that a dedicated *cheap and small* controller could simplify this tremendously. 
+Since native **RGB LED** are difficult to operate, it was obvious that a dedicated *cheap and small* controller would simplify this tremendously. 
 
-The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). Since then, the controller chip was *integrated* into the **LED** for further size reduction and simplification. Today, these are the most common controller chips:
+The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). The unique new approach was the design of a new *one-wire* communications protocol that enabls **LED** to be easily daisy-chained: 
+
+Whenever the control signal passes a **LED** in this string, the individual **LED** *controller* of that **LED** decrements a counter so each **LED** automatically gets its own *Id*, based solely on its position in the string. This way, a *mirocontroller* can *individually* address each **LED**.
+
+Since then, the controller chip was further reduced in size and finally *integrated* into the **LED** itself for further simplification. Today, these are the most common controller chips:
 
 | Item | WS2811 | WS2812 | WS2813 | WS2815 | SK6812 | SK9822 |
 | ---  | ---    | ---    | ---    | ---    | ---    | ---    |
@@ -33,6 +37,11 @@ The initial approach was the *WS2811*, a dedicated chip capable of driving *thre
 | Connections | Power + Data | Power + Data | Power + 2xData | Power + 2xData |  |  |
 | Fail Safe | no | no | yes | yes |            |    |        |
 | Price | low | medium | high | high |         |    |        |
+
+These *controllers* can be embedded in various different *single color*, *RGB*, and *RGBW* **LED**. 
+
+> [!TIP]
+> The *brightness* and *quality of color* of *programmable **LED*** and **LED strips** does not depend on the *controller* but rather on the particular **LED** *type* the *controller* is embedded in, and on *how many of these **LED** are used per *length* or *area*.
 
 ### Special Case #1: WS2811
 
