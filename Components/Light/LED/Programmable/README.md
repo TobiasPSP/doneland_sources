@@ -12,7 +12,7 @@ Programmable **LED** are *much simpler* to operate than *simple RGB* **LED**:
 * **Daisy Chain:** **LED** can be daisy-chained which reduces dramatically the *wiring*. Each **LED** in the string can still be controlled *individually*. 
 
 > [!NOTE]
-> Programmable **LED** do need a digital control signal. They are perfect for microcontroller projects. They cannot be used without one. If you don't want to program your own *microcontroller*, there are numerous cheap ready-to-use **RGB Contollers* available.
+> Programmable **LED** do need a digital control signal. They are perfect for microcontroller projects. They cannot be used without one. If you don't want to program your own *microcontroller*, there are numerous cheap ready-to-use *RGB Contollers* available.
 
 ## Controllers
 Since native **RGB LED** are difficult to operate, it was obvious that a dedicated *cheap and small* controller would simplify this tremendously. 
