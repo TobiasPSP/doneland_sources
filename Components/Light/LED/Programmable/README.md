@@ -85,7 +85,7 @@ For **5V** systems, this may be necessary as often as once per *2.5m* (depending
 
 
 ### Data Frequency
-This parameter affects the maximum number of **LED** that can be daisy-chained. Since virtually all **LED** *controllers* support the same very high data frequency of *800kHz*, and since this frequency is sufficient to transfer the control data of virtually any number of **LED**, it practically does not play an important role. It may still be interesting to know.
+This parameter affects the maximum number of **LED** that can be daisy-chained. Since virtually all **LED** *controllers* support the same very high data frequency of *800kHz*, and since this frequency is sufficient to transfer the control data of virtually any *practical* number of **LED**, it practically does not play an important role. It may still be interesting to know.
 
 The primary benefit of the **LED** controllers discussed here is their simplicity: they need just one *data wire* to daisy-chain any number of **LED**.
 
