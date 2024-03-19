@@ -347,15 +347,19 @@ Programmable **LED** are *much simpler* to operate than *simple RGB* **LED**:
 > Programmable **LED** do need a digital control signal. They are perfect for microcontroller projects. They cannot be used without one, though.
 
 
-### Pins for Single Programmable LED
+### Single LED
 
-For individual (non-SMD) *WS8212* (or similar) **LED**, look at the *length* of the legs:
+**LED** *controllers* can also be embedded in normal **LED** form factors. Such **LED** have *four* "legs":
 
 <img src="images/led_ws8212_single_front_t.png" width="50%" height="50%" />
 
 
 * **Two different lengths:** some **LED** come with legs in *two* different lengths: two legs are shorter than the other two.
 * **Four different lengths:** typically, each leg has a different length.
+
+> [!NOTE]
+> Single *programmable* **LED** can be daisy-chained just like *strips* or *matrix displays* and controlled by just one *GPIO* pin.
+> This makes them ideal for controlling *muliple indicator **LED*** in *DIY microcontroller projects* as it significantly reduces *wiring* and reduces the number of required *GPIO* ports to just *one*, regardless of the number of **LED** needed.
 
 #### Power Connection
 
