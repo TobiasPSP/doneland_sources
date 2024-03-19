@@ -19,7 +19,7 @@ Since native **RGB LED** are difficult to operate, it was obvious that a dedicat
 
 The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). The revolutionary approach was the design of a new *one-wire* communications protocol that enabls **LED** to be easily daisy-chained: 
 
-Whenever the control signal passes a **LED** in this string, the individual **LED** *controller* decrements a counter in the data package before it passes it on to the next **LED**, so each **LED** automatically gets its own *Id*, based solely on its position in the string. This way, a *mirocontroller* can *individually* address each **LED**.
+Whenever the control signal passes a **LED** in this string, the individual **LED** *controller* decrements a counter in the data package before it passes it on to the next **LED**, so each **LED** dynamically gets its own *Id*, based solely on its position in the string. This way, a *mirocontroller* can *individually* address each **LED**.
 
 Since then, the controller chip was further reduced in size and finally *integrated* into the **LED** itself for further simplification. Today, these are the most common controller chips:
 
