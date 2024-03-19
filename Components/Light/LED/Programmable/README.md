@@ -43,24 +43,21 @@ These *controllers* can be embedded in various different *single color*, *RGB*, 
 > [!TIP]
 > The *brightness* and *quality of color* of *programmable **LED*** and **LED strips** does not depend on the *controller* but rather on the particular **LED** *type* the *controller* is embedded in, and on *how many of these **LED** are used per *length* or *area*.
 
-### Special Case #1: WS2811
+### Special Case: WS2811
 
 The *WS2811* is *special* because it is the *only* **separate general purpose controller chip** that is *not embedded* in a particular **LED**.
 
 It can control *three channels*, so it is up to you and your individual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
 
 > [!TIP]
-> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** (using *one* channel per *color*) so you can control **LED**s only in *groups of three*.   
-> **White LED strips** based on *WS2811* usually hook up each *single color* **LED** to one distinct channel: each **LED** is *individually* controllable.
+> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** (using *one* channel per *color*) so you can control **LED**s only in *groups of three*. **White LED strips** based on *WS2811* usually hook up each *single color* **LED** to one distinct channel: each **LED** is *individually* controllable.
 
 
 ### Voltage Drop
 
 This parameter affects color and brightness *deviations* in *long* strips with *many* **LED**.
 
-When **LED strips** grow longer, the *voltage* drops. The further away a **LED** is located from the power supply, the more you see differences in brightness and color diviations.
-
-This *voltage drop* largely depends on the operating voltage: **5V** systems (like the very popular *WS2812*) are more prone to *voltage drop* than **12V** or *24V* systems.
+When **LED strips** grow longer, the *voltage* drops. The further away a **LED** is located from the power supply, the more you see differences in brightness and color deviations. This *voltage drop* largely depends on the operating voltage: **5V** systems (like the very popular *WS2812*) are more prone to *voltage drop* than **12V** or **24V** systems.
 
 To alleviate this, long **LED strips** need *power injection*: the supply power is *repeatedly* connected to parts of the strip. 
 
@@ -72,9 +69,7 @@ This parameter affects the maximum number of **LED** that can be daisy-chained. 
 
 The primary benefit of the **LED** controllers discussed here is their simplicity: they need just one *data wire* to daisy-chain any number of **LED**.
 
-This one *data wire* carries all the control information for all of the connected **LED**, and there is no separate *clock wire* that would enable external timings.
-
-Instead, each controller relies on a strict *static* timing: the impulses must come in a fixed speed, the *frequency*.
+This one *data wire* carries all the control information for all of the connected **LED**, and there is no separate *clock wire* that would enable external timings. Instead, each controller relies on a strict *static* timing: the impulses must come in a fixed speed, the *frequency*.
 
 This data frequency is *fixed* and determined by the mentioned communications protocol. More modern controllers such as the *WS2815* are more tolerant towards frequency deviations than older controllers like *WS2812*.
 
@@ -131,11 +126,14 @@ For a *WS2812* **LED strip** with *144 **RGB LED**/m and a length of *1m*, the v
 
 The maximum frame rate calculated is the limit set by the **LED** *controller*. To achieve it, you need to make sure your microcontroller can actually deliver the control data fast enough.
 
+A relatively powerful dual-core *ESP32* can calculate roughly *65k-85k* **LED** per second. At 1000 **LED** this is a *70Hz* frame rate, dropping to *35Hz* at 2000 **LED**. Less performant microcontrollers like *ESP8266* perform considerably worse.
+
 > [!TIP]
-> Keep in mind that for animations, typically you do not need to change *all **LED*** all the time at each frame. The real frame rates for a given change are therefore most probably much higher.
+> Keep in mind that for animations, typically you do not need to change *all **LED*** at the same time at each frame. The real frame rates for a given change are therefore most probably much higher.
+> If for example you run *2000* **LED** but need to update only 100 **LED** at different spots, even very weak microcontrollers can handle this with excellent frame rates.
 
 
-### Framerate Calculator
+### Frame Rate Calculator
 
 Here is a **PowerShell** script that you can use to calculate frame rates for **LED strips**:
 
@@ -355,8 +353,7 @@ These individual **LED** are a very smart idea when designing devices with many 
 * **Four different lengths:** typically, each leg has a different length.
 
 > [!NOTE]
-> Single *programmable* **LED** can be daisy-chained just like *strips* or *matrix displays* and controlled by just one *GPIO* pin.
-> This makes them ideal for controlling *muliple indicator **LED*** in *DIY microcontroller projects* as it significantly reduces *wiring* and reduces the number of required *GPIO* ports to just *one*, regardless of the number of **LED** needed.
+> Single *programmable* **LED** can be daisy-chained just like *strips* or *matrix displays* and controlled by just one *GPIO* pin. This makes them ideal for controlling *muliple indicator **LED*** in *DIY microcontroller projects* as it significantly reduces *wiring* and reduces the number of required *GPIO* ports to just *one*, regardless of the number of **LED** needed.
 
 #### Power Connection
 
@@ -372,9 +369,9 @@ Connect **DIN** to your microcontrollers' GPIO output, and connect **DOUT** to *
 
 Here are a few points to consider when using *programmable **LED***:
 
-* **Microcontroller Required:** You need a *microcontroller* to operate *programmable **LED***. Either program your own, or use one of the readily available and *cheap* **RGB Controllers**
-* **Voltage May Differ:** Always make sure you know the *specs* of the type of *programmable **LED*** you use. Their supply voltages may vary. While *WS2812* are operated with **5V**, there are other types that need **12V** or even **24V**.
-* **Beware Of High Current:** A higher supply voltage lowers the required *current* which starts to matter when you daisy-chain more than just a couple of **LED**. **LED strips** operated at **5V** can quickly exceed currents of *10-20A*. For *long **LED** strips*, it's more efficient to use an **LED** type that takes **12V** or **24V** supply voltage.
+* **Microcontroller:** You need a *microcontroller* to operate *programmable **LED***. Either program your own, or use one of the readily available and *cheap* **RGB Controllers**
+* **Voltage:** Always make sure you know the *specs* of the type of *programmable **LED*** you use. Their supply voltages may vary. While *WS2812* are operated with **5V**, there are other types that need **12V** or even **24V**.
+* **Current:** A higher supply voltage lowers the required *current* which starts to matter when you daisy-chain more than just a couple of **LED**. **LED strips** operated at **5V** can quickly exceed currents of *10-20A*. For *long **LED** strips*, it's more efficient to use an **LED** type that takes **12V** or **24V** supply voltage.
 
 
 
