@@ -16,9 +16,7 @@
 ## Controllers
 Since native **RGB LED** are difficult to operate, it was obvious that a dedicated *cheap and small* controller could simplify this tremendously. 
 
-The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*).
-
-Since then, the controller chip was *integrated* into the **LED** for further size reduction and simplification. Today, these are the most common controller chips:
+The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). Since then, the controller chip was *integrated* into the **LED** for further size reduction and simplification. Today, these are the most common controller chips:
 
 | Item | WS2811 | WS2812 | WS2813 | WS2815 | SK6812 | SK9822 |
 | ---  | ---    | ---    | ---    | ---    | ---    | ---    |
@@ -35,21 +33,21 @@ Since then, the controller chip was *integrated* into the **LED** for further si
 | Fail Safe | no | no | yes | yes |            |    |        |
 | Price | low | medium | high | high |         |    |        |
 
-### Special Case: WS2811
+### Special Case #1: WS2811
 
-The *WS2811* is a *special case* because it is a separate controller with no particular **LED** mounted to it.
+The *WS2811* is *special* because it is the *only* **separate general purpose controller chip** that is not embedded in a particular **LED**.
 
-Since it can control *three channels*, it is up to you whether you want to hook up *one* individually addressable **RGB LED** or *three* individual addressable single-color (i.e. *white*) **LED**.
+It can control *three channels*, so it is up to you and yourindividual setup whether you want to hook up *one* **RGB LED** or *three* single-color (i.e. *white*) **LED**.
 
 > [!TIP]
-> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED**. In these strips, **RGB LED** are controllable only in *groups of three*.   
-> For **White LED strips**, this is different. Since a *WS2811* controls *three* channels and *single color* **LED** require just one channel, *each **LED*** in these strips is indicidually controllable.
+> Most **RGB LED strips** using the *WS2811* hook up *one* controller to *three* **RGB LED** so you can control **LED**s only in *groups of three*.   
+> **White LED strips** based on *WS2811* hook up each *single color* **LED** to one distinct channel: each **LED*** is *individually* controllable.
 
-### Special Case: WS2812
+### Special Case #2: WS2812
 
-The *WS2812* is well be the most popular and widely used controller type. It has seen many revisions. Today, almost entirely the *WS2812B* is used.
+The *WS2812* is the most popular and widely used controller type. It has seen spme revisions. Today, *WS2812B* is used.
 
-While all revisions aim to be *backwards compatible*, in 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number.
+In 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number. These *improved WS2812B* are still sold as *WS2182B*, making them indistinguishable from their predecessors.
 
 *WS2812B* **LED** can therefore have significantly different properties:
 
@@ -90,7 +88,9 @@ This data frequency is *fixed* and determined by the mentioned communications pr
 ### Update Frequency (Refresh)
 This parameter controls *flicker*, especially when video recording.
 
-The *update frequency* controls how often per second the controller refreshes the **LED**.
+The *update frequency* controls how often per second the controller refreshes the **LED**. The initial *WS2812B* for example came with an *update frequency* of *400Hz*. This relatively low frequency caused visible *flicker* when video recording a scene illuminated with these **LED**.
+
+Recent *WS2812B* versions now use a much higher *update frequency* of *2000Hz* and eliminate this *flicker*. Other controller types used higher frequencies from begin on.
 
 
 
@@ -135,6 +135,11 @@ The maximum frame rate calculated is the limit set by the **LED** *controller*. 
 ### Framerate Calculator
 
 Here is a **PowerShell** script that you can use to calculate frame rates for **LED strips**:
+
+<details><summary>PowerShell Frameate Calculator</summary><br/>
+
+
+Run this script in a **PowerShell** shell to define the new command `Get-LedStripDetail`:
 
 ```powershell
 function Get-LedStripDetail
@@ -234,6 +239,9 @@ function Get-LedStripDetail
     }
   }
 }
+
+</details>
+
 ```
 
 #### Calculating Framerate Based on LED Count
