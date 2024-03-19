@@ -9,7 +9,7 @@ The *WS2812* was the first *truly embedded* **LED** controller integrated right 
 Today the *WS2812B* is the *most popular* and widely used controller type. 
 
 > [!TIP] 
-> The American company *Adafruit* even minted a new marketing name for it: *NeoPixel*. *NeoPixels* are no different from other *WS2812B* based **LED**, though.
+> The American company *Adafruit* even minted a new marketing term for it: *NeoPixel*. *NeoPixels* are no different from other *WS2812B* based **LED**, though.
 
 
 ## When To Use
