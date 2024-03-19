@@ -4,9 +4,7 @@
 
 > The Most Popular LED Controller Takes 5V, Can Control RGB LED And Daisy-Chain Using One Wire
 
-The *WS2812* was the first *truly embedded* **LED** controller integrated right into *SMD* (and other) **LED**.
-
-This was a huge success, and the controller underwent a number of revisions to further improve it.
+The *WS2812* was the first *truly embedded* **LED** controller integrated right into *SMD* (and other) **LED**. This was a huge success, and the controller underwent a number of revisions to further improve it.
 
 Today the *WS2812B* is the *most popular* and widely used controller type. 
 
