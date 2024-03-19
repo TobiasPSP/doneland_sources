@@ -66,7 +66,7 @@ In 2017 major improvements were backported from its rarely available and expensi
 * **Reset Time:** increased from *50us* to *280us*
 
 > [!CAUTION]
-> The change in *reset time* can cause *breaking changes* when your projects drive these controllers with *extremely low* reset times. To fix, review the libraries you use and make sure you increase the *reset time*.   
+> The change in *reset time* can cause *breaking changes* when your projects drive these controllers with *extremely low* reset times. To fix, review the libraries you use and make sure you increase the *reset time* to *roubust* values of **>280us**.   
 
 
 
