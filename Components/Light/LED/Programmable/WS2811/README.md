@@ -32,11 +32,6 @@ If you do not need to leverage its full potential, you can connect *just one* **
 The standby power consumption is very high compared to more modern controllers. If you want to conserve energy or build a battery driven project you may want to use a different controller.
 
 
-## Reverse Voltage Protection
-
-*WS2812B* come with a *reverse voltage* protection: 
-
-When polarity is reversed (or when you accidentally connect an **LED strip** at the wrong end), you are protected from destroying the strip.
 
 ## Datasheet
 
