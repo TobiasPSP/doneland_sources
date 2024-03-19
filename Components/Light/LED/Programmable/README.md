@@ -17,7 +17,7 @@ Programmable **LED** are *much simpler* to operate than *simple RGB* **LED**:
 ## Controllers
 Since native **RGB LED** are difficult to operate, it was obvious that a dedicated *cheap and small* controller would simplify this tremendously. 
 
-The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). The unique new approach was the design of a new *one-wire* communications protocol that enabls **LED** to be easily daisy-chained: 
+The initial approach was the *WS2811*, a dedicated chip capable of driving *three* different **LED** (*R*, *G*, and *B*). The revolutionary approach was the design of a new *one-wire* communications protocol that enabls **LED** to be easily daisy-chained: 
 
 Whenever the control signal passes a **LED** in this string, the individual **LED** *controller* of that **LED** decrements a counter so each **LED** automatically gets its own *Id*, based solely on its position in the string. This way, a *mirocontroller* can *individually* address each **LED**.
 
