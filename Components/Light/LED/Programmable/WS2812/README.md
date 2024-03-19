@@ -16,3 +16,4 @@ Today the *WS2812B* is the *most popular* and widely used controller type.
 
 > Tags: WS2812, WS2812B, LED, RGB, NeoPixel, Controller, 5V
 
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/ws2812?238337031419241823) - last edited 2024-03-19
