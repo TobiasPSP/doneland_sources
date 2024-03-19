@@ -55,7 +55,7 @@ It can control *three channels*, so it is up to you and your individual setup wh
 
 ### Special Case #2: WS2812
 
-The *WS2812* is the most popular and widely used controller type. It has seen spme revisions. Today, *WS2812B* is used.
+The *WS2812* is the most popular and widely used controller type. It has seen a number of revisions. Today, *WS2812B* is used.
 
 In 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number. These *improved WS2812B* are still sold as *WS2182B*, making them indistinguishable from their predecessors.
 
