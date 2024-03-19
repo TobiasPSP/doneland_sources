@@ -47,3 +47,4 @@ When polarity is reversed (or when you accidentally connect an **LED strip** at 
 
 > Tags: WS2811, LED, RGB, Controller, 12V
 
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/ws2811?443508031819245134) - last edited 2024-03-19

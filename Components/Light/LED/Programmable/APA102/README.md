@@ -33,3 +33,5 @@ Since *APA102* uses a completely different communications system, you would need
 Since there is no apparent benefit for *DIY projects* when compared to *WS2812B* or its successors, choosing the well-known *one-wire* protocol controllers instead seems reasonable for most use cases.
 
 > Tags: APA102, LED, RGB, SPI, Controller, 5V
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/apa102?405038031819243633) - last edited 2024-03-19

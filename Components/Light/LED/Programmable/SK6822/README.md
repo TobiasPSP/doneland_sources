@@ -35,3 +35,5 @@ If you don't want to be a test pilot, choose the *WS2813* (if you need redundant
 [WS2813 datasheet](materials/sk6822_datasheet.pdf)
 
 > Tags: SK6822, LED, RGB, Controller, 5V, Clone
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/sk6822?435041031819243633) - last edited 2024-03-19
