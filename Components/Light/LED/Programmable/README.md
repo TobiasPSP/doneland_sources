@@ -4,8 +4,6 @@
 
 > A Built-In Chip Controls Colors, Handles Currents, And Can Be Daisy-Chained To More Programmable LED. That Saves Effort And Wires.
 
-*Smart* **LED** have *four* or more legs or connectors and use an integrated chip to drive its internal **LED**.
-
 
 Programmable **LED** are *much simpler* to operate than *simple RGB* **LED**:
 
