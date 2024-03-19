@@ -33,7 +33,7 @@ These shortcomings define the cases where you may want to choose a *different* c
 
 ## Secret Revisions
 
-In 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number. These *improved WS2812B* are still sold as *WS2182B*, making them indistinguishable from their predecessors.
+In 2017 major improvements were backported from its rarely available and expensive successor *WS2813*, however without changing the part number. These *improved WS2812B* are still sold as *WS2182B*, making them indistinguishable from their early siblings under the same name.
 
 *WS2812B* **LED** can therefore have significantly different properties:
 
