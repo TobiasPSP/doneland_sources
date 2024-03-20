@@ -4,13 +4,18 @@
 
 > Modern Controller With SPI Interface And Variable Clock Rate
 
-The *WS2812* and all of its successors depend on a very *timing-sensitive* one-wire data protocol with a fixed *data frequency*.
 
-This works well *wiring-wise* but is *hard to control* by microprocessors.
+The *WS2812* and all of its successors depend on a very *timing-sensitive* one-wire data protocol with a fixed *data frequency* which is simple in respect to *wiring* but *complex* otherwise:
 
-Simple *microprocessors* like *Arduino* or *ESP32* that are dedicated to **LED** control can provide the necessary timing. 
+* **Limited Update Speed:** The fixed *data frequency* of *800kHz* is high enough for typical hobbyist projects but imposes a *hard limit* on the maximum data rate - even if the *microcontroller* was powerful enough to send the data faster. This limits the maximum *frame rate* with very long **LED strips** and large *matrix displays*.
+* **Rigid Timing:** The data is expected to *always* come in at *800kHz*. This is ok for *real-time* microcontrollers like *Arduino* or *ESP32*, especially when they are dedicated to controlling **LED**. Multi-tasking microcontrollers like *Raspberry Pi* and *PC* cannot always guarantee this data rate as other tasks may temporarily keep them busy.
 
-Multitasking microcontrollers and computers such as the *Raspberry Pi* cannot *always guarantee* the correct timings. *APA102* uses a different approach: itsstandard *two-wire* protocol **SPI** is widely supported: it has a *data line* and a *clock line*. When the microcontroller is busy, it now can simply *reduce the clock rate*.
+
+*APA102* uses a different approach: it uses the standard *two-wire* protocol **SPI** that is widely supported: **SPI** has a *data line* and *additionally* a *clock rate*. When the microcontroller is busy, it can simply *reduce the clock rate*. Likewise, it can also *increase* the *clock rate* to i.e. *4MHz* and send *much more* data for better *frame rates* even with super large displays.
+
+> [!CAUTION]
+> *APA102* is an example for a **LED** controller with *variable* data transmission. This is *not compatible* with the *one-wire protocol* used by all other controllers discussed here. To use *APA102*, you need to use completely different libraries and a *two-wire-connection*.   
+> If you do not need the benefits of flexible clock rates, you may want to look into the *APA106* controller which is compatible to *WS2182*.
 
 ## Two Types
 
