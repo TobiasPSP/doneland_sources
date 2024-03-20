@@ -87,13 +87,16 @@ Worse, **LED** *strip* multiply this effort: *each* of the *three* color **LED**
 
 [Programmable](Programmable) **RGB LED** come to the rescue by adding a tiny chip to *each programmable **RGB LED***. Both *color mixing* and *current control* is managed by this chip. It is controlled by just one *data pin* that can be *daisy chained* to string up any number of *programmable **RGB LED***.
 
+<img src="images/led_ws2812_5050_top_t.png" width="50%" height="50%" />
+
+Most commonly, the **LED** controllers are *embedded* in **SMD LED** like the type *5050* in the picture above.
+
+> [!NOTE]
+> *Programmable* **LED** are comprised of a **LED** and a *controller chip*. From the outside, you can only see the **LED**. This is why *regular* **SMD LED** are *indistinguishable* on first sight from *programmable* **SMD LED**. 
+
+The **LED** *controller* chip can essentially be embedded in *any* **LED** and are not restricted to **LED strips**. They are i.e. also available as *single discrete* **LED***. 
+
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
-
-
-These **LED** are available in many different forms and shapes and are not restricted to **LED strips**. They are also available as *regular individual **LED***. 
-
-Some vendors call *programmable **RGB LED*** with the *WS2812* controller chip *NeoPixel*.
-
 
 ## 3W High Performance LED (Generic)
 
