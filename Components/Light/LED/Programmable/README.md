@@ -38,7 +38,7 @@ Since then, the controller chip was further reduced in size and finally *integra
 | Fail Safe | no | no | yes | yes |      yes      |  no  |    
 | Price | low | medium | high | high |    low     | low   | high |   
 
-These *controllers* can be embedded in various different *single color*, *RGB*, and *RGBW* **LED**. 
+These *controllers* can be embedded in various *single color*, *RGB*, and *RGBW* **LED**. 
 
 > [!TIP]
 > The *brightness* and *color quality* does not depend on the *controller*. It solely depends on the type of **LED** the *controller* is embedded in, and on *how many* **LED** are used per *length* or *area*.
