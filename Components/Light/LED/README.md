@@ -98,6 +98,14 @@ The **LED** *controller* chip can essentially be embedded in *any* **LED** and a
 
 <img src="images/led_ws8212_single_back_t.png" width="50%" height="50%" />
 
+## SMD LED
+
+[SMD](SMD) (*surface mounted device*) **LED** are a special form factor and suitable for *direct mounting* (soldering) to *PCB*. This *SMD* form factor is available for any of the discussed **LED** types:
+
+<img src="images/led_ws2812_5050_top_t.png.png" width="50%" height="50%" />
+
+You get *SMD* versions of *single color*, *RGB*, and *programmable* **LED**.
+
 ## 3W High Performance LED (Generic)
 
 **LED** can be used for **illumination**, too. These [high performance **LED**](High%20Performance) turn *much higher currents* into *light* than the typical *10-20mA* used by simple *indicator* **LED**.
