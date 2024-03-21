@@ -49,6 +49,11 @@ Wiring is similar in both versions. Here is the wiring for the *balanced* board:
 
 <img src="images/bms_2s_20a_wiring.png" width="100%" height="100%" />
 
+This is what the backside of the *unbalanced* board looks like:
+
+<img src="images/bms_2s_20a_back_2_t.png" width="100%" height="100%" />
+
+### Wiring
 
 Connect the batteries like this:
 
