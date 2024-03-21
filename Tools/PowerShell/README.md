@@ -24,7 +24,7 @@ On other operating systems (and also on *Windows* if you want to use the *latest
 
 Scroll down until you see the item *Assets*. Click to expand.
 
-<img src="images/powershell_assets.png" width="50%" height="50%" />
+<img src="images/powershell_assets.png" width="90%" height="90%" />
 
 This opens a list of ready-to-download installation binaries, available for many operating systems and in many formats (*tar.gz*, *zip*, *msi*, *pkg*).
 
@@ -225,3 +225,5 @@ SYNOPSIS
 ```
 
 > Tags: PowerShell, Module, Install, Tools
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/tools/powershell?911673031121245307) - last edited 2024-03-21
