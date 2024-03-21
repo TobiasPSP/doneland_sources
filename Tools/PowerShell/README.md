@@ -69,7 +69,7 @@ Should the above command be unable to download the module, check these items:
 
 * **Internet:** obviously you need to have internet access. Try visiting the [PowerShell Gallery](https://www.powershellgallery.com/) directly. 
 * **Permissions:** within company networks, access to the gallery may be restricted.
-* **Conflicts:** when an *existing* module added commands with the *same name* as commands in *DoneLandTest*, a *name conflict* would occur, and the new module cannot be installed. Either remove the conflicting module that is already present, or add the switch parameter `-AllowClobber` to install the *DoneLandTools* module anyway.
+* **Conflicts:** when an *existing* module added commands with the *same name* as commands in *DoneLandTools*, a *name conflict* would occur, and the new module cannot be installed. Either remove the conflicting module that is already present, or add the switch parameter `-AllowClobber` to install the *DoneLandTools* module anyway.
 * **Outdated:** *Windows PowerShell* may use outdated libraries. Try updating them using this command: `Install-Module -Name PowerShellGet -Scope CurrentUser -Force`
 
 ## New DoneLand Commands
@@ -97,6 +97,8 @@ All commands come with *help*. To i.e. find out what `Get-LedStripFramerateInfo`
 
 ```powershell
  Get-LedStripFramerateInfo -?
+```
+
 ```
 NAME
     Get-LedStripFramerateInfo
@@ -138,7 +140,7 @@ REMARKS
 This is the *complete* but sometimes *overwhelming* help information. 
 
 > [!TIP]
-> At the *bottom* of the help text in the section *Remarks*, you find additional ways of retrieving specific help information that may be more suitable for you. Run `help Get-LedStripFramerateInfo -Online to open *this* page in your browser.
+> At the *bottom* of the help text in the section *Remarks*, you find additional ways of retrieving specific help information that may be more suitable for you. Run `help Get-LedStripFramerateInfo -Online` to open *this* page in your browser.
 
 ### Practical Examples
 
