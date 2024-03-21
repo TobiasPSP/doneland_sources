@@ -72,7 +72,7 @@ Should the above command be unable to download the module, check these items:
 * **Conflicts:** when an *existing* module added commands with the *same name* as commands in *DoneLandTools*, a *name conflict* would occur, and the new module cannot be installed. Either remove the conflicting module that is already present, or add the switch parameter `-AllowClobber` to install the *DoneLandTools* module anyway.
 * **Outdated:** *Windows PowerShell* may use outdated libraries. Try updating them using this command: `Install-Module -Name PowerShellGet -Scope CurrentUser -Force`
 
-## New DoneLand Commands
+## DoneLand Commands
 
 To see the new **PowerShell** commands the *DoneLandTools* module provides, run this:
 
