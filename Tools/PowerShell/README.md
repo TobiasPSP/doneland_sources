@@ -168,7 +168,7 @@ SYNOPSIS
 
     LedCount Type Framerate DataTime (us)
     -------- ---- --------- -------------
-       100 RGB        305       0.00328
+         100 RGB        305       0.00328
 
 
     -------------------------- EXAMPLE 2 --------------------------
@@ -179,7 +179,7 @@ SYNOPSIS
 
     LedCount Type Framerate DataTime (us)
     -------- ---- --------- -------------
-       100 RGBW       234       0.00428
+         100 RGBW       234       0.00428
 
 
     -------------------------- EXAMPLE 3 --------------------------
@@ -190,10 +190,10 @@ SYNOPSIS
 
     LedCount Type Framerate DataTime (us)
     -------- ---- --------- -------------
-    90 RGB        336       0.00298
-    135 RGB        231       0.00433
-    180 RGB        176       0.00568
-    216 RGB        148       0.00676
+      90     RGB  336       0.00298
+     135     RGB  231       0.00433
+     180     RGB  176       0.00568
+     216     RGB  148       0.00676
 
 
     -------------------------- EXAMPLE 4 --------------------------
@@ -204,7 +204,7 @@ SYNOPSIS
 
     LedCount Type StripType StripLengthCm
     -------- ---- --------- -------------
-       546 RGB  n/a       n/a
+         546 RGB  n/a       n/a
 
 
     -------------------------- EXAMPLE 5 --------------------------
@@ -215,7 +215,7 @@ SYNOPSIS
 
     LedCount Type StripType StripLengthCm
     -------- ---- --------- -------------
-      1102 RGB  144LED/m          765.3
+        1102 RGB  144LED/m          765.3
 
 
     -------------------------- EXAMPLE 6 --------------------------
@@ -226,11 +226,11 @@ SYNOPSIS
 
     LedCount Type StripType StripLengthCm
     -------- ---- --------- -------------
-       157 RGB  144LED/m            109
-       324 RGB  144LED/m            225
-       546 RGB  144LED/m          379.2
-      1102 RGB  144LED/m          765.3
-      2213 RGB  144LED/m         1536.8
+         157 RGB  144LED/m            109
+         324 RGB  144LED/m            225
+         546 RGB  144LED/m          379.2
+        1102 RGB  144LED/m          765.3
+        2213 RGB  144LED/m         1536.8
 ```
 
 > Tags: PowerShell, Module, Install, Tools
