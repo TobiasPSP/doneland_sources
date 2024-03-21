@@ -2,7 +2,7 @@
  
 # PowerShell
 
-> PowerShell Is A Cross-Platform Scripting Language, And It Is Simple To Create Tools And Custom Commands
+> PowerShell Is A Cross-Platform Scripting Language - Perfect For Creating Tools And Custom Commands
 
 
 **PowerShell** is a modern scripting language [available](https://github.com/PowerShell/PowerShell/releases) cross-platform for *Windows*, *Linux*, *MacOS* and many other operating systems.
