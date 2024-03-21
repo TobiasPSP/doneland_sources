@@ -15,7 +15,7 @@ On *Windows*, you do not necessarily need to install **PowerShell**: *Windows Po
 
 Enter `powershell` and press `ENTER`. A *blue* console window opens and is labeled *Windows PowerShell*. This is your *built-in* *Windows* **PowerShell**. It runs **PowerShell** *version 5.1*. 
 
-<img src="images/windowspowershell_console.png" width="50%" height="50%" />
+<img src="images/windowspowershell_console.png" width="80%" height="80%" />
 
 
 ### PowerShell 7: Cross Platform
@@ -24,7 +24,7 @@ On other operating systems (and also on *Windows* if you want to use the *latest
 
 Scroll down until you see the item *Assets*. Click to expand.
 
-<img src="images/powershell_assets.png" width="90%" height="90%" />
+<img src="images/powershell_assets.png" width="100%" height="100%" />
 
 This opens a list of ready-to-download installation binaries, available for many operating systems and in many formats (*tar.gz*, *zip*, *msi*, *pkg*).
 
@@ -41,7 +41,7 @@ The cross-platform **PowerShell** displays as a *black* console.
 
 
 
-<img src="images/powershell_console.png" width="50%" height="50%" />
+<img src="images/powershell_console.png" width="80%" height="80%" />
 
 
 > [!NOTE]
