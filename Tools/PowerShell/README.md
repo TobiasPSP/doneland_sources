@@ -140,7 +140,7 @@ REMARKS
 This is the *complete* but sometimes *overwhelming* help information. 
 
 > [!TIP]
-> At the *bottom* of the help text in the section *Remarks*, you find additional ways of retrieving specific help information that may be more suitable for you. Run `help Get-LedStripFramerateInfo -Online to open *this* page in your browser.
+> At the *bottom* of the help text in the section *Remarks*, you find additional ways of retrieving specific help information that may be more suitable for you. Run `help Get-LedStripFramerateInfo -Online` to open *this* page in your browser.
 
 ### Practical Examples
 
