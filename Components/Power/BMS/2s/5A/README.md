@@ -25,7 +25,7 @@
 [LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
 
 
-For currents up to **3A**, you can use a very small **BMS**:
+For currents up to **5A**, you can use a very small **BMS**:
 
 <img src="images/bms_2s_5a_angle_t.png" width="100%" height="100%" />
 
@@ -51,7 +51,7 @@ The output voltage is available at **P+** and **P-**.
 | Over-Discharge | <2.9V |
 | Over-Current | 7A | 
 | Short Circuit | yes,resettable | 
-| Continuous Current | 3A |
+| Continuous Current | 5A |
 
 > [!NOTE]
 > Occasionally, this *BMS* is marked as *HX-2S-01*.
@@ -61,4 +61,4 @@ The output voltage is available at **P+** and **P-**.
 
 > Tags: Battery, BMS, 2S, 5A, HX-2S-01
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/3a?893974031416241946) - last edited 2024-03-16
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/5a?893974031416241946) - last edited 2024-03-16
