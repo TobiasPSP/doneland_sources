@@ -28,18 +28,22 @@
 
 For currents up to **20A**, you need a bigger board with more *MosFETs* that share the load. 
 
-### Balanced vs. Unbalanced
+### Balanced
 
 It is recommended to use a *balanced* board when you plan to *charge* your batteries through the *BMS*. *Balanced* boards are slightly larger and cost *very little* more. During charging, they make sure each *battery* is treated *individually*, so when one battery is fully charged while another one still lags behind, it can *balance* the charging and distribute charging power individually to individual cells.
 
 <img src="images/bms_2s_20a_top_angle_t.png" width="50%" height="50%" />
 
-*Unbalanced* boards are fine when you simply need a *BMS* for *discharging* your batteries and use a separate charger otherwise. These boards are a little bit smaller:
+### Unbalanced
+
+*Unbalanced* boards are *physically smaller* and fine when you need a *BMS* for *discharging only*.
 
 <img src="images/bms_2s_20a_angle_2_t.png" width="50%" height="50%" />
 
 > [!NOTE]
-> The *unbalanced* version of the board presented here goes by the name *HW392* or *X403* whereas the *balanced* version is often labelled *HW391*. These labels may or may not be printed on your boards.
+> The *unbalanced* version of the particular board presented here goes by the name *HW392* or *X403* whereas the *balanced* version is often labelled *HW391*. These labels may or may not be printed on your boards.
+
+### Terminals
 
 All terminals are accessible both from top and bottom. 
 
