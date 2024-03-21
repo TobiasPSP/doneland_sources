@@ -36,7 +36,7 @@ It is recommended to use a *balanced* board when you plan to *charge* your batte
 
 *Unbalanced* boards are fine when you simply need a *BMS* for *discharging* your batteries and use a separate charger otherwise. These boards are a little bit smaller:
 
-<img src="images/bms_2s_20a_angle_2_t" width="100%" height="100%" />
+<img src="images/bms_2s_20a_angle_2_t.png" width="100%" height="100%" />
 
 > [!NOTE]
 > The *unbalanced* version of the board presented here goes by the name *HW392* or *X403* whereas the *balanced* version is often labelled *HW391*. These labels may or may not be printed on your boards.
