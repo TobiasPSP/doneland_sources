@@ -76,7 +76,7 @@ Should the above command be unable to download the module, check these items:
 To see the new **PowerShell** commands the *DoneLandTools* module provides, run this:
 
 ```powershell
-Get-Command -Module DoneLandTools | ft -AutoSize
+Get-Command -Module DoneLandTools
 ```
 
 ```
