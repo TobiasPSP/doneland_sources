@@ -31,7 +31,7 @@ Since most **LED** are transparent, you can look *inside* the **LED**. This is u
 
 Inside the **LED** head, a *short* metal piece is connected to the *anode* (**+**). The much *wider* cup-shaped counterpart is connected to the *cathode* (**-**). 
 
-
+<img src="images/edit_anode_cathode.png" width="50%" height="50%" />
 
 
 
