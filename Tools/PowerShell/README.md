@@ -98,6 +98,8 @@ All commands come with *help*. To i.e. find out what `Get-LedStripFramerateInfo`
 ```powershell
  Get-LedStripFramerateInfo -?
 ```
+
+```
 NAME
     Get-LedStripFramerateInfo
 
