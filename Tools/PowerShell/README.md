@@ -48,11 +48,11 @@ The cross-platform **PowerShell** displays as a *black* console.
 > **PowerShell** is actively developed: its *versions* increment rapidly. *Version 7.4.0* as depicted above is probably long outdated and replaced by a higher version number when you read this. 
 
 
-## Getting Doneland PowerShell Tools
+## Install DoneLandTools
 
-It's extremely *simple* to add new *Done.Land* **PowerShell** commands to your *PowerShell*.
+It's extremely *simple* to add new *Done.Land* **PowerShell** commands to your *PowerShell*: the module *DoneLandTools* is available for installation from the Microsoft [PowerShellGallery](https://www.powershellgallery.com/packages/DoneLandTools).
 
-> **PowerShell** comes with a basic set of commands. You can extend them by adding additional *modules* that serve your purpose.
+> **PowerShell** comes with a basic set of *general-purpose* commands. You extend them for your *specific needs and use cases* by adding additional *modules* that provide *more specific* commands.
 
 To download and use the *DoneLandTools*, run this line:
 
@@ -69,6 +69,7 @@ Should the above command be unable to download the module, check these items:
 
 * **Internet:** obviously you need to have internet access. Try visiting the [PowerShell Gallery](https://www.powershellgallery.com/) directly. 
 * **Permissions:** within company networks, access to the gallery may be restricted.
+* **Conflicts:** when an *existing* module added commands with the *same name* as commands in *DoneLandTest*, a *name conflict* would occur, and the new module cannot be installed. Either remove the conflicting module that is already present, or add the switch parameter `-AllowClobber` to install the *DoneLandTools* module anyway.
 * **Outdated:** *Windows PowerShell* may use outdated libraries. Try updating them using this command: `Install-Module -Name PowerShellGet -Scope CurrentUser -Force`
 
 ## New DoneLand Commands
@@ -92,8 +93,10 @@ Function    Show-Fat32Converter       1.0.0   donelandtools
 
 ### Exploring New Commands
 
-All commands come with *help*. To i.e. find out what `Get-LedStripFramerateInfo` can do for you, run the command like this: `Get-LedStripFramerateInfo -?`.
+All commands come with *help*. To i.e. find out what `Get-LedStripFramerateInfo` can do for you, run the command like this:
 
+```powershell
+ Get-LedStripFramerateInfo -?
 ```
 NAME
     Get-LedStripFramerateInfo
@@ -139,7 +142,11 @@ This is the *complete* but sometimes *overwhelming* help information.
 
 ### Practical Examples
 
-Much more fun are *examples* that show distinct use cases on how to actually run the command. Run this to get the examples for a command: `Get-Help Get-LedStripFramerateInfo -Examples`.
+Much more fun are *examples* that show distinct use cases on how to actually run the command. Run this to get the examples for a command: 
+
+```powershell
+Get-Help Get-LedStripFramerateInfo -Examples
+```
 
 Now you get a list of fun examples that you can try:
 
