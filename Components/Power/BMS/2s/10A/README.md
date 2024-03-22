@@ -38,12 +38,12 @@ For currents up to **10A**, a number of *BMS* boards are commonly available.
 
 Here is a very *compact* board:
 
-<img src="images/2s_10a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/2s_10a_top_angle_t.png" width="50%" height="50%" />
 
 Unfortunately, the compactness of the board did not leave room for markings on the front side. Instead, the markings for the soldering pads were printed on the *back side*:
 
 
-<img src="images/2s_10a_wiring.png" width="100%" height="100%" />
+<img src="images/2s_10a_wiring.png" width="50%" height="50%" />
 
 On the other end, the board has a big soldering pad marked as **B-** which is accessible from both sides, and two smaller ones marked **B1** and **B+** on the backside whereas the solder pads are accessible on the front.
 
@@ -80,11 +80,11 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 This is a *regular size* board:
 
-<img src="images/bms_2s_10a_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_10a_angle_t.png" width="50%" height="50%" />
 
 All connections are available both from front and back and are clearly marked on both sides:
 
-<img src="images/bms_2s_10a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_10a_bottom_t.png" width="50%" height="50%" />
 
 #### Connection
 
