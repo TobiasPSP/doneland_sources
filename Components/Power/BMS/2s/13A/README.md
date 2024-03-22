@@ -78,4 +78,4 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 > Tags: Battery, BMS, 2S, 13A, HX-2S-D20
 
-
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/13a?039112031222243921) - last edited 2024-03-22
