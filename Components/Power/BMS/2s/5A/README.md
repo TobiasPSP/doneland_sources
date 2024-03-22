@@ -15,6 +15,9 @@
 
 > [!CAUTION]
 > When connecting batteries to your **BMS**, make sure to use *wires* with sufficient diameter for the anticipated *high currents*.
+
+
+> [!CAUTION]
 > When designing *battery packs*, use batteries of *same type* and *same state of charge* only. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
 
 
