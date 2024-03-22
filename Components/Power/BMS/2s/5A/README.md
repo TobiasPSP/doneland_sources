@@ -9,15 +9,13 @@
 
 
 > [!NOTE]
-> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. 
-> *Locked state* is entered whenever *over-current protection* was triggered. 
-> To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
+> **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. *Locked state* is also entered whenever *over-current protection* was triggered. To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
 
 
 
 > [!CAUTION]
-> When connecting batteries to your **BMS**, make sure you use *wires* with sufficient diameter for the anticipated *high currents*.
-> Also make sure you only use batteries of *same type* and *same state of charge*. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
+> When connecting batteries to your **BMS**, make sure to use *wires* with sufficient diameter for the anticipated *high currents*.
+> When designing *battery packs*, use batteries of *same type* and *same state of charge* only. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
 
 
 ## 5A
@@ -29,11 +27,11 @@
 
 For currents up to **5A**, you can use a very small **BMS**:
 
-<img src="images/bms_2s_5a_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_5a_angle_t.png" width="50%" height="50%" />
 
 The connectors are located on the back:
 
-<img src="images/bms_2s_5a_wiring.png" width="100%" height="100%" />
+<img src="images/bms_2s_5a_wiring.png" width="50%" height="50%" />
 
 
 Connect the batteries like this:
@@ -62,11 +60,11 @@ The output voltage is available at **P+** and **P-**.
 
 The same logic is also available in a *circular* form factor:
 
-<img src="images/bms_2s_5a_round_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_5a_round_angle_t.png" width="50%" height="50%" />
 
 The connectors are located on the back:
 
-<img src="images/bms_2s_5a_round_back_t.png" width="100%" height="100%" />
+<img src="images/bms_2s_5a_round_back_t.png" width="50%" height="50%" />
 
 Parameters and connections are the same.
 
