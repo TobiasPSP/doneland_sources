@@ -14,9 +14,6 @@ This design is commonly found in **LED strips** and *matrix displays*, but **SMD
 <img src="images/led_ws2812_5050_top_t.png" width="50%" height="50%" />
 
 
-> [!NOTE]
-> There are also very simple tiny one-color **SMB LED** that often are found on *PCB* to indicate state such as power or failure states. These are *so simple* that they are not discussed here.
-
 ## Form Factors
 
 **SMD LED** are classified using a four-digit-code. The code is the *size* of the **LED**. 
@@ -28,10 +25,25 @@ Here are the most common **SMD LED** types and their sizes:
 * **2020:** if *size* is crucial, the *2020* needs only *2.0x2.0mm*. This miniaturization starts to impact performance, and *light emission* is typically less (around *half*) compared to *3535* and *5050*.
 
 > [!NOTE]
-> There are many more sizes and types. The three mentioned are the most common types. *5050* **SMD LED** are most commonly found on *stripes* and *matrix displays*.   
+> There are *many more sizes and types*. The three mentioned are the most common types. *5050* **SMD LED** are most commonly found on *stripes* and *matrix displays*.   
 
 
 <img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
+
+
+
+## Simple LED
+
+Simple **SMD LED** do not contain any control logic. They are regular **LED**, just without "legs" and instead with contacts that can be directly soldered to a PCB.
+
+Often, they can be found on *breakout boards* as simple *indicators*. They may as well be used in *static displays* where neither the *color* nor the *pattern* changes:
+
+<img src="images/led_special_stop_top_t.png" width="50%" height="50%" />
+
+They are also used in **LED** lamp bulbs and lights:
+
+<img src="images/led_stick_t.png" width="50%" height="50%" />
+
 
 
 
@@ -49,7 +61,7 @@ These separated *substrates* act like individual **LED**. Vendors can create *ve
 > Since **SMD LED** *types* (like *5050*) just define a *form factor*, this does not guarantee any specs or assures any performance. Quality, *color stability*, and *brightness* all depend on the specific vendor and the **LED** substrates that were used inside.   
 > Most vendors produce **SMD LED** with very similar specs, though. Should you be looking for exceptional above average performance, then ask the vendor for the *datasheet* so you can look up how well the built-in **LED**s perform.
 
-
+<img src="images/led_ws2812_strip_black_angle_t.png" width="50%" height="50%" />
 
 ### Various Controller Options
 
