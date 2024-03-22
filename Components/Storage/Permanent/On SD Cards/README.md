@@ -281,7 +281,7 @@ To limit sources of faults, before you use a *SD card*, first try it on a *PC*. 
 >
 > If the dialog shows a filesystem other than *FAT32* (i.e. *exFAT* or *NTFS*), you need to convert it to *FAT32* before you can use it. See below for instructions.
 
-<img src="images/1exfat.PNG" width="40%" height="40%" />
+<img src="images/1_exfat.png" width="40%" height="40%" />
 
 Once your *SD card* has passed all checks, insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
 
