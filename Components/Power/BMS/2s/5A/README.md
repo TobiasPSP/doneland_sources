@@ -20,8 +20,8 @@
 
 ## 5A
 
-[LiIon](fundamentals/battery/liion){:.button.button--success.button--rounded.button--sm}
- [LiPo](fundamentals/battery/lipo){:.button.button--success.button--rounded.button--sm}
+[LiIon](/fundamentals/battery/liion){:.button.button--success.button--rounded.button--sm}
+ [LiPo](/fundamentals/battery/lipo){:.button.button--success.button--rounded.button--sm}
 
 ### Rectangular
 
