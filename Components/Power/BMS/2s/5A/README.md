@@ -20,8 +20,8 @@
 
 ## 5A
 
-[LiIon](/fundamentals/battery/liion){:.button.button--success.button--rounded.button--sm}
- [LiPo](/fundamentals/battery/lipo){:.button.button--success.button--rounded.button--sm}
+[LiIon](https://done.land/fundamentals/battery/liion){:.button.button--success.button--rounded.button--sm}
+ [LiPo](https://done.land/fundamentals/battery/lipo){:.button.button--success.button--rounded.button--sm}
 
 ### Rectangular
 
@@ -32,6 +32,17 @@ For currents up to **5A**, you can use a very small **BMS**:
 The connectors are located on the back:
 
 <img src="images/bms_2s_5a_wiring.png" width="50%" height="50%" />
+
+
+### Circular
+
+The same logic is also available in a *circular* form factor:
+
+<img src="images/bms_2s_5a_round_angle_t.png" width="50%" height="50%" />
+
+The connectors are located on the back:
+
+<img src="images/bms_2s_5a_round_back_t.png" width="50%" height="50%" />
 
 
 Connect the batteries like this:
@@ -56,20 +67,7 @@ The output voltage is available at **P+** and **P-**.
 > [!NOTE]
 > Occasionally, this *BMS* is marked as *HX-2S-01*.
 
-### Circular
-
-The same logic is also available in a *circular* form factor:
-
-<img src="images/bms_2s_5a_round_angle_t.png" width="50%" height="50%" />
-
-The connectors are located on the back:
-
-<img src="images/bms_2s_5a_round_back_t.png" width="50%" height="50%" />
-
-Parameters and connections are the same.
-
-
 
 > Tags: Battery, BMS, 2S, 5A, HX-2S-01
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/5a?893974031416241946) - last edited 2024-03-16
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/5a?893974031416241946) - last edited 2024-03-22
