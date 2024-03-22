@@ -22,8 +22,10 @@
 
 ## 5A
 
-[LiIon/LiPo](#){:.button.button--success.button--rounded.button--sm}
+[LiIon](fundamentals/battery/liion){:.button.button--success.button--rounded.button--sm}
+ [LiPo](fundamentals/battery/lipo){:.button.button--success.button--rounded.button--sm}
 
+### Rectangular
 
 For currents up to **5A**, you can use a very small **BMS**:
 
@@ -56,6 +58,17 @@ The output voltage is available at **P+** and **P-**.
 > [!NOTE]
 > Occasionally, this *BMS* is marked as *HX-2S-01*.
 
+### Circular
+
+The same logic is also available in a *circular* form factor:
+
+<img src="images/bms_2s_5a_round_angle_t.png" width="100%" height="100%" />
+
+The connectors are located on the back:
+
+<img src="images/bms_2s_5a_round_back_t.png" width="100%" height="100%" />
+
+Parameters and connections are the same.
 
 
 
