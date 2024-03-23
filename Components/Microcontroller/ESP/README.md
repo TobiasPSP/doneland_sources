@@ -13,7 +13,7 @@ Since then, Expressif has expanded its *microcontroller* family with many new mo
 
 
 > [!TIP]
-> The *Expressif* **ESP32** microcontrollers are so powerful and popular that in fact *Arduino* has switched horses, too, and released its first **ESP32** board in 2023: the [Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/).
+> The *Expressif* **ESP32** microcontrollers are in fact *so powerful and popular* that *Arduino* is using this processor now as well, and released its first **ESP32** board in 2023: the [Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/).
 
 <img src="images/esp32_family1_t.png" width="100%" height="100%" />
 
