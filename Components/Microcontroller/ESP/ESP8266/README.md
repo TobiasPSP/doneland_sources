@@ -10,7 +10,7 @@ The *ESP8266* from *Expressif* is probably the most widely used *microcontroller
 
 It became an instant success and convinced many users to move from *Arduino* to *ESP* because of a number of substantial advantages:
 
-* **More Memory:** The *ESP8266* comes with more memory than *Arduinos* (in 2016 when the *ESP8266* was released) had. The dreaded *out of memory*-errors that commonly struck *Arduino* users do not occur with *ESP8266*.
+* **More Memory:** The *ESP8266* comes with more memory than *Arduinos* (in 2016 when the *ESP8266* was released). The dreaded *out of memory*-errors that commonly struck *Arduino* users do not occur with *ESP8266*.
 * **WiFi Support:** *ESP8266* comes with built-in *WiFi* support and can work as *client*, *access point*, or *both*. This opened an entire new universe for makers: *ESP8266* can join home networks and report back *sensor data* wireless, or it can be used as *relais controller* to control devices via *remote control*.
 * **Price:** Compared to *Arduinos*, *ESP8266* are dead cheap. A breakout board with *8MB RAM* typically costs less than EUR 2.00.
 
