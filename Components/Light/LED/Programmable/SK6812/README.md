@@ -6,36 +6,28 @@
 
 The *SK6812* is very similar to the popular *WS2812B* but can control *four* instead of *three* channels.
 
+Whenever you want to control **RGBW LED** instead of **RGB LED**, the *SK6812* is the most commonly chosen controller.
+
+
+
 It is a *clone* with all the risks and benefits. You get **RGBW** support for the price of a *WS2812B*, and due to a higher voltage range, you may be less subject to the effects of *voltage drop*.
 
 
 ## When To Use
 
-If you want to control **RGBW**, the *SK6812* is the most economic solution.
+Here are the most important advantages over the *WS2182B*:
 
-The same goes for running *long* **LED strips**: color and brightness stabilization is better than with *WS2812* (unless you use *voltage injection*).
-
-
+* **RGBW Support:** You want to control **RGBW LED** instead of **RGB LED**
+* **3.3V Support:** While the *WS2812B* can be controlled using **3.3V**, this is outside the specs, and when the physical distance between microcontroller and *first* **LED** is longer than a few centimeters, you may have to use a *level shifter*. The *SK6812* has a *wider voltage range* and works reliably with **3.3V**.
+* **Long Strips:** due to the *wider voltage range*, a *voltage drop* seems to have less negative effects. This can be a benefit when using **LED strips** longer than *2.5m* unless you use *voltage injection* anyway.
 
 ## When To Not Use
 
+There have been reports that *protocol timing* may be different from *WS2812B*. Typically, *SK6812* are *compatible* but they are *clones* with slight variations.
+There have also been reports that some *SK6812* use **LED** with smaller *dies* (lower brightness). If in doubt, check the data sheet of the particular *SK6812* you are planning to purchase.
 
-This is a *clone* trying to mimick the original *WS2812B*. 
+If you want to control **RGB LED** (and do not need the additional channel for **RGBW**), then probably the safest approach is to use the proven *WS2182B*. Often there are no significant price differences.
 
-*Clones* can be perfectly ok but do not always come with the same *quality* (i.e. smaller **LED** die = less brightness or issues with the *data protocol*)
-
-Hobbyist should choose the *proven* *WS2813* (if you need redundant data wires) or the *cheaper* *WS2812B*. Both are not *much* more expensive than the *clones*.
-
-*SK6812* uses **5V** supply voltage. For very long **LED strips** and huge *matrix displays*, you either need *voltage injection* or should choose a **12V** or **24V** controller type.
-
-If you just need **RGB LED**, using the *WS2812* is sufficient and cheaper.
-
-
-## Reverse Voltage Protection
-
-*WS2812B* come with a *reverse voltage* protection: 
-
-When polarity is reversed (or when you accidentally connect an **LED strip** at the wrong end), you are protected from destroying the strip.
 
 ## Datasheet
 
