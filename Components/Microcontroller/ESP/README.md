@@ -2,7 +2,7 @@
  
 # ESP
 
-> In 2014, Espressif Entered The DIY Microcontroller Market With The ESP8266. Today, It's A Powerful Processor Family
+> In 2014, Espressif Entered The DIY Microcontroller Market With The ESP8266. In 2016, Dual-Core ESP32 Were Added. Today, It's A Powerful Processor Family
 
 When the Chinese company *Espressif* in 2014 released its *ESP8266* microcontroller, it became an instant success and started be a serious competition for the *ATMega*-based *Arduino* microcontroller breakout boards.
 
