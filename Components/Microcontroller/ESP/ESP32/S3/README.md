@@ -41,3 +41,5 @@ This is what's new:
 In addition, the **S3** comes with *AI Acceleration Support*: the *MCU* (math coprocessor) is tailored towards the kind of vector calculations needed in *AI* applications.
 
 > Tags: Microcontroller, ESP32, S3, ESP32 S3
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s3?530017031823244200) - last edited 2024-03-23

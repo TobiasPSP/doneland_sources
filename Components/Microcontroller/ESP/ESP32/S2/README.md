@@ -48,3 +48,5 @@ Aside from the much lower *energy consumption*, the **S2** got some enhancements
 
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Energy
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2?502092031823244200) - last edited 2024-03-23

@@ -9,7 +9,7 @@ When the Chinese company *Espressif* in 2014 released its *ESP8266* microcontrol
 Since then, Expressif has expanded its *microcontroller* family with many new models. These models can be divided into two sub-families:
 
 * [ESP8266](ESP8266): A cheap and reliable workhorse for *DIY* projects with *WiFi* built-in. Released 2014.
-* [ESP32](ESP): A powerful one- and two-core family of microcontrollers with *WiFi*, *Bluetooth*, *WiFi6*, *Zigbee*, and *Threads* support (depending on *ESP32* model). Initially released 2016, with new models in 2020 and 2021, and ever since.
+* [ESP32](ESP32): A powerful one- and two-core family of microcontrollers with *WiFi*, *Bluetooth*, *WiFi6*, *Zigbee*, and *Threads* support (depending on *ESP32* model). Initially released 2016, with new models in 2020 and 2021, and ever since.
 
 
 > [!TIP]
@@ -21,3 +21,4 @@ Since then, Expressif has expanded its *microcontroller* family with many new mo
 
 > Tags: Microcontroller, ESP, ESP8266, ESP32
 
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp?371521031823244200) - last edited 2024-03-23

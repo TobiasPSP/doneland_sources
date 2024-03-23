@@ -456,4 +456,4 @@ The number of **SPI** was reduced from 3 to 1.
 
 > Tags: Microcontroller, Arduino, ESP8266, ESP32, Nano, S2, S3, C2, C3, C6, Clone, Power Regulator
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller?765626031601243831) - last edited 2024-03-15
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/attiny?765626031601243831) - last edited 2024-03-15

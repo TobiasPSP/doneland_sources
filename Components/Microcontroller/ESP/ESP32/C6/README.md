@@ -32,3 +32,5 @@ The number of **SPI** was reduced from 3 to 1.
 > As of this writing, the **C6** does not support the *Arduino Framework* yet. You cannot currently program it using the *Arduino IDE* or *platformio*. Instead, you must use the *ESP-IDF* from *Expressif*. This is going to change soonish, and eventually, the **C6**, too, will support the universal *ArduinoIDE*.
 
 > Tags: Microcontroller, ESP32, C6, ESP32 C6, WiFi, WiFi 6, Zigbee, Threads
+
+:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/c6?459209031823244200) - last edited 2024-03-23
