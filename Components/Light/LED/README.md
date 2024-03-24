@@ -87,8 +87,6 @@ Worse, **LED** *strip* multiply this effort: *each* of the *three* color **LED**
 
 [Programmable](Programmable) **RGB LED** come to the rescue by adding a tiny chip to *each programmable **RGB LED***. Both *color mixing* and *current control* is managed by this chip. It is controlled by just one *data pin* that can be *daisy chained* to string up any number of *programmable **RGB LED***.
 
-<img src="images/led_ws2812_5050_top_t.png" width="50%" height="50%" />
-
 Most commonly, the **LED** controllers are *embedded* in **SMD LED** like the type *5050* in the picture above.
 
 > [!NOTE]
