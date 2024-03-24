@@ -126,4 +126,4 @@ They often can be connected directly to voltages like **12-13V** without the nee
 
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Forward Voltage, Reverse Voltage, Breakdown Voltage
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led?198478031411241041) - last edited 2024-03-17
+[Visit Page on Website](https://done.land/components/light/led?198478031411241041) - created 2024-03-17

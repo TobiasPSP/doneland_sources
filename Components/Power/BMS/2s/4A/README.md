@@ -63,4 +63,4 @@ The output voltage is available at **P+** and **P-**.
 
 > Tags: Battery, BMS, 2S, 4A
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/4a?133747031821241432) - last edited 2024-03-21
+[Visit Page on Website](https://done.land/components/power/bms/2s/4a?133747031821241432) - created 2024-03-21

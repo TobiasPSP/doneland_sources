@@ -84,4 +84,4 @@ If you do not need a *USB Connector*, you can further cut board size. The pictur
 
 > Tags: Microcontroller, ESP8266, ESP32
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32?405392031823244200) - last edited 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32?405392031823244200) - created 2024-03-23

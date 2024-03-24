@@ -42,4 +42,4 @@ In addition, the **S3** comes with *AI Acceleration Support*: the *MCU* (math co
 
 > Tags: Microcontroller, ESP32, S3, ESP32 S3
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s3?530017031823244200) - last edited 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s3?530017031823244200) - created 2024-03-23

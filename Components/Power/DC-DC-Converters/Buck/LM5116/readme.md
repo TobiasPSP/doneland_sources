@@ -54,4 +54,4 @@ The **LM5116** from *Texas Instruments* is a popular step-down converter capable
 
 > Tags: Buck, CC, CV, 20A, 36V
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/lm5116?325130020426240854) - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/lm5116?325130020426240854) - created 2024-02-27

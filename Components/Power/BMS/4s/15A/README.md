@@ -58,4 +58,4 @@ The output voltage is available at **P+** and **P-**.
 
 > Tags: Battery, BMS, 4S, 15A
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/4s/15a?678590031516242508) - last edited 2024-03-16
+[Visit Page on Website](https://done.land/components/power/bms/4s/15a?678590031516242508) - created 2024-03-16

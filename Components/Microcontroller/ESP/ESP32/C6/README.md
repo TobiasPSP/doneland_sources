@@ -33,4 +33,4 @@ The number of **SPI** was reduced from 3 to 1.
 
 > Tags: Microcontroller, ESP32, C6, ESP32 C6, WiFi, WiFi 6, Zigbee, Threads
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/c6?459209031823244200) - last edited 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/c6?459209031823244200) - created 2024-03-23

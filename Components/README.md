@@ -19,4 +19,4 @@ Many modern *DIY projects* these days use *microcontrollers*.
 
 Whether you are into *Arduinos* or would like to finally understand the differences between *ESP8266*, *ESP32*, *Wroom*, or whatnot, the [Microcontrollers](/components/microcontroller) section has you covered.
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components?061835020426240854) - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components?061835020426240854) - created 2024-02-27

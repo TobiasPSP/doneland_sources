@@ -67,4 +67,4 @@ Here is a list to popular **Buck** regulator chips along with commonly available
 
 > Tags: Buck, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck?519688031208244345) - last edited 2024-03-08
+[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck?519688031208244345) - created 2024-03-08

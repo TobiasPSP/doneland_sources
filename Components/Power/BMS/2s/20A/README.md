@@ -92,4 +92,4 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 > Tags: Battery, BMS, 2S, 20A
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/power/bms/2s/20a?862063031416241946) - last edited 2024-03-21
+[Visit Page on Website](https://done.land/components/power/bms/2s/20a?862063031416241946) - created 2024-03-21

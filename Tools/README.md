@@ -15,4 +15,4 @@ Here is an example: I use the free *KiCAD* software to draw schematics (so *KiCa
 
 If you just want a hi-res *png* schematics image file, a lot of post-processing steps are needed. I automated them with the help of *PowerShell* and created a *PowerShell* module with all the necessary commands to *crop* the excessive whitespace, replace it by a margin, optionally add a solid color background, and then convert the *svg* file to a hi-res *PNG*.
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/tools?649141020426240854) - last edited 2024-02-27
+[Visit Page on Website](https://done.land/tools?649141020426240854) - created 2024-02-27

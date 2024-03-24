@@ -381,4 +381,4 @@ Here are a few points to consider when using *programmable **LED***:
 
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, Programmable LED
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable?668154031318243445) - last edited 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/programmable?668154031318243445) - created 2024-03-18

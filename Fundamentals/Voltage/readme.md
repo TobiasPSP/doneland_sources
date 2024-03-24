@@ -107,4 +107,4 @@ At *which voltage* this occurs is just a matter of the given material, its inner
 
 > Tags: Voltage, Tension, Resistance, Power, Watt, Current, AC, DC, Forward Voltage, Breakdown Voltage, Isulator, Dielectrical Strength, Conductivity
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/fundamentals/voltage?928463030815241653) - last edited 2024-03-15
+[Visit Page on Website](https://done.land/fundamentals/voltage?928463030815241653) - created 2024-03-15

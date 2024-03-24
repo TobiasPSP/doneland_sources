@@ -27,4 +27,4 @@ inkscape --export-type="png" --export-width=3000 $(Get-Clipboard)
 >
 > Only then will **PowerShell** (or any console) find the command *inkscape*. Without adjusting the environment variable, you have to specify the full absolute path name to *inkscape.exe* whenever you want to run it - which is impractical.
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/tools/software/powershell/imageprocessing/fileformatconversion/.svgto.png?677065020426240854) - last edited 2024-02-27
+[Visit Page on Website](https://done.land/tools/software/powershell/imageprocessing/fileformatconversion/.svgto.png?677065020426240854) - created 2024-02-27

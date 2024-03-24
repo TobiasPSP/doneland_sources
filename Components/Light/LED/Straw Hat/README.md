@@ -31,4 +31,4 @@ In all other aspects, they work like regular **LED**.
 
 > Tags: LED, Light, Anode, Cathode, Straw Hat
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/strawhat?708156031318243445) - last edited 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/strawhat?708156031318243445) - created 2024-03-18

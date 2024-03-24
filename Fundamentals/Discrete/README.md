@@ -17,4 +17,4 @@
 
 > Tags: Discrete, Active, Passive
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/fundamentals/discrete?541460020426240854) - last edited 2024-02-27
+[Visit Page on Website](https://done.land/fundamentals/discrete?541460020426240854) - created 2024-02-27

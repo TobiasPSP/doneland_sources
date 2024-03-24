@@ -54,4 +54,4 @@ Around 2017, the *WS2812B* specifications changed (see above), and the manufactu
 
 > Tags: WS2812, WS2812B, LED, RGB, NeoPixel, Controller, 5V
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/ws2812?238337031419241823) - last edited 2024-03-19
+[Visit Page on Website](https://done.land/components/light/led/programmable/ws2812?238337031419241823) - created 2024-03-19

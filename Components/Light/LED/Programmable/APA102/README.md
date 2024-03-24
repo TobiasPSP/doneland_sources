@@ -39,4 +39,4 @@ Since there is no apparent benefit for *DIY projects* when compared to *WS2812B*
 
 > Tags: APA102, LED, RGB, SPI, Controller, 5V
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/programmable/apa102?405038031819243633) - last edited 2024-03-19
+[Visit Page on Website](https://done.land/components/light/led/programmable/apa102?405038031819243633) - created 2024-03-19

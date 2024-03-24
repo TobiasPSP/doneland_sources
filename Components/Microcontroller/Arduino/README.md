@@ -52,4 +52,4 @@ There are important **CONS**, too:
 
 > Tags: Microcontroller, Arduino
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/microcontroller/arduino?264286031823244200) - last edited 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller/arduino?264286031823244200) - created 2024-03-23

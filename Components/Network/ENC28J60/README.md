@@ -42,4 +42,4 @@ The operating voltage is **3.3V**.
 
 > Tags: Data, Network, Ethernet, ENC28J60, HR911105A
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/network/enc28j60?309008031222243356) - last edited 2024-03-22
+[Visit Page on Website](https://done.land/components/network/enc28j60?309008031222243356) - created 2024-03-22

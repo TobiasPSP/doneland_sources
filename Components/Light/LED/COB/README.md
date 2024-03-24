@@ -23,4 +23,4 @@ They often can be connected directly to voltages like **12-13V** without the nee
 
 > Tags: LED, Light, Anode, Cathode, COB
 
-:eye:&nbsp;[Visit Page on Website](https://done.land/components/light/led/cob?508661031318243445) - last edited 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/cob?508661031318243445) - created 2024-03-18
