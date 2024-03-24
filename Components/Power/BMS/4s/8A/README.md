@@ -27,11 +27,11 @@
  [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
 For currents up to **8A**, you can use a **BMS** with a square form factor. This makes it ideal for battery packs with four *18650 LiIon* cells but can also be used for other lithium batteries including *LiPo*:
 
-<img src="images/4s_8a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/4s_8a_top_angle_t.png" width="50%" height="50%" />
 
 There are quite a few connectors on this board that are accessible only from the top. Make sure you connect your batteries correctly.
 
-<img src="images/4s_8a_wiring.png" width="100%" height="100%" />
+<img src="images/4s_8a_wiring.png" width="50%" height="50%" />
 
 Connect the batteries like this:
 
@@ -44,7 +44,7 @@ The output voltage is available at the (relatively small) **P+** and **P-** term
 
 The terminals **B1** and **B3** are also available on the back side of the board:
 
-<img src="images/4s_8a_bottom_t.png" width="100%" height="100%" />
+<img src="images/4s_8a_bottom_t.png" width="50%" height="50%" />
 
 
 ### Specs
