@@ -30,7 +30,7 @@
 
 For currents up to **25A**, this rounded multi-purpose board is available:
 
-<img src="images/bms_4s_25A_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_25A_top_angle_t.png" width="50%" height="50%" />
 
 
 Connect the batteries like this:
@@ -41,12 +41,12 @@ Connect the batteries like this:
 * Forth battery string to **B2** (-) and **B+** (+)
 
 
-<img src="images/bms_4s_25A_top_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_25A_top_t.png" width="50%" height="50%" />
 
 
 The output voltage is available at **P+** and **P-**. These two pads are accessible from both sides.
 
-<img src="images/bms_4s_25a_wiring.png" width="100%" height="100%" />
+<img src="images/bms_4s_25a_wiring.png" width="50%" height="50%" />
 
 > [!TIP]
 > The terminal **A** is not used. It is reserved for the **5S** version of this board.
@@ -73,7 +73,7 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 This is a *multipurpose* board and can be used for **3S**, **4S**, and **5S**. The number of supported strings can be configured on the board at four locations:
 
-<img src="images/bms_4s_25a_configloc-t.png" width="100%" height="100%" />
+<img src="images/bms_4s_25a_configloc-t.png" width="50%" height="50%" />
 
 | Location | **3S** | **4S** | **5S** | 
 | --- | --- | --- | --- |
