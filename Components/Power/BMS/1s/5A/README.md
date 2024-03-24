@@ -54,7 +54,7 @@ The output voltage is available at the terminals **P+** and **P-** in the middle
 
 This board is based on the *DW01* chip and three *8205A* MosFET:
 
-<img src="images/bms_1s_5a_angle_1_t.png" width="50%" height="50%" />
+<img src="images/bms_1s_5a_top_1_t.png" width="50%" height="50%" />
 
 All solder pads are located on the backside:
 
