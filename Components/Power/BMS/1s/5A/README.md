@@ -69,7 +69,7 @@ Connect the battery to **B+** and **B-**. Output voltage is available at **P+** 
 
 
 | Protection | Threshold | 
-| --- | --- | --- | --- |
+| --- | --- | 
 | Continuous Current | 5A | 
 | Maximum Current | 6A |
 | Overcurrent Detection | 7.5A |
