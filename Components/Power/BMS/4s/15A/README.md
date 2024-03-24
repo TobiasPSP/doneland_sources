@@ -26,7 +26,7 @@
  [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
 For currents up to **15A**, a board with four powerful *MosFET* like this one can be used:
 
-<img src="images/bms_4s_15a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_15a_top_angle_t.png" width="50%" height="50%" />
 
 Connect the batteries like this:
 
@@ -35,14 +35,14 @@ Connect the batteries like this:
 * Third battery string to **VM** (-) and **VH** (+)
 * Forth battery string to **VH** (-) and **B+** (+) 
 
-<img src="images/bms_4s_15a_wiring.png" width="100%" height="100%" />
+<img src="images/bms_4s_15a_wiring.png" width="50%" height="50%" />
 
 
 The terminals are accessible both from top and bottom.
 
 The output voltage is available at **P+** and **P-**.
 
-<img src="images/bms_4s_15a_bottom_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_15a_bottom_t.png" width="50%" height="50%" />
 
 ### Specs
 
