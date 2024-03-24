@@ -26,7 +26,7 @@
  [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
 For currents up to **15A**, a board with four powerful *MosFET* like this one can be used:
 
-<img src="images/bms_4s_15A_top_angle_t.png" width="100%" height="100%" />
+<img src="images/bms_4s_15a_top_angle_t.png" width="100%" height="100%" />
 
 Connect the batteries like this:
 
