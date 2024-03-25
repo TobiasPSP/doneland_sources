@@ -2,7 +2,7 @@
  
 # ENC28J60 Ethernet Controller
 
-> Physical Connection To An Ethernet Network Ensuring Reliable And Low Latency Connections
+> A Classic And Robust Board For Permanently Wiring Your Device To A Network
 
 This is a popular *Ethernet* controller that is used on a number of breakout boards.
 
