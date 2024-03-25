@@ -15,7 +15,7 @@ The number of digits displayable solely depends on the number of *7-segment* **L
 
 Each segment in each display represents a single **LED**. One *7-segment* display therefore consists of at least *seven* individual **LED**. Some displays include an additional *decimal point* and/or a *colon*. A typical *4-digit* breakout board is made of *30* individual **LED**.
 
-<img src="images/led_matrix_tm1637_2_angle_t.png" width="50%" height="50%" />
+<img src="images/led_7seg_overview_t.png" width="50%" height="50%" />
 
 Wiring and controlling these **LED** directly would require *31* wires and *30 GPIO* pins which obviously does not make practical sense. Specialized *controller IC* are used instead to control the **LED**. Here are a few commonly used *controllers*:
 
@@ -36,4 +36,4 @@ These controllers use *two separate strategies* to control a variable number of 
 
 > Tags: 7-Segment, Matrix, TM1637, MAX7210, HT16K33
 
-
+[Visit Page on Website](https://done.land/components/light/led/7-segment?207284030026242123) - created 0001-01-01
