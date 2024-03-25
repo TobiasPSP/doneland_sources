@@ -2,7 +2,7 @@
  
 # ENC28J60 Ethernet Controller
 
-> A Robust Board For Permanently Wiring Your Device To A Network
+> A Robust Controller Found On Many Boards To Permanently Wire Your Device To A Network
 
 This is a popular *Ethernet* controller that is used on a number of breakout boards.
 
