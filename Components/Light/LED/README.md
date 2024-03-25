@@ -124,6 +124,15 @@ The result are large surfaces of any shape or area, a *cheap* production method 
 They often can be connected directly to voltages like **12-13V** without the need of *series resistors* or *constant voltage*/*constant current* power supplies.
 
 
+## LED Matrix Displays
+
+Multiple **LED** are combined in *7-Segment* displays. They are commonly used to display numeric information.
+
+<img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
+
+Dedicated *controller IC* make it simple to drive these displays via *I2C* or similar interfaces.
+
+
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Forward Voltage, Reverse Voltage, Breakdown Voltage
 
-[Visit Page on Website](https://done.land/components/light/led?198478031411241041) - created 2024-03-17
+[Visit Page on Website](https://done.land/components/light/led?198478031411241041) - created 2024-03-17 - last edited 2024-03-25
