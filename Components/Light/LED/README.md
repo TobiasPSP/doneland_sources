@@ -133,6 +133,6 @@ Multiple **LED** are combined in *7-Segment* displays. They are commonly used to
 Dedicated *controller IC* make it simple to drive these displays via *I2C* or similar interfaces.
 
 
-> Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Forward Voltage, Reverse Voltage, Breakdown Voltage
+> Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Matrix, 7-Segment, Forward Voltage, Reverse Voltage, Breakdown Voltage
 
 [Visit Page on Website](https://done.land/components/light/led?198478031411241041) - created 2024-03-17 - last edited 2024-03-25
