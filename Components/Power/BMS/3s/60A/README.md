@@ -73,3 +73,5 @@ This *BMS* has dedicated *charging* terminals marked as *Charge*. Charging volta
 
 
 > Tags: Battery, BMS, 3S, 60A
+
+[Visit Page on Website](https://done.land/components/power/bms/3s/60a?354301032326245105) - created 0001-01-01
