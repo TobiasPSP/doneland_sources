@@ -7,6 +7,11 @@ The *TM1637* controller is a clever **LED** *controller* used in many *7-segment
 
 <img src="images/led_matrix_tm1637_angle_t.png" width="50%" height="50%" />
 
+It is available in many different breakout boards.
+
+<img src="images/led_matrix_tm1637_2_angle_t.png" width="50%" height="50%" />
+
+
 > [!TIP]
 > What sets this controller apart from others is its *two-wire* serial interface and the built-in *keyboard scan* support which can make this controller a one-stop solution to control *device user interfaces* consisting of *indicator **LED*** and *keys*.
 
@@ -33,6 +38,11 @@ Typically, the *MAX7219* comes on a breakout board ready-to-use with *7-segment*
 The *controller* and all logic is placed on the back side:
 
 <img src="images/led_matrix_tm1637_bottom_t.png" width="50%" height="50%" />
+
+The actual component placement and size of the breakout boards can vary:
+
+<img src="images/led_matrix_tm1637_2_bottom_t.png" width="50%" height="50%" />
+
 
 
 ## Data Sheet
