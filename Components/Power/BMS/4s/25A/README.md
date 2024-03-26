@@ -30,7 +30,7 @@
 
 For currents up to **25A**, this rounded multi-purpose board is available:
 
-<img src="images/bms_4s_25A_top_angle_t.png" width="50%" height="50%" />
+<img src="images/bms_4s_25a_top_angle_t.png" width="50%" height="50%" />
 
 
 Connect the batteries like this:
@@ -41,7 +41,7 @@ Connect the batteries like this:
 * Forth battery string to **B2** (-) and **B+** (+)
 
 
-<img src="images/bms_4s_25A_top_t.png" width="50%" height="50%" />
+<img src="images/bms_4s_25a_top_t.png" width="50%" height="50%" />
 
 
 The output voltage is available at **P+** and **P-**. These two pads are accessible from both sides.
