@@ -1,13 +1,14 @@
 <img src="/assets/images/battery.png" width="100%" height="100%" />
 
 
-# 3S 60A Battery Management Systems (BMS)
+# 4S 40A Battery Management Systems (BMS)
 
-> BMS For Three Battery Strings And 60A Max Current
+> BMS For Four Battery Strings And 40A Max Current
 
 
 > [!NOTE]
 > **BMS** often ship in *locked state*: *no output voltage* is available at the output pins. *Locked state* is also entered whenever *over-current protection* was triggered. To *unlock* the **BMS**, connect it to a charger. If you did not add a dedicated *charger board*, apply the appropriate charging voltage to its output terminal.
+
 
 
 > [!CAUTION]
@@ -19,20 +20,19 @@
 > When designing *battery packs*, use batteries of *same type* and *same state of charge* only. It is recommended you *fully charge* all batteries before connecting. All batteries must have *the same voltage* (voltage difference less than *0.05V*). Do not mix batteries from different vendors, types, capacity, or age. 
 
 
+
 ## 60A
 
 [LiIon](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
  [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
 
-For currents up to **60A**, here is a rugged and balanced **BMS**:
+For currents up to **40A** (i.e. for power tools like *drills* with a high initial *current*), here is a rugged and balanced **BMS**:
 
-<img src="images/bms_3s_60a_angle_t.png" width="50%" height="50%" />
+<img src="images/bms_4s_40a_angle_t.png" width="50%" height="50%" />
 
-> [!CAUTION]
-> There is a similar board available for currents up to **40A**. Make sure you check the markings on the board. These *BMS* are designed for *tool batteries* (i.e. a drill) that draw a *high initial* current. The *continuous current* is typically much lower and should not exceed **30A**. Make sure you connect *batteries* with the appropriate current capabilities. Typically batteries with **20C** or more discharge current are required. 
 
 > [!NOTE]
-> A *heat sink* may be required with *continuous* currents exceeding **30A**.
+> There are two very similar breakout board versions available. One shows the marking *4S 40A* between the terminals *12.6V* and *16.8V*. The other one shows the marking on the left side between the connections *12.6V* and *8.4V*. They are called *Enhance* and *Balance* interchangeably, and it is not clear what the true differences are.
 
 ### Connections
 
@@ -41,35 +41,33 @@ Connect the batteries like this:
 * First battery string to **0V** (-) and **4.2V** (+)
 * Second battery string to **4.2V** (-) and **8.4V** (+)
 * Third battery string to **8.4V** (-) and **12.6V** (+)
+* Forth battery string to **12.6V** (+) and **16.8V** (+)
 
-<img src="images/bms_3s_60a_top_t.png" width="50%" height="50%" />
+<img src="images/bms_4s_40a_top_t.png" width="50%" height="50%" />
 
 The output voltage is available at the terminals marked  **+** and **-** at the port labelled *Discharge*.
 
 
 All terminals are also available at the bottom:
 
-<img src="images/bms_3s_60a_bottom_t.png" width="50%" height="50%" />
+<img src="images/bms_4s_40a_bottom_t.png" width="50%" height="50%" />
 
 
 ### Specs
 
 | Protection | Threshold | 
 | --- | --- | 
-| Continuous current | 60A |
-| Over-Charge | >4.20V |
-| Over-Discharge | <3.0V |
-| Over-Current | 125A  | 
+| Continuous current | 40A |
+| Over-Charge | >4.25V, recovery at <4.1V |
+| Over-Discharge | <2.5V (0.1C),<3V (@1C),<3.5V(@>2C) |
+| Over-Current | 80A (150ms delay) | 
 | Short Circuit | yes,resettable | 
 | Continuous Current | 20A |
-| Size | 62x41x3.4mm |
-
-> [!NOTE]
-> The vendor claims this *BMS* has a *short circuit protection*. At the same time the vendor warns to deliberately *short circuit* the *BMS*. Due to the high currents, it is likely that the *BMS* can be damaged by a prolonged *short circuit* due to excessive *heat*. 
+| Size | 45x55x3.4mm |
 
 ### Charging
 
-This *BMS* has dedicated *charging* terminals marked as *Charge*. Charging voltage needs to be *12.6-13.6V*. The **BMS** limits the charging current to *20A*.
+Charging voltage is *16.8-18.1V*. The **BMS** limits the charging current to *20A*.
 
 
-> Tags: Battery, BMS, 3S, 60A
+> Tags: Battery, BMS, 4S, 40A
