@@ -23,6 +23,24 @@ It is available in many different breakout boards.
 | --- | --- |
 | Common Anode | **LED** are controlled by their *cathode* (**-**) and all use the same *anode* (**+**) |
 
+### 8x8 Dot Matrix Displays
+
+*MAX7219* is a very popular controller for driving *8x8 dot matrix displays* as well:
+
+<img src="images/led_dotmatrix_8x8_tm1637_angle_t.png" width="50%" height="50%" />
+
+They are *cheap* and available as breakout boards with *one* or *many* 8x8 dot matrix displays. In the picture you can see the connectors that take a *8x8 dot matrix module*, and the *MAX7219* chip beneath:
+
+<img src="images/led_dotmatrix_8x8_tm1637_angle_t.png" width="50%" height="50%" />
+
+The *8x8 dot matrix modules* have two rows with 8 pins each. They are available in all common **LED** colors.
+
+<img src="images/led_dotmatrix_8x8_tm1637_back_t.png" width="50%" height="50%" />
+
+> [!CAUTION]
+> The *MAX7219* is primarily designed to drive simple *7-segment displays*. Its *constant current* is limited. While *8x8 dot matrix modules* are flexible and can display **LED** *ticker* and patterns, the *brightness* is *very limited*. These displays are not up-to-date with current technology anymore. For vivid colors and blinding brightness, consider using modern *WS2182*-based **RGB** *matrix displays* instead. 
+
+
 
 ## Interface
 
