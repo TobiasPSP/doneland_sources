@@ -31,7 +31,7 @@ It is available in many different breakout boards.
 
 They are *cheap* and available as breakout boards with *one* or *many* 8x8 dot matrix displays. In the picture you can see the connectors that take a *8x8 dot matrix module*, and the *MAX7219* chip beneath:
 
-<img src="images/led_dotmatrix_8x8_tm1637_angle_t.png" width="50%" height="50%" />
+<img src="images/led_dotmatrix_8x8_tm1637_overview_t.png" width="50%" height="50%" />
 
 The *8x8 dot matrix modules* have two rows with 8 pins each. They are available in all common **LED** colors.
 
@@ -67,6 +67,6 @@ The actual component placement and size of the breakout boards can vary:
 
 [Data Sheet](materials/tm1637_datasheet.pdf)
 
-> Tags: LED, 7-Segment, Matrix, Controller, TM1637, 5V
+> Tags: LED, 7-Segment, Matrix, Controller, TM1637, 5V, 8x8 Segment
 
 [Visit Page on Website](https://done.land/components/light/led/7-segment/tm1637?323971030026242123) - created 0001-01-01
