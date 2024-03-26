@@ -27,7 +27,7 @@
 
 For currents up to **20A**, here is a rugged and balanced **BMS**:
 
-<img src="images/3s_20a_top_angle_t.png" width="100%" height="100%" />
+<img src="images/3s_20a_top_angle_t.png" width="50%" height="50%" />
 
 
 Connect the batteries like this:
@@ -36,14 +36,14 @@ Connect the batteries like this:
 * Second battery string to **4.2V** (-) and **8.4V** (+)
 * Third battery string to **8.4V** (-) and **12.6V** (+)
 
-<img src="images/3s_20a_wiring.png" width="100%" height="100%" />
+<img src="images/3s_20a_wiring.png" width="50%" height="50%" />
 
 The output voltage is available at the terminals marked  **+** and **-**.
 
 
 All terminals are also available at the bottom:
 
-<img src="images/3s_20a_bottom_t.png" width="100%" height="100%" />
+<img src="images/3s_20a_bottom_t.png" width="50%" height="50%" />
 
 
 ### Specs
