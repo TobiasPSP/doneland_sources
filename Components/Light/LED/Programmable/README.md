@@ -43,6 +43,8 @@ These *controllers* can be embedded into various *single color*, *RGB*, and *RGB
 > [!NOTE]
 > There are many more **LED** controllers using different data transmission techniques. The controllers listed above all use the common 800kHz *fixed-frequency* one-wire protocol. Controllers like i.e. the [APA102](APA102) come with more capable *variable-frequency* two-wire protocols: one wire serves as *clock*, allowing the controlling microcontroller to *increase* or *decrease* the data transmission speed as needed.
 
+
+
 > [!TIP]
 > The *brightness* and *color quality* does not depend on the *controller*. It solely depends on the type of **LED** the *controller* is embedded in, and on *how many* **LED** are used per *length* or *area*.
 
@@ -51,7 +53,7 @@ These *controllers* can be embedded into various *single color*, *RGB*, and *RGB
 
 Each **LED** *brightness* can be controlled in *256* steps. 
 
-For a *RGB* **LED**, the total number of colors is *256^3 = 16777216).
+For a *RGB* **LED**, the total number of colors is *256^3 = 16777216*.
 
 
 
