@@ -52,4 +52,4 @@ Typically, the *HT16K33* comes ready-to-use with *7-segment* and *14-segment* di
 
 > Tags: LED, 7-Segment, Matrix, Controller, HT16K33, 5V, I2C
 
-[Visit Page on Website](https://done.land/components/light/led/7-segment/ht16k33?243188030026242123) - created 0001-01-01
+[Visit Page on Website](https://done.land/components/light/led/7-segment/ht16k33?243188030026242123) - created 2024-03-28

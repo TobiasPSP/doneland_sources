@@ -23,4 +23,6 @@ The *APA106* is almost exclusively available as *single **LED*** only. If you ne
 [APA 106 Data Sheet](materials/apa106_datasheet.pdf).
 
 
-> Tags: AÜA106, WS2812, LED, RGB, NeoPixel, Controller, 5V
+> Tags: APA106, WS2812, LED, RGB, NeoPixel, Controller, 5V
+
+[Visit Page on Website](https://done.land/components/light/led/programmable/apa106?796124032028242312) - created 2024-03-28
