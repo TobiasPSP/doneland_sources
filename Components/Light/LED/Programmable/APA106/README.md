@@ -6,7 +6,7 @@
 
 The *APA106* is a controller very similar to the popular *WS2812B* controller ("NeoPixel"). However, it is almost exclusively found in *single* **LED**. The *APA106* is typically not used in **LED** *strips*.
 
-<img src="images/led_apa106_single_back_t.png" width="50%" height="50%" />
+<img src="images/led_apa106_single_back_t.png" width="20%" height="20%" />
 
 ## When To Use
 
