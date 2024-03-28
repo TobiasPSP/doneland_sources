@@ -6,7 +6,11 @@
 
 The *WS2812* was the first *truly embedded* **LED** controller integrated right into *SMD* (and other) **LED**. This was a huge success, and the controller underwent a number of revisions to further improve it.
 
-Today the *WS2812B* is the *most popular* and widely used controller type. 
+
+
+Today the *WS2812B* is the *most popular* and widely used controller type. The *SMD* **LED** with this embedded controller are used in a wide range of **LED** setups such as *strips*, *matrix displays*, and individual **LED**.
+
+<img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
 
 > [!TIP] 
 > The American company *Adafruit* even minted a new marketing term for it: *NeoPixel*. *NeoPixels* are no different from other *WS2812B* based **LED**, though.
@@ -14,11 +18,11 @@ Today the *WS2812B* is the *most popular* and widely used controller type.
 
 ## When To Use
 
-*WS2182B* powers wonderful and *wonderfully cheap* programmable **LED**.
+If you are looking for *programmable **RGB LED*** and you would like to run them with **5V**, then the *WS2812B* is the *de facto* standard controller.
 
-The chip runs with **5V** and has a *efficient standby* power consumption.
+It has a *efficient standby* power consumption and is a perfect companion for *DIY projects*: there are countless examples and supporting *libraries* available.
 
-It is the perfect companion for *DIY projects* and embedded in a variety of boards, strips, matrix displays and breakout boards.
+<img src="images/led_matrix_16x16_angle_t.png" width="50%" height="50%" />
 
 ## When To Not Use
 
