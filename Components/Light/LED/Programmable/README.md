@@ -23,22 +23,25 @@ Whenever the control signal passes a **LED**, the individual **LED** *controller
 
 Since then, the controller chip was further reduced in size and finally *integrated* into the **LED** itself for further simplification. Today, these are the most common controller chips:
 
-| Item | [WS2811](WS2811) | [WS2812](WS2812) | [WS2813](WS2813) | WS2815 | [SK6812](SK6812) | [SK6822](SK6822) | [APA102](APA102) |
+| Item | [WS2811](WS2811) | [WS2812](WS2812) | [WS2813](WS2813) | WS2815 | [SK6812](SK6812) | [SK6822](SK6822) | [APA106](APA106) |
 | ---  | ---    | ---    | ---    | ---    | ---    | ---    | --- |
-| LED  | any    | 5050/3535/2020 | 5050 | 5050 | 5050  |    5050    | 5050 |
+| LED  | any    | 5050/3535/2020 | 5050 | 5050 | 5050  |    5050    | 5/8mm single LED |
 | Color | Single/RGB | RGB | RGB/RGBW | RGB |  RGBW     |   RGBW     | RGB |
-| Voltage (V) | 5/12/24 | 5 | 5 | 12           |  5  |    5    | 5V |
+| Voltage (V) | 5/12/24 | 5 | 5 | 12           |  5  |    5    | 5 |
 | Voltage Drop | Low | High | High | Low       |  Medium  | Medium       | High |
-| Data Frequency (kHz) | 800 | 800 | 800 | 800 |  800  |   800     | 4Mhz SPI |
-| Refresh Rate (Hz) | 800 | 400/2000 | 2000 | 4000     | 1200   |  1200      | 19.2kHz |
-| Reset Time (us) | 250 | 50/280 | 250 | 280      | 80   |   50     | SPI |
-| LED/m | 30/60/72/96/102/204 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144	  | unspecified |
+| Data Frequency (kHz) | 800 | 800 | 800 | 800 |  800  |   800     | 800 |
+| Refresh Rate (Hz) | 800 | 400/2000 | 2000 | 4000     | 1200   |  1200      | 2000 |
+| Reset Time (us) | 250 | 50/280 | 250 | 280      | 80   |   50     | 50 |
+| LED/m | 30/60/72/96/102/204 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144 | 30/60/96/144 | 30/60/72/96/144	  | single LED |
 | Channels | 3 | 3 | 4 | 4 |                   |   3 |    3    |
-| Connections | Power + Data | Power + Data | Power + 2xData | Power + 2xData | Power + 2xData | Power + SPI |
+| Connections | Power + Data | Power + Data | Power + 2xData | Power + 2xData | Power + 2xData | Power + Data |
 | Fail Safe | no | no | yes | yes |      yes      |  no  |    
-| Price | low | medium | high | high |    low     | low   | high |   
+| Price | low | medium | high | high |    low     | low   | medium |   
 
-These *controllers* can be embedded in various *single color*, *RGB*, and *RGBW* **LED**. 
+These *controllers* can be embedded into various *single color*, *RGB*, and *RGBW* **LED**. The [APA106](APA106) is typically available as *single **LED*** only and used as programmable *indicator* **LED** or as part of large-size **LED** walls and public viewing screens.
+
+> [!NOTE]
+> There are many more **LED** controllers using different data transmission techniques. The controllers listed above all use the common 800kHz *fixed-frequency* one-wire protocol. Controllers like i.e. the [APA102](APA102) come with more capable *variable-frequency* two-wire protocols: one wire serves as *clock*, allowing the controlling microcontroller to *increase* or *decrease* the data transmission speed as needed.
 
 > [!TIP]
 > The *brightness* and *color quality* does not depend on the *controller*. It solely depends on the type of **LED** the *controller* is embedded in, and on *how many* **LED** are used per *length* or *area*.
