@@ -41,4 +41,4 @@ Here you can see the *built-in lens* on to of the housing that is designed to em
 
 > Tags: LED, Light, Anode, Cathode, Piranha, Superflux
 
-[Visit Page on Website](https://done.land/components/light/led/piranhasuperflux?634085031318243445) - created 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/piranhasuperflux?634085031318243445) - created 2024-03-18 - last edited 2024-03-18

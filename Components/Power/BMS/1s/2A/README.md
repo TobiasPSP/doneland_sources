@@ -50,4 +50,4 @@ The output voltage is available at the terminals **P+** and **P-** in the middle
 
 > Tags: Battery, BMS, 1S, 2A, HX-1S-3038
 
-[Visit Page on Website](https://done.land/components/power/bms/1s/2a?152211031824242648) - created 2024-03-24
+[Visit Page on Website](https://done.land/components/power/bms/1s/2a?152211031824242648) - created 2024-03-24 - last edited 2024-03-24

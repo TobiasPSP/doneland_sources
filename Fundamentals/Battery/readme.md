@@ -22,4 +22,4 @@ Batteries behave differently based on the *chemistry* they use internally:
 
 > Tags: Battery, Charge, BMS, Lead, NiCd, NiCad, LiIon, LiPo, LiFePo4, LFP, CR2025, CR2035, CR123A, Charging Cycle
 
-[Visit Page on Website](https://done.land/fundamentals/battery?772595030922241456) - created 2024-03-22
+[Visit Page on Website](https://done.land/fundamentals/battery?772595030922241456) - created 2024-03-22 - last edited 2024-03-22

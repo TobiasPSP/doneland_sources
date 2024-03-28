@@ -51,4 +51,4 @@ The chip is sold separately and also embedded in a complete breakout, board read
 
 > Tags: Buck, CC, CV, 32V, 5A
 
-[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/xl4005?334106020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/xl4005?334106020426240854) - created 2024-02-27 - last edited 2024-02-27

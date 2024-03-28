@@ -32,4 +32,4 @@ The other two pins connect to the respective internal **LED**, one per color.
 
 > Tags: LED, Light, Anode, Cathode, Dual Color, Common Anode, Common Cathode
 
-[Visit Page on Website](https://done.land/components/light/led/dualcolor?558728031318243445) - created 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/dualcolor?558728031318243445) - created 2024-03-18 - last edited 2024-03-18

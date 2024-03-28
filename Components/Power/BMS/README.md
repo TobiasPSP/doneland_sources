@@ -269,4 +269,4 @@ This is a *must* if you decide to connect multiple batteries *in parallel* becau
 
 > Tags: BMS, Battery, Balancer, Charging, Protection, 1S, 2S, 3S, 4S, Strings
 
-[Visit Page on Website](https://done.land/components/power/bms?260305020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/bms?260305020426240854) - created 2024-02-27 - last edited 2024-02-27

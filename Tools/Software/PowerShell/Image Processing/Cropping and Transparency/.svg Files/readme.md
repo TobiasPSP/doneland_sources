@@ -32,4 +32,4 @@ Format-Svg -Title 'Some Title Text' -Description 'Some Description' -Width 10 -W
 
 If you want to additionally add a solid-color background and remove transparency, add the appropriate parameters to the command.
 
-[Visit Page on Website](https://done.land/tools/software/powershell/imageprocessing/croppingandtransparency/.svgfiles?670085020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/tools/software/powershell/imageprocessing/croppingandtransparency/.svgfiles?670085020426240854) - created 2024-02-27 - last edited 2024-02-27

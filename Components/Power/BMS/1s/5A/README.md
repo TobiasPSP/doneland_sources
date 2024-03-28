@@ -89,4 +89,4 @@ When you *charge* your battery through this *BMS*, the *charging voltage* is *4.
 
 > Tags: Battery, BMS, 1S, 5A, DW01, 8205A
 
-[Visit Page on Website](https://done.land/components/power/bms/1s/5a?253347031416242628) - created 2024-03-24
+[Visit Page on Website](https://done.land/components/power/bms/1s/5a?253347031416242628) - created 2024-03-24 - last edited 2024-03-24

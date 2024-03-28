@@ -64,4 +64,4 @@ More advanced *DC-DC Converters* can also produce a *constant current* (**CC**):
 
 > Tags: Buck, Boost, DC, Voltage, Regulator, Charger, Constant Current, Constant Voltage, CC, CV
 
-[Visit Page on Website](https://done.land/components/power/dc-dc-converters?305183020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/dc-dc-converters?305183020426240854) - created 2024-02-27 - last edited 2024-02-27

@@ -28,4 +28,4 @@ Here is a list of actual **3S BMS** breakout boards, separated by *maximum curre
 
 > Tags: Battery, BMS, 3S
 
-[Visit Page on Website](https://done.land/components/power/bms/3s?268282020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/bms/3s?268282020426240854) - created 2024-02-27 - last edited 2024-02-27

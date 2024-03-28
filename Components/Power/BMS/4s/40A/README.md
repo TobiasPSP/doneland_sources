@@ -72,4 +72,4 @@ Charging voltage is *16.8-18.1V*. The **BMS** limits the charging current to *20
 
 > Tags: Battery, BMS, 4S, 40A
 
-[Visit Page on Website](https://done.land/components/power/bms/4s/40a?469225032326245105) - created 2024-03-28
+[Visit Page on Website](https://done.land/components/power/bms/4s/40a?469225032326245105) - created 2024-03-28 - last edited 2024-03-28

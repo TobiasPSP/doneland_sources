@@ -69,4 +69,4 @@ The *8x8 dot matrix modules* have two rows with 8 pins each. They are available 
 
 > Tags: LED, 7-Segment, Matrix, Controller, TM1637, 5V, 8x8 Segment
 
-[Visit Page on Website](https://done.land/components/light/led/7-segment/tm1637?323971030026242123) - created 2024-03-28
+[Visit Page on Website](https://done.land/components/light/led/7-segment/tm1637?323971030026242123) - created 2024-03-28 - last edited 2024-03-28

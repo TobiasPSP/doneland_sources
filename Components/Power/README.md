@@ -27,4 +27,4 @@ That's what a [BMS](BMS) (*Battery Management System*) does: it carefully monito
 
 > Tags: Voltage, Current, Regulator, Battery, BMS, Constant Voltage, Constant Current, CC, CV
 
-[Visit Page on Website](https://done.land/components/power?220411020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power?220411020426240854) - created 2024-02-27 - last edited 2024-02-27

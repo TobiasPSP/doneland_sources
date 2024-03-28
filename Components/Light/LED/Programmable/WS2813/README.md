@@ -29,4 +29,4 @@ Use the *WS2812B* instead.
 
 > Tags: WS2813, LED, RGB, Controller, 5V
 
-[Visit Page on Website](https://done.land/components/light/led/programmable/ws2813?513508031819245134) - created 2024-03-19
+[Visit Page on Website](https://done.land/components/light/led/programmable/ws2813?513508031819245134) - created 2024-03-19 - last edited 2024-03-19

@@ -73,4 +73,4 @@ The output voltage is available at **P+** and **P-**.
 
 > Tags: Battery, BMS, 2S, 5A, HX-2S-01
 
-[Visit Page on Website](https://done.land/components/power/bms/2s/5a?893974031416241946) - created 2024-03-22
+[Visit Page on Website](https://done.land/components/power/bms/2s/5a?893974031416241946) - created 2024-03-22 - last edited 2024-03-22

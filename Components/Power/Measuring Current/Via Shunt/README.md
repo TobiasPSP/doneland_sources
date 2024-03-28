@@ -25,4 +25,4 @@ Here is an example calculation for a maximum current of **5A** and a desired *vo
 
 > Tags: Measure, Current, Shunt, Voltage Drop
 
-[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt?379984020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt?379984020426240854) - created 2024-02-27 - last edited 2024-02-27

@@ -79,4 +79,4 @@ Like their "normal" counterparts, they use *three* or *four* individual **LED** 
 
 > Tags: LED, Light, Anode, Cathode, RGB, High Performance, Heat Sink
 
-[Visit Page on Website](https://done.land/components/light/led/highperformance?198478031411241041) - created 2024-03-17
+[Visit Page on Website](https://done.land/components/light/led/highperformance?198478031411241041) - created 2024-03-17 - last edited 2024-03-17

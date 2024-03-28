@@ -63,4 +63,4 @@ The output voltage is available at the solder pad marked **C-** (which is also a
 
 > Tags: Battery, BMS, 1S, 10A
 
-[Visit Page on Website](https://done.land/components/power/bms/1s/10a?111996031824242648) - created 2024-03-24
+[Visit Page on Website](https://done.land/components/power/bms/1s/10a?111996031824242648) - created 2024-03-24 - last edited 2024-03-24

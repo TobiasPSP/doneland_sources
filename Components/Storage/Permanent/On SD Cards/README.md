@@ -347,4 +347,4 @@ If the sketch above cannot even find the *SD card reader*, work your way through
 
 > Tags: Example, SD Card, Storage, FAT32, Filesystem
 
-[Visit Page on Website](https://done.land/components/storage/permanent/onsdcards?097439021728243911) - created 2024-02-28
+[Visit Page on Website](https://done.land/components/storage/permanent/onsdcards?097439021728243911) - created 2024-02-28 - last edited 2024-02-28

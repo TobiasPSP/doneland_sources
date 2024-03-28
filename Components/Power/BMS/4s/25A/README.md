@@ -103,4 +103,4 @@ Connect the batteries like this:
 
 > Tags: Battery, BMS, 4S, 25A
 
-[Visit Page on Website](https://done.land/components/power/bms/4s/25a?704910031516242508) - created 2024-03-16
+[Visit Page on Website](https://done.land/components/power/bms/4s/25a?704910031516242508) - created 2024-03-16 - last edited 2024-03-16

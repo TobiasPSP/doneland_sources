@@ -116,4 +116,4 @@ When *charging* batteries through this **BMS**, the charging voltage needs to be
 
 > Tags: Battery, BMS, 2S, 10A, HX-2S-JH20
 
-[Visit Page on Website](https://done.land/components/power/bms/2s/10a?828179031416241946) - created 2024-03-22
+[Visit Page on Website](https://done.land/components/power/bms/2s/10a?828179031416241946) - created 2024-03-22 - last edited 2024-03-22

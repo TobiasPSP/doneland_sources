@@ -36,4 +36,4 @@ These controllers use *two separate strategies* to control a variable number of 
 
 > Tags: 7-Segment, Matrix, TM1637, MAX7210, HT16K33
 
-[Visit Page on Website](https://done.land/components/light/led/7-segment?207284030026242123) - created 2024-03-28
+[Visit Page on Website](https://done.land/components/light/led/7-segment?207284030026242123) - created 2024-03-28 - last edited 2024-03-28

@@ -77,4 +77,4 @@ The *controller* and all logic is placed on the back side:
 
 > Tags: LED, 7-Segment, Matrix, Controller, MAX7219, 5V
 
-[Visit Page on Website](https://done.land/components/light/led/7-segment/max7219?268130030026242123) - created 2024-03-28
+[Visit Page on Website](https://done.land/components/light/led/7-segment/max7219?268130030026242123) - created 2024-03-28 - last edited 2024-03-28

@@ -21,4 +21,4 @@ If you connect multiple batteries *in parallel* to build a battery pack with mor
 
 > Tags: Battery, BMS, 1S
 
-[Visit Page on Website](https://done.land/components/power/bms/1s?268282020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/bms/1s?268282020426240854) - created 2024-02-27 - last edited 2024-02-27

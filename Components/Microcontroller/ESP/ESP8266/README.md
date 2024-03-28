@@ -85,4 +85,4 @@ On the negative side is an *unshielded* version of **ESP8266** (not covered by a
 
 > Tags: Microcontroller, ESP8266, Clone, Power Regulator, Expressif
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp8266?549965031823244200) - created 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp8266?549965031823244200) - created 2024-03-23 - last edited 2024-03-23

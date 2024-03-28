@@ -18,4 +18,4 @@ To read and write to **SD Cards**, you need an [SD Card Reader](Permanent/On%20S
 
 > Tags: Data, SD Card, Permanent Storage
 
-[Visit Page on Website](https://done.land/components/storage?882274021628241447) - created 2024-02-28
+[Visit Page on Website](https://done.land/components/storage?882274021628241447) - created 2024-02-28 - last edited 2024-02-28

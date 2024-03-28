@@ -166,4 +166,4 @@ For example, when you connect *six red* **LED** *in series*, the *total forward 
 
 > Tags: LED, Resistor, Constant Current, Constant Voltage, Forward Voltage
 
-[Visit Page on Website](https://done.land/components/light/led/current?958801030815241553) - created 2024-03-15
+[Visit Page on Website](https://done.land/components/light/led/current?958801030815241553) - created 2024-03-15 - last edited 2024-03-15

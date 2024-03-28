@@ -20,4 +20,4 @@ There are a number of cheap and easy-to-implement *Ethernet* boards available:
 
 > Tags: Data, Network, Ethernet
 
-[Visit Page on Website](https://done.land/components/network?288061031222243356) - created 2024-03-22
+[Visit Page on Website](https://done.land/components/network?288061031222243356) - created 2024-03-22 - last edited 2024-03-22

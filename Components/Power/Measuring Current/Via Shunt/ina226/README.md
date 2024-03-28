@@ -85,4 +85,4 @@ Here are available example sketches:
 
 > Tags: Measure, Current, INA, Shunt, Voltage Drop, Integrated Circuit
 
-[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina226?383973020426240854) - created 2024-02-27
+[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina226?383973020426240854) - created 2024-02-27 - last edited 2024-02-27

@@ -32,4 +32,4 @@ Be careful:
 
 > Tags: LED, Light, Anode, Cathode, RGB, Common Cathode
 
-[Visit Page on Website](https://done.land/components/light/led/rgb?698156031318243445) - created 2024-03-18
+[Visit Page on Website](https://done.land/components/light/led/rgb?698156031318243445) - created 2024-03-18 - last edited 2024-03-18
