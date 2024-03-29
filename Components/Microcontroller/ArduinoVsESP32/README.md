@@ -19,7 +19,7 @@ The amazing *Arduino* success story did not last forever. Today, many users have
 * **Missing Vision:** Initial success made the company focus on their original concept: while *Arduino models* became smaller and more capable, they long focused on the initial *ATMega* family of microcontrollers. When *Espressif* released its new microcontroller **ESP8266**, many board manufacturers acted fast and adapted the *Arduino programming framework* to this much faster and more capable microcontroller that also came with WiFi connectivity built-in. *Arduino* only recently left the *ATMega* path and started to produce its own *ESP32*-based boards ([Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/)). In essence, the concept of *competition* worked well and led to much more powerful microcontrollers in much smaller form factors that were much cheaper.
 * **Internal Conflicts:** As if all of this wasn't enough, with raising success and ever more money involved,  the company *Arduino* got preoccupied with internal legal battles over contracts and ownerships.
 
-### Where To Get
+## Where To Get
 
 Here is where you can get *microcontroller* breakout boards:
 
