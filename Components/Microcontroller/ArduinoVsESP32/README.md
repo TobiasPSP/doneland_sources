@@ -120,7 +120,7 @@ Occasionally, the peripheral voltage *does not match* the microcontroller voltag
 > [!CAUTION]
 > The latter requires that you supply **5V** to the *ESP32*. It will then use its internal *voltage regulator* to create the required **3.3V** for the microcontroller, and still supply the **5V** to peripherals when they need them. If you power the **ESP32** directly with **3.3V** through its *3.3V pin*, then the board *will not* supply **5V** at the *5V pin*, and you cannot run **5V** peripherals off the board: the **ESP32** comes with a voltage regulator that can turn **5V** to **3.3V**, but not **3.3V** to **5V**.
 
-#### Level Shifter
+### Level Shifter
 
 Whenever you use a *different* voltage for peripherals, you need to *translate* their *output* voltage back to the voltage the microcontroller needs.
 
