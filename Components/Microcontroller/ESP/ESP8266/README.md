@@ -12,34 +12,6 @@ The *ESP8266* from *Expressif* is probably the most widely used *microcontroller
 > [!TIP]
 > Today, breakout boards with the successor **ESP32** are only marginally more expensive than the **ESP8266**. **ESP32** boards feature a better power regulator and is about *twice* as performant in any aspect. While the **ESP8266** is perfectly capable of handling most *DIY* projects, for new purchases you should look into buying **ESP32** instead: for example the original **ESP32 DevKit C** with the **ESP32 WROOM**, or better yet the successor **ESP32 C3** which comes with native *USB* support and is available in miniature form factors more closely resembling the **ESP8266** form factor.
 
-## Comparisons
-
-Here are a few comparisons to help you judge whether **ESP8266** is the right choice compared to popular alternatives.
-
-### Arduino
-
-The **ESP8266** solves two common *Arduino* problems:
-
-* **Memory:** the initial (and still popular) *Arduinos* come with very limited programming memory. When sketches become a bit more complex, compiling frequently fails due to *out of memory* errors. This is not the case with **ESP8266*.
-* **WiFi:** when your project requires wireless connectivity, the **ESP8266** comes with built-in support for all WiFi modes: it can act as an own *WiFi Access Point*, can work in *Station Mode*, and both. It can easily become a *webserver* and act as *web service*. *Arduinos* do not come with *any* wireless support.
-
-In addition, **ESP8266** breakout boards are *much* cheaper than *Arduinos*. While the old *Arduino Uno* still sells for more than EUR 20,00, complete **ESP8266** breakout boards with 4MB RAM are available for under EUR 2.00.
-
-So overall, **ESP8266** often is the "better *Arduino*". But wait: *the best is the enemy of the good*. The **ESP32**, the *successor* of the **ESP8266**, may be an even better choice. 
-
-### ESP32
-
-The **ESP32** (initially released 2016) succeeded the **ESP8266** (releaased 2014) and has since seen many new subtypes such as the **S2**, **S3**, **C3**, and **C6**.
-
-The initial **ESP32 WROOM** microcontroller (released 2016) can today be purchased for under EUR 3.00. Given its advantages, it may well be the better choice when thinking about purchasing new **ESP8266**:
-
-* **Faster:** The **ESP32 WROOM** microcontroller is a dual-core microcontroller running at 260MHz. It is roughly twice as fast as the **ESP8266**.
-* **Bluetooth:** In addition to *WiFi*, the **ESP32 WROOM** also supports *Bluetooth* so you can control your projects from mobile devices such as smartphones.
-* **Better Components:** the **ESP8266** breakout boards are known for using inferior *voltage regulators* that can hardly provide the current required to power the microcontroller. Once additional sensors are connected, it is not uncommon for the **ESP8266** microcontroller boards to run into random resets or other erratic behavior due to power problems. **ESP32** breakout boards all come with sufficiently dimensioned *voltage regulators*.
-* **Direct USB Support:** The **ESP32** can natively act as *USB Host* and emulate USB devices such as *keyboards* and *mice*. Starting with **ESP S2** and **ESP32 C3** (*not* **ESP WROOM**), the microcontroller also allows direct firmware upload via *USB*, eliminating the need for external components and drivers such as *CH340* 
-
-> [!TIP]
-> My personal recommendation is the **ESP32 C3** breakout board (available for under EUR 3.00). It uses one of the most modern **ESP** microcontrollers, specificly one with native *USB* support, and comes in miniature form factors that fits even the smallest DIY devices and specializes in *energy savings modes*.
 
 ## Specs
 
@@ -76,6 +48,35 @@ Since microcontroller boards need to be programmed, and programming takes place 
 
 There are other chip types such as *FT232RL*, *PL2303*, *MCP2221*, and *MAX3421* less commonly found.
 
+
+## Comparisons
+
+Here are a few comparisons to help you judge whether **ESP8266** is the right choice compared to popular alternatives.
+
+### Arduino
+
+The **ESP8266** solves two common *Arduino* problems:
+
+* **Memory:** the initial (and still popular) *Arduinos* come with very limited programming memory. When sketches become a bit more complex, compiling frequently fails due to *out of memory* errors. This is not the case with **ESP8266*.
+* **WiFi:** when your project requires wireless connectivity, the **ESP8266** comes with built-in support for all WiFi modes: it can act as an own *WiFi Access Point*, can work in *Station Mode*, and both. It can easily become a *webserver* and act as *web service*. *Arduinos* do not come with *any* wireless support.
+
+In addition, **ESP8266** breakout boards are *much* cheaper than *Arduinos*. While the old *Arduino Uno* still sells for more than EUR 20,00, complete **ESP8266** breakout boards with 4MB RAM are available for under EUR 2.00.
+
+So overall, **ESP8266** often is the "better *Arduino*". But wait: *the best is the enemy of the good*. The **ESP32**, the *successor* of the **ESP8266**, may be an even better choice. 
+
+### ESP32
+
+The **ESP32** (initially released 2016) succeeded the **ESP8266** (releaased 2014) and has since seen many new subtypes such as the **S2**, **S3**, **C3**, and **C6**.
+
+The initial **ESP32 WROOM** microcontroller (released 2016) can today be purchased for under EUR 3.00. Given its advantages, it may well be the better choice when thinking about purchasing new **ESP8266**:
+
+* **Faster:** The **ESP32 WROOM** microcontroller is a dual-core microcontroller running at 260MHz. It is roughly twice as fast as the **ESP8266**.
+* **Bluetooth:** In addition to *WiFi*, the **ESP32 WROOM** also supports *Bluetooth* so you can control your projects from mobile devices such as smartphones.
+* **Better Components:** the **ESP8266** breakout boards are known for using inferior *voltage regulators* that can hardly provide the current required to power the microcontroller. Once additional sensors are connected, it is not uncommon for the **ESP8266** microcontroller boards to run into random resets or other erratic behavior due to power problems. **ESP32** breakout boards all come with sufficiently dimensioned *voltage regulators*.
+* **Direct USB Support:** The **ESP32** can natively act as *USB Host* and emulate USB devices such as *keyboards* and *mice*. Starting with **ESP S2** and **ESP32 C3** (*not* **ESP WROOM**), the microcontroller also allows direct firmware upload via *USB*, eliminating the need for external components and drivers such as *CH340* 
+
+> [!TIP]
+> My personal recommendation is the **ESP32 C3** breakout board (available for under EUR 3.00). It uses one of the most modern **ESP** microcontrollers, specificly one with native *USB* support, and comes in miniature form factors that fits even the smallest DIY devices and specializes in *energy savings modes*.
 
 ## ESP8266 from Expressif
 
