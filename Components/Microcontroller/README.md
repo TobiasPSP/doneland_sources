@@ -25,8 +25,13 @@ There are *three* families of microcontrollers that are commonly used in *DIY* p
 * [ESP/Espressif](ESP): When the Chinese company *Espressif* released its **ESP8266**, it became an instant success: it was comparably powerful and *WiFi*-enabled. Today, the single- and dual-core **ESP32** microcontrollers probably are among the most powerful, most competetively priced and most popular processors.
 * [ATTiny](ATTiny): for less computing intensive use cases, *ATTiny* microcontrollers are are great alternative due to their very small size and very low cost.
 
+
+*Arduinos* and *ESP* today are the most commonly used microcontrollers in DIY projects. [Here](ArduinoVsESP32) is a quick comparison and drill-down in case you need guidance which one is right for you, or whether you should move from *Arduino* to *ESP32* for good.
+
+
 > [!NOTE]
 > There are *many more* microcontrollers available. For now, I am focusing on the *most popular* among low-level *DIY* makers. I am neither focusing on the many other *industrial* microcontrollers (that require expensive development tools to program) nor on the almost *PC*-like *Raspberry Pi* and similar.
+
 
 
 ## Development Environments
