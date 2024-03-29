@@ -26,7 +26,7 @@ There are *three* families of microcontrollers that are commonly used in *DIY* p
 * [ATTiny](ATTiny): for less computing intensive use cases, *ATTiny* microcontrollers are are great alternative due to their very small size and very low cost.
 
 
-*Arduinos* and *ESP* today are the most commonly used microcontrollers in DIY projects. [Here](Arduino%20Vs%20ESP32) is a quick comparison and drill-down in case you need guidance which one is right for you, or whether you should move from *Arduino* to *ESP32* for good.
+*Arduinos* and *ESP* today are the most commonly used microcontrollers in DIY projects. [Here](Arduino%20vs%20ESP32) is a quick comparison and drill-down in case you need guidance which one is right for you, or whether you should move from *Arduino* to *ESP32* for good.
 
 
 > [!NOTE]
