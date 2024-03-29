@@ -76,7 +76,7 @@ This is why these two are compared here.
 
 Both can be programmed in the same way using the same tools (i.e. *Arduino IDE*, or *VSCode* and *platformio*).
 
-| Item | Arduino Uno | ESP32 Devkit C Board | Comment |
+| Item | Arduino Uno | ESP32 Devkit C | Comment |
 | --- | --- | --- | --- |
 | Price | EUR 25-30 | EUR 3-7 | depending on source |
 | Microcontroller | 16 MHz ATmega328P | 240 MHz ESP32 WROOM | |
@@ -135,3 +135,5 @@ Fortunately, this is neither complex nor expensive: *level shifter* boards can b
 
 
 > Tags: Microcontroller, Comparison, Arduino, ESP32, Level Shifter, Voltage
+
+[Visit Page on Website](https://done.land/components/microcontroller/arduinovsesp32?350852031029241923) - created 2024-03-29 - last edited 2024-03-29
