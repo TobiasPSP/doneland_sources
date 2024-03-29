@@ -50,7 +50,7 @@ Here are the most important **ESP8266** specs at a glance:
 | GPIO | 17 | actually available pins depend on breakout board |
 | SPI | 1 | for fast peripherals |
 | I2C | 1 | software implentation, for slow peripherals |
-| UART | 1 | |
+| UART | 1 | serial communications, external serial-to-USB chip required for USB |
 
 
 ## USB-to-Serial Controller: CH9102, CP210x, CH340
