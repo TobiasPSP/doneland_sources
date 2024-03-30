@@ -10,7 +10,7 @@ In this section you'll find the devices I find indispensible for an electronics 
 
 ## Electronic Load
 
-An [Electronic Load](Electronic Load) is a test instrument to simulate electric loads. Loads can be *resistive*, *inductive*, or *capacitive*, and real loads often are a mixture of these and can behave differently under different conditions.
+An [Electronic Load](Electronic%20Load) is a test instrument to simulate electric loads. Loads can be *resistive*, *inductive*, or *capacitive*, and real loads often are a mixture of these and can behave differently under different conditions.
 
 
 > Tags: Electronic Load, Constant Current, Constant Voltage, Constant Power, Constant Resistance, CC, CV, CP, CW, CR
