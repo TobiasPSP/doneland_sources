@@ -38,4 +38,4 @@ If you want to control **RGB LED** (and do not need the additional channel for *
 
 > Tags: SK6812, WS2812B, LED, RGB, Controller, 5V, Clone
 
-[Visit Page on Website](https://done.land/components/light/led/programmable/sk6812?415038031819243633) - created 2024-03-19 - last edited 2024-03-19
+[Visit Page on Website](https://done.land/components/light/led/programmable/sk6812?415038031819243633) - created 2024-03-06 - last edited 2024-03-19
