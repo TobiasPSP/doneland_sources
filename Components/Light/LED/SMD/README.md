@@ -75,4 +75,4 @@ Aside from the particular **LED** *substrates*, these **LED** often also embed a
 
 > Tags: LED, SMD, 5050, 3535, 2020
 
-[Visit Page on Website](https://done.land/components/light/led/smd?892194032020245813) - created 2024-03-20 - last edited 2024-03-20
+[Visit Page on Website](https://done.land/components/light/led/smd?892194032020245813) - created 2024-03-18 - last edited 2024-03-20
