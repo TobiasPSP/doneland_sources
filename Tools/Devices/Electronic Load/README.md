@@ -51,32 +51,40 @@ Not so in *constant power* mode: when the *voltage* of the power source falls, t
 In this mode, the *electronic load* tries to eliminate enough energy from the load in order to let the voltage drop to a given voltage. Since an *electronic load* can extract only a certain amount of energy (i.e. *400W*), this mode has limitations.
 
 * When the supplied voltage is *lower* than the *CV* set at the *electronic load*, nothing happens.
-* When the supplied voltage is *higher* than the *CV* that you set at the *electronic load*, it will try and *eliminate* enough energy to *drop the voltage* to the desired level: it will start to sink *current*. This works only if the voltage source *cannot provide more current than the electronic load can absorb*.
+* When the supplied voltage is *higher* than the *CV* that you set at the *electronic load*, it will try and *eliminate* enough energy to *drop the voltage* to the desired level: it will start to sink *current*. If the voltage source can *provide more energy* than the *electronic load can absorb*, then the voltage *will not drop fully* to the set *constant voltage*: the voltage will be higher than the set *CV* because the *electronic load* could not eliminate enough energy.
 
-One use case *can* be *draining a battery* (see important warnings below before you try that): the *CV* is set to the voltage at which the battery is considered *discharged*, i.e. *3V* for a *LiIon* battery. 
+#### Analyzing Battery Capacity
 
-Now, the *electronic load* would try and eliminate battery energy until the set discharge voltage is reached. This would ensure that the battery is not damaged by over-discharging it (as would be the case by discharging via a *constant resistance*).
+To better understand *CV* and its limitations, here is an example: the capacity of a rechargeable battery needs to be examined.
 
-#### Warning
+To achieve this, you could set *CV* to the safe discharge voltage of the battery (i.e. *12V* for a *13.8V LiFePo4* battery). The electronic load would now try and eliminate energy from the battery until its voltage drops below *12V*, preventing over-discharge.
 
-In the *battery discharge* example above, with fully charged high capacity batteries, the electronic load would at first *not be able* to *eliminate* enough energy to *immediately drop* the battery voltage to the set *CV*. It would instead eliminate as much energy as it can. The voltage would only gradually and over time sink to the set *CV* level. Once that level is reached, the battery would be considered *discharged*, and the electronic load would stop drawing more energy from the battery.
+#### CV Battery Testing Can Be Dangerous
 
-However, using *CV* for battery testing can be dangerous because you have no control over the discharge current. While it may work in big capacity batteries, it can quickly destroy small batteries. Here is why:
+*CV* does not provide any control over the discharge *currents*. These currents solely depend on the maximum sink capacity of the *electronic load*. Small batteries can be destroyed and can explode under test. Here is why:
 
-In *CV* mode, the *electronic load* discharges *always using its maximum possible sink capacity*. With a *400W* electronic load, a *3.3V* battery would be discharged with *400W*: the discharge current would be *121.2A*: *400W / 3.3V = 121.2A*. Most likely, this current would destroy the battery.
+With a typical *400W electronic load*, when connecting a battery in *CV* mode and setting *CV* to the desired "fully-discharged" voltage, the electronic load would try to eliminate as much energy from the battery as needed to *immediately drop the voltage* to the set *CV*.
+
+The maximum energy the *electronic load* can extract is limited, though, so with large capacity batteries, the *electronic load* would extract its maximum energy instead (i.e. *400W*), and the voltage would only gradually fall to the desired *CV* as the battery discharges.
+
+For smaller batteries, the maximum discharge power of *400W* can easily exceed its specifications by multitudes. If you i.e. test a *3.3V 1000mA LiPo* cell via *CV* with a *400W electronic load*, the discharge current would be *121.2A*: *400W / 3.3V = 121.2A*: the resulting discharge rate of **121C** (*121.2A / 1Ah = 121.2C*) would most likely lead to fire and explosion.
+
+That's why *CV* can *only be used for battery testing* when the battery is using a relatively high voltage (i.e. 12, 24, or 48V), and/or when its total capacity is *high*. 
+
+A *48V 400Ah solar panel battery pack* can easily be analyzed using *CV*: *400W / 48V = 8.3A*, discharge rate = *8.3A/400Ah = 0.02C*.
 
 > [!TIP]
-> Battery capacity testing is typically performed in *Constant Current* mode: this is *much safer and more controllable than CV* as you *can individually set* the safe current that can be discharged *from a perticular battery*. 
+> A safe way of battery testing is using *CC* (*Constant Current*) mode: now you *can individually set* a safe current tailored to a specific particular battery under test. Just make sure the *electronic load* turns off once the *CC* can no longer be delivered in order to not over-discharge batteries. 
 
 
 ### Battery Test
 
-Many *electronic loads* offer specific *battery modes* to test battery capacity. 
+Many *electronic loads* offer specific *battery test modes* to test battery capacity. 
 
-These modes really are just *CC* modes. On top of the regular *Constant Current* mode, specific *battery testing* modes have these enhancements:
+These modes base on the *Constant Current* (*CC*) mode and add these features:
 
-* **Two Or More Discharge Currents:** once the set *current* can no longer be delivered, the *electronic load* can optionally continue discharging the battery at a lower current until a second threshold is reached.
-* **Calculating Capacity:** in battery test mode, the *electronic load* automatically calculates the battery capacity by summing up the energy extracted by the load.
+* **Two Or More Discharge Currents:** once the set *constant current* can no longer be delivered by the battery under test, the *electronic load* can optionally continue discharging the battery until a lower second current threshold is reached.
+* **Calculating Capacity:** in battery test mode, the *electronic load* automatically calculates the total battery capacity by summing up the energy extracted by the load.
 
 > Tags: Electronic Load, Constant Current, Constant Voltage, Constant Power, Constant Resistance, CC, CV, CP, CW, CR
 
