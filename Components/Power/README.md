@@ -1,6 +1,6 @@
 <img src="/assets/images/lightning.png" width="100%" height="100%" />
 
-# Power-Related Components
+# Power-Related 
 
 > **Check Out Power Devices: Regulators, Batteries, BMS**
 
