@@ -124,11 +124,11 @@ The result are large surfaces of any shape or area, a *cheap* production method 
 They often can be connected directly to voltages like **12-13V** without the need of *series resistors* or *constant voltage*/*constant current* power supplies.
 
 
-## LED Matrix Displays
+## 7-Segment Displays
 
 Multiple **LED** are combined in *7-Segment* displays. They are commonly used to display numeric information.
 
-<img src="images/led_matrix_overview_t.png" width="50%" height="50%" />
+<img src="images/led_7seg_overview_t.png" width="50%" height="50%" />
 
 Dedicated *controller IC* make it simple to drive these displays via *I2C* or similar interfaces.
 
