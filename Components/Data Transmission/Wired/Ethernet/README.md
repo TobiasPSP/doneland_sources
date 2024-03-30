@@ -17,4 +17,4 @@ At the heart of an *Ethernet* breakout board is the *Ethernet* controller:
 
 > Tags: Data, Network, Ethernet, Wired, RJ45, CAT
 
-[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet?288061031222243356) - created 2024-03-22 - last edited 2024-03-22
+[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet?288061031222243356) - created 2024-02-16 - last edited 2024-03-22

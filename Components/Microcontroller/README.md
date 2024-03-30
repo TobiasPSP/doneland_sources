@@ -79,4 +79,4 @@ On *Apple*, try to avoid *CH340* unless you are ok with potentially having to se
 
 > Tags: Microcontroller, Arduino, ESP8266, ESP32
 
-[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-03-23 - last edited 2024-03-23
+[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-03-23
