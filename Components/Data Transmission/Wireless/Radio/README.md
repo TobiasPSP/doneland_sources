@@ -126,15 +126,16 @@ There are additional free-to-use radio frequencies designated for analog and/or 
 
 <img src="images/radio_voice_t.png" width="40%" height="40%" />
 
-| Name | Frequency |
-| --- | --- |
-| CB (Citizen Band) | 27MHz |
-| FreeNet | 149MHz |
-| LPD (Low Power Device Voice) | 433MHz |
-| PMR (Personal Mobile Radio) | 446MHz |
-| FRS (Family Radio Service) | 462-467MHz |
-| GMRS (General Mobile Radio Services) | 462-467MHz |
-| MURS (Multi-Use Radio Service) | 151-154MHz |
+| Name | Frequency | Wave Length |
+| --- | --- | --- |
+| CB (Citizen Band) | 27MHz | 11m |
+| FreeNet | 149MHz | 2m |
+| MURS (Multi-Use Radio Service) | 151-154MHz | 2m |
+| LPD (Low Power Device Voice) | 433MHz | 70cm |
+| PMR (Personal Mobile Radio) | 446MHz |  70cm |
+| FRS (Family Radio Service) | 462-467MHz | 70cm |
+| GMRS (General Mobile Radio Services) | 462-467MHz | 70cm |
+
 
 > [!NOTE]
 > The table presents an overview only. Additional rules exist. For example, *FreeNet* is available in *Germany* only. *PMR* is available in the *EU*. *FRS*, *GMRS*, and *MURS* are available in the *US*. *GMRS* requires an (easy to obtain) license. For *MURS*, additional regulations apply.
