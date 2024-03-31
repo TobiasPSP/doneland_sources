@@ -19,7 +19,7 @@ Many important *public services* rely on robust radio transmission: emergency se
 
 ### Frequencies By Region
 
-When selecting radio devices, here are frequency ranges that are most likely *legal to use*:
+Before you purchase *radio devices* and breakout boards, this are frequency ranges most likely to be *legal* in your region:
 
 | Region  | Frequency (MHz)  |
 | --- | --- |
@@ -28,7 +28,7 @@ When selecting radio devices, here are frequency ranges that are most likely *le
 | Asia | 169, 433 |
 
 > [!CAUTION]
-> Always make sure you familiarize yourself with the legal regulations *in your particular country*. This table is just a *rough indicator*. Additional rules apply: the maximum radio emission is *limited*. For details, see below.
+> This table is just a *rough indicator*. Additional rules may apply, i.e. the maximum radio emission is *limited*. For details, see below.
 
 ## Radio Services in DIY
 
@@ -40,9 +40,9 @@ In *DIY* projects, a variety of radio protocols and use cases exist:
 
 
 ## Picking Frequencies
-Obviously, picking a frequency is the initial and fundamental step in designing a *radio project*, for two reasons:
+Obviously, picking a frequency is the initial and fundamental step in designing a *radio project* - for *two* reasons:
 
-* **Legal:** you *must* pick a frequency that is *legal to use* in your country. Else, you may be *interfering* with other services, and may become *liable* for damages you cause. In addition, (severe) legal punishment is possible even if the risk of detection is low with low emission devices.
+* **Legal:** you *must* pick a frequency that is *legal to use* in your country. Else, you may be *interfering* with other services, and may become *liable* for damages you cause. In addition, (severe) legal punishment is possible even if the risk of ham and detection *may be* low with *low emission* devices.
 * **Technical:** when you have the *choice* of multiple *legal* frequencies, your *use case* determines which one to choose. The *lower* a radio frequency is the better can it pass buildings (walls, doors). The *higher* a frequency is the more does it behave like *light* and needs a *free line of sight* between sender and receiver. For example, if you live in a densly populated city in *Europe*, the *433MHz* band can pass buildings better than the *815MHz* band. If you'd like to set up a *data transmission* with free *line of sight*, the *815MHz* band works better (lower noise).
 
 ### Legal Considerations
