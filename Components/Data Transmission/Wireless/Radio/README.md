@@ -54,7 +54,6 @@ In almost every region of the world, *band plans* exist that *allocate* frequenc
 
 Here are *band plans* that contain frequency ranges for  *license-free* radio communications.
 
-To check your region, you first need to know the *license plan(s)* in effect. Here is a list with examples showing the most commonly used *band plans*:
 
 | Area | Band Plan |
 | --- | --- |
@@ -86,27 +85,21 @@ Likewise, *South America* typically uses *AU915-928*. Countries like *Mexico* ad
 
 
 ## Legal Radio Protocols
-As you read above, frequencies are organized in *band plans*. The details regulate how a particular portion of frequencies can be used.
+As you read above, frequencies are organized in *band plans*. The details regulate how a particular portion of frequencies can be used. Among this fine print, it is regulated *what kind of radio services* you can use. 
 
-Among this fine print, it is regulated *what kind of radio services* you can use. 
+For example, the popular *Citizen Band* (**CB**) radio is free to talk to your neighbor or friends on a *walky talky*. You *cannot* use this frequency in *DIY* projects to transmit digital sensor information, though.
 
-For example, the popular *Citizen Band* (**CB**) radio is free to talk to your neighbor or friends on a *walky talky*. 
-
-You *cannot* use this frequency in *DIY* projects to transmit digital sensor information, though.
-
-Which is good. If anyone transmitted anything on a frequency, the result would be interference. You most likely do not want your neighbors' DIY *weather station* interfere with your **CB radio** chats by inserting bursts of digital noise transmissions.
+Which is good. After all, if anyone transmitted anything on any frequency, the result would be interference. You most likely do not want your neighbors' DIY *weather station* interfere with your **CB radio** chats by inserting bursts of digital noise transmissions.
 
 ## Maximum Radio Emission Power
-The band plan also regulates the maximum radio power or *emission* (*ERP*, *Effective Radiated Power*). 
-
-The more powerful radio emissions are, the stronger is the signal, and the wider is the distance you can bridge.
+The band plan also regulates the maximum radio power or *emission* (*ERP*, *Effective Radiated Power*). The more powerful radio emissions are, the stronger is the signal, and the wider is the distance you can bridge.
 
 
 ### Watt and +dBm
 The maximum legal emission power can be quantified in raw emission power expressed either in *Watt* or in *dBm* (which is essentially the same, just *logarithmic*), i.e. *10mW/+10dBm*, *100mW/+20dBm* or *10W/+40dBm*. 
 
 ### Effective Radiated Emission (ERP)
-**ERP** (*Effective Radiated Power*) is a more meaningful expression: what matters here is the *effective* radiated power. This takes into account what the radio power is like at the *receivers' side*. So it also takes into account the *antenna* and its *directivity*:
+**ERP** (*Effective Radiated Power*) is a more meaningful expression: it measures the *effective* radiated power at the *receivers end*. So it also takes into account the kind of *antenna* the *sender* uses, and its *directivity*:
 
 When you connect a highly directional *antenna*, the total radio power is radiated in one narrow direction, just like *light* in a highly focused *flash light* or a *laser beam*. 
 
@@ -115,13 +108,11 @@ When you connect a highly directional *antenna*, the total radio power is radiat
 
 
 #### Security By Obscurity
-While extending the reach through more radio power sounds great at first (*"the more the better"*), it extends the area in which you can interfere with others. 
+While extending the reach through more radio power sounds great at first (*"the more the better"*), it not only extends the area in which you can *interfere* with others. It also extends the area in which others can *listen in* and *spy* on your transmissions.
+
+A low ERP and a low maximum radio distance does not only *limit interference with others*. It also *shields you from others* and often is much more effective than *encrypting* data transmissions.
 
 For most use cases, a high radio power is not needed and even counter-productive: your *garage door opener* in *Germany* typically does not need to be received in *Argentina*. Especially with *DIY* projects, a tiny *ERP* may be all you need to gap the few meters or 100m you need for your project.
-
-> [!TIP]
-> *Security by Obscurity* is another important principle to keep in mind: a low ERP and a low maximum radio distance does not only *limit interference with others*. It also *shields you from others*. Rather than *encrypting* and *protecting* your data, a low *ERP* often much more effectively prevents others from listening in.
-
 
 
 ## Free Voice Radio Frequencies
