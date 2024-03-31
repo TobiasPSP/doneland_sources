@@ -12,17 +12,17 @@
 > [!NOTE]
 > Do not confuse *radio waves* with *infrared light* (**IR**) which is also used to transfer information through the air. **IR** is *light* with a wave length invisible to the human eye and often used in *remote controls*. Since it is *light*, it needs a direct *line of sight* between *sender* and *receiver*.
 
-*DIY* projects can use various radio technologies to transmit data wireless.
+*DIY* projects can use various radio technologies to transmit data *over the air*.
 
 ## Overview
-Radio waves are emissions to the *public*: anyone in the vicinity can detect and read them. Even more important: anyone can *interfere* with anyone else in a radio spectrum.
+Radio waves are emissions to the *public*: anyone in the vicinity can detect and read them. So anyone can also *interfere* with anyone else in a radio spectrum.
 
-Many important *public services* rely on robust radio transmission: emergency services, military, infrastructure, etc. This is why sending (and *receiving*) on radio frequencies is highly regulated in most countries.
+Various important *public services* rely on robust radio transmission: emergency services, military, infrastructure, etc. This is why sending (and *receiving*) on radio frequencies is highly regulated in most countries.
 
 
 ### Frequencies By Region
 
-Before you purchase *radio devices* and breakout boards, this are frequency ranges most likely to be *legal* in your region:
+Before you purchase *radio devices* and breakout boards, these are frequency ranges most likely to be *legal* in your region:
 
 | Region  | Frequency (MHz)  |
 | --- | --- |
@@ -39,23 +39,25 @@ In *DIY* projects, a variety of radio protocols and use cases exist:
 
 * **Pure Data Transmission:** small *sender* and *receiver* allow you to send *raw digital data* from *A* to *B*, i.e. sensor information or to control devices like *garage doors*. You are completely free, and it is completely *up to you*, what kind of information you send and receive, and how you encode it.
 * **LoRa (Long Range):** built on the latter, *LoRa* employs a standardized radio protocol designed to sustain noise. It can be used to bridge wide distances and includes *mesh* technology.
+* **WiFi:** many modern *microprocessor* breakout boards such as *ESP8266* and *ESP32* come with *WiFi* integrated. They can use *WiFi* to connect to one another, or be controlled by other *WiFi*-enabled devices such as *smartphones*.
 
 
 
 ## Picking Frequencies
-Picking a frequency is the initial and fundamental step in designing a *radio project* - for *two* reasons:
+Picking an appropriate frequency is the initial and fundamental step in designing a *radio project* - for *two* reasons:
 
 * **Legal:** you *must* pick a frequency that is *legal to use* in your country. Else, you may be *interfering* with other services, and may become *liable* for damages you cause. In addition, (severe) legal punishment is possible even if the risk of ham and detection *may be* low with *low emission* devices.
 * **Technical:** when you have the *choice* of multiple *legal* frequencies, your *use case* determines which one to choose. The *lower* a radio frequency is the better can it pass buildings (walls, doors). The *higher* a frequency the more does it behave like *light* and needs a *free line of sight*. For example, if you live in a densly populated city in *Europe*, the *433MHz* band can pass buildings better than the *815MHz* band. If you'd like to set up a *data transmission* with free *line of sight*, the *815MHz* band works better (because of lower interference from other services in the same band).
 
+> [!NOTE]
+> *WiFi* frequencies are largely harmonized across the world. They are the only *wireless technology* that has no fundamental regional regulations to watch out for (even though the use of *selected WiFi channels* may be limited to some regions).
+
 ### Legal Considerations
-Most countries designate frequency ranges for *free public use*. We all use these frequencies every day: *hearing aids*, *wireless microphones*, *garage door openers*, *wireless door bells* etc.
+Most countries designate frequency ranges for *free public use*. We all use these frequencies every day: *hearing aids*, *wireless microphones*, *walky talkys*, *garage door openers*, *wireless door bells* etc.
 
 
 
-In almost every region of the world, *band plans* exist that *allocate* frequency ranges and *regulate* the use of such frequencies.  
-
-Here are *band plans* that contain frequency ranges for  *license-free* radio communications.
+In almost every region of the world, *band plans* exist that *allocate* frequency ranges and *regulate* the use of such frequencies. Here are *band plans* that contain frequency ranges for  *license-free* radio communications.
 
 
 | Area | Band Plan |
@@ -69,7 +71,7 @@ Here are *band plans* that contain frequency ranges for  *license-free* radio co
 
 
 > [!NOTE]
-> The *name* of a *band plan* already suggests the *frequency range*. While not the entire frequency range is free for you to use, this information is sufficient to pick suitable breakout boards. For example, a *LoRa* boards exist for *433*, *868*, and *915 MHz*. The first two can be used in the *EU*, and the *915MHz* version would be suitable for the **US**.
+> The *name* of a *band plan* already suggests the *frequency range* it covers. While not the entire frequency range is free for you to use (and regulated in the fine print), this information is sufficient to pick suitable breakout boards. For example, *LoRa* boards exist for *433*, *868*, and *915 MHz*. The first two can be used in the *EU*, and the *915MHz* version would be suitable for the **US**.
 
 
 > [!TIP]
@@ -88,23 +90,23 @@ Likewise, *South America* typically uses *AU915-928*. Countries like *Mexico* ad
 
 
 ## Legal Radio Protocols
-As you read above, frequencies are organized in *band plans*. The details regulate how a particular portion of frequencies can be used. Among this fine print, it is regulated *what kind of radio services* you can use. 
+As you read above, frequencies are organized in *band plans*. Their details regulate how a particular frequency can be used. Among this fine print, it is regulated *what kind of radio services* you can use on that frequency. 
 
-For example, the popular *Citizen Band* (**CB**) radio is free to talk to your neighbor or friends on a *walky talky*. You *cannot* use this frequency in *DIY* projects to transmit digital sensor information, though.
+For example, the popular *Citizen Band* (**CB**) radio is free to talk to your neighbor or friends with a *walky talky*. You *cannot* use this frequency in *DIY* projects though to transmit digital sensor information.
 
-Which is good. After all, if anyone transmitted anything on any frequency, the result would be interference. You most likely do not want your neighbors' DIY *weather station* interfere with your **CB radio** chats by inserting bursts of digital noise transmissions.
+If *anyone* transmitted *anything* on *any* frequency, the result would be *interference*. You most likely do not want your neighbors' DIY *weather station* interfere with your **CB radio** chats by inserting regular bursts of digital noise transmissions.
 
 ## Maximum Radio Emission Power
 The band plan also regulates the maximum radio power or *emission* (*ERP*, *Effective Radiated Power*). The more powerful radio emissions are, the stronger is the signal, and the wider is the distance you can bridge.
 
 
 ### Watt and +dBm
-The maximum legal emission power can be quantified in raw emission power expressed either in *Watt* or in *dBm* (which is essentially the same, just *logarithmic*), i.e. *10mW/+10dBm*, *100mW/+20dBm* or *10W/+40dBm*. 
+The maximum legal emission power can for example be quantified in *raw emission power* expressed either in *Watt* or in *dBm* (which is essentially the same, just *logarithmic*), i.e. *10mW/+10dBm*, *100mW/+20dBm* or *10W/+40dBm*. This parameter is focusing on the *sender*.
 
 ### Effective Radiated Emission (ERP)
-**ERP** (*Effective Radiated Power*) is a more meaningful expression: it measures the *effective* radiated power at the *receivers end*. So it also takes into account the kind of *antenna* the *sender* uses, and its *directivity*:
+**ERP** (*Effective Radiated Power*) is a more meaningful expression: it views the *effective* radiated power at the *receivers side*. 
 
-When you connect a highly directional *antenna*, the total radio power is radiated in one narrow direction, just like *light* in a highly focused *flash light* or a *laser beam*. 
+This also takes into account the kind of *antenna* the *sender* is using, and its *directivity*: When you connect a highly directional *antenna*, the total radio power is radiated in one narrow direction, just like *light* in a highly focused *flash light* or a *laser beam*. 
 
 > [!TIP]
 > If you are restricted by a certain emission threshold but *free to use* any antenna you like, then using a highly directional antenna can multiply the distance you can gap by multitudes.
