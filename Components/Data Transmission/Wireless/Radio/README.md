@@ -6,6 +6,9 @@
 
 *Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *smartphones*, with *WiFi*, *walky talkys* and even when we grab a *remote control*.
 
+<img src="images/radio_overview_t.png" width="40%" height="40%" />
+
+
 > [!NOTE]
 > Do not confuse *radio waves* with *infrared light* (**IR**) which is also used to transfer information through the air. **IR** is *light* with a wave length invisible to the human eye and often used in *remote controls*. Since it is *light*, it needs a direct *line of sight* between *sender* and *receiver*.
 
@@ -118,6 +121,8 @@ For most use cases, a high radio power is not needed and even counter-productive
 ## Free Voice Radio Frequencies
 
 There are additional free-to-use radio frequencies designated for analog and/or digital *voice communications* (i.e. walky talkys):
+
+<img src="images/radio_voice_t.png" width="40%" height="40%" />
 
 | Name | Frequency |
 | --- | --- |
