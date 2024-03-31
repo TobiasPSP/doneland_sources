@@ -40,20 +40,19 @@ In *DIY* projects, a variety of radio protocols and use cases exist:
 
 
 ## Picking Frequencies
-Obviously, picking a frequency is the initial and fundamental step in designing a *radio project* - for *two* reasons:
+Picking a frequency is the initial and fundamental step in designing a *radio project* - for *two* reasons:
 
 * **Legal:** you *must* pick a frequency that is *legal to use* in your country. Else, you may be *interfering* with other services, and may become *liable* for damages you cause. In addition, (severe) legal punishment is possible even if the risk of ham and detection *may be* low with *low emission* devices.
-* **Technical:** when you have the *choice* of multiple *legal* frequencies, your *use case* determines which one to choose. The *lower* a radio frequency is the better can it pass buildings (walls, doors). The *higher* a frequency is the more does it behave like *light* and needs a *free line of sight* between sender and receiver. For example, if you live in a densly populated city in *Europe*, the *433MHz* band can pass buildings better than the *815MHz* band. If you'd like to set up a *data transmission* with free *line of sight*, the *815MHz* band works better (lower noise).
+* **Technical:** when you have the *choice* of multiple *legal* frequencies, your *use case* determines which one to choose. The *lower* a radio frequency is the better can it pass buildings (walls, doors). The *higher* a frequency the more does it behave like *light* and needs a *free line of sight*. For example, if you live in a densly populated city in *Europe*, the *433MHz* band can pass buildings better than the *815MHz* band. If you'd like to set up a *data transmission* with free *line of sight*, the *815MHz* band works better (because of lower interference from other services in the same band).
 
 ### Legal Considerations
-Most countries designate frequency ranges for *free public use*, and we all use these frequencies every day: *hearing aids*, *wireless microphones*, *garage door openers*, *wireless door bells* etc. all use these frequencies.
+Most countries designate frequency ranges for *free public use*. We all use these frequencies every day: *hearing aids*, *wireless microphones*, *garage door openers*, *wireless door bells* etc.
 
 
 
-In almost every region of the world, *band plans* exist that allocate frequency ranges for  *license-free* radio communications.
+In almost every region of the world, *band plans* exist that *allocate* frequency ranges and *regulate* the use of such frequencies.  
 
-> [!NOTE]
-> In addition to *regional* frequency bands (see below), there are *global* standards for *WiFi*: *2.4GHz* and *5GHz*. While there may be slight variations in the channel use, the *WiFi* frequencies can be used almost anywhere on this planet.
+Here are *band plans* that contain frequency ranges for  *license-free* radio communications.
 
 To check your region, you first need to know the *license plan(s)* in effect. Here is a list with examples showing the most commonly used *band plans*:
 
@@ -69,6 +68,13 @@ To check your region, you first need to know the *license plan(s)* in effect. He
 
 > [!NOTE]
 > The *name* of a *band plan* already suggests the *frequency range*. While not the entire frequency range is free for you to use, this information is sufficient to pick suitable breakout boards. For example, a *LoRa* boards exist for *433*, *868*, and *915 MHz*. The first two can be used in the *EU*, and the *915MHz* version would be suitable for the **US**.
+
+
+> [!TIP]
+> In addition to *regional* frequency bands (see below), there are *global* standards for *WiFi*: *2.4GHz* and *5GHz*. While there may be slight variations in the channel use, the *WiFi* frequencies can be used almost anywhere on this planet.
+
+
+
 
 Some regions (like the **EU**) *harmonized* band plans among their members. Other countries regulate individually. The *Asian* region frequently uses *AS923-925* but there are exceptions. Always check for *your* country.
 
