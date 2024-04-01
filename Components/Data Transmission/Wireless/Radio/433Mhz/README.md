@@ -17,7 +17,7 @@ In *Europe*, band plan *EU433* allows anyone to transmit data with a maximum pow
 
 ## Senders
 
-*Senders* actively transmit a *RF* signal on a given frequency. In your *DIY* projects, you can build *senders* yourself using tiny *breakout boards*, or you can use *ready-to-use* senders (*RF* remote controls):
+[Senders](Senders) actively transmit a *RF* signal on a given frequency. In your *DIY* projects, you can build *senders* yourself using tiny *breakout boards*, or you can use *ready-to-use* senders (*RF* remote controls):
 
 
 <img src="images/433_tx_overview_t.png" width="40%" height="40%" />
