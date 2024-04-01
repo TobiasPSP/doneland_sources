@@ -1,4 +1,4 @@
-<img src="/assets/images/radio.png" width="100%" height="100%" />
+<img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
  
 # Radio Transmission
 
@@ -6,13 +6,21 @@
 
 *Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *smartphones*, with *WiFi*, *walky talkys* and even when we grab a *remote control*.
 
-<img src="images/radio_overview_t.png" width="40%" height="40%" />
+
+<img src="images/radio_comparison2_t.png" width="40%" height="40%" />
+
+
+
+*DIY* projects can use various radio technologies to transmit data *over the air*. The picture above shows a typical *walky talky* (sender and receiver), and *sender* and *receiver* breakout boards that can be controlled by a microcontroller. 
+
+While a *walky talky* has a built-in *microphone* and logic to convert *voice* to analog or digital impulses that are then transmitted, the breakout boards are just *senders* and *receivers* without any additional logic. It is up to you to decide what kind of data you'd like to transmit. Most often, the transmitted data will just be simple numbers to control remote devices.
 
 
 > [!NOTE]
 > Do not confuse *radio waves* with *infrared light* (**IR**) which is also used to transfer information through the air. **IR** is *light* with a wave length invisible to the human eye and often used in *remote controls*. Since it is *light*, it needs a direct *line of sight* between *sender* and *receiver*.
 
-*DIY* projects can use various radio technologies to transmit data *over the air*.
+
+<img src="images/ir_remote_front_angle_t.png" width="40%" height="40%" />
 
 ## Overview
 Radio waves are emissions to the *public*: anyone in the vicinity can detect and read them. So anyone can also *interfere* with anyone else in a radio spectrum.
@@ -148,6 +156,10 @@ There are additional free-to-use radio frequencies designated for analog and/or 
 
 ### Amateur Radio (HAM)
 Licensed *radio amateurs* are private persons that went through classes, took a test and received a certification ensuring they technically know precisely how radios work and how to not interfere with other radio services.
+
+Radio amateurs typically are *enthusiasts* with a strong focus on radio *technology*.
+
+<img src="images/radio_overview_t.png" width="40%" height="40%" />
 
 Radio amateurs can use a large number of additional frequency bands, and emit radio power up to many kilowatts, but solely for *experimental purposes* related to *radio communications*. 
 
