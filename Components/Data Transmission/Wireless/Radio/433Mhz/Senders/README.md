@@ -85,6 +85,7 @@ A wide variety of *RF Sender* breakout boards exist.
 Aside from their (fixed) frequency, they differ in *size*, *emitted power*, *interface*, and some boards can act *both as sender and as receiver* (enabling two-way communications).
 
 * [FS1000A](FS1000A): A very small board available in *433MHz* and *315MHz* that can be operated with *3.3V* and *5V*. The *RF Power* of *40mW* exceeds *European* legal limits.
+* [SYN115](SYN115): A tiny **3.3V** sender available in *433MHz* and *315MHz*. Its maximum *RF Power* of *10mW* is within *European* legal limits.
 
 
 
