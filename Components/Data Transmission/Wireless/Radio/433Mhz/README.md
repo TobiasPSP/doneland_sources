@@ -7,33 +7,31 @@
 In *Europe*, band plan *EU433* allows anyone to transmit data with a maximum power of *10mW* on *433MHz*. 
 
 > [!CAUTION]
-> If you live outside *Europe*, different band plans exist in your region. In North America for example, use *300MHz* devices.
+> If you live outside *Europe*, different band plans exist. In North America for example, use *300MHz* devices.
 
 
 
 > [!NOTE]
-> Even though this is an article about using the *European* frequency of *433MHz*, you can easily adapt it to other regions. Just order the breakout boards in the frequency you need. All principles, sketches and code examples presented here work with breakout boards for *any* frequency.
+> This is an article about using the *European* frequency of *433MHz*, but you can easily adapt it to other regions and frequencies. Just order the breakout boards *in the frequency **you** need*. All principles, sketches and code examples work for *any* frequency.
 
 
 ## Senders
 
-*Senders* actively transmit a *RF* signal on a given frequency.
-
-In your *DIY* projects, you can build *senders* yourself using tiny *breakout boards*, or you can use *ready-to-use* senders (*RF* remote controls):
+*Senders* actively transmit a *RF* signal on a given frequency. In your *DIY* projects, you can build *senders* yourself using tiny *breakout boards*, or you can use *ready-to-use* senders (*RF* remote controls):
 
 
 <img src="images/433_tx_overview_t.png" width="40%" height="40%" />
 
-Just make sure you pick devices with the intended *RF frequency*. Typically, devices support just *one frequency range*, for example *433MHz* or *300MHz*.
+Just make sure you pick devices with the intended *RF frequency*. Typically, devices support just *one fixed frequency range*, for example *433MHz* or *300MHz*, and cannot be changed later.
 
 ## Receivers
 
-As with the *senders*, on the receiver side you can again choose whether to pick a tiny *receiver breakout board*, or whether to use *ready-to-go* *receivers* that come with built-in *relais* to control external devices:
+As with the *senders*, on the *receiver* side you can also choose whether to pick a tiny *receiver breakout board*, or whether to use *ready-to-go* *receivers* (that come with built-in *relais*) to control external devices:
 
 <img src="images/433_rx_overview_t.png" width="40%" height="40%" />
 
 > [!NOTE]
-> There are also breakout boards available that can act both as *sender* and as *receiver*. This way, you can implement *two-way communications*, too.
+> Some breakout boards can act both as *sender* and as *receiver*, enabling you to implement *two-way communications* if needed.
 
 > Tags: Frequency, RF,  433MHz, 300MHz, Sender, Receiver
 
