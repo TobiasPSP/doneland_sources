@@ -44,12 +44,12 @@ The board comes with *three* pins plus a solder pad tp connect an *antenna*.
 > [!CAUTION]
 > This board comes in multiple versions, and the pin sequence may be different. Always look at the *printed pin labels*. Do not rely on a specific *pin order*.
 
-<img src="images/433_fs1000a_tx_top_t.png" width="40%" height="40%" />
+<img src="images/433_fs1000a_tx_top_t.png" width="30%" height="30%" />
 
 > [!TIP]
 > The *RF frequency* of the board on is printed on the round silver component. The picture shows the *433MHz* variant.
 
-<img src="images/433_fs1000a_tx_back_t.png" width="40%" height="40%" />
+<img src="images/433_fs1000a_tx_back_t.png" width="30%" height="30%" />
 
 
 
