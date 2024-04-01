@@ -6,6 +6,8 @@
 
 This board is designed to be used in *stand-alone* remote controls and does not  require a *microcontroller*. Each model comes with a *unique ID key* built in.
 
+This *sender* requires a compatible *self-learning receiver* that can pick up the *EV1527*-compatible data package sent by the *sender*.
+
 The board is equipped with a *voltage regulator* and accepts a wide range of input voltage from *3-24V*.
 
 
@@ -18,14 +20,14 @@ The board is equipped with a *voltage regulator* and accepts a wide range of inp
 
 
 ## What You Can (And Cannot)
-This *sender* breakout board is somewhat special as it is *ready-to-go* to send *four different* *RF signals* that adhere to the *EV1527 learning code format*.
+This *sender* breakout board is special as it is *ready-to-go* to send *four different* *RF signals* that adhere to the *EV1527 learning code format*.
 
 ### Indented Use Cases
 
 This is what you *can* do with this board:
 
-* **Control Sending Data:** you can use simple buttons or a microcontroller to send out one of the four predefined data codes (connect one of the signal inputs to *GND*).
-* **Receive Data:** with a separate *EV1527* compatible *receiver*, you can use its *learning mode* to learn the codes emitted from the *sender*. Now the *receiver* responds to the emitted signals and can be used to control devices.
+* **Sending Predefined Data:** you can use simple buttons or a microcontroller to send out one of the four predefined data codes (connect one of the signal inputs to *GND*) The codes that are sent are *hard-coded* inside the device.
+* **Receive Data:** with a separate *EV1527*-compatible *receiver*, use its *learning mode* to teach it the codes emitted from the *sender*. Now the *receiver* responds to the emitted signals and can be used to control devices.
 
 ### When To Not Use
 
@@ -34,13 +36,21 @@ And this is what you *cannot* do with this board:
 * **Send Own Data:** you have no control over the data that is sent by this board. You cannot use it to send custom-formatted sensor data, i.e. to transmit readings from a *weather station*.
 * **Receive Data:** receiving data emitted from this board is limited to *receivers* that can decode the *EV1527* data format.
 
-### Conclusion
-This board can be an excellent choice when you want to control external devices. Essentially, this board is the core of any *4-button RF remote control*, just without the housing.
+### Use Cases
+This *sender* is an excellent choice for remote-controlling devices. 
 
-Often, this board comes as a *package* with the appropriate *receiver* that is required to decode the signals.
+For example, if you wanted to control electrical plugs to conventiently switch them on and off from your workbench, then this *sender* can do the job (controlling up to *four* plugs independently). If you need to control more devices, get more *senders*.
+
+Wiring is extremely simple and no other external components are required (aside from an *antenna*). You do not need a separate *microcontroller*.
+
+Just get enough *receivers* (one per device) that are *EV1527*-compatible. Or better yet, get yourself cheap *433MHz* *smart plugs* or *relay modules*.
+
+<img src="images/433_mini_smartswitch_angle_t.png" width="30%" height="30%" />
+
+
 
 > [!TIP]
-> Do *not* use this board if you want to have control over the data you are sending.
+> Do *not* use this board if you want to have control over the data you are sending, i.e. when you are looking for a solution that can *transfer sensor data* etc.
 
 
 ## Specs
