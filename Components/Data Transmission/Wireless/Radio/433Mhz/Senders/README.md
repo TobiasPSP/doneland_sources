@@ -29,17 +29,17 @@ Some remote controls send out *fixed* numbers while other remote controls can *l
 
 When you purchase a *ready-to-go* remote control, make sure it works on the intended frequency.
 
-<img src="images/433_remote_back_t.png" width="40%" height="40%" />
+<img src="images/433_remote_back_t.png" width="20%" height="20%" />
 
 > [!CAUTION]
 > Do not confuse *radio frequency senders* with *infrared senders*. Remote controls with a *IR* diode cannot be used to control *radio frequency receivers*.
 
-<img src="images/ir_remote_front_angle_t.png" width="40%" height="40%" />
+<img src="images/ir_remote_front_angle_t.png" width="20%" height="20%" />
 
 ### Breakout Boards
 *RF Sender* breakout boards are much more flexible. They are essentially just a *sender* that can send *anything* on the frequency it is designed for.
 
-<img src="images/433_tx118sa-4_tx_angle_t.png" width="40%" height="40%" />
+<img src="images/433_tx118sa-4_tx_angle_t.png" width="30%" height="30%" />
 
 > [!NOTE]
 > Do not confuse the *crystal frequency* printed  on the crystal with the emitted radio frequency. They are unrelated. Typically, there is no indication on the board that tells you the emitted frequency. If you do not *know* the frequency, all you can do is test the emission with a *spectrum analyzer*. 
