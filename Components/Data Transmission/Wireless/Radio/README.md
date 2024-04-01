@@ -168,3 +168,4 @@ This includes *DIY* projects, however strictly related to *radio amateur purpose
 
 > Tags: Frequency, Garage Door Opener,  Band Plan, WiFi, FreeNet, LPD, PMR, FRS, GMRS, MURS
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/radio?919765041001241003) - created 2024-04-01 - last edited 2024-04-01
