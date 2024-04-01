@@ -21,7 +21,7 @@ They are very *inexpensive* and typically cost less than *EUR 2.00* per piece.
 ### RF Remote Controls
 *RF Remote Controls* have a *RF sender* already built-in. When you press a button, the device emits a numeric code that a *receiver* can pick up.
 
-<img src="images/433_remote_front_angle_t.png" width="40%" height="40%" />
+<img src="images/433_remote_front_angle_t.png" width="30%" height="30%" />
 
 While such remote controls are convenient to use and often sufficient to remote-control devices, they limit you in the kind of data you can transfer.
 
