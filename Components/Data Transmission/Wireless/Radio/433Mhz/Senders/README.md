@@ -86,6 +86,7 @@ Aside from their (fixed) frequency, they differ in *size*, *emitted power*, *int
 
 * [FS1000A](FS1000A): A very small board available in *433MHz* and *315MHz* that can be operated with *3.3V* and *5V*. The *RF Power* of *40mW* exceeds *European* legal limits.
 * [SYN115](SYN115): A tiny **3.3V** sender available in *433MHz* and *315MHz*. Its maximum *RF Power* of *10mW* is within *European* legal limits.
+* [TX118SA](TX118SA): A sender sending *fixed data packages* compliant with *EV1527* that can only be picked up from *receivers* that are also *EV1527*-compliant. You cannot send arbitrary data with these boards. They are a very cost-effective way to build *self-learning* remote controls though that can be used to turn devices on and off.
 
 
 
