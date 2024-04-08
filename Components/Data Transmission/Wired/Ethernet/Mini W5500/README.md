@@ -4,9 +4,11 @@
 
 > Fast 80MHz SPI-Ethernet Controller For Up To 8 Sockets 
 
-There are a number of *Ethernet* controllers available that are based on the fast and performant *W5500* controller chip. The chip supports up to eight sockets, comes with hardware-implemented *TCP/IP*-stack and Wake-On-LAN. Like most *Ethernet* breakout boards, it supports *IPv4* only.
+This is the *miniature version* of the standard *W5500* breakout board. It is much smaller but lacks the voltage regulator. It must be supplied with **3.3V**. Only the *SPI* data pins are **5V** tolerant.
 
-This board is one of the smallest available. It is also known as **W5500 Lite** which is solely based on its much smaller footprint at identical functionality.
+Other than that, the breakout board is fully compatible with the normal-sized breakout board as both are based on the same fast and performant *W5500* controller chip. The chip supports up to eight sockets, comes with hardware-implemented *TCP/IP*-stack and Wake-On-LAN. Like most *Ethernet* breakout boards, it supports *IPv4* only.
+
+This board is one of the smallest available. It is also known as **W5500 Lite**.
 
 <img src="images/ethernet_w5500_front_hightop_t.png" width="50%" height="50%" />
 
