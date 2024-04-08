@@ -2,7 +2,7 @@
 
 # Mini W5500 Ethernet Controller
 
-> Fast 80MHz SPI-Ethernet Controller For Up To 8 Sockets 
+> Miniature 3.3V-Only 80MHz SPI-Ethernet Controller For Up To 8 Sockets 
 
 This is the *miniature version* of the standard *W5500* breakout board. It is much smaller but lacks the voltage regulator. It must be supplied with **3.3V**. Only the *SPI* data pins are **5V** tolerant.
 
