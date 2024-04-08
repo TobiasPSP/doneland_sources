@@ -20,7 +20,7 @@ The board is occasionally available for under EUR 3.00 in which case it serves v
 
 > [!CAUTION]
 >
-> This is a *Constant Voltage (CV)*-only Buck converter. It cannot supply a *constant current* (*CC*) and s therefore unsuitable for charging batteries.
+> This is a *Constant Voltage (CV)*-only Buck converter. It cannot supply a *constant current* (*CC*) and is therefore unsuitable for charging batteries.
 
 
 
