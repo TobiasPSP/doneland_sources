@@ -21,7 +21,7 @@ The boards use the **SPI** interface.
 The operating voltage is **3.3V**.
 
 > [!TIP]
-> To operate this breakout board with a **5V** microcontroller like *Arduino*, use dedicated **3.3V** pin for power supply. The *SPI* interface is *5V* tolerant. A level shifter is not mandatory.
+> To operate this breakout board with a **5V** microcontroller like *Arduino*, use the **3.3V** pin on the microcontroller board for power supply. Since this board requires *200mA*, make sure the *voltage regulator* on your microcontroller board supplies enough current. The *SPI* interface is *5V* tolerant and can be directly connected with a **5V** microcontroller *SPI* interface. A dedicated level shifter is not mandatory.
 
 <img src="images/ethernet_w5500_top_t.png" width="50%" height="50%" />
 
