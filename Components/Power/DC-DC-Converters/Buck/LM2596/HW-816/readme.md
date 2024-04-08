@@ -22,11 +22,16 @@ The board is occasionally available for under EUR 3.00 in which case it serves v
 >
 > This is a *Constant Voltage (CV)*-only Buck converter. It cannot supply a *constant current* (*CC*) and s therefore unsuitable for charging batteries.
 
+
+
+
+
+
 | Property | Value |
 | --- | --- |
 | Input Voltage | 7-36V                                                        |
 | Output Voltage | 0.5-35V |
-| Max Output Current | 3A |
+| Max Output Current | 3A (>2A add heat sink) |
 | Size | 56x41x13mm |
 | LED                | 2 (*IN* and *OUT*, indicating the voltage the voltmeter is showing) |
 | Voltmeter | 3-digit, input or output voltage, can be turned off |
@@ -34,6 +39,9 @@ The board is occasionally available for under EUR 3.00 in which case it serves v
 > [!CAUTION]
 >
 > For output currents >2A, an additional *heat sink* and/or *fan* is required.
+
+
+
 
 ## Measuring Input/Output Voltage
 
