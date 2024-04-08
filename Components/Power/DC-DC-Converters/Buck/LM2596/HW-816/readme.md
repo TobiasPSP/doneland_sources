@@ -6,7 +6,7 @@
 
 The **HW-816** is a buck converter based on the *LM2596* regulator from Texas Instruments. It comes with a three-digit 7-segment voltmeter and four buttons. 
 
-This buck converter is exceptional in the way its output voltage is set. Rather than using a manual multi-turn potentiometer, the output voltage can be lowered or raised in small increments of *0.02V/0.1V* by two push buttons. 
+This buck converter is exceptional in the way its output voltage is set. Rather than using a conventional multi-turn potentiometer, the output voltage can be lowered or raised in small increments of *0.02V/0.1V* by two push buttons. 
 
 The board is occasionally available for under EUR 3.00 in which case it serves very well as a cheap and small versatile mini bench power supply.
 
