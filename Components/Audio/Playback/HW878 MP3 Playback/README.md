@@ -9,8 +9,10 @@ This *MP3 playback module* comes with a *SD Card Reader Slot* and can play back 
 The *SD Card* media is accessible via *USB* port from a computer.
 
 > [!TIP]
->
-> This board does not require any external components (other than a speaker) and can be operated without a microcontroller (9 tracks selectable). When controlled by a microcontroller, up to 31 tracks ae selectable. Via a solder bridge, tracks can be played circular (in a loop).
+> This board does not require any external components (other than a speaker) and can be operated without a microcontroller (9 tracks selectable). When controlled by a microcontroller, up to 31 tracks are selectable. Via a solder bridge, tracks can be played circular (in a loop).
+
+
+
 
 ## Connections
 
@@ -43,8 +45,10 @@ The order in which sound files depends on the physical location of the file on t
 Make sure you freshly format the *SD Card* media and then save the files to the *SD Card* in the order in which you want to play them back.
 
 > [!CAUTION]
->
 > After you are done copying sound files from a computer to the *SD Card* via *USB*, disconnect the computer and then power off and on the board. You cannot play audio files while there is a computer connection accessing the *SD Card reader*.
+
+
+
 
 ## Manually Controlled
 
