@@ -101,9 +101,9 @@ To enable this, add another folder named *99* on the *SD Card* media, and place 
 | --------------------------------------------- | ------------------------------------------ |
 | Power Supply                                  | 5V, 1000mA                                 |
 | Connectors For Sound Playback Trigger Buttons | 9                                          |
-| Speaker Impedance                             | 1 Speaker, 4-8 Ohm, 3W                     |
+| Speaker Impedance                             | 1 Speaker, 4-8 Ohm, 3W (5W newer models)                     |
 | Bypass Mode                                   | High: bypass amplifier                     |
 | SD Card Reader                                | up to 16GB Cards supported, FAT filesystem |
 | Size                                          | 39x39x6mm                                  |
 
-> Tags: Audio, 3W, Amplifier, Mono, HW-878, SD Card
+> Tags: Audio, 3W, 5W, Amplifier, Mono, HW-878, SD Card
