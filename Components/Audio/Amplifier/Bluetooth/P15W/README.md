@@ -17,3 +17,5 @@ This small breakout board combines *Bluetooth* reception with a digital 15W ster
 | Size               | 50x33x12mm                                   |
 
 > Tags: Audio, 15W, Amplifier, Stereo, Bluetooth
+
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/p15w?321039041911244644) - created 2024-04-11 - last edited 2024-04-11

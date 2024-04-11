@@ -70,3 +70,5 @@ The board comes with two *LED*:
 
 
 > Tags: Data, Network, Ethernet, W5500. Mini W5500, W5500 Lite
+
+[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/miniw5500?541040041911244644) - created 2024-04-11 - last edited 2024-04-11

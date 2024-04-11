@@ -60,3 +60,5 @@ The board comes with 5x2 connectors that are labeled on the back side:
 
 
 > Tags: Data, Network, Ethernet, W5500, 3.3V, 5V, SPI
+
+[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/w5500?561038041911244644) - created 2024-04-11 - last edited 2024-04-11

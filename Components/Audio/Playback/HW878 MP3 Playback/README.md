@@ -107,3 +107,5 @@ To enable this, add another folder named *99* on the *SD Card* media, and place 
 | Size                                          | 39x39x6mm                                  |
 
 > Tags: Audio, 3W, 5W, Amplifier, Mono, HW-878, SD Card
+
+[Visit Page on Website](https://done.land/components/audio/playback/hw878mp3playback?331038041911244644) - created 2024-04-11 - last edited 2024-04-11
