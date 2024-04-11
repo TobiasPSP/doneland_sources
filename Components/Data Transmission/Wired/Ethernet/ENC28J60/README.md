@@ -6,7 +6,7 @@
 
 This is a popular *Ethernet* controller that is used on a number of breakout boards.
 
-<img src="images/ethernet_w5500_front_hightop_t.png" width="50%" height="50%" />
+<img src="images/ethernet_enc28j60_overview_t.png" width="50%" height="50%" />
 
 ## Interface
 
@@ -16,10 +16,12 @@ The boards use the **SPI** interface.
 
 The operating voltage is **3.3V**. 
 
+<img src="images/ethernet_enc28j60_side_t.png" width="50%" height="50%" />
+
 > [!TIP]
 > To operate this breakout board with a **5V** microcontroller like *Arduino*, most microcontroller boards have a dedicated **3.3V** pin that can be used. A separate *level shifter* would be required to translate the **SPI** connections.
 
-<img src="images/ethernet_w5500_top_t.png" width="50%" height="50%" />
+<img src="images/ethernet_enc28j60_top_t.png" width="50%" height="50%" />
 
 
 ## Specs
@@ -34,6 +36,8 @@ The operating voltage is **3.3V**.
 
 *MAC address* and *IP configuration* is done in software. A suitable library [can be found here](https://github.com/njh/EtherCard/blob/main/README.md). There are many more libraries for the *ENC28J60* chip.
 
+<img src="images/ethernet_enc28j60_back_t.png" width="50%" height="50%" />
+
 ## Data Sheets
 
 * [ENC28J60 Ethernet Controller](materials/enc28j60_datasheet.pdf)
@@ -42,4 +46,4 @@ The operating voltage is **3.3V**.
 
 > Tags: Data, Network, Ethernet, ENC28J60, HR911105A
 
-[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/enc28j60?309008031222243356) - created 2024-03-22 - last edited 2024-03-22
+[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/enc28j60?309008031222243356) - created 2024-03-22 - last edited 2024-04-11
