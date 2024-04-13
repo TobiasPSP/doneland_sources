@@ -94,7 +94,7 @@ When music is played back, the *blue LED* flashes slowly.
 
 ## Data Sheet
 
-[PAM8406 5W Audio Amplifier](/materials/pam8406_datasheet)
+[PAM8406 5W Audio Amplifier](materials/pam8406_datasheet)
 
 
 
