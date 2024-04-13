@@ -17,7 +17,9 @@ This small breakout board combines *Bluetooth* reception with a digital 15W ster
 | Power Supply       | 8-24V                                        |
 | Speaker Impedance  | 4-16 Ohm                                     |
 | Amplifier              | 10W/15W/20W models available |
+| Chip  | *TPA3110* from *Texas Instruments* | 
 | Bluetooth Distance | <15 Meter                                    |
+| Chip  |  *AC23C0* from *JL* |
 | Size               | 50x33x12mm                                   |
 
 The amplifier power depends both on supplied input voltage and speaker impedance:
@@ -75,8 +77,9 @@ The screw terminals are labeled on the backside:
 
 <img src="images/audio-xy-p15w_bottom2-removebg-preview.png" width="50%" height="50%" />
 
+## Data Sheets
+[TPA3110 Amplifier](materials/tpa3110_datasheet.pdf)
 
-
-> Tags: Audio, 15W, Amplifier, Stereo, Bluetooth, XY-P15W
+> Tags: Audio, 15W, Amplifier, Stereo, Bluetooth, XY-P15W, TPA3110, AC23C0
 
 [Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-p15w?803539041113245750) - created 2024-04-13 - last edited 2024-04-13
