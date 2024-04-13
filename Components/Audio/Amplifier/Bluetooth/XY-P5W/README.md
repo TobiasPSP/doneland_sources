@@ -84,13 +84,18 @@ Some pins are labeled on the backside only:
 <img src="images/audio-xy-p5w_back_t.png" width="50%" height="50%" />
 
 
-## Operation
+## Bluetooth Connect
 
 After supplying power, a *blue LED* starts blinking. The device is now in bluetooth *pairing mode* and can be detected by i.e. your smartphone.
 
 Once a bluetooth connection is made and the board is coupled, the *blue LED* stops blinking and lights constantly.
 
 When music is played back, the *blue LED* flashes slowly.
+
+> [!TIP]
+> All *Bluetooth* functionality is provided by a *AC...* chip manufactured by [Zuhai Jie Li](https://www.zh-jieli.com/). This company produces cheap chips for a wide variety of consumer products.
+
+
 
 ## Data Sheet
 
