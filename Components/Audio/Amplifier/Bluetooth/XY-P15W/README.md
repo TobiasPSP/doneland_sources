@@ -1,6 +1,6 @@
 <img src="/assets/images/amplifier.png" width="80%" height="80%" />
 
-# P15W
+# XY-P15W
 
 > 8-24V 15W Stereo Amplifier With Bluetooth
 
