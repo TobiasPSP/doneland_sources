@@ -19,7 +19,7 @@ This small breakout board combines *Bluetooth* reception with a digital 15W ster
 | Amplifier              | 10W/15W/20W models available |
 | Chip  | *TPA3110* from *Texas Instruments* | 
 | Bluetooth Distance | <15 Meter                                    |
-| Chip  |  *AC23C0* from *JL* |
+| Chip  |  *AC23C0* from *JL* ([Zuhai Jie Li](https://www.zh-jieli.com/))|
 | Size               | 50x33x12mm                                   |
 
 The amplifier power depends both on supplied input voltage and speaker impedance:
@@ -60,6 +60,13 @@ Two speakers can be connected to screw terminals. There is no headphone jack as 
 After power on, the board is in *bluetooth pairing mode* and visible for bluetooth devices such as your smartphone. The board is advertised as *XY-P15W*.
 
 There is no pairing code or button press required for pairing. Once paired, the paired device can play music through the amplifier.
+
+
+> [!TIP]
+> All *Bluetooth* functionality is provided by a *AC...* chip manufactured by [Zuhai Jie Li](https://www.zh-jieli.com/). This company produces cheap chips for a wide variety of consumer products.
+
+
+
 
 
 ## Operation
