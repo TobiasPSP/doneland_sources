@@ -9,7 +9,7 @@ This small breakout board combines *Bluetooth 5.0* reception with a digital 2x5W
 <img src="images/audio-xy-p5w_angle2_t.png" width="50%" height="50%" />
 
 > [!NOTE]
-> The board discussed here is marked as *XY-WRBT* on its back side. It is also called *XY-P5W*. There are  *many variations* of this board available with subtle differences in board design and functionality. Some even ship with separate external remote control.
+> There are  *many variations* of this board available with subtle differences in board design and functionality. Some even ship with separate external remote control.
 
 ## Where To Use
 
@@ -103,6 +103,4 @@ When music is played back, the *blue LED* flashes slowly.
 
 
 
-> Tags: Audio, 5W, Amplifier, Stereo, Bluetooth, XY-WRBT, XY-P5W, PAM8406
-
-[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-p5w?321039041911244644) - created 2024-04-11 - last edited 2024-04-11
+> Tags: Audio, 5W, Amplifier, Stereo, Bluetooth, XY-P5W, PAM8406
