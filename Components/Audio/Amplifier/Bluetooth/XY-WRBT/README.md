@@ -85,7 +85,7 @@ Next to the external power input pins, there are two solder pads marked *woke*. 
 
 Connect the pins for 2 seconds to toggle between *on* and *off*.
 
-<img src="images/audio-xy-p5w_top_t.png" width="50%" height="50%" />
+<img src="images/audio-xy-wrbt_top_t.png" width="50%" height="50%" />
 
 ## Through-Hole Pins
 
@@ -94,7 +94,7 @@ All pins are through-hole and accessible from the back side as well.
 Some pins are labeled on the backside only:
 
 
-<img src="images/audio-xy-p5w_back_t.png" width="50%" height="50%" />
+<img src="images/audio-xy-wrbt_back_t.png" width="50%" height="50%" />
 
 
 ## Bluetooth Connect
@@ -112,3 +112,4 @@ When music is played back, the *blue LED* flashes slowly.
 
 > Tags: Audio, Stereo, Bluetooth, Receiver, XY-WRBT
 
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-wrbt?623296041613240005) - created 2024-04-13 - last edited 2024-04-13
