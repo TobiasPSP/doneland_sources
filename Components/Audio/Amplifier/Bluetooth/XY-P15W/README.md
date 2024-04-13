@@ -79,3 +79,4 @@ The screw terminals are labeled on the backside:
 
 > Tags: Audio, 15W, Amplifier, Stereo, Bluetooth, XY-P15W
 
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-p15w?803539041113245750) - created 2024-04-13 - last edited 2024-04-13

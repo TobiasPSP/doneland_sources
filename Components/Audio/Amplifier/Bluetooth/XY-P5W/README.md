@@ -100,4 +100,4 @@ When music is played back, the *blue LED* flashes slowly.
 
 > Tags: Audio, 5W, Amplifier, Stereo, Bluetooth, XY-WRBT, XY-P5W, PAM8406
 
-[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/p15w?321039041911244644) - created 2024-04-11 - last edited 2024-04-11
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-p5w?321039041911244644) - created 2024-04-11 - last edited 2024-04-11
