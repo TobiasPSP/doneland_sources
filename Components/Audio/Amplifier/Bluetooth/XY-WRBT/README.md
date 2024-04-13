@@ -1,21 +1,29 @@
 <img src="/assets/images/amplifier.png" width="80%" height="80%" />
 
-# XY-P5W
+# XY-WRBT
 
-> 3.7-24V 5W Stereo Amplifier With Bluetooth Connectivity
+> 3.7-24V Bluetooth Audio Receiver Board
 
-This small breakout board combines *Bluetooth 5.0* reception with a digital 2x5W stereo amplifier. It is based on the **5W** *PAM8406* digital power amplifier module.
+This board is a pure *Bluetooth* audio receiver and comes without an audio amplifier. 
 
-<img src="images/audio-xy-p5w_angle2_t.png" width="50%" height="50%" />
+Use it with the headphone jacks, or connect the stereo output to a dedicated external audio amplifier.
+
+
+<img src="images/audio-xy-wrbt_angle2_t.png" width="50%" height="50%" />
 
 > [!NOTE]
-> The board discussed here is marked as *XY-WRBT* on its back side. It is also called *XY-P5W*. There are  *many variations* of this board available with subtle differences in board design and functionality. Some even ship with separate external remote control.
+> The board discussed here is marked as *XY-WRBT* on its back side. It is *very similar* to *XY-P5W* which in contrast has a built-in *2x5W audio amplifier*.
+
 
 ## Where To Use
 
-This board comes with everything needed to built a small bluetooth-ready sound box. The output volume is moderate but sufficient (2x5W). 
+This board handles all the *Bluetooth* audio reception and comes with built-in support for handling *LiIon* and *LiPo* batteries.
 
-Its wide voltage input range makes it versatile to use. Support for *LiIon* and *LiPo* batteries including automatic switch-off at low voltage and charging through *Micro USB* are convenient extras. 
+It can serve well in *DIY Bluetooth Sound Boxes* where you choose to use a separate dedicated *audio amplifier*.
+
+## Where To Avoid
+
+If you are looking for a one-stop solution to creating a simple *Bluetooth* sound box, go get the integrated boards that come with *2x5W* or *2x15W* audio amplifiers on-board (*XY-P5W* or *XY-P15W*).
 
 
 ## Technical Data
@@ -23,11 +31,11 @@ Its wide voltage input range makes it versatile to use. Support for *LiIon* and 
 | Item               | Description                                  |
 | ------------------ | -------------------------------------------- |
 | Power Supply       | Micro USB, one lithium cell, external 3.7-24V supply |
-| Audio Amplifier              | 2x5W |
-| Speaker Impedance  | 2-8 Ohm (5W@2Ohm, 3W@4Ohm, 2W@8Ohm)           |
+| Audio Amplifier              | no amplifier |
+| Speaker Impedance  | no speaker connections, just pins to connect to external amplifier           |
 | Audio In           | Headphone Jack 3.5mm                         |
 | Bluetooth Distance | <15 Meter, SNR >= 90dB                       |
-| Size               | 42x32x5mm                                   |
+| Size               | 44x30x5mm                                   |
 
 ## Power Supply
 
@@ -59,7 +67,12 @@ The lithium battery can be directly charged via the *Micro USB* connection.
 
 ## Audio Out
 
-Audio can be played to headphones via 3.5mm headphone jack, or by connecting two speakers with common ground to the speaker pins.
+Audio can be played to headphones via 3.5mm headphone jack, or by connecting the stereo output to an *external amplifier*.
+
+> [!CAUTION]
+> You cannot directly connect speakers to this board as it does not have a built-in audio amplifier.
+
+
 
 Volume is controlled by a half-rounded switch:
 
@@ -97,12 +110,5 @@ When music is played back, the *blue LED* flashes slowly.
 
 
 
-## Data Sheet
+> Tags: Audio, Stereo, Bluetooth, Receiver, XY-WRBT
 
-[PAM8406 5W Audio Amplifier](materials/pam8406_datasheet.pdf)
-
-
-
-> Tags: Audio, 5W, Amplifier, Stereo, Bluetooth, XY-WRBT, XY-P5W, PAM8406
-
-[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-p5w?321039041911244644) - created 2024-04-11 - last edited 2024-04-11
