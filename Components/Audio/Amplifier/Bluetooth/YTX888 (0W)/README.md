@@ -120,4 +120,4 @@ There are additional solder pads marked:
 
 > Tags: Audio, Stereo, Bluetooth, Receiver, A7-004
 
-
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/ytx888(0w)?737132041414242000) - created 2024-04-01 - last edited 2024-04-14
