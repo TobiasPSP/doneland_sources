@@ -112,4 +112,4 @@ When music is played back, the *blue LED* flashes slowly.
 
 > Tags: Audio, Stereo, Bluetooth, Receiver, XY-WRBT
 
-[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-wrbt?623296041613240005) - created 2024-04-02 - last edited 2024-04-13
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-wrbt(0w)?623296041613240005) - created 2024-04-02 - last edited 2024-04-13

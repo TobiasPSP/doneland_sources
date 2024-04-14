@@ -107,3 +107,5 @@ After supplying power, the device is in bluetooth *pairing mode* and can be dete
 
 
 > Tags: Audio, Amplifier, 50W, Stereo, Bluetooth, Receiver, YS-AP50L
+
+[Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/ys-ap50l(50w)?251746041214242743) - created 2024-04-14 - last edited 2024-04-14
