@@ -2,14 +2,19 @@
 
 # XS-AP50L (50W)
 
-> 12-24V Bluetooth Audio Receiver Board
+> 12-24V 50W Stereo Bluetooth Audio Receiver Board
 
-This board is a pure *Bluetooth* audio receiver and comes without an audio amplifier. 
+This board is a *Bluetooth* audio receiver with a powerful stereo audio amplifier that can deliver up to *2x50W* (at *24V* and with *4 Ohm* speakers).
 
-Use it with the headphone jacks, or connect the stereo output to a dedicated external audio amplifier.
+At *12V* and with *8 Ohm* speakers, the board delivers *2x15W*.
 
 
 <img src="images/audio_ys-ap50l_front1_t.png" width="50%" height="50%" />
+
+> [!TIP]
+> Audio can also be supplied via 3.5mm analog in and via *USB C*. There is a app available from the vendor that can optionally be used to control the device.
+
+
 
 
 
