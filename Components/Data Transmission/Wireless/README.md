@@ -67,6 +67,7 @@ Fortunately, picking a *legal frequency* for *DIY data transmission* is not hard
 | --- | --- | --- |
 | Short Range Device (SRD) in Europe/Asia | 433MHz and 868MHz | 10mW at 433MHz/25mW at 868MHz with <1% duty cycle |
 | Short Range Device (SRD) in the US | 310MHz and 915MHz (US) | up to 1W |
+| Bluetooth | 2.4GHz | internationally harmonized 2-way radio, up to 100mW (depending on Bluetooth standard) |
 | WiFi | 2.4GHz | 802.11b/g/n/ax, most often used in WiFi-enabled microcontrollers |
 | WiFi | 5GHz | 802.11a/h/ac/ax, very infrequently used in DIY data transmission due to its expense and limited distance |
 
@@ -74,8 +75,12 @@ For *SRD*, complex national regulations exist that govern the maximum emission p
 
 A [very good application note](https://ww1.microchip.com/downloads/en/Appnotes/Atmel-4907-Application-of-315-MHz-Short-Range-Devices_Application-Note.pdf) exists, explaining the *FCC* requirements for *SRD*s in various frequency ranges, including the underdocumented *315MHz* range.
 
->[!TIP]
+> [!TIP]
 > Once you *make sure you are using a legal frequency* (**not** using *315MHz* transmitters in Europe, and **not** using *433MHz* transmitters in the US), and when your transmitter **does not exceed *10mW***, you are most likely fully compliant, and more importantly: *not interfering* with anyone else.
+
+
+
+
 
 
 ## Use Cases
@@ -86,30 +91,63 @@ Just compare your own intended use case with the typical use cases below, and pi
 
 These are the most typical *short range devices*. They predominantly use these modulations and frequencies: 
 
-* Digital *ASK* modulation (*Amplitude-Shift-Keyed*) is commonly used for remote controls (at *315*,*433.92*,*868.35*, and *915* MHz, based on geographical region as explained above). 
-* *LoRa* is built on a very specific proprietary modulation and protocol.
+Digital *ASK* modulation (*Amplitude-Shift-Keyed*) is commonly used for remote controls. 
 
-* In Europe, 433MHz and 868MHz are used. The maximum transmit power is limited to *10mW* on *433MHz* (with no duty cycle), and *25mW* for *868MHz* (with a *duty cycle* of below *1%*).
-* In the US, 315 MHz is used.
 
-#### LoRa - LongRange Transmission
+* In Europe, 433.92MHz and 868.35MHz are used. The maximum transmit power is limited to *10mW* on *433MHz* (with no duty cycle), and *25mW* for *868MHz* (with a *duty cycle* of below *1%*).
 
-Typically, *short range devices* have a *short range* (which is why they are called that way). However, the true limitation is *low transmit power*. 
+* In the US, *315MHz* is used.
 
-*Low transmission power* does not necessarily translate into *low transmission range*, though:
+### LoRa - LongRange Transmission
+
+Typically, *short range devices* have a *short range* (which is why they are called that way). However, the regulatory limitation is *low transmit power*. 
+
+*Low transmit power* does not necessarily translate into *low transmission range*, though:
 
 *LoRa* is a proprietary radio transmission protocol specifically designed to provide a **high** *transmission range* despite using a **low** transmission energy.
  
 
 This paradoxon is achieved by supporting a *mesh architecture* where other *LoRa* devices can pick up and forward the signal, and by *reducing the data transmission rate* to make it more fault tolerant and resilient to noise.
 
-In Europe, *LoRa* typically uses *863-870MHz*, less frequenly *433MHz*. The maximum transmission power is *40mW* at a *1% duty cycle* (devices can transmit only 1% of the time).
+* In Europe, *LoRa* typically uses *863-870MHz*, less frequenly *433MHz*. The maximum transmission power is *40mW* at a *1% duty cycle* (devices can transmit only 1% of the time).
 
-In the US, *LoRa* uses *902-928MHz*. The maximum transmission power is *1W* with a *400ms dwell time* (a maximum of *400ms* transmission time).
+* In the US, *LoRa* uses *902-928MHz*. The maximum transmission power is *1W* with a *400ms dwell time* (a maximum of *400ms* transmission time).
 
 > [!CAUTION]
 > This is a rough advisory, there are additional rules and requirements. The legal frequency range is for example organized in *channels* with designated *band widths*, and the use of channels may be restricted to specific tasks, i.e. *upload* or *download*, among other requirements.
 
+
+
+### WiFi
+
+*WiFi* is typically used to create a computer network and enable multiple devices to talk to each other. 
+
+Since *WiFi* supports *mesh technology*, it is simple to cover a large area by using multiple *access points*.
+
+Modern microcontroller boards like *ESP8266* and *ESP32* come with *WiFi*-functionality built-in. They can act as *access point* (setting up a new wireless network), *station mode* (joining an existing wireless network), and both modes combined.
+
+By using *WiFi* to communicate, you are benefitting from a number of advantages:
+
+* **Reach:** within the covered area of your *WiFi* network, reliable high speed data transmission is possible. The covered area can easily be extended by adding more meshed access points.
+* **Legal:** *WiFi* is using an internationally harmonized frequency range. The typical WiFi standards are supported and legal to operate in most parts of the world.
+* **Transparent Transmission:** you don't actually need to care much about implementing the data transport layer. Instead, your firmware can communicate with other devices inside your own WiFi or anywhere else on the world (provided your WiFi is connected to the Internet) simply by using http requests.
+
+*WiFi* is *not* a premier option if you:
+
+* want to use microcontroller boards that do not have *WiFi* built-in (i.e. *Arduino*)
+* want to bridge areas not covered by your *WiFi* (i.e. sending data from your house to your neighbors house)
+
+### Bluetooth
+
+Bluetooth is a two-way transmission standard commonly used to exchange data between two devices. For this, the devices are *coupled* before they can communicate with each other.
+
+Many modern microcontroller boards come with *Bluetooth* transceivers built-in. This enables you to create your own *Bluetooth* controllers or controlled devices.
+
+In fact, you can use *Bluetooth* also *on both ends*, i.e. use a Bluetooth-enabled microcontroller board on both ends of your communication. 
+
+Starting with *Bluetooth 5.0*, the emission power is up to *100mW*, which can gap distances of up to *40m* indoors and *200m* outdoors.
+
+Bluetooth is using the same internationally harmonized *ISM* frequency band as WiFi (2.4GHz).
 
 ## Picking Frequencies
 Picking an appropriate frequency is the initial and fundamental step in designing a *radio project*:
