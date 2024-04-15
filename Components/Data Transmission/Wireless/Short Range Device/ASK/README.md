@@ -52,3 +52,4 @@ On the receiver side, a microcontroller can decode the *EV1527*-encoded informat
 
 > Tags: ASK, OOK, EV1527, Amplitude-Shift Keying, On-Off Keying, Remote Control, RC-Switch, ST3777
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask?750969042315242843) - created 2024-04-15 - last edited 2024-04-15
