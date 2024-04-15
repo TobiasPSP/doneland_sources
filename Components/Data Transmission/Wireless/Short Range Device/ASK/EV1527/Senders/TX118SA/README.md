@@ -4,7 +4,7 @@
 
 > 4-Channel RF Sender To Build Remote Controls Without Using Microcontrollers 
 
-This board is designed to be used in *stand-alone* remote controls and does not  require a *microcontroller*. Each model comes with a *unique ID key* built in.
+This board is designed to be used in *stand-alone* remote controls and does not require a *microcontroller*. Each model comes with a *unique ID key* built in.
 
 This *sender* requires a compatible *self-learning receiver* that can pick up the *EV1527*-compatible data package sent by the *sender*.
 
