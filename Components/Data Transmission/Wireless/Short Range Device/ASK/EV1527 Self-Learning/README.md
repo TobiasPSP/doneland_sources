@@ -41,4 +41,4 @@ There are also more sophisticated devices that combine a *receiver* and a *sende
 
 > Tags: EV1527, RF, Sender, Receiver, Remote Control, Self-Learning, Code, Clone Remote Control, TX118SA
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/radio/ev1527self-learning?492032041301241609) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ev1527self-learning?492032041301241609) - created 2024-04-01 - last edited 2024-04-01

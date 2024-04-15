@@ -79,4 +79,4 @@ Transceiver *breakout boards* can be used to establish a two-way-communication, 
 
 > Tags: Frequency, RF,  315MHz, 433MHz, 868MHz, 915MHz, ASK, LoRa, Sender, Receiver, Transceiver, EV1527, Wireless, Remote Control
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/radio/433mhz?512393041001243228) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice?512393041001243228) - created 2024-04-01 - last edited 2024-04-01
