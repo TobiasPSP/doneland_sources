@@ -55,4 +55,4 @@ The board comes with *three* pins plus a solder pad tp connect an *antenna*.
 
 > Tags: FS1000A, Sender, RF, 315MHz, 433MHz, 3.3V, 5V
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/generalpurpose/senders/fs1000a?557328041201242905) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ook/senders/fs1000a?557328041201242905) - created 2024-04-01 - last edited 2024-04-01

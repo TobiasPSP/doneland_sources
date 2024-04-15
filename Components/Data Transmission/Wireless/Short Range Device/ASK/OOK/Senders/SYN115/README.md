@@ -51,4 +51,4 @@ The board comes with *three* pins plus a solder pad tp connect an *antenna*.
 
 > Tags: SYN115, Sender, RF, 315MHz, 433MHz, 3.3V
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/generalpurpose/senders/syn115?432113041301241609) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ook/senders/syn115?432113041301241609) - created 2024-04-01 - last edited 2024-04-01

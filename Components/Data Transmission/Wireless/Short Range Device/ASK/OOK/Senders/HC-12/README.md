@@ -119,4 +119,4 @@ By default, the module uses transmission mode *FU3*: the module works at full sp
 
 > Tags: HC-12, Sender, Receiver, Transceiver, RF, 433MHz, 3.3V, 5V, IPEX
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/generalpurpose/senders/hc-12?649483042001242432) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ook/senders/hc-12?649483042001242432) - created 2024-04-01 - last edited 2024-04-01
