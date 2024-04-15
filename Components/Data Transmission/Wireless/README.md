@@ -194,3 +194,5 @@ This includes *DIY* projects, however strictly related to *radio amateur purpose
 
 
 > Tags: Frequency, Garage Door Opener,  Band Plan, WiFi, FreeNet, LPD, PMR, FRS, GMRS, MURS, 315MHz, 433MHz, 868MHz, 915MHz, LoRa, SRD
+
+[Visit Page on Website](https://done.land/components/datatransmission/wireless?054116041215245756) - created 2024-04-15 - last edited 2024-04-15
