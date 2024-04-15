@@ -44,4 +44,4 @@ Such boards typically communicate via *IC2*: just two wires are needed (not four
 
 > Tags: HID, Control, Encoder, User Interface, Switch
 
-[Visit Page on Website](https://done.land/components/humaninterface/rotaryencoder?082780020426240854) - created 2024-02-27 - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/humaninterface/rotaryencoder?082880021426240854) - created 2024-02-27 - last edited 2024-02-27

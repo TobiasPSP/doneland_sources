@@ -33,4 +33,4 @@ Here is a list of actual **BMS** breakout boards, separated by *maximum current*
 
 > Tags: Battery, BMS, 2S
 
-[Visit Page on Website](https://done.land/components/power/bms/2s?268282020426240854) - created 2024-02-27 - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/power/bms/2s?268282029926240854) - created 2024-02-27 - last edited 2024-02-27

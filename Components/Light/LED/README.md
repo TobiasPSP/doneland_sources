@@ -135,4 +135,4 @@ Dedicated *controller IC* make it simple to drive these displays via *I2C* or si
 
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Matrix, 7-Segment, Forward Voltage, Reverse Voltage, Breakdown Voltage
 
-[Visit Page on Website](https://done.land/components/light/led?198478031411241041) - created 2024-03-17 - last edited 2024-03-25
+[Visit Page on Website](https://done.land/components/light/led?198499031411241041) - created 2024-03-17 - last edited 2024-03-25
