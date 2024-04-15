@@ -6,7 +6,7 @@
 
 This small breakout board combines *Bluetooth* reception with a digital 15W stereo amplifier and can be used to power a bluetooth sound box.
 
-<img src="images/audio-xy-p15w_overview-removebg-preview.png" width="50%" height="50%" />
+<img src="images/audio-xy-p15w_overview_t.png" width="50%" height="50%" />
 
 
 
@@ -35,7 +35,7 @@ The amplifier power depends both on supplied input voltage and speaker impedance
 > [!CAUTION]
 > At output levels of *>20W*, additional *heat sinks* must be added.
 
-<img src="images/audio-xy-p15w_top-removebg-preview.png" width="50%" height="50%" />
+<img src="images/audio-xy-p15w_top_t.png" width="50%" height="50%" />
 
 
 ## Power Supply
@@ -52,7 +52,7 @@ Two speakers can be connected to screw terminals. There is no headphone jack as 
 > [!CAUTION]
 > Due to the relatively high amplifier output, make sure you connect speakers capable of delivering the audio, or keep the volume low.
 
-<img src="images/audio-xy-p15w_bottom-removebg-preview.png" width="50%" height="50%" />
+<img src="images/audio-xy-p15w_bottom_t.png" width="50%" height="50%" />
 
 
 ## Bluetooth Connectivity
@@ -77,12 +77,12 @@ A half-round operation wheel controls *volume* and *pause/play*:
 * **Play/Pause:** press the half-wheel to toggle between *play* and *pause*.
 
 
-<img src="images/audio-xy-p15w_overview2-removebg-preview.png" width="50%" height="50%" />
+<img src="images/audio-xy-p15w_overview2_t.png" width="50%" height="50%" />
 
 The screw terminals are labeled on the backside:
 
 
-<img src="images/audio-xy-p15w_bottom2-removebg-preview.png" width="50%" height="50%" />
+<img src="images/audio-xy-p15w_bottom2_t.png" width="50%" height="50%" />
 
 ## Data Sheets
 [TPA3110 Amplifier](materials/tpa3110_datasheet.pdf)

@@ -6,6 +6,8 @@
 
 This *MP3 playback module* comes with a *SD Card Reader Slot* and can play back MP3 songs. A built-in mini amplifier (3W) lets you directly connect the board to a speaker.
 
+<img src="images/audio_hw878_power_t.png" width="50%" height="50%" />
+
 The *SD Card* media is accessible via *USB* port from a computer.
 
 > [!TIP]
@@ -28,7 +30,31 @@ The board comes with the following connectors:
 | Circular Play | a solder bridge controls circular (endless) playing of a track |
 | USB           | Micro-USB for power supply and/or computer access to *SD Card* media |
 
+### Micro USB Port
 The board comes with a *USB* port that can supply power. It also allows a computer to access the *SD Card* like a flash drive. When the computer is accessing the *SD Card*, it cannot be used to play back music.
+
+
+### Circular Play
+
+The picture below shows the two circular solder pads left of the *SD Card Reader*: when connected, music tracks are played continuously (circular play):
+
+
+<img src="images/audio_hw878_circular_solder_t.png" width="50%" height="50%" />
+
+### Trigger Ports
+
+Via the connectors *A1* to *A9*, tracks can be individually addressed. 
+
+In manual mode, each connector corresponds to one track (allowing nine tracks to be directly selected).
+
+In microcontroller mode, *A1* to *A5* are addressed in binary format, allowing *31* tracks to be individually addressed.
+
+
+<img src="images/audio_hw878_buttons_t.png" width="50%" height="50%" />
+
+
+> [!TIP]
+> To enter microcontroller mode, pin *A10* needs to be grounded when the board is powered on.
 
 ## LED
 
@@ -37,6 +63,8 @@ A status *LED* flashes when the *SD Card* is accessed. During music playback, th
 ## Volume
 
 Volume can be adjusted with a potentiometer.
+
+<img src="images/audio_hw878_poti_t.png" width="50%" height="50%" />
 
 ## Playing Order
 
@@ -47,7 +75,7 @@ Make sure you freshly format the *SD Card* media and then save the files to the 
 > [!CAUTION]
 > After you are done copying sound files from a computer to the *SD Card* via *USB*, disconnect the computer and then power off and on the board. You cannot play audio files while there is a computer connection accessing the *SD Card reader*.
 
-
+<img src="images/audio_hw878_top_t.png" width="50%" height="50%" />
 
 
 ## Manually Controlled
@@ -105,6 +133,9 @@ To enable this, add another folder named *99* on the *SD Card* media, and place 
 | Bypass Mode                                   | High: bypass amplifier                     |
 | SD Card Reader                                | up to 16GB Cards supported, FAT filesystem |
 | Size                                          | 39x39x6mm                                  |
+
+
+<img src="images/audio_hw878_bottom_t.png" width="50%" height="50%" />
 
 > Tags: Audio, 3W, 5W, Amplifier, Mono, HW-878, SD Card
 
