@@ -38,7 +38,7 @@ Once *data transmission* gets into the focus, i.e. when sending sensor data or t
 This increases the data transmission speed as more information can be transmitted in the same time.
 
 > [!TIP]
-> *Morse code* can be viewed as *OOK* with *two* instead of *one symbol*: there is a symbol for a *short* tone and a symbol for a *long* tone. Imagine how much longer it would take for morse code messages if there was just *one* symbol, and all letters would need to be defined just by *short* tones.
+> *Morse code* can be viewed as *OOK* with *two symbols* instead of *one*: there is a symbol for a *short* tone and a symbol for a *long* tone. Imagine how much longer it would take for morse code messages if there was just *one* symbol, and all letters would need to be defined just by *short* tones.
 
 ### EV1527
 
