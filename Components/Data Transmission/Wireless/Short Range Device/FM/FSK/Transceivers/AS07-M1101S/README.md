@@ -87,9 +87,9 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 
 ### Data Sheet
 
-[C1101 from Texas Instruments](materials/c1101_datasheet.pdf)
+[CC1101 from Texas Instruments](materials/cc1101_datasheet.pdf)
 
 
 > Tags: CC1101, AS07-M1101S, HW-863, Sender, Receiver, Transceiver, RF, 433MHz, 3.3V, IPEX
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceivers/as07-m1101s?593316041116244739) - created 2024-04-15 - last edited 2024-04-15

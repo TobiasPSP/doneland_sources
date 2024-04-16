@@ -105,4 +105,4 @@ This **LED** can indicate various states of the device.
 
 > Tags: TX118SA, EV1527, Sender, RF, 315MHz, 433MHz, 3.3V, 5V
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ev1527/senders/tx118sa?462090041301241609) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527/senders/tx118sa?462090041301241609) - created 2024-04-01 - last edited 2024-04-01

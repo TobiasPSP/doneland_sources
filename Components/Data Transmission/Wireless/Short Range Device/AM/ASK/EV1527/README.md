@@ -31,4 +31,4 @@ Hardware requirements are minimal. When you get *EV1527*-compatible breakout boa
 
 > Tags: EV1527, RF, Sender, Receiver, Remote Control, Self-Learning
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ev1527?492032041301241609) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527?492032041301241609) - created 2024-04-01 - last edited 2024-04-01

@@ -92,4 +92,4 @@ Aside from their (fixed) frequency, they differ in *size*, *emitted power*, *int
 
 > Tags: Frequency, Sender, Antenna, RF, Remote Control
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/ask/ook/senders?511103041201242905) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ook/senders?511103041201242905) - created 2024-04-01 - last edited 2024-04-01

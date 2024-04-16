@@ -80,9 +80,9 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 
 ### Data Sheet
 
-[C1101 from Texas Instruments](materials/c1101_datasheet.pdf)
+[CC1101 from Texas Instruments](materials/cc1101_datasheet.pdf)
 
 
 > Tags: CC1101, E07-M1101D, AS07-M1101D, Sender, Receiver, Transceiver, RF, 433MHz, 3.3V, SMD
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceivers/e07-m1101d?082467041116240343) - created 2024-04-15 - last edited 2024-04-15
