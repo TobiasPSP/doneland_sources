@@ -11,7 +11,7 @@ In order to transport *digital information* over the air, there needs to be a ph
 > [!NOTE]
 > There are more digital modulation techniques such as *PSK* (*phase-shift keying*), *FSK* (*frequency-shift keying*), and *QAM* (*quadrature amplitude modulation*). *ASK* however is most frequently used in breakout boards and commercial remote controls because of its simplicity.
 
-## Information Encoding
+## Encoding Data
 
 *Amplitude-shift keying* (*ASK*) is a variant of *amplitude modulation*: the radio frequency remains fixed. The information is expressed as a variation in *amplitude* of the radio waves.
 
