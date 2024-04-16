@@ -120,10 +120,11 @@ Typically, *short range devices* have a *short range* (which is why they are cal
 
 *Low transmit power* does not necessarily translate into *low transmission range*, though:
 
-*LoRa* is a proprietary radio transmission protocol specifically designed to provide a **high** *transmission range* despite using a **low** transmission energy.
- 
+*LoRa* is a proprietary radio transmission protocol specifically designed to provide a **high** *transmission range* despite using a **low** transmission energy. It is based on *FSK* (*Frequency-shift keying*), a digital encoding on top of *FM* (*Frequency Modulation*).
 
-This paradoxon is achieved by supporting a *mesh architecture* where other *LoRa* devices can pick up and forward the signal, and by *reducing the data transmission rate* to make it more fault tolerant and resilient to noise.
+In fact, *LoRa* is an excellent example for all the sophisticated new modulations evolving, as it uses *Chirp* (increasing and decreasing frequency shifts) and *spread-spectrum* (spreading the carrier signal to be more resilient towards noises).
+ 
+To achieve its exceptional long range capabilities, *LoRa* can also be used in *mesh* topologies where other independently operated *LoRa* devices can pick up and forward the signal, and by *reducing the data transmission rate* to make it more fault tolerant.
 
 * In Europe, *LoRa* typically uses *863-870MHz*, less frequenly *433MHz*. The maximum transmission power is *40mW* at a *1% duty cycle* (devices can transmit only 1% of the time).
 
