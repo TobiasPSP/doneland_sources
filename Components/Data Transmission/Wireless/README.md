@@ -89,7 +89,7 @@ If you plan to use *WiFi* or *Bluetooth* then you are in luck: both technologies
 
 If you in contrast plan to transmit radio waves as a *Short Range Device*, substantial differences exist, both in *legal frequencies* and *maximum allowable radio power*.
 
-Just how complex it can get when you want to stay within legal bounds illustrates[this document](https://www.analog.com/en/resources/technical-articles/fcc-and-etsi-requirements-for-shortrange-uhf-askmodulated-transmitters.html).
+Just how complex it can get when you want to stay within legal bounds illustrates [this document](https://www.analog.com/en/resources/technical-articles/fcc-and-etsi-requirements-for-shortrange-uhf-askmodulated-transmitters.html).
 
 A [very good application note](https://ww1.microchip.com/downloads/en/Appnotes/Atmel-4907-Application-of-315-MHz-Short-Range-Devices_Application-Note.pdf) exists, explaining the *FCC* requirements for *SRD*s in various frequency ranges, including the underdocumented *315MHz* range.
 
