@@ -8,12 +8,11 @@ In order to transport *digital information* over the air, there needs to be a ph
 
 *Amplitude Shift Keying* (*ASK*) is a simple digital modulation technique often used in *remote controls* and other *short range devices*.
 
+
 > [!NOTE]
 > There are more digital modulation techniques such as *PSK* (*phase-shift keying*), *FSK* (*frequency-shift keying*), and *QAM* (*quadrature amplitude modulation*). *ASK* however is most frequently used in breakout boards and commercial remote controls because of its simplicity.
 
-## Encoding Data
-
-*Amplitude-shift keying* (*ASK*) is a variant of *amplitude modulation*: the radio frequency remains fixed. The information is expressed as a variation in *amplitude* of the radio waves.
+*ASK* is a variant of *amplitude modulation*: the radio frequency remains fixed. The information is expressed as a variation in *amplitude* of the radio waves.
 
 
 > [!NOTE]
@@ -21,9 +20,11 @@ In order to transport *digital information* over the air, there needs to be a ph
 
 
 
-### On-Off Keying (OOK)
+## On-Off Keying (OOK)
 
-In its most simplistic and most common form, the value *1* is sent at a nominal amplitude, and the value *0* is represented by the absence of a radio signal (pause). This type of modulation is called *on-off keying* (*OOK*).
+To transport digital information via *ASK*, the bits need to be transformed to radio signals.
+
+In its most simplistic and common form, the value *1* is sent at a nominal amplitude, and the value *0* is represented by the absence of a radio signal (pause). This type of modulation is called *on-off keying* (*OOK*).
 
 Since radio transmitters can *vary* the amplitude, using a simple *on-off scheme* with a *fixed* amplitude is inefficient from a *data transmission* point of view, but *very* efficient from an *implementation* point of view.
 
@@ -36,6 +37,8 @@ Once *data transmission* gets into the focus, i.e. when sending sensor data or t
 
 This increases the data transmission speed as more information can be transmitted in the same time.
 
+> [!TIP]
+> *Morse code* can be viewed as *OOK* with *two* instead of *one symbol*: there is a symbol for a *short* tone and a symbol for a *long* tone. Imagine how much longer it would take for morse code messages if there was just *one* symbol, and all letters would need to be defined just by *short* tones.
 
 ### EV1527
 
