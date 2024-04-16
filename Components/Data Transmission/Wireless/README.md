@@ -4,7 +4,7 @@
 
 > Legal Frequencies, Modulations And Protocols 
 
-*Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *Smartphones*, *WiFi*, *Walky Talkys* and often even when we just grab a *Remote Control* and switch stations on the TV.
+*Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *Smartphones*, *WiFi*, *Walky Talkys*, *Wireless Headphones*, and often even when we just grab a *Remote Control* and switch stations on the TV.
 
 
 <img src="images/radio_comparison2_t.png" width="40%" height="40%" />
