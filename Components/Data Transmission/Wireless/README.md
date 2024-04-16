@@ -72,12 +72,12 @@ To review the individual allocations, a [detailed list](https://transition.fcc.g
 
 Fortunately, picking a *legal frequency* for *DIY data transmission* is not hard: 
 
-Only few frequency bands exist that are *free to use* and *do not require a license* to transmit digital data:
+Only a few frequency bands exist that are *free to use* and *do not require a license* to transmit digital data:
 
 | Type | Frequency | Remarks |
 | --- | --- | --- |
 | Short Range Device (SRD) in Europe/Asia | 433MHz and 868MHz | 10mW at 433MHz/25mW at 868MHz with <1% duty cycle |
-| Short Range Device (SRD) in the US | 310MHz and 915MHz (US) | up to 1W |
+| Short Range Device (SRD) in the US | 310MHz and 915MHz | up to 1W |
 | Bluetooth | 2.4GHz | internationally harmonized 2-way radio, up to 100mW (depending on Bluetooth standard) |
 | WiFi | 2.4GHz | 802.11b/g/n/ax, most often used in WiFi-enabled microcontrollers |
 | WiFi | 5GHz | 802.11a/h/ac/ax, very infrequently used in DIY data transmission due to its expense and limited distance |
