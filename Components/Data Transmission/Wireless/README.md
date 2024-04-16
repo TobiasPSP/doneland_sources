@@ -4,31 +4,37 @@
 
 > Legal Frequencies, Modulations And Protocols 
 
-*Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *smartphones*, *WiFi*, *Walky Talkys* and often even when we grab a *Remote Control* and switch stations on the TV.
+*Electromagnetic* waves can invisibly transfer information through the air, and we all use this technology in *Smartphones*, *WiFi*, *Walky Talkys* and often even when we just grab a *Remote Control* and switch stations on the TV.
 
 
 <img src="images/radio_comparison2_t.png" width="40%" height="40%" />
 
 
-When you plan to use *radio waves* to transfer information as part of your *DIY Project*, it is important to understand the *frequencies* that are legal to use, and the schemes in which data can be sent and received.
+When *you* plan to use *radio waves* to transfer information as part of your *DIY Project*, it is important to understand the *frequencies* that are legal to use, and the schemes in which data can be sent and received over the air.
 
 ## Frequencies
 
 Radio waves are emissions to the *public*: anyone in the vicinity can detect and read them. So anyone can also *interfere* with anyone else in a radio spectrum.
 
 > [!NOTE]
-> Radio waves can also *harm* innocent bystanders, at least when sent with sufficient transmit power. This is why both *frequency* and *maximum emission power* is strictly regulated in all countries of the world.
+> Radio waves can also *harm* people, at least when sent with sufficient transmit power. This is why both *frequency* and *maximum emission power* is strictly regulated in all countries of the world.
 
 ### Frequency Allocations
+
+At the end of the day, national governments allocate frequencies and determine the conditions of use.
+
+In a globalized world, harmonizations take place, though, and supra-national organizations negotiate regional and global frequency allocations. 
 
 The *ITU* (*International Telecommunications Union*) has devided the world into [three regions](https://transition.fcc.gov/oet/spectrum/ituregions.pdf) with [geographical definitions](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-2/subpart-B/section-2.104).
 
 
-Any government can assign national radio allocations. The two most influential agencies based on size of market they impact are the *FCC* in the US and *ETSI* in Europe.
 
-#### Band Plans
 
-Below are *band plans* that allocate frequency ranges for *license-free* radio communications in different regions of the world:
+### Band Plans
+
+Based on region, *band plans* are created that define in detail which frequency is reserved for a particular purpose and usage.
+
+Below are regional *band plans* that allocate frequency ranges for *license-free* radio communications in different regions of the world:
 
 
 | Area | Band Plan |
@@ -40,8 +46,11 @@ Below are *band plans* that allocate frequency ranges for *license-free* radio c
 | Indonesia | AS923-925 |
 | Malaysia | AS920-923 |
 
+The two most influential agencies - based on size of market they impact - are the *FCC* in the US and *ETSI* in Europe. Among others, these agencies work on band plans and their future development, and also enforce rules.
 
-Some regions (like the **EU**) *harmonized* band plans among their members. Other countries regulate individually. The *Asian* region frequently uses *AS923-925* but there are exceptions. Always check for *your* country.
+Still, at the end each national government has the final say over the frequency allocations for their territory. They can adopt standardized regional band plans, add national exceptions and make adjustments.
+
+The *Asian* region frequently uses band plan *AS923-925* but there are exceptions. 
 
 Likewise, *South America* typically uses *AU915-928*. Countries like *Mexico* adopted the *North American* standard *US902-928*.
 
@@ -49,9 +58,9 @@ Likewise, *South America* typically uses *AU915-928*. Countries like *Mexico* ad
 > There may also be additional *national* opportunities. For example, in the **US**, *short range devices* can legally use frequencies as low as *300-390MHz* (i.e. *garage door openers*). In most other areas of the world, this band is exclusively reserved for military.
 
 
-#### Allocating Frequencies To Services
+### Allocating Frequencies To Services
 
-How complex the actual frequency allocation within a band plan can become [illustrates the picture below](https://www.ntia.doc.gov/files/ntia/publications/2003-allochrt.pdf) (for the US):
+How complex the actual frequency allocation within a band plan for a given country can become [illustrates the picture below](https://www.ntia.doc.gov/files/ntia/publications/2003-allochrt.pdf) (for the US):
 
 
 <img src="images/usallocation.png" width="100%" height="100%" />
@@ -61,7 +70,9 @@ To review the individual allocations, a [detailed list](https://transition.fcc.g
 
 ## Freely Usable Radio Frequencies
 
-Fortunately, picking a *legal frequency* for *DIY data transmission* is not hard, though: only a few frequency bands exist that are *free to use* and *do not require licenses* for the purpose of digital data transmission:
+Fortunately, picking a *legal frequency* for *DIY data transmission* is not hard: 
+
+Only few frequency bands exist that are *free to use* and *do not require a license* to transmit digital data:
 
 | Type | Frequency | Remarks |
 | --- | --- | --- |
@@ -71,7 +82,14 @@ Fortunately, picking a *legal frequency* for *DIY data transmission* is not hard
 | WiFi | 2.4GHz | 802.11b/g/n/ax, most often used in WiFi-enabled microcontrollers |
 | WiFi | 5GHz | 802.11a/h/ac/ax, very infrequently used in DIY data transmission due to its expense and limited distance |
 
-For *SRD*, complex national regulations exist that govern the maximum emission power, duty cycles and spurious emissions ([see here](https://www.analog.com/en/resources/technical-articles/fcc-and-etsi-requirements-for-shortrange-uhf-askmodulated-transmitters.html) for a technical write-up).
+
+### Harmonized vs Individual Rules
+
+If you plan to use *WiFi* or *Bluetooth* then you are in luck: both technologies are largely harmonized throughout the world, and only very few exceptions exist for the common operating modes.
+
+If you in contrast plan to transmit radio waves as a *Short Range Device*, substantial differences exist, both in *legal frequencies* and *maximum allowable radio power*.
+
+Just how complex it can get when you want to stay within legal bounds illustrates[this document](https://www.analog.com/en/resources/technical-articles/fcc-and-etsi-requirements-for-shortrange-uhf-askmodulated-transmitters.html).
 
 A [very good application note](https://ww1.microchip.com/downloads/en/Appnotes/Atmel-4907-Application-of-315-MHz-Short-Range-Devices_Application-Note.pdf) exists, explaining the *FCC* requirements for *SRD*s in various frequency ranges, including the underdocumented *315MHz* range.
 
