@@ -107,9 +107,7 @@ Just compare your own intended use case with the typical use cases below, and pi
 
 ### Remote Controls, i.e. Garage Door Openers, Homematic IP, Sensor Transmission, IoT
 
-These are the most typical *short range devices*. They predominantly use these modulations and frequencies: 
-
-Digital *ASK* modulation (*Amplitude-Shift-Keyed*) is commonly used for remote controls. 
+These are the most typical *short range devices*. They predominantly use *ASK* modulation (*Amplitude-Shift-Keyed*), a digital modulation based on traditional *AM* (*Amplitude Modulation*). 
 
 
 * In Europe, 433.92MHz and 868.35MHz are used. The maximum transmit power is limited to *10mW* on *433MHz* (with no duty cycle), and *25mW* for *868MHz* (with a *duty cycle* of below *1%*).
