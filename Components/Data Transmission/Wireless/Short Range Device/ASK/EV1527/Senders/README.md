@@ -2,7 +2,7 @@
  
 # EV1527 Senders
 
-> Emits EV1527-Compliant Fixed Codes That Can Be Paired With Self-Learning Receivers
+> Emits EV1527-Compliant Fixed 24-Bit Codes That Can Be Paired With Self-Learning Receivers
 
 *EV1527*-compliant senders come with a built-in *EV1527* encoding chip. They do not need external components or a microcontroller to produce a 20-bit data signal that can control *EV1527*-compliant receivers.
 
