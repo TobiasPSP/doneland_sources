@@ -29,4 +29,4 @@ The fundamental difference - and important choice for you - is whether you want 
 
 > Tags: ASK, OOK, EV1527
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/senders/ookgeneric?486260040016242407) - created 2024-04-15 - last edited 2024-04-15
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric?486260040016242407) - created 2024-04-15 - last edited 2024-04-15
