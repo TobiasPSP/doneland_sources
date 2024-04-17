@@ -13,3 +13,4 @@ While pure *ASK-Senders* can transmit any *ASK*-encoded digital information, a *
 
 > Tags: AM, ASK, OOK, Sender, Radio, Remote Control, EV1527
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/senders?311278041017244404) - created 2024-04-16 - last edited 2024-04-16

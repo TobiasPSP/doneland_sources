@@ -13,4 +13,4 @@ Breakout boards are a simple solution to build your own *remote controls*. You c
 
 > Tags: EV1527, Sender
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527/senders?598764040016243141) - created 2024-04-15 - last edited 2024-04-15
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/senders/ev1527/senders?598764040016243141) - created 2024-04-15 - last edited 2024-04-15
