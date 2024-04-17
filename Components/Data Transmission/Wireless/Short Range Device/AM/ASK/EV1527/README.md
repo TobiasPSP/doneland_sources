@@ -4,9 +4,19 @@
 
 > Special Data Format For RF Senders And Self-Learning Receivers
 
-Simple remote control solutions such as *garage door openers* and *home automation plugs* must be simple and cheap.
 
-The remote communication in these scenarios is simple:
+*EV1527* is a popular *encoding format* for *ASK* RF senders and receivers to transmit simple remote control messages.
+
+## Dedicated EV1527 Devices
+
+In *this* section, you find *dedicated EV1527* senders and receivers that already come with EV1527 encoding and decoding chips. They do not require any additional components or a microcontroller.
+
+> [!NOTE]
+> Once you add a microcontroller to your project, you can use *any* *ASK* sender and receiver to transmit *EV1527*-compliant code: the microcontroller then can act as *EV1527* encoder and decoder, and produces the required 24-bit *EV1527* codes. 
+
+## EV1527 Requirements
+
+Simple remote controls such as *garage door openers* and *home automation plugs* has very basic remote communication requirements:
 
 * **Unique Key Code:** The digital code sent out by the remote control (*sender*) must be *unique enough* to not cause remote controls to interfere with each other and open or control the wrong devices.
 * **Simple On/Off Commands:** The digital code also needs room for a limited data payload so that a remote control can control more than one device.
@@ -31,4 +41,4 @@ Hardware requirements are minimal. When you get *EV1527*-compatible breakout boa
 
 > Tags: EV1527, RF, Sender, Receiver, Remote Control, Self-Learning
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/senders/ev1527?492032041301241609) - created 2024-04-01 - last edited 2024-04-01
+
