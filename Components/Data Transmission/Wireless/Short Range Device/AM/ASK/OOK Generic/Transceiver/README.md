@@ -40,4 +40,4 @@ This way, you can have as many remote controls for a given remotely controlled d
 
 > Tags: Sender, Receiver, Transceiver, Clone, Remote Control
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/transceivers?810861040016243141) - created 2024-04-15 - last edited 2024-04-15
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/transceiver?810861040016243141) - created 2024-04-15 - last edited 2024-04-15

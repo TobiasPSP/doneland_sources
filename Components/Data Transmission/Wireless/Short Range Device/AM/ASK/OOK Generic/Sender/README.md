@@ -19,4 +19,4 @@ While pure *ASK-Senders* can transmit any *ASK*-encoded digital information, a *
 
 > Tags: Frequency, Sender, Antenna, RF, Remote Control, AM, ASK, OOK, Radio, EV1527
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/senders?511103041201242905) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender?511103041201242905) - created 2024-04-01 - last edited 2024-04-01

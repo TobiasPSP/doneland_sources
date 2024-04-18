@@ -77,3 +77,4 @@ The board comes with a pre-soldered coiled wire-antenna (22.6cm for 315MHz and 1
 
 > Tags: Superheterodyne,Receiver,ASK,AM
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/ak-rxb59r?919568041618242908) - created 2024-04-17 - last edited 2024-04-17
