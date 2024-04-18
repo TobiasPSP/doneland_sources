@@ -20,3 +20,4 @@ When exceptionally *reliable* or *secure* connections are needed, and when the d
 
 > Tags: Ethernet, Serial, WiFi, Bluetooth, Short Range Device
 
+[Visit Page on Website](https://done.land/components/datatransmission?864659041218240136) - created 2024-04-17 - last edited 2024-04-17
