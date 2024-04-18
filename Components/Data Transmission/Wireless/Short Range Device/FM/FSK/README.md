@@ -1,12 +1,12 @@
 <img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
 
-In order to transport *digital information* over the air, there needs to be a physical representation for the states *1* and *0* that can be imposed on a radio frequency.
+
  
 # Frequency Shift Keying (FSK)
 
 > Simple FM Modulation For Digital Transmissions
 
-
+In order to transport *digital information* over the air, there needs to be a physical representation for the states *1* and *0* that can be imposed on a radio frequency.
 
 *Frequency Shift Keying* (*FSK*) is a digital modulation technique that uses a carrier frequency and represents *symbols* (i.e. bits *0* and *1*) as *frequency shift*.
 
