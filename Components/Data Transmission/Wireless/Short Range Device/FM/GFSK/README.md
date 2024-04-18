@@ -25,3 +25,4 @@ Put short, while *FSK* works with simple *On/Off* signals similar to square wave
 
 > Tags: FM, FSK, GFSK, Bluetooth, DECT
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/gfsk?402382041718243057) - created 2024-04-17 - last edited 2024-04-17

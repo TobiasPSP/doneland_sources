@@ -187,3 +187,4 @@ The full explanation of the code [can be found here](https://howtomechatronics.c
 
 > Tags: NRF24L01, AT2401C, GFSK, Transceiver, Sender, Receiver, Transceiver, RF, 2.4GHz, 3.3V, SMA, PA, LNA
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/gfsk/transceiver/hw237?444269041718243057) - created 2024-04-17 - last edited 2024-04-17
