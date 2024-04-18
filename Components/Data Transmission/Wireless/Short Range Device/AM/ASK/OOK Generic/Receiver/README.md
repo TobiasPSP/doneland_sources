@@ -15,3 +15,4 @@
 
 > Tags: AM,ASK,Receiver,EV1527
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver?091952041618243607) - created 2024-04-17 - last edited 2024-04-17

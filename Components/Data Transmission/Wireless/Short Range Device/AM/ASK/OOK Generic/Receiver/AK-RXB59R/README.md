@@ -73,9 +73,7 @@ The board comes with a pre-soldered coiled wire-antenna (22.6cm for 315MHz and 1
 
 
 ## Data Sheet
-[CMT2220LS](cmt2220ls_datasheet.pdf)
+[CMT2220LS](materials/cmt2220ls_datasheet.pdf)
 
 > Tags: Superheterodyne,Receiver,ASK,AM
-
-
 
