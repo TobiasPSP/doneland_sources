@@ -27,10 +27,107 @@ In a globalized world, harmonizations take place, though, and supra-national org
 
 The *ITU* (*International Telecommunications Union*) has devided the world into [three regions](https://transition.fcc.gov/oet/spectrum/ituregions.pdf) with [geographical definitions](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-2/subpart-B/section-2.104).
 
+## ISM Radio Band
+
+Almost all *frequency ranges* are *licensed*: you cannot use them without a proper *license*.
+
+*ISM Radio Bands* are frequency ranges within the radio spectrum reserved internationally for *industrial, scientific*, and *medical* (*ISM*) purposes. These bands are *unlicensed*, making them attractive for *DIY Projects* and *short range devices*.
+
+### Unlicensed
+
+*ISM* bands are *unlicensed*: users do not need to acquire a *license* to use them.
+
+*Unlicensed* means that you *do not need a specific license* (i.e. to operate a *microwave oven* which emits radio frequencies in the ISM frequency range). 
+
+You [still have to adhere to regulations](https://www.ti.com/lit/an/swra048/swra048.pdf). So while you can operate a microwave oven, you cannot operate your own public broadcast radio station on the same frequency. Emissions must match approved use-cases, and your emitted radio power must meet technical criteria. 
+
+So *unlicensed* does not **at all** mean *unregulated*.
+
+Here are the key aspects of *ISM* radio bands:
+
+* **No License:** Users need no specific license when they operate *senders* in accordance with the rules and technical specifications for a given ISM band.
+* **Interference:** Users must tolerate even strong *interference* from other users. 
+
+### Licensed
+
+Most other frequency bands in the radio spectrum are *licensed*: a *licensed band* is assigned *strictly to certain users*. Using a *licensed* band requires a permission from the national government. 
 
 
 
-### Band Plans
+Typically you need a *license* (i.e. *GSM*, *Radio Amateur*, *Public Broadcast Station*) or be member of a licensed group (i.e. *police*, *ambulance service*, *aviation*, *military*).
+
+
+> [!TIP]
+> It's a bit like in the physical world: *ISM* bands are *public parks*: anyone can go there but must live with interference caused by others (i.e. music, ball games, etc.). *Licensed bands* are *private property*, and when you illegally sneak in and make yourself at home, you are *trespassing* and will be prosecuted.
+
+
+
+> [!NOTE]
+> *Licensed* bands grant exclusive use and guarantee operation *without interference* from other services or users. *ISM* bands being *unlicensed* grant no protection from *interference*.
+
+
+## History and Evolution
+
+The initial *industrial* and *medical use* of *ISM bands* focused on *strong senders* such as *microwave ovens* or *diathermy devices*. While these devices can emit very strong radio signals, they are no *communications* device and have *no receivers*. *Interference* from other users and devices therefore was no problem.
+
+For the same reasons, *ISM bands* were initially *not used for communications*. 
+
+Only in recent decades, the ever increasing demand for *free wireless communications* with increasingly congested radio spectrums moved *ISM bands* to the fore again. After all, *ISM* bands are attractive for *free public communication* as they do not require any license to use. 
+
+
+### Resiliency To Interference
+Technological advances in microelectronics and subsequently in modulations and encodings eventually enabled reliable communications on *ISM bands* despite strong interference:
+
+* **Spread Spectrum:** Communications systems with focus on reliability and/or long distance transmissions use digital *spread spectrum* techniques that spread out the RF signal onto a much wider frequency range. This makes them resilient against strong interferences from industrial applications which are typically blocking out only a distinct frequency. *WiFi* and *Bluetooth* are examples.
+* **Low Range Devices:** Communications systems with must bridge a *very short distance* can typically be used safely even in the presence of strong interfering signals as their signal field strengths are strong enough in close vicinity. Examples include *garage door openers* and *wireless sensors*, *wireless door bells*, *baby phones* and alike.
+
+> [!NOTE]
+> Since *public communications* is neither *industrial*, nor *scientific* or *medical*, these use-cases are often referred to as *Non-ISM*.
+
+
+
+## ISM Frequencies
+
+*ISM* is comprised of a number of *frequency ranges* ("bands") defined by the *ITU Radio Regulations*:
+
+| Frequency Range | Bandwidth | Example |
+| --- | --- |--- | --- | --- |
+| 6.765-6.795 MHz	| 30kHz | SRD |
+| 13.553-13.567MHz |  14kHz | NFR (Near-field communication), RFID, SRD, Heating |
+| 26.957-27.283MHz | 326kHz | NFR, CB Radio |
+| 40.66-40.7MHz | 40kHz | SRD, earth exploration satellites |
+| 433.05-434.79MHz | 1.74MHz | SRD, just Region 1 |
+| 902-928MHz | 26MHz |  SRD, just Region 2 |
+| 2.4-2.5GHz | 100MHz |  WiFi (802.11), Bluetooth, Plasma Lamps, ANT, Zigbee, Microwaves |
+| 5.725-5.875GHz | 150MHz | WiFi (802.11) |
+| 24-24.25GHz | 250MHz | Radar |
+| 61 GHz-61.5GHz | 500MHz | car distance sensors, WiFi |
+| 122-123GHz | 1GHz | local approval required|
+| 244-246GHz | 2GHz | local approval required |
+
+### Non-ISM Frequencies
+
+The frequency range *863-870MHz* is often confused with *ISM* when in reality it is a *licensed* band.
+
+In *Europe*, this frequency range is allocated by *CEPT* for *short range devices* (*SRD*) as part of [ERC Recommendation 70-03](https://docdb.cept.org/download/3700): the *EU863-870* band can be typically used wherever the *ISM radio spectrum* is defined by the *ETSI 307* standard.
+
+Materials: [ETSI Short Range Devices](https://www.etsi.org/technologies/short-range-devices)
+
+### National Exceptions
+
+Many *national exceptions* exist as the national governments have the final say.
+
+
+#### FreeNet
+For example, in Germany the frequency ranges *9-10kHz* and *149.995-150.005* (*FreeNet* voice communications) are allocated for *unlicensed use*. 
+
+
+#### 315MHz
+The *US FCC* on the other hand allows *"periodic operation"* of *control signals* anywhere above *70MHz* as long as they meet [Section 15.231](https://www.law.cornell.edu/cfr/text/47/15.231). This is the legal foundation for *garage door openers* and other *digital senders* operating at *315MHz*. [More info](https://ww1.microchip.com/downloads/en/Appnotes/Atmel-4907-Application-of-315-MHz-Short-Range-Devices_Application-Note.pdf) on the *US-specific 315MHz band*.
+
+
+
+## Band Plans
 
 Based on region, *band plans* are created that define in detail which frequency is reserved for a particular purpose and usage.
 
@@ -87,7 +184,7 @@ Only a few frequency bands exist that are *free to use* and *do not require a li
 
 If you plan to use *WiFi* or *Bluetooth* then you are in luck: both technologies are largely harmonized throughout the world, and only very few exceptions exist for the common operating modes.
 
-If you in contrast plan to transmit radio waves as a *Short Range Device*, substantial differences exist, both in *legal frequencies* and *maximum allowable radio power*.
+If you in contrast plan to transmit radio waves as a *Short Range Device*, substantial regional differences exist, both in *legal frequencies* and *maximum allowable radio power*.
 
 Just how complex it can get when you want to stay within legal bounds illustrates [this document](https://www.analog.com/en/resources/technical-articles/fcc-and-etsi-requirements-for-shortrange-uhf-askmodulated-transmitters.html).
 
@@ -103,7 +200,7 @@ A [very good application note](https://ww1.microchip.com/downloads/en/Appnotes/A
 
 ## Use Cases
 
-Just compare your own intended use case with the typical use cases below, and pick the same *frequency* and transmission rules.
+To find out the right *frequency* and *technology* for your project, compare it to the typical use cases below, and pick the same *frequency* and transmission rules.
 
 ### Remote Controls, i.e. Garage Door Openers, Homematic IP, Sensor Transmission, IoT
 
@@ -166,7 +263,7 @@ Starting with *Bluetooth 5.0*, the emission power is up to *100mW*, which can ga
 
 Bluetooth is using the same internationally harmonized *ISM* frequency band as WiFi (2.4GHz).
 
-## Picking Frequencies
+## Choosing Frequency
 Picking an appropriate frequency is the initial and fundamental step in designing a *radio project*:
 
 * **Legal:** you *must* pick a frequency that is *legal to use* in your country. Else, you may be *interfering* with other services, and may become *liable* for damages you cause. In addition, (severe) legal punishment is possible even if the risk of ham and detection *may be* low with *low emission* devices.
