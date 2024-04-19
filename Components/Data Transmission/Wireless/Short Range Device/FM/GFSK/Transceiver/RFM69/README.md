@@ -31,7 +31,8 @@ This board is available in four variants:
 The actual version is printed on the back side:
 
 
-<img src="images/fsk_rxtx_rfm69_top_t.png" width="80%" height="80%" />
+<img src="images/fsk_rxtx_rfm69_back_t.png" width="80%" height="80%" />
+
 
 
 ## Technical Data
@@ -66,6 +67,7 @@ The transceiver chip comes with a number of useful functionalities built into it
 
 All pins are labeled on the back side:
 
+<img src="images/fsk_rxtx_rfm69_top_t.png" width="80%" height="80%" />
 
 <img src="images/fsk_rxtx_rfm69_back_t.png" width="80%" height="80%" />
 
