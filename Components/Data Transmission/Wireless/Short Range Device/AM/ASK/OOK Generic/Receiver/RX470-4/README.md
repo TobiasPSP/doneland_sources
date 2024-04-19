@@ -60,3 +60,4 @@ The antenna needs to be soldered to the solder pad marked *ANT* (marked on the b
 
 > Tags: Receiver, RF, 315MHz, 433MHz, ASK, AM, Superheterodyne
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/rx470-4?196064041819241658) - created 2024-04-18 - last edited 2024-04-18
