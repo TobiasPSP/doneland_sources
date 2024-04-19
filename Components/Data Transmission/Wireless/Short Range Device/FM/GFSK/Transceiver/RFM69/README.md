@@ -2,7 +2,7 @@
  
 # RFM69
 
-> 20/100mW ASK/FSK Transceiver With Scrambler, AES-Encryption And SPI Interface Based On Semtech SX1231
+> 20/100mW GFSK Transceiver With Scrambler, AES-Encryption And SPI Interface Based On Semtech SX1231
 
 This transceiver module is based on the *RF69* transceiver chip that can be programmed via *SPI* interface. This chip in turn is based on *Semtech SX1231* (20mW standard version) and *Semtech SX1231H* (100mW *H* version).
 
@@ -41,7 +41,7 @@ The actual version is printed on the back side:
 | Voltage | 1.8-3.6V |
 | Frequency | 387-464MHz |
 | Output Power | 10dBm / 10mW |
-| Modulation | FSK, GFSK, MSK, GMSK and OOK (ASK) |
+| Modulation | FSK, GFSK, MSK, GMSK and OOK |
 | Standby Current | 0.1uA |
 | TX Operating Current | 45mA at 13dBa/20mW |
 | RX Operating Current | 16mA
@@ -106,6 +106,6 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 [Semtech SX1231](materials/sx1231_datasheet.pdf)
 
 
-> Tags: Sender, Receiver, Transceiver, RF, AM, FM, FSK, ASK OOB, AES, Encryption, Scrambling, Manchester Encoding
+> Tags: Sender, Receiver, Transceiver, RF, AM, FM, FSK, OOB, AES, Encryption, Scrambling, Manchester Encoding
 
 [Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceivers/rfm69?329536041219242052) - created 2024-04-18 - last edited 2024-04-18

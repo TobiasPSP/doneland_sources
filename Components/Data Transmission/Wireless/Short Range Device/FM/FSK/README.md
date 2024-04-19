@@ -12,6 +12,13 @@ In order to transport *digital information* over the air, there needs to be a ph
 
 For *digital transmissions*, *FSK* (*Frequency-shift keying*) is typically used: a set of frequency deviations are used to define *symbols*. In its most basic form, just two frequency deviations exist, representing the bits *1* and *0*.
 
+> [!NOTE]
+> While *FSK* transceivers are not fully compatible with *ASK* (as they cannot change the *amplitude*), they are still compatible with the simple *OOK* modulation since this only requires sending at *full amplitude* and *not sending*. *GFSK* transceivers are therefore compatible with most usage scenarios including communicating with simple *OOK remote controls*.
+
+
+
+
+
 ## Related Modulations
 
 Other more sophisticated encoding schemes exist. 

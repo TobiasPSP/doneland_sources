@@ -8,6 +8,14 @@
 
 *GFSK-Transceivers* are *FM* (*Frequency Modulation*) transceivers for *digital communication*: they use *GFSK* (*Gaussian Frequency-Shift keying*) to encode bits or symbols.
 
+> [!NOTE]
+> *GFSK* is a *FSK* enhancement so any *GFSK* transceiver can also use *FSK*. While *FSK* transceivers are not fully compatible with *ASK* (as they cannot change the *amplitude*), they are still compatible with the simple *OOK* modulation since this only requires sending at *full amplitude* and *not sending*. *GFSK* transceivers are therefore compatible with most usage scenarios including communicating with simple *OOK remote controls*.
+
+
+
+
+
+
 ## Overview
 
 *GFSK* is an evolved *FSK* modulation designed to efficiently transmit data at high data rates and without causing much interference.
