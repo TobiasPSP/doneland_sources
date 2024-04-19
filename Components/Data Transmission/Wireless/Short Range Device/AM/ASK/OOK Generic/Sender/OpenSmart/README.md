@@ -1,6 +1,6 @@
 <img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
  
-# OpenSmart
+# OpenSmart ASK Sender
 
 > Questionable RF Sender For *ASK* Modulation With PCB Antenna 
 
@@ -43,9 +43,10 @@ The way how the *transmitter* board is piggy-backed into a relatively huge *ante
 
 | Item | Value |
 | --- | --- |
-| Voltage | 3.5-5.3V |
+| Voltage | 4-12V |
 | Frequency | 433MHz *or* 315MHz |
-| Output Power | <10dBm / <10mW |
+| Working Current | 40mA |
+| Output Power | 27dBm/500mW at 12V |
 | Modulation Mode | AM (OOK) |
 | Transmission Rate | <4.8 Kbps |
 | Transmission Distance | <50m at 5V |
@@ -54,7 +55,7 @@ The way how the *transmitter* board is piggy-backed into a relatively huge *ante
 
 
 > [!CAUTION]
-> There is conflicting documentation. At some places, the vendor claims the input voltage to be *4-12V* whereas in other places, the voltage range is set to be *3.5-5.3V*. It is safe to say that a voltage *below 5V* yields very low RF power and unreliable connections. At *12V*, the vendor claims an RF output of *27dBm* (*0.5W*). This would be an *exceptionally high* RF output. It seems more likely that extended operation at *12V* would destroy the board.
+> With input voltages below *5V*, the data transmission becomes unreliable. When powered with *12V*, the claimed output power of *27dBm*/*500mW* seems to be unrealistically high and demands further testing.
 
 
 ## Pins
