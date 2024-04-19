@@ -103,3 +103,4 @@ For example, solder a wire to the *ANT* antenna solder pad (17cm for 433MHz).
 
 > Tags: Receiver,ASK,OOK,AM,Sweep
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/syn480r?461642041019241813) - created 2024-04-18 - last edited 2024-04-18
