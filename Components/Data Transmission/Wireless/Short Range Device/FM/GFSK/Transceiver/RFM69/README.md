@@ -108,4 +108,4 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 
 > Tags: Sender, Receiver, Transceiver, RF, AM, FM, FSK, OOB, AES, Encryption, Scrambling, Manchester Encoding
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceivers/rfm69?329536041219242052) - created 2024-04-18 - last edited 2024-04-18
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/gfsk/transceiver/rfm69?329536041219242052) - created 2024-04-18 - last edited 2024-04-18
