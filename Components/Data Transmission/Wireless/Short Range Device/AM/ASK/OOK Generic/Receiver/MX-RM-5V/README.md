@@ -73,4 +73,4 @@ The antenna needs to be soldered to the unmarked through-hole connector on the l
 
 > Tags: Receiver,ASK,OOK,AM,RF-5V
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/mx-rm-5v?912853041919241233) - created 2024-04-18 - last edited 2024-04-18
