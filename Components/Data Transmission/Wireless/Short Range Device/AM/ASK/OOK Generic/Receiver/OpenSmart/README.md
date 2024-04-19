@@ -78,4 +78,4 @@ The vendor suggests to use the [VirtualWire](https://github.com/song940/VirtualW
 
 > Tags: ASK, OOK, Receiver, RF, 315MHz, 433MHz, 5V
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/opensmart?124791041819243913) - created 2024-04-18 - last edited 2024-04-18
