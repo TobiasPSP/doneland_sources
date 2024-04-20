@@ -2,7 +2,7 @@
  
 # RDA5807M
 
-> Advanced Super-TÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­ny FM Broadcast Receiver With I2C Interface
+> Advanced FM Broadcast Receiver With I2C Interface
 
 The *RDA5807M* is a tiny breakout board around the *RDA5807* FM receiver chip with amazing capabilities and a *I2C* control interface.
 
@@ -14,8 +14,6 @@ Note that this is a *3.3V* device that cannot be used with *5V* directly. Use a 
 
 <img src="images/rx_wfm_rrd-102_top_t.png" width="80%" height="80%" />
 
-> [!TIP]
-> The board comes with two programmable GPIOs on pin 3 and pin 4. You could use this board as a simple 2-channel *I2C* port extender as well. But always check first whether the two GPIOs are actually exposed on the breakout board you have.
 
 ## Pins
 
@@ -41,7 +39,7 @@ These are the minimum connections required to work as a *FM receiver*:
 | --- | --- |
 | Voltage | 2.7-5.5V|
 | Operating Current | 17.5mA at 3.3V |
-| Frequency | 76-108MHz |
+| Frequency | 50-116MHz |
 | Working Current | <5.3mA |
 | Interface | I2C, 1.5-3.3V |
 | Modulation | Wide-FM |
