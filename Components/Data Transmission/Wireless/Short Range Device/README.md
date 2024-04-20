@@ -19,6 +19,63 @@ Examples for *SRD* are wireless sensors, microphones, garage door opener, home a
 | 868MHz | Europe/Asia | 25mW/1% duty cycle |
 | 915MHz | US | 1W/400ms *dwell time* |
 
+## Antenna Lengths
+
+Antennas are very important for safe and efficient usage. 
+
+> [!CAUTION]
+> **Never** operate a *sender* without a proper antenna or else you might damage it. Operating a *receiver* without antenna is technically benign but severely impacts receiver sensitivity.
+
+If you don't have an antenna at hand, you can easily build one yourself: a simple copper wire is sufficient.
+
+What matters is its length that must match the frequency you want to use.
+
+### Calculating Antenna Length
+
+The proper antenna length is calculated by the formula **299792458 / *frequency (in Hertz)***. The former is the *speed of light*.
+
+For a typical *garage door opener* operating on *433.95MHz*, the formula would be *299792458 / 433950000*. The result is *0.6908456227676*: the full wave length for this frequency is *69cm*.
+
+Typical antennas use a quarter of the full wavelength (*lambda/4* or *1/4*). The proper antenna length for *433.95MHz* devices would therefore be *17.3cm*.
+
+### Get-AntennaLength Command
+
+To calculate antenna lengths more easily, you can use *PowerShell*. It is preinstalled on any *Windows PC* and can be downloaded for most other operating systems for free.
+
+First, install the *DoneLandTools* extension:
+
+```powershell
+Install-Module -Name DoneLandTools -Scope CurrentUser -Force -AllowClobber
+```
+
+> [!TIP]
+> You may omit `-Force -AllowClobber` if you prefer to see confirmation dialogs.
+
+Next, it's simple to calculate antenna lengths:
+
+```powershell
+Get-AntennaLength 433.95
+```
+
+The result lists various resonant antenna lengths, and you can pick the length that works best for you.
+
+> [!TIP]
+> Antennas work better the longer they are - as long as the picked length is resonant. So pick any length listed, and choose the longest one you can accommodate. If you wind up the antenna wire to a coil, the length is not as much important, and you should go with the 1/4 length.
+
+
+
+
+```
+Frequency (MHz) : 433.95
+Lambda          : 69.1
+Lambda 7/8 (cm) : 60.4
+Lambda 5/8 (cm) : 43.2
+Lambda/2 (cm)   : 34.5
+Lambda/4 (cm)   : 17.3
+Lambda/8 (cm)   : 8.6
+```
+
+
 ## Modulations
 
 The modulation and the data format control how information is sent and received over the air. There are two fundamental signal transmission concepts:

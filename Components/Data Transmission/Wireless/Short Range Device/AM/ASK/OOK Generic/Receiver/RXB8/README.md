@@ -44,6 +44,12 @@ The board exposes five pins, two on the left side and three on the right side. P
 
 
 
+
+> [!NOTE]
+> The pins on this module do not fit the common 2.54mm pin grid. This makes it difficult to plug the board into bread boards for testing.
+
+
+
 ## Antenna
 
 
