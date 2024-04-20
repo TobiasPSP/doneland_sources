@@ -1,22 +1,16 @@
 <img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
  
-# AM OOK Senders
+# FM Public Broadcast Senders
 
-> Sending AM Radio Signals Using Digital ASK Modulation: Simple Remote Controllers
+> Sending On Wide-FM Public Broadcast Frequencies: 87.5-108MHz 
 
-*ASK-Senders* transmit *AM* (*Amplitude Modulation*) radio waves for *digital communication*: they use *ASK* (*Amplitude-Shift keying*) to encode bits or symbols.
+FM Broadcast *sender* boards are illegal to operate in most countries of the world (unless you are a licensed public broadcast station).
 
-*ASK-Senders* are the core of most commercial *remote controllers*. 
+They are still produced and in use to interface audio input devices such as *MP3* players or *smartphones* with *car radios* that have no  auxiliary audio input.
 
+Due to the very low RF emission of such breakout boards, chances of interference are minimal, and the reach of these devices is just a few meters.
 
-<img src="images/433_send_receive_angle_t.png" width="40%" height="40%" />
-
-
-While pure *ASK-Senders* can transmit any *ASK*-encoded digital information, a *subgroup* of these often adheres to the *EV1527* (or similar) standard that can be understood by *self-learning* remotely controlled devices such as *garage door openers* or *remote controlled plugs*.
+Regardless, operating such devices is illegal in most countries, and certainly in the *EU*.
 
 
-
-
-> Tags: Frequency, Sender, Antenna, RF, Remote Control, AM, ASK, OOK, Radio, EV1527
-
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/fmpublicbroadcast/sender?511103041201242905) - created 2024-04-01 - last edited 2024-04-01
+> Tags: FM, WFM, Public Broadcast, Broadcast, Radio, Sender

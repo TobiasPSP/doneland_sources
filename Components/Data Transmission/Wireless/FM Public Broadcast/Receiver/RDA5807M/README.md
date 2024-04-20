@@ -2,7 +2,7 @@
  
 # RDA5807M
 
-> Advanced Super-TÃ­ny FM Broadcast Receiver With I2C Interface
+> Advanced Super-TÃƒÆ’Ã‚Â­ny FM Broadcast Receiver With I2C Interface
 
 The *RDA5807M* is a tiny breakout board around the *RDA5807* FM receiver chip with amazing capabilities and a *I2C* control interface.
 
