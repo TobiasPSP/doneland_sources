@@ -57,4 +57,4 @@ The antenna needs to be soldered to the solder pad marked *TUO*.
 
 > Tags: Sender, RF, 315MHz, 433MHz, ASK, AM
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender/tx-wl102?430763041819241658) - created 2024-04-18 - last edited 2024-04-18
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/fmpublicbroadcast/sender/tx-wl102?430763041819241658) - created 2024-04-18 - last edited 2024-04-18

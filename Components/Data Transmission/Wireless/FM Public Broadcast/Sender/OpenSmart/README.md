@@ -81,4 +81,4 @@ The vendor suggests to use the [VirtualWire](https://github.com/song940/VirtualW
 
 > Tags: ASK, OOK, Sender, RF, 315MHz, 433MHz
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender/opensmart?277296041819244602) - created 2024-04-18 - last edited 2024-04-18
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/fmpublicbroadcast/sender/opensmart?277296041819244602) - created 2024-04-18 - last edited 2024-04-18
