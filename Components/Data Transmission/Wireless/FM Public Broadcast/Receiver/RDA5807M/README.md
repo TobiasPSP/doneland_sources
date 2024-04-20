@@ -378,7 +378,7 @@ void myChangeChannel(int channel){ /* void if nothing is returned else int */
 ## Data Sheet
 [RDA5807M Module](materials/rda5807m_datasheet.pdf)   
 [RDA5807M Overview](materials/rda5807m_doc.pdf)   
-[Instructions On Use](https://www.instructables.com/Arduino-Based-Digital-Audio-FM-Radio-Using-RDA5807/)
+[Instructions On Use](https://www.instructables.com/Arduino-Based-Digital-Audio-FM-Radio-Using-RDA5807/)   
 [Example](https://taunoerik.art/portfolio/fm-radio-with-frequency-display/)
 
 > Tags: FM, Receiver, Broadcast
