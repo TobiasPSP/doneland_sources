@@ -6,6 +6,8 @@
 
 In order to transport *digital information* over the air, there needs to be a physical representation for the states *1* and *0* that can be imposed on a radio frequency.
 
+## Quick Overview
+
 *Amplitude Shift Keying* (*ASK*) is a simple digital modulation technique often used in *remote controls* and other *short range devices*.
 
 
@@ -57,6 +59,29 @@ This scheme ensures that with *2^20 = 1.048.576* different combinations, remote 
 
 On the receiver side, a microcontroller can decode the *EV1527*-encoded information (i.e. by using the [rc-switch](https://github.com/sui77/rc-switch) library), or encoding is done by dedicated *decoder chips* such as the *ST3777*.
 
+## Getting Into It
+
+There is a multitude of breakout boards available for *ASK*, both *senders* and *receivers*. 
+
+### Same Basic Principle
+
+All *ASK* *senders* and *receivers* expose just *one data pin*. 
+
+The data to be transmitted is fed to the *senders'* data pin and received at the *receivers'* data pin.
+
+The intellectual part is the data *encoding*: the data to be transmitted needs to be transformed into indivuidual digital bits (*encoded*), and on the *receiver* side transformed back into the original data (*decoded*).
+
+### Simple Route
+
+If you do not want to wrap your head around *ASK* and *encoding/decoding*, then a number of ready-to-go *libraries* exist. 
+
+[rc-switch](https://github.com/sui77/rc-switch) is a very popular example.
+
+### Understanding Technology
+
+If you are curious and hungry for more, [this article](https://www.romanblack.com/RF/cheapRFmodules.htm) provides a great in-depth introduction and explains the technical principles and myths attached to *ASK*.
+
+I strongly recommend reading this article as it explains the tricks to use to improve data rate, stability, and reach of *ASK*-based solutions.
 
 
 > Tags: ASK, OOK, EV1527, Amplitude-Shift Keying, On-Off Keying, Remote Control, RC-Switch, ST3777
