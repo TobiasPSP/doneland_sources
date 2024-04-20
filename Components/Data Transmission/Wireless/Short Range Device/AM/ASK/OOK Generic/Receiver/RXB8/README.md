@@ -15,7 +15,7 @@ The *RXB8* breakout board is based on the *SYN4126*/*HB4126* single-chip solutio
 In this board, the *RSSI* output is used instead to decode *ASK* (*AM*) signals. One could speculate that the vendor got its hands on a large batch of surplus *FM* receiver chips and came up with a creative solution to use them in *AM ASK* receivers. The chosen implementation has one important backdraw, though: it limits the minimum detectable impulse widths (and thus the data rate that can be received): impulses of 350us duration and less become accidentally widened by the way how RSSI signals are processed, and communication fails at these speeds.
 
 
-For simple *remote control* scenarios where only small amounts of data need to be transmitted and low speeds are used, this receiver is very well suited: its very good sensitivity can pick up a signal even through walls or at greater distances where other and more simplistic receivers would not be able to. 
+For simple *remote control* scenarios where only small amounts of data need to be transmitted at low speed, this receiver is excellent: its very good sensitivity can pick up a signal even through walls or at greater distances where other and more simplistic receivers would not be able to. 
 
 In use cases where large amounts of data need to be received quickly, this receiver chip fails, and you should switch to a receiver using a dedicated *ASK* receiver chip.
 
