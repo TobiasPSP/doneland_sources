@@ -12,9 +12,7 @@ The *RXB8* breakout board is based on the *SYN4126*/*HB4126* single-chip solutio
 
 *SYN4126* seems to be out of production for a long time. No data sheets or other information about seems to be available.
 
-What seems evident though is that this chip was originally designed to transmit in *FM* modulation. 
-
-In this board, the *RSSI* output is used instead to decode *ASK* (*AM*) signals. 
+What seems evident though is that this chip was originally designed to transmit in *FM* modulation. In this board, the *RSSI* output is used instead to decode *ASK* (*AM*) signals. 
 
 This limits the minimum impulse widths (and thus the maximum data rate). Impulses of 350us and shorter can become accidentally widened by the way how RSSI signals are processed.
 
