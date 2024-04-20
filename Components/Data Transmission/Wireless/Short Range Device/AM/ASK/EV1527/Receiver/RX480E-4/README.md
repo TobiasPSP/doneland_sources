@@ -107,3 +107,4 @@ The pins are labeled on the back of the board:
 
 > Tags: EV1527, Receiver, RF, 315MHz, 433MHz
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver/rx480e-4?575872040920243620) - created 2024-04-19 - last edited 2024-04-19

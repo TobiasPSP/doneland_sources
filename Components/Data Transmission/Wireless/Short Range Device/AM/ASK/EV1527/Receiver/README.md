@@ -12,3 +12,5 @@ Breakout boards are a simple solution to build your own *remotely controllable d
 
 
 > Tags: EV1527, Receiver
+
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver?552936040920243620) - created 2024-04-19 - last edited 2024-04-19

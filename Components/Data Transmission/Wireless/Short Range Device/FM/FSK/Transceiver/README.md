@@ -11,4 +11,4 @@
 
 > Tags: FM, FSK, Transceiver, Radio
 
-[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceivers?087504040917240655) - created 2024-04-16 - last edited 2024-04-16
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/fsk/transceiver?087504040917240655) - created 2024-04-16 - last edited 2024-04-16
