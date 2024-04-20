@@ -17,7 +17,7 @@ In this board, the *RSSI* output is used instead to decode *ASK* (*AM*) signals.
 
 For simple *remote control* scenarios where only small amounts of data need to be transmitted at low speed, this receiver is excellent: its very good sensitivity can pick up a signal even through walls or at greater distances where other and more simplistic receivers would not be able to. 
 
-In use cases where large amounts of data need to be received quickly, this receiver chip fails, and you should switch to a receiver using a dedicated *ASK* receiver chip.
+In use cases where large amounts of data need to be received quickly, this receiver chip fails though, and you better switch to a receiver using a dedicated *ASK* receiver chip.
 
 
 <img src="images/rx_ask_rxb8_side_t.png" width="60%" height="60%" />
