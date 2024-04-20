@@ -72,3 +72,4 @@ For example, solder a wire to the *ANT* pin (17cm for 433MHz).
 
 > Tags: Receiver,ASK,OOK,AM, SYN4126
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/rxb8?266135041520244851) - created 2024-04-19 - last edited 2024-04-19
