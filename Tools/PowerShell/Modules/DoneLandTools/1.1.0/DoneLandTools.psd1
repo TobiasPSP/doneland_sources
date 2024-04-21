@@ -2,7 +2,7 @@
 
 @{
 RootModule = 'start.psm1'
-ModuleVersion = '1.0.1'
+ModuleVersion = '1.1.0'
 GUID = 'f14be5b8-ac98-42e7-a4a0-939f3185c3f6'
 Author = 'Dr. Tobias Weltner'
 CompanyName = 'https://done.land'

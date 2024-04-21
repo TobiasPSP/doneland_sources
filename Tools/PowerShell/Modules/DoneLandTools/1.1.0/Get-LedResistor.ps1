@@ -10,7 +10,7 @@
       .EXAMPLE
       Get-LedResistor -OperatingVoltage 12 -ForwardVoltage 3.2 -Current 10
       Returns the value of the required series resistor for one LED with a forward voltage of 3.2V and an intended current of 10mA at a desired operating voltage of 12V
-      The result is 1136 Ohm. Round up to the next resistor value you have available.
+      The result is 880 Ohm. Round up to the next resistor value you have available.
       The output shows the guessed LED color based on the submitted forward voltage.
 
       .EXAMPLE
@@ -82,7 +82,7 @@
       }
     
       $voltageDrop = $OperatingVoltage - $ForwardVoltage
-      $resistance = $Current * 1000 / $voltageDrop
+      $resistance = $voltageDrop / ($Current / 1000)
   
       [PSCustomObject]@{
         'Required Resistor (Ohm)' = $resistance -as [Int]
