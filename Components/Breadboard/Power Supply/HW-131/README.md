@@ -4,7 +4,9 @@
 
 > Dedicated 3.3V/5V 700mA Breadboard Power Supply That Plugs Directly Into Power Rails
 
-*HW-131* is a clever *buck converter* on a special breakout board that directly plugs onto most breakout boards (designed for *MB102* breadboards) and automatically supplies power to the breadboard power rails.
+*HW-131* is a *buck converter* on a special breakout board designed for *MB102* breadboards (the most common type).
+
+It plugs directly into the breadboard power rails which coincidentally tightly secures the power supply to the breadboard.
 
 <img src="images/power_hw131_front_t.png" width="50%" height="50%" />
 
@@ -27,7 +29,7 @@ Both voltages are available via 2x2 pins next to the power button.
 *5V* is also available via a *USB-A* connector.
 
 > [!CAUTION]
-> The buck converter on the board is rated for a maximum output current of *700mA*. This power supply is well suited for most prototyping. If your circuit requires unusually high currents, you use a different power supply.
+> The buck converter on the board is rated for a maximum output current of *700mA*. This power supply is well suited for most prototyping. If your circuit requires unusually high currents, definitely use a different power supply.
 
 ### Setting Rail Output Voltage
 
