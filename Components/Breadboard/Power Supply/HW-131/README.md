@@ -10,7 +10,7 @@
 
 ## Power Inputs
 
-The board accepts input power either via a cinch power socket (6.5-12V), or via a *USB-A* connector.
+The board accepts input power via a cinch power socket (6.5-12V).
 
 <img src="images/power_hw131_front2_t.png" width="60%" height="60%" />
 
@@ -23,6 +23,8 @@ The board converts the input voltage to *3.3V* and *5V* simultaneously.
 Both voltages are available via 2x2 pins next to the power button.
 
 <img src="images/power_hw131_top_angle_t.png" width="60%" height="60%" />
+
+*5V* is also available via a *USB-A* connector.
 
 > [!CAUTION]
 > The buck converter on the board is rated for a maximum output current of *700mA*. This power supply is well suited for most prototyping. If your circuit requires unusually high currents, you use a different power supply.
