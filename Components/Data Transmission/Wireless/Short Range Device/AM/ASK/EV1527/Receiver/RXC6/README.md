@@ -104,4 +104,4 @@ The board comes with *seven* pins plus a solder pad for an *antenna* that is mar
 
 > Tags: ASK, OOB, EV1527, Receiver, RF, Remote Control
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver/rxc6?701775041521242841) - created 2024-04-20 - last edited 2024-04-20
