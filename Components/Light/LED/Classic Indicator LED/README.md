@@ -47,41 +47,35 @@ The required resistor value can quickly be calculated based on the well known **
 Here is a quick reference sheet to find the right *series resistor* for a given **LED** color and the *voltage* you want it to power with:
 
 ````
-PS> 5,9,12,24  | Get-LedResistor -Color yellow, orange, red, green, blue, white | Format-Table -AutoSize
+PS> 5,9,12,24  | Get-LedResistor -Color yellow, orange, red, green, blue, white
 
 WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
 Required Resistor (Ohm) Operating Voltage (V) Led Current (mA) Led Voltage (V) Led Color
 ----------------------- --------------------- ---------------- --------------- ---------
-                   6250                     5               20             1.8 yellow   
-                   6452                     5               20             1.9 orange   
-                   6667                     5               20               2 red      
-                   7692                     5               20             2.4 green    
-                  10000                     5               20               3 blue     
-                  11111                     5               20             3.2 white
-
-  
-                   2778                     9               20             1.8 yellow   
-                   2817                     9               20             1.9 orange   
-                   2857                     9               20               2 red      
-                   3030                     9               20             2.4 green    
-                   3333                     9               20               3 blue     
-                   3448                     9               20             3.2 white    
-
-
-                   1961                    12               20             1.8 yellow   
-                   1980                    12               20             1.9 orange   
-                   2000                    12               20               2 red      
-                   2083                    12               20             2.4 green    
-                   2222                    12               20               3 blue     
-                   2273                    12               20             3.2 white    
-
-
-                    901                    24               20             1.8 yellow   
-                    905                    24               20             1.9 orange   
-                    909                    24               20               2 red      
-                    926                    24               20             2.4 green    
-                    952                    24               20               3 blue     
-                    962                    24               20             3.2 white    
+                    160                     5               20             1.8 yellow   
+                    155                     5               20             1.9 orange   
+                    150                     5               20               2 red      
+                    130                     5               20             2.4 green    
+                    100                     5               20               3 blue     
+                     90                     5               20             3.2 white    
+                    360                     9               20             1.8 yellow   
+                    355                     9               20             1.9 orange   
+                    350                     9               20               2 red      
+                    330                     9               20             2.4 green    
+                    300                     9               20               3 blue     
+                    290                     9               20             3.2 white    
+                    510                    12               20             1.8 yellow   
+                    505                    12               20             1.9 orange   
+                    500                    12               20               2 red      
+                    480                    12               20             2.4 green    
+                    450                    12               20               3 blue     
+                    440                    12               20             3.2 white    
+                   1110                    24               20             1.8 yellow   
+                   1105                    24               20             1.9 orange   
+                   1100                    24               20               2 red      
+                   1080                    24               20             2.4 green    
+                   1050                    24               20               3 blue     
+                   1040                    24               20             3.2 white     
 ````
 
 > [!CAUTION]
