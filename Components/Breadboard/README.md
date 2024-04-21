@@ -2,7 +2,7 @@
  
 # Breadboard
 
-> Essentials For Prototyping And Experimenting With Components On A Breadboard
+> Essentials For Prototyping And Experimenting 
 
 A *breadboard* lets you easily put components together and build test circuits.
 

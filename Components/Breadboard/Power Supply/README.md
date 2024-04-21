@@ -1,6 +1,6 @@
 <img src="/assets/images/breadboard.png" width="80%" height="80%" />
  
-# Breadboard Power Supply
+# Power Supply
 
 > Clever Ideas For Supplying Power To Your Breadboard
 
