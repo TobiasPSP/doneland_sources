@@ -8,50 +8,48 @@ The *RX480-E* breakout board is a one-stop solution to add remote control capabi
 
 <img src="images/rx_ev1527_rx480e_side_t.png" width="60%" height="60%" />
 
-The *receiver* chip receives *ASK* radio signals and has a built-in *EV1527* decoder that can decode the 24-bit data packets sent out by a *EV1527*-compliant remote control (*sender*).
-
-> [!NOTE]
-> Because of the built-in *EV1527* decoder chip, this board requires no external components or a microcontroller to interpret data sent from a *remote control*. At the same time, you cannot use this receiver to receive any other type of data, i.e. sensor readings.
+This receiver does not require any additional external components to pick up and interpret control signals sent by a *EV1527*-compliant *remote control*.
 
 The breakout board often comes bundled with a ready-to-use *remote control*.
 
 <img src="images/rx_ev1527_rx480e_kit_t.png" width="60%" height="60%" />
 
 
-> [!CAUTION]
-> Make sure you purchase the version for the *frequency* you intend to use. You cannot change the frequency later. In *Europe*, use the *433MHz* version. The *315MHz* version is intended for the *US* market. In *Europe*, *315MHz* is reserved for *military services*, and you can get in *serious trouble* when you operate on this frequency.
+## Pairing
 
+The *receiver* needs to be *paired* with the remote control that you want to use with this *receiver*.
 
-## Self-Learning
-
-In *EV1527*, the 24-bit code packets sent out by a remote control are *fixed* and defined by the *sender*. In order for a *receiver* to respond to them, both have to be *paired*. This is called *"learning"*.
+To enter *pairing mode* (aka *learning mode*), press the button on the front side of the receiver.
 
 <img src="images/rx_ev1527_rx480e_button_t.png" width="60%" height="60%" />
 
-Essentially, the *receiver* can be placed into *learning mode* by pressing a button. Then the designated *remote control* is activated and sending out a *EV1527*-compliant data package. The *receiver* picks up this code and stores it. It is now *paired* and knows the code it is supposed to respond to.
+Once *pairing mode* is active, the on-board *LED* is constantly on.
 
-### Invoking Self Learning
+Now press *any button* on the remote control you want to pair. The *receiver LED* blinks three times to confirm successful pairing.
 
-*Learning* (*pairing* with a remote control) is done by pressing the button on the top of the board.
+From now on, when you press a button on the remote control, the appropriate *data out pin* will switch to *HIGH*.
 
-#### Delete Existing Codes
+## Setting Latch Mode
 
-To *pair* the board with a new *remote control* or *EV1527*-compliant *sender*, first delete all stored codes by pressing the button *eight* times. The built-in *LED* confirms this by blinking *seven* times.
+By default, the *receiver* is in *push button mode*: the output pin is *HIGH* only for as long as the button on the *remote control* is pressed. Once the button is released, the output pin returns to *LOW* - just like a *push button* or *momentary switch* would behave.
 
-#### Understanding Operation Modes
-
-The board can operate in three different modes per channel:
+The board can operate in three different latching modes:
 
 * **Push button:** the selected channel is *on* only for as long as the remote control signal is received.
 * **Self-Locking:** each time the board receives a code, it *toggles* from *on* to *off* and vice versa.
 * **Mutual Exclusive:** like *self-locking*, but once a different channel becomes active, the channel falls back to *off*. In this mode, only *one* channel is active at any time.
 
+### Reset Required
 
-#### Pairing
+Before you can change the latch mode, you *must* reset the *receiver*. If you do not reset the receiver, the latch mode will stay put.
 
-To *pair* a button on a *remote control* with a channel on the *receiver*, enter *learning mode* by pressing the button on the top of the receiver *once*, *twice*, or *three times* (depending on the operational mode you want to assign to this channel):
+To reset the *receiver*, press the button *eight* times. The *LED* will blink four times to indicate successful reset.
 
 <img src="images/rx_ev1527_rx480e_top_t.png" width="60%" height="60%" />
+
+### Set Latch Mode
+
+To set a new latch mode, press the button *once*, *twice*, or *three times*:
 
 | Mode  | Key Press | 
 | --- | --- | 
@@ -59,13 +57,7 @@ To *pair* a button on a *remote control* with a channel on the *receiver*, enter
 | Self-Locking Mode | 2x | 
 | Multually Exclusive Self-Locking | 3x  |  
 
-When the *learning mode* is active, the *LED* is constantly *on*.
-
-Now press the intended key on the *remote control*. To confirm, the *LED* blinks *three times*.
-
-You can now repeat this step up to *four times* to assign *remote control buttons* to each of the four channels. Mixing modes for different channels is possible as you have to invoke the *learning mode* for each of the four channels individually.
-
-
+This will set the latch mode and also immediately enter *pairing mode*: the *LED* lights up and waits for you to press any key on the *remote control* you want to pair. Once successfully paired, the *LED* blinks *three times*.
 
 
 ## Technical Data
@@ -95,11 +87,11 @@ The pins are labeled on the back of the board:
 | --- | --- | --- |
 | 1 | GND | negative pole |
 | 2 | +V | +3.3-5V |
-| 3 | D0 | received code 1 |
-| 4 | D1 | received code 2 |
-| 5 | D2 | received code 3 |
-| 6 | D3 | received code 4 |
-| 7 | VT | learning mode |
+| 3 | D0 | high when received code 1 |
+| 4 | D1 | high when received code 2 |
+| 5 | D2 | high when received code 3 |
+| 6 | D3 | high when received code 4 |
+| 7 | VT | high when received any valid code |
 
 
 

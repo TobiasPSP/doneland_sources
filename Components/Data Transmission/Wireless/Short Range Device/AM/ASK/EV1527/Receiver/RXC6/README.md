@@ -12,46 +12,58 @@ It uses the *SYN470R* receiver chip and comes with a built-in *EV1527* decoder t
 
 The breakout board frequently comes bundled with a *RXB14 sender* breakout board. 
 
-> [!CAUTION]
-> The latest *RXC6* version, marked *V4* on the back of the board, is missing two solder bridges (*T1* and *T2*) that used to define the latch mode. There is currently *no documentation available* for the *V4* board explaining how latch mode is now working. By default, the board runs in *pulse* mode (similar to a push button): the contact is closed only while the appropriate remote control button is pressed. If you need the much more commonly used *latch* mode, there is currently no known way to put the *V4* board into *latch* mode.
+## Different Hardware Versions
 
+*RXC6* comes in a variety of hardware versions. The old versions all have two solder bridges marked *T1* and *T2* that can be used to set the *latch* mode.
+
+The latest hardware version (marked *V4* on the back of the board) does not have these solder bridges anymore. The latch mode is set by software instead. The documentation for older version no longer applies to this new version.
+
+> [!NOTE]
+> The latest hardware *version 4* of *RXC4* really appears to be identical to *RX480E-4*. 
 
 
 <img src="images/rx_rxc8_back_t.png" width="60%" height="60%" />
+## Pairing
 
+The *receiver* needs to be *paired* with the remote control that you want to use with this *receiver*.
 
-## Self-Learning
-
-In *EV1527*, the 24-bit code packets sent out by a remote control are *fixed* and defined by the *sender*. 
-
-In order for a *receiver* to respond to them, both have to be *paired*. This is called *"learning"*.
+To enter *pairing mode* (aka *learning mode*), press the button on the front side of the receiver.
 
 <img src="images/rx_rxc8_top_t.png" width="60%" height="60%" />
 
 
-### Clearing Memory
+Once *pairing mode* is active, the on-board *LED* is constantly on.
 
-First clear all stored data: press and hold the button on the *receiver* until the *LED* lights. Keep pressing the button for a few more seconds until the *LED* turns off again. The *receiver memory* is now cleared.
+Now press *any button* on the remote control you want to pair. The *receiver LED* blinks three times to confirm successful pairing.
 
-### Pairing Remote Control
+From now on, when you press a button on the remote control, the appropriate *data out pin* will switch to *HIGH*.
 
 
-*Pairing* is done by pressing the button on the top of the *receiver* until the *LED* on the *receiver* lights up. This time, release the button immediately after the *LED* lights up. The device is now in *learning mode* and waiting to pick up a *remote control* signal.
+## Setting Latch Mode
 
-Press a button on the *remote control* (or start the *sender* that should be paired with this *receiver*). The *LED* starts flashing when the sent code is successfully received and stored.
+By default, the *receiver* is in *push button mode*: the output pin is *HIGH* only for as long as the button on the *remote control* is pressed. Once the button is released, the output pin returns to *LOW* - just like a *push button* or *momentary switch* would behave.
 
-> [!NOTE]
-> For pairing, you can press *any* button on the *remote control*. *EV1527*-compliant remote controls send a *20bit* ID code and then four additional bits representing the remote control keys. During pairing, only the *20bit* ID code is stored. Later, when you use the remote control, the *receiver* evaluates the remaining bits to figure out which button on the remote control was pressed, and enables the corresponding output pin.
-
-#### Understanding Operation Modes
-
-The board can operate in three different modes per channel:
+The board can operate in three different latching modes:
 
 * **Push button:** the selected channel is *on* only for as long as the remote control signal is received.
 * **Self-Locking:** each time the board receives a code, it *toggles* from *on* to *off* and vice versa.
 * **Mutual Exclusive:** like *self-locking*, but once a different channel becomes active, the channel falls back to *off*. In this mode, only *one* channel is active at any time.
 
-In previous hardware versions of *RXC6*, this was done via solder bridges marked *T1* and *T2*:
+### Reset Required
+
+Before you can change the latch mode, you *must* reset the *receiver*. If you do not reset the receiver, the latch mode will stay put.
+
+#### Old Hardware Versions
+
+For the old hardware versions (those with solder bridges *T1* and *T2*), press and hold the button on the *receiver* until the *LED* lights up. Keep pressing the button for a few more seconds until the *LED* turns off again.
+
+#### New Hardware Versions (V4 and better)
+Press the button *eight* times. The *LED* will blink four times to indicate successful reset.
+
+
+### Setting New Latch Mode
+
+In older hardware versions with solder bridges marked *T1* and *T2*, the latch mode is set by opening or closing these solder bridges:
 
 | T1 | T2 | Mode |
 | --- | --- | --- |
@@ -59,9 +71,19 @@ In previous hardware versions of *RXC6*, this was done via solder bridges marked
 | open | closed | Self-Locking |
 | closed | closed | Mutual Exclusive |
 
-In hardware version *V4* (marked on back of board), the solder bridges are missing. 
+In newer hardware versions (with missing *T1* and *T2* solder bridges), latch mode is set by pressing the button *once*, *twice*, or *three times*:
 
-There are two *unmarked* open solder bridges on the board that may serve the same purpose (yet to be verified).
+| Mode  | Key Press | 
+| --- | --- | 
+| Push Button Mode | 1x  | 
+| Self-Locking Mode | 2x | 
+| Multually Exclusive Self-Locking | 3x  |  
+
+This will set the latch mode and also immediately enter *pairing mode*: the *LED* lights up and waits for you to press any key on the *remote control* you want to pair. Once successfully paired, the *LED* blinks *three times*.
+
+> [!CAUTION]
+> You **must** perform the device *reset* (as described above) in order to switch latch mode. If you do not reset the device, pressing the button any number of times will just enter the *pairing* mode but not change the *latch* mode.
+
 
 
 
@@ -88,11 +110,11 @@ The board comes with *seven* pins plus a solder pad for an *antenna* that is mar
 | --- | --- | --- |
 | 1 | GND | negative pole |
 | 2 | +V | +3.3-5.5V |
-| 3 | D0 | received code 1 |
-| 4 | D1 | received code 2 |
-| 5 | D2 | received code 3 |
-| 6 | D3 | received code 4 |
-| 7 | VT | learning mode |
+| 3 | D0 | high when received code 1 |
+| 4 | D1 | high when received code 2 |
+| 5 | D2 | high when received code 3 |
+| 6 | D3 | high when received code 4 |
+| 7 | VT | high when received *any* valid code |
 
 
 ## Data Sheet
