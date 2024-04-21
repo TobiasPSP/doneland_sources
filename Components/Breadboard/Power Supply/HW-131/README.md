@@ -55,3 +55,4 @@ The pins marked *+* should plug into the rail marked with the *red* line, and th
 
 > Tags: Breadboard, Power Supply, MB102
 
+[Visit Page on Website](https://done.land/components/breadboard/powersupply/hw-131?961546041621244944) - created 2024-04-20 - last edited 2024-04-20
