@@ -1,4 +1,4 @@
-<img src="/assets/images/investigate.jpg" width="80%" height="80%" />
+<img src="/assets/images/components.png" width="80%" height="80%" />
  
 # Components
 
