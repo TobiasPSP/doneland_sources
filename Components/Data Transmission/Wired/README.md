@@ -38,6 +38,9 @@ Devices often consist of many different and independent components, such as *dis
 
 One *well-established* and *reliable* protocol for *high speed* data transfer over relatively *large distances* is *Ethernet* which can bridge distances of up to *100m* without *sweat* and *tricks*.
 
+> [!NOTE]
+> By adding an *Ethernet* adapter to your project, you are basically just adding a specialized *long distance* protocol. The *Ethernet* adapter in turn is connected to your microcontroller using a *short-distance SPI* connection.
+
 Aside from pure *data transfer*, adding *Ethernet* connectivity to a device enables it to be connected to a *LAN* (*local area network*) in the most *reliable* and *safe* way.
 
 
