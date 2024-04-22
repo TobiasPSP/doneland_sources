@@ -53,3 +53,4 @@ Aside from pure *data transfer*, adding *Ethernet* connectivity to a device enab
 
 > Tags: Wired, I2C, SPI, UART, USB, Ethernet, Data Transfer, Communication
 
+[Visit Page on Website](https://done.land/components/datatransmission/wired?008443041222244629) - created 2024-04-21 - last edited 2024-04-21
