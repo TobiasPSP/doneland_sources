@@ -77,5 +77,4 @@ For example, solder a wire to the *ANT* antenna solder pad (17cm for 433MHz).
 
 > Tags: Receiver,ASK,OOK,AM,SYN470R
 
-
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/rxb12?124876041822240110) - created 2024-04-21 - last edited 2024-04-21
