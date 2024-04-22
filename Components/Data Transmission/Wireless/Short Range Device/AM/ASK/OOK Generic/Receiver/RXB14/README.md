@@ -61,4 +61,4 @@ The receiver chip is covered under a metal shield plate.
 
 > Tags: Receiver,ASK,OOK,AM
 
-
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/rxb14?498959041722244512) - created 2024-04-21 - last edited 2024-04-21
