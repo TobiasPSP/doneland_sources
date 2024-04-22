@@ -54,6 +54,24 @@ In *sweep* mode, the receiver sweeps a wider frequency spectrum which can be ben
 <img src="images/rx_ask_syn480r_top_t.png" width="60%" height="60%" />
 
 
+## Extra Features
+
+The chip offers extra features (not implemented in this breakout board, can be wired manually):
+
+* **Shutdown/Wakeup:** a distinct pin can be used to shut the receiver off.
+* **Wake-Up:** Output flag indicating presence of a RF signal. This can be used to wake up an attached microcontroller.
+
+## Sweep Mode
+
+The receiver offers two operating modes: a classic *fixed frequency* mode, and a *sweep* mode. 
+
+In *sweep* mode, the receiver sweeps a wider frequency spectrum which can be beneficial when used with low-cost imprecise *senders* that may be off frequency a bit.
+
+> [!NOTE]
+> *Fixed mode* provides better selectivity and sensitivity performance and should be preferred unless the sender frequency is imprecise.
+
+
+
 
 ## Pins
 

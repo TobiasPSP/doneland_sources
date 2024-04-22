@@ -4,6 +4,9 @@
 
 > 20/100mW GFSK Transceiver With Scrambler, AES-Encryption And SPI Interface Based On Semtech SX1231
 
+
+The *RFM69* is the successor of the popular *RFM22* which in turn was the successor of the *RFM12*.
+
 This transceiver module is based on the *RF69* transceiver chip that can be programmed via *SPI* interface. This chip in turn is based on *Semtech SX1231* (20mW standard version) and *Semtech SX1231H* (100mW *H* version).
 
 > [!TIP]
@@ -108,6 +111,6 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 [Semtech SX1231](materials/sx1231_datasheet.pdf)
 
 
-> Tags: Sender, Receiver, Transceiver, RF, AM, FM, FSK, OOB, AES, Encryption, Scrambling, Manchester Encoding
+> Tags: Sender, Receiver, Transceiver, RF, AM, FM, FSK, OOB, AES, Encryption, Scrambling, Manchester Encoding, RFM12, RFM22, RF69, SX1231
 
 [Visit Page on Website](https://done.land/components/datatransmission/wireless/shortrangedevice/fm/gfsk/transceiver/rfm69?329536041219242052) - created 2024-04-18 - last edited 2024-04-18
