@@ -97,4 +97,4 @@ The board comes with two *LED*:
 
 > Tags: Data, Network, Ethernet, W5500. Mini W5500, W5500 Lite, HW-884, WOL, Wake On LAN
 
-[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/miniw5500?541040041911244644) - created 2024-04-11 - last edited 2024-04-22
+[Visit Page on Website](https://done.land/components/datatransmission/wired/ethernet/miniw5500?541040041911244644) - created 2024-04-11 - last edited 2024-04-21
