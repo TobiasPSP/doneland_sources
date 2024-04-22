@@ -2,7 +2,7 @@
 
 # XY-C15H (20W)
 
-> 8-24V 15W Stereo Amplifier With Bluetooth 5.0
+> 8-24V 20W Stereo Amplifier With Bluetooth 5.0 And Chinese-Made Amplifier
 
 This small breakout board combines *Bluetooth* reception with a digital 20W stereo amplifier and can be used to power a bluetooth sound box.
 
@@ -60,6 +60,15 @@ Two speakers can be connected to screw terminals.
 <img src="images/audio-xy-c15h_top_t.png" width="60%" height="60%" />
 
 
+
+The screw terminals are labeled on the backside:
+
+
+<img src="images/audio-xy-c15h_back_t.png" width="60%" height="60%" />
+
+
+
+
 ## Bluetooth Connectivity
 
 After power on, the board is in *bluetooth pairing mode* and visible for bluetooth devices such as your smartphone. 
@@ -79,22 +88,7 @@ There is no pairing code or button press required for pairing. Once paired, the 
 The board comes with no heat sinks. For extended operation at high volume levels, a *heat sink* may be required on the *back side* of the board. There is a designated silver-colored area on the back, close to the amplifier chip. This is where to place the *heat sink*.
 
 
-## Operation
 
-A half-round operation wheel controls *volume* and *pause/play*:
-
-* **Volume:** turn the half-wheel to the right or left to control volume.
-* **Play/Pause:** press the half-wheel to toggle between *play* and *pause*.
-
-
-<img src="images/audio-xy-p15w_overview2_t.png" width="50%" height="50%" />
-
-The screw terminals are labeled on the backside:
-
-
-<img src="images/audio-xy-p15w_bottom2_t.png" width="50%" height="50%" />
-
-
-> Tags: Audio, 15W, Amplifier, Stereo, Bluetooth, XY-P15W, TPA3110, AC23C0
+> Tags: Audio, 20W, Amplifier, Stereo, Bluetooth
 
 [Visit Page on Website](https://done.land/components/audio/amplifier/bluetooth/xy-c15h(20w)?328947041122242123) - created 2024-04-21 - last edited 2024-04-21
