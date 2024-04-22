@@ -117,6 +117,19 @@ The board comes with *seven* pins plus a solder pad for an *antenna* that is mar
 | 7 | VT | high when received *any* valid code |
 
 
+## Setup
+
+Setup does not require any external components. Just connect power to *+V* and *GND*.
+
+To see the *receiver outputs* in action, connect a *LED* with an appropriate resistor to *D0*-*D3*, and to *VT*.
+
+<img src="images/rx_rxc6_board2_t.png" width="60%" height="60%" />
+
+Connect the *LED anode* (positive pin) to the *receiver* output pin, and connect the *LED cathode* (negative pin) to *GND*.
+
+<img src="images/rx_rxc6_board.jpg" width="60%" height="60%" />
+
+
 ## Data Sheet
 
 [SYN470R Receiver](materials/syn470r_datasheet.pdf)   

@@ -2,11 +2,11 @@
 
 # XY-P5W (5W)
 
-> 3.7-24V 5W Stereo Amplifier With Bluetooth Connectivity
+> 3.7-5V 5W Stereo Amplifier With Bluetooth Connectivity
 
 This small breakout board combines *Bluetooth 5.0* reception with a digital 2x5W stereo amplifier. It is based on the **5W** *PAM8406* digital power amplifier module.
 
-<img src="images/audio-xy-p5w_angle2_t.png" width="50%" height="50%" />
+<img src="images/audio-xy-p5w_angle_t.png" width="60%" height="60%" />
 
 > [!NOTE]
 > There are  *many variations* of this board available with subtle differences in board design and functionality. Some even ship with separate external remote control.
@@ -15,29 +15,30 @@ This small breakout board combines *Bluetooth 5.0* reception with a digital 2x5W
 
 This board comes with everything needed to built a small bluetooth-ready sound box. The output volume is moderate but sufficient (2x5W). 
 
-Its wide voltage input range makes it versatile to use. Support for *LiIon* and *LiPo* batteries including automatic switch-off at low voltage and charging through *Micro USB* are convenient extras. 
 
 
 ## Technical Data
 
 | Item               | Description                                  |
 | ------------------ | -------------------------------------------- |
-| Power Supply       | Micro USB, one lithium cell, external 3.7-24V supply |
-| Audio Amplifier              | 2x5W |
+| Power Supply       | Micro USB, one lithium cell, external 3.7-5V supply |
+| Audio Amplifier              | 2x5W @ 2Ohm Speakers |
+| Speakers | 2x 2-8Ohm |
 | Speaker Impedance  | 2-8 Ohm (5W@2Ohm, 3W@4Ohm, 2W@8Ohm)           |
 | Audio In           | Headphone Jack 3.5mm                         |
+| Audio Frequency | 20-20kHz |
 | Bluetooth Distance | <15 Meter, SNR >= 90dB                       |
-| Size               | 42x32x5mm                                   |
+| Size               | 43x33x5mm                                   |
 
 ## Power Supply
 
 The board can be supplied with power in many ways due to its wide voltage range:
 
-* **Micro-USB:** connect a common smartphone charger via USB
-* **Lithium battery:** power the board with one common LiIon or LiPo cell
-* **External:** connect to car voltage or any other power supply (3.7-24V)
+* **Micro-USB:** connect a common smartphone charger via USB (2A or better)
+* **Lithium battery:** power the board with one common LiIon or LiPo cell (4A)
+* **External:** connect to car voltage or any other power supply (3.7-5V)
 
-Any power supply should be capable of supplying *20W* of power (*4A* at *5V*). It *must* be greater than *10W* (*2A* at *5V*). Insufficient power supplies negatively affect sound quality.
+Insufficient power supplies negatively affect sound quality.
 
 ### Using Lithium Battery
 
@@ -61,28 +62,20 @@ The lithium battery can be directly charged via the *Micro USB* connection.
 
 Audio can be played to headphones via 3.5mm headphone jack, or by connecting two speakers with common ground to the speaker pins.
 
+<img src="images/audio-xy-p5w_back_t.png" width="60%" height="60%" />
+
 Volume is controlled by a half-rounded switch:
 
 * **Volume:** turn switch towards the USB connector to lower volume, and turn it to the other direction to raise it.
 * **Play/Pause:** press the button to toggle *play* and *pause*.
 
-## On and Off
+<img src="images/audio-xy-p5w_top_t.png" width="60%" height="60%" />
 
-Next to the external power input pins, there are two solder pads marked *woke*. They can be used to turn the board on and off:
-
-Connect the pins for 2 seconds to toggle between *on* and *off*.
-
-<img src="images/audio-xy-p5w_top_t.png" width="50%" height="50%" />
-
-## Through-Hole Pins
-
-All pins are through-hole and accessible from the back side as well.
-
-Some pins are labeled on the backside only:
+> [!TIP]
+> Behind the volume control switch, the breakout board comes with two solder pads. Connecting these pads for >2s toggles between *on* and *off*.
 
 
-<img src="images/audio-xy-p5w_back_t.png" width="50%" height="50%" />
-
+<img src="images/audio-xy-p5w_solder_t.png" width="60%" height="60%" />
 
 ## Bluetooth Connect
 
