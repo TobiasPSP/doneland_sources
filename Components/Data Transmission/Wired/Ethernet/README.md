@@ -2,9 +2,12 @@
  
 # Ethernet
 
-> Connecting Microcontrollers Permanently To Networks Using Ethernet Cables 
+> Connecting Microcontrollers To Wired LANs (Local Area Networks)  
 
-*Wired* network connection may be necessary if you want to permanently connect a microcontroller in the most robust way. While many microcontrollers these days come with *wireless* connectivity built-in, rarely do you find microcontroller boards with *Ethernet* adapters.
+*Wired* network connection may be necessary if you want to permanently connect a microcontroller to a *LAN* in the most robust way. While many microcontrollers these days come with *wireless* connectivity built-in, rarely do you find microcontroller boards with *Ethernet* adapters.
+
+> [!TIP]
+> *Wired connections* may even be *required* for certain use cases: if you'd like to *wake up computers* in your *LAN* using *WOL* (*Wake-On-LAN*), the *magic packets* that do the wakeup need to be sent to the *wired* network. You cannot wake up other computers via *WOL* with a *WiFi* device.
 
 ## Ethernet Adapter Boards
 Adding *Ethernet* connectivity is *cheap* and *simple*. There are ready-to-use *Ethernet* breakout boards that come with the *RJ45* jack to plug in typical *CAT* cables.
