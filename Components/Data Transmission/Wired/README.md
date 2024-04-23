@@ -2,11 +2,15 @@
  
 # Wired Data Transmission
 
-> Protocols To Transmit Data Via Wire
+> Transmitting Data Over Wires
 
 
 
-*Wired* communications is used in various and often completely different scenarios. Here are some:
+*Wired* communication is used all over the place without you probably even noticing: *components* like *displays* or *sensors* typically use wired protocols to communicate with *microcontrollers*.
+
+For communication *between* devices, *wireless* technologies have become increasingly popular, however anyone requiring *reliable*, *fast*, and *secure* communications still counts on *wired* data transmission whereever possible.
+
+Here are some examples of *wired protocols* used for *data transmission*:
 
 ### Intra-Board Communication
 
@@ -17,9 +21,9 @@ Devices often consist of many different and independent components, such as *dis
 * **I2C (Inter-Integrated-Circuit):** Two-wire short-range protocol designed to interconnect components within one device. This slow protocol is used for components that do not need to exchange large amounts of data at high speed, for example *sensors* or small mono-color *displays*.
 * **SPI (Serial Peripheral Interface):** Four-wire full-duplex high speed data protocol designed to *synchronously* transmit data between a dedicated *master* and one or more *slave* devices, typically all inside one device. Due to its overhead (*master/slave* architecture, *four* data wires), it is used when data transmission *speed* becomes important, i.e. to connect to large and colorful *displays* or a high-speed *Ethernet* device.
 
-### External Communication
+#### Short Distance Communication
 
-*Wired* communication buses don't care *what* they are used for, so all of the previously mentioned protocols can also be used to *communicate between devices* and for longer distances. These protocols are just not designed to communicate over *long distances*, and they all become more susceptible to *interferences* and *noise signals*. With these protocols, *reliable* communication is possible only for (very) short distances:
+*Wired* communication protocols don't actually care *what* they are used for, so all of the previously mentioned protocols could also be used to *communicate between devices* over long distances. However, these protocols are *designed for short distances*, and they all become susceptible to *interferences* and *noise signals* the longer the cables get. *Reliable* communication is possible only for (very) short distances:
 
 | Bus System | max recommended distance | Transmission Speed (typical) | Wires |
 | --- | --- | --- | --- |
@@ -29,12 +33,16 @@ Devices often consist of many different and independent components, such as *dis
 | SPI | 20cm | 80MHz | 4 |
 
 > [!NOTE]
-> The table above provides a rule of thumb. It is a *simplification*, and many sub-standards have evolved, affecting maximum speed and number of wires used for these bus systems. 
+> The table above provides a rule of thumb. It is a *simplification*, and many sub-standards have evolved, affecting maximum speed and number of wires used for these bus systems.
+
+
+
 
 > [!NOTE]
 > There are known *tricks* and *workarounds* for using these protocols over much larger distances (i.e.  *active* cables or *amplifiers*) however these protocols are just not designed for bridging long distances, and there are better protocols for it. 
 
-#### Ethernet
+
+### External Communication
 
 One *well-established* and *reliable* protocol for *high speed* data transfer over relatively *large distances* is *Ethernet* which can bridge distances of up to *100m* without *sweat* and *tricks*.
 
@@ -45,7 +53,7 @@ Aside from pure *data transfer*, adding *Ethernet* connectivity to a device enab
 
 
 
-## Advantages
+## Wired - Advantages
 
 While *wireless* communication is convenient, *wired* communication has its own set of advantages:
 
