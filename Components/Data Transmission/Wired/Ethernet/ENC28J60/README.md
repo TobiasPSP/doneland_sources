@@ -41,7 +41,7 @@ The operating voltage is **3.3V**.
 ## Data Sheets
 
 * [ENC28J60 Ethernet Controller](materials/enc28j60_datasheet.pdf)
-* [Ethernet Jack](materials/hr911105a_datasheet.pdf)
+* [HR911105A Ethernet Jack](materials/hr911105a_datasheet.pdf)
 
 
 > Tags: Data, Network, Ethernet, ENC28J60, HR911105A
