@@ -17,6 +17,9 @@ In this section, I break down transistors based on *what you want to **do*** wit
 > If you are *fundamentally interested* in *how transistors work* and what their different *technologies* are, please visit the [Fundamentals Section](https://done.land/fundamentals/discrete/transistor).
 
 
+
+
+
 ## Use Cases
 
 *Transistors* are very versatile and can be used for many different *use cases*. Each *use case* focuses on specific features of a *transistor*. To find the *best and most suitable transistor*, it all starts with your *intended use case*.
