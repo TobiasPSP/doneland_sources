@@ -27,7 +27,7 @@ This section is designed to assist you in picking the best transistor for a *giv
 
 ## Use Cases
 
-*Transistors* are very versatile and can be used for many different *use cases*. Each *use case* focuses on specific features of a *transistor*. To find the *best and most suitable transistor* (or find a replacement type with *similar specs*), it all starts with your *intended use case*.
+*Transistors* are very versatile and can be used for many different *use cases*. Each *use case* focuses on specific features of a *transistor*. To find the *best and most suitable transistor* (or find a *replacement* type with *similar specs*), it all starts with your *intended use case*.
 
 
 ### Switching Loads
