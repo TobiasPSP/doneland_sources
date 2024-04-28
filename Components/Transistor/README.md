@@ -27,7 +27,7 @@ This section is designed to assist you in picking the best transistor for a *giv
 
 ## Use Cases
 
-*Transistors* are very versatile and can be used for many different *use cases*. Each *use case* focuses on specific features of a *transistor*. To find the *best and most suitable transistor*, it all starts with your *intended use case*.
+*Transistors* are very versatile and can be used for many different *use cases*. Each *use case* focuses on specific features of a *transistor*. To find the *best and most suitable transistor* (or find a replacement type with *similar specs*), it all starts with your *intended use case*.
 
 
 ### Switching Loads
@@ -42,7 +42,7 @@ One of the most common *use cases* is using a *transistor* to switch big(ger) *l
 
 ### Amplification
 
-Another most common *use case* is *amplification*: you need more than just *on* and *off* and what to use the *transistor* like a *potentiometer*? Maybe you want to control the brightness of a lamp, or the speed of a motor.
+Another common *use case* is *amplification*: you need more than just *on* and *off* and what to use the *transistor* like a *potentiometer*? Maybe you want to control the brightness of a lamp, or the speed of a motor.
 
 When you *amplify*, the *transistor* continues to act like a *switch*: all considerations above continue to apply. In *addition* - since now the transistor can also have a *variable resistance* - these considerations become important, too:
 
