@@ -63,7 +63,7 @@ A physical switch uses *air* as *insulator*: when it is turned *on*, two contact
 #### Not-So-Ideal Transistor Switch
 A *transistor* is a *semiconductor*: *electrons* are controlled by the *control pin*, and these electrons in turn control the conductance of the *transistor*. 
 
-* **Transistor Gets Hot:** Depending on *transistor type*, the *on-resistance* can be significant. When switching small loads, this loss can typically be ignored. However, with higher currents this loss can quickly turn into an unwanted *heat source*. The most common *practical* reason for *transistors* thet get *too hot* is a *MOSFET transistor* that is controlled by *insufficient voltage*: the chosen *MOSFET* requires a control voltage (much) higher than the voltage that was actually supplied.
+* **Transistor Gets Hot:** Depending on *transistor type*, the *on-resistance* can be significant. When switching small loads, this loss can typically be ignored. However, with higher currents this loss can quickly turn into an unwanted *heat source*. The most common *practical* reason for *transistors* that get *too hot* is a *MOSFET transistor* that is controlled by *insufficient voltage*: the chosen *MOSFET* requires a control voltage (much) higher than the voltage that was actually supplied.
 
 * **Battery Dies Prematurely:** *Transistors* are never *completely off*: some electrons still conduct energy, even in *off* state. The *leakage current* is typically *very small* but can add up over time. Battery-operated devices that may need to run for weeks or years can easily be depleted prematurely when selecting the *wrong transistor* type with a relatively *high off-resistance*.
 
