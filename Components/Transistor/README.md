@@ -9,7 +9,9 @@ Transistors are versatile *semi-conductors* that can act both as an *electronic 
 
 ## Picking A Transistor
 
-There is a vast variety of *transistors* available: they exist in different *technologies* (*BJT*, *MOSFET*, and more) and *configurations* (*P*- and *N*-type). So it is not *trivial*, especially if you are just starting, to *pick the right transistor* for a *given purpose*.
+There is a vast variety of *transistors* available: they exist in different *technologies* (*BJT*, *MOSFET*, and more) and *configurations* (*P*- and *N*-type). It is not *trivial* to *pick the right transistor* for a *given purpose*, especially if you are just starting.
+
+This section is designed to assist you in picking the best transistor for a *given purpose*. It also helps you find *alternative (replacement) transistor types* if you work with a *circuit design* but don't have the particular *transistor types at hand* that the original circuit design uses or can't order these particular *transistor types*. 
 
 In this section, I break down transistors based on *what you want to **do*** with them. For each *use case*, you'll then learn *which particular transistor specs* you need to care about. You also get a list of *suitable transistor models* that you can pick.
 
