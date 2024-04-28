@@ -4,7 +4,7 @@
 
 > Selecting A Transistor For Switching DC Loads
 
-In this section I am looking at transistors suitable to switch big loads: the *transistor* acts like a *physical switch* and is operated either in *fully open* or *fully closed* mode.
+In this section I am looking at transistors suitable for switching big loads: the *transistor* acts like a *physical switch* and is operated either in *fully open* or *fully closed* mode.
 
 > [!CAUTION]
 > *Transistors* can only switch *DC* loads. They **cannot switch AC**. If you want to switch *AC*, use a *relais*, a solid-state *DA* relais, or a *thyristor*.
