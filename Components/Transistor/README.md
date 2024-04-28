@@ -13,8 +13,13 @@ There is a vast variety of *transistors* available: they exist in different *tec
 
 In this section, I break down transistors based on *what you want to **do*** with them. For each *use case*, you'll then learn *which particular transistor specs* you need to care about. You also get a list of *suitable transistor models* that you can pick.
 
+
+
 > [NOTE:]
 > If you are *fundamentally interested* in *how transistors work* and what their different *technologies* are, please visit the [Fundamentals Section](https://done.land/fundamentals/discrete/transistor).
+
+
+
 
 
 
