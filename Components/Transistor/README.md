@@ -42,3 +42,5 @@ When you *amplify*, the *transistor* continues to act like a *switch*: all consi
 
 
 > Tags: Transistor, Choice, Selection, Heat, Amplifier, Switch
+
+[Visit Page on Website](https://done.land/components/transistor?418279041228244933) - created 2024-04-27 - last edited 2024-04-27

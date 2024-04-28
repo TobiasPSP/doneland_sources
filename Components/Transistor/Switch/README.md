@@ -75,3 +75,5 @@ A *transistor* is a *semiconductor*: *electrons* are controlled by the *control 
 
 
 > Tags: Transistor, Choice, Selection, Heat, Amplifier, Switch
+
+[Visit Page on Website](https://done.land/components/transistor/switch?453841041228244933) - created 2024-04-27 - last edited 2024-04-27
