@@ -69,3 +69,5 @@ Here are a few tips:
 
 
 > Tags: Relais, Remote Control, ASK, OOK, SRD
+
+[Visit Page on Website](https://done.land/components/switch/relais/rfcontrolled?137944041230242855) - created 2024-04-29 - last edited 2024-04-29

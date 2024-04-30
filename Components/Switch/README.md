@@ -73,3 +73,5 @@ Here are the common types of *SSR*:
 
 
 > Tags: Switch, Button, Latched, Momentary, Push Button, Relais, Transistor, Thyristor, SSR, Solid State Relais, Optocoupler
+
+[Visit Page on Website](https://done.land/components/switch?092054041230242855) - created 2024-04-29 - last edited 2024-04-29

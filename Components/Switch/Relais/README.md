@@ -76,3 +76,5 @@ Once *SHTF*, they can quickly become insecure and fragile: should the vendor arc
 
 
 > Tags: Relais, Remote Control, Security, RF, WiFi, Infrared, IR
+
+[Visit Page on Website](https://done.land/components/switch/relais?115988041230242855) - created 2024-04-29 - last edited 2024-04-29
