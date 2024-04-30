@@ -16,7 +16,7 @@ With *RF controlled* relais, the control information is transmitted *over the ai
 Ready-to-use *RF relais* are available for less than *EUR 3.00* per piece:
 
 
-<img src="images/relais_rfwifi_overview_front_t.png" width="80%" height="80%" />
+<img src="images/relais_rfwifi_overview_top_t.png" width="80%" height="80%" />
 
 > [!CAUTION]
 > Look carefully at the device description. Devices can be controllable via *RF* (make sure you use the correct frequency: *315MHz* in the US, *433MHz* in Europe), via *Wifi/2.4GHz*, or *both*. The picture shows (from *left* to *right*) a *WiFi-only*, a *WiFi/RF*, and a *RF-only 433MHz* device. 
@@ -63,7 +63,7 @@ Here are a few tips:
 * **Pair Remote Control Button:** Finally, while the device is in *pairing mode*, press the button on the remote control that you want to use to switch the relais. A flashing *LED* indicates successful pairing.
 
 
-<img src="images/relais_rfwifi_overview_top_t.png" width="80%" height="80%" />
+<img src="images/relais_rfwifi_overview_front_t.png" width="80%" height="80%" />
 
 
 
