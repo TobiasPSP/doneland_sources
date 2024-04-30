@@ -11,7 +11,7 @@ A *relais* is the ubiquous *low cost* solution to switching *large currents* or 
 All *electromechanical relais* work the same:
 
 * **Control Circuit:** A control circuit is connected to a *coil*. When electrical power is applied to the *coil*, it produces a *magnetic field*.
-* ** Load Circuit:** A (separate) load circuit is placed in close proximity of the coil and uses an *iron* (or elsehow magnetic) latch. The *magnetic field* produced by the *coil* can *move* the latch physically, thus opening or closing the *load circuit*.
+* **Load Circuit:** A (separate) load circuit is placed in close proximity of the coil and uses an *iron* (or elsehow magnetic) latch. The *magnetic field* produced by the *coil* can *move* the latch physically, thus opening or closing the *load circuit*.
 
 ### Advantages
 
