@@ -333,4 +333,4 @@ To control the relais, a separate microcontroller board is piggy-backed and digi
 
 > Tags: Relais, Remote Control, ASK, OOK, SRD
 
-[Visit Page on Website](https://done.land/components/switch/relais/rfcontrolled?137944041230242855) - created 2024-04-29 - last edited 2024-05-02
+[Visit Page on Website](https://done.land/components/switch/relais/wireless?137944041230242855) - created 2024-04-29 - last edited 2024-05-01
