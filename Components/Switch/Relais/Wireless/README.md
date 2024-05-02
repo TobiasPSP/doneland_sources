@@ -317,8 +317,7 @@ A *WiFi*-controlled relais shares the same fundamental components:
 
 * Transformerless Power Supply
 * Relais
-
-To control the relais, a separate microcontroller board is piggy-backed and digitally controls the *relais* via its *GPIO*. The *RF receiver* and its PCB antenna are missing here.
+* A separate *WiFi*-enabled microcontroller board is piggy-backed and digitally controls the *relais* via its *GPIO*
 
 
 ## Datasheets
