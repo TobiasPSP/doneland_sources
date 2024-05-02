@@ -121,11 +121,9 @@ When looking at the traces of this particular device, it becomes evident that da
 
 <img src="images/relais_rf_traces.png" width="80%" height="80%" />
 
-The board interconnects *Nin*, *Nout*, *S1*, and the *push button*. *AC mains voltage* is present at all of these locations.
+The board interconnects *Nin*, *Nout*, *S1*, and the *push button*. *AC mains voltage* is present at all of these locations. *N* stands for *neutral AC line*, whereas *L* stands for *live AC line*. 
 
-*N* stands for *neutral AC line*, whereas *L* stands for *live AC line*. If you connect the device accordingly, "only" the *neutral AC line* will be exposed. 
-
-However, if you use a *plug* (that can be plugged in either way), or if you are just careless, then *live AC* is present at all of these locations.
+If you connect the device accordingly, "only" the *neutral AC line* will be exposed. However, if you use a *plug* (that can be plugged in either way), or if you are just careless, then *live AC* is present at all of these locations.
 
 While the push button is normally safely shielded by a plastic cover, the connections *S1* and *S2* are designed to hook up a *manual switch*. 
 
