@@ -39,6 +39,9 @@ There are *advantages* and *disadvantages* to both wireless technologies. Choose
 
 In this band, your devices work almost like *walky talkies*: you operate a dedicated *sender* (in your remote control) and a dedicated *receiver* (attached to the *relais*).
 
+
+<img src="images/relais_rf_top_t.png" width="80%" height="80%" />
+
 The result is a direct *one-way communication* providing autonomy:
 
 * **Simple:** Setup is *simple* and no special prerequisite is required, nor are there points of failure beyond your control.
@@ -61,6 +64,8 @@ Sending *control messages* via *WiFi* comes with a load of benefits:
 * **Anywhere:** Commands issued by a *smartphone app* work anywhere and just need *Internet Access*. Your commands are automatically routed to your home *WiFi*, and then to the device that you want to control.
 * **Feedback:** since *WiFi* uses two-way communications, the controlled device can return feedback, i.e. show its state or confirm the operation.
 * **Secure:** *WiFi* data is encrypted by default. Attackers cannot listen in or use *playback attacks*.
+
+<img src="images/relais_wifi_top_t.png" width="80%" height="80%" />
 
 For the very same reasons, there are important drawbacks as well:
 
@@ -98,6 +103,9 @@ Whether you buy a pure *ready-to-use* remote-controllable *relais*, or whether i
 ### Screw Terminals
 
 If your device has *screw terminals*, here is what they do:
+
+
+<img src="images/relais_rf_terminals.png" width="80%" height="80%" />
 
 | Terminal | Description |
 | --- | --- |
@@ -322,9 +330,9 @@ A *WiFi*-controlled relais shares the same fundamental components:
 
 ## Datasheets
 
-[BP2525 AC-to-DC converter](materials/bp2525_datasheet.pdf)
-[MB10 Bridge Rectifier](materials/mb10_datasheet.pdf)
-[AMS1117 3.3V Voltage Regulator](materials/ams1117_datasheet.pdf)
+[BP2525 AC-to-DC converter](materials/bp2525_datasheet.pdf)   
+[MB10 Bridge Rectifier](materials/mb10_datasheet.pdf)   
+[AMS1117 3.3V Voltage Regulator](materials/ams1117_datasheet.pdf)   
 
 
 
