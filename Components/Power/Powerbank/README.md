@@ -31,7 +31,7 @@ Typically, *powerbanks* also include the following *optional* components:
 *Powerbanks* can be easily designed and built. The required components are readily available. This section introduces and explains typical examples.
 
 > [!CAUTION]
-> Always keep in mind that *powerbanks* deal with huge amounts of energy and can be dangerous when built improperly. *Lithium batteries* used inside a *powerbank* can produce *huge currents*. When the batteries are not properly protected by a *BMS*, or when wiring or construction is done improperly, *DIY powerbanks* can  *explode* or *catch fire*. Consider building your own *powerbank* only if you are fully aware of the risks and have appropriate skills.
+> Always keep in mind that *powerbanks* deal with huge amounts of energy and can be dangerous when built improperly. *Lithium batteries* used inside a *powerbank* can draw *huge currents*. When the batteries are not properly protected by a *BMS*, or when wiring or construction is done improperly, *DIY powerbanks* can  *explode* or *catch fire*. Consider building your own *powerbank* only if you are fully aware of the risks and have appropriate skills.
 
 
 
