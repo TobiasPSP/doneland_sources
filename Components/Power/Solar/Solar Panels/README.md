@@ -94,7 +94,7 @@ Let's do the math again. This time, a *23%* efficiency is used as it is claimed 
 This panel (and this vendor) passed the plausibility check.
 
 > [!NOTE]
-> Whether or not the panel in fact yields the full energy calculated is a separate question. The plausibility check uncovers vendor specs that are physically impossible, i.e. a "200W panel" for less than €10 sized 20x20cm. Only practical testing can verify the claimed panel *efficiency*.
+> Whether or not the panel in fact yields the full energy calculated is a separate question. The plausibility check uncovers vendor specs that are physically impossible, i.e. a "200W panel" for less than Ã¢â€šÂ¬10 sized 20x20cm. Only practical testing can verify the claimed panel *efficiency*.
 
 
 
@@ -232,6 +232,6 @@ Even on a cloudy day, *solar panels* work surprisingly well outside. Inside, and
 
 
 
-> Tags: Solar Panel, Silicon, Monocrystalline, Polycrystalline, MPPT, 
+> Tags: Solar Panel, Silicon, Monocrystalline, Polycrystalline, MPPT,
 
 [Visit Page on Website](https://done.land/components/power/solar/solarpanels?150501051702244054) - created 2024-05-01 - last edited 2024-05-01
