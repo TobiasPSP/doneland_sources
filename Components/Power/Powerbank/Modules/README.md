@@ -28,7 +28,7 @@ Since *powerbank modules* already come with almost all required components, you 
 
 ### Battery Chemistry
 
-Most modules require *LiIon* or *LiPo* batteries. Never connect such a board with a *LiFePo4* battery, or else the battery will be *overcharged* and may be damaged or can catch fire. *LiIon* and *LiPo* batteries require different *charging voltages* and *discharging voltage converters* than *LiFePo4*.
+Most modules require *LiIon* or *LiPo* batteries. Never connect such a board to a *LiFePo4* battery, or else the battery will be *overcharged* and may be damaged or can catch fire. *LiIon* and *LiPo* batteries require different *charging voltages* and *discharging voltage converters* than *LiFePo4*.
 
 ### Battery Voltage
 

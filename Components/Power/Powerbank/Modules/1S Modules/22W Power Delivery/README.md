@@ -9,6 +9,14 @@ This module can be connected to a *single LiIon* or *LiPo* battery (or *multiple
 <img src="images/powerbank_22-5-w_front_t.png" width="50%" height="50%" />
 
 
+> [!CAUTION]
+> At full load, this module draws *22.5W*. At *battery voltage level*, this results in a *current* of up to *6.5A*. Make sure the *discharge rate* of your battery is sufficient. Also make sure you use appropriate wiring.
+
+
+
+
+
+
 ## USB Ports
 
 The board comes with five connectors that can be used concurrently with the entire variety of *USB* devices including *Android* and *iOS*:
