@@ -11,33 +11,34 @@
 
 ## How They Work
 
-*Silicon* is a semiconductor. When photons hit its surface, this dislodges electrons which in turn creates a flow in electric charge. 
+*Silicon* is a semiconductor. When photons hit its surface, this dislodges electrons which in turn create a flow in electric charge. 
 
-Normally, these dislodged electrons would move in random directions and not producing a usable current. By special treatment, *solar panels* make sure the dislodged electrons move in the same direction, producing an electrical *current*.
+Normally, these dislodged electrons would move in random directions and not produce a usable current. By special treatment, *solar panels* make sure the dislodged electrons move in the *same* direction, producing an electrical *current*.
 
 
 ### Small Cells Form Large Panels
 
-*Solar panels* are made of small and independent *cells*: *Monocrystalline silicon cells* typically produce *0.5-0.6V* each. *Polycrystalline cells* reach *0.5-0.55V*.
+*Solar panels* are made of individual small *cells*: *Monocrystalline silicon cells* typically produce *0.5-0.6V* each. *Polycrystalline cells* can produce *0.5-0.55V*.
 
-By connecting these cells *in series*, the overall panel *voltage* can be raised. By connecting cells *in parallel*, the *current* can be raised.
+By connecting these cells *in series*, the overall panel *voltage* can be set. By connecting cells *in parallel*, the maximum panel *current* can be set.
 
 
 <img src="images/solar_panel_mono_6v_3w_back_t.png" width="50%" height="50%" />
 
-
-This way, a rich variety of *solar panels* can be produced with different *voltages* and *current*.
-
+On the market, a rich variety of *solar panels* exist with  *different maximum voltages*, catering your needs. For *DIY projects*, *solar panels* with *3V*, *5-6V*, *9V*, *12V*, and *24V* are common.
 
 
-## Real World Plausibility Test
-Do not naively trust vendors or technical specifications. They cannot bend *physics* so before you purchase a particular panel, do the *physics plausibility check*:
+
+## Evaluating Panels
+Do not naively trust vendors or technical specifications. While *most vendors* provide accurate information, you can commonly find *astonishing offers* for *solar panels* supposingly capable of producing *hundreds of watts* for little money.
+
+Rogue vendors cannot bend *physics* though, so before you purchase a particular panel, do the *physics plausibility check*:
 
 ### 0.015-0.023W/cm2 Yield
 
 Physically, the *area* of a *solar panel* matters most: sunlight delivers roughly 1kW of energy per square meter (*1000W/m2*) on a clear day at solar noon in the summer. That is *0.1W/cm2*. 
 
-*Solar panels* have a conversion efficiency anywhere between *15-23%* and produce *0.015W-0.023W/cm2*. This is your formula to roughly check solar panel specs.
+*Solar panels* have a conversion efficiency anywhere between *15-23%* and produce *0.015W-0.023W/cm2*. This is the formula to roughly check solar panel specs.
 
 Let's take a look at these *polycrystalline* mini solar panels. They have a size of *53x30mm*:
 
@@ -46,20 +47,19 @@ Let's take a look at these *polycrystalline* mini solar panels. They have a size
 
 ### Test 1: Polycrystalline Panels
 
-The vendor claims these cells produce a current of *30mA* at *5V* (*0.03A x 5V = 0.15W*).
-
-Their surface is *5.3cm x 3cm = 16cm2*. Being *polycrystalline*, their *efficiency* is at the low end and can be estimated at *15%*.
+The vendor claims these cells produce a current of *30mA* at *5V* (*0.03A x 5V = 0.15W*). Their surface is *5.3cm x 3cm = 16cm2*. Being *polycrystalline*, their *efficiency* is at the low end and can be estimated at *15%*.
 
 Here is the plausibility check: physically, these panels should be able to produce this:
 
 *Area* x *Solar Input* x *Efficiency* = *Watts*
 *16cm2* x *0.1W/cm2* x *15%* = *0.24W*
 
-The surprising result: that is *too much*, more than the vendor claimed. 
+The irritating result: that is *too much*, actually *much more* than the vendor claimed. 
+
 
 #### Identify The Active Area
 
-The unexpected results illustrate the importance of looking at the correct dimensions: while the total size of the panel is indeed *5.3cm x 3cm*, the *effective* light-converting area is smaller: *4.5cm x 2.3cm* = *10cm2*.
+The unexpected result illustrates how important it is to look at the *relevant* dimensions: while the total physical size of the panel is indeed *5.3cm x 3cm*, the *effective* light-converting area is much smaller: *4.5cm x 2.3cm* = *10cm2*.
 
 
 <img src="images/solar_poly_small_measure_t.png" width="50%" height="50%" />
@@ -68,16 +68,16 @@ Let's repeat the math with the corrected surface area:
 
 *10cm2* x *0.1W/cm2* x *15%* = *0.15W*
 
-*0.15W* yield is exactly what the vendor claimed.
+A *0.15W* yield is exactly what the vendor claimed.
 
 ### Test 2: Monocrystalline Panels
 
-*Monocrystalline* panels have a *higher efficiency* of up to *23%* but are more expensive. Let's have a look at this larger *monocrystalline* panel:
+*Monocrystalline* panels have a *higher efficiency* (up to *23%* compared to *15%*). They cost more, too. Let's test plausibility for this larger *monocrystalline* panel:
 
 
 <img src="images/solar_panel_mono_6v_3w_top_t.png" width="50%" height="50%" />
 
-The vendor claims that this panel delivers *3W* at *5V*. The panel size is *12.1cm x 12.5cm*, and on closer inspection, there is a *6.4mm inactive rim* on both sides:
+The vendor claims this panel delivers *3W* at *5V*. The panel size is *12.1cm x 12.5cm*, and on closer inspection, there is a *6.4mm inactive rim* on both sides:
 
 
 
