@@ -14,8 +14,9 @@ A *rechargeable battery* acts like the raw *storage tank* of a *powerbank*. What
 
 A *powerbank* adds the following components:
 
-* **Charger:** accepts a common input voltage (such as *USB* voltages) and converts it to the *charging voltage* required for safely charging the internal battery.
+* **Charger:** accepts a common input voltage (such as *USB* voltages) and converts it to the *charging voltage* and *current* required for safely charging the internal battery.
 * **Battery Management System (BMS):** safeguards the battery and protects it from *over-charging*, *over-discharging*, and *short-circuiting*.
+* **Output Voltage Converter:** Circuitry that converts the native battery voltage to useful voltages, i.e. *5V USB* for charging USB devices, or even digital logic to support a variety of quick charging protocols.
 
 ### Optional Components
 
