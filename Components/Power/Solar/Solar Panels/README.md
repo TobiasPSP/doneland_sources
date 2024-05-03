@@ -94,7 +94,7 @@ Let's do the math again. This time, a *23%* efficiency is used as it is claimed 
 This panel (and this vendor) passed the plausibility check.
 
 > [!NOTE]
-> Whether or not the panel in fact yields the full energy calculated is a separate question. The plausibility check uncovers vendor specs that are physically impossible, i.e. a "200W panel" for less than Ã¢â€šÂ¬10 sized 20x20cm. Only practical testing can verify the claimed panel *efficiency*.
+> Whether or not the panel in fact yields the full energy calculated is a separate question. The plausibility check uncovers vendor specs that are physically impossible, i.e. a "200W panel" for less than ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬10 sized 20x20cm. Only practical testing can verify the claimed panel *efficiency*.
 
 
 
