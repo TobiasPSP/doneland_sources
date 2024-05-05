@@ -10,8 +10,9 @@ The *I2C Interface* is a commonly used *two-wire-interface* to connect external 
 
 <img src="images/esp32_s3_oled_i2c_t.png" width="80%" height="80%" />
 
+Connecting external devices to *S2 Mini* via *I2C* is trivial and requires next to no setup. Just connect the device to power, and connect the two *I2C* wires to the corresponding *GPIOs* on the *S2 Mini*.
 
-Here I am demonstrating how to connect a *I2C* device (in this case a *OLED display*) to *S2 Mini*.
+Below I am demonstrating how to connect an *OLED display* via *I2C* to *S2 Mini*.
 
 
 ## Wiring
@@ -28,6 +29,11 @@ To connect other/additional *I2C* devices to the *S2 Mini*, connect them all to 
 
 > [!NOTE]
 > The *S2 Mini* can use *any* pin to communicate with *I2C* devices. *By default*, it uses the pins *33* and *35*. To use different pins, you need to define these in the device initializers of your code.
+
+
+
+
+
 
 
 ## Library
