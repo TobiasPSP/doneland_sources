@@ -33,7 +33,7 @@ To connect other/additional *I2C* devices to the *S2 Mini*, connect them all to 
 ## Library
 To drive a *simple 0.96" OLED display*, the library *ESP8266 and ESP32 OLED driver for SSD1306 displays* from *ThingPulse* was used.
 
-I uploaded and run the default example code which draws various examples onto the *OLED display*.
+I uploaded and ran the default example code which draws various examples onto the *OLED display*.
 
 The *default device initializer* and the default *I2C address* (*0x3c*) worked out-of-the-box for the 128x64 pixel display I used:
 
