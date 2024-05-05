@@ -121,7 +121,132 @@ The *inner* header pins should *not be connected* to the bread board. Instead, s
 <img src="images/esp32_s2_prototyping2_t.png" width="80%" height="80%" />
 
 
+## Fixing Missing Pins
 
+When programming the *S2 Mini* in *platform.io*, the translation between true *hardware pins* and *common pin labels* is performed automatically: the *IDE* looks up the appropriate version of the file *pins_arduino.h* in the folder *%USERPROFILE%\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini*.
+
+### Pin Declarations Missing
+
+At the time of this writing, the appropriate file *pins_arduino.h* does exit but is incomplete. It does not define the *common pin labels* for all *digital pins*. 
+
+Whenever you try and compile source code that refers to a **D*x*** pin, compilation files with an exception.
+
+There does not seem to exist an *officially updated version* of this file. To fix, you have two choices:
+
+* **Quick Fix:** Replace the *common pin labels* in the code with the actual *hardware pin* numbers. Since with *S2 Mini* the numbers are identical, you would i.e. change *D2* by *2*. If you do this, the code will compile but is now *specific* for *S2 Mini* and will no longer work on different microcontroller boards.
+* **Permanent Fix:** Open the file *%USERPROFILE%\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini\pins_arduino.h* in a text editor, and add the missing declarations. You find an example below. When you do this, you might lose your changes with the next update of the *espressif32 arduino framework*, though.
+
+````c++
+#ifndef Pins_Arduino_h
+#define Pins_Arduino_h
+
+#include <stdint.h>
+
+// Default USB Settings
+#define USB_VID 			0x303a
+#define USB_PID 			0x80C2
+#define USB_MANUFACTURER 	"WEMOS.CC"
+#define USB_PRODUCT 		"LOLIN-S2-MINI"
+#define USB_SERIAL 			"0"
+
+
+// Default USB FirmwareMSC Settings
+#define USB_FW_MSC_VENDOR_ID 		"ESP32-S2" 		//max 8 chars
+#define USB_FW_MSC_PRODUCT_ID 		"Firmware MSC"	//max 16 chars
+#define USB_FW_MSC_PRODUCT_REVISION	"1.23" 			//max 4 chars
+#define USB_FW_MSC_VOLUME_NAME 		"S2-Firmware" 	//max 11 chars
+#define USB_FW_MSC_SERIAL_NUMBER 	0x00000000
+
+#define EXTERNAL_NUM_INTERRUPTS 46
+#define NUM_DIGITAL_PINS        48
+#define NUM_ANALOG_INPUTS       20
+
+#define analogInputToDigitalPin(p)  (((p)<20)?(analogChannelToDigitalPin(p)):-1)
+#define digitalPinToInterrupt(p)    (((p)<48)?(p):-1)
+#define digitalPinHasPWM(p)         (p < 46)
+
+static const uint8_t LED_BUILTIN = 15;
+#define BUILTIN_LED  LED_BUILTIN // backward compatibility
+
+static const uint8_t TX = 39;
+static const uint8_t RX = 37;
+
+static const uint8_t SDA = 33;
+static const uint8_t SCL = 35;
+
+static const uint8_t SS    = 12;
+static const uint8_t MOSI  = 11;
+static const uint8_t MISO  = 9;
+static const uint8_t SCK   = 7;
+
+static const uint8_t A0 = 1;
+static const uint8_t A1 = 2;
+static const uint8_t A2 = 3;
+static const uint8_t A3 = 4;
+static const uint8_t A4 = 5;
+static const uint8_t A5 = 6;
+static const uint8_t A6 = 7;
+static const uint8_t A7 = 8;
+static const uint8_t A8 = 9;
+static const uint8_t A9 = 10;
+static const uint8_t A10 = 11;
+static const uint8_t A11 = 12;
+static const uint8_t A12 = 13;
+static const uint8_t A13 = 14;
+static const uint8_t A14 = 15;
+static const uint8_t A15 = 16;
+static const uint8_t A16 = 17;
+static const uint8_t A17 = 18;
+static const uint8_t A18 = 19;
+static const uint8_t A19 = 20;
+
+static const uint8_t D1 = 1;
+static const uint8_t D2 = 2;
+static const uint8_t D3 = 3;
+static const uint8_t D4 = 4;
+static const uint8_t D5 = 5;
+static const uint8_t D6 = 6;
+static const uint8_t D7 = 7;
+static const uint8_t D8 = 8;
+static const uint8_t D9 = 9;
+static const uint8_t D10 = 10;
+static const uint8_t D11 = 11;
+static const uint8_t D12 = 12;
+static const uint8_t D13 = 13;
+static const uint8_t D14 = 14;
+static const uint8_t D15 = 15;
+static const uint8_t D16 = 16;
+static const uint8_t D17 = 17;
+static const uint8_t D18 = 18;
+static const uint8_t D33 = 33;
+static const uint8_t D34 = 34;
+static const uint8_t D35 = 35;
+static const uint8_t D36 = 36;
+static const uint8_t D37 = 37;
+static const uint8_t D38 = 38;
+static const uint8_t D39 = 39;
+static const uint8_t D40 = 40;
+
+static const uint8_t T1 = 1;
+static const uint8_t T2 = 2;
+static const uint8_t T3 = 3;
+static const uint8_t T4 = 4;
+static const uint8_t T5 = 5;
+static const uint8_t T6 = 6;
+static const uint8_t T7 = 7;
+static const uint8_t T8 = 8;
+static const uint8_t T9 = 9;
+static const uint8_t T10 = 10;
+static const uint8_t T11 = 11;
+static const uint8_t T12 = 12;
+static const uint8_t T13 = 13;
+static const uint8_t T14 = 14;
+
+static const uint8_t DAC1 = 17;
+static const uint8_t DAC2 = 18;
+
+#endif /* Pins_Arduino_h */
+````
 
 ## Materials
 
