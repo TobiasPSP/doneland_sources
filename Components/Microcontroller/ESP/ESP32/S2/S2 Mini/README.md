@@ -86,7 +86,7 @@ The pin numbers printed on the backside of the breakout board represent the expo
 
 
 > [!CAUTION]
-> The *ADC* (and thus *analog inputs* at *GPIO11-GPIO18*) can only be used when *WiFi* is *disabled*.
+> The *ADC2* (and thus *analog inputs* at *GPIO11-GPIO18*) can only be used when *WiFi* is *disabled*.
 
 
 
