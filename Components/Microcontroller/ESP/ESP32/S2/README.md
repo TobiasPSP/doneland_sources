@@ -94,7 +94,7 @@ The **S2** comes with *43 physical GPIO pins*. Not all pins are fully usable, an
 
 The 46 physical *GPIO* are labeled *GPIO0-GPIO21* and *GPIO26-GPIO46*.
 
-Each pin can be used as a general *input* or *outüut* pin, or connected to an internal peripheral signal. Internal peripheral signals can be routed to *any* pin.
+Each pin can be used as a general *input* or *outÃ¼ut* pin, or connected to an internal peripheral signal. Internal peripheral signals can be routed to *any* pin.
 
 ### Analog Input
 
@@ -219,4 +219,4 @@ Finally, select *Tools/Port*, and select the port you connected the board to.
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Energy
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2?502092031823244200) - created 2024-03-23 - last edited 2024-05-05
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2?502092031823244200) - created 2024-03-23 - last edited 2024-05-04
