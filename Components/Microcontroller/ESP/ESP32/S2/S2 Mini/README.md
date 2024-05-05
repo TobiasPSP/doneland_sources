@@ -90,7 +90,28 @@ The pin numbers printed on the backside of the breakout board represent the expo
 
 
 
+
 <img src="images/esp32_s2_shield_pins_angle_t.png" width="80%" height="80%" />
+
+## Prototyping
+
+The *S2 Mini* uses *dual line header pins* (2x8 pins on both sides for a total of 32 pins).
+
+This design was necessary to keep the *hardware compatibility* to the predecessor *ESP8266 D1 Mini* board: the *outer* 8-pin headers match the header pins in a *ESP8266 D1 Mini* (for power and *GND* pins at least).
+
+You cannot of course use *dual line header pins* with a prototyping bread board as this would *short circuiting* both header pin lines.
+
+### Soldering Header Pins
+
+For prototyping, it makes most sense to solder the *outer* header pins normally for a *ESP8266 D1 Mini*-compatible foot print. 
+
+
+
+<img src="images/s2_mini_dual_header_t.png" width="80%" height="80%" />
+
+The *inner* header pins should *not be connected* to the bread board. Instead, solder the header pins *on top*: this way, the additional pins can be connected using *female DuPont cables*.
+
+
 
 
 
