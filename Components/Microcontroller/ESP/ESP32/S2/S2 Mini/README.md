@@ -5,7 +5,7 @@
 > Powerful ESP32 S2 Board That Works With ESP8266 Shields
 
 
-The *S2 Mini* microcontroller board (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) is a very popular and powerful board that uses the same *form factor* as its equally popular predecessor, the *ESP8266 D1 Mini*.
+The *S2 Mini* microcontroller board (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) is a powerful board that uses the same *form factor* as its equally popular predecessor, the *ESP8266 D1 Mini*.
 
 
 
@@ -16,6 +16,13 @@ This enables the *S2 Mini* to continue to use *shields* that were designed for t
 
 
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
+
+
+> [!NOTE]
+> While the *S2 Mini* microcontroller board is exceptional *value for money*, the *S2* does not seem to be as *mainstream* as the original *ESP32* or its successors *C3* or *S3*: documentation for the *S2* is incomplete, and so is the *IDE support*: the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* for example needs manual tweaking just to be able to use common pin labels like *D0* or *D1* in your code. So if you are looking for a great microcontroller board with best bang for the buck, then *S2 Mini* is for you. If your focus is on boards that run flawlessly out of the box, then you might want to invest a little more and get a *S3*.
+
+
+
 
 
 
