@@ -7,6 +7,10 @@
 
 In 2020, *Expressif* released both the *S-Series* and the first member of the *C-Series*.
 
+
+
+<img src="images/esp32_s2_chip.jpg" width="80%" height="80%" />
+
 ## When To Use
 
 Here are the top reasons for choosing a **S2**:
