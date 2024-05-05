@@ -117,4 +117,4 @@ The board
 
 > Tags: SW6206, Fast Charge, Charger
 
-[Visit Page on Website](https://done.land/components/power/powerbank/modules/1smodules/22.5wpowerdelivery?391923051703244602) - created 2024-05-02 - last edited 2024-05-02
+[Visit Page on Website](https://done.land/components/power/powerbank/modules/1smodules/22wpowerdelivery?391923051703244602) - created 2024-05-02 - last edited 2024-05-02
