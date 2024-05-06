@@ -34,8 +34,8 @@ When there is information to display, the firmware turns the display on. After a
 
 These are commonly found *OLED drivers* in breakout boards:
 
-* **Small Monochrome - SSD1306:** Entry-level for small monochrome (1bit) displays up to a maximum resolution of *128x64* pixels. Supports both *I2C* and *SPI*. Typically, *I2C* is used for communication.
-* **Large Monochrome - SH1107:** Supports monochrome (1bit) resolutions of up to *128x128*
+* **Small Monochrome - SSD1306:** Entry-level for small monochrome (1bit) displays up to a resolution of *128x64* pixels. Uses *I2C*.
+* **Large Monochrome - SH1107:** Supports monochrome (1bit) resolutions of up to *128x128*. Supports *I2C* and *SPI*.
 * **Large Grayscale - SSD1327:** Supports 16 levels of gray (4bit) and resolutions of up to *128x128* pixels. Supports *I2C* and *SPI*.
 * **Small Color - SSD1331:** Supports 65k color (16bit) and resolutions of up to *96x64* pixels. Supports *I2C* and *SPI*.
 * **Large Color - SSD1351:** Supports 262k color (18bit) and resolutions of up to *128x128* pixels. This driver supports *SPI* only.
