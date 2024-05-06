@@ -4,7 +4,7 @@
 
 > Displaying Information Using OLED, TFT, Or LCD
 
-Devices can use *displays* to communicate back to the user/operator. They can be simple *monochrome text displays* or sophisticated true color *graphics screens*, some providing *touch* support.
+*Displays* can be used to communicate with a user/operator. They work much similar to a *computer screen* but typically are much smaller. *Displays* can be as simple as a *matrix-style LCD monochrome text display* and go all the way up to sophisticated true color *graphics screens*, some providing *touch input* support.
 
 ## Technologies
 
@@ -23,6 +23,11 @@ To connect *displays* to *microcontrollers*, these two interfaces are commonly u
 * **SPI:** The clock-based four-wire-protocol is typically found in larger and colored *displays* where much larger amounts of data need to be transferred
 
 Simple *matrix-style* LCD text displays typically use specific driver boards which in turn can be addressed using *I2C*.
+
+## Operating Voltages
+
+The underlying technology used by all of these displays does not require high voltages and is typically operated with *3.3V*. Some come with built-in *voltage regulators* and accept a wide range of input voltage. Make sure you always check the *display datasheet* to not exceed the operating voltage.
+ 
 
 > Tags: HID, Display, LCD, TFT, OLED, I2C, SPI, Matrix
 
