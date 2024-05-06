@@ -27,8 +27,6 @@ This driver is typically used in the *1.3inch 128x64* displays whereas the *SH11
 ## Colors
 The *display* comes in different colors: *white*, *blue*, *yellow*.
 
-<img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="80%" height="40%" />
-
 
 ## Libraries
 The *SH1106* does not have the same level of driver support that the *SSD1306* enjoys. 
@@ -287,3 +285,4 @@ lib_deps =
 
 > Tags: HID, Display, OLED, I2C, Driver, SH1106, Monochrome, 132x64, 128x64, 128x32
 
+[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1106?513238050007244858) - created 2024-05-06 - last edited 2024-05-06
