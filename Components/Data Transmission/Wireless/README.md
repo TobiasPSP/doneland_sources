@@ -9,17 +9,90 @@
 
 <img src="images/radio_comparison2_t.png" width="40%" height="40%" />
 
+## Overview
+To give you a quick overview of available *digital wireless transmission techniques*, here is a quick comparison:
 
-When *you* plan to use *radio waves* to transfer information as part of your *DIY Project*, it is important to understand the *frequencies* that are legal to use, and the schemes in which data can be sent and received over the air.
+| Technology | Range | Speed | Requires Microcontroller |
+| --- | --- | --- | --- |
+| WiFi | 40m | fast | yes (WiFi built into (most, not all) *ESP* microcontrollers) |
+| Bluetooth | 15m | fast | yes (Bluetooth built into many (not all) *ESP* microcontrollers ) |
+| ESPNow | 100m | fast | legacy protocol for *ESP* microcontrollers only |
+| nRF24 | 5-20m | fast | yes, typically *SPI* interface |
+| SRD | 5-20m | medium | no |
+| LoRa | 1-10km | very slow | typically they come as complete breakout boards with microcontroller |
+
+
+> [!NOTE]
+> *Range* was estimated for *inhouse* use (excepz for *LoRa* where this makes no sense). Range depends on additional factors such as *antenna*, *rf output*, and *rx sensitivity* and are just rough estimates. Outside with *free line of sight*, the *range* can be *10-20x* higher.
+
+
+
+
+
 
 ## Frequencies
+
+When *you* plan to use *radio waves* to transfer information as part of your *DIY Project*, it is important to understand the *frequencies* that are legal to use, the schemes in which data can be sent and received over the air, plus the specific physical *pros* and *cons* attached to given *frequency ranges*.
+
+Here is a quick guideline:
+
+| Use Case | Recommended Frequency |
+| --- | --- |
+| Indoor | 2.4GHz |
+| Garden | 433MHz |
+| Long Range | 868MHz |
+
+### Maximizing Range
+Two rules describe the effect of *frequency* on the *range* that can be reached:
+
+#### Antenna
+
+**Rule #1:** The *higher* a frequency, the *shorter* its *antenna* (*higher* frequencies have *shorter* wave lengths).
+
+Antennas operating at higher frequencies can be considerably smaller.: 
+
+* *2.4GHz WiFi/Bluetooth/ESPnow/nRF24* antennas measure around [3.06cm](https://www.google.com/search?q=c+%2F+2.452GHz+%2F+4) for a *lamda/4* monopole
+* *868MHz SRD/LoRa* antennas measure around [8.63cm](https://www.google.com/search?q=c+%2F+868MHz+%2F+4) for the same *Lambda/4* monopole
+* *433MHz SRD/LoRa* antennas measure around [17.27cm](https://www.google.com/search?q=c+%2F+433.92MHz+%2F+4) for the same *Lambda/4* monopole
+
+Smaller antenna size can be advantageous where space is limited or where smaller devices are needed.
+
+#### Environment
+**Rule #2:** Use *higher frequencies* in **urban environments** and **inside buildings**. Use *lower frequencies* for *rural areas* and *long range connections*.
+
+While it is true that *higher frequencies* are more *sensitive* to a free *line of sight* with no obstacles in the way (like *mountain ranges*), this  applies to *long range communications*. It *does not so much apply* to the kind of *short range communications* typically needed in *DIY projects*.
+
+Obviously, a *metal-enforced concrete wall* will attenuate or block a radio signal, and the *higher* a frequency is, the more it is susceptible to this kind of obstacle.
+
+However, most *concrete walls* and other obstacles **do have holes**, i.e. *windows*, *doors*, or *hallways* (normal *window glass* does not interfere with radio waves). These holes *do not block radio waves at all* **provided** the holes are bigger than the *radio wave length* that wants to pass it.
+
+#### Higher Frequency = Smaller Wavelength
+
+The *wave length* for *2.4GHz* (as used in *WiFi/Bluetooth/ESPnow/nRF24*) is just *12.5cm*, and most openings in *urban obstacles* are much larger.
+
+The *wave length* for *433.92MHz* (as used in *SRD/LoRa*) is *69cm*, and such a *radio wave* would have to pass a door stock at pretty much the right *phase angle* to pass it unattenuated.
+
+#### Smaller Wavelength = Better For Urban Environments
+
+That's why for *indoor use* and in *urban environments*, *higher frequencies* perform generally better even though they are attenuated more when hitting obstacles.
+
+
+> [!TIP]
+> Another important factor in choosing a *frequency* is *radio interference* from other users. *SRD* is especially susceptible as it does not use *frequency spread*. In Europe, the *license-free 433MHz band* is narrow with  traffic focusing on a few frequencies only. The *868MHz band* is typically less limited.
+
+
+
+
+
+
+
+### Frequency Allocations
+
 
 Radio waves are emissions to the *public*: anyone in the vicinity can detect and read them. So anyone can also *interfere* with anyone else in a radio spectrum.
 
 > [!NOTE]
 > Radio waves can also *harm* people, at least when sent with sufficient transmit power. This is why both *frequency* and *maximum emission power* is strictly regulated in all countries of the world.
-
-### Frequency Allocations
 
 At the end of the day, national governments allocate frequencies and determine the conditions of use.
 
