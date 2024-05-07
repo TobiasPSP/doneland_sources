@@ -2,7 +2,7 @@
 
 # SH1106-Based OLED Display
 
-> 1.3" Monochrome OLED Displays For Little Money
+> 1.3 Inch Monochrome OLED Displays For Little Money
 
 *SH1106* is a *OLED display driver* very similar to the popular *SSD1306* and supports monochrome displays with a maximum resolution of *132x64* pixels.
 
