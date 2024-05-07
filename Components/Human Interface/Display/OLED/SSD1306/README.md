@@ -4,7 +4,7 @@
 
 > Small And Monochrome OLED Displays For Little Money
 
-*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution. These displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. *I2C* is used to connect them to a microcontroller.
+*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution and typically use *I2C*. Displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. 
 
 
 <img src="images/oled_ssd1306_128x64_yellow_t.png" width="30%" height="30%" />
@@ -24,9 +24,7 @@
 
 In reality, these are *split-screens* with a small *yellow* stripe at top. The remainder of the display is *blue*. You cannot freely change the color of a pixel.
 
-*Split-color* displays can be very useful when you incorporate the hardware design into your screen layout.
-
-The upper part could i.e. display special *warning messages* or a progress bar.
+*Split-color* displays can be very useful when you incorporate the hardware design into your screen layout. The upper part could i.e. display special *warning messages* or a progress bar.
 
 <img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="30%" height="30%" />
 
@@ -38,6 +36,12 @@ The two most commonly found *OLED resolutions* with breakout boards that use the
 
 ## Libraries
 There are many libraries available for *SSD1306 OLED displays* that are compatible with *Arduino* as well as *ESP* microcontrollers.
+
+## Interface
+The majority of breakout boards use the efficient two-wire *I2C* interface. 
+
+The *SSD1306* does support *SPI*, too, yet due to the small amounts of data that need to be transferred in a *small monochrome* display, using a high-sped *SPI* interface with its need for four wires and additional *GPIOs* does not make much sense.
+
 
 ### Caveats
 There are a few caveats you should be aware of:
