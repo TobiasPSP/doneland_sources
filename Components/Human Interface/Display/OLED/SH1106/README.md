@@ -7,7 +7,7 @@
 *SH1106* is a *OLED display driver* very similar to the popular *SSD1306*. It supports monochrome displays with a maximum resolution of *132x64* pixels and typically uses *I2C*.
 
 
-<img src="images/oled_sh1106_white_text_t.png" width="80%" height="80%" />
+<img src="images/oled_sh1106_white_text_t.png" width="30%" height="30%" />
 
 
 This driver is frequently used in *1.3inch 128x64* display breakout boards. The *SH1106* is rather used in the *0.9inch 128x64* display breakout boards.
@@ -17,11 +17,11 @@ This driver is frequently used in *1.3inch 128x64* display breakout boards. The 
 
 
 
-<img src="images/oled_sh1106_white_alpha_t.png" width="80%" height="80%" />
+<img src="images/oled_sh1106_white_alpha_t.png" width="30%" height="30%" />
 
 The same applies to breakout boards with *integrated OLED displays* like the *keyboard-display-combo* below:
 
-<img src="images/oled_sh1106_keyboard_t.png" width="80%" height="80%" />
+<img src="images/oled_sh1106_keyboard_t.png" width="60%" height="60%" />
 
 These boards are available with *0.96inch* and *1.3inch* displays. Like with the standalone boards, *SH1106* is typically used in the *1.3inch* version.
 
@@ -47,7 +47,7 @@ The *SH1106* does not have the same level of driver support that the *SSD1306* e
 That's why users have started to tweak and adapt *SSD1306* libraries to use them with *SH1106*. Unfortunately, adaptions were not always done according to standard.
 
 
-<img src="images/oled_sh1106_white_numbers2_t.png" width="80%" height="40%" />
+<img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
 
 
 There is one *Adafruit* library for example that was ported from their original *SSD1306* but apparently tweaking was done rather rude so that errors in the header file produce linker errors now when using the code in *platform.io*.

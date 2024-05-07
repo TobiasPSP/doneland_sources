@@ -57,13 +57,13 @@ There are many more *OLED* drivers. The *software library* [u8g2](https://github
 [SSD1327](materials/ssd1327_datasheet.pdf)   
 [SSD1331](materials/ssd1331_datasheet.pdf)   
 [SSD1351](materials/ssd1351_datasheet.pdf)   
-[SH1106](materials/sh1106_datasheet.pdf) 
+[SH1106](materials/sh1106_datasheet.pdf)   
 [SH1107](materials/sh1107_datasheet.pdf)   
 
 
 
 
 
-> Tags: HID, Display, OLED, I2C, Driver, SSD1306, SSD1327, SSD1331, SSD1351, SH1107, Monochrome, Color, Resolution
+> Tags: HID, Display, OLED, I2C, Driver, SSD1306, SSD1327, SSD1331, SSD1351, SH1106, SH1107, Monochrome, Color, Resolution
 
 [Visit Page on Website](https://done.land/components/humaninterface/display/oled?644321051706242045) - created 2024-05-05 - last edited 2024-05-05

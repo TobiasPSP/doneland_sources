@@ -4,12 +4,10 @@
 
 > Small And Monochrome OLED Displays For Little Money
 
-*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution. 
-
-These displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. *I2C* is used to connect them to a microcontroller.
+*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution and typically use *I2C*. Displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. 
 
 
-<img src="images/oled_ssd1306_128x64_yellow_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_yellow_t.png" width="30%" height="30%" />
 
 > [!CAUTION]
 > Be aware that typical displays of this kind *are physically very small*. The *0.96 inch 128x64 display* measures *2.4x1.2cm*. That's ok though: you can display a lot of information, and these displays can be perfectly integrated in small and portable devices.
@@ -22,31 +20,35 @@ These displays are *monochrome* and come in different colors: *white*, *blue*, *
 ## Dual Color
 *SSD1306*-based *OLED displays* are *strictly monochrome* despite some vendors claiming to sell *dual-color OLEDs*.
 
-<img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="30%" height="30%" />
 
 In reality, these are *split-screens* with a small *yellow* stripe at top. The remainder of the display is *blue*. You cannot freely change the color of a pixel.
 
-*Split-color* displays can be very useful when you incorporate the hardware design into your screen layout.
+*Split-color* displays can be very useful when you incorporate the hardware design into your screen layout. The upper part could i.e. display special *warning messages* or a progress bar.
 
-The upper part could i.e. display special *warning messages* or a progress bar.
-
-<img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="30%" height="30%" />
 
 
 ## 128x64 And 128x32
 The two most commonly found *OLED resolutions* with breakout boards that use the *SSD1306* are *128x64* and *128x32*.
 
-<img src="images/oled_ssd1306_128x32_text_board_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x32_text_board_t.png" width="30%" height="30%" />
 
 ## Libraries
 There are many libraries available for *SSD1306 OLED displays* that are compatible with *Arduino* as well as *ESP* microcontrollers.
+
+## Interface
+The majority of breakout boards use the efficient two-wire *I2C* interface. 
+
+The *SSD1306* does support *SPI*, too, yet due to the small amounts of data that need to be transferred in a *small monochrome* display, using a high-sped *SPI* interface with its need for four wires and additional *GPIOs* does not make much sense.
+
 
 ### Caveats
 There are a few caveats you should be aware of:
 
 * **SPI Or I2C?** Even though *SSD1306* supports *SPI*, most breakout boards use the *I2C* interface to save *GPIOs*. Make sure you know which interface is supported by your particular display breakout board, and use the library examples for this interface (or adjust the code appropriately).
 * **I2C Hardware Address:** When your display uses *I2C*, the default *I2C* hardware address for most breakout boards (regardless of resolution) is *0x3c*. If this address does not work, try *0x3d*. 
-* **platformio:** When you use *platformio* as your *IDE*, move all functions above the *setup()* function. In *platformio*, functions must have been declared before they can be used. Some libraries come with examples written for the *Arduino IDE* that allows functions to be declared at the bottom of a sketch.
+* **platformio:** When you use *platformio* as your *IDE*, either make sure you include *Arduino.h* (`#include <Arduino.h>`), or move all functions above the *setup()* function. In *platformio*, functions must have been declared before they can be used. Some libraries come with examples written for the *Arduino IDE* that allows functions to be declared at the bottom of a sketch.
 
 ### Example Code
 Here is example code taken from the *Adafruit SSD1306 library* that I used to create the pictures on this page. The code is already adjusted and runs fine in *platformio*:
