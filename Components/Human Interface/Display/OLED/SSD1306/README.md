@@ -4,9 +4,7 @@
 
 > Small And Monochrome OLED Displays For Little Money
 
-*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution. 
-
-These displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. *I2C* is used to connect them to a microcontroller.
+*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution. These displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. *I2C* is used to connect them to a microcontroller.
 
 
 <img src="images/oled_ssd1306_128x64_yellow_t.png" width="30%" height="30%" />
