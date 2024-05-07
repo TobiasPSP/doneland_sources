@@ -298,4 +298,4 @@ lib_deps =
 
 > Tags: HID, Display, OLED, I2C, Driver, SH1106, Monochrome, 132x64, 128x64, 128x32
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1106?448322050807243142) - created 2024-05-06 - last edited 2024-05-06
+[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1106?448322050807243142) - created 2024-05-06 - last edited 2024-04-28
