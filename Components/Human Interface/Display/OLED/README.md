@@ -50,7 +50,7 @@ There are many more *OLED* drivers. The *software library* [u8g2](https://github
 [SSD1327](materials/ssd1327_datasheet.pdf)   
 [SSD1331](materials/ssd1331_datasheet.pdf)   
 [SSD1351](materials/ssd1351_datasheet.pdf)   
-[SH1106](materials/sh1106_datasheet.pdf) 
+[SH1106](materials/sh1106_datasheet.pdf)   
 [SH1107](materials/sh1107_datasheet.pdf)   
 
 
