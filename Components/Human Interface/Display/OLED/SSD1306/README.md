@@ -46,7 +46,7 @@ There are a few caveats you should be aware of:
 
 * **SPI Or I2C?** Even though *SSD1306* supports *SPI*, most breakout boards use the *I2C* interface to save *GPIOs*. Make sure you know which interface is supported by your particular display breakout board, and use the library examples for this interface (or adjust the code appropriately).
 * **I2C Hardware Address:** When your display uses *I2C*, the default *I2C* hardware address for most breakout boards (regardless of resolution) is *0x3c*. If this address does not work, try *0x3d*. 
-* **platformio:** When you use *platformio* as your *IDE*, move all functions above the *setup()* function. In *platformio*, functions must have been declared before they can be used. Some libraries come with examples written for the *Arduino IDE* that allows functions to be declared at the bottom of a sketch.
+* **platformio:** When you use *platformio* as your *IDE*, either make sure you include *Arduino.h* (`#include <Arduino.h>`), or move all functions above the *setup()* function. In *platformio*, functions must have been declared before they can be used. Some libraries come with examples written for the *Arduino IDE* that allows functions to be declared at the bottom of a sketch.
 
 ### Example Code
 Here is example code taken from the *Adafruit SSD1306 library* that I used to create the pictures on this page. The code is already adjusted and runs fine in *platformio*:
