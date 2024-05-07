@@ -9,19 +9,19 @@ Whenever you need to display more complex information, a *SH1107*-based *monochr
 
 <img src="images/oled_sh1107_128x128_front_t.png" width="60%" height="60%" />
 
-*OLED display* breakout boards with the *SH1107* driver complement the *higher resolution* with a larger *physical size*: *1.5inch* displays are common.
+*OLED display* breakout boards using the *SH1107* driver complement their *higher resolution* with a larger *physical size*: *1.5inch* displays are common.
 
 <img src="images/oled_sh1107_128x128_text_t.png" width="60%" height="60%" />
 
 ## Higher Resolution And Larger Screen
 
-When comparing a *1.5inch OLED display* with the popular *1.3inch* and *0.96inch* models, it becomes evident how much more real estate the *1.5inch SH1107*-based displays provide:
+When comparing a *1.5inch OLED display* to the popular *1.3inch* and *0.96inch* models, the added real estate becomes evident:
 
 <img src="images/oled_sh1107_128x128_compare2_t.png" width="100%" height="100%" />
 
 
 ## Colors
-The *display* comes in different colors: *white*, *blue*, *yellow*. There is also a *split-screen* version available with a small *yellow* margin at the top and the remainder of the screen using *blue* color.
+The *display* is available in different colors: *white*, *blue*, *yellow*. There is also a *split-screen* version with a small *yellow* margin at the top and the remainder of the screen using *blue* color.
 
 
 <img src="images/oled_sh1107_128x128_stars_t.png" width="50%" height="50%" />
@@ -29,7 +29,7 @@ The *display* comes in different colors: *white*, *blue*, *yellow*. There is als
 
 ## Interface
 
-*SH1107* supports both *SPI* and *I2C*. Many breakout boards choose to use the efficient *two-wire I2C* interface.
+*SH1107* supports both *SPI* and *I2C* interfaces. Most breakout boards choose to use the efficient *two-wire I2C* interface.
 
 <img src="images/oled_sh1107_128x128_back_t.png" width="80%" height="80%" />
 
@@ -38,9 +38,7 @@ The *display* comes in different colors: *white*, *blue*, *yellow*. There is als
 Common libraries are *Adafruit SH110X* and the *multi-device* library *u8g2*.
 
 ### Example Code
-I started by using the *Adafruit SH110X* library in *platformio* using a *ESP32 S2 Mini* microcontroller.
-
-The example code worked after the usual *tweaking*:
+I started by using the *Adafruit SH110X* library with *platformio* using a *ESP32 S2 Mini* microcontroller. The example code worked after the usual *tweaking*:
 
 * **Move Functions Up:** I moved all functions above *setup()*. In *platformio*, functions must be defined before they can be called.
 * **I2C Hardware Address:** I changed the *default I2C hardware address* in the example code from *0x3d* to *0x3c*. If your *OLED display* stays blank, it is either one of these addresses, and with my generic *OLED display breakout board*, it happened to be *0x3c*.
@@ -443,20 +441,16 @@ To the human eye, the display still looked ok without obvious *flickering*. When
 
 This surprised me as *OLED displays* need no  *refresh* due to their design: each pixel is a self-illuminated light emitter. 
 
-The only technical reason for *flickering* could be *PWM*-based *dimming*, but that could be ruled out as the display was running at *full brightness*, and *PWM frequencies* are generally way too high to cause the artefacts in my camera anyway.
+The only technical reason for *flickering* could be *PWM*-based *dimming*, but this is not to blame: the display was running at *full brightness*, and *PWM frequencies* are generally too high to cause the artefacts in my camera.
 
-Which leaves us with *software issues*: some libraries *clear all pixels* and *start a fresh redraw* for each new frame. That of course would explain *flickering artefacts*, especially with almost *latency-free* displays like *OLED*.
+Which leaves *software implementation issues*: some libraries *clear all pixels* and *start a fresh redraw* for each new frame. That would explain *flickering* and *artefacts*, especially with almost *latency-free* displays like *OLED*.
 
 
 ### Flicker-Free Library: u8g2
 
-To validate, I used a different library: *u8g2*. I then adapted one of the shipping examples.
+To validate, I used a different library: *u8g2*. I then adapted one of the shipping examples. With this library, the attached *display* is configured by *commenting in* the appropriate *constructor* line. With a bit of *trial and error*, I identified the constructor that worked perfectly with the generic *OLED breakout board* I was testing.
 
-With *u8g2*, the attached *display* is configured by *commenting in* the appropriate *constructor* line. With a bit of *trial and error*, I identified the constructor that worked perfectly with the generic *OLED breakout board* I was testing.
-
-The result wasa rock-solid and *100% flicker-free* display. 
-
-Apparently, the flickering was caused by how the *Adafruit* library draws the frames.
+The result was a rock-solid and *100% flicker-free* display. Apparently, the flickering was caused by how the *Adafruit* library draws the frames.
 
 <img src="images/oled_sh1107_128x128_flickerfree1_t.png" width="80%" height="80%" />
 
@@ -577,4 +571,4 @@ lib_deps =
 
 > Tags: HID, Display, OLED, I2C, Driver, SH1107, Monochrome, 128x128
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1107?599253051707240152) - created 2024-05-06 - last edited 2024-05-06
+[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1107?599253051707240152) - created 2024-04-30 - last edited 2024-05-06
