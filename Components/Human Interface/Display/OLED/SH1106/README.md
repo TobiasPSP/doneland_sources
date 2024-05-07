@@ -276,7 +276,7 @@ void loop(void)
 }
 ````
 
-This is the *platformio.ini* I used to compile the sketch in *platform.io* and run it on a *ESP32 S2 Mini*:
+This is the *platformio.ini* I used to compile the sketch in *platformio* and run it on a *ESP32 S2 Mini*:
 
 ````
 [env:lolin_s2_mini]
