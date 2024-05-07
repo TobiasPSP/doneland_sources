@@ -9,7 +9,7 @@
 These displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. *I2C* is used to connect them to a microcontroller.
 
 
-<img src="images/oled_ssd1306_128x64_yellow_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_yellow_t.png" width="40%" height="40%" />
 
 > [!CAUTION]
 > Be aware that typical displays of this kind *are physically very small*. The *0.96 inch 128x64 display* measures *2.4x1.2cm*. That's ok though: you can display a lot of information, and these displays can be perfectly integrated in small and portable devices.
@@ -22,7 +22,7 @@ These displays are *monochrome* and come in different colors: *white*, *blue*, *
 ## Dual Color
 *SSD1306*-based *OLED displays* are *strictly monochrome* despite some vendors claiming to sell *dual-color OLEDs*.
 
-<img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="40%" height="40%" />
 
 In reality, these are *split-screens* with a small *yellow* stripe at top. The remainder of the display is *blue*. You cannot freely change the color of a pixel.
 
@@ -30,13 +30,13 @@ In reality, these are *split-screens* with a small *yellow* stripe at top. The r
 
 The upper part could i.e. display special *warning messages* or a progress bar.
 
-<img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="40%" height="40%" />
 
 
 ## 128x64 And 128x32
 The two most commonly found *OLED resolutions* with breakout boards that use the *SSD1306* are *128x64* and *128x32*.
 
-<img src="images/oled_ssd1306_128x32_text_board_t.png" width="80%" height="40%" />
+<img src="images/oled_ssd1306_128x32_text_board_t.png" width="40%" height="40%" />
 
 ## Libraries
 There are many libraries available for *SSD1306 OLED displays* that are compatible with *Arduino* as well as *ESP* microcontrollers.
