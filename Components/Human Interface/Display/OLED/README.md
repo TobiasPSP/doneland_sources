@@ -6,6 +6,13 @@
 
 *OLED Displays* use *organic light-emitting diodes* to display pixels. Since each pixel is its own *light source*, these displays have an excellent contrast, can be clearly read from a wide viewing angle and are readable in dim as well as very bright environments.
 
+
+<img src="images/oled_sh1107_128x128_compare_t.png" width="80%" height="80%" />
+
+They come in different sizes and resolutions: common sizes are *0.48*, *0.91*, *0.96*, *1.3*, and *1.5* inch. 
+
+Resolutions start at *96x32*, and (in economic price ranges) end at *128x128* pixels. 
+
 ## Overview
 
 *OLED displays* are expensive to produce which is why affordable *OLED displays* for *DIY projects* are *very small* and typically *single-colored*.
