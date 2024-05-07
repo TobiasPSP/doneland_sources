@@ -47,7 +47,7 @@ The *SH1106* does not have the same level of driver support that the *SSD1306* e
 That's why users have started to tweak and adapt *SSD1306* libraries to use them with *SH1106*. Unfortunately, adaptions were not always done according to standard.
 
 
-<img src="images/oled_sh1106_white_numbers2_t.png" width="80%" height="40%" />
+<img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
 
 
 There is one *Adafruit* library for example that was ported from their original *SSD1306* but apparently tweaking was done rather rude so that errors in the header file produce linker errors now when using the code in *platform.io*.
