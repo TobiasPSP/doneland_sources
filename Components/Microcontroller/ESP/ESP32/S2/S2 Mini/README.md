@@ -28,6 +28,15 @@ This enables the *S2 Mini* to continue to use *shields* that were designed for t
 
 ## S2 Mini Technical Data
 
+The *S2 Mini* uses a *ESP32 S2* main processor:
+
+| Item | Value |
+| --- | --- |
+| CPU | ESP32-S2FN4R2 WiFi SoC, Xtensa single-core 32-bit LX7 microprocessor |
+| Speed | 240MHz |
+| Coprocessor | RISC-V ULP Coprocessor |
+
+
 Due to its form factor, the *S2 Mini* does not expose *all available hardware pins*. With *27 GPIOs*, this board is most sufficient for most *DIY projects*.
 
 
@@ -35,17 +44,51 @@ Due to its form factor, the *S2 Mini* does not expose *all available hardware pi
 
 | Item | Value |
 | --- | --- |
-| Operating Voltage | 3.3V (2.5-3.6V) |
 | Digital IO Pins | 27 |
 | Clock Speed | 240MHz |
 | Flash | 4MB |
 | PSRAM | 2MB |
+| SRAM | 320KB |
+| SRAM in RTC | 16KB (8KB accessible by ULP coprocessor) |
+| Temperature Sensor | -20-+110C |
+| eFuse | 1792bit for user data |
+| SAR ADC | 2x13bit, up to 20 channels, best for voltages <2.45V |
+| DAC | 2x8bit |
+| Touch | 12xtouch sensing IOs |
+| SPI | 4x, 2xSPI usable |
+| I2S | 1x |
+| I2C | 2x |
+| UART | 2x |
+| DVP 8/16 camera interface | 1x |
+| LCD interface | 1x8bit serial, 1x8/16/24bit parallel |
+| TWAI (CAN-Bus) | 1x, ISO11898-1 (CAN Specification 2.0) |
+| PWM controller | 8x |
+| USB OTG 1.1/PHY | host and device support |
+| Cryptographic | Hardware accelerators for AES, ECB/CBC/OFB/CFB/CTR, GCM, SHA, RSA, ECC (Digital Signature) |
 | Size | 34.4x25.4mm |
 | Weight | 2.4g |
 
+Power consumption is very low compared to other *ESP* family members:
+
+| Operation | Current |
+| --- | --- |
+| Normal (WiFi) | 310mA peak |
+| Modem-Sleep | 12-19mA |
+| Light-Sleep | 450uA |
+| Deep-Sleep | 20-190uA |
+
+Power regulation is done by a *ME6211C33* regulator:
+
+| Item | Value |
+| --- | --- |
+| Input voltage | 4.7-6.5V |
+| Operating Voltage | 2-6V |
+| Max current | 500mA@4.3Vin/3.3Vout |
+
+
 ### Pins And Compatible Shields
 
-All pins that are not *sofware-assignable* are *compatible with ESP8266 D1 Mini* pins:
+The board comes with 32 pins in 2x2 rows of 8. The *outer* pins are *compatible with ESP8266 D1 Mini* pins. *D1 Mini-compatible shields* can be used:
 
 <img src="images/s2_pins.png" width="100%" height="100%" />
 
@@ -55,14 +98,14 @@ Specifically, the pins for *GND*, *3.3V*, and *VBus* (*5V*) are hardware-identic
 <img src="images/esp32_s2_shield_pns_top_t.png" width="80%" height="80%" />
 
 
-This allows users to continue to use *shields* that were designed for *ESP8266*, i.e. *battery shields* that add *charging* and a battery to *portable projects*:
+This allows users to continue to use i.e. *battery shields* to add *charging* and battery power supply via existing *D1 Mini Shields* for *portable projects*:
 
 
 <img src="images/esp32_s2_shield_side_t.png" width="80%" height="80%" />
 
 
 > [!CAUTION]
-> All *software-configurable* pins (such as *GPIOs* and the pin for the built-in *LED*) are **not compatible** with *ESP8266 D1 Mini*. Since these pins can be adjusted freely in software in the *S2*, converting software from *ESP8266 D1 Mini* to *S2 Mini* is a matter of checking and potentially reassigning pin numbers.
+> *Software-configurable* pins (such as *GPIOs* and the pin for the built-in *LED*) are **not compatible** with *ESP8266 D1 Mini*. Since these pins can be adjusted freely in software in the *S2*, converting software from *ESP8266 D1 Mini* to *S2 Mini* is a matter of checking and potentially reassigning pin numbers.
 
 ### S2 Mini Pinout
 
@@ -70,8 +113,13 @@ This allows users to continue to use *shields* that were designed for *ESP8266*,
 The pin numbers printed on the backside of the breakout board represent the exposed *GPIO* numbers. I.e., pin marked *1* represents *GPIO1*.
 
 
+
 | Pin |  Remark | Description |
 | --- |  --- | --- |
+| EN | | Reset button |
+| 3V3 | | direct power supply to CPU |
+| VBUS | | connected to ME6211C33 voltage regulator |
+| 0 | not exposed | Boot button pulls it low |
 | 1-6 |  | general purpose: analog input (ADC1) and digital in/output |
 | 7 | SPI SCK | general purpose: analog input (ADC1) and digital in/output |
 | 8 | | general purpose: analog input (ADC1) and digital in/output |
@@ -84,6 +132,7 @@ The pin numbers printed on the backside of the breakout board represent the expo
 | 16 | | general purpose: analog input (ADC2) and digital in/output |
 | 17 | DAC1 | general purpose: analog input (ADC2) and digital in/output |
 | 18 | DAC2 | general purpose: analog input (ADC2) and digital in/output |
+| 19, 20 | not exposed | *USB D1/D2*, connected to the *USB C* connector | 
 | 21 | | general purpose digital in/output |
 | 33 | I2C SDA | general purpose digital in/output |
 | 34 | | general purpose digital in/output |
@@ -255,11 +304,26 @@ static const uint8_t DAC2 = 18;
 #endif /* Pins_Arduino_h */
 ````
 
+## Uploading Firmware
+These are the steps to upload new firmware to *S2 Mini* using *platformio*:
+
+1. Connect *S2 Mini* to computer using USB-C cable. Make sure to use a *data cable* and not just a *power cable*.
+2. Hold button *0*, then short-press button *RST*. Once you release button *RST*, the computer should play the sound for *new USB device discovery*.
+3. Upload the firmware in *platformio* by clicking *Upload*. *Platformio* will search for a port, then force the *S2 Mini* in reset, and then find a port and upload the sketch.
+4. Once the upload is done, short-press *RST* again. Now, the sketch should execute.
+
+If the *S2 Mini* is *not recognized* by your computer (no "new USB device" sound plays after you pressed the keys as described above), make sure the *USB cable* is fully plugged in, try and reverse the plugs, and use a different cable. Apparently, the *USB connectors* on this board do not always have proper contact. Trying with a different *USB cable* did occasionally solve the issue.
+
+If the issue persists, check to see whether the board gets warmer as usual. The build quality of these boards is not always great, and there have been instances where solder residue was short-circuiting CPU contacts. Closely inspect the board and all solderings.
+
+
 ## Materials
 
 [S2 Mini Datasheet](materials/esp32-s2_datasheet.pdf)   
 [S2 Mini Schematics](materials/s2_mini_schematic.pdf)   
 [S2 Mini Dimensions](materials/s2mini_dimensions.pdf)   
+[ME6211 voltage regulator](materials/me6211_datasheet.pdf)   
+
 
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Shield, Pin, I2C, SPI
