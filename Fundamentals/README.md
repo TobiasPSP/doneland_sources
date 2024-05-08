@@ -1,4 +1,4 @@
-<img src="/assets/images/baking.jpg" width="80%" height="80%" />
+<img src="/assets/images/fundamentals.png" width="80%" height="80%" />
  
 # Fundamentals
 
