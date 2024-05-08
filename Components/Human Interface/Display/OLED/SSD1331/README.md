@@ -63,7 +63,7 @@ The *SPI* interface is implemented as a typical *three-wire design* using the pi
 ### Connecting To ESP32 S2 Mini
 In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
 
-| Pin S2 | Pin Display | Description |
+| Pin Display | Pin Wemos/Lolin S2 Mini | Description |
 | --- | --- | --- |
 | Gnd | Gnd | Ground |
 | VCC | 3V3 | 3.3V |
