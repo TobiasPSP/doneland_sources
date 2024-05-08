@@ -36,6 +36,12 @@ The *S2 Mini* uses a *ESP32 S2* main processor:
 | Speed | 240MHz |
 | Coprocessor | RISC-V ULP Coprocessor |
 
+> [!TIP]
+> The relatively new ESP32-S2FN4R2 chip integrates flash and psram into the S2 silicon.
+
+
+
+
 
 Due to its form factor, the *S2 Mini* does not expose *all available hardware pins*. With *27 GPIOs*, this board is most sufficient for most *DIY projects*.
 
