@@ -14,3 +14,5 @@ When connecting *digital components* such as *sensors*, *displays* and alike, *i
 
 
 > Tags: Interface, I2C, SPI
+
+[Visit Page on Website](https://done.land/fundamentals/interface?076732051108241158) - created 2024-05-07 - last edited 2024-05-07

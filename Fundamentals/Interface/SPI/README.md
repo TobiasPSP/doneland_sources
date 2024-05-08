@@ -112,3 +112,5 @@ Data communication over *SPI* follows these steps:
 
 
 > Tags: Interface, SPI, CLK, SCL, SCLK, SS, DC, MOSI, MISO, SDO, SDI, SDA
+
+[Visit Page on Website](https://done.land/fundamentals/interface/spi?090695051108241158) - created 2024-05-07 - last edited 2024-05-07
