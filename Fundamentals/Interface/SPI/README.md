@@ -26,7 +26,7 @@ A dedicated *chip select* line from *master* to *each client* is used to *select
 The true *hardware cost* on the *master side* is *three GPIO* to support *SPI* plus *one additional GPIO **per slave***.
 
 > [!TIP]
-> This cost can be alleviated by using more efficient solutions such as a *multiplexer* that requires just one *GPIO* and can *select **one** out of a large number* of output pins.
+> This cost can be alleviated by using more efficient solutions such as a *multiplexer* (like the one below) that requires just one *GPIO* and can *select **one** out of a large number* of output pins.
 
 
 
@@ -79,8 +79,8 @@ The *four-wire* connection is the *default SPI setup* and enables true *full dup
 
 | Pin | Common Labels | Description |
 | --- | --- | --- |
-| Clock | CLK, SCL, SCLK, SS | signal sent by *master* to synchronize data and set the data trasfer speed |
-| Chip Select | CS | signal used by *master* to select a *slave* |
+| Clock | CLK, SCL, SCLK | signal sent by *master* to synchronize data and set the data trasfer speed |
+| Chip Select | CS, SS | signal used by *master* to select a *slave* |
 | Master Out Slave In | MOSI, SDO, SDA | Data sent by master |
 | Master In Slave Out | MISO, SDI | Data received by master |
 
