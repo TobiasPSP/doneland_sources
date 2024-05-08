@@ -55,7 +55,7 @@ Due to its form factor, the *S2 Mini* does not expose *all available hardware pi
 | SAR ADC | 2x13bit, up to 20 channels, best for voltages <2.45V |
 | DAC | 2x8bit, second DAC [has fixable issues](https://vuknikolic.rs/en/posts/esp32/dac_fix/) |
 | Touch | 12xtouch sensing IOs |
-| SPI | 4x, 2xSPI usable |
+| SPI | 4x, SPI2 and SPI3 usable: HSPI and VSPI |
 | I2S | 1x |
 | I2C | 2x |
 | UART | 2x |
