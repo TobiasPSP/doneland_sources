@@ -82,11 +82,19 @@ In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
 
 
 
-### Example Code
+### Example #1
 Here is example code taken from the *Adafruit SSD1306 library* that I used to create the pictures on this page. The code is already adjusted and runs fine in *platformio*:
 
 
 <img src="images/oled_ssh1331_overview_t.png" width="100%" height="100%" />
+
+> [!CAUTION]
+> I was unable to run this code with *hardware SPI* on a *S2 Mini* (despite using the hardware SPI pins). Only the (much slower) software SPI constructor was able to control the display. See the following examples for more.
+
+
+
+
+
 
 ````c++
 /***************************************************
@@ -131,12 +139,11 @@ Here is example code taken from the *Adafruit SSD1306 library* that I used to cr
 #define WHITE           0xFFFF
 
 // Option 1: use any pins but a little slower
+// this was the ONLY option that worked for me on a S2 Mini microcontroller:
 Adafruit_SSD1331 display = Adafruit_SSD1331(cs, dc, mosi, sclk, rst);
 
 // Option 2: must use the hardware SPI pins
-// (for UNO thats sclk = 13 and sid = 11) and pin 10 must be
-// an output. This is much faster - also required if you want
-// to use the microSD card (see the image drawing example)
+// this constructor did not work and seemed to not change the display content at all
 //Adafruit_SSD1331 display = Adafruit_SSD1331(&SPI, cs, dc, rst);
 
 float p = 3.1415926;
@@ -432,6 +439,190 @@ board = lolin_s2_mini
 framework = arduino
 lib_deps = adafruit/Adafruit SSD1331 OLED Driver Library for Arduino@^1.2.0
 ````
+
+## Example #2
+
+Due to the issues with *hardware SPI*, I decided to use one of the other popular *SSD1331 libraries:* namely *usglib*. This library is similar to *u8g2* in that it supports a multitude of hardware. While *u8g2* targets *monochrome* displays, *usglib* does the same for *color displays*.
+
+Like usual with these libraries, the connected device is chosen by *commenting in* the appropriate constructor line. Here are the two constructors I used for the *96x64 color OLED display:
+
+````c++
+// Software-defined SPI pins:    
+Ucglib_SSD1331_18x96x64_UNIVISION_SWSPI ucg(/*sclk=*/ 7, /*data=*/ 11, /*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+
+// Hardware SPI pins:
+//Ucglib_SSD1331_18x96x64_UNIVISION_HWSPI ucg(/*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+````
+
+The library comes with many great example sketches. I picked the *FPS* example which performs *speed tests*, figuring this would be a nice added value when comparing the performance of *software SPI* versus *hardware SPI*.
+
+Just make sure you pick one of the two constructors, and comment out the other one. The code below starts by using the *software SPI* pins:
+
+````
+#include <SPI.h>
+#include "Ucglib.h"
+
+    
+// Software-defined SPI pins:    
+Ucglib_SSD1331_18x96x64_UNIVISION_SWSPI ucg(/*sclk=*/ 7, /*data=*/ 11, /*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+
+// Hardware SPI pins:
+//Ucglib_SSD1331_18x96x64_UNIVISION_HWSPI ucg(/*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+
+void setup(void) {
+  delay(1000);
+  ucg.begin(UCG_FONT_MODE_TRANSPARENT);
+  ucg.setColor(0, 0,0,0);
+  ucg.setColor(1, 0,0,0);
+  ucg.setColor(2, 0,0,0);
+  ucg.setColor(3, 0,0,0);
+}
+
+/*
+  Linear Congruential Generator (LCG)
+  z = (a*z + c) % m;  
+  m = 256 (8 Bit)
+  
+  for period:
+  a-1: dividable by 2
+  a-1: multiple of 4
+  c: not dividable by 2
+  
+  c = 17
+  a-1 = 64 --> a = 65
+*/
+uint8_t z = 127;	// start value
+uint8_t lcg_rnd(void) {
+  z = (uint8_t)((uint16_t)65*(uint16_t)z + (uint16_t)17);
+  return z;
+}
+
+void draw_text(void) {
+  ucg.setFont(ucg_font_ncenR14_tr);
+  //ucg.setColor(255, 255, 255);
+  ucg.setColor(lcg_rnd(),lcg_rnd(),lcg_rnd());
+  ucg.setPrintPos(0,20);
+  ucg.print("The quick brown");
+  ucg.setPrintPos(0,40);
+  ucg.print("fox jumps over");
+  ucg.setPrintPos(0,60);
+  ucg.print("the lazy dog");
+}
+
+void draw_box(void) {
+  ucg_int_t x, y, w, h;
+  ucg.setColor(lcg_rnd(),lcg_rnd(),lcg_rnd());
+  x = lcg_rnd() & 31;
+  y = lcg_rnd() & 31;
+  w = 63;
+  w += lcg_rnd() & 31;
+  h = 63;
+  h += lcg_rnd() & 31;
+  ucg.drawBox(x,y,w, h);
+}
+
+void draw_gradient_box(void) {
+  ucg_int_t x, y, w, h;
+  static uint8_t idx = 0;
+  switch(idx & 3)
+  {
+    case 0: ucg.setColor(0, lcg_rnd(),lcg_rnd(),lcg_rnd()); break;
+    case 1: ucg.setColor(1, lcg_rnd(),lcg_rnd(),lcg_rnd()); break;
+    case 2: ucg.setColor(2, lcg_rnd(),lcg_rnd(),lcg_rnd()); break;
+    case 3: ucg.setColor(3, lcg_rnd(),lcg_rnd(),lcg_rnd()); break;
+  }
+  idx++;
+  x = lcg_rnd() & 31;
+  y = lcg_rnd() & 31;
+  w = 63;
+  w += lcg_rnd() & 31;
+  h = 63;
+  h += lcg_rnd() & 31;
+  ucg.drawGradientBox(x,y,w, h);
+}
+
+
+// returns FPS*10
+uint16_t measure(void (*draw_fn)(void)) {
+  uint16_t FPS10 = 0;
+  uint32_t time;
+
+  ucg.clearScreen();
+
+  time = millis() + 10*1000;
+  do {
+    draw_fn();
+    FPS10++;
+  } while( millis() < time );
+  
+  return FPS10;  
+}
+
+
+static const unsigned char u8d_tab[3]  = { 100, 10, 1 } ;
+const char *u8dp(char * dest, uint8_t v)
+{
+  uint8_t pos;
+  uint8_t d;
+  uint8_t c;
+  for( pos = 0; pos < 3; pos++ )
+  {
+      d = '0';
+      c = *(u8d_tab+pos);
+      while( v >= c )
+      {
+	v -= c;
+	d++;
+      }
+      dest[pos] = d;
+  }  
+  dest[3] = '\0';
+  return dest;
+}
+
+/* v = value, d = number of digits */
+const char *u8d(uint8_t v, uint8_t d)
+{
+  static char buf[8];
+  d = 3-d;
+  return u8dp(buf, v) + d;
+}
+
+const char *convert_FPS(uint16_t fps) {
+  static char buf[6];
+  strcpy(buf, u8d( (uint8_t)(fps/10), 3));
+  buf[3] =  '.';
+  buf[4] = (fps % 10) + '0';
+  buf[5] = '\0';
+  return buf;
+}
+
+void show_result(const char *s, uint16_t fps)  {
+  ucg.clearScreen();
+  ucg.setFont(ucg_font_helvR18_tr);
+  ucg.setColor(255, 255, 255);
+  ucg.setPrintPos(0,25);
+  ucg.print(s);
+  ucg.setPrintPos(0,50);
+  ucg.print(convert_FPS(fps));  
+  delay(2000);
+}
+
+void loop(void)
+{
+  show_result("Text", measure(draw_text));
+  show_result("Box", measure(draw_box));
+  show_result("Gradient", measure(draw_gradient_box));
+  delay(500); 
+}
+````
+
+### Hardware SPI 70x Faster
+The code ran flawlessly both with *software SPI* and with *hardware SPI* . It runs three *speed drawing tests*: *Text*, *Boxes*, and *Gradients*. At the end of each test, it reports back the achieved *frame rate*. When all three tests are completed, the code starts over again.
+
+Obviously, the speed of *software SPI* depends on many factors including the microcontroller. Generally, though, *software SPI* is always dramatically slower than the optimized *hardware SPI*. This may not become evident when you just output a few lines of text. When doing animations or displaying video, the speed differences are dramatically.
+
+The test above exposed that with *software SPI*, the *average framerate* was around *1-2fps*. With *hardware SPI*, it was typically around *70fps* and better.
 
 
 ## Data Sheets
