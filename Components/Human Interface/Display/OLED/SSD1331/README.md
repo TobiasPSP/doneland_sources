@@ -6,11 +6,15 @@
 
 Most *OLED displays* are *monochrome*. *OLED displays* using the *SSD1331 driver* can display 65K colors.
 
-<img src="images/oled_ssh1331_front_t.png" width="60%" height="60%" />
+<img src="images/oled_ssh1331_text2_t.png" width="60%" height="60%" />
 
 ## Resolution
 
-Since *full color OLED displays* are still quite expensive, most of these displays are *very small* and feature a *limited resolution*. Entry-level displays are *0.95inch* at a resolution of *96x64* pixels and typically work with *3.3V* and *5V*.
+Since *full color OLED displays* are still quite expensive, most displays are *very small* with *limited resolution*: for example *0.95inch* at a resolution of *96x64*. 
+
+Regardless, the added color capabilities help these small *displays* carry over *a lot more content* than *monochrome alternatives*.
+
+<img src="images/oled_ssh1331_circles_t.png" width="60%" height="60%" />
 
 ## Interface
 
@@ -19,20 +23,19 @@ Due to the higher data volume that is required for color displays, these *OLED d
 
 ## Libraries
 
-There is a variety of libraries to select from, for example the *Adafruit SSD1331 OLED Driver Library for Arduino*. 
+There is a number of libraries to select from, for example *Adafruit SSD1331 OLED Driver Library for Arduino*. 
 
+<img src="images/oled_ssh1331_stripes_t.png" width="60%" height="60%" />
 
 ## Wiring
-*SSD1331*-based displays use the faster *SPI interface* which requires more *GPIOs* compared to *I2C* and makes wiring a bit more complex.
+*Pin labels* on this *OLED display breakout board* are *confusing* as they often do not use the commonly used *SPI pin names*. 
 
-### Confusing Pin Labels
-
-The *pin labels* on this *OLED display breakout board* are *confusing* because they do not use the commonly used *SPI pin names*. Instead, some pins are labeled *SCL* and *SDA* which would typically indicate support for *I2C* interfaces.
+Some pins are labeled *SCL* and *SDA* and suggest an *I2C* interface.
 
 
 <img src="images/oled_ssh1331_pins_t.png" width="100%" height="100%" />
 
-That is *not the case*. The display supports *SPI*. It does not support *I2C*. Here is what the pins do:
+That is *not the case*. The display supports *SPI* only. Here is what the pins do:
 
 
 
@@ -55,6 +58,7 @@ The *SPI* interface is implemented as a typical *three-wire design* using the pi
 > Pin *DC* is not common and used with components that can receive large amounts of data (such as *displays*): when this pin is pulled *low*, it indicates that the data received is a *command*, else *display data*.
 
 
+<img src="images/oled_ssh1331_text_t.png" width="60%" height="60%" />
 
 ### Connecting To ESP32 S2 Mini
 In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
@@ -80,6 +84,9 @@ In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
 
 ### Example Code
 Here is example code taken from the *Adafruit SSD1306 library* that I used to create the pictures on this page. The code is already adjusted and runs fine in *platformio*:
+
+
+<img src="images/oled_ssh1331_overview_t.png" width="100%" height="100%" />
 
 ````c++
 /***************************************************
