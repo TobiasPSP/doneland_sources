@@ -5,7 +5,7 @@
 > Powerful ESP32 S2 Board That Works With ESP8266 Shields
 
 
-The *S2 Mini* microcontroller board (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) is a powerful board that uses the same *form factor* as its equally popular predecessor, the *ESP8266 D1 Mini*.
+The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) is a powerful board that uses the same *form factor* as its equally popular predecessor, the *ESP8266 D1 Mini*.
 
 
 
@@ -53,7 +53,7 @@ Due to its form factor, the *S2 Mini* does not expose *all available hardware pi
 | Temperature Sensor | -20-+110C |
 | eFuse | 1792bit for user data |
 | SAR ADC | 2x13bit, up to 20 channels, best for voltages <2.45V |
-| DAC | 2x8bit |
+| DAC | 2x8bit, second DAC [has fixable issues](https://vuknikolic.rs/en/posts/esp32/dac_fix/) |
 | Touch | 12xtouch sensing IOs |
 | SPI | 4x, 2xSPI usable |
 | I2S | 1x |
