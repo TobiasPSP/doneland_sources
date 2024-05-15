@@ -121,7 +121,23 @@ The device comes with an attachable temperature probe:
 The temperature is displayed at the bottom of the screen. The probe can be attached to *powerbanks* or *power supplies* under test in order to ensure they do not overheat.
 
 ## System Menu
-Long-pressing *Start* opens the internal *system menu* where you can change the language, clear and calibrate settings.
+Long-pressing *Start* opens the internal *system menu* where you can change advanced settings:
+
+1. Language (Chinese/English)
+2. Reset counters (total time, capacity, energy) 
+3. Nulling voltage and current
+4. Calibrating voltage
+5. Current calibration
+6. Display brightness (active)
+7. Display brightness (standby)
+8. Time to switch to standby mode
+9. Calibration of temperature probe
+10. Calibration of external sensor
+11. Setting maximum current, initially 185W (should be lowered to <150W)
+12. Factory defaults
+13. Save and Exit
+
+
 
 
 
