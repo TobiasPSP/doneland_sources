@@ -157,7 +157,7 @@ A *Micro USB* port on the right side lets you connect the device to a *computer*
 > The *DL24* protocol seems to be compatible to *TX100*. [Tools](https://github.com/misdoro/Electronic_load_px100) designed for this load seem to work at least with *some versions* of *DL24*.
 
 
-Apparently, there are also ready-to-use [generic software solutions](https://www.eevblog.com/forum/testgear/program-that-can-log-from-many-multimeters/msg2981004/#msg2981004) that can read and chart output from this electronic load.
+Apparently, there are also ready-to-use [generic software solutions](https://www.eevblog.com/forum/testgear/program-that-can-log-from-many-multimeters/msg2981004/#msg2981004) that can [read and chart output](https://lygte-info.dk/project/TestControllerIntro%20UK.html) from this electronic load.
 
 > Tags: Electronic Load, Constant Current, Constant Voltage, Constant Power, Constant Resistance, CC, CV, CP, CW, CR
 
