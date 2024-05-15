@@ -133,11 +133,12 @@ The device can be remotely controlled via *Bluetooth* and *USB*.
 
 For *Android smartphones*, there is a *free app* that can be used to connect to the *bluetooth connector*. There is no *app* for *iOS*. ou can use *bluetooth* with free [custom apps](https://github.com/syssi/esphome-atorch-dl24) though.
 
-A *Micro USB* port on the right side lets you connect the device to a *computer*. The device can then be read and controlled via a *USB cable* (included). Either use the *PC software* supplied by the vendor, or use [free tools](https://github.com/dimas/DL24-python) that [reverse-engineered](https://auto-scripting.com/2020/05/03/atorch-dl24-hack-1/) the protocol.
+A *Micro USB* port on the right side lets you connect the device to a *computer*. The device can then be read and controlled via a *USB cable* (included). Either use the [PC software](https://www.mediafire.com/folder/1c04afq923397/A3#m09i9bjv8703d) supplied by the vendor, or use [free tools](https://github.com/dimas/DL24-python) that [reverse-engineered](https://auto-scripting.com/2020/05/03/atorch-dl24-hack-1/) the protocol.
 
 <img src="images/tool_load_dc24_usb_t.png" width="80%" height="80%" />
 
-
+> [!TIP]
+> The *DL24* protocol seems to be compatible to *TX100*. [Tools](https://github.com/misdoro/Electronic_load_px100) designed for this load seem to work at least with *some versions* of *DL24*.
 
 
 > Tags: Electronic Load, Constant Current, Constant Voltage, Constant Power, Constant Resistance, CC, CV, CP, CW, CR
