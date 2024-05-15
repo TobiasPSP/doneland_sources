@@ -33,6 +33,12 @@ The device comes without a housing. A microcontroller and built-in firmware supp
 | Interfaces | Bluetooth LE, USB |
 | Software | PC-Program, Android App |
 
+## Warning
+This electronic load is rated for testing power supplies outputting up to *200V* and/or up to *20A* (at a maximum power of *150W*). 
+
+These specs do not go inline with the way the device and its components are designed. When getting even close to these values, chances are high that the *MosFET* will explode with a bang.
+
+Reviewing the many blog posts who thoroughly tested this (and similar) loads, you should definitely stay below *32V* (which makes sense from a safety aspect anyway), and keep currents under *10A*. That said, these safe values are still more than sufficient for most hobbyist needs.
 
 ## Setup
 
