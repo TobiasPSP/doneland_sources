@@ -110,3 +110,5 @@ A *Micro USB* port on the right side lets you connect the device to a *computer*
 
 
 > Tags: Electronic Load, Constant Current, Constant Voltage, Constant Power, Constant Resistance, CC, CV, CP, CW, CR
+
+[Visit Page on Website](https://done.land/tools/devices/electronicload/dl24atorch?221515051115241319) - created 2024-05-14 - last edited 2024-05-14
