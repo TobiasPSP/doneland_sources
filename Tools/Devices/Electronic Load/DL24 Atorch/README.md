@@ -13,7 +13,26 @@ While they may not support extremely high currents or voltages compared to more 
 <img src="images/tool_load_dc24_overview_t.png" width="80%" height="80%" />
 
 
+> [!NOTE]
+> There are a number of slightly different hardware versions available. Some come with *USB input connectors* mounted to the main PCB while others ship with a *USB extension PCB* that can be connected to *screw termials* when needed.
+
+
+
+
 The device comes without a housing. A microcontroller and built-in firmware supports providing *constant current* (CC), *constant voltage* (CV), *constant resistance* (CR), and *constant power* (CP).
+
+| Feature | Description |
+| --- | --- |
+| Over-Current Protection | >21A |
+| Over-Temperature Protection | >100C |
+| Overload Protection | >185W |
+| Timer Cutoff | Cut-Off after interval |
+| Voltage Cutoff | Under-Voltage Protection |
+| Calibration | Current-calibration interface |
+| Test Connections | Terminal, USB-C, Mini-USB, Micro-USB, Barrel Jack |
+| Interfaces | Bluetooth LE, USB |
+| Software | PC-Program, Android App |
+
 
 ## Setup
 
@@ -106,9 +125,9 @@ Long-pressing *Start* opens the internal *system menu* where you can change the 
 ## Remote Control
 The device can be remotely controlled via *Bluetooth* and *USB*.
 
-For *Android smartphones*, there is a *free app* that can be used to connect to the *bluetooth connector*. There is no *app* for *iOS*.
+For *Android smartphones*, there is a *free app* that can be used to connect to the *bluetooth connector*. There is no *app* for *iOS*. ou can use *bluetooth* with free [custom apps](https://github.com/syssi/esphome-atorch-dl24) though.
 
-A *Micro USB* port on the right side lets you connect the device to a *computer*. The device can then be read and controlled via a *USB cable* (included). Either use the *PC software* supplied by the vendor, or use free tools that reverse-engineered the protocol.
+A *Micro USB* port on the right side lets you connect the device to a *computer*. The device can then be read and controlled via a *USB cable* (included). Either use the *PC software* supplied by the vendor, or use [free tools](https://github.com/dimas/DL24-python) that [reverse-engineered](https://auto-scripting.com/2020/05/03/atorch-dl24-hack-1/) the protocol.
 
 <img src="images/tool_load_dc24_usb_t.png" width="80%" height="80%" />
 
