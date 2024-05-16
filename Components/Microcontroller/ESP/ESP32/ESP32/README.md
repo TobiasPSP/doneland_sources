@@ -6,9 +6,7 @@
 
 
 
-The *original **ESP32*** was launched in 2016 and raised the *feature bar* as mentioned before.
-
-The original **ESP32** was called *WROOM*. A variant with extra *pSRAM* was called *WROVER*. There are dev boards with a built-in *PCB antenna*, and boards with an *IPX connector* to connect a *real external antenna* for more reach.
+The *original **ESP32*** was launched in 2016 and called *WROOM*. A variant with extra *PSRAM* was called *WROVER*. There are dev boards with a built-in *PCB antenna*, and boards with an *IPX connector* to connect a *real external antenna* for more reach.
 
 <img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
 
