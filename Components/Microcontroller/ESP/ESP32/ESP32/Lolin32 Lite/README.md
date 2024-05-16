@@ -21,14 +21,31 @@ Here are the fundamental board details:
 | Memory | external 4MB Flash |
 | Clock Speed | 240MHz |
 | Charging | 500mA charging current, LTH7/HM4054H |
+| Power Consumption | 45.4mA (normal), 1.28mA (sleep mode) |
 | Internal LED | GPIO22 |
 | Battery | LiIon/LiPo 3.7V |
 | USB-to-TTL | CH340 |
 | Size | 49.2x25.5mm |
 | Weight  | 6.6g |
 
+### Comparison Lolin32
+The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin32* development board. The latter has its *JST 2.0 battery socket* placed on the side rather than next to the *USB connector*.
+
+The significant differences between *Lolin32 **Lite*** and *Lolin32* is the lack of these pins: *RX0*, *TX0*, and *5V*. 
+
+> [!NOTE]
+> *Lolin32 **Lite*** is specifically designed to be operated by a connected battery in a *3.3V environment*. The board is not designed to receive power via an external power supply nor does it expose *5V* for external components. Its *GPIOs* are not *5V tolerant* either.
+
+
+
+
+
+Some connections differ just in the number of exposed pins: there is just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
+
+
+
 ## Caveats
-This board is specifically designed for *portable devices* with a battery and a *small footprint*. This results in a few caveats.
+This board is specifically designed for *portable devices* with a battery and focuses on a *small footprint*. This results in a few caveats.
 
 ### Power Supply
 This board needs to be powered either by *USB* or *battery*. There is no separate *5V input pin*. While the board does output *3.3V* at its designated pin, you may not be able to run the board by providing *3.3V input*. If you do, the battery will not be charged.
@@ -40,6 +57,13 @@ The board exposes *19 GPIOs* and *4 inputs*. Compared to other boards, the numbe
 
 
 <img src="images/esp32_lolin_back_t.png" width="80%" height="80%" />
+
+> [!CAUTION]
+> All *GPIO* are *3.3V* and *not 5V tolerant*. Use a *level shifter* to connect *5V devices*.
+
+
+
+
 
 ## Pins
 The board comes with *26 pins*. 
@@ -71,6 +95,7 @@ Here are reasons for choosing a **Lolin32 Lite**:
 | --- | --- |
 | Battery | comes with everything needed to hook up a *LiIon/LiPo* battery |
 | Price | The board is relatively cheap |
+| 3.3V | You are planning to use *3.3V* components and do not need *5V* support |
 
 These are *potential* reasons to choose a different microcontroller type:
 
@@ -78,6 +103,7 @@ These are *potential* reasons to choose a different microcontroller type:
 | --- | --- |
 | External Power | Cannot be operated with external *3.3V power supply* |
 | Limited GPIOs | Only relatively few *GPIO* are exposed. When you need a massive number of *GPIOs* or access to *specific CPU pins*, this board may not work for you |
+| 5V components | if you need to work with *5V* components you might want to consider a different board. The *Lolin32 Lite* neither exposes *5V*, nor are its GPIOs *5V tolerant*. |
 
 
 <img src="images/esp32_lolin_front_t.png" width="80%" height="80%" />
@@ -114,8 +140,8 @@ Once the microcontroller board is successfully connected to the computer, most b
 ## Materials
 [Lolin Lite eBook](https://megma.ma/wp-content/uploads/2021/08/Wemos-ESP32-Lolin32-Board-BOOK-ENGLISH.pdf)   
 [HM4054H Charger](materials/hm4054h_datasheet.pdf)   
-[ÃƒÆ’Ã¢â‚¬â€œTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
-[ÃƒÆ’Ã¢â‚¬â€œTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
+[ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
+[ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
 
 
 
@@ -124,4 +150,4 @@ Once the microcontroller board is successfully connected to the computer, most b
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/esp32/lolin32?601146050916240343) - created 2024-05-15 - last edited 2024-05-15
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/esp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-05-15
