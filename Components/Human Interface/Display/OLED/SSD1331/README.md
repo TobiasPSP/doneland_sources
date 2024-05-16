@@ -92,6 +92,10 @@ Here is example code taken from the *Adafruit SSD1306 library* that I used to cr
 > I was unable to run this code with *hardware SPI* on a *S2 Mini* (despite using the hardware SPI pins). Only the (much slower) software SPI constructor was able to control the display. See the following examples for more.
 
 
+When the display is connected in the wrong manner or when *hardware SPI* was chosen in code but the connected pins do not provide *hardware SPI*, the display typically shows random pixels:
+
+
+<img src="images/oled_ssh1331_noop2_t.png" width="100%" height="100%" />
 
 
 

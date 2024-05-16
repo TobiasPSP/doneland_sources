@@ -7,6 +7,11 @@
 
 *Switches* are needed to turn electrical power *on* and *off*. In essence, a switch is a component that can control *electrical conductivity* and produce a *very high* resistance (when in *off* state) as well as a *very low* resistance (when in *on* state).
 
+
+<img src="images/switch_classic_multiple2_t.png" width="80%" height="80%" />
+
+
+
 The simple *mechanical switch* is just *one* example for this, and there are many different technologies and strategies.
 
 ## Mechanical Switches And Buttons

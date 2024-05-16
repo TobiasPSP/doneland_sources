@@ -77,6 +77,13 @@ The device is controlled by *four buttons* on the right side of the display. The
 
 
 ## Changing Modes
+The electronic load supports four main modes:
+
+* **Constant Current (CC):** The load adjusts the voltage in order to maintain a *constant current*. This mode is typically used to discharge a battery with a constant current.
+* **Constant Voltage (CV):** The load maintains a constant voltage by adjusting the *current*.
+* **Constant Resistance (CR):** The load acts like a programmable *resistor* and creates the resistance chosen by the user.
+* **Constant Power (CP):** The load draws a *constant power* by adjusting its *resistance*, based on input *voltage*.
+
 To switch the fundamental *load mode*, press and hold *Setup*. Once the main mode display at the top of the screen starts to blink, use *+* and *-* to switch to another mode.
 
 
@@ -85,6 +92,12 @@ To switch the fundamental *load mode*, press and hold *Setup*. Once the main mod
 
 
 If you do not press *+* and *-* quickly enough, the display changes back into the current mode and lets you change its settings.
+
+The picture below shows the *CR* mode where the electronic load creates a fixed resistance:
+
+
+<img src="images/tool_load_dc24_resistance2_t.png" width="80%" height="80%" />
+
 
 ## Changing Settings
 To change the settings for the current mode, press *Setup* and release it immediately. 
