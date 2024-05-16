@@ -114,8 +114,8 @@ Once the microcontroller board is successfully connected to the computer, most b
 ## Materials
 [Lolin Lite eBook](https://megma.ma/wp-content/uploads/2021/08/Wemos-ESP32-Lolin32-Board-BOOK-ENGLISH.pdf)   
 [HM4054H Charger](materials/hm4054h_datasheet.pdf)   
-[ÖTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
-[ÖTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
+[Ã–TH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
+[Ã–TH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
 
 
 
@@ -124,3 +124,4 @@ Once the microcontroller board is successfully connected to the computer, most b
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/esp32/lolin32?601146050916240343) - created 2024-05-15 - last edited 2024-05-15
