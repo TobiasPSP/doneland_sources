@@ -70,16 +70,6 @@ The board comes with *26 pins*.
 
 <img src="images/esp32_lolin_lite_pins_t.png" width="100%" height="100%" />
 
-### Strapping Pins
-*GPIO0* (as well as *GPIO45* and *GPIO46*) are *strapping pins* that play a role when switching the microcontroller to *firmware upload mode*.
-
-| Pin | Strapping Use |
-| --- | --- |
-| GPIO0 | pull down during reset to enable firmware upload mode |
-| GPIO45 | sets SPI voltage: low for 3.3V, high for 1.8V |
-| GPIO46 | pull down to enable ROM messages during boot |
-
-
 ### Pullup And Pulldown
 All *GPIO* pins support internal *pull-up* and *pull-down* resistors.
 
@@ -101,7 +91,7 @@ These are *potential* reasons to choose a different microcontroller type:
 
 | Use Case | Recommendation |
 | --- | --- |
-| External Power | Cannot be operated with external *3.3V power supply* |
+| External Power | Cannot be operated with external *3.3V or 5V power supply* |
 | Limited GPIOs | Only relatively few *GPIO* are exposed. When you need a massive number of *GPIOs* or access to *specific CPU pins*, this board may not work for you |
 | 5V components | if you need to work with *5V* components you might want to consider a different board. The *Lolin32 Lite* neither exposes *5V*, nor are its GPIOs *5V tolerant*. |
 
@@ -140,8 +130,8 @@ Once the microcontroller board is successfully connected to the computer, most b
 ## Materials
 [Lolin Lite eBook](https://megma.ma/wp-content/uploads/2021/08/Wemos-ESP32-Lolin32-Board-BOOK-ENGLISH.pdf)   
 [HM4054H Charger](materials/hm4054h_datasheet.pdf)   
-[ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
-[ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
+[LTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
+[LTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
 
 
 
