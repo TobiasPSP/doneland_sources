@@ -188,7 +188,7 @@ Unfortunately, for the same reasons, the board is fairly large. Its *width* is *
 
 Only one row of header pins would remain accessible.
 
-### Combining Breadboards
+### One Breadboard Isn't Enough
 Most breadboards are modular and can be combined. When you take *two* breadboards and remove *one powerrail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
 
 
@@ -199,21 +199,58 @@ Most breadboards are modular and can be combined. When you take *two* breadboard
 > Make sure you *ground yourself* before fiddling too much with the board trying to place it. Almost all microcontroller breakout boards are sensitive towards static electricity and can be accidentally destroyed by a single static spark.
 
 
-## Challenging: Uploading New Sketches
-Working with the *DevKitC V4* isn't as intuitive as with other boards. For one, it does not have a built-in user-controllable *LED*, so simple *blink* sketches to verify the setup will not work.
+## Challenging: Working With The Board
+Working with the *DevKitC V4* isn't as intuitive as with other boards. 
+
+### No Builtin LED
+For one, it does not have a built-in user-controllable *LED*, so simple *blink* sketches to verify the setup will not work.
 
 > [!NOTE]
 > There *is* a *LED* on the board, however this is the *power LED* that is not user-controllable. 
 
+### No Dedicated Board Definition
+Second, neither *Arduino IDE* nor *platformio* provide a dedicated board *DevKitC V4*, so you need to find a similar board youself. That's no rocket science but also not trivial, especially for novice users.
 
-Second, the board may not be recognized by your computer when you plug in a *USB cable*. This is due to the *USB to UART bridge* this breakout board uses: the *CP2102* from *Silicon Labs* is quite powerful but not as ubiquous as i.e. the *CH340*. Thus, it may not be recognized automatically and requires manual *driver installation*.
+In *platformio*, I opted for *AZ-Delivery-Devkit-V4* (as some of the boards I used were indeed purchased at *AZ-Delivery* before I noticed that the same boards are available at a fraction of the price at *AliExpress*). 
 
-### Is Board Recognized When USB-Connected?
+
+Most likely, the generic board *esp32dev* would have as well worked just fine.
+
+This is *platformio.ini* I successfully used for testing:
+
+
+````
+[env:az-delivery-devkit-v4]
+platform = espressif32
+board = az-delivery-devkit-v4
+framework = arduino
+````
+
+> [!CAUTION]
+> Make sure you remove any *build flags* or other settings that you do not *positively know are necessary*. If you *copy&paste* extra settings from other boards, you may easily run into compile exceptions like "Serial was not declared in this scope".
+
+
+
+
+
+In *Arduino IDE*, the generic board *ESP-WROOM-32* seems like a reasonable choice.
+
+### Manual Driver Installation Required
+
+Worst, the board may not even be recognized by your computer when you plug it in via a *USB cable*. 
+
+This is due to the *USB to UART bridge* used by this board: the *CP2102* from *Silicon Labs* is powerful - but not as ubiquous as i.e. the *CH340*. 
+
+Thus, it may require a manual *driver installation*.
+
+#### Is Board Recognized When USB-Connected?
 The first step in diagnosing issues is to check whether the board gets recognized by the computer when you plug in its USB cable. If a *new device discovered* sound plays, that's a good indicator. However, do make sure whether there is indeed a new *COM Port* visible in *device manager* (on *Windows*).
 
 
 <img src="images/devmgr_usb_com_disc.png" width="80%" height="80%" />
 
+
+#### Install Drivers Manually
 If *no COM Port* appears in *device manager* when you connect the board to the computer, then most likely the *CP210x drivers* are missing.
 
 [Visit Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) and download the appropriate driver package. On *Windows*, I installed *CP210x Windows Drivers* and *CP210x VCP Windows*.
@@ -227,32 +264,28 @@ Once drivers are installed, restart the computer. When you now connect the board
 > [!TIP]
 > If things *still* do not work, make sure you use an appropriate *USB cable*. Try using a cable that you previously successfully used to upload firmware. There are plenty of cheap cables with no data wire connection, high cable resistance, or loose plug connections.
 
-### Triggering Firmware Download Mode
-If you managed to successfully connect the board to your computer, then there is a final challenge to master: the board needs to be set to *firmware download mode* at just the right moment in time.
+### Button Press Required To Upload Sketch
+If you managed to successfully connect the board to your computer, then there is a final challenge to master: the board needs to be set to *firmware download mode* at *just the right moment* in time.
 
-When you upload a new sketch, then your *IDE* by now should be able to identify a *COM port* at which the board is connected.
+When you upload a new sketch, your *IDE* by now should be able to identify a *COM port* at which the board is to be found.
 
-The *IDE* then tries to connect to the microcontroller - which *will fail* if you don't manually intervene.
+The *IDE* next tries to connect to the board - which *will fail* if you don't manually intervene:
 
-As soon as the *IDE* reports that it is trying to connect to the board, hold the *Boot* button and press *EN* shortly. This procedure enables the firmware upload.
+As soon as the *IDE* starts trying to connect to the board, hold the *Boot* button and press *EN* shortly. This procedure enables the firmware download mode. *Only now* will the board respond to the connection requests.
 
-When done right, the *connecting...* message freezes, and then the *IDE* starts to finally upload the new sketch to the board.
-
-> [!NOTE]
-> Most boards do not require button presses at all, or they let you press the buttons to enable the *firmware download mode* whenever it suits you. This board *requires* that you press the buttons *while the IDE is actively trying to connect to the board*.
-
+The *connecting...* message will now hold for a second, and then the *IDE* starts to upload the new sketch to the board.
 
 
 ## Conclusion
-This is a great *development board* to test-drive *ESP32* features because it exposes so many CPU pins.
+The DevKitC V4 is a great *development board* to test-drive *ESP32* features simply because it exposes all important CPU pins.
 
 ### Solid
 
-It's solidly made with a good voltage regulator, and its *street price* of under EUR 2.00 is ok (watch out, you find this same board at some sellers for EUR 12.00 and more which appears completely unreasonable).
+It's solidly made with a good voltage regulator, and its *street price* of under EUR 2.00 is ok, too (don't buy it for EUR 12.00 or more - there are still people selling it for prices like this).
 
-### Cumbersome To Use
+### But, but, but...
 
-There are a lot of down-sides, too, though, which make this board not a recommendation for novices or anyone focusing on convenience:
+There are a lot of down-sides, though, which make this board definitely not a recommendation for novices or anyone focusing on convenience:
 
 * **USB to UART component** apparently requiring manual driver install
 * Cumbersome procedure to enable *firmware download mode*
