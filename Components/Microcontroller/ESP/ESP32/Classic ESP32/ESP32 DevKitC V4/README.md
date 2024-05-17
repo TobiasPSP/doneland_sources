@@ -2,9 +2,13 @@
  
 # ESP32 DevKitC V4
 
-> Original DevKit From Espressif Providing Access To Almost All ESP32 Pins
+> Original DevKit From Espressif Providing Access To Almost All ESP32 Pins - For Experienced Users Only
 
-*ESP32-DevKitC V4* is a small-sized ESP32-based development board produced by the original *ESP32* manufacturer *Espressif*. This board is ideal for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing.
+*ESP32-DevKitC V4* is a small-sized ESP32-based development board produced by the original *ESP32* manufacturer *Espressif*. This board is suitable for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing however it is not easy to use: you may have to manually *install drivers* on your computer to recognize it, and uploading new sketches is very inconvenient as two buttons need to be pressed *in the right way at the right time*. Its *form factor* makes it hard to use on standard breadboards.
+
+Unfortunately, this board has no built-in *user-controllable LED*, and *blink sketches* will not work.
+
+On the *pro* side, the board comes with a good voltage regulator, and once a sketch is successfully uploaded, it works reliably. Street prices for under EUR 2.00 make it a good value, albeit not necessarily for novice users.
 
 The breakout board is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
 
@@ -31,7 +35,7 @@ On the opposite side, a *Micro USB* connector lets you connect the board to a co
 <img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
 
 
-Behind the *USB connector*, a *Silicon Labs CP2102* chip provides the *USB to UART* bridge at speeds of up to 3Mbps.
+Behind the *USB connector*, a *Silicon Labs CP2102* chip provides the *USB to UART* bridge at speeds of up to 3Mbps. This chip may require *manual driver installation* before you can use it.
 
 
 <img src="images/esp32_devkitc_v4_regulator_t.png" width="70%" height="70%" />
@@ -189,7 +193,7 @@ Unfortunately, for the same reasons, the board is fairly large. Its *width* is *
 Only one row of header pins would remain accessible.
 
 ### One Breadboard Isn't Enough
-Most breadboards are modular and can be combined. When you take *two* breadboards and remove *one powerrail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
+Most breadboards are modular and can be combined and rearranged. When you take *two* breadboards and remove *one powerrail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
 
 
 <img src="images/esp32_devkitc_v4_breadboard2_t.png" width="80%" height="80%" />
@@ -289,7 +293,7 @@ There are a lot of down-sides, though, which make this board definitely not a re
 
 * **USB to UART component** apparently requiring manual driver install
 * Cumbersome procedure to enable *firmware download mode*
-* hard-to-read pin labels on PCB
+* hard-to-read and somewhat confusing pin labels on PCB
 * no internal LED (which is just very convenient for simple checks and balances)
 * *wide form factor* that makes it impossible to plug the board into a single standard breadboard.
 
