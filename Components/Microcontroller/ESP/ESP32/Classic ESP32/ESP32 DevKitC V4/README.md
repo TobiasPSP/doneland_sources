@@ -178,6 +178,26 @@ Only relatively old boards have this capacitor in place. If you do find a capaci
 
 
 
+## Practical Considerations
+This board is a *development board* in its best sense: it exposes almost all *ESP32* pins and invites anyone to fully test-drive the *ESP32*.
+
+Unfortunately, for the same reasons, the board is fairly large. Its *width* is *28mm* which is unfortunately *too wide* to place the breakout board on the typical breadboards:
+
+
+<img src="images/esp32_devkitc_v4_breadboard_t.png" width="100%" height="100%" />
+
+Only one row of header pins would remain accessible.
+
+### Combining Breadboards
+Most breadboards are modular and can be combined. When you take *two* breadboards and remove *one powerrail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
+
+
+<img src="images/esp32_devkitc_v4_breadboard2_t.png" width="100%" height="100%" />
+
+
+> [!CAUTION]
+> Make sure you *ground yourself* before fiddling too much with the board trying to place it. Almost all microcontroller breakout boards are sensitive towards static electricity and can be accidentally destroyed by a single static spark.
+
 
 
 
