@@ -83,6 +83,24 @@ Depending on your feature requirements, here is guidance as to which microcontro
 
 
 ## Overview
+*Espressif*, the company producing *ESPxxx* microcontrollers, has never targeted the hpbbyist market: their processors were always targeting commercial *IoT device applications*.
+
+The *ESP32* process family therefore is driven by the needs of this industry, and *DIY hobbyists* happily benefit from the top notch innovations that become available for very little money (as the *commercial market* consumes high numbers of these microcontrollers and dictates low prices).
+
+As *commercial IoT devices* are increasingly interconnected, smartphone controlled, using cloud backends and requiring to run days and weeks on small batteries while providing complex and even AI-based services, the three major fields of innovation are *lower energy consumption*, *support for all broadly used wireless technologies*, and *support for AI vector analysis math coprocessors*.
+
+### Wireless Strategy
+All *ESPxxx*-based microcontrollers come with classic *WiFi support* - with one exception: the new *H2* is the first *ESP32* **not supporting** *WiFI*. That's for a reason because the *H2* has a very special role.
+
+* **Matter over WiFi:** *Matter* is a new wireless standard that makes it simple to *add* and to control *matter-compliant* devices to *smartphones*. Any *WiFI*-enabled *ESPxxx* can be used to build *Matter WiFi* devices.
+* **Matter Thread:** *Matter* can use *Thread* as a transport as well. Only the *C6* and *H2* come with the *802.15.4-compliant* (*5GHz*) technology for *Thread*.
+* **Thread Border Routers:** A *H2* can be used to build a *Thread Border Router* to bridge between *Thread* and the regular *WiFi* world (including all other *ESPxxx* that have no native *Thread* support).
+* **Matter Zigbee Routers:** A *H2* can also be used to build a *Matter Zigbee Router* to bridge between *Zigbee* and the regular *WiFi* world (including all other *ESPxxx* that have no native *Zigbee* support).
+
+
+
+
+
 The original *ESP32* (and its successors like the *C3* or *S3*) are a great choice for almost any microcontroller-based *DIY project*: they are cheap and come with a wealth of useful features, including wireless support for many wireless standards and also sophisticated interfaces (such as *I2S* which enables high-frequency analog sampling and direct memory access).
 
 In addition, *ESP32* development boards come with decent voltage regulators (compared to *ESP8266*), a massive number of *GPIOs*, and generous memory sizes.
