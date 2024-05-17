@@ -6,7 +6,7 @@
 
 *ESP32-DevKitC V4* is a small-sized ESP32-based development board produced by the original *ESP32* manufacturer *Espressif*. This board is suitable for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing however overall it is *not at all easy to use*: you may have to manually *install drivers* on your computer to recognize it, and uploading new sketches is very inconvenient as two buttons need to be pressed *in the right way at the right time*. Its *form factor* makes it hard to use on standard breadboards. Last not least, this board has no built-in *user-controllable LED*, and *blink sketches* will not work.
 
-On the *pro* side, the board comes with a good voltage regulator, and once a sketch is successfully uploaded, it works reliably. Street prices for under EUR 2.00 make it a good value, albeit not necessarily for novice users.
+On the *pro* side, the board comes with a good voltage regulator, and once a sketch is successfully uploaded, it works reliably. Street prices for under EUR 2.00 make it a good value, albeit not necessarily for novice users. It seems to be made for experienced professionals who need a solid board focused on testing.
 
 The breakout board is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
 
