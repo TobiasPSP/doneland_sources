@@ -146,12 +146,19 @@ The tables below provide detailed information for each header pin. The *Pin Type
 | 18 | D0 | IO | GPIO7, D0 |
 | 19 | CLK | IO | GPIO6, CLK |
 
+
+<img src="images/esp32_devkitc_v4_side2_t.png" width="80%" height="80%" />
+
+
 ### Pins To Avoid
 Some pins are used internally for communication between ESP32 and *SPI flash memory*. They are grouped on both sides near the USB connector. Avoid using these pins, as it may disrupt access to the SPI flash memory/SPI RAM:
 
 **D0**-**D3**, **CMD**, and **CLK**
 
 Pins **GPIO16** and **GPIO17** are used internally by *ESP32-WROVER*. If you use the more commonly *ESP32-WROOM*, you are free to use these pins.
+
+
+<img src="images/esp32_devkitc_v4_side_t.png" width="80%" height="80%" />
 
 
 ## Issue On External Power
