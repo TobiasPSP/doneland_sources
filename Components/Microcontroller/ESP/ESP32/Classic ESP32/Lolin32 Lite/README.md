@@ -140,4 +140,4 @@ Once the microcontroller board is successfully connected to the computer, most b
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/esp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-05-15
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-05-15

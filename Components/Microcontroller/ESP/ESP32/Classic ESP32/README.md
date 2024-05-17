@@ -23,4 +23,4 @@ When you purchase **ESP32** dev boards, look for the fine print in the type:
 
 > Tags: Microcontroller, ESP32, WROOM, WROVER, 32D, 32E, WROOM-32D, WROOM-32E, WROVER-B, WROVER-IB, PSRAM
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/esp32?486134031823244200) - created 2024-03-23 - last edited 2024-05-17
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/classicesp32?486134031823244200) - created 2024-03-23 - last edited 2024-05-16

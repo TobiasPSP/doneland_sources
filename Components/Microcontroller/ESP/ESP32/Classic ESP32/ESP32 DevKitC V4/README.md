@@ -92,3 +92,4 @@ Once the new firmware is successfully transferred to the board, press *EN* (rese
 
 > Tags: Microcontroller, ESP32, CP2102
 
+[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/classicesp32/esp32devkitcv4?604445051417245543) - created 2024-05-16 - last edited 2024-05-16
