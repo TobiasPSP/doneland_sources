@@ -9,7 +9,7 @@
 The breakout board is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
 
 
-<img src="images/esp32_devkitc_v4_compare_t.png" width="80%" height="80%" />
+<img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
 
 
 | Item | Description |
@@ -22,19 +22,19 @@ The breakout board is available with a wide variety of original *ESP32 modules*,
 ## Hardware Overview
 The dominant part of the breakout board is the *ESP32 module* (depending on type either with attached PCB antenna, or with an IPX antenna jack). On the inner side, there is unused space unless your breakout board uses the larger *WROVER* module with additional *PSRAM*.
 
-<img src="images/esp32_devkitc_v4_module_t.png" width="100%" height="100%" />
+<img src="images/esp32_devkitc_v4_module_t.png" width="40%" height="40%" />
 
 ### USB Connector
 On the opposite side, a *Micro USB* connector lets you connect the board to a computer.
 
 
-<img src="images/esp32_devkitc_v4_usb_t.png" width="50%" height="50%" />
+<img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
 
 
 Behind the *USB connector*, a *Silicon Labs CP2102* chip provides the *USB to UART* bridge at speeds of up to 3Mbps.
 
 
-<img src="images/esp32_devkitc_v4_regulator_t.png" width="100%" height="100%" />
+<img src="images/esp32_devkitc_v4_regulator_t.png" width="70%" height="70%" />
 
 
 ### Power Supply
@@ -50,7 +50,7 @@ The board provides three *mutually exclusive* ways to power it:
 
 
 
-<img src="images/usb_power_turnoff_t.png" width="100%" height="100%" />
+<img src="images/usb_power_turnoff_t.png" width="70%" height="70%" />
 
 ### Voltage Regulator
 Behind the *CP2102*, there is a dedicated *IRU1117-33* 3.3V *voltage regulator* capable of supplying *800mA*. This regulator is used when you supply voltage either via *USB* or directly via the *5V* pin. The voltage regulator accepts an absolute *maximum input voltage* of *7V*.
@@ -120,7 +120,7 @@ The tables below provide detailed information for each header pin. The *Pin Type
 | 19 | 5V | P | 5V power supply |
 
 
-<img src="images/esp32_devkitc_v4_back_t.png" width="80%" height="80%" />
+<img src="images/esp32_devkitc_v4_back_t.png" width="50%" height="50%" />
 
 ### Header Pin Row 2
 
@@ -147,7 +147,7 @@ The tables below provide detailed information for each header pin. The *Pin Type
 | 19 | CLK | IO | GPIO6, CLK |
 
 
-<img src="images/esp32_devkitc_v4_side2_t.png" width="80%" height="80%" />
+<img src="images/esp32_devkitc_v4_side2_t.png" width="60%" height="60%" />
 
 
 ### Pins To Avoid
@@ -158,7 +158,7 @@ Some pins are used internally for communication between ESP32 and *SPI flash mem
 Pins **GPIO16** and **GPIO17** are used internally by *ESP32-WROVER*. If you use the more commonly *ESP32-WROOM*, you are free to use these pins.
 
 
-<img src="images/esp32_devkitc_v4_side_t.png" width="80%" height="80%" />
+<img src="images/esp32_devkitc_v4_side_t.png" width="60%" height="60%" />
 
 
 ## Issue On External Power
@@ -169,7 +169,7 @@ The reason for this unwanted behavior is a *capacitor* (C15) connected in parall
 The picture shows a newer version with the solder pads for *C15* (but with no capacitor present):
 
 
-<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="100%" height="100%" />
+<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="80%" height="80%" />
 
 Only relatively old boards have this capacitor in place. If you do find a capacitor at this location and suffer from the issue, remove the capacitor manually. 
 
@@ -184,7 +184,7 @@ This board is a *development board* in its best sense: it exposes almost all *ES
 Unfortunately, for the same reasons, the board is fairly large. Its *width* is *28mm* which is unfortunately *too wide* to place the breakout board on the typical breadboards:
 
 
-<img src="images/esp32_devkitc_v4_breadboard_t.png" width="100%" height="100%" />
+<img src="images/esp32_devkitc_v4_breadboard_t.png" width="70%" height="70%" />
 
 Only one row of header pins would remain accessible.
 
@@ -192,7 +192,7 @@ Only one row of header pins would remain accessible.
 Most breadboards are modular and can be combined. When you take *two* breadboards and remove *one powerrail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
 
 
-<img src="images/esp32_devkitc_v4_breadboard2_t.png" width="100%" height="100%" />
+<img src="images/esp32_devkitc_v4_breadboard2_t.png" width="80%" height="80%" />
 
 
 > [!CAUTION]
