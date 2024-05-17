@@ -80,13 +80,10 @@ On the opposite side, a *SMD power LED* is located. It turns on whenever input p
 ### Firmware Download Mode
 The board comes with two *push buttons* labeled *EN* (reset button) and *Boot*.
 
-To reliably put the board in *Firmware download mode*, hold down *Boot* and then press *EN*. The board is now ready to download new firmware via the *USB connector*.
+To reliably put the board in *Firmware download mode*, hold down *Boot* and then press *EN*. The board is now ready to download new firmware via the *USB connector*. This needs to be done exactly at the point when the IDE is trying to connect to the board (not earlier).
 
 Important: once the new firmware is successfully transferred to the board, press *EN* (reset) to *leave* the *Firmware download mode* and run your sketch.
 
-
-> [!TIP]
-> Depending on the currently uploaded firmware, you may not have to press buttons to transfer new firmware to the board: the board may enter the *Firmware download mode* automatically once you connect it via USB cable to a computer and upload a new sketch. This however is not guaranteed, and when your current sketch keeps the microcontroller very busy, the automatic method may fail. Pressing the buttons as illustrated is always a safe and reliable way of *stopping the current sketch* and instructing the board to look for new firmware.
 
 
 ## Pinouts
