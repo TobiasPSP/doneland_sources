@@ -132,21 +132,24 @@ Here is a simple sketch that first *increases* and then *decreases* the voltage 
 
 
 ````c++
-#define DAC1 25       // DAC Ch1 Output for classic ESP32
-//#define DAC1 17       // DAC Ch1 Output for ESP32-S2
-#define FREQUENCY 100 // signal frequency in Hertz
+#include <Arduino.h>
+
+#define DAC1 25       // ESP32:    DAC Ch1 
+//#define DAC1 17     // ESP32-S2: DAC Ch1 
+#define FREQUENCY 500 // signal frequency in Hertz
+
+unsigned long excessTime = 0;
 
 void setup(){
     // calculate required delay in milliseconds
     // we have 512 values per wave
     // One signal takes 20uS
     // the pure generation time is 512*20uS
-    unsigned long signalTime = 512 * 20
+    unsigned long signalTime = 512 * 20;
     // calculate the signal time for the desired frequency
-    unsigned long desiredSignalTime = 1000000 * FREQUENCY
+    unsigned long desiredSignalTime = 1000000 * FREQUENCY;
     // calculate the excess time to wait
-    unsigned long excessTime = (desiredSignalTime - signalTime)/512
-
+    excessTime = (desiredSignalTime - signalTime)/512;
 }
 
 void loop() {
