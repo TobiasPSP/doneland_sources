@@ -1,4 +1,4 @@
-<img src="/assets/images/butler.jpg" width="80%" height="80%" />
+<img src="/assets/images/electronicload2.png" width="80%" height="80%" />
  
 # Electronic Load
 
