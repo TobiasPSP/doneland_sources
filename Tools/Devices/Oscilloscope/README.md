@@ -39,3 +39,4 @@ An oscilloscope with a 100 Msps sample rate might have a bandwidth of around 20 
 
 > Tags: Voltage, Frequency, Sample Rate, Bandwidth, Resolution, Diagnosis, Waveform
 
+[Visit Page on Website](https://done.land/tools/devices/oscilloscope?464692052018240527) - created 2024-05-17 - last edited 2024-05-17

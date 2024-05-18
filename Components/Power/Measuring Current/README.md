@@ -39,4 +39,4 @@ There are *two* physical effects proportional to the flow of *current*:
 
 > Tags: Measure, Current, Voltage Drop, Hall Effect, Shunt
 
-[Visit Page on Website](https://done.land/components/power/measuringcurrent?376991020426240854) - created 2024-03-10 - last edited 2024-05-18
+[Visit Page on Website](https://done.land/components/power/measuringcurrent?376991020426240854) - created 2024-03-10 - last edited 2024-05-17
