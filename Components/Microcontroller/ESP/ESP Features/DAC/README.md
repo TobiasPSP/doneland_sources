@@ -358,7 +358,7 @@ This has two benefits:
 * **Non-Blocking:** `loop()` is not doing anything and could be used to execute other code, i.e. a user interface to change signal parameters on the fly. 
 * **Frequency Adjustments:** Adjusting the signal frequency is now trivial as it just requires to change the *timer interrupt interval*.
 
-Here is the modi­fied code that generates a *sine wave* at exactly *1kHz*:
+Here is the modiÃ‚Â­fied code that generates a *sine wave* at exactly *1kHz*:
 
 ````c++
 #include <Arduino.h>
@@ -413,8 +413,165 @@ This is the result:
 
 <img src="images/sine_espressifapi_one_khz.png" width="80%" height="80%" />
 
+## I2S And DMA
+
+By using *DMA*, the built-in *DAC* can produce *wave forms* at much higher sampling rates and frequencies.
+
+The sketch below produces a *sine wave* at a frequency of *65kHz*:
+
+````c++
+/* DAC Cosine Generator Example
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+#include <Arduino.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+
+#include "soc/rtc_io_reg.h"
+#include "soc/rtc_cntl_reg.h"
+#include "soc/sens_reg.h"
+#include "soc/rtc.h"
+
+#include "driver/dac.h"
+
+// signal frequency is determined by frequency_step like this:
+// frequency_step = desiredFrequencyHz x 65536 / 8500000
+// -or-
+// frequency = 8500000 x frequency_step / 65536
+// 8: 1.04kHz
+// 16: 2.08kHz
+// 50: 6.5kHz
+// 100: 12.97kHz
+// 200: 25.94kHz
+// 500: 64.85kHz
+int frequency_step = 500;  // Frequency step for CW generator
+
+int clk_8m_div = 0;      // RTC 8M clock divider (0=8MHz)
+int scale = 1;           // 1/2 scale
+int offset;              // no offset
+int invert = 2;          // invert MSB (most significant bit) for sine wave
+
+float frequency = RTC_FAST_CLK_FREQ_APPROX / (1 + clk_8m_div) * (float) frequency_step / 65536;
+        
+
+// all manipulations are direct writes to a particular register
+// DAC is configured using register SENS_SAR_DAC_CTRL1_REG and SENS_SAR_DAC_CTRL2_REG
+// SENS_SAR_DAC_CTRL1_REG enables the cosine generator
+// SENS_SAR_DAC_CTRL2_REG connects it to a DAC channel
+
+// Register bits can be changed using SET_PERI_REG_MASK();
 
 
-> Tags: ESP32, S2, DAC, DMA, Direct Memory Access
+// enables the cosine generator for a DAC channel:
+void dac_cosine_enable(dac_channel_t channel)
+{
+    // Step 1: ENABLE the cosine generator:
+    SET_PERI_REG_MASK(SENS_SAR_DAC_CTRL1_REG, SENS_SW_TONE_EN);
+    
+    // Step 2: CONNECT the cosine generator to a DAC channel:
+    switch(channel) {
+        // cosine generator is enabled per channel using SENS_DAC_CW_EN1_M and SENS_DAC_CW_EN2_M
+        // MSB must be inverted by SENS_DAC_INV1 and SENS_DAC_INV2 
+        case DAC_CHANNEL_1:
+            SET_PERI_REG_MASK(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_CW_EN1_M);
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV1, 2, SENS_DAC_INV1_S);
+            break;
+        case DAC_CHANNEL_2:
+            SET_PERI_REG_MASK(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_CW_EN2_M);
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV2, 2, SENS_DAC_INV2_S);
+            break;
+    }
+}
+
+
+// frequency (for both channels)is determined by two parameters:
+// clk_8m_div (RTC 8M clock divider): 0=8Mhz clock, range is 0-273
+// frequency_step: range is 1-65535
+void dac_frequency_set(int clk_8m_div, int frequency_step)
+{
+    REG_SET_FIELD(RTC_CNTL_CLK_CONF_REG, RTC_CNTL_CK8M_DIV_SEL, clk_8m_div);
+    SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL1_REG, SENS_SW_FSTEP, frequency_step, SENS_SW_FSTEP_S);
+}
+
+// scaling, range is 0-3:
+// 0: no scale
+// 1: scale to 1/2
+// 2: scale to 1/4
+// 3: scale to 1/8
+void dac_scale_set(dac_channel_t channel, int scale)
+{
+    switch(channel) {
+        case DAC_CHANNEL_1:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_SCALE1, scale, SENS_DAC_SCALE1_S);
+            break;
+        case DAC_CHANNEL_2:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_SCALE2, scale, SENS_DAC_SCALE2_S);
+            break;
+    }
+}
+
+// Offset output for a particular channel: range is 0-255
+void dac_offset_set(dac_channel_t channel, int offset)
+{
+    switch(channel) {
+        case DAC_CHANNEL_1:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_DC1, offset, SENS_DAC_DC1_S);
+            break;
+        case DAC_CHANNEL_2:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_DC2, offset, SENS_DAC_DC2_S);
+            break;
+    }
+}
+
+// Invert output for a particular channel, range is 0-3:
+// 0: no inversion
+// 1: completely inverted
+// 2: invert MSB (most significant bit)
+// 3: invert all but MSB
+void dac_invert_set(dac_channel_t channel, int invert)
+{
+    switch(channel) {
+        case DAC_CHANNEL_1:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV1, invert, SENS_DAC_INV1_S);
+            break;
+        case DAC_CHANNEL_2:
+            SET_PERI_REG_BITS(SENS_SAR_DAC_CTRL2_REG, SENS_DAC_INV2, invert, SENS_DAC_INV2_S);
+            break;
+    }
+}
+
+// task that handles the DAC
+void dactask(void* arg) {
+    while(1){
+        // set frequency
+        dac_frequency_set(clk_8m_div, frequency_step);
+        vTaskDelay(2000/portTICK_PERIOD_MS);
+    }
+}
+
+void setup() {
+    dac_cosine_enable(DAC_CHANNEL_1);
+    dac_output_enable(DAC_CHANNEL_1);
+    xTaskCreate(dactask, "dactask", 1024*3, NULL, 10, NULL);
+}
+
+void loop() {}
+````
+
+This is the result on an oscilloscope:
+
+
+<img src="images/sinewavedma.png" width="80%" height="80%" />
+
+
+
+> Tags: ESP32, S2, DAC, DMA, Direct Memory Access, I2S, Sine Wave, Signal Generator
 
 [Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/dac?723859050918243938) - created 2024-05-17 - last edited 2024-05-18
