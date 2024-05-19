@@ -276,6 +276,143 @@ And this would be an output from a *real* oscilloscope:
 <img src="images/steps.png" width="80%" height="80%" />
 
 
+## Higher Frequencies
+Setting *one* discrete voltage on one of the *DAC* pins is simple and straight-forward as you have seen: the *Arduino method* `dacWrite();` sets the desired voltage - done.
+
+Once you need to set voltages more often, for example if you want to generate complex wave forms at higher frequency, things become more complex. As you have already seen above, generating *sawtooth* or *sine waves* or entirely different wave forms is absolutely possible using the simple `dacWrite();`. It just takes comparably long: each call requires approximately *20uS*, severely limiting the *frequencies* you can generate. At best, you will be able to create a *sine wave* at around *200Hz*.
+
+In the remaining part, I look into alternative approaches allowing higher frequencies:
+
+* **Espressif API:** First, I look at a much faster way of setting *DAC output voltage*. It still requires the *CPU* to do the calls but allows for *sine waves* at up to *1kHz*.
+* **I2S and DMA:** Then, I'll dive into *I2S* and how this can use *DMA* (*Direct Memory Access*) so that the *DAC* can communicate directly with memory, effectively bypassing the *CPU bottleneck* and allowing *sine waves* at frequencies of up to *100kHz*.
+
+## Espressif Libraries
+Using the *Espressif Libraries* to control the *DAC* (instead of the generic *Arduino libraries*) improves speed quite a lot. You can compare the difference in maximum achievable frequency using this sketch:
+
+````c++
+#include <Arduino.h>
+#include <driver/dac.h>
+
+#define DAC1 25       // ESP32:    DAC Ch1 
+//#define DAC1 17     // ESP32-S2: DAC Ch1 
+
+
+const uint8_t sineLookupTable[] = {
+128, 136, 143, 151, 159, 167, 174, 182,
+189, 196, 202, 209, 215, 220, 226, 231,
+235, 239, 243, 246, 249, 251, 253, 254,
+255, 255, 255, 254, 253, 251, 249, 246,
+243, 239, 235, 231, 226, 220, 215, 209,
+202, 196, 189, 182, 174, 167, 159, 151,
+143, 136, 128, 119, 112, 104, 96, 88,
+81, 73, 66, 59, 53, 46, 40, 35,
+29, 24, 20, 16, 12, 9, 6, 4,
+2, 1, 0, 0, 0, 1, 2, 4,
+6, 9, 12, 16, 20, 24, 29, 35,
+40, 46, 53, 59, 66, 73, 81, 88,
+96, 104, 112, 119};
+
+void setup(){
+   dac_output_enable(DAC_CHANNEL_1);
+}
+
+void loop(){
+ for(int i=0;i<100;i++) {
+   dacWrite(DAC1, sineLookupTable[i]);
+   //dac_output_voltage(DAC_CHANNEL_1, sineLookupTable[i]);
+ }
+}
+````
+
+When you compile and run this sketch *as-is*, it uses the default *Arduino API* and produces a *sine wave* at *537Hz*: 
+
+
+<img src="images/sine_arduino_api.png" width="80%" height="80%" />
+
+You probably noted that this example already *increased* the frequency from around *200Hz* to almost *600Hz* without changing the API calls yet. 
+
+Note that this example uses only *100 samples* (100 voltage values) that define the curve. The previous examples had used *256* samples (*2.56*x more). *537Hz*/*2.56* equals to *209Hz*, the frequency we saw earlier. 
+
+So from a performance perspective, both examples ran the *DAC* at **53.7ksps** (53.700 *samples per second*).
+
+### Testing Espressif API
+Now *comment in* the line `dac_output_voltage(DAC_CHANNEL_1, sineLookupTable[i]);` and *comment out* the line `dacWrite(DAC1, sineLookupTable[i]);`, effectively just changing the *method* that tells the *DAC* the voltage it should deliver.
+
+Once you compile and upload the changed sketch, this is the result:
+
+
+<img src="images/sine_espressif_api.png" width="80%" height="80%" />
+
+We now see a frequency of *3.25kHz* which is roughly *6x faster*, or from a performance perspective: the *DAC* now runs at *100 samples* x *3250Hz* = *325ksps**.
+
+> [!NOTE]
+> This example is pushing it to the *extreme* showing the maximum archievable frequency going this route. One *CPU core* is most likely working at close to *100%* load.
+
+### More Control Through Interrupts
+The code above is hard to integrate with other tasks as it blocks the *CPU*.
+
+You can slightly modify the code though and i.e. use *hardware interrupts* to take care of updating the *DAC voltages*.
+
+This has two benefits: 
+
+* **Non-Blocking:** `loop()` is not doing anything and could be used to execute other code, i.e. a user interface to change signal parameters on the fly. 
+* **Frequency Adjustments:** Adjusting the signal frequency is now trivial as it just requires to change the *timer interrupt interval*.
+
+Here is the modífied code that generates a *sine wave* at exactly *1kHz*:
+
+````c++
+#include <Arduino.h>
+#include <driver/dac.h>
+ 
+hw_timer_t *Timer0_Cfg = NULL;
+ 
+uint8_t SampleIdx = 0;
+
+const uint8_t sineLookupTable[] = {
+128, 136, 143, 151, 159, 167, 174, 182,
+189, 196, 202, 209, 215, 220, 226, 231,
+235, 239, 243, 246, 249, 251, 253, 254,
+255, 255, 255, 254, 253, 251, 249, 246,
+243, 239, 235, 231, 226, 220, 215, 209,
+202, 196, 189, 182, 174, 167, 159, 151,
+143, 136, 128, 119, 112, 104, 96, 88,
+81, 73, 66, 59, 53, 46, 40, 35,
+29, 24, 20, 16, 12, 9, 6, 4,
+2, 1, 0, 0, 0, 1, 2, 4,
+6, 9, 12, 16, 20, 24, 29, 35,
+40, 46, 53, 59, 66, 73, 81, 88,
+96, 104, 112, 119};
+ 
+// this is the timer interrupt procedure updating the DAC:
+void IRAM_ATTR Timer0_ISR()
+{
+  dac_output_voltage(DAC_CHANNEL_1, sineLookupTable[SampleIdx++]);
+  if(SampleIdx == 100) 
+    SampleIdx = 0;
+
+}
+ 
+void setup()
+{
+  // setup timer interrupt
+  Timer0_Cfg = timerBegin(0, 80, true);
+  timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
+  timerAlarmWrite(Timer0_Cfg, 10, true);
+  timerAlarmEnable(Timer0_Cfg);
+  dac_output_enable(DAC_CHANNEL_1);
+}
+ 
+void loop()
+{
+  // all DAC operations are handled by interrupts
+  // loop() can be used for anything else you need to do, i.e. manage a user interface
+}
+````
+
+This is the result:
+
+<img src="images/sine_espressifapi_one_khz.png" width="80%" height="80%" />
+
 
 
 > Tags: ESP32, S2, DAC, DMA, Direct Memory Access
