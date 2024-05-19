@@ -280,4 +280,4 @@ And this would be an output from a *real* oscilloscope:
 
 > Tags: ESP32, S2, DAC, DMA, Direct Memory Access
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/examplecode/dac?723859050918243938) - created 2024-05-17 - last edited 2024-05-18
+[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/dac?723859050918243938) - created 2024-05-17 - last edited 2024-05-18
