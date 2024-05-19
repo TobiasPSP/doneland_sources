@@ -358,7 +358,7 @@ This has two benefits:
 * **Non-Blocking:** `loop()` is not doing anything and could be used to execute other code, i.e. a user interface to change signal parameters on the fly. 
 * **Frequency Adjustments:** Adjusting the signal frequency is now trivial as it just requires to change the *timer interrupt interval*.
 
-Here is the modiÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­fied code that generates a *sine wave* at exactly *1kHz*:
+Here is the modi­fied code that generates a *sine wave* at exactly *1kHz*:
 
 ````c++
 #include <Arduino.h>
