@@ -105,6 +105,11 @@ The easiest way for this is to use the default *Arduino API* (not requiring any 
 > [!NOTE]
 > While the *Espressif API* is about *4x faster* than the built-in *Arduino API*, this does not really matter: when switching an output pin to a *fixed voltage*, it makes no difference whether this takes *20uS* or just *5uS*.
 
+
+
+
+
+
 ### Setting Pin Voltage
 To set one of the *DAC output pins* to a given voltage, use this call:
 
@@ -128,6 +133,15 @@ void dacDisable(uint8_t dac_pin);
 > [NOTE]
 > In a simple sketch you can test the *DAC output voltage* with a *multimeter*. **Only use** voltmeters with internal power supply. **Do not** connect voltmeters that draw their energy from the *DAC output*, i.e. to power its *display LEDs*. This would likely exceed the recommended maximum output current of *1-2mA*.
 
+
+
+
+
+
+
+
+
+
 ### Stepping Up Voltage Slowly
 To see the *DAC* in action, you can use a simple *multimeter* provided you ask the *DAC* to perform voltage changes slowly enough for the *multimeter* to pick up the voltage.
 
@@ -137,6 +151,8 @@ The sketch uses *DAC Channel 1* which corresponds to *GPIO25* on a *classic ESP3
 
 > [!CAUTION]
 > Make sure you adjust the sketch to the type of *ESPxxxx* you are using by uncommenting the appropriate line defining the *DAC GPIO* to use.
+
+
 
 
 
@@ -177,6 +193,12 @@ Next, let's generate a *wave form* by changing the voltage in high(er) frequency
 
 > [!CAUTION]
 > The next sketch is *not* using `delay(1000);` so the voltage changes occur at the maximum possible frequency. You can no longer use a *normal multimeter* to check the effect: it would take much too long for its measurements and just display *an average voltage*. To see the effect, you need an *oscilloscope*. Since the generated *waveform* will have a very low frequency of around *100Hz*, you can use cheap pocket-size oscilloscopes or even *multimeters with oscilloscope functionality*.
+
+
+
+
+
+
 
 
 ````c++
