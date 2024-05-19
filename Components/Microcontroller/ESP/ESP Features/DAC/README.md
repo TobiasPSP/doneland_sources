@@ -4,7 +4,7 @@
 
 > Built-In Digital-To-Analog Converter (DAC) With High Speed Direct Memory Access (DMA)
 
-The built-in *DAC* (*Digital-to-Analog* converter) can turn a digital value into a *voltage*. This can be useful to produce a given voltage at a pin *dynamically by code* rather than by discrete components. There are many use cases. One is generating *wave forms* so you can create *signal generators* or produce *audio output*.
+The built-in *DAC* (*Digital-to-Analog* converter) can turn a digital value into a *voltage*. This can be useful to produce a given voltage at a pin *dynamically by code* rather than *fixed* by discrete components (i.e. via a *voltage divider* using resistors). There are many use cases. One is generating *wave forms* so you can create *signal generators* or produce *audio output*.
 
 ## Support
 
