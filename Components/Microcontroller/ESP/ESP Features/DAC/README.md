@@ -78,10 +78,10 @@ The DAC outputs a *control signal* that can be used to drive other circuitry, i.
 
 **You cannot and should never directly drive** any component that requires significant currents. DAC output can typically source up to about **12mA** and sink up to about **10mA**. 
  
- For reliable operation and to avoid damaging the DAC, it is advisable to limit the current draw to much lower values and **not exceed 1-2mA**.
+For reliable operation and to avoid damaging the DAC, it is advisable to limit the current draw to much lower values and **not exceed 1-2mA**.
 
- > [!TIP]
- > If you need to output *higher currents*, you should use an external buffer, such as an *operational amplifier* (op-amp) configured as a *voltage follower*. 
+> [!TIP]
+> If you need to output *higher currents*, you should use an external buffer, such as an *operational amplifier* (op-amp) configured as a *voltage follower*. 
 
 
 
@@ -137,6 +137,9 @@ The sketch uses *DAC Channel 1* which corresponds to *GPIO25* on a *classic ESP3
 
 > [!CAUTION]
 > Make sure you adjust the sketch to the type of *ESPxxxx* you are using by uncommenting the appropriate line defining the *DAC GPIO* to use.
+
+
+
 
 ````c++
 #include <Arduino.h>
@@ -347,6 +350,9 @@ We now see a frequency of *3.25kHz* which is roughly *6x faster*, or from a perf
 
 > [!NOTE]
 > This example is pushing it to the *extreme* showing the maximum archievable frequency going this route. One *CPU core* is most likely working at close to *100%* load.
+
+
+
 
 ### More Control Through Interrupts
 The code above is hard to integrate with other tasks as it blocks the *CPU*.
