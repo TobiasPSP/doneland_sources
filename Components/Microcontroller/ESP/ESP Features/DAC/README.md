@@ -358,7 +358,7 @@ This has two benefits:
 * **Non-Blocking:** `loop()` is not doing anything and could be used to execute other code, i.e. a user interface to change signal parameters on the fly. 
 * **Frequency Adjustments:** Adjusting the signal frequency is now trivial as it just requires to change the *timer interrupt interval*.
 
-Here is the modiÃ‚Â­fied code that generates a *sine wave* at exactly *1kHz*:
+Here is the modiÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­fied code that generates a *sine wave* at exactly *1kHz*:
 
 ````c++
 #include <Arduino.h>
@@ -569,6 +569,23 @@ This is the result on an oscilloscope:
 
 
 <img src="images/sinewavedma.png" width="80%" height="80%" />
+
+The desired frequency is set via the variable *frequency_step* which is an *integer*. You can calculate other values either by submitting a desired frequency:
+
+*frequency_step = desiredFrequencyHz x 65536 / 8500000*
+
+Or you can fill in integer values for *frequency_step* and then calculate the effective frequency like this:
+
+*frequency = 8500000 x frequency_step / 65536*
+
+For example, when you change the value for *frequency_step* in the code from *500* to *2000*, according to the formula above, the resulting frequency now would be:
+
+*frequency = 8500000 x **2000** / 65536* = **259.4kHz**
+
+Here is the result on an oscilloscope:
+
+
+<img src="images/sinewavedma260.png" width="80%" height="80%" />
 
 
 
