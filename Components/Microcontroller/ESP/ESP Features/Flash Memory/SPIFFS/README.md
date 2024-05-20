@@ -18,7 +18,7 @@ The basic file operations are simple and *straight-forward* to use:
 
 
 ### Formatting
-Before you can store data with *SPIFFS*, you need to *format* its memory. This needs to be done only once, and *formatting* erases the entire *SPIFFS* memory.
+Before you can store data with *SPIFFS*, you need to *format* it - similar to regular disk drives. This needs to be done only once, and *formatting* erases the entire *SPIFFS* memory.
 
 ````c++
 #include <Arduino.h>
@@ -71,7 +71,7 @@ SPIFFS ok.
 
 This indicates that *SPIFFS* was not formatted yet. Formatting may take from a few seconds to a few minutes, based on *SPIFFS* partition size.
 
-Once *SPIFFS* was formatted, on next boot or power-up the output looks like below: there are no more delays since *formatting* needs to be done only once.
+Once *SPIFFS* is formatted, on next boot or power-up the output looks like below: there are no more delays since *formatting* needs to be done only once.
 
 ````
 SPIFFS ok.
