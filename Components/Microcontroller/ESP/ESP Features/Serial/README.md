@@ -2,11 +2,15 @@
  
 # Serial
 
-> Built-In Digital-To-Analog Converter (DAC) With High Speed Direct Memory Access (DMA)
+> Using Serial-Over-USB To Communicate With Users And Support Simple Debugging
 
-*ESPxxx* come with *UART* controllers (*universal asynchronous serial receiver/transmitter*) which is a simple *two-wire protocol* for exchanging serial data.
+*ESPxxx* come with *UART* controllers (*universal asynchronous serial receiver/transmitter*). *UART* is a simple *two-wire protocol* for exchanging serial data.
 
-One of its *UARTs* typically is connected to an external *USB-to-TTL* converter chip which in turn is wired to the *USB connector*. Most *ESPxxxx* development boards are connected via its *USB interface* and a *USB cable* to a computer in order to upload new firmware and output data to a terminal window.
+One of its *UARTs* typically is connected to an external *USB-to-TTL* converter chip which in turn is wired to the *USB connector*. This way, the *ESPxxxx* development board can be connected with a *computer* using a simple *USB cable*.
+
+This *bidirectional communication* is very helpful both for *uploading new firmware* and for establishing a *simple communication* with the user. Most users (and many sketches) make use of this.
+
+Taking advantage of the *serial interface* is very simple and straight-forward, however it is often the *little things* that get in the way. That's why below you find code examples for the most important use cases.
 
 ## Basic Serial Communication
 The *serial interface* connected to *USB* is a convenient way of communicating with the microcontroller and i.e. return status information or sensor data.
