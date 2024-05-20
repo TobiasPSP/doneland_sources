@@ -5,7 +5,7 @@
 > Explaining ESPxx Features By Example
 
 
-*ESPxxxx* microcontrollers come with many exciting features. In this section you learn more about these features: ready-to-use *code examples* quickly illustrate what these features do and how you can use them.
+*ESPxxxx* microcontrollers come with many exciting features. In this section you learn more about these features: ready-to-use *code examples* quickly illustrate what these features do and how you can leverage them.
 
 > [!NOTE]
 > Not all *ESPxxxx* microcontrollers support *all* features. When you visit a specific feature, you'll always find a list of *ESPxxxx* modules that do support the particular feature.
