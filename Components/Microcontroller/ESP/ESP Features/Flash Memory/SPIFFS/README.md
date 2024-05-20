@@ -1,6 +1,6 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
  
-# SPIFFS (SPI Flash File Storage)
+# SPIFFS (SPI Flash File System)
 
 > Built-In File-Based Data Storage
 
@@ -40,7 +40,7 @@ boolean initSpiffs() {
   ok = SPIFFS.begin(true);
   Serial.println("done.");
 
-  // check to see whether SPIFFS is 
+  // check to see whether SPIFFS is operational
   if (!ok) {
     Serial.println("SPIFFS still not ok.");
   } else {
@@ -82,7 +82,7 @@ In above example, the *formatting* was done *implicitly* by `begin(true);`: if t
 
 There are good reasons why you may want to *re-format* an already formatted *SPIFFS* drive, i.e. to erase all data. For this, you can call `SPIFFS.format();`.
 
-### Saving And Reading File Content
+### Writing And Reading File Content
 Writing text to a file, and reading back the text from a file is trivial. Here is a sketch demonstrating how it is done:
 
 ````c++
