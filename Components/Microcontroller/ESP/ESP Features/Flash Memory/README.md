@@ -144,17 +144,17 @@ Here are the steps for a *Windows* computer:
 
 The two most common troubleshooting issues are:
 
-* **File not found:** Check the messages emitted during installation and look for errors. If all of the commands listed above ran successfully, then most likely the newly created folder paths were not added to the *PATH environment variable*.
+* **File not found:** Check the messages emitted during installation and look for errors. If all of the commands listed above ran successfully, then most likely the newly created folder paths were not added to the *PATH environment variable* because you forgot to tick the appropriate check box when you started the *Python* installation. Reinstall *Python* with the correct options.
 * **esptool.exe vs. esptool.py:** in my case, no *esptool.py* script was installed. Instead, I ended up with a *wrapped version* called *esptool.exe*. This file is not a stand-alone executable and still requires *Python*. If *esptool.py* cannot be found, then try calling *esptool* (omitting the file extension).
 
-Once you followed all steps, you can now run the command `esptool` from *any terminal window, including stand-alone *PowerShell consoles* as well as the *Terminal* pane inside *VSCode* - just make sure you *restarted* the application *after you adhjusted the **PATH** environment variable*.
+Once you followed all steps, you can now run the command `esptool` from *any terminal window*, including stand-alone *PowerShell consoles* as well as the *Terminal* pane inside *VSCode* - just make sure you *restarted* the application *after you changed the **PATH** environment variable*.
 
 
 <img src="images/esptool.PNG" width="100%" height="100%" />
 
-Working with *esptool* is still not always pure joy: you will probably frequently run into *COM Port exceptions* when the port is still blocked or busy from a previous call or used by the *IDE* for other purposes.
+Working with *esptool* is still not always pure joy: you will probably frequently run into *COM Port exceptions* when the port is still blocked or busy from a previous call or used by the *IDE* for other purposes. In my case, *device manager* listed *COM Port 76* but for some reason, I had to call *esptool* with port *77*, then port *76* to successfully query the development board.
 
-Please add your *tips & tricks* as comments at the bottom of this page if you found ways of properly closing and opening the *COM ports* that connect the computer to the development board.
+Please add your *tips & tricks* as comments at the bottom of this page if you know how to better handle *COM ports*.
 
 
 </details>
