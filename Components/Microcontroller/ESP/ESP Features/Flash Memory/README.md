@@ -320,3 +320,4 @@ Generally, the *partition table* organizes the available *flash* memory in the m
 
 > Tags: Flash, esptool, spiffs, LittleFS, app0, app1, OTG, otadata, nvs, partition table
 
+[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/flashmemory?141516050021242211) - created 2024-05-20 - last edited 2024-05-20
