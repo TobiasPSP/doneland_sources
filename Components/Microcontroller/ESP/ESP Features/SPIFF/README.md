@@ -83,9 +83,8 @@ These are the partition types and their meaning:
 
 
 
-<img src="images/mcp4725_front_t.png" width="40%" height="40%" />
 
 
 > Tags: ESP32, ESP8266, SPIFF, Partition, FileSystem
 
-
+[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/spiff?608144051020245551) - created 2024-05-19 - last edited 2024-05-19

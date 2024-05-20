@@ -90,3 +90,4 @@ Data can be sent to the *serial interface* using `Serial.print();` (no linefeed)
 
 > Tags: ESP32, ESP8266, Serial, println
 
+[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/serial?587228051020245551) - created 2024-05-19 - last edited 2024-05-19
