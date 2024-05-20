@@ -191,7 +191,7 @@ Let's assume a sketch should support these user commands:
 
 * *on*: turns the LED *on*
 * *off*: turns the LED *off*
-* *dim <int>*: turns LED *on* at the specified PWM brightness (1-255)
+* *dim 1-254*: turns LED *on* at the specified PWM brightness (1-255)
 
 Here is a revised sketch that does this:
 
