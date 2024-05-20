@@ -6,7 +6,7 @@
 
 *ESPxxx* come with *UART* controllers (*universal asynchronous serial receiver/transmitter*). *UART* is a simple *two-wire protocol* for exchanging serial data.
 
-One of its *UARTs* typically is connected to an external *USB-to-TTL* converter chip which in turn is wired to the *USB connector*. This way, the *ESPxxxx* development board can be connected with a *computer* using a simple *USB cable*.
+One of its *UARTs* typically is connected to an external *USB-to-TTL* converter chip which in turn is wired to the *USB connector*. This way, the *ESPxxxx* development board can be connected to a *computer* using a simple *USB cable*.
 
 This *bidirectional communication* is very helpful both for *uploading new firmware* and for establishing a *simple communication* with the user. Most users (and many sketches) make use of this.
 
