@@ -71,16 +71,16 @@ SPIFFS ok.
 
 This indicates that *SPIFFS* was not formatted yet. Formatting may take from a few seconds to a few minutes, based on *SPIFFS* partition size.
 
-Once *SPIFFS* was formatted, on next boot or power-up the output looks like below, and there are no more delays since *formatting* needs to be done only once:
+Once *SPIFFS* was formatted, on next boot or power-up the output looks like below: there are no more delays since *formatting* needs to be done only once.
 
 ````
 SPIFFS ok.
 ````
 
 #### Forced Formatting
-In above example, the *formatting* was done *implicitly* by `begin(true);`: if the method runs into an error, it tries and formats *SPIFFS*. 
+In above example, the *formatting* was done *implicitly* by `begin(true);`: if the method runs into an error, it formats *SPIFFS*. 
 
-There are good reasons why you may want to *re-format* an already formatted *SPIFFS* drive, i.e. to erase all data. For this, you can call `SPIFFS.format();`.
+There are good reasons why you may want to *re-format* an already formatted *SPIFFS* drive, i.e. to erase all data and start over again. For this, you call `SPIFFS.format();`.
 
 ### Writing And Reading File Content
 Writing text to a file, and reading back the text from a file is trivial. Here is a sketch demonstrating how it is done:
