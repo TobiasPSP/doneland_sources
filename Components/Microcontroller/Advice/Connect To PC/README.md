@@ -70,7 +70,7 @@ Once the *development board* is recognized by the computer and got a *COM Port* 
 
 *IDEs* like *Arduino IDE* and *platformio* use generic tools to communicate to the development board over the assigned COM port. *ESPxxxx*-based development boards are managed by the tool *esptool* supplied by its vendor *Espressif*. 
 
-Anyone can freely download and install this tool, and you could install it *stand-alone* as part of your personal tool set if you like. Once there is a *COM Port* that you can use to communicate with a development board, tools like *esptool* can gather important *detail information* about a particular board and its hardware. That's useful to check *USB connectivity* as well as i.e. *verify* that your development board in fact came with the features and memory sizes a vendor promised.
+Anyone can freely [download and install](https://github.com/espressif/esptool/tree/master/esptool) this tool, and you could install it *stand-alone* as part of your personal tool set if you like. Once there is a *COM Port* that you can use to communicate with a development board, tools like *esptool* can gather important *detail information* about a particular board and its hardware. That's useful to check *USB connectivity* as well as i.e. *verify* that your development board in fact came with the features and memory sizes a vendor promised.
 
 On my *COM4*, I connected a *D1 Mini ESP8266* development board. With the command below, *esptool* examines the *Flash memory* of this board and reports back its total physical size, among other details:
 
