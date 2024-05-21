@@ -138,8 +138,8 @@ These are the most common issues causing connection issues:
 
 > [!NOTE]
 > When things don't work as expected, many users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. That doesn't match my experience. Over the years, I ran into numerous *connection issues*, and yes they are *frustrating* and get you annoyed. Yet out of 100 cases, maybe just one turned out to be a *genuine board hardware defect*. All other issues were related to cables, drivers, and other things *that I was responsible for*. In the end, they all could be happily resolved. Let's not forget: *development boards* are no *toys*. They do require technical skill and background information to run them appropriately. When things go wrong, take it as a *mental challenge*.
->
->  
+
+
 
 
 
