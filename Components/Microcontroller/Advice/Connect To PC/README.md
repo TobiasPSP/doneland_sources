@@ -7,7 +7,7 @@
 
 You got a new *development board*, and now you want to hook it up to your computer (so you can program it and upload new firmware, or receive output via the *Terminal* window).
 
-Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer. And often it *is* this easy.
+Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer. And often enough it *is* that easy.
 
 However, when your computer stubbornly won't *recognize* the board, things quickly become *frustating* as there are no *error messages* or other indicators that would tell you what is amiss. That's why it's a good thing to *understand* how the development board is recognized by a computer, and what the steps are to *diagnose and correct* connection issues.
 
