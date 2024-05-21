@@ -1,11 +1,11 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
  
-# Practical Advise For Microcontroller Boards 
+# Practical Advice For Microcontroller Boards 
 
 > All You Need To Know To Successfully Get Started With Microcontroller Boards
 
 
-In this section I have organized all *practical advise* for working with microcontroller *development boards*.
+In this section I have organized all *practical advice* for working with microcontroller *development boards*.
 
 *Development boards* are *great* - when they work as expected, and you have set up a smoothly running development environment. If you just start, setting up everything right isn't trivial: it's no *rocket science*, but it's not *intuitive* as well. You need to *know* the steps and correct configuration in order to set up and enjoy working with *development boards*.
 
