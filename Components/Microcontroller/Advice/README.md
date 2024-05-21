@@ -5,17 +5,19 @@
 > All You Need To Know To Successfully Get Started With Microcontroller Boards
 
 
-In this section I have organized all *practical advice* for working with microcontroller *development boards*.
+In this section I organized all *practical advice* for working with microcontroller *development boards*.
 
-*Development boards* are *great* - when they work as expected, and you have set up a smoothly running development environment. If you just start, setting up everything right isn't trivial: it's no *rocket science*, but it's not *intuitive* as well. You need to *know* the steps and correct configuration in order to set up and enjoy working with *development boards*.
+*Development boards* are *great fun* - provided they work as expected, and provided you have already set up a smoothly running development environment. 
+
+Setting up everything right isn't trivial: while it's no *rocket science*, it's far from *intuitive*. You need to *know* the steps required, and assign the correct settings or else you'll quickly end up in *frustration*.
 
 Here are some of the topics I am looking into:
 
 ## Development Environment
-One of the first things is choosing a *IDE* (*Integrated Development Environment*) that you can use to *communicate* with the development board and *write code* for it.
+Choosing and setting up an *IDE* (*Integrated Development Environment*) that you can use to *communicate* with the development board and *write code* for it.
 
 ## Connecting To Development Board
-Another typical challenge is *connecting your computer* to a *development board*. It can be as simple as *plugging in a USB cable*, but it can as well cost you days of investigating when the board isn't recognized by your computer.
+Understanding how a *development board* is connected to a computer, and what the *parts* are that participate. It can be simple *USB Plug&Play*, but it can as well cost you days of investigating and a great deal of hair when the board isn't recognized by your computer.
 
 
 
