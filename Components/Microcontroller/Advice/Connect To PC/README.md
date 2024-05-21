@@ -127,12 +127,24 @@ Without delving too much into this topic, *esptool* and other console commands a
 What however if the computer simply *ignores* a connected development board and *does not assign a COM Port* to it? That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board. Bummer.
 
 > [!IMPORTANT]
-> You **must** solve this issue first - before looking into other configurations and settings. There **must** be a **COM port** (on *Windows*) showing up in *Device Manager*.
+> You **must** solve this issue first - before looking into any other configurations and settings. There **must** be a **COM port** (on *Windows*) showing up in *Device Manager*.
 
-The two most common issues for this behavior:
+These are the most common issues causing connection issues:
 
-* **Bad USB Cable:** this is meant dead serious. Some *USB* cables are made just to supply *power* and do not connect the *data lines*, but the *majority* of cables connects *all pins*. Still, a great many *USB cables* cause *connection issues*, most likely due to low quality, high cable resistance, loose jacks, etc. The best option would be to use a *known good* USB cable that you previously successfully used to connect to a breakout board. Make sure you try and test as many different cables as you can get a hold of, and if the cable was indeed the issue, attach a label to the cable that finally worked.
+* **Loose Connections:** make sure you *firmly* plugged in the *USB cable*. It should *snap into place*.
+* **Bad USB Cable:** this is meant dead serious. Some *USB* cables are made just to supply *power* and do not connect the *data lines*, but the *majority* of cables connects *all pins*. Still, a great many *USB cables* cause *connection issues*, most likely due to low quality, high cable resistance, loose jacks, etc. The best option is to use a *known good* USB cable that you previously successfully used to connect to a breakout board. If you don't have such a cable, make sure you try and test as many different cables as you can get a hold of, and if the cable was indeed the issue, attach a label to the cable that finally worked so you know which one to use in the future.
 * **Missing Driver:** On *Windows*, missing drivers are not a very common issue. *Windows* ships with the most common drivers. However, if the breakout board is not recognized even though you tried multiple *USB cables*, you should find out what kind of driver the development board requires, and install it.
+* **Defects:** If you got your development board from a cheap source like *AliExpress*, that's perfectly fine. Often they ship the very same boards that you can get elsewhere at ten times the price. However, *quality control* is a problem. Expect one out of thirty boards to have a defect. Most defects are related to *bad soldering* and can be repaired: drops of *solder* may have caused a *short circuit* on some pins, or the *USB connector* is not firmly soldered onto the *PCB*. When the board *gets warm* quickly after supplying it with power, immediately disconnect it and closely examine all solder spots. That said, there are (few) cases when a development board just won't work. These cases are *rare* though. Try connecting a different development board (ideally of the same type requiring the same *drivers*) to isolate the cause. If the new board connects fine, then it definitely is a *board issue*.
+
+> [!NOTE]
+> When things don't work as expected, many users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. That doesn't match my experience. Over the years, I ran into numerous *connection issues*, and yes they are *frustrating* and get you annoyed. Yet out of 100 cases, maybe just one turned out to be a *genuine board hardware defect*. All other issues were related to cables, drivers, and other things *that I was responsible for*. In the end, they all could be happily resolved. Let's not forget: *development boards* are no *toys*. They do require technical skill and background information to run them appropriately. When things go wrong, take it as a *mental challenge*.
+>
+>  
+
+
+
+
+
 
 
 
