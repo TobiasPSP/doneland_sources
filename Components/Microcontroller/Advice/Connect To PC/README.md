@@ -60,17 +60,15 @@ DriverName    : usbser (Microsoft USB Serial Driver)
 
 On that system, I had connected *two* development boards:
 
-* The *first* record represents a connected *ESP8266* at *COM4* using a *custom port driver* located at *C:\WINDOWS\SYSTEM32\DRIVERS\CH341S64.SYS*.
-* The *second* record represents a connected *ESP32 S2* at *COM77* using the default *Microsoft USB Serial Driver*.
+* The *first* set of data represents a connected *ESP8266* at *COM4* using a *custom port driver* located at *C:\WINDOWS\SYSTEM32\DRIVERS\CH341S64.SYS*.
+* The *second* set of data represents a connected *ESP32 S2* at *COM77* using the default *Microsoft USB Serial Driver*.
 
 <details><summary>Testing COM Port Connection</summary><br/>
 
 
 Once the *development board* is recognized by the computer and got a *COM Port* assigned, you are good to go. 
 
-*IDEs* like *Arduino IDE* and *platformio* use generic tools to communicate to the development board over the assigned COM port.
-
-*ESPxxxx*-based development boards i.e. are managed by the tool *esptool* from its vendor *Espressif*. 
+*IDEs* like *Arduino IDE* and *platformio* use generic tools to communicate to the development board over the assigned COM port. *ESPxxxx*-based development boards are managed by the tool *esptool* supplied by its vendor *Espressif*. 
 
 You can freely download and install this tool stand-alone if you like. Once there is a *COM Port* that you can use to communicate with a development board, tools like *esptool* can gather important detail information about a particular board.
 
