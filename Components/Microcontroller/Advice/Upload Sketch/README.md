@@ -192,7 +192,13 @@ The ESP32 enters the download boot mode, ready to receive firmware.
 Occasional Manual Intervention
 Even boards designed for automatic bootloader entry might occasionally require manual intervention due to the reasons mentioned above. Ensuring stable power supply, using high-quality USB cables, and verifying driver installations can help mitigate these issues.
 
+### Behavior in Bootloader Mode
+Waiting for Firmware: In bootloader mode, the ESP32 is ready to receive new firmware. If no data is sent, it will remain idle.
+No Automatic Exit: Unlike some other microcontrollers, the ESP32 does not automatically exit bootloader mode after a timeout or upon receiving incomplete data. It requires an explicit reset to exit this mode.
 
+#### Practical Implications
+Firmware Upload: During a firmware upload process, the development environment will send the new firmware data to the ESP32. Once the upload is complete, it typically sends a reset command to start running the newly uploaded firmware.
+Manual Reset: If the firmware upload process fails or you need to exit bootloader mode for any other reason, you must manually reset the ESP32 by pressing the reset button or power cycling the board.
 
 
 
