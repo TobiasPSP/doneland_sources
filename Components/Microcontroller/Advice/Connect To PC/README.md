@@ -7,9 +7,9 @@
 
 You got a new *development board*, and now you want to hook it up to your computer (so you can program it and upload new firmware, or receive output via the *Terminal* window).
 
-Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer.
+Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer. And often it *is* this easy.
 
-Only: often it is not that easy. When your computer won't *recognize* the board, there are no obvious indicators as to what is amiss.
+However, when your computer stubbornly won't *recognize* the board, things quickly become *frustating* as there are no *error messages* or other indicators that would tell you what is amiss. That's why it's a good thing to *understand* how the development board is recognized by a computer, and what the steps are to *diagnose and correct* connection issues.
 
 ## Overview
 In order to *communicate* with a development board, typically a *USB port* is used *for convenience*. In *reality* though, most microcontrollers use a simple *serial* interface for communications. Only the latest *ESPxxxx* modules support direct communication via *USB*.
