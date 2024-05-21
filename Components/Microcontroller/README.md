@@ -23,7 +23,7 @@ There are *three* families of microcontrollers that are commonly used in *DIY* p
 
 * [ATMega/Arduino](Arduino): *Arduino breakout boards* started to make *microcontrollers* popular among hobbyist and makers. Until recently, *Arduinos* exclusively used the *ATMega* family of microcontrollers. Meanwhile, some *Arduino* breakout boards also use *ESP* and other microcontrollers. 
 * [ESP/Espressif](ESP): When the Chinese company *Espressif* released its **ESP8266**, it became an instant success: it was comparably powerful and *WiFi*-enabled. Today, the single- and dual-core **ESP32** microcontrollers probably are among the most powerful, most competetively priced and most popular processors.
-* [ATTiny](ATTiny): for less computing intensive use cases, *ATTiny* microcontrollers are are great alternative due to their very small size and very low cost.
+* [ATtiny](ATTiny): for less computing intensive use cases, *ATTiny* microcontrollers are are great alternative due to their very small size and very low cost.
 
 
 *Arduinos* and *ESP* today are the most commonly used microcontrollers in DIY projects. [Here](Arduino%20vs%20ESP32) is a quick comparison and drill-down in case you need guidance which one is right for you, or whether you should move from *Arduino* to *ESP32* for good.
