@@ -218,7 +218,7 @@ The *inner* header pins should *not be connected* to the bread board. Instead, s
 
 ## Fixing Missing Pins
 
-When programming the *S2 Mini* in *platform.io*, the translation between true *hardware pins* and *common pin labels* is performed automatically: the *IDE* looks up the appropriate version of the file *pins_arduino.h* in the folder *%USERPROFILE%\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini*.
+When programming the *S2 Mini* in *platform.io*, the translation between true *hardware pins* and *common pin labels* is performed automatically: the *IDE* looks up the appropriate version of the file *pins_arduino.h* in the folder *%USERPROFILE%\\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini*.
 
 ### Pin Declarations Missing
 
