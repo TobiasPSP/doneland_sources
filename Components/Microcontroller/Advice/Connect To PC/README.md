@@ -14,7 +14,7 @@ However, when your computer stubbornly won't *recognize* the board, things quick
 ## Overview
 In order to *communicate* with a development board, typically a *USB port* is used *for convenience*. In *reality* though, most microcontrollers use a simple *serial* interface for communications. Only the latest *ESPxxxx* modules support direct communication via *USB*.
 
-In any respect, *connecting issues* are *not related to a particular IDE you may be using*. *Connecting issues* are *always* an issue between the development board and your computer. This makes *diagnosis* easy because you can *ignore* the *ISE*.
+In any respect, *connecting issues* are *not related to a particular IDE you may be using*. *Connecting issues* are *always* an issue between the development board and your computer. This makes *diagnosis* easy because you can *ignore* the *ISE* and focus solely on the raw *USB connection*.
 
 ### Test Connection
 This is how *connecting* a development board to a computer *should* look like:
