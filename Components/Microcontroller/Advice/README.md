@@ -23,3 +23,4 @@ Another typical challenge is *connecting your computer* to a *development board*
 
 > Tags: Setup, IDE, Connect, USB
 
+[Visit Page on Website](https://done.land/components/microcontroller/advice?343890051021241839) - created 2024-05-20 - last edited 2024-05-20
