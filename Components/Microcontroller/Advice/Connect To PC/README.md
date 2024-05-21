@@ -124,7 +124,7 @@ Without delving too much into this topic, *esptool* and other console commands a
 
 ### No Device Detected
 
-What if the computer *ignores* a connected development board and *does not assign a COM Port* to it? That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board.
+What however if the computer simply *ignores* a connected development board and *does not assign a COM Port* to it? That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board. Bummer.
 
 > [!IMPORTANT]
 > You **must** solve this issue first - before looking into other configurations and settings. There **must** be a **COM port** (on *Windows*) showing up in *Device Manager*.
