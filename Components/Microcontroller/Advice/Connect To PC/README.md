@@ -2,7 +2,7 @@
  
 # Connect Development Board To Computer
 
-> Everything You Need To Know To Successfully Connect A Development Board With Your Computer
+> Everything You Need To Know To Successfully Connect A Development Board To Your Computer
 
 
 You got a new *development board*, and now you want to hook it up to your computer (so you can program it and upload new firmware, or receive output via the *Terminal* window).
