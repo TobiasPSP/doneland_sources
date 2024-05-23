@@ -611,4 +611,4 @@ Here is the result on an oscilloscope:
 
 > Tags: ESP32, S2, DAC, DMA, Direct Memory Access, I2S, Sine Wave, Signal Generator
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/dac?723859050918243938) - created 2024-05-17 - last edited 2024-05-18
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/espfeatures/dac?723859050918243938) - created 2024-05-17 - last edited 2024-05-18

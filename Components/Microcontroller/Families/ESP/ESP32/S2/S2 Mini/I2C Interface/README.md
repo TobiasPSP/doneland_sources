@@ -265,4 +265,4 @@ void loop() {
 
 > Tags: S2, I2C, OLED, Display
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2/s2mini/i2cinterface?155016051805243555) - created 2024-05-04 - last edited 2024-05-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/i2cinterface?155016051805243555) - created 2024-05-04 - last edited 2024-05-04

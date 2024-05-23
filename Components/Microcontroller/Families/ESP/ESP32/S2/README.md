@@ -250,4 +250,4 @@ Finally, select *Tools/Port*, and select the port you connected the board to.
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Energy
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2?502092031823244200) - created 2024-03-23 - last edited 2024-05-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2?502092031823244200) - created 2024-03-23 - last edited 2024-05-04

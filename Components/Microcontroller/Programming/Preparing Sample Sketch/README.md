@@ -99,4 +99,4 @@ Once this board manager is installed, you find another new submenu named *DIY AT
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/advice/preparingsamplesketch?297809051621241735) - created 2024-05-20 - last edited 2024-05-20
+[Visit Page on Website](https://done.land/components/microcontroller/programming/preparingsamplesketch?297809051621241735) - created 2024-05-20 - last edited 2024-05-20

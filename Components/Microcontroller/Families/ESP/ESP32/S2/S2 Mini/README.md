@@ -367,4 +367,4 @@ If the issue persists, check to see whether the board gets warmer as usual. The 
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Shield, Pin, I2C, SPI
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-05-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-05-04

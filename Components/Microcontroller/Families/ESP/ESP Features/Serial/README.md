@@ -289,4 +289,4 @@ Enter Command ('on', 'off', 'dim <1-254>')
 
 > Tags: ESP32, ESP8266, Serial, println()
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/serial?587228051020245551) - created 2024-05-19 - last edited 2024-05-19
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/espfeatures/serial?587228051020245551) - created 2024-05-19 - last edited 2024-05-19

@@ -25,4 +25,4 @@ Understanding how a *development board* is connected to a computer, and what the
 
 > Tags: Setup, IDE, Connect, USB
 
-[Visit Page on Website](https://done.land/components/microcontroller/advice?343890051021241839) - created 2024-05-20 - last edited 2024-05-23
+[Visit Page on Website](https://done.land/components/microcontroller/programming?343890051021241839) - created 2024-05-20 - last edited 2024-05-22

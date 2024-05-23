@@ -159,4 +159,4 @@ Basically, the method `SPIFFS.open();` provides access to a file. The *mode* det
 
 > Tags: SPIFFS, Filesystem, Flash, Memory
 
-[Visit Page on Website](https://done.land/components/microcontroller/esp/espfeatures/flashmemory/spiffs?161442050021242211) - created 2024-05-20 - last edited 2024-05-20
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/espfeatures/flashmemory/spiffs?161442050021242211) - created 2024-05-20 - last edited 2024-05-20

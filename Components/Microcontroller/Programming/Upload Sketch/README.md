@@ -143,10 +143,10 @@ These are the most common issues causing connection issues:
 
 
 ## Entering Boot Loader
-The need to press the boot button on an ESP32 board during firmware upload depends on how the board handles the bootloader mode entry. HereÃ¢â‚¬â„¢s a detailed explanation of the different scenarios you can encounter:
+The need to press the boot button on an ESP32 board during firmware upload depends on how the board handles the bootloader mode entry. HereÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s a detailed explanation of the different scenarios you can encounter:
 
 1. Boards That Require a Boot Button Press
-Some ESP32 boards require you to manually press and hold the boot button, then press the reset button, then release the boot button during the firmware upload process. This is because these boards donÃ¢â‚¬â„¢t have the circuitry needed to automatically reset and put the ESP32 into the bootloader mode. When you press the boot button, you are manually putting the ESP32 into the mode where it can receive new firmware.
+Some ESP32 boards require you to manually press and hold the boot button, then press the reset button, then release the boot button during the firmware upload process. This is because these boards donÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t have the circuitry needed to automatically reset and put the ESP32 into the bootloader mode. When you press the boot button, you are manually putting the ESP32 into the mode where it can receive new firmware.
 
 2. Boards That Automatically Enter Bootloader Mode
 Other ESP32 boards have additional circuitry that allows the development environment to automatically reset the ESP32 and put it into bootloader mode. This is typically achieved using a combination of the RTS (Request to Send) and DTR (Data Terminal Ready) signals from the USB-to-Serial converter chip on the board. When you start the upload process, the development environment toggles these signals to reset the ESP32 and initiate the bootloader mode without the need for manual intervention.
@@ -215,7 +215,7 @@ The Arduino bootloader remains active only for a brief period (a few seconds) af
 
 ### Automatic Exit
 The bootloader automatically exits and the microcontroller runs the user program if no new firmware is detected.
-Manual Intervention: Normally, you donÃ¢â‚¬â„¢t need to press any buttons to upload new firmware to an Arduino. However, if there are issues with the auto-reset mechanism (e.g., using certain third-party USB-to-Serial adapters), you might need to manually press the reset button right when you start the upload process.
+Manual Intervention: Normally, you donÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢t need to press any buttons to upload new firmware to an Arduino. However, if there are issues with the auto-reset mechanism (e.g., using certain third-party USB-to-Serial adapters), you might need to manually press the reset button right when you start the upload process.
 
 
 ## Bootloader in ROM
@@ -270,9 +270,9 @@ Arduino bootloaders are stored in flash memory, while ESP32 bootloaders are stor
 * Brick Prevention: While Arduino bootloaders are protected during normal operation, they can be overwritten with the proper tools. ESP32 bootloaders are inherently protected because they reside in ROM.
 
 ### Conclusion
-Arduino boards store their bootloader in a protected section of the microcontrollerÃ¢â‚¬â„¢s flash memory, allowing for flexible firmware updates and bootloader management. This approach contrasts with the ESP32Ã¢â‚¬â„¢s ROM-based bootloader, providing different advantages and considerations in terms of update capability and protection.
+Arduino boards store their bootloader in a protected section of the microcontrollerÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s flash memory, allowing for flexible firmware updates and bootloader management. This approach contrasts with the ESP32ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s ROM-based bootloader, providing different advantages and considerations in terms of update capability and protection.
 
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/advice/uploadsketch?359846051021241839) - created 2024-05-20 - last edited 2024-05-20
+[Visit Page on Website](https://done.land/components/microcontroller/programming/uploadsketch?359846051021241839) - created 2024-05-20 - last edited 2024-05-20
