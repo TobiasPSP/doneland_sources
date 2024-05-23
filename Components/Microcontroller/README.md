@@ -6,77 +6,82 @@
 
 What started in *PCs* and carried over to devices like *Smartphones* is now common-place even for *DIY projects*: instead of trying to implement features exclusively with *discrete elements* like transistors and some *ICs*, it is much easier and more *cost-effective* to add a **microcontroller**.
 
-In this section you learn more about the typical microcontrollers used in *DIY projects*, how they differ, and what they can do for you.
 
-> [!TIP]
-> Programming a microcontroller today is fundamentally the same, regardless of vendor and microcontroller type you choose, thanks to the *Arduino Framework*: all microcontrollers listed below understand the same code.
+<details><summary>Microcontrollers used in Computers and Smartphones</summary><br/>
 
+Here are some microcontrollers used in popular *computers*, *notebooks*, and *smartphones*:
 
-> [!CAUTION]
-> There are hardware differences of course, and while *code examples* will run on all microcontrollers, there may be minor hardware adjustments needed, i.e. you might need to review and adjust the GPIO pins used.
-> Be aware that *Arduinos* are **5V** devices whereas *ESPs* use **3.3V**.
+| Microcontroller | Used In |
+| --- | --- |
+| Intel i3, i5, i7, i9, Xenon | Computers running *Windows* (Microsoft) |
+| AMD Ryzen 3, 5, 7, 9, EPYC | Computers running *Windows* (Microsoft) |
+| Apple Silicon M1, M1 Pro, M1 Max, M2 | Computers running *MacOs* (Apple) |
+| Apple A14, A15, ... Bionic | *Apple* iPhone Smartphones | 
+| Qualcom SnapDragon 4xxx, 6xxx, 7xxx, 8xxx | *Android* Smartphones |
+| Mediatec Helio, Dimensity | *Android* Smartphones |
+| Samsung Exynos | *Android* Smartphones |
+| Huawai Kirin | *Android* Smartphones |
 
+These *microcontrollers* are fundamentally no different from the microcontrollers I am discussing in this section, however they are *more powerful* and *harder to use*: after all, they are designed to run full-fledged general-purpose *operating systems*.
 
-## Microcontroller Families
+In *DIY* projects and to control hardware, *simpler microcontrollers* are used that are much *cheaper* (cost is often below EUR 1.00/piece) and very much easier to program.
 
-There are *three* families of microcontrollers that are commonly used in *DIY* projects:
-
-* [ATMega/Arduino](Arduino): *Arduino breakout boards* started to make *microcontrollers* popular among hobbyist and makers. Until recently, *Arduinos* exclusively used the *ATMega* family of microcontrollers. Meanwhile, some *Arduino* breakout boards also use *ESP* and other microcontrollers. 
-* [ESP/Espressif](ESP): When the Chinese company *Espressif* released its **ESP8266**, it became an instant success: it was comparably powerful and *WiFi*-enabled. Today, the single- and dual-core **ESP32** microcontrollers probably are among the most powerful, most competetively priced and most popular processors.
-* [ATtiny](ATTiny): for less computing intensive use cases, *ATTiny* microcontrollers are are great alternative due to their very small size and very low cost.
-
-
-*Arduinos* and *ESP* today are the most commonly used microcontrollers in DIY projects. [Here](Arduino%20vs%20ESP32) is a quick comparison and drill-down in case you need guidance which one is right for you, or whether you should move from *Arduino* to *ESP32* for good.
-
-
-> [!NOTE]
-> There are *many more* microcontrollers available. For now, I am focusing on the *most popular* among low-level *DIY* makers. I am neither focusing on the many other *industrial* microcontrollers (that require expensive development tools to program) nor on the almost *PC*-like *Raspberry Pi* and similar.
+</details>
 
 
+## DIY Microcontrollers
 
-## Development Environments
+In *DIY projects* and *hardware projects*, these are the typical microcontrollers used:
 
-All three processor families can be programmed using the same *Arduino Framework*. There are *two* commonly used *development environments*:
 
-* **Arduino IDE:** this proprietary free development environment is very simple to use and because of this *simplicity* was the key to success for making *Arduinos* immensely popular. Today, the other microcontroller families can also be programmed using this *IDE*. This is not quite as simple as it initially requires to load certain extensions and changing of some configurations. Once code becomes a bit more complex, the *Arduino IDE* cannot hide its age and simplistic editing functionality. It is best used for beginners and for playing with *very simple* code examples.
-* **VSCode/platformio:** Microsofts free *VSCode* text editor comes with numerous extensions for almost any programming language and is highly extensible. This is why this editor today is the choice for many *professionals*. The free extension **platformio** is an excellent *development environment* for programming any of the three microcontroller families listed above.
+* [ATMega/Arduino](Arduino): *Arduino breakout boards* started to make *microcontrollers* popular among hobbyist and makers because they are *exceptionally easy to use* and come with a proven toolset. Until recently, *Arduinos* exclusively used the *ATMega* family of microcontrollers. Meanwhile, some *Arduino* breakout boards also use *ESP* and other microcontrollers. 
+* [ESP/Espressif](ESP): Originally, the Chinese manufacturer *Espressif* produced *cheap but powerful* microcontrollers for the industry, and you find them in many *smart devices*. When *Espressif* released its **ESP8266** in 2015, it soon was integrated into the *Arduino* tool chain and became an instant success, primarily because of its *built-in WiFi* and its very low price. Meanwhile, the family of (much more powerful but equally cheap) *ESP32* has become the best *DIY microcontrollers*: they are much *cheaper* yet in almost all aspects *more powerful* than *Arduino* yet run the same code and can be programmed with the same tools.
+* [ATtiny](ATTiny): for *less* computing intensive use cases, and when *small size* matters, *ATTiny* microcontrollers are are great alternative due to their very small size.
+* Raspbetty Pi: for *more* computing intensive use cases, *Raspberry Pi* microcontrollers can run a *full-fledged operating system* (and behave like a "real" computer), typically *Raspberry Pi OS* (based on Demian), Ubuntu, and others. *Raspberry Pi* is used for for projects that require a lot of computational power and a full operating system, and can act as a *server* in the backend. *HomeAssistant* is an example: it runs on a *Raspberry Pi* which acts as the *HomeAssistant Server* and lets you control *IoT* devices that in turn each base on one of the other mentioned microcontrollers. The latest evolution is *Raspberry Pi 5*
 
-There are *many more* development environments available. The two examples listed above are the most commonly used choices among hobbyists and *DIY* makers.
+## Development Boards
+While you could use a *naked microcontroller* in your projects and wire it up *manually*, typically *development boards* are preferred: *ready-to-go* PCBs that combine a *microcontroller* with its most essential components such as a *voltage regulator* and a *Serial-to-USB* bridge.
 
-> [!NOTE]
-> Most microcontrollers mentioned here support the *Arduino Framework*. Very new *microcontrollers* may not yet support this framework. Currently, the *ESP32 C6* is an example. Microcontrollers that do not support the *Arduino Framework* can only be programmed using the vendors own *development environment*, for the *C6* the [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html) (*ExpressIf IoT Development Framework).
+### Originals and Clones
 
-## Originals and Clones
+While the *microcontroller* itself is always produced by a given manufacturer, the *development boards* are produced by a variety of sources. You can get *original* development boards from renown vendors such as *Arduino*, *Adafruit*, or *Espressif*, and you can get *clones* from lesser-known companies.
 
-At the heart of any microcontroller board is always a *CPU* which is the only truly *unique* part.
-
-The supporting boards can come from a variety of sources. Aside from the *original company* that came up with a particular design, there are numerous *clones* available that *copied* the (open-source) design. These *clones* are *much cheaper* and typically work very well, too.
 
 <img src="images/clones2_t.png" width="80%" height="80%" />
 
-<sup>**Nano Every**, a clone (*left*) and the original (*right*)</sup>
+
+*Clones* are typically *much cheaper* than the originals, especially with *Arduinos*. 
 
 
-### CH9102, CP210x, CH340
 
-*Older microcontrollers* such as the *ATMega* and *ESP8266* do not come with a *USB-to-Serial* controller built-in. This controller is necessary to connect the board to your *PC* when you want to program it.
+> [!NOTE]
+> *Clones* discussed here have nothing to do with *product piracy* or *trying to deceive*. They *clone functionality only*, not *appearance*. You can always clearly identify whether a board was produced by a company like *Arduino*, or whether it is just *functionality-wise* the same but looks clearly different. Legal *Clones* *Clones* are possible because the *hardware design* is *open-source*, and it is neither *rocket science* nor a *copyright infringement* to add standard components like *voltage regulators* and *UART chips* to a *PCB*.
 
-Most breakout boards with the mentioned microcontrollers therefore add discrete *USB-to-Serial* chips. 
 
-There are different types available. The type of *USB-to-Serial* controller determines whether you can connect the board to your PC *without having to install additional drivers*, and it determines the *speed* in which you can upload new firmware.
 
-Here are the differences:
+*Clones* are *per se* technically no better or worse than *originals*. They are different. Some vendors produce *Clones* with added benefit (like displays) at exceptional built quality. These can be *more expensive* than *Originals*. Other manufacturers use only the cheapest parts that barely meet the specifications. They still often work just fine yet cost only a fraction.
 
-| OS | CH9102 | CP210x | CH340 |
-| --- | --- | --- | --- |
-| Windows | yes | yes | yes |
-| MacOS | yes | yes | driver needed |
-| Speed Mbps | 4 | 12 | 2 |
+Here are the typical issues to be aware of (which coincidental are the very reasons for huge price differences):
 
-On *Windows* you can use all chips. For maximum transfer speed, try and choose boards with *CP210x*.
 
-On *Apple*, try to avoid *CH340* unless you are ok with potentially having to search for and install an appropriate driver for it.
+| Issue | Symptom | Remark
+| --- | --- | --- |
+| Cheap voltage regulator | Once a few sensors/components are connected, the board starts to reboots or stops working | was an issue with ESP8266, fixed for most other boards meanwhile |
+| Soldering issues | solder drops can cause short-circuits | Related to the level of *quality control*. Occurs only with mass products under great pricing pressure. Even then rare (1 out of 100). Can often be fixed, if present will show from the start (no reliablity issue) |
+| PCB Quality | Labels hard to read | Directly related to the price point, does not affect functionality |
 
-> Tags: Microcontroller, Arduino, ESP8266, ESP32
+You decide what your focus is. Just keep in mind that *one* microcontroller won't get you far. When comparing prices, compare the price differences for *ten units*.
 
-[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-03-23
+
+#### Is Buying Clones Evil?
+While *technically ok*, may it be a *morally reprehensible* to use *Clones*?`Are you possibly *stealing intellectual property* when you buy from *obscure Asian profit makers*? Are these taking advantage of other peoples' development efforts to undercut prices?
+
+No. Regardless of source, the *microcontroller* is always original and always legitimately purchased. The PCB *circuit designs* are *open source*. The tool chain is maintained by the *community*.
+
+Cheap prices are more likely a result of *lean production*, *less middlemen* and *less distributors*. In fact, when you buy at a *local store* or at *Amazon*, you come across the *very same* boards that are also *directly available at sources like AliExpress* - just for a five- to tenfold price.
+
+
+
+> Tags: Microcontroller, Arduino, ESP32, ESP8266, ATtiny, Raspberry Pi
+
+[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-05-23

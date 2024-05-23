@@ -140,6 +140,15 @@ These are the most common issues causing connection issues:
 > When things don't work as expected, many users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. That doesn't match my experience. Over the years, I ran into numerous *connection issues*, and yes they are *frustrating* and get you annoyed. Yet out of 100 cases, maybe just one turned out to be a *genuine board hardware defect*. All other issues were related to cables, drivers, and other things *that I was responsible for*. In the end, they all could be happily resolved. Let's not forget: *development boards* are no *toys*. They do require technical skill and background information to run them appropriately. When things go wrong, take it as a *mental challenge*.
 
 
+### Installing Driver
+In order to use the *USB-to-Serial* controller on a board, the *computer* needs a *driver* for it. If a board is not recognized by your computer, and you checked all other causes mentioned above, then most likely it is missing the appropriate driver.
+
+These are the most commonly used *USB-to-Serial* chips:
+
+| OS |  [CH9102](https://www.wch-ic.com/downloads/category/30.html) | [CP210x](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) | [CH34x](https://www.wch-ic.com/products/categories/46.html?pid=1) |
+| ---  | --- | --- |
+| Speed Mbps | 4 | 12 | 2 |
+
 
 
 
@@ -154,4 +163,4 @@ These are the most common issues causing connection issues:
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/advice/connecttopc?359846051021241839) - created 2024-05-20 - last edited 2024-05-20
+[Visit Page on Website](https://done.land/components/microcontroller/advice/connecttopc?359846051021241839) - created 2024-05-20 - last edited 2024-05-23
