@@ -17,7 +17,7 @@ You are new and want to get your hands dirty and find out what a microcontroller
 
 
 ### Arduino
-An *Arduino Nano* (or one of its *Clones*) *might* be right for you: since *Arduinos* are around the longest time, there is a wealth of free resources and video tutorials available. *Arduinos* are renown for their easy-of-use. Using *Arduino IDE*, you'll be up and running in no time. 
+An *Arduino Nano* (or one of its *Clones*) *might* be right for you: since *Arduinos* are around the longest time, there is a wealth of free resources and video tutorials available. *Arduinos* are renown for their ease-of-use. Using *Arduino IDE*, you'll be up and running in no time. 
 
 #### Choosing A Board
 The actual *type* of *Arduino* depends on your needs (i.e. the number of devices you want to control, *GPIOs*):
