@@ -84,4 +84,4 @@ Cheap prices are more likely a result of *lean production*, *less middlemen* and
 
 > Tags: Microcontroller, Arduino, ESP32, ESP8266, ATtiny, Raspberry Pi
 
-[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-05-23
+[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-05-22
