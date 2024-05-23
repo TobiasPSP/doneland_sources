@@ -4,9 +4,7 @@
 
 > How To Select The Right Microcontroller For Your Project
 
-Today, there is a vast variety of *microcontrollers* and *boards* available for *DIY projects*, all with their individual strengths and weaknesses. 
-
-In this section you get help selecting the right *microcontroller* for a given task, plus extensive information about many popular boards.
+Today, there are many *microcontrollers* and *boards* available for *DIY projects*, all with their individual strengths and weaknesses. In this section you get guidance to select the right *microcontroller* for a given task, plus extensive information about many popular boards.
 
 ## Guidance
 
@@ -23,17 +21,17 @@ An *Arduino Nano* (or one of its *Clones*) *might* be right for you: since *Ardu
 The actual *type* of *Arduino* depends on your needs (i.e. the number of devices you want to control, *GPIOs*):
 * *Arduino Uno*: too old and limited
 * *Arduino Nano*: great *general purpose* choice
-* *Arduino Every*, *Arduino Nano ESP32*: lack compatibility, ease-of-use. If you are after some of their special features, better pick a *real* *ESP32 board* (see below)
+* *Arduino Every*, *Arduino Nano ESP32*: lack compatibility, lacks ease-of-use and "just works", requires some configuration and code adjustments. If you are after some of their special features, better pick the *real* thing: a *ESP32 board* (see below)
 
 #### Caveats
-While *Arduinos* let you *quickly enjoy first successes*, they are *pricy* and technically *limited*. Both the (easy-to-use) *ArduinoIDE* and the *boards* stop to be fun once you catch fire and *want more*: *memory* is quickly reaching limits in more sophisticated firmware, *WiFi/Bluetooth* connectivity is lacking, and *power consumption* is comparably high.
+While *Arduinos* let you *quickly enjoy first successes*, they are *pricy* and technically *limited*. Both the (easy-to-use) *ArduinoIDE* and the *boards* stop to be fun once you get excited and *want more*: *memory* is quickly exhausted in more sophisticated firmware, *WiFi/Bluetooth* connectivity is lacking, and *power consumption* is comparably high.
 
-So *unless you are determined to **exactly** follow some Arduino training videos*, for beginners with a bit of basic technical understanding, the recommendation is to get a *ESP32 S2* and use it in *platformio* rather than *Arduino IDE*. This sets you up in the most *future-proof* way.
+So *unless you are determined to **exactly** follow some Arduino training videos*, for beginners with a bit of basic technical understanding, get an *ESP32 S2*, and start by using a professional *IDE* like *platformio* rather than *Arduino IDE*. This sets you up in the most *future-proof* way.
 
 > [!TIP]
-> Most example code runs equally well on *ESP* microcontrollers. If the example was written for *Arduinos*, you often just have to adjust the *GPIO pin numbers*. 
+> Most example code runs equally well on *ESP* microcontrollers and often just requires some adjustments to the *GPIO pin numbers*. 
 
-The *ESP32 S2* is a great and extremely powerful single-core microcontroller, is available for under EUR 2.00 (so you can buy a couple, just in case you toast one or want one to stay in a useful device you built), has plenty of memory even for the most advanced sketches, and is the last *ESP32* family member that comes with useful-to-experiment features like *DAC* (digital-to-analog converter).
+The *ESP32 S2* is a great and extremely powerful single-core microcontroller, is available for under EUR 2.00 (so you can buy a couple, just in case you toast one or want one to stay in a useful device you built), has plenty of memory even for the most advanced sketches, and is the last *ESP32* family member that comes with useful-to-experiment features like two *DACs* (digital-to-analog converter).
 
 | Microcontroller | Pro | Contra |
 | --- | --- | --- |
