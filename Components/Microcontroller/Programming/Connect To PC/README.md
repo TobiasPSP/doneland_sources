@@ -167,7 +167,7 @@ If you have installed *all* drivers, restarted the computer, tried different *US
 To verify, try connecting a different development board (ideally of the same type requiring the same *drivers*). If the new board connects fine, you ruled out the most common causes for connection issues (USB cable problem, missing driver), and it most definitely is a *board issue*.
 
 > [!NOTE]
-> Even the *cheapest development boards* typically work great **provided** these boards were *assembled right*. One reason for cheap prices is poor *quality control*: faulty assembly goes unnoticed, and roughly out of a hundred boards can have an issue. That said, from *cheap sources* you often get ten boards for the price of one from a renown brand. Even if one of these has an issue, it's a good choice for hobbyists that can take the time to test the boards themselves.
+> Even the *cheapest development boards* typically work great **provided** these boards were *assembled right*. One reason for cheap prices is poor *quality control*: faulty assembly goes unnoticed, and roughly out of a hundred boards may have a hardware issue. Then again, you often get ten *no-name* boards for the price of one from a renown brand. Even if one out of these has a defect, it's still a good choice for hobbyists that are willing to test boards themselves.
 
 
 
@@ -177,12 +177,12 @@ To verify, try connecting a different development board (ideally of the same typ
 
 Here are the typical two *hardware defects*:
 
+* **Bad USB Connectors:** occasionally, the *USB connector* is not firmly soldered onto the *PCB*, or the connector itself is slightly off specifications, causing loose contacts. 
 * **Bad Soldering:** drops of *solder* may have caused a *short circuit* on some pins. **When the board *gets warm* quickly after supplying it with power, immediately disconnect it and closely examine all solder spots.**
 
 <img src="images/solder_defect_detail.png" width="100%" height="100%" />
 
 
-* **Bad USB Connectors:** occasionally, the *USB connector* is not firmly soldered onto the *PCB*, or the connector itself is slightly off specifications, causing loose contacts. 
 
 
 
