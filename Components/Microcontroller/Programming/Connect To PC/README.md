@@ -40,7 +40,7 @@ They come with a *USB Connector* that is wired to a *USB-to-UART* (aka *USB-to-S
 On the opposite site, there are connectors for wires that can be connected to the *RX* and *TX* pins of the microcontroller.
 
 > [!TIP]
-> If you *do* happen to use external programmers, always make sure to connect *RX* to *TX*, and vice versa. Typically though, you will be using a *built-in* programmer (see below).
+> If you use external programmers, always make sure to connect *RX* to *TX*, and vice versa. Typically though, you will be using a *built-in* programmer (see below).
 
 
 
@@ -50,7 +50,7 @@ On the opposite site, there are connectors for wires that can be connected to th
 
 ### Built-In Programmers
 
-*Development boards* are targeted towards users that need to *frequently* update the *firmware*, i.e. because they are *testing* and *playing with microcontrollers*. It would be inconvenient to always having to use an *external programmer*.
+*Development boards* are targeted towards users that need to *frequently* update the firmware because they are *testing* and *playing with microcontrollers*. Wiring up an *external programmer* would be inconvenient.
 
 That's why most *development boards* come with *USB-to-UART* chips that have *USB connectors* built-in:
 
@@ -58,16 +58,16 @@ That's why most *development boards* come with *USB-to-UART* chips that have *US
 
 
 ## Connecting To Computer
-When you connect a *development board* (or an *external programmer*) to the USB port of your computer, the *USB-to-Serial* chip should *immediately be recognized* as a newly discovered *Plug&PLay USB device*, and the typical sound should play:
+When you connect a *development board* (or an *external programmer*) to the USB port of your computer, the *USB-to-Serial* chip should be *immediately recognized* as a newly discovered *Plug&PLay USB device*. The typical sound for a newly discovered USB device should play on your computer when you plug it in.
 
-1. You plug in a *USB cable* into the development board.
+1. Plug in a *USB cable* into the development board.
 2. Once you plug in the other end of the *USB cable* into any *USB port* on your computer, the computer immediately plays the sound *New USB Device Discovered*.
 3. In Device Manager (on *Windows*), a new *COM Port* appears.
 
 
 <img src="images/devmgr.png" width="100%" height="100%" />
 
-You now see the purpose of the *USB-to-Serial* chip: it provides a new *serial port* that can be used by your computer software like any other built-in serial port.
+The *USB-to-Serial* chip provides a new *serial port* that can be used by your computer software like any other built-in serial port.
 
 
 
