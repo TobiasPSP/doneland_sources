@@ -4,13 +4,9 @@
 
 > How To Create A Test Sketch For A New Development Board
 
-Once you have made sure that a new *development board* connects to your computer and gets a *COM port* assigned, the next step is to create *firmware* for your microcontroller.
-
-*Firmware* is the *software* that runs *directly* on a microcontroller.
+*Firmware* is the *software* that runs *directly* on a microcontroller. It is needed to tell the microcontroller what to do.
 
 ## Firmware
-Firmware is a *software* that is executed *directly* by the microcontroller. It is basically the software layer that directly interacts with the microcontroller.
-
 There are *two* general types of firmware: *specific* firmware that directly tells the microcontroller what to do, and *interpreter firmware* that *translates a high-level* programming language into machine code. In the latter case, the *firmware* by itself **does not** perform any tasks and requires additinal *scripts* or *user inputs* to actually do something.
 
 > [!CAUTION]
@@ -20,7 +16,7 @@ There are *two* general types of firmware: *specific* firmware that directly tel
 
 
 ### Directly Controlling Hardware
-The firmware is directly *taking care of* what you want the microcontroller to do. This is the most common type of firmware found in *DIY projects*: 
+The firmware is directly *implementing the actions* that you want the microcontroller to do for you. This is the most common type of firmware found in *DIY projects*: 
 
 You write specific firmware i.e. to read sensor data and display it, control *LED strips* or open a *relais* when a *WiFi command* is sent. Once uploaded to a microcontroller, it will do just that - until you decide to upload a different firmware.
 
@@ -47,10 +43,10 @@ The hardest part often is finding the correct links: the [authors' web page](htt
 
 <img src="images/co2meter.png" width="100%" height="100%" />
 
-As you see, there are different *firmware versions*, targeting *ESP32* microcontrollers with different *displays* attached to them.
+There are different *firmware versions*, targeting *ESP32* microcontrollers with different *displays* attached to them.
 
 > [!CAUTION]
-> Only *source code* is *hardware neutral*. Once it gets *compiled into a binary* by a *IDE*, it is converted into a *hardware-specific firmware*. This *firmware* can only be used on the particular hardware (microcontroller board) that was specified during compile time. When you take the shortcut and directly upload *pre-fabricated firmware*, you must be certain that it was indeed made for *your particular microcontroller and board*. Else, the firmware will not run (correctly).
+> *Source code* is *hardware neutral*. Once it gets *compiled into a binary* by an *IDE*, it is converted into a *hardware-specific* firmware. This *firmware* can now only be used on the particular hardware (microcontroller board) that was specified during compile time. When you take the shortcut and directly upload *pre-fabricated firmware*, you must be certain that it was indeed made for *your particular microcontroller and board*. Else, the firmware will not run (correctly).
 
 
 #### Home Automation
@@ -114,70 +110,67 @@ Free pre-compiled and ready-to-use *Interpreter firmware* is available for many 
 ## Development Environment
 To create new *firmware*, you need a tool that lets you *write the code* and that can *compile the code* into the *binary firmware* that a microcontroller needs. Such a tool is called *IDE* (*Integrated Development Environment*).
 
-There are two popular and free  * generic IDEs*:
+There are two popular and free *generic IDEs*:
 
-* [Arduino IDE](https://www.arduino.cc/en/software): This *IDE* was originally created to make programming *Arduino* microcontroller boards a breeze, and it is definitely *simple to use*. Today, it can be easily extended to also support microcontrollers and boards from other vendors (i.e. *ESP8266*, *ESP32*, *ATtiny*, etc.)
-* [PlatformIO](https://platformio.org/): This *IDE* is a *plugin* for the free cross-platform *Microsoft* text editor *VSCode*. As a *tool targeting professionals*, it is not just as *simple* to set up and may take an hour to get acquainted. Due to the underlying *feature-rich VSCode editor*, it is *much more capable* than *ArduinoIDE*, and once your code becomes a bit more complex, its *IntelliSense*, *Code Lens*, and many other tools and services ensure that it stays well manageable. *ArduinoIDE* in contrast is great only with *short code* and *very hard to use* once you start working with source code inside of *libraries*.
+* [Arduino IDE](https://www.arduino.cc/en/software): originally created to program *Arduino* microcontroller boards that meanwhile can be easily extended to support microcontrollers and boards from other vendors, too (i.e. *ESP8266*, *ESP32*, *ATtiny*, etc.)
+* [PlatformIO](https://platformio.org/): *plugin* for the free cross-platform *Microsoft* text editor *VSCode*. Due to the underlying *feature-rich VSCode editor*, it provides a *much more capable* editing experience, especially when code becomes more complex. 
 
 
 ## Creating Own Firmware
-Firmware is written in the programming language *C++* which is considered to be *difficult to use*. However that is not true when it comes to programming *microcontroller firmware*. Here is why:
+Firmware is written in the programming language *C++* which is considered to be *difficult to program*. However that is not true when it comes to programming *microcontroller firmware*. Here is why:
 
 ### Frameworks 
 
-With *IDEs* like *Arduino IDE* and *platformio*, you are not really programming a *firmware* all on your own in *pure C++*. Instead, you are taking advantage of a *Framework* that takes care of most of the hard work *transparently in the background* so you can focus on the *genuine* things you want your code to do.
+With *IDEs* like *Arduino IDE* and *platformio*, you are not really programming a *firmware* all on your own in *pure C++*. Instead, you are assisted by *Frameworks* that take care of most of the difficult technical aspects so you and your code can focus on the *genuine* things you want your code to do.
 
-#### Simple C++ Using A Framework
+#### Frameworks Simplify C++
+Thanks to *Frameworks*, you don't need to code the hardware directly. Instead, the *Framework* provides you with *simple-to-use* commands that internally take care of the difficult things.
 
-The *IDE* takes your code and *merges it* with a huge *predefined* set of *libraries* that in turn contain thousands of methods (commands) for your convenience. 
+If you for example wanted to turn on or off the built-in *LED* on your development board, you do not have to code complex bitwise register shifts, and in fact you do not even need to know the exact *pin number* the internal *LED* is attached to:
 
-If you for example wanted to turn on or off the built-in *LED* on your development board, you do not have to code complex bitwise register shifts, and in fact you do not even need to know the exact *pin number* the internal *LED* is attached to.
-
-Instead, you simply use one of the framework generic methods to control a *GPIO* pin, and you use one of the framework predefined *constants* to access exactly the pin that controls the internal *LED* on your particular board: 
 
 ````c++
 pinMode(LED_BUILTIN, OUTPUT);
 digitalWrite(LED_BUILTIN, HIGH);
 ````
 
+The code uses one of the frameworks generic methods to control a *GPIO* pin. It uses one of the framework predefined *constants* to access exactly the pin that controls the internal *LED* on your particular board. 
+
 #### Hard C++ Programming Without A Framework
 
-If you would not have the help of a *Framework* and had to rely solely on *C++*, you would have to use code like this to turn the LED on: 
+Without the help of a *Framework*, you would have to use hardware-specific code like this to turn the LED on: 
 
 ````c++
 DDRB |= _BV(DDB5);  // Set the corresponding bit in the DDR register to 1 to set Pin 13 to output mode
 PORTB |= _BV(PB5);  // Set pin 13 high using bitwise OR with the bitmask for pin 13
 ````
 
-Obviously, such code would be beyond the scope of *hobbyists*, and worse yet, the code would *only* work on an *Atmel AVR microcontroller* (i.e. one of the original *Arduinos*), and only when the internal LED is connected to *Pin 13*. On *ESP32* microcontrollers, the code would need to be completely different:
+Obviously, such code is beyond the scope of *hobbyists*, and worse yet, the code would *only* work on an *Atmel AVR microcontroller* (i.e. one of the original *Arduinos*), and only when the internal LED is connected to *Pin 13*. On i.e. *ESP32* microcontrollers, the code would look completely different:
 
 ````c++
 REG_WRITE(GPIO_ENABLE_W1TS_REG, 1 << 2); // Set bit 2 in GPIO_ENABLE_W1TS_REG to enable output mode
 REG_WRITE(GPIO_OUT_REG, REG_READ(GPIO_OUT_REG) | (1 << 2)); // // Set bit 2 in GPIO_OUT_W1TS_REG to turn on the LED
 ````
 
-Thanks to frameworks like *Arduino Framework*, code today is simple to understand and as *hardware neutral* as possible. This allowed the *community* to create code that targets a wide variety of microcontrollers and enables you to use code examples that originally might have been written for a completely different microcontroller.
+Thanks to Frameworks, code is simple to understand and *hardware neutral*. This allows the *community* to create code that targets a wide variety of microcontrollers and enables you to use code examples that originally might have been written for a completely different microcontroller.
 
 
 > [!NOTE]
-> These examples may illustrate *why* it was such a *game changer* when *Arduino IDE* introduced the *Arduino Framework* in the early *2000s*: suddenly, *hobbyists* and *non-programmers* could develop *firmware* for embedded systems.
+> The code comparison lets you appreciate why it was such a *game changer* when *Arduino IDE* introduced the *Arduino Framework* in the early *2000s*: suddenly, even *hobbyists* and *non-programmers* were able create *firmware* for microcontrollers.
 
 
 ## Arduino Framework
-*Arduino Framework* is the most popular Framework for *hobbyists*. Here are some of the reasons:
+*Arduino Framework* is the most popular Framework for *hobbyists*:
 
 * **Examples:** Since it has been around the longest time, there are the most *examples* available.
 * **Hardware Neutral:** It targets a wide variety of microcontrollers and is not limited to a particular vendor
-* **Simple to use:** Its *abstraction level* is high. It provides a very easy *coding environment*.
+* **Simple to use:** Its *abstraction level* is high. It provides a very easy *coding environment*. 
 
 ### Adding Platform Support
-Today, it is easy to add support for almost *any* microcontroller family by adding appropriate *board packages* to *Arduino IDE*.
-
-
-Out of the box, *Arduino IDE* comes with support for *Arduino boards* (and its *clones*).
+Out of the box, *Arduino IDE* comes with support for *Arduino boards* (and its *clones*) only, but it takes just a few clicks to add *Platform Support* for almost any other microcontroller:
 
 #### ESP8266 and ESP32
-To target the *ESP32* and/or *ESP8266* family of microprocessors, add the appropriate *board managers* like so:
+To add support for *ESP32* and/or *ESP8266* microprocessors, add the appropriate *board managers* like so:
 
 1. Choose *File*/*Preferences*. In the text box *Additional Boards Manager URLs, add this: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json`, then click *OK*.
 
@@ -196,7 +189,7 @@ To add support for additional microcontroller families, follow the same scheme.
 
 #### ATtiny
 
-To add support for *ATTiny* microcontrollers, add the additional *board manager url* `https://raw.githubusercontent.com/sleemanj/optiboot/master/dists/package_gogo_diy_attiny_index.json` (use *commas* to separate more than one url in the textbox).
+To add support for *ATtiny* microcontrollers, add the additional *board manager url* `https://raw.githubusercontent.com/sleemanj/optiboot/master/dists/package_gogo_diy_attiny_index.json` (use *commas* to separate more than one url in the textbox).
 
 Next, go to *Tools*/*Board*/*Boards Manager* once more, and search for *attiny*. Click *Install*.
 
