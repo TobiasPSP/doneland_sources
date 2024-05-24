@@ -119,11 +119,7 @@ On that system, I had connected *two* development boards:
 
 
 ### Drivers Required?
-What if the computer simply *ignores* a connected development board (or *external programmer*) and *does not assign a COM Port* to it? 
-
-That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board. Period. You need to solve this issue first before you can proceed with anything else.
-
-The good thing: this is solely an issue between your computer and the *USB-to-Serial* chip. There is nothing else involved, especially no configurations or settings in your *IDE*. 
+What if the computer simply *ignores* a connected development board (or *external programmer*) and *does not assign a COM Port* to it? This is solely an issue between your computer and the *USB-to-Serial* chip. There is nothing else involved, especially no configurations or settings in your *IDE*. 
 
 #### Ruling Out Physical Problems
 
