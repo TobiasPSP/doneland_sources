@@ -11,13 +11,58 @@ Sounds easy: just connect a *USB cable* to the development board and plug its ot
 
 However, when your computer stubbornly won't *recognize* the board, things quickly become *frustating* as there are no *error messages* or other indicators that would tell you what is amiss. That's why it's a good thing to *understand* how the development board is recognized by a computer, and what the steps are to *diagnose and correct* connection issues.
 
-## Overview
+
+> [!NOTE]
+> When things don't work as expected, some users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. From my experience,initial *connection issues* are very *common*, however *defective boards* are *very uncommon*. Most issues are related to cables, drivers, and other things *that are the responsibility of the **user***. *Systematic diagnosis* lets you quickly solve most connection issues.
+
+
+
+
+
+
+
+
+
+
+## USB-to-UART Chip
+Most microcontrollers do not support *USB* directly. They need a chip that *translates* between the *USB port* of your computer and the *serial interface* of the *microcontroller*.
+
+### External Programmers
+
+These chips are available *separately* in many different form factors and can be used to connect *directly* to microcontrollers, i.e. to occasionally *update the firmware* on devices.
+
+<img src="images/usb_ttl_overview_t.png" width="100%" height="100%" />
+
+They come with a *USB Connector* that is wired to a *USB-to-UART* (aka *USB-to-Serial* or *USB-to-TTL*) chip:
+
+<img src="images/usb_ttl_detail_t.png" width="100%" height="100%" />
+
+On the opposite site, there are connectors for wires that can be connected to the *RX* and *TX* pins of the microcontroller.
+
+> [!TIP]
+> If you *do* happen to use external programmers, always make sure to connect *RX* to *TX*, and vice versa. Typically though, you will be using a *built-in* programmer (see below).
+
+
+
+
+
+
+
+### Built-In Programmers
+
+*Development boards* are targeted towards users that need to *frequently* update the *firmware*, i.e. because they are *testing* and *playing with microcontrollers*. It would be inconvenient to always having to use an *external programmer*.
+
+That's why most *development boards* come with *USB-to-UART* chips that have *USB connectors* built-in:
+
+<img src="images/usb_ttl_builtin_t.png" width="100%" height="100%" />
+
+
 In order to *communicate* with a development board, typically a *USB port* is used *for convenience*. In *reality* though, most microcontrollers use a simple *serial* interface for communications. Only the latest *ESPxxxx* modules support direct communication via *USB*.
 
 In any respect, *connecting issues* are *not related to a particular IDE you may be using*. *Connecting issues* are *always* an issue between the development board and your computer. This makes *diagnosis* easy because you can *ignore* the *ISE* and focus solely on the raw *USB connection*.
 
-### Test Connection
-This is how *connecting* a development board to a computer *should* look like:
+## Connecting To Computer
+When you connect a *development board* (or an *external programmer*) to the USB port of your computer, the *USB-to-Serial* chip should *immediately be recognized* as a newly discovered *Plug&PLay USB device*, and the typical sound should play:
 
 1. You plug in a *USB cable* into the development board.
 2. Once you plug in the other end of the *USB cable* into any *USB port* on your computer, the computer immediately plays the sound *New USB Device Discovered*.
@@ -26,7 +71,18 @@ This is how *connecting* a development board to a computer *should* look like:
 
 <img src="images/devmgr.png" width="100%" height="100%" />
 
-#### Using PowerShell To Check Port Details
+You now see the purpose of the *USB-to-Serial* chip: it provides a new *serial port* that can be used by your computer software like any other built-in serial port.
+
+
+
+> [!CAUTION]
+> If your computer does not recognize the *USB-to-Serial* chip when you connect a *development board* to its USB port, and you don't see a new *COM Port* in *device manager*, don't panic: your computer may just be missing a driver. See next section for fixing this issue.
+
+
+
+
+<details><summary>Using PowerShell To Check Port Details</summary><br/>
+
 On *Windows*, you can use the *cmdlet* `Get-ComPortInfo` provided by the *PowerShell module* [DoneLandTools](https://www.powershellgallery.com/packages/DoneLandTools/):
 
 ````powershell
@@ -63,94 +119,78 @@ On that system, I had connected *two* development boards:
 * The *first* set of data represents a connected *ESP8266* at *COM4* using a *custom port driver* located at *C:\WINDOWS\SYSTEM32\DRIVERS\CH341S64.SYS*.
 * The *second* set of data represents a connected *ESP32 S2* at *COM77* using the default *Microsoft USB Serial Driver*.
 
-<details><summary>Testing COM Port Connection</summary><br/>
-
-
-Once the *development board* is recognized by the computer and got a *COM Port* assigned, you are good to go. 
-
-*IDEs* like *Arduino IDE* and *platformio* use generic tools to communicate to the development board over the assigned COM port. *ESPxxxx*-based development boards are managed by the tool *esptool* supplied by its vendor *Espressif*. 
-
-Anyone can freely [download and install](https://github.com/espressif/esptool/tree/master/esptool) this tool, and you could install it *stand-alone* as part of your personal tool set if you like. Once there is a *COM Port* that you can use to communicate with a development board, tools like *esptool* can gather important *detail information* about a particular board and its hardware. That's useful to check *USB connectivity* as well as i.e. *verify* that your development board in fact came with the features and memory sizes a vendor promised.
-
-On my *COM4*, I connected a *D1 Mini ESP8266* development board. With the command below, *esptool* examines the *Flash memory* of this board and reports back its total physical size, among other details:
-
-````
-PS> esptool --port COM4 flash_id
-esptool.py v4.7.0
-Serial port COM4
-Connecting....
-Detecting chip type... Unsupported detection protocol, switching and trying again...
-Connecting....
-Detecting chip type... ESP8266
-Chip is ESP8266EX
-Features: WiFi
-Crystal is 26MHz
-MAC: 08:3a:8d:cc:dd:a9
-Uploading stub...
-Running stub...
-Stub running...
-Manufacturer: 5e
-Device: 4016
-Detected flash size: 4MB
-Hard resetting via RTS pin...
-````
-
-Likewise, on my *COM port 77* I connected a *ESP32 S2 Mini* board. The same command can query this microcontroller as well:
-
-````
-PS> esptool --port COM76 flash_id
-esptool.py v4.7.0
-Serial port COM76
-Connecting....
-Detecting chip type... Unsupported detection protocol, switching and trying again...
-Detecting chip type... ESP32-S2
-Chip is ESP32-S2FNR2 (revision v1.0)
-Features: WiFi, Embedded Flash 4MB, Embedded PSRAM 2MB, ADC and temperature sensor calibration in BLK2 of efuse V2
-Crystal is 40MHz
-MAC: 80:65:99:fc:f4:d0
-Uploading stub...
-Running stub...
-Stub running...
-Manufacturer: 20
-Device: 4016
-Detected flash size: 4MB
-Flash type set in eFuse: quad (4 data lines)
-Hard resetting via RTS pin...
-````
-
-Without delving too much into this topic, *esptool* and other console commands are *low level tools* that may require a bit of background information. For the *ESP S2* for example, due to the way how it connects to *USB*, it is necessary to query *COM77* (triggering a port exception), and then query *COM76*.
-
 </details>
 
-### No Device Detected
 
-What however if the computer simply *ignores* a connected development board and *does not assign a COM Port* to it? That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board. Bummer.
+### Drivers Required?
+What if the computer simply *ignores* a connected development board (or *external programmer*) and *does not assign a COM Port* to it? 
 
-> [!IMPORTANT]
-> You **must** solve this issue first - before looking into any other configurations and settings. There **must** be a **COM port** (on *Windows*) showing up in *Device Manager*.
+That's a *show stopper*. Without a *COM Port*, you *cannot communicate* with the board. Period. You need to solve this issue first before you can proceed with anything else.
 
-These are the most common issues causing connection issues:
+The good thing: this is solely an issue between your computer and the *USB-to-Serial* chip. There is nothing else involved, especially no configurations or settings in your *IDE*. 
+
+#### Ruling Out Physical Problems
+
+Before looking at driver issues, make sure there are no *physical problems*. *Physical problems are by far the most common causes and simple to fix:
+
 
 * **Loose Connections:** make sure you *firmly* plugged in the *USB cable*. It should *snap into place*.
 * **Bad USB Cable:** this is meant dead serious. Some *USB* cables are made just to supply *power* and do not connect the *data lines*, but the *majority* of cables connects *all pins*. Still, a great many *USB cables* cause *connection issues*, most likely due to low quality, high cable resistance, loose jacks, etc. The best option is to use a *known good* USB cable that you previously successfully used to connect to a breakout board. If you don't have such a cable, make sure you try and test as many different cables as you can get a hold of, and if the cable was indeed the issue, attach a label to the cable that finally worked so you know which one to use in the future.
-* **Missing Driver:** On *Windows*, missing drivers are not a very common issue. *Windows* ships with the most common drivers. However, if the breakout board is not recognized even though you tried multiple *USB cables*, you should find out what kind of driver the development board requires, and install it.
-* **Defects:** If you got your development board from a cheap source like *AliExpress*, that's perfectly fine. Often they ship the very same boards that you can get elsewhere at ten times the price. However, *quality control* is a problem. Expect one out of thirty boards to have a defect. Most defects are related to *bad soldering* and can be repaired: drops of *solder* may have caused a *short circuit* on some pins, or the *USB connector* is not firmly soldered onto the *PCB*. When the board *gets warm* quickly after supplying it with power, immediately disconnect it and closely examine all solder spots. That said, there are (few) cases when a development board just won't work. These cases are *rare* though. Try connecting a different development board (ideally of the same type requiring the same *drivers*) to isolate the cause. If the new board connects fine, then it definitely is a *board issue*.
 
-> [!NOTE]
-> When things don't work as expected, many users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. That doesn't match my experience. Over the years, I ran into numerous *connection issues*, and yes they are *frustrating* and get you annoyed. Yet out of 100 cases, maybe just one turned out to be a *genuine board hardware defect*. All other issues were related to cables, drivers, and other things *that I was responsible for*. In the end, they all could be happily resolved. Let's not forget: *development boards* are no *toys*. They do require technical skill and background information to run them appropriately. When things go wrong, take it as a *mental challenge*.
+## Installing Drivers
+If you came this far and still have connection issues, now is the time to check for missing drivers.
 
 
-### Installing Driver
 In order to use the *USB-to-Serial* controller on a board, the *computer* needs a *driver* for it. If a board is not recognized by your computer, and you checked all other causes mentioned above, then most likely it is missing the appropriate driver.
 
-These are the most commonly used *USB-to-Serial* chips:
+Most *development boards* and *external programmers* use one of these *USB-to-Serial* chips that all work similar:
 
-| OS |  [CH9102](https://www.wch-ic.com/downloads/category/30.html) | [CP210x](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) | [CH34x](https://www.wch-ic.com/products/categories/46.html?pid=1) |
+|  [CH9102](https://www.wch-ic.com/downloads/category/30.html) | [CP210x](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) | [CH34x](https://www.wch-ic.com/products/categories/46.html?pid=1) |
 | ---  | --- | --- |
-| Speed Mbps | 4 | 12 | 2 |
+| 4Mbps | 12Mbps | 2Mbps |
+
+Their primary difference is the *transfer speed* that determines how long in takes to upload new firmware to the microcontroller.
+
+Here are the steps to fix missing drivers:
+
+1. First try and *identify* the *USB-to-Serial* chip you are trying to connect to. On most development boards, it is the second-largest chip on the PCB. Occasionally, though, this chip can be *unmarked*, or its markings are unreadable.
+2. If you *do know* the type of chip, click on the appropriate header in the table above, or use the table below, to visit the chips' manufacturer driver downloads section. Download the driver for your computer operating system. If you *don't know* the chip type, you go by *trial and error* and install one driver at a time. You may end up installing all three drivers (which isn't a bad thing).
+3. On *Windows*, right-click the downloaded driver archive, choose *Properties*, then *Unblock* the file. 
+4. Extract the archive and run the installer.
+5. Once the driver has been installed, try again connecting the *development board*. Most likely, its *USB-to-Serial* chip will now be recognized, and you get a new *serial port*.
+
+| Chip | Driver Download |
+| --- | --- |
+| CH9102 | [https://www.wch-ic.com/downloads/category/30.html](https://www.wch-ic.com/downloads/category/30.html) | 
+| CP210x | [https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) |
+| CH34x | [https://www.wch-ic.com/products/categories/46.html?pid=1](https://www.wch-ic.com/products/categories/46.html?pid=1) |
+
+### Hardware Issues
+Occasionally, the *USB-to-Serial*-Chip and the *USB connection* are fine, and *still* the development board won't respond correctly.
+
+If you have installed *all* drivers, restarted the computer, tried different *USB cables* and made sure all connections were plugged in tightly, then (and *only* then) it is time to consider a *board defect*.
+
+#### Verify Board Defect
+
+To verify, try connecting a different development board (ideally of the same type requiring the same *drivers*). If the new board connects fine, you ruled out the most common causes for connection issues (USB cable problem, missing driver), and it most definitely is a *board issue*.
+
+> [!NOTE]
+> From experience, even the *cheapest development boards* work great **provided** these boards were *assembled right*. One reason for cheap prices is lack of *quality control*: faulty assembly goes unnoticed, and roughly out of a hundred boards can have an issue. That said, from *cheap sources* you often get ten boards for the price of one from a renown brand. Even if one of these has an issue, it's a good choice for hobbyists that can take the time to test the boards themselves.
 
 
 
+<img src="images/solder_defect1_t.png" width="100%" height="100%" />
+
+
+
+Here are the typical two *hardware defects*:
+
+* **Bad Soldering:** drops of *solder* may have caused a *short circuit* on some pins. **When the board *gets warm* quickly after supplying it with power, immediately disconnect it and closely examine all solder spots.**
+
+<img src="images/solder_defect_detail.png" width="100%" height="100%" />
+
+
+* **Bad USB Connectors:** occasionally, the *USB connector* is not firmly soldered onto the *PCB*, or the connector itself is slightly off specifications, causing loose contacts. 
 
 
 
@@ -163,4 +203,4 @@ These are the most commonly used *USB-to-Serial* chips:
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/programming/connecttopc?359846051021241839) - created 2024-05-20 - last edited 2024-05-22
+[Visit Page on Website](https://done.land/components/microcontroller/programming/connecttopc?359846051021241839) - created 2024-05-21 - last edited 2024-05-22
