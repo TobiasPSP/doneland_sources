@@ -234,45 +234,41 @@ All *Platform Packages* that you add through *Arduinos Board Manager* are stored
 </details>
 
 ## ESP-IDF (Espressif IoT Development Framework)
-*ESP-IDF* is a framework created by the Chinese company *Espressif* to specifically target its line of *ESP32* microcontrollers. You can only use it if you intend to target *ESP32* microcontrollers, and if you are using an *IDE* that supports switching frameworks.
-
-*Arduino IDE* can *only* work with *Arduino Framework*. *platformio* in contrast lets you use whatever framework you want. On *platformio*, when you create a new project, you can choose which framework you would like to use.
+*ESP-IDF* is a framework created by the Chinese company *Espressif* to specifically target its line of *ESP32* microcontrollers. 
 
 ### Why Different Frameworks?
-Keep in mind what a *framework* is supposed to do: it is supposed to *handle all hardware specific* things so *you* and your code can focus on the genuine things that you want the code to do.
+The more you *abstract* things, the *easier* they get, and *ease of use* is one of the highest priorities in the *Arduino ecosystem*. On the downside, the more you *abstract*, the more *control* you give up. 
 
-The more you *abstract* things, the *easier* things get, and *ease of use* is one of the highest priorities in the *Arduino ecosystem*. On the downside, the more you *abstract*, the less control do you have. 
+*Arduino Framework* is based on its [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API) platform template, and all *Platform Packages* must derive from it. That's a great idea because it ensures maximum compatibility across different microcontroller platforms. But it is also *limiting* if you are a *highly innovative Chinese manufacturer* who keeps adding awesome features by the month.
 
-*Arduino Framework* is based on its [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API) platform template, and all *Platform Packages* must derive from it. That's cool because it ensures maximum compatibility. But it is not so cool if you are a *highly innovative Chinese manufacturer* who keeps adding awesome new features by the month.
+That's why *Espressif* decided to take its *Platform support* in *own hands*: Its framework *ESP-IDF* does not rely on *Arduinos update cycles* or *template restrictions*. It always provides the best and most specific platform support with the latest and greatest features and microcontrollers found in the *ESP32* ecosystem. You get much more options at the expense of giving up compatibiity to other microcontrollers.
 
-That's why *Espressif* decided to take its *Platform support* in *own hands*: Its framework *ESP-IDF* does not rely on *Arduinos update cycles* or *template restrictions*. It always provides the best platform support with the latest and greatest features and microcontrollers, but *only for ESP32* microcontrollers (and its newer versions).
-
-To also support all *Arduino IDE users* and maintain compatibility with the vast number of *code examples* written in *Arduino Framework*, the company also maintains a *Arduino Platform Package* called [arduino-esp32](https://github.com/espressif/arduino-esp32) which internally is based on *ESP-IDF*.
+To still support all *Arduino IDE users* and maintain compatibility with the vast number of *code examples* written in *Arduino Framework*, *Espressif* also maintains an *Arduino Platform Package* called [arduino-esp32](https://github.com/espressif/arduino-esp32). Internally, it is based on *ESP-IDF*.
 
 ### Arduino Core Lags Behind
-The added *hardware abstraction layer* that you get with *arduino-esp32* in the *Arduino Framework* is great most of the time. However it takes additional time to maintain and update this abstraction layer whenever *ESP-IDF* changes. It always *lags behind* a bit.
+This added *hardware abstraction layer* that you get with *arduino-esp32* inside the *Arduino Framework* takes time to maintain. Whenever *ESP-IDF* changes, *arduino-esp32* takes half a year or so until it catches up. 
 
-The latest *Espressif Framework* is *ESP-IDF v5*. It introduced a great number of exciting new features, and it supports new microcontrollers like the *C6* and *H2*.
+The latest *Espressif Framework* is *ESP-IDF v5*. It introduced a great number of exciting new features, including supports for the latest *Espressif* microcontrollers (like the *C6* and *H2*).
 
-As of this writing, the current [arduino-esp32](https://github.com/espressif/arduino-esp32/releases/tag/2.0.17) release is based on *ESP-IDF v4*. It still misses out on many new features that are already available in the *ESP-IDF Framework*. 
+As of this writing, the current [arduino-esp32 v2](https://github.com/espressif/arduino-esp32/releases/tag/2.0.17) release is still based on *ESP-IDF v4*. It still misses out on new features that already landed in the *ESP-IDF Framework*. 
 
-That said, even though the *Arduino Platform Package* always lags behind a bit, it is just a matter of time until it catches up. [arduino-esp32 v3](https://github.com/espressif/arduino-esp32/releases/tag/3.0.0-rc3) is based on the latest *ESP-IDF v5.1* Framework. This new *Arduino Platform Package* is already in *release candidate* status and will soon be released.
+Even though the *Arduino Platform Package* always lags behind a bit, it is just a matter of time until it eventually catches up. [arduino-esp32 v3](https://github.com/espressif/arduino-esp32/releases/tag/3.0.0-rc3) is based on the latest *ESP-IDF v5.1* Framework. This new *Arduino Platform Package* is already in *release candidate* status and will soon be released.
 
 
 
 ## Comparing Frameworks
-As pointed out, both *Arduino Framework* and *ESP-IDF* come with extensive libraries full of methods (commands) that help you keep your code simple, and focus on your genuine goals.
+Both *Arduino Framework* and *ESP-IDF* come with extensive libraries full of methods (commands) that help you keep your code simple, and focus on your genuine goals.
 
-Obviously, *ESP-IDF* is only an option if you target *ESP32* microcontrollers. If you want to program a *different* microcontroller family, or if you want to share your code with a *maximum audience*, then *Arduino Framework* is your only choice. The same is true if you insist on using *Arduino IDE*: it only supports its own *Arduino Framework*.
+Obviously, *ESP-IDF* is only an option if you target *ESP32* microcontrollers. If you want to program a *different* microcontroller family, or if you want to share your code with a *maximum audience*, then *Arduino Framework* is for you. The same is true if you *must use* *Arduino IDE*: it only supports its own *Arduino Framework*.
 
-But even if you do target *ESP32* microcontrollers and are using a modern *IDE* like *platformio*, you should still carefully consider the framework to choose:
+But even if you do target *ESP32* microcontrollers and are using a modern *IDE* like *platformio* that lets you choose the Framework, you should still carefully consider the pros and cons:
 
-* **Simplicity:** the *Arduino Framework* prioritizes *ease of use*, and its implementation of the *C++* programming language feels *easier* for many users. 
-* **ESP32 Examples:** if you are interested in the latest and greatest features found in new *ESP32* microcontrollers, then you need good *example code*. Often, *Espressif* tutorials and examples are the only source, and they use their own *ESP-IDF* framework.
+* **Simplicity:** the *Arduino Framework* prioritizes *ease of use*, and its implementation of the *C++* programming language feels *easier* to many users. 
+* **ESP32 Examples:** if you are interested in the latest and greatest features in the *ESP32* ecosystem, then you need good *example code*. Often, *Espressif* tutorials and examples are your only source, and they all use their own *ESP-IDF* framework.
 
 
 ### Language Differences
-For the reasons mentioned a couple of times, code written in *one* framework is not compatible to a *different* framework. To highlight some of the differences, let's take a look at the famous *blink* sketch that lets a *LED* blink.
+Because of their different API, code is not compatible between Frameworks. They all use *C++*, but each Framework has its own set of commands. To highlight some of the differences, let's take a look at the infamous *blink* sketch that lets an *LED* blink.
 
 #### Arduino IDE
 
@@ -297,12 +293,12 @@ void loop()
 }
 ````
 
-In *Arduino Framework*, the two methods `setup()` and `loop()` must always be present. They are used to easily organize your code: `setup()` gets executed *once* and can i.e. initialize things, for example *open the serial connection*.  `loop()` runs endlessly to perform the actual job.
+The two methods `setup()` and `loop()` must always be present. They are used to easily organize the code: `setup()` gets executed *once* and can i.e. initialize things, for example *open the serial connection*.  `loop()` runs endlessly to perform the actual job.
 
 
 #### ESP-IDF
 
-The same functionality looks differently when written in the *Espressif* framework:
+Here is same functionality written in *Espressif* framework:
 
 ````c++
 gpio_reset_pin(BLINK_GPIO);
@@ -319,8 +315,9 @@ while(1) {
     vTaskDelay(1000 / portTICK_PERIOD_MS);
 }
 ````
+The *code logic* is identical. Both frameworks abstract the *GPIO access*, however they are using different *methods* (commands) for it. 
 
-Both frameworks abstract the *GPIO access*, however they are using different *methods* (commands) for it. *ESP-IDF* does not use constructions like `setup()` and `loop()`. Instead, the code uses an *endless **while** loop*.
+But there are additional differences: *ESP-IDF* does not use predefined functions like `setup()` and `loop()`. The code simply uses an *endless **while** loop*.
 
 ## Uploading Firmware With Arduino IDE
 Let's step through the process of uploading the *famous* **blink** sketch to a microcontroller and make its internal LED blink:
