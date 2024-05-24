@@ -71,3 +71,4 @@ Without delving too much into this topic, *esptool* and other console commands a
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
+[Visit Page on Website](https://done.land/components/microcontroller/programming/uploadsketch?125531051924245632) - created 2024-05-23 - last edited 2024-05-23
