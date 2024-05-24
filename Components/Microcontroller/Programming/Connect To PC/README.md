@@ -162,7 +162,7 @@ Here are the steps to fix missing drivers:
 | CH34x | [https://www.wch-ic.com/products/categories/46.html?pid=1](https://www.wch-ic.com/products/categories/46.html?pid=1) |
 
 ### Hardware Issues
-Occasionally, the *USB-to-Serial*-Chip and the *USB connection* are fine, and *still* the development board won't respond correctly.
+Rarely, the *USB-to-Serial*-Chip and the *USB connection* are fine, and *still* the development board won't respond correctly.
 
 If you have installed *all* drivers, restarted the computer, tried different *USB cables* and made sure all connections were plugged in tightly, then (and *only* then) it is time to consider a *board defect*.
 
@@ -171,7 +171,7 @@ If you have installed *all* drivers, restarted the computer, tried different *US
 To verify, try connecting a different development board (ideally of the same type requiring the same *drivers*). If the new board connects fine, you ruled out the most common causes for connection issues (USB cable problem, missing driver), and it most definitely is a *board issue*.
 
 > [!NOTE]
-> From experience, even the *cheapest development boards* work great **provided** these boards were *assembled right*. One reason for cheap prices is lack of *quality control*: faulty assembly goes unnoticed, and roughly out of a hundred boards can have an issue. That said, from *cheap sources* you often get ten boards for the price of one from a renown brand. Even if one of these has an issue, it's a good choice for hobbyists that can take the time to test the boards themselves.
+> Even the *cheapest development boards* typically work great **provided** these boards were *assembled right*. One reason for cheap prices is poor *quality control*: faulty assembly goes unnoticed, and roughly out of a hundred boards can have an issue. That said, from *cheap sources* you often get ten boards for the price of one from a renown brand. Even if one of these has an issue, it's a good choice for hobbyists that can take the time to test the boards themselves.
 
 
 
