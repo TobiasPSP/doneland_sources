@@ -57,10 +57,6 @@ That's why most *development boards* come with *USB-to-UART* chips that have *US
 <img src="images/usb_ttl_builtin_t.png" width="100%" height="100%" />
 
 
-In order to *communicate* with a development board, typically a *USB port* is used *for convenience*. In *reality* though, most microcontrollers use a simple *serial* interface for communications. Only the latest *ESPxxxx* modules support direct communication via *USB*.
-
-In any respect, *connecting issues* are *not related to a particular IDE you may be using*. *Connecting issues* are *always* an issue between the development board and your computer. This makes *diagnosis* easy because you can *ignore* the *ISE* and focus solely on the raw *USB connection*.
-
 ## Connecting To Computer
 When you connect a *development board* (or an *external programmer*) to the USB port of your computer, the *USB-to-Serial* chip should *immediately be recognized* as a newly discovered *Plug&PLay USB device*, and the typical sound should play:
 
