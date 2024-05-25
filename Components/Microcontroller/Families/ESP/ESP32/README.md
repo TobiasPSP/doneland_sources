@@ -64,7 +64,15 @@ The [Expressif Product Comparison](https://products.espressif.com/#/product-comp
 
 
 ## Quick Selection Guide
-Depending on your feature requirements, here is guidance as to which microcontroller to pick:
+In a nutshell:
+
+* if you *want it all* then get an *ESP32 S3*. They come in *large boards* (with all pins exposed) and *super-tiny*.
+* if your focus is *GPIO* then get an *ESP32 S2*. They are super cheap with large memory.
+* if you want *matter* support, get an *ESP32 C3*. They are super cheap as well.
+
+*Classic ESP32 WROOM* are perfect generalists as well - as long as you don't want to *minimize energy consumption in battery projects* or use the fancy new wireless techniques like *matter*.
+
+Depending on your feature requirements, here is a more feature-based guidance:
 
 | Category | You want to... | Recommendation |
 | --- | --- | --- |
