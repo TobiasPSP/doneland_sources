@@ -7,13 +7,14 @@
 
 You got a new *development board*, and now you want to hook it up to your computer (so you can program it and upload new firmware, or receive output via the *Terminal* window).
 
-Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer. And often enough it *is* that easy.
+Sounds easy: just connect a *USB cable* to the development board and plug its other end into your computer. And often enough it *is* that easy. If it works like this for you, then you can skip the remainder of this article and move on to the next.
 
-However, when your computer stubbornly won't *recognize* the board, things quickly become *frustating* as there are no *error messages* or other indicators that would tell you what is amiss. That's why it's a good thing to *understand* how the development board is recognized by a computer, and what the steps are to *diagnose and correct* connection issues.
+If however your computer simply won't *recognize* the board, or if you'd like to better understand what goes on exactly when you connect your *development board* to a *computer*, please read on. Most likely, you'll be able to fix your connection issues in no time and learn a lot of new things.
+
 
 
 > [!NOTE]
-> When things don't work as expected, some users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. From my experience,initial *connection issues* are very *common*, however *defective boards* are *very uncommon*. Most issues are related to cables, drivers, and other things *that are the responsibility of the **user***. *Systematic diagnosis* lets you quickly solve most connection issues.
+> When things don't work as expected, some users are *quick to blame the board* or brag about the *"rotten quality"* of Asian sellers. That's not so clever. Initial *connection issues* are actually very *common* and most likely caused by *easily fixable user errors*. True hardware defects are extremely rare.
 
 
 
@@ -195,4 +196,3 @@ Here are the typical two *hardware defects*:
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/programming/connecttopc?359846051021241839) - created 2024-05-18 - last edited 2024-05-22
