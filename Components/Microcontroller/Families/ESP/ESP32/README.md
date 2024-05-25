@@ -66,20 +66,19 @@ The [Expressif Product Comparison](https://products.espressif.com/#/product-comp
 ## Quick Selection Guide
 Depending on your feature requirements, here is guidance as to which microcontroller to pick:
 
-| Category | Requirement | Recommendation |
+| Category | You want to... | Recommendation |
 | --- | --- | --- |
-| USB Support | you want to plug in USB devices such as keyboards, or turn your microcontroller into a USB memory stick | *S2* or *S3* (USB-OTG required) |
-| DAC | you want to output analog voltages using a built-in DAC | *ESP32* or *S2* |
-| I/O | you want to control as many external devices as possible | *S2* or *S3* (>40 GPIOs) | 
-| Camera Support | you want to hook up a camera | *ESP32*, *S2*, or *S3* |
-| Temperature | you want to monitor the board temperature | *any* except *ESP32* |
-| Low Energy | you need a low energy sleep mode for battery-driven devices | *S3* or *C3* |
-| Bluetooth | your focus is on Bluetooth and its latest features | *C6* or *H2* |
-| Matter, Threads, etc. | you want to build *matter*-compatible devices | *C6* or *H2* |
-| Motor Control | you want to control motors | *ESP32* or *S3* |
-| Touch | you want to use touch sensors | *ESP32*, *S2*, or *S3* |
-| Low Voltage | you need a microcontroller that works in a wide voltage range and continues to run when voltage drops down to as low as 2.3V | *ESP32*, all other versions require a minimum of *3.0-3.3V* |
-
+| I/O | control as many external devices as possible | *S2* or *S3* (>40 GPIOs) | 
+| DAC |output analog voltages using a built-in DAC | *ESP32* or *S2* |
+| Touch | use touch sensors | *ESP32*, *S2*, or *S3* |
+| USB Support | use USB devices such as keyboards and mice, or turn your microcontroller into a USB memory stick | *S2* or *S3* (USB-OTG required) |
+| Camera Support | use a camera | *ESP32*, *S2*, or *S3* |
+| Low Voltage | work with the lowest-possible voltage (i.e. solar projects) | *ESP32*, all other versions require a minimum of *3.0-3.3V* |
+| Low Energy | run on battery for a long time | *S3* or *C3* |
+| Bluetooth | use advanced Bluetooth LE features | *C6* or *H2* |
+| Temperature | monitor the CPU temperature | *any* except *ESP32* |
+| Motor Control | control motors | *ESP32* or *S3* |
+| Matter, Threads, etc. | build *matter*-compatible devices | *C6* or *H2* |
 
 
 ## Overview
