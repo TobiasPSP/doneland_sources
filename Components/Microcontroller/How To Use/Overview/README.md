@@ -140,11 +140,5 @@ For example, *NodeMCU development board* come with its integrated *LUA firmware*
 
 Instead of *creating and changing firmware* on the lowest level, the *LUA development environment* lets you compose *LUA scripts*, *send them to the *LUA interpreter running in your NodeMCU default firmware*, and *communicate back and forth* with the *interpreter*.
 
-
-
-
-
-
 > Tags: Microcontroller, Module, Crystal, Voltage Regulator, USB-to-Serial
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/overview?505691051225241424) - created 2024-05-01 - last edited 2024-05-26
