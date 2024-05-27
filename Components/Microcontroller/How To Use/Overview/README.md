@@ -1,8 +1,8 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
  
-# Overview
+# Introduction
 
-> The "Big Picture" And Some Essential Terminology To Get Started
+> Painting The "Big Picture" And Some Essential Terminology To Get Started
 
 Before I get *practical* and show you step by step how to *actually use* microcontrollers in your projects, let's start with a quick *overview*, and clarify some basic *terminology* so we all are on the same page.
 
@@ -142,4 +142,4 @@ Instead of *creating and changing firmware* on the lowest level, the *LUA develo
 
 > Tags: Microcontroller, Module, Crystal, Voltage Regulator, USB-to-Serial
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/overview?097890051627245006) - created 2024-05-26 - last edited 2024-05-26
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/overview?097890051627245006) - created 2024-05-01 - last edited 2024-05-26
