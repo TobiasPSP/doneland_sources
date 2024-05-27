@@ -31,18 +31,18 @@ There are a variety of *awesome projects and services* that all provide you with
 ### WLED LED Controller
 
 
-[WLED](https://kno.wled.ge/) for example is an *open source* project for controlling *LED Strips*. You can get ready-to-go firmware for *ESP8266* and *ESP32* microcontrollers.
+[WLED](https://kno.wled.ge/) is an *open source* project for controlling *LED Strips*. You can get ready-to-go firmware for *ESP8266* and *ESP32* microcontrollers.
 
 All you need to do is [wire up](https://kno.wled.ge/basics/getting-started/) the *LED Strip* to the microcontroller.
 
-Next, *upload the firmware* (software) to the microcontroller. This can be done [right from within your browser](https://install.wled.me/).
+Next, [upload the firmware](](https://install.wled.me/)(software) to the microcontroller. This can be done [right from within your browser](https://install.wled.me/).
 
 
 ### CO2 Sensor
 
-There are plenty of *awesome open source projects* like this one. [CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is another one that turns a *CO2 sensor* into a *smartphone app*. It runs on any *ESP32* microcontroller, and it comes with a web browser-based *firmware flashing tool*.
+[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) turns a *CO2 sensor* into a *smartphone app*. It runs on any *ESP32* microcontroller, and it comes with a web browser-based *firmware flashing tool*.
 
-The hardest part often is finding the correct links: the [authors' web page](https://emariete.com/en/co2-meter-gadget/) is huge and not structured well. Links to the browser-based firmware uploads can be found somewhere in the middle of it.
+The hardest part often is finding the correct links: the [authors' web page](https://emariete.com/en/co2-meter-gadget/) is huge and not structured too well. Links to the browser-based firmware uploads can be found somewhere in the middle of it.
 
 
 
@@ -93,57 +93,57 @@ In the combo box, select the firmware image you want to use. This list is *huge*
 3. Each firmware image lists additional support, i.e. for *climate sensors*, *energy meters*, *neopixel RGB LEDs*, or specific library collections. Since I want to hook up an OLED display, I looked for images with *display* support. Eventually, I ended up with *20240414 Display 4M [ESP8266,ESP32,ESP32-S2/S3/C3].
 
 
-<img src="images/espeasy_04.png" width="100%" height="100%" />
+<img src="images/espeasy_04.png" width="40%" height="40%" />
 
 4. Connect the microcontroller board to the USB port of the computer, and click *Connect*. The typical *WebSerial dialog* opens and shows the connected microcontroller board. If the list is empty, check the *USB connection* as described in full detail in a previous article. Select your USB connection in the list, and click *Connect*.
 
 
-<img src="images/espeasy_05.png" width="100%" height="100%" />
+<img src="images/espeasy_05.png" width="40%" height="40%" />
 
 5. Once the connection is established, you can now upload the selected firmware image to your microcontroller board. Click *Install Display 4M*.
 
-<img src="images/espeasy_06.png" width="100%" height="100%" />
+<img src="images/espeasy_06.png" width="40%" height="40%" />
 
 6. The tool asks whether you want to *erase* the *flash memory* before proceeding. Check the option, then click *Next*. 
 
-<img src="images/espeasy_07.png" width="100%" height="100%" />
+<img src="images/espeasy_07.png" width="40%" height="40%" />
 
 7. After a few warnings and confirmations, the memory is cleared. This can take up to a minute. Don't worry: erasing the memory cannot damage anything. *ESP* microcontrollers keep their crucial *boot loader* in write-protected *ROM*.
 
-<img src="images/espeasy_08.png" width="100%" height="100%" />
+<img src="images/espeasy_08.png" width="40%" height="40%" />
 
 8. Once the memory is cleared, the firmware image is uploaded. All of this happens automatically, and you can lean back a while and watch.
 
 
-<img src="images/espeasy_09.png" width="100%" height="100%" />
+<img src="images/espeasy_09.png" width="40%" height="40%" />
 
 9. After a while, the installation is completed, and you see a confirmation message. Your microcontroller is now executing the new firmware. Click *Next*.
 
-<img src="images/espeasy_10.png" width="100%" height="100%" />
+<img src="images/espeasy_10.png" width="40%" height="40%" />
 
 10. You can now view the logs. When you click on *Logs & Console*, you see a detailed log of the installation process. You also see that your microcontroller is not yet connected to your WiFi. This is expected because it cannot know the logon credentials. Click *Back*.
 
-<img src="images/espeasy_11.png" width="100%" height="100%" />
+<img src="images/espeasy_11.png" width="40%" height="40%" />
 
 
 11. You now see a new option: *Connect To Wi-Fi*. Click on it to complete the configuration by adding your microcontroller to your *WiFi Network*.
 
-<img src="images/espeasy_12.png" width="100%" height="100%" />
+<img src="images/espeasy_12.png" width="40%" height="40%" />
 
 > [!NOTE]
 > If you do not see the option to connect to *WiFi*, you can always later configure it. Without access to your *WiFi*, the firmware will start its own *WiFi access point* named *ESP_Easy_0*. You can use any browser or even your smartphone to connect to it and complete the configuration.
 
 12. The tool searches for all available *WiFi Networks* which can take a couple of seconds. Then you can select the *WiFi Network* you want it to connect to, and enter the password for it.
 
-<img src="images/espeasy_13.png" width="100%" height="100%" />
+<img src="images/espeasy_13.png" width="40%" height="40%" />
 
 13. Now the microcontroller is connected to your *WiFi*. To test it, open the new *web interface* that the firmware added to your microcontroller by clicking *Visit Device*.
 
-<img src="images/espeasy_14.png" width="100%" height="100%" />
+<img src="images/espeasy_14.png" width="40%" height="40%" />
 
 14. A sophisticated web interface opens in your browser. Make a note of the *IP address* that was assigned to your microcontroller board. In my case it is *192.168.68.118*. Via its web interface, you now can manage the microcontroller and tell it what to do.
 
-<img src="images/espeasy_15.png" width="100%" height="100%" />
+<img src="images/espeasy_15.png" width="40%" height="40%" />
 
 
 > [!CAUTION]
@@ -198,10 +198,15 @@ To actually transfer and upload the *firmware* to my local *ESP32-C3 board*, cli
 After a few seconds, the *firmware image* is tailored to your needs and ready to be uploaded. Click *Connect Your Device*.
 
 
-<img src="images/zerocode_05.png" width="100%" height="100%" />
+<img src="images/zerocode_05.png" width="70%" height="70%" />
 
 
 Now the exact same thing happens that was discussed in the *Bootloader* chapter: the webpage uses *WebSerial* to connect to the device on your *USB port*. Click on your board, and connect.
+
+To access the new functionality in the firmware, the website displays a *QR Code* that you can scan with your smartphone. The *left sidebar* in the web page provides you with helpful hints on how to scan the *QRCode* in *Apple Home*, *Amazon Alexa*, *Google*, and *RainMaker*. The latter is a test app that you can use locally.
+
+#### Some Conclusions
+An interactive debug window shows you exactly what the *firmware does* while you are trying to connect it to your smart device. In my early experiments, I could get the firmware to work only with *RainMaker*, though. This may be due to the fact that *ZeroCode* is a *test environment* that is not meant to build firmware for *production use*. It is just targeting *industrial customers* that want to *rapidly develop firmware*. These industrial customers would then approach *Espressif* and order a couple hundredthousand microcontrollers that are shipped with a *production-ready version of the firmware* in place.
 
 
 ## Interpreters
