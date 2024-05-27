@@ -318,7 +318,7 @@ VERBOSE: Total scan time was 34.6 seconds. 1 devices found.
 ````
 Here is the discovered *web interface* provided by an *ESPEasy* node found in this example:
 
-<img src="/assets/images/webinterface.png" width="100%" height="100%" />
+<img src="images/webinterface.png" width="100%" height="100%" />
 
 
 ### Finding All Web Interfaces
@@ -348,7 +348,7 @@ Since you cannot judge by the *IP address* what *kind* of device is using it, th
 Do not be surprised to see a lot of third-party devices showing up: many devices expose secret web interfaces that you find this way.
 
 
-<img src="/assets/images/webinterface_many.png" width="100%" height="100%" />
+<img src="images/webinterface_many.png" width="100%" height="100%" />
 
 
 
