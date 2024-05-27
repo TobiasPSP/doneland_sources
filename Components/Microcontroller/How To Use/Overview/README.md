@@ -142,3 +142,4 @@ Instead of *creating and changing firmware* on the lowest level, the *LUA develo
 
 > Tags: Microcontroller, Module, Crystal, Voltage Regulator, USB-to-Serial
 
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/overview?097890051627245006) - created 2024-05-26 - last edited 2024-05-26
