@@ -19,4 +19,4 @@ One of the *most flexible and powerful* ways is to *write the firmware yourself*
 
 > Tags: Firmware
 
-
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware?335433051527240132) - created 2024-05-26 - last edited 2024-05-26

@@ -136,4 +136,4 @@ Fortunately, this is neither complex nor expensive: *level shifter* boards can b
 
 > Tags: Microcontroller, Comparison, Arduino, ESP32, Level Shifter, Voltage
 
-[Visit Page on Website](https://done.land/components/microcontroller/programming/arduinovsesp32?350852031029241923) - created 2024-03-29 - last edited 2024-03-29
+[Visit Page on Website](https://done.land/components/microcontroller/families/comparison/arduinovsesp32?350852031029241923) - created 2024-03-29 - last edited 2024-03-29
