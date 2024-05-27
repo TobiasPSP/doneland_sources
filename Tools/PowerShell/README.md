@@ -348,7 +348,7 @@ Since you cannot judge by the *IP address* what *kind* of device is using it, th
 Do not be surprised to see a lot of third-party devices showing up: many devices expose secret web interfaces that you find this way.
 
 
-<img src="images/webinterface_many.png" width="100%" height="100%" />
+<img src="images/webinterface_many_t.png" width="100%" height="100%" />
 
 
 
