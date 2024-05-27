@@ -255,4 +255,4 @@ To test these settings, choose *Sketch/Verify/Compile* (or press `CTRL`+`R`) and
 
 > Tags: USB, UART, TTL, Connect, Port, COM
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/writingownfirmware?421947051527240132) - created 2024-05-26 - last edited 2024-05-26
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/writingownfirmware?421947051527240132) - created 2024-05-14 - last edited 2024-05-26

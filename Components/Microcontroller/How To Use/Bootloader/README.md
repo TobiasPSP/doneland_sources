@@ -352,4 +352,4 @@ After the tool emitted its information, the *microcontroller* again vanishes fro
 
 > Tags: Microcontroller, USB, esptool, esptool-js, JTA, HWCDC, USBCDC, Flash Size, ESP32, C3, S2, ESP8266
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/bootloader?553361051225241424) - created 2024-05-10 - last edited 2024-05-24
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/bootloader?553361051225241424) - created 2024-05-06 - last edited 2024-05-24
