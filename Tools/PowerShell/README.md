@@ -83,9 +83,19 @@ Get-Command -Module DoneLandTools
 ```
 CommandType Name                      Version Source
 ----------- ----                      ------- ------
-Function    Get-LedResistor           1.0.0   donelandtools
-Function    Get-LedStripFramerateInfo 1.0.0   donelandtools
-Function    Show-Fat32Converter       1.0.0   donelandtools
+Function    Find-NetworkDevice        1.3.0   DoneLandTools
+Function    Get-AntennaLength         1.3.0   DoneLandTools
+Function    Get-ComPortInfo           1.3.0   DoneLandTools
+Function    Get-IpRange               1.3.0   DoneLandTools
+Function    Get-LedResistor           1.3.0   DoneLandTools
+Function    Get-LedStripFramerateInfo 1.3.0   DoneLandTools
+Function    Get-MyIpAddress           1.3.0   DoneLandTools
+Function    Invoke-ForeachParallel    1.3.0   DoneLandTools
+Function    Show-Fat32Converter       1.3.0   DoneLandTools
+Function    Test-Ping                 1.3.0   DoneLandTools
+Function    Test-PingRange            1.3.0   DoneLandTools
+Function    Test-Port                 1.3.0   DoneLandTools
+Function    Test-PortRange            1.3.0   DoneLandTools
 ```
 
 > [!NOTE]
@@ -232,6 +242,115 @@ SYNOPSIS
         1102 RGB  144LED/m          765.3
         2213 RGB  144LED/m         1536.8
 ```
+
+
+## Discovering Network Devices
+*WiFi*-enabled wireless development boards get an *IP address* assigned. Typically, *DHCP* is used: the assigned *IP address* can *change* over time.
+
+That makes it hard to connect to the device. While there are often *specific* work-arounds such as *enabling mDNS*, or implementing *dash boards* that are hosted on *servers* like *HomeAssistant*, if you want to find out the *IP address* of your develoipment board, you can always use a *brute force* approach: scan your network.
+
+Microcontroller boards typically respond to *ICMP ping requests*. Firmware that exposes a *web interface* (such as *ESPEasy* and others) can also be identified by testing *port 80*.
+
+### Range-Pinging Devices
+
+*DoneLandTools* makes it simple to scan your network (scanning by default with 64 threads simultaneously to speed it up). Issue this command:
+
+````powershell
+Find-NetworkDevice
+````
+
+The command figures out your active network range of possible *IP Addresses*, then asks you to *turn off* your device. This way, the tool can perform a *baseline scan*, picking up all the *other* devices that respond to *ping*:
+
+````
+[1] Make sure the device is currently NOT TURNED ON. TURN IT OFF if necessary.
+Press ENTER when you are ready.
+````
+
+Once you turned off your device, press `ENTER`. Now the baseline scan is performed which typically takes less than *20sec* in a typical network range of 256 IP addresses, but can also take considerably longer if you use a larger *subnet mask* (mask *255.255.255.0* is recommended for home networks).
+
+Next, the tool asks you to *turn on* your device. Once you have done this, press `ENTER` again. Now the scan is repeated.
+
+````
+[2] NOW TURN ON the device.                                                                                       Press ENTER when you are ready. 
+````
+
+Once the second scan has completed, the tool returns the *IP addresses* that were *not* present in the initial scan:
+
+````
+192.168.68.120
+````
+
+> [!TIP]
+> If the results are incorrect, then your devices may need a *longer timeout* to respond. You may then want to run the tool with an increased timeout like so:  `Find-NetworkDevice -Timeout 10000`. The scans now take a bit longer, but the results are more reliable. When you also add `-Verbose`, the tool outputs how much time it took to scan your network.
+
+````
+[1] Make sure the device is currently NOT TURNED ON. TURN IT OFF if necessary.
+Press ENTER when you are ready.
+
+VERBOSE: Initial baseline scan took 12.5 seconds.
+[2] NOW TURN ON the device.
+Press ENTER when you are ready.
+
+VERBOSE: Total scan time was 26.2 seconds. 1 devices found.
+192.168.68.124
+````
+
+### Finding Web Interfaces
+An even more reliable and convenient way is to ask the tool to look for *web interfaces* the device may implement. This of course works only if the *firmware* of your microcontroller indeed exposes a web interface.
+
+````powershell
+Find-NetworkDevice -OpenInBrowser -Verbose
+````
+
+The sequence is the same: you are first asked to *turn off* the device to perform a baseline scan, then asked to *turn the device on* to perform the second scan.
+
+The tool then reports all *IP addresses that respond to *port 80*, and also opens the found *web interfaces* in your browser.
+
+````
+[1] Make sure the device is currently NOT TURNED ON. TURN IT OFF if necessary.
+Press ENTER when you are ready.
+VERBOSE: Initial baseline scan took 17.5 seconds.
+[2] NOW TURN ON the device.
+Press ENTER when you are ready.
+
+VERBOSE: Total scan time was 34.6 seconds. 1 devices found.
+192.168.68.124
+````
+Here is the discovered *web interface* provided by an *ESPEasy* node found in this example:
+
+<img src="/assets/images/webinterface.png" width="100%" height="100%" />
+
+
+### Finding All Web Interfaces
+In the previous examples, the tool always performed *two* network scans: one *before* the device was turned on, and one *after* it became online. This way, the tool can filter out all *IP addresses* from other devices that may also be present in your network.
+
+If you cannot turn your device off (maybe you have no physical access), or if you want to see *all* web interfaces from *every* device available in your network, you can also run the command with just *one* scan:
+
+````powershell
+Find-NetworkDevice -FindAllWebInterfaces -Verbose
+````
+
+The tool now immediately performs a *network scan*. It then outputs *all IP addresses* that responded to *port 80*:
+
+````
+VERBOSE: Total scan time was 17.3 seconds. 7 devices found.
+192.168.68.112
+192.168.68.118
+192.168.68.124
+192.168.68.128
+192.168.68.111
+192.168.68.249
+192.168.68.250
+````
+
+Since you cannot judge by the *IP address* what *kind* of device is using it, the tool also *opens all IP addresses* in your *browser*.
+
+Do not be surprised to see a lot of third-party devices showing up: many devices expose secret web interfaces that you find this way.
+
+
+<img src="/assets/images/webinterface_many.png" width="100%" height="100%" />
+
+
 
 > Tags: PowerShell, Module, Install, Tools
 
