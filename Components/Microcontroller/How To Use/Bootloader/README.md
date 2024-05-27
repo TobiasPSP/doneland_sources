@@ -6,9 +6,17 @@
 
 The *COM port* that surfaced in *Device Manager* once you connected a *development board* to an *USB port* of your computer can be used to *communicate* with the microcontroller.
 
-That's important because you need a way to tell the *microcontroller* what it should do for you. You need a way to *upload new firmware* to it.
+That's important because you need a way to tell the *microcontroller* what it should do for you. You need i.e. a way to *upload new firmware* to it.
 
 Such firmware uploads are done by the *boot loader*: a special software inside of every microcontroller that acts like its *Service Interface*.
+
+> [!TIP]
+> If your microcontroller already comes with the *firmware* in place that you want to use then you *could* skip this section. *NodeMCU development boards* for example *always* come with a *bundled firmware* that lets you program the microcontroller using *LUA scripts*. If this is really what you want to do, then you *do not need to touch the boot loader*. Most likely, though, eventually you *will need* to upload new firmware (and only if you want to *update* your current firmware with a new version). Understanding the *boot loader* is essential. 
+
+
+
+
+
 
 ## Overview
 Every *microcontroller* has built-in code: the *boot loader*. This code is safely put aside in a *ROM* (as in *ESP32* microcontrollers) or resides in a protected area of the *flash memory* (as with most *Arduino* boards) until you need it.
@@ -344,5 +352,4 @@ After the tool emitted its information, the *microcontroller* again vanishes fro
 
 > Tags: Microcontroller, USB, esptool, esptool-js, JTA, HWCDC, USBCDC, Flash Size, ESP32, C3, S2, ESP8266
 
-
-
+[Visit Page on Website](https://done.land/components/microcontroller/programming/invokingbootloader?553361051225241424) - created 2024-05-10 - last edited 2024-05-24
