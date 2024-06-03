@@ -49,3 +49,4 @@ Assembling a *Raspberry Pi* is part of the intended *educational aspect* and doe
 
 > Tags: Raspberry Pi, Versions, ARM, ARM11, ARM Cortex-A7, ARM Cortex-A53, ARM Cortex-A72, ARM Cortex-A76
 
+[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi?418279061603242831) - created 2024-06-02 - last edited 2024-06-02
