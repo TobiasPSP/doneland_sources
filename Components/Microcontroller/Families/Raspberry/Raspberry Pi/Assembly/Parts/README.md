@@ -69,8 +69,6 @@ In addition to the *SSD drive*, you may want to also add this:
 
 
 
-<img src="images/packshot_raspberry_pi_5_hdmicable_t.png" width="30%" height="30%" />
-
 ## Screen Output
 When you use the *Raspberry Pi 5* as a *home automation server*, i.e. by running *HomeAssistant*, you do not need any screen output device: you interact remotely via *network* and *browser*.
 
