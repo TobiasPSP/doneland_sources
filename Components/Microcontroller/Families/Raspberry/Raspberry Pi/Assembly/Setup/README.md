@@ -167,7 +167,7 @@ Slide in the top cover, and use the *smaller* four screws to screw it to the lar
 
 <img src="images/raspberry_pi_housing3_t.png" width="60%" height="60%" />
 
-## Connecting Wires
+## Connecting 
 To test-drive the *Raspberry Pi*, you need a *network cable* and a *USB C* power supply capable of at least *30W*.
 
 Connect the network cable to the network jack, and connect the power supply to the *USB C* connector.
@@ -186,10 +186,37 @@ In the end, *Home Assistant* should be up and running. If you have connected a *
 
 <img src="images/raspberry_boot2.png" width="80%" height="80%" />
 
-You do not need to know this IP address to access *Home Assistant* through a web browser. Open a browser, and enter `homeassistant.local.8123`.
+
+### Web Interface
+You do not necessarily need to know the *Raspberry* IP address to access *Home Assistant* through a web browser. Open a browser, and enter `homeassistant.local:8123`.
+
+#### Network Address Does Not Resolve
+The network address `homeassistant.local:8123` uses the *name* and *port* of your instance. The default port is *8123*. If you change the *name* or *port* of your *Home Assistant*, the address needs to be adjusted accordingly. 
+
+The address is based on *mDNS* and works only *locally*: if i.e. you have connected the *Raspberry Pi 5* using a *network cable*, then you can only use the *mDNS address* from other network devices that are *wired*. It *will not resolve* for computers and devices that are connected to your network using WiFi. If *mDNS* resolution fails, you can always use the actual *IP address*, i.e. `192.168.2.127:8123/`.
+
+#### Obtaining IP Address
+By default, and depending on your general network setup, the *Raspberry Pi 5* typically receives its *IP address* dynamically from your *DHCP server*. This means that its *IP address* can change over time. It does not make much sense then to note the *IP address*, or add bookmarks to it.
+
+If you *rely* on using the raw *IP address* to connect, there are two ways to determine it:
+
+* **Computer Display:** hook up a computer display as described above to see the local *Raspberry Pi 5* screen. On the screen, the currently assigned *IP address* is listed.
+* **Port Scan:** by default, *Home Assistant* uses port *8123*. By scanning your network for this port, you can retrieve the currently assigned *IP address* within a few seconds. Below is a *PowerShell* script that can do this for you:
+
+````powershell
+# install DoneLandTools module from the Microsoft PowerShellGallery.com if you haven't done so lately:
+Install-Module -Name DoneLandTools -Scope CurrentUser -Force
+
+# scan your network for port 8123:
+Find-NetworkDevice -FindAllWebInterfaces -Port 8123
+````
+
+After a few seconds, `Find-NetworkDevice` returns all *IP addresses* that responded to the specified port, and opens these interfaces in your web browser.
 
 
 
-> Tags: Raspberry Pi, Assembly, Active Cooler, Fan,
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-03 - last edited 2024-06-03
+
+> Tags: Raspberry Pi, Assembly, Active Cooler, Fan, mDNS, IP address
+
+[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-01 - last edited 2024-06-03
