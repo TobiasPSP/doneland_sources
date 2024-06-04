@@ -152,3 +152,4 @@ Make sure you *adjust* the path where you store *vlc.exe*. Also make sure to **c
 
 > Tags: Raspberry Pi, Display, Grabber, OBS Studio, VLC, PiP, Resolution, Capture Device, Video Capture
 
+[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/addingdisplay?762622061104240629) - created 2024-06-03 - last edited 2024-06-03
