@@ -42,4 +42,4 @@ Since *I2C* can be assigned to basically any pin on *ESP32*, it was important to
 
 The *firmware pin list* already suggests the circuitry. More detailed information is available as part of a [separate project](https://emariete.com/en/co2-meter-co2-display-tft-colour-ttgo-t-display-sensirion-scd30/) that focuses more on the *hardware* part. It points to a (Spanish) [YouTube video](https://youtu.be/pK5tKRq2gDo?si=PSeGYzxYTB4PquAu). Thanks to *auto translate*, it is simple to follow.
 
-
+[Visit Page on Website](https://done.land/projects/sensors/co2sensor/firmware?467823061105240706) - created 2024-06-04 - last edited 2024-06-04

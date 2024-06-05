@@ -20,4 +20,4 @@ This project serves to test and showcase a couple of common concepts which is wh
 * **Adjusting Display:** the original source code comes with support for small *OLED* screens and *TTGO microcontroller boards with built-in display*. I'd like to find out how hard it is to adapt the *source code* to larger *TFT displays*.
 * **Battery-Power:** I'd like the device to run primarily on *USB C* power, but with the option to use an internal *LiPo* battery. Here I am going to test overall power consumption, the changes in hardware design to add a *charger*, and a battery meter.
 
-
+[Visit Page on Website](https://done.land/projects/sensors/co2sensor?445884061105240706) - created 2024-06-04 - last edited 2024-06-04

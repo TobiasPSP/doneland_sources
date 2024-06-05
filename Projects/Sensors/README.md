@@ -9,4 +9,4 @@ Sensors *sens* a particular property. There are sensors available for all kinds 
 
 In this section you find projects related to *sensors*.
 
-
+[Visit Page on Website](https://done.land/projects/sensors?429928061105240706) - created 2024-06-04 - last edited 2024-06-04

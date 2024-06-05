@@ -142,4 +142,4 @@ The *sensor module* has *seven* pins. The pin-out is (from *left* to *right* as 
 
 > Tags: CO2, Sensor, Sensirion, SCD30
 
-
+[Visit Page on Website](https://done.land/components/sensor/airquality/scd30?691722061105240606) - created 2024-06-04 - last edited 2024-06-04

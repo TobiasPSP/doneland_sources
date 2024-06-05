@@ -50,4 +50,4 @@ In the subsections you find additional information on selected sensors.
 
 > Tags: Sensor
 
-
+[Visit Page on Website](https://done.land/components/sensor?656798061105240606) - created 2024-06-04 - last edited 2024-06-04
