@@ -6,15 +6,15 @@
 
 *ESP32-DevKitC V4* is designed by the original *ESP32* manufacturer *Espressif*. This board is suitable for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing. It comes with a decent *voltage regulator* and is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
 
-## Considerations
-It is *not easy to use* and not recommended for *beginners*:
+## For Experienced Users
+This *development board* is not a first choice for *beginners*:
 
 * **Drivers:** driver installation may be required before the board is recognized by your computer because the board is not using one of the standard *USB-to-Serial* chips
 * **No LED:** the board has no built-in *LED* that can be useful for testing and beginner sketches.
 * **Firmware Upload:** *Boot* has to be pressed while *Reset* is pushed to manually switch the board to *firmware upload mode*.
 * **Breadboard:** the *development board* cannot be placed on *one* standard breadboard due to its size.
 * **Pin Labels:** the pins are labeled on the *development board* but the labels are hard to read.
-
+* **Unsafe Pins:** since this *development board* exposes almost all *microcontroller pins*, some of the exposed pins cannot be used as *GPIOs* (because they are used internally for crucial components like external flash memory communications). Naively using these pins can lead to unexpected results.
 
 
 <img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
