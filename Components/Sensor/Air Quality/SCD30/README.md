@@ -18,11 +18,24 @@ It can be interfaced using *I2C* or *Modbus*. A third option - *PWM* for CO2 con
 ## Important Precautions
 This is a **highly sensitive precision device**. Improper [handling](materials/scd30_precautions.pdf) may damage the device or ruin its factory calibration:
 
+
+<img src="images/notouch_t.png" width="30%" height="30%" />
+
 * Never *touch* or *apply force* to the *optical cell* (the black part on top of the green PCB).   
 * Always touch the sensor module on the **long side only**. Avoid contact with the metallized parts of the optical cavity *at all times*.
+
+
+
+<img src="images/pcbhold_t.png" width="60%" height="60%" />
+
+
 * Never expose the sensor to *dust*, *grease*, or *dirt*.   
 * This sensor is *ESD sensitive*: wear grounding strips
 * [Position](materials/scd30_designguide.pdf) the sensor board correctly in your sensor housing: use suffiencient *openings* in proximity to the inlets of the sensor module.   
+
+
+
+<img src="images/stress_t.png" width="60%" height="60%" />
 
 
 > [!TIP]
