@@ -15,6 +15,22 @@ It can be interfaced using *I2C* or *Modbus*. A third option - *PWM* for CO2 con
 > [!TIP]
 > Price variations are huge with this sensor. You can get it from local vendors for as much as EUR 90 (per piece), and from Asian sources for less than EUR 20 (including a base shield with voltage regulator).    
 
+## Important Precautions
+This is a **highly sensitive precision device**. Improper [handling](materials/scd30_precautions.pdf) may damage the device or ruin its factory calibration:
+
+* Never *touch* or *apply force* to the *optical cell* (the black part on top of the green PCB).   
+* Always touch the sensor module on the **long side only**. Avoid contact with the metallized parts of the optical cavity *at all times*.
+* Never expose the sensor to *dust*, *grease*, or *dirt*.   
+* This sensor is *ESD sensitive*: wear grounding strips
+* [Position](materials/scd30_designguide.pdf) the sensor board correctly in your sensor housing: use suffiencient *openings* in proximity to the inlets of the sensor module.   
+
+
+> [!TIP]
+> While *electrostatic sparks* can *permanently destroy* the device, touching the wrong parts (or a rough postal delivery) typically "only" void the *factory calibration* of the device, leading to wrong measurement results. A *user calibration* is recommended before you start using the sensor in production.   
+
+
+
+
 
 
 
@@ -134,10 +150,17 @@ The *sensor module* has *seven* pins. The pin-out is (from *left* to *right* as 
 ### Materials
 
 [Summary Information](materials/scd30_flyer.pdf)    
+[Handling Precautions](materials/scd30_precautions.pdf)
+[General Handling](materials/scd30_handling.pdf)   
 [Datasheet](materials/scd30_datasheet.pdf)    
-[Interface Description](materials/scd30_interface.pdf)
+[Interface Description](materials/scd30_interface.pdf)   
+[Field Calibration](materials/scd30_fieldcalibration.pdf)   
+[Design Guide](materials/scd30_designguide.pdf)   
 [Low Power Mode](materials/scd30_lowpowermode.pdf)   
 [Adafruit Example](https://learn.adafruit.com/adafruit-scd30/arduino)    
+[Manufacturer SourceCode](https://sensirion.com/resource/software/code/scd30)    
+[Calibration Certification](https://sensirion.com/resource/certificate/scd30)   
+
 
 
 > Tags: CO2, Sensor, Sensirion, SCD30
