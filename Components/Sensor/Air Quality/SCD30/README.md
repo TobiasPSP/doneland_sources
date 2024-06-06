@@ -184,9 +184,6 @@ Or you use one of the two 4-wire *QWIICK* (*Stemma QT*) connectors.
 
 ## Test Code
 
-To test the sensor, first setup the hardware, then upload the sample sketch below.
-
-### Hardware Setup
 
 Connect *SDA* and *SCL* to the appropriate *I2C* pins of your microcontroller. *ESP32* typically use *GPIO21* for *SDA*, and *GPIO22* for *SCL*.
 
@@ -238,6 +235,73 @@ void loop()
   delay(2000); 
 }
 ````
+
+### Libraries
+If you use *platformio*, include the required library references into your *platformio.ini* file. Here is a sample *platformio.ini* for a *ESP32 development board*:
+
+````
+[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+lib_deps = sparkfun/SparkFun SCD30 Arduino Library@^1.0.20
+````
+
+If you use *Arduino IDE*, in "Library Manager*, add the library *SparkFun SCD30 Arduino Library*.
+
+### Test Results
+After you compiled and uploaded the sketch, new output is shown in your *IDE serial monitor* every 2 seconds:
+
+````
+CO2 (ppm): 937, Temp (C): 28.7, Humidity (%): 39.8
+CO2 (ppm): 975, Temp (C): 28.7, Humidity (%): 39.7
+CO2 (ppm): 930, Temp (C): 28.7, Humidity (%): 39.5
+CO2 (ppm): 920, Temp (C): 28.8, Humidity (%): 39.5
+CO2 (ppm): 922, Temp (C): 28.8, Humidity (%): 39.5
+CO2 (ppm): 913, Temp (C): 28.8, Humidity (%): 39.5
+CO2 (ppm): 901, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 899, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 901, Temp (C): 28.8, Humidity (%): 39.5
+CO2 (ppm): 901, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 900, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 895, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 892, Temp (C): 28.8, Humidity (%): 39.3
+CO2 (ppm): 892, Temp (C): 28.9, Humidity (%): 39.4
+CO2 (ppm): 894, Temp (C): 28.8, Humidity (%): 39.3
+CO2 (ppm): 895, Temp (C): 28.9, Humidity (%): 39.3
+CO2 (ppm): 894, Temp (C): 28.8, Humidity (%): 39.4
+CO2 (ppm): 893, Temp (C): 28.9, Humidity (%): 39.3
+CO2 (ppm): 892, Temp (C): 28.9, Humidity (%): 39.3
+CO2 (ppm): 892, Temp (C): 28.9, Humidity (%): 39.3
+CO2 (ppm): 891, Temp (C): 28.9, Humidity (%): 39.3
+CO2 (ppm): 888, Temp (C): 28.9, Humidity (%): 39.3
+````
+
+> [!NOTE]
+> Values may *drift* a bit at the beginning, and the very first CO2 reading is always 0. Wait a few minutes until the values stabilize.   
+
+> [!CAUTION]
+> The sample sketch queries the sensor every 2 seconds. In *real scenarios*, query it *much less often*, i.e. every ten minutes (600000 seconds). This not only reduces energy consumption but also helps extend sensor life.      
+
+
+
+## Calibration
+The *SCD30* supports *automatic self-calibration* (*ASC*). *Sensirion* recommends 7 days of continuous readings with >1 hour/dayday of *fresh air*'* for self-calibration.
+
+> [!NOTE]
+> *ASC* may be disabled. Make sure you enable it via *I2C*/libraries before you deploy the sensor.    
+
+
+
+
+### How Self-Calibration Works
+*ASC* assumes that the lowest CO2 concentration the SCD30 is exposed to corresponds to *400 ppm* (fresh outside air). 
+
+It stores the seven most recent CO2 *minima* in volatile memory (first-in first-out) that are separated by at least *18 hours*. Recalibration occurs when all seven recorded *minima* are within ± 50 ppm.    
+
+For *ASC* to succeed, the sensor needs to be exposed to *fresh air* at least every *18 hours* for at least *seven times in a row*. Else, *automatic recalibration* is suspended until the prerequisites are eventually met.      
+
 
 
 
