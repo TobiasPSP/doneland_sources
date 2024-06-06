@@ -4,11 +4,17 @@
 
 > Original DevKit From Espressif Providing Access To Almost All ESP32 Pins - For Experienced Users Only
 
-*ESP32-DevKitC V4* is a small-sized ESP32-based development board produced by the original *ESP32* manufacturer *Espressif*. This board is suitable for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing however overall it is *not at all easy to use*: you may have to manually *install drivers* on your computer to recognize it, and uploading new sketches is very inconvenient as two buttons need to be pressed *in the right way at the right time*. Its *form factor* makes it hard to use on standard breadboards. Last not least, this board has no built-in *user-controllable LED*, and *blink sketches* will not work.
+*ESP32-DevKitC V4* is designed by the original *ESP32* manufacturer *Espressif*. This board is suitable for experimenting with all *ESP32 features* as most of the I/O pins are broken out to the pin headers on both sides for easy interfacing. It comes with a decent *voltage regulator* and is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
 
-On the *pro* side, the board comes with a good voltage regulator, and once a sketch is successfully uploaded, it works reliably. Street prices for under EUR 2.00 make it a good value, albeit not necessarily for novice users. It seems to be made for experienced professionals who need a solid board focused on testing.
+## Considerations
+It is *not easy to use* and not recommended for *beginners*:
 
-The breakout board is available with a wide variety of original *ESP32 modules*, including the popular *WROOM 32D* (with PCB antenna) and *WROOM 32U* (with IPX-connector to connect an external antenna).
+* **Drivers:** driver installation may be required before the board is recognized by your computer because the board is not using one of the standard *USB-to-Serial* chips
+* **No LED:** the board has no built-in *LED* that can be useful for testing and beginner sketches.
+* **Firmware Upload:** *Boot* has to be pressed while *Reset* is pushed to manually switch the board to *firmware upload mode*.
+* **Breadboard:** the *development board* cannot be placed on *one* standard breadboard due to its size.
+* **Pin Labels:** the pins are labeled on the *development board* but the labels are hard to read.
+
 
 
 <img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
@@ -16,24 +22,27 @@ The breakout board is available with a wide variety of original *ESP32 modules*,
 
 | Item | Description |
 | --- | --- |
-| USB Connector | Micro USB |
+| USB Connector | Micro-USB |
 | Size | 48.2x27.9mm (without PCB antenna), 54.4x27.9mm (with PCB antenna) |
 | Microcontroller | ESP32-WROOM-DA/32E/32UE/32D/32U, ESP32-WROVER-E/IE, ESP32-SOLO1 |
+| I2C Pins | SDA 21, SCL 22 |
+| SPI Pins | MOSI 23, MISO 19, SCLK 18 |
+| Internal LED | none |
 
 
 ## Hardware Overview
-The dominant part of the breakout board is the *ESP32 module* (depending on type either with attached PCB antenna, or with an IPX antenna jack). On the inner side, there is unused space unless your breakout board uses the larger *WROVER* module with additional *PSRAM*.
+The *ESP32 module* (depending on type either with attached PCB antenna, or with an IPX antenna jack) takes up half of the PCB surface area. Towards the inner side, there is unused space unless your breakout board uses the larger *WROVER* module with additional *PSRAM*.
 
 <img src="images/esp32_devkitc_v4_module_t.png" width="40%" height="40%" />
 
 ### USB Connector
-On the opposite side, a *Micro USB* connector lets you connect the board to a computer.
+On the opposite side, a *Micro-USB* connector lets you connect the board to a computer.
 
 
 <img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
 
 
-Behind the *USB connector*, a *Silicon Labs CP2102* chip provides the *USB to UART* bridge at speeds of up to 3Mbps. This chip may require *manual driver installation* before you can use it.
+Behind the *USB connector*, a *Silicon Labs CP2102* chip provides the *USB to UART* bridge at speeds of up to 3Mbps. This chip may require *manual driver installation* before it will be recognized by your computer.
 
 
 <img src="images/esp32_devkitc_v4_regulator_t.png" width="70%" height="70%" />
@@ -55,7 +64,7 @@ The board provides three *mutually exclusive* ways to power it:
 <img src="images/usb_power_turnoff_t.png" width="70%" height="70%" />
 
 ### Voltage Regulator
-Behind the *CP2102*, there is a dedicated *IRU1117-33* 3.3V *voltage regulator* capable of supplying *800mA*. This regulator is used when you supply voltage either via *USB* or directly via the *5V* pin. The voltage regulator accepts an absolute *maximum input voltage* of *7V*.
+Behind the *CP2102*, there is a *IRU1117-33* 3.3V *voltage regulator* capable of supplying *800mA*. This regulator is used when you supply voltage either via *USB* or directly via the *5V* pin. The voltage regulator accepts an absolute *maximum input voltage* of *7V*.
 
 On the right side, there are two *JY3/S8050* epitaxal planar transistors with a high collector current of *500mA* each and high total power dissipation.
 
@@ -65,7 +74,7 @@ On the opposite side, a *SMD power LED* is located. It turns on whenever input p
 
 
 > [!CAUTION]
-> When you power the board directly via the *3.3V Pin*, the *power LED* stays *off* even though the board runs perfectly fine. This behavior is by design and a good thing: when powering the board directly via *3.3V*, this is done typically to maximize energy efficiency in use cases where energy is limited (i.e. battery-operated devices). In such scenarios, you do not want the *power LED* to waste precious energy.
+> The *power LED* is only *on* when the internal *voltage regulator* is used (when *5V* are supplied). When powering via the *3.3V Pin*, the *power LED* stays *off* to conserve energy in battery-operated scenarios.   
 
 
 
@@ -113,9 +122,9 @@ The tables below provide detailed information for each header pin. The *Pin Type
 | 13 | IO12 | IO | GPIO12, ADC2_CH5, TOUCH_CH5, MTDI |
 | 14 | GND | G | Ground |
 | 15 | IO13 | IO | GPIO13, ADC2_CH4, TOUCH_CH4, MTCK |
-| 16 | D2 | IO | GPIO9, D2 |
-| 17 | D3 | IO | GPIO10, D3 |
-| 18 | CMD | IO | GPIO11, CMD |
+| 16 | D2 | IO | GPIO9, D2, **avoid, used by SPI flash** |
+| 17 | D3 | IO | GPIO10, D3, **avoid, used by SPI flash** |
+| 18 | CMD | IO | GPIO11, CMD, **avoid, used by SPI flash** |
 | 19 | 5V | P | 5V power supply |
 
 
@@ -126,24 +135,24 @@ The tables below provide detailed information for each header pin. The *Pin Type
 | Pin | Label | Pin Type | Description |
 |  --- |  --- |  --- |  --- | 
 | 1 | GND | G | Ground |
-| 2 | IO23 | IO | GPIO23 |
-| 3 | IO22 | IO | GPIO22 |
+| 2 | IO23 | IO | GPIO23, **MOSI** |
+| 3 | IO22 | IO | GPIO22, **SCL** |
 | 4 | TX | IO | GPIO1, U0TXD |
 | 5 | RX | IO | GPIO3, U0RXD |
-| 6 | IO21 | IO | GPIO21 |
+| 6 | IO21 | IO | GPIO21, **SDA** |
 | 7 | GND | G | Ground |
-| 8 | IO19 | IO | GPIO19 |
-| 9 | IO18 | IO | GPIO18 |
+| 8 | IO19 | IO | GPIO19, **MISO** |
+| 9 | IO18 | IO | GPIO18, **SCLK** |
 | 10 | IO5 | IO | GPIO5 |
-| 11 | IO17 | IO | GPIO17 |
-| 12 | IO16 | IO | GPIO16 |
+| 11 | IO17 | IO | GPIO17, **WROVER: used internally** |
+| 12 | IO16 | IO | GPIO16, **WROVER: used internally** |
 | 13 | IO4 | IO | GPIO4, ADC2_CH0, TOUCH_CH0 |
 | 14 | IO0 | IO | GPIO0, ADC2_CH1, TOUCH_CH1, Boot |
 | 15 | IO2 | IO | GPIO2, ADC2_CH2, TOUCH_CH2 |
 | 16 | IO15 | IO | GPIO15, ADC2_CH3, TOUCH_CH3, MTDO |
-| 17 | D1 | IO | GPIO8, D1 |
-| 18 | D0 | IO | GPIO7, D0 |
-| 19 | CLK | IO | GPIO6, CLK |
+| 17 | D1 | IO | GPIO8, D1, **avoid, used by SPI flash** |
+| 18 | D0 | IO | GPIO7, D0, **avoid, used by SPI flash** |
+| 19 | CLK | IO | GPIO6, CLK, **avoid, used by SPI flash** |
 
 
 <img src="images/esp32_devkitc_v4_side2_t.png" width="60%" height="60%" />
