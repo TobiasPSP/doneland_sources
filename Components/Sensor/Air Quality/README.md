@@ -18,9 +18,9 @@ They provide real-time data on air pollution levels, helping to assess the overa
 ## Determining Air Quality
 In normal environments, the most important sensor parameters for determining average air quality typically include:
 
-1. **Particulate Matter (PM)**: PM2.5 and PM10 are important indicators of airborne particles, including dust, pollen, smoke, and other pollutants. High levels of PM can lead to respiratory issues and reduced visibility.
+1. **Particulate Matter (PM)**: PM2.5 and PM10 are important indicators of airborne particles, including dust, pollen, smoke, and other pollutants. High levels of PM can lead to respiratory issues and reduced visibility. Public *PM sensors* in your proximity are [available on a map](https://sensor.community/en/) and can also be integrated in your personal instance of *Home Assistant*, or you can setup your own *PM sensor*.
 
-2. **Carbon Dioxide (CO2)**: CO2 levels are indicative of indoor air quality and ventilation. Elevated CO2 levels can indicate poor ventilation or the presence of occupants, which may lead to discomfort and reduced cognitive function.
+2. **Carbon Dioxide (CO2)**: CO2 levels are indicative of indoor air quality and ventilation. Elevated CO2 levels can indicate poor ventilation or the presence of occupants, which may lead to discomfort and reduced cognitive function. *NDIS* sensors like the *SCD30* measure specifically *CO2* while cheaper *MOS* sensors measure unspecific physical effects that can only *approximate* CO2 concentrations.
 
 3. **Volatile Organic Compounds (VOCs)**: VOCs are emitted from various sources such as paints, solvents, cleaning products, and building materials. Monitoring VOC levels is crucial for assessing indoor air quality and potential health risks.
 
@@ -32,16 +32,27 @@ In normal environments, the most important sensor parameters for determining ave
 
 These parameters collectively provide insights into the overall air quality, indoor comfort, and potential health risks in normal environments.
 
+## CO2 Levels
+The CO2 concentration in the air is a good estimate for *air quality*. Specific CO2 NDIS sensors accurately measure the CO2 concentration in *ppm* (*parts per million*), which in turn allows conclusions on air quality:
+
+| ppm | Symptoms | Air Quality |
+| --- | --- | --- |
+| 250-400 | none | background concentration in fresh outdoor ambient air |
+| 400-1.000 | none |occupied indoor spaces with good air exchange |
+| 1.000-2.000 | Complaints of *drowsiness* | poor air |
+| 2.000-5.000 | *Headaches*, *sleepiness*, *loss of attention*, *poor concentration*, *increased heart rate* | stagnant, stale, stuffy air |
+| >5.000 | *unability to perform work* | enclosed non-ventilated spaces (i.e. silos) workplace exposure limit in most jurisdictions |
+| >40.000 | *permanent brain damage*, *coma*, *death*  | serious oxygen deprevation |
 
 ## Measuring CO2
-There are many different approaches to measure CO2 levels, varying in *complexity* (and thus *sensor cost*) and *accuracy*.
+There are *specific* and *unspecific* approaches to measuring CO2, varying in *complexity* (thus *cost*), and *accuracy*.
 
 ### Cheap MOS Sensors
-The cheapest way of measuring carbon dioxide (CO2) levels is using *solid-state* sensors, such as *metal-oxide semiconductor* (*MOS*) sensors. They operate by detecting changes in electrical conductivity when exposed to gases like CO2.
+*Solid-state* *metal-oxide semiconductor* (*MOS*) sensors sensors are cheapest. They detect changes in electrical conductivity when exposed to gases *like* CO2 (many other gases also influence the readings). **They do not provide a *specific* CO2 ppm value.**
 
-MOS sensors measure *changes in conductivity* rather than *directly detecting CO2* molecules: their results are affected by other gases or environmental factors present in the air. You need to *calibrate* such sensors in *fresh air*. You then get an *estimate* for the overall *air quality* compared to the *fresh air* that you used for calibration.
+MOS sensors only measure *generic changes in conductivity* rather than *directly detecting CO2* molecules: their results are affected by other gases or environmental factors like temperature and humidity. You need to *calibrate* such sensors in *fresh air* and then get an *estimate* for the overall *air quality* compared to the *fresh air* that you used for calibration.
 
-This may be sufficient to get a rough *low-cost air quality overview*.
+This may well be sufficient to get a *low-cost air quality overview*.
 
 
 ### Expensive NDIS Sensors

@@ -48,9 +48,13 @@ This is a **highly sensitive precision device**. Improper [handling](materials/s
 
 
 ## Overview
-The [SCD30](https://sensirion.com/products/catalog/SCD30) sensor module uses *non-dispersive infrared* (*NDIR*) technology to directly and specifically measure CO2 levels.
+The [SCD30](https://sensirion.com/products/catalog/SCD30) sensor module uses *non-dispersive infrared* (*NDIR*) technology to directly and specifically measure CO2 levels. 
 
-Since this technology is complex, the board is fairly expensive. Price ranges vary (EUR 90 - EUR 20, depending on source). Using the sensor is simple and straight-forward thanks to its *I2C* interface.
+Due to the complex precision technology, the board is fairly expensive: price range starts at around EUR 20 and ends at EUR 90 - for the very same *sensor board*. 
+
+Using the sensor is simple and straight-forward thanks to its *I2C* interface but do note the *delicate handling instructions* below.
+
+### General Data
 
 |  Parameter  | Value |
 | --- | --- |
@@ -69,6 +73,7 @@ Since this technology is complex, the board is fairly expensive. Price ranges va
 | Size | 35x23x7mm |
 | Weight | 3.4g |
 
+### CO2 Sensor
 
 | CO2 Sensor  | Value |
 | --- | --- |
@@ -77,6 +82,10 @@ Since this technology is complex, the board is fairly expensive. Price ranges va
 | Temperature Stability | +-2.5ppm/C |
 | Response Time | 20s |
 | Operating Conditions | 0-50C |
+
+### Humidity and Temperature Sensor
+
+The *sensor board* includes a *temperature* and a *humidity* sensors. While these sensors were added primarily to internally auto-correct CO2 readings, both sensors can be accessed via *I2C* to also output current *temperature* and *humidity* readings.
 
 | Humidity Sensor | Value |
 | --- | --- |
@@ -298,7 +307,7 @@ The *SCD30* supports *automatic self-calibration* (*ASC*). *Sensirion* recommend
 ### How Self-Calibration Works
 *ASC* assumes that the lowest CO2 concentration the SCD30 is exposed to corresponds to *400 ppm* (fresh outside air). 
 
-It stores the seven most recent CO2 *minima* in volatile memory (first-in first-out) that are separated by at least *18 hours*. Recalibration occurs when all seven recorded *minima* are within ± 50 ppm.    
+It stores the seven most recent CO2 *minima* in volatile memory (first-in first-out) that are separated by at least *18 hours*. Recalibration occurs when all seven recorded *minima* are within Ã‚Â± 50 ppm.    
 
 For *ASC* to succeed, the sensor needs to be exposed to *fresh air* at least every *18 hours* for at least *seven times in a row*. Else, *automatic recalibration* is suspended until the prerequisites are eventually met.      
 
