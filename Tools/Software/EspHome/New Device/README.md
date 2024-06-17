@@ -237,7 +237,7 @@ sensor:
     humidity:
       name: "Workshop Humidity"
       accuracy_decimals: 1
-    temperature_offset: 1.5 °C
+    temperature_offset: 1.5 Â°C
     address: 0x61
     update_interval: 60s
     
@@ -325,3 +325,5 @@ Without diving too much into detail, all of this is highly customizable: you con
 <img src="images/sensordetail.png" width="100%" height="100%" />
 
 > Tags: EspHome, Home Assistant, ESP8266, ESP32
+
+[Visit Page on Website](https://done.land/tools/software/esphome/newdevice?134804061917245543) - created 2024-06-16 - last edited 2024-06-16
