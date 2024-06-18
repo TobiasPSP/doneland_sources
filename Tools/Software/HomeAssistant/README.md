@@ -61,7 +61,7 @@ Subnets (separated networks) occur when you are using more than one *Router* in 
 Unfortunately, by default most *WiFi boxes* are running in *Router Mode*: the WiFi becomes a *separate network* with its own *DHCP server* and its own *IP address range*.
 
 > [!TIP]
-> You can easily check by comparing the assigned *IP addresses*: when the first three numbers of a *wired* device (i.e. *192.168.2.112*) are different than the first three numbers of a *wireless* device (i.e. *192.168.68.33*), then you are currently operating *different networks*.   
+> You can easily check by comparing the assigned *IP addresses*: when the first three numbers of a *wired* device (i.e. *192.168.2.112*) are different from the first three numbers of a *wireless* device (i.e. *192.168.68.33*), then you are currently operating *different networks*.   
 
 
 
