@@ -19,8 +19,8 @@ I walk you through the entire process of assembly:
 
 * **Parts Required:** learn what the components are that you need, and what your options are to *tailor* the *Raspberry Pi* to your needs.
 * **Assembling the Raspberry:** step-by-step tour explaining all steps it takes to put the parts together
-* *Installing HomeAssistant:* one popular use case is running *Home Assistant* on the *Raspberry Pi*, so I'll show you the few steps it takes to install it on your *Raspberry Pi 5*.
-* *Tips & Tricks:* learn a few clever tricks. i.e. how to easily show the *Raspberry Pi Screen* as a "Picture-in-Picture" *window* on your regular computer screen.
+* **Installing HomeAssistant:** one popular use case is running *Home Assistant* on the *Raspberry Pi*, so I'll show you the few steps it takes to install it on your *Raspberry Pi 5*.
+* **Tips & Tricks:** learn a few clever tricks. i.e. how to easily show the *Raspberry Pi Screen* as a "Picture-in-Picture" *window* on your regular computer screen.
 
 
 <img src="images/raspberry_pi_5_top_2_t.png" width="50%" height="50%" />
