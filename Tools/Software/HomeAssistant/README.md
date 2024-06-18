@@ -48,7 +48,7 @@ One of the best platforms to *host Home Assistant* is a *Raspberry Pi 5*: it is 
 
 You can get the parts for less than EUR 200, and assembly and setup requires just 10-20 minutes time. No special skills are required.
 
-A [fully illustrated guide](https://done.land/components/microcontroller/families/raspberry/raspberrypi) walks you through all required steps and covers the required parts, the *Raspberry Setup*, and *installing Home Assistant*.
+A [fully illustrated guide](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/parts) walks you through all required steps and covers the required parts, the *Raspberry Setup*, and *installing Home Assistant*.
 
 ## Important Prerequisites
 *Home Assistant* connects to your various devices typically via *WiFi*. To leverage its potential, you need a stable *WiFi* with good coverage.
