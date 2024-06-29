@@ -106,4 +106,4 @@ Often the easiest way to heal the problem is to connect the network cable from y
 
 > Tags: EspHome, Home Assistant, Discovery, Auto-Discovery, Adding
 
-[Visit Page on Website](https://done.land/tools/software/esphome/addtohomeassistant?002745061229240725) - created 2024-06-28 - last edited 2024-06-28
+[Visit Page on Website](https://done.land/tools/software/esphome/addtohomeassistant?002745061229240725) - created 2024-06-06 - last edited 2024-06-28
