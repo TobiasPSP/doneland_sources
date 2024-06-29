@@ -307,7 +307,7 @@ The *SCD30* supports *automatic self-calibration* (*ASC*). *Sensirion* recommend
 ### How Self-Calibration Works
 *ASC* assumes that the lowest CO2 concentration the SCD30 is exposed to corresponds to *400 ppm* (fresh outside air). 
 
-It stores the seven most recent CO2 *minima* in volatile memory (first-in first-out) that are separated by at least *18 hours*. Recalibration occurs when all seven recorded *minima* are within Ãƒâ€šÃ‚Â± 50 ppm.    
+It stores the seven most recent CO2 *minima* in volatile memory (first-in first-out) that are separated by at least *18 hours*. Recalibration occurs when all seven recorded *minima* are within ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â± 50 ppm.    
 
 For *ASC* to succeed, the sensor needs to be exposed to *fresh air* at least every *18 hours* for at least *seven times in a row*. Else, *automatic recalibration* is suspended until the prerequisites are eventually met.      
 

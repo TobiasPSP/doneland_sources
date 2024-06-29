@@ -5,10 +5,86 @@
 > High-Powered Single- And Dual-Core Microcontrollers With WiFi, Bluetooth, And Now Also Zigbee And Thread Support
 
 
+## Pins
+Since understanding which *GPIO pins* are safe to use in projects is among the most frequently needed information, this information is placed at the beginning of this article.
 
-**ESP32** is the **ESP8266** *successor* that surfaced in 2016. The *ESP32 microcontroller* has since then evolved, and many subtypes surfaced:
 
-The [Expressif Product Comparison](https://products.espressif.com/#/product-comparison) provides even more details and models.
+#### 6 Safe ESP32 Pins
+
+Below *ESP32 pins* are **safe to use** for *whatever purpose*. Whether your microcontroller board actually *exposes* a particular pin depends on the board design.
+
+
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 4 | D4 | general purpose input/output GPIO|
+| 13 | D13 | general purpose input/output GPIO|
+| 14 | D14 | general purpose input/output GPIO|
+| 16 | RX2 | general purpose input/output GPIO|
+| 17 | TX2 | general purpose input/output GPIO|
+| 20 | D20 | general purpose input/output GPIO|
+
+
+#### 4 Safe ESP32 Input-Only Pins
+
+The pins below are *safe* to use for *inputs only*. These pins also do not have built-in *pullup/pulldown resistors*, so if you use them as *input pin*, you need to add an external resistor in order to keep the pin from *floating* and producing random input values. 
+
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 34-35 | D34-D35 | input only, no pullup/pulldown resistor |
+| 36 | VP | input only, no pullup/pulldown resistor |
+| 39 | VN | input only, no pullup/pulldown resistor |
+
+  
+
+#### 5 Interface Pins (I2C and SPI)
+The pins below are used for *I2C* and *SPI* communications. If you do not require these interfaces, you are free to use their pins for other things.
+
+
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 18-19 | D18-D19 | SPI: 18=SCLK, 19=MISO |
+| 21-22 | D21-D22 | I2C: 21=SDA, 22=SCL |
+| 23 | D23 | SPI: MOSI |
+
+
+#### 4 Strapping Pins
+If you *need even more* pins, you can use the additional *four pins* listed below - provided **you do not use** these pins *during boot time*.
+
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 0  |  0 | *low* to enter firmware upload mode |
+| 2 | D2 | pin is attached to internal LED (if present), must be *low* during boot |
+| 5 | D5 | must be *high* during boot |
+| 12 | D12 | must be *low* during boot |
+| 15 | D15 | prevents boot log if pulled *low* |
+
+> [!CAUTION]
+> *Strapping pin* states are read and set by the microcontroller during boot and determine things like *boot mode* (normal boot vs. firmware upload boot) and *boot logging*. **Do not** pull these pins high or low during *boot*, or else your microcontroller may not start correctly.    
+
+#### 2 Serial Comm Pins
+
+The *serial communications interface* is used to upload new *firmware*, and often also to *communicate* with it: `Serial.print()` commands in your firmware code can output information, i.e. sensor data, that show in the *terminal window* of an *IDE*.
+
+During normal operation, and if you don't need serial communications yourself, its two pins can be used for other purposes as well:
+
+
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 1 | TX0 | serial comm (transmit)
+| 3 | RX0 | serial comm (receive) |
+
+
+However, using these pins may require prerequisites to not interfere with required *serial comm* during *boot* or *firmware upload*.
+
+Since *your firmware code* **can not** run at these sensitive instances, your code is always fine. What you do need to consider is your *hardware design* and *schematics*: **do not** physically pull-up or pull-down these pins or connect components to these pins that can alter their state during *boot*.
+
+
+## ESP32 Microcontroller Types
+The **ESP32** processor family is the **ESP8266** *successor* and surfaced in 2016 with the *ESP32 WROOM* and *ESP32 WROVER*. 
+
+The *ESP32* family has since evolved with many more variants. The [Expressif Product Comparison](https://products.espressif.com/#/product-comparison) provides a complete list of models and specs. 
+
+Here is a quick reference covering the most commonly used *ESP32* types, and their most important specs:
 
 
 | Feature | [ESP32](ESP32) | [S2](S2) | [S3](S3) | [C3](C3) | [C6](C6)  | H2 |ESP8266 |
