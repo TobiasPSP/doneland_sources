@@ -2,7 +2,7 @@
  
 # Sensors
 
-> Detecting Environmental Changes And Converting Them Zo Readable Signals
+> Detecting Environmental Changes And Converting Them To Readable Signals
 
 Sensors detect and respond to input from the *physical environment*, such as light, heat, motion, moisture, pressure, or other entities. The output is an *analog* or *digitally encoded* signal that can be converted to a human-readable display or transmitted for further processing.
 

@@ -31,24 +31,21 @@ Self-made microcontroller-based projects can easily be integrated, and *Home Ass
 In stark contrast to most *commercial* home automation solutions, *Home Assistant* prioritizes privacy and local control, ensuring that all data and operations remain within the user's home network. There *is* a *Home Assistant Cloud* service that can be optionally used if advcanced and secure *remote control* from anywhere of the world is wanted.
 
 ## Supported Platforms
-*Home Assistant* is written in *Python*, which makes it compatible with many platforms that support *Python*. However, there are a few important nuances to consider:
+*Home Assistant* is written in *Python*, which makes it compatible with many platforms that support *Python*. However, there are a [few important nuances](https://www.home-assistant.io/installation/) to consider:
 
-1. **System Requirements**: it has specific dependencies and system requirements that need to be met. Some platforms may require additional configuration or might not be officially supported.
+You get the richest experience with the full feature set when *Home Assistant* runs on the *Home Assistant OS*, i.e. when using a *Raspberry Pi* computer with the *Home Assistant* image.
 
-2. **Official Support**: Home Assistant has official installation methods for specific platforms, which ensure stability and performance. These include installations via *Docker*, *Home Assistant OS*, and *Home Assistant Supervised* on *Linux*-based systems. Running *Home Assistant* on unsupported platforms could lead to stability issues and lack of support from the community.
+When *Home Assistant* runs in *docker* or *virtualized machines*, some features like *Add-ons* may not be available. The official [documentation](https://www.home-assistant.io/installation/) lists all installation variations and the features that can be used.
 
-3. **Performance Considerations**: Even if a platform supports *Python*, the hardware capabilities and performance characteristics of the platform are crucial. *Home Assistant* manages various automation tasks, real-time data processing, and potentially intensive integrations, which require adequate resources.
+In a nutshell, unless you are genuinely interested in the underlying technology, it appears to be best to simply [set up a dedicated *Raspberry Pi 5*](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/parts) with a *SSD drive*, and install *Home Assistant* on it (see below).
 
-4. **Ease of Installation**: The ease of installation and maintenance might vary significantly. Officially supported platforms and methods provide detailed installation instructions, regular updates, and community support, which are beneficial for long-term usage and troubleshooting.
-
-5. **Availability:** *Home Assistant* is targeted towards continuously managing all of your devices, responding to requests and automation tasks any time, and constantly logging and saving information like *sensor data* and *health parameters*. As such, it needs to run continously. Some platforms are better suited for this requirement than others, especially when *energy consumption* is considered.
 
 ### Raspberry Pi 5
-One of the best platforms to *host Home Assistant* is a *Raspberry Pi 5*: it is cheap, very powerful, fully supported, and has an excellent low energy consumption.
+One of the best and easiest-to-setup platforms to *host Home Assistant* is a *Raspberry Pi 5*: it is cheap, very powerful, fully supported, and has an excellent low energy consumption.
 
 You can get the parts for less than EUR 200, and assembly and setup requires just 10-20 minutes time. No special skills are required.
 
-A [fully illustrated guide](https://done.land/components/microcontroller/families/raspberry/raspberrypi) walks you through all required steps and covers the required parts, the *Raspberry Setup*, and *installing Home Assistant*.
+A [fully illustrated guide](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/parts) walks you through all required steps and covers the required parts, the *Raspberry Setup*, and *installing Home Assistant*.
 
 ## Important Prerequisites
 *Home Assistant* connects to your various devices typically via *WiFi*. To leverage its potential, you need a stable *WiFi* with good coverage.
@@ -64,7 +61,7 @@ Subnets (separated networks) occur when you are using more than one *Router* in 
 Unfortunately, by default most *WiFi boxes* are running in *Router Mode*: the WiFi becomes a *separate network* with its own *DHCP server* and its own *IP address range*.
 
 > [!TIP]
-> You can easily check by comparing the assigned *IP addresses*: when the first three numbers of a *wired* device (i.e. *192.168.2.112*) are different than the first three numbers of a *wireless* device (i.e. *192.168.68.33*), then you are currently operating *different networks*.   
+> You can easily check by comparing the assigned *IP addresses*: when the first three numbers of a *wired* device (i.e. *192.168.2.112*) are different from the first three numbers of a *wireless* device (i.e. *192.168.68.33*), then you are currently operating *different networks*.   
 
 
 
