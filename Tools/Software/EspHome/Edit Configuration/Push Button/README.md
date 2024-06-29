@@ -107,3 +107,4 @@ The circuit diagram is straight-forward. I am using *GPIO34* (*input* pin that h
 
 > Tags: EspHome, Home Assistant, ESP8266, ESP32
 
+[Visit Page on Website](https://done.land/tools/software/esphome/editconfiguration/pushbutton?114898061229240725) - created 2024-06-28 - last edited 2024-06-28

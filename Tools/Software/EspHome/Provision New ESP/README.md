@@ -234,4 +234,4 @@ Without diving too much into detail, all of this is highly customizable: you con
 
 > Tags: EspHome, Home Assistant, ESP8266, ESP32
 
-[Visit Page on Website](https://done.land/tools/software/esphome/newdevice?134804061917245543) - created 2024-06-16 - last edited 2024-06-16
+[Visit Page on Website](https://done.land/tools/software/esphome/provisionnewesp?134804061917245543) - created 2024-06-16 - last edited 2024-06-16

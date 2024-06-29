@@ -39,3 +39,4 @@ In the list, you can see the *Push Button* device that I created in the previous
 
 > Tags: EspHome, Home Assistant, Discovery, Auto-Discovery, Adding
 
+[Visit Page on Website](https://done.land/tools/software/esphome/reviewdeviceentities?200026061229240725) - created 2024-06-28 - last edited 2024-06-28
