@@ -119,7 +119,7 @@ sensor:
     humidity:
       name: "Workshop Humidity"
       accuracy_decimals: 1
-    temperature_offset: 1.5 Â°C
+    temperature_offset: 1.5 °C
     address: 0x61
     update_interval: 60s
     

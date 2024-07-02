@@ -78,7 +78,7 @@ Once you know the devices' currently assigned *IP address*, follow these steps:
 ## Why Auto-Discovery May Fail
 If you configured *Home Assistant*, *ESPHome*, and your *network* correctly, you should never need to manually add *ESPHome devices* to *Home Assistant*. The built-in *Auto-Discovery* should do this automatically.
 
-So if *AutoÂ´-Discovery* does not work, you may work around it by manually adding the device, but it is a much better idea to identify the underlying configuration issue that is preventing *Auto-Discovery* from working.
+So if *Auto-Discovery* does not work, you may work around it by manually adding the device, but it is a much better idea to identify the underlying configuration issue that is preventing *Auto-Discovery* from working.
 
 ### mDNS Is Critical
 *ESPHome* relies on *mDNS* names to identify and access devices. When *mDNS* is not working (correctly), *ESPHome* may not label your *ESPHome device* as *online*, and it may not get auto-discovered.
