@@ -67,7 +67,7 @@ It also contains a number of *security items* like an *API* key, or the *WiFi* p
 
 You don't really need to mess with the default part of the configuration. You just *add* the description of *what **you** added* to the microcontroller.
 
-Here is my *full* configuration for a beautifully working *CO2 Sensor*:
+Here is a *full* configuration for a beautifully working *CO2 Sensor*:
 
 ````yaml
 esphome:

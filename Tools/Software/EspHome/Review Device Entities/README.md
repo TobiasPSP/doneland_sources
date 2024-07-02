@@ -2,7 +2,7 @@
  
 # Review Device Entities
 
-> Understanding "Entities" And Checking That ESPHome Device Works As Intended
+> Understanding Entities And Checking That ESPHome Device Works As Intended
 
 
 
