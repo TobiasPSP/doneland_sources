@@ -160,4 +160,4 @@ These steps are necessary only for *stand-alone* installations. When *ESPHome* r
 
 > Tags: EspHome, Home Assistant, Entity
 
-[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-01
