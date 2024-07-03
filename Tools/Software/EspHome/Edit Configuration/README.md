@@ -29,26 +29,26 @@ Let's recap the process of *initializing* a new microcontroller in *ESPHome*:
 
 2. Microcontrollers that you have previously provisioned and that are powered on will be marked with *ONLINE* in the tiles' upper right corner. Your newly added *configuration* hasn't yet been uploaded to any microcontroller, so it is obviously still marked as *OFFLINE*:    
 
-<img src="images/1_newdevice.png" width="80%" height="80%" />
+  <img src="images/1_newdevice.png" width="80%" height="80%" />
 
 3. Now your actual microcontroller is provisioned: the automatically created *firmware* needs to be uploaded for the first time. This initial provisioning requires that you connect the microcontroller via *USB cable* to the computer running *ESPHome*. Then click the *three dot* menu, and choose *Install*:
 
-<img src="images/2_install.png" width="80%" height="80%" />
+  <img src="images/2_install.png" width="80%" height="80%" />
 
 3. This invokes the *firmware upload tool*. Choose *Plug into the computer running ESPHome Dashboard*, and select the *USB port* the microcontroller is connected to:
 
 
-<img src="images/3_select_port.png" width="80%" height="80%" />
+  <img src="images/3_select_port.png" width="80%" height="80%" />
 
 4. Now the *firmware* is compiled and will be uploaded to your microcontroller. You see a terminal window that logs every step, similar to what you would see in a manual *IDE* like *platformio*.
 
-<img src="images/4_upload.png" width="80%" height="80%" />
+  <img src="images/4_upload.png" width="80%" height="80%" />
 
 
 5. In the dialog showing the terminal window, click *STOP* to no longer listen to the status messages. In your *ESPHome Dashboard*, your microcontroller will now be marked *ONLINE*: it is now running the *ESPHome firmware* that you just uploaded.
 
 
-<img src="images/5_online.png" width="80%" height="80%" />
+  <img src="images/5_online.png" width="80%" height="80%" />
 
 
 </details>
@@ -165,7 +165,7 @@ Once your updated *configuration* is validated, it is time to upload it to your 
 
 3. *ESPHome* compiles the new *firmware* and then uses *OTA* to wirelessly transfer the new *firmware* to your microcontroller:
 
-<img src="images/9_ota.png" width="100%" height="100%" />
+  <img src="images/9_ota.png" width="100%" height="100%" />
 
 4. Once the firmware is installed, click *STOP* to close the terminal window. Verify that your microcontroller is labeled *ONLINE* in *ESPHome Dashboard*, indicating that it booted correctly with the new firmware. 
 
