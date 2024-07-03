@@ -76,7 +76,7 @@ While you can run *ESPHome* stand-alone, typically *ESPHome* is used in conjunct
 * [ESPHome Stand-Alone:](https://esphome.io/guides/installing_esphome) the *Python*-based *ESPHome* software that can be installed and run on any computer that supports *Python*. *Python* can be [installed](https://www.python.org/downloads/) on most operating systems including *Windows*, *Linux*, *macOS*, and many more.
 * [ESPHome as a Home Assistant Add-On:](https://esphome.io/guides/getting_started_hassio) Once you installed *Home Assistant*, it takes just a [click](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) to install the *ESPHome Add-On* inside of *Home Assistant*.
 
-[<img src="images/add_ha_t.png">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+[<img src="images/add_ha.svg" width="30%" height="30%">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
 
 By using the *ESPHome Add-On* inside *Home Assistant*, you are combining *ESPHome features* with *Home Assistant features* and get even more very useful features for free:
 
