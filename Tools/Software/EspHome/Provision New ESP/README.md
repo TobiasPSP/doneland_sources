@@ -1,10 +1,10 @@
 <img src="/assets/images/homeassistant.png" width="80%" height="80%" />
  
-# Provision New ESP Microcontroller
+# Provision New Microcontroller
 
-> Prepare A New Microcontroller And Turn It Into A Managed ESPHome Device
+> Turn Your Microcontroller Board Into A Fully Managed ESPHome Device
 
-When you want to launch a new microcontroller-based electronics project, the first thing is to grab a supported microcontroller board and *provision* it. 
+When you want to launch a new microcontroller-based electronics project in *ESPHome*, the first step is to grab a supported microcontroller board and *provision* it. 
 
 > [!NOTE]
 > *ESPHome* supports *ESP8266*, the *ESP32* family, the *Raspberry RP2040*, plus the *Beken BK72xx* and *Realtec RTL87xx* microcontrollers typically found in commercial "smart" devices.
@@ -139,14 +139,14 @@ You don't necessarily need to touch these entries.
 
 
 #### IMPORTANT: Breaking Change
-Previously, *OTA* was defined in this way:
+Previously, *OTA* was defined this way:
 
 ````
 ota:
   password: "..."
 ````
 
-Starting with *ESPHome 2024.6.0*, this entry now must look like this:
+Starting with *ESPHome 2024.6.0*, this entry now must look like so:
 
 ````
 ota:
@@ -158,7 +158,7 @@ If you are using older configurations, it is sufficient to add `- platform: esph
 
 
 
-<details><summary>Here is what the default configuration items do:</summary><br/>
+<details><summary>What are default configuration items for?</summary><br/>
 
 
 
@@ -204,30 +204,13 @@ This physical connection is required only for initial provisioning. Once provisi
 
 1. Visit the *ESPHome Dashboard*. and look for the tile that represents your *ESPHome device*. Click the *three-dot* icon, and choose *Install*.
 
-
-
-
 <img src="images/install.png" width="60%" height="60%" />
 
-
-
-
-
-
-
-
-
-
 2. Choose *Plug into the computer running ESPHome Dashboard*. 
-
-
 
 <img src="images/rasp_selectport.png" width="100%" height="100%" />
 
 3. The port connected to the microcontroller in the screen shot below is shown as *dev/tty/USB0*, indicating that this port is provided by a *Linux* system (a *Raspberry Pi* running *Home Assistant*). On a *Windows* machine, the port would show as *COMxxx*.
-
-
-
 
 <img src="images/rasp_port.png" width="100%" height="100%" />
 
@@ -235,8 +218,7 @@ This physical connection is required only for initial provisioning. Once provisi
 
 <img src="images/rasp_install.png" width="100%" height="100%" />
 
-9. Wait for the installation process to be finished. There is no distinct *finish* message: the dialog simply shows the output of the serial monitor until you click *STOP*. When you feel the installation is done (or when you are no longer interested in viewing the log entries), click *STOP* to close the window.
-
+5. Wait for the installation process to be finished. There is no distinct *finish* message: the dialog simply shows the output of the serial monitor until you click *STOP*. When you feel the installation is done (or when you are no longer interested in viewing the log entries), click *STOP* to close the window.
 
 Once the firmware has been uploaded to your microcontroller board, it reboots and becomes available: in *ESPHome dashboard*, its tile is now marked *ONLINE* in its upper right corner:
 
