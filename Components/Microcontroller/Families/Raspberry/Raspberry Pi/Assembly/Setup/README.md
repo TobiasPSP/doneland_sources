@@ -200,12 +200,24 @@ In the end, *Home Assistant* should be up and running. If you have connected a *
 
 
 ### Web Interface
-You do not necessarily need to know the *Raspberry* IP address to access *Home Assistant* through a web browser. Open a browser, and enter `homeassistant.local:8123`.
+You do not need to know the *Raspberry* IP address to access *Home Assistant* through a web browser. Open a browser, and enter `homeassistant.local:8123`.
+
+> [!IMPORTANT]
+> If this *mDNS name* does not resolve, then this indicates a network issue that you should resolve (see below). *mDNS* is used by *Home Assistant* and *ESPHome* to identify devices, and when it does not work correctly, you are most likely running into many other issues down the road.
+
+
+
 
 #### Network Address Does Not Resolve
 The network address `homeassistant.local:8123` uses the *name* and *port* of your instance. The default port is *8123*. If you change the *name* or *port* of your *Home Assistant*, the address needs to be adjusted accordingly. 
 
-The address is based on *mDNS* and works only *locally*: if i.e. you have connected the *Raspberry Pi 5* using a *network cable*, then you can only use the *mDNS address* from other network devices that are *wired*. It *will not resolve* for computers and devices that are connected to your network using WiFi. If *mDNS* resolution fails, you can always use the actual *IP address*, i.e. `192.168.2.127:8123/`.
+The address is based on *mDNS* and works only *locally* (within a network). Many users run *two different networks* without knowing. When you have set up your *WiFi* in *Router Mode* (and not in *Access Point Mode*), the *WiFi nework* is separated from your *wired* network.
+
+If in this case you have connected the *Raspberry Pi 5* using a *network cable*, then you can only use the *mDNS address* from other network devices that are *wired*. It *will not resolve* for computers and devices that are connected to your network using WiFi. 
+
+If *mDNS* resolution fails, you can always use the actual *IP address*, i.e. `192.168.2.127:8123/`. However, this is only a temporary workaround, and you should [fix your network](https://done.land/tools/software/esphome/addtohomeassistant#check-network-configuration). *mDNS* is required by many other services (such as *ESPHome*).
+
+
 
 #### Obtaining IP Address
 By default, and depending on your general network setup, the *Raspberry Pi 5* typically receives its *IP address* dynamically from your *DHCP server*. This means that its *IP address* can change over time. It does not make much sense then to note the *IP address*, or add bookmarks to it.
