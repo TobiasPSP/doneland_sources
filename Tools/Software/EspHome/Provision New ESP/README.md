@@ -2,25 +2,34 @@
  
 # Provision New ESP Microcontroller
 
-> Prepare A New ESP32 Or ESP8266 Microcontroller And Turn It Into A Managed ESPHome Device
+> Prepare A New Microcontroller And Turn It Into A Managed ESPHome Device
 
-When you want to launch a new microcontroller-based electronics project, the first thing is to grab a generic *ESP32* or *ESP8266* microcontroller board and *provision* it. 
+When you want to launch a new microcontroller-based electronics project, the first thing is to grab a supported microcontroller board and *provision* it. 
+
+> [!NOTE]
+> *ESPHome* supports *ESP8266*, the *ESP32* family, the *Raspberry RP2040*, plus the *Beken BK72xx* and *Realtec RTL87xx* microcontrollers typically found in commercial "smart" devices.
+
+
 
 ## Quick Overview
-*Provisioning* a new *ESP* microcontroller involves these two simple steps:
+*Provisioning* a new microcontroller involves these two simple steps:
 
 * Add a *New Device* to *ESPHome*
 * Upload *ESPHome Firmware* to the microcontroller
 
-After this, your *microcontroller* turns into a fully manageable *ESPHome device*. From now on, you can edit and change its *configuration*, adapt it to your needs and your project circuitry, and conveniently upload the automatically generated *firmware* via *OTA* (*over-the-air*, *wireless*) to your microcontroller.
+After this, your *microcontroller* turns into a fully manageable *ESPHome device*. From then on, you can edit and change its *configuration*, adapt it to your needs and your project circuitry, and conveniently upload the automatically generated *firmware* via *OTA* (*over-the-air*, *wireless*) to your microcontroller.
 
 
 ### What's needed
 Here are the prerequisites to create a *ESPHome-provisioned microcontroller*:
 
 * **ESPHome:** you have already installed *ESPHome*. You can install it *stand-alone*, but it is strongly suggested you install *ESPHome* inside *Home Assistant* to fully leverage all of its capabilities and synergies.
-* **Microcontroller:** you need a *ESP32* or *ESP8266* microcontroller board
+* **Microcontroller:** you need a [supported](https://esphome.io/) microcontroller board
 * **USB Cable:** during initial provisioning, the *ESPHome firmware* needs to be uploaded via *USB cable* (once provisioned, all future firmware uploads work wirelessly).
+
+
+> [!NOTE]
+> Here is an edge-case: if you'd like to flash a microcontroller inside a commercial "smart" device (to free it from the cloud and turn it into a locally controlled *ESPHome* device), the steps are the same except for the last one: since these microcontrollers are not designed to receive firmware updates via USB, you need to upload the firmware using a *UART-to-USB* controller, and manually solder the appropriate wires to the microcontroller pins *in situ*.    
 
 
 
@@ -75,10 +84,108 @@ Inside the *ESPHome Dashboard*, add a new device:
 
 <img src="images/4_esphome_config_secret.png" width="100%" height="100%" />
 
-In your *ESPHome dashboard*, you now see your new *ESPHome device*. It is marked as *OFFLINE* in the tiles' right upper corner which isn't surprising: the device does not yet physically exist. Up to this point, we just created the default configuration.
+In your *ESPHome dashboard*, you now see your new *ESPHome device*. It is marked as *OFFLINE* in the tiles' right upper corner which isn't surprising: the device does not yet physically exist. Up to this point, we just created the *default configuration*.
 
 
 ### Default Configuration
+During provisioning, *ESPHome* has created a *default configuration* for your device. You can see this configuration when you click *EDIT*:
+
+<img src="images/editconfig.png" width="100%" height="100%" />
+
+The *default configuration* takes care of the fundamentals like naming, board specs, connecting details for your *WiFi*, etc., and looks similar to this:
+
+
+````
+esphome:
+  name: co2-sensor-1
+  friendly_name: CO2 Sensor #1
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "..."
+
+ota:
+  - platform: esphome
+    password: "..."
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Push-Button Fallback Hotspot"
+    password: "..."
+
+captive_portal:
+````
+
+You don't necessarily need to touch these entries. 
+
+> [!TIP]
+> Hover over items in the *configuration* to view *tooltips* that explain in detail what these items do.    
+
+<img src="images/7_tooltip.png" width="100%" height="100%" />
+
+
+
+#### IMPORTANT: Breaking Change
+Previously, *OTA* was defined in this way:
+
+````
+ota:
+  password: "..."
+````
+
+Starting with *ESPHome 2024.6.0*, this entry now must look like this:
+
+````
+ota:
+  - platform: esphome
+    password: "..."
+````
+
+If you are using older configurations, it is sufficient to add `- platform: esphome` to make sure your configuration compiles with the current versions of *ESPHome*.
+
+
+
+<details><summary>Here is what the default configuration items do:</summary><br/>
+
+
+
+* **esphome:**
+  * *name:* *mDNS* network name that is assigned to the device. It is derived from your project name. Spaces and special characters are replaced.
+  * *friendly name:* clear-text name that appears in the *ESPHome dashboard*. 
+
+* **esp32:** (this can be a different item when you have selected a different microcontroller)
+  * *board:* the type of microcontroller board. *esp32dev* is the default configuration for generic *ESP32* boards.
+  * *framework:* the type of programming framework to use. By default, *ESPHome* uses *Arduino*, but you could also use *ESP-IDF* (the ESP vendors' own programming environment)
+
+* **logger:** by default, all messages with a severity of *DEBUG* or higher are logged through the serial port. You can [adjust](https://esphome.io/components/logger.html#logger-component) these settings, i.e. for more verbose logging.
+
+* **api:** specifies an *encryption key* that is required whenever you want to communicate wirelessly with the microcontroller via the *ESPHome API*. This key is automatically generated and stored for you. It must match the key inside the *firmware* that was uploaded to your microcontroller.   
+
+* **ota:** defines the secret password for *over-the-air* firmware updates. This password must match the password defined in the uploaded firmware. *ESPHome* can then upload future *firmware updates* conveniently via *WiFi*.   
+
+
+
+* **wifi:** defines the access parameters for your home *WiFi*. The actual *SSID* and *password* are stored globaly in the secret store.
+
+  * *ap:** if your microcontroller is unable to connect to your *home Wifi* for whatever reason, the *ESPHome firmware* automatically opens its own *WiFi access point* (*hotspot*). 
+
+* **captive_portal:** when this component is part of your *configuration*, it instructs your microcontroller to provide a web portal that you can use to change the *WiFi settings* or manually upload *new firmware*. The *captive portal* is activated when the regular *WiFi* cannot be reached, and can be accessed via the *hotspot* that is defined in *ap:*. There are no configuration settings for this item.
+
+
+</details>
 
 
 
@@ -212,26 +319,10 @@ Click *CONFIGURE* to add it to *Home Assistant*. You can then assign it a room o
 
 <img src="images/rasp_adddevice.png" width="100%" height="100%" />
 
-### Dashboards And User Interfaces
-
-The new device is now part of *Home Assistant* and can be added to *dashboards* or used in *automation rules*.
-
-<img src="images/rasp_newdash.png" width="100%" height="100%" />
-
-When you add its *entities* (i.e. sensor values) to a dashboard, you immediately see the *synergies*: you can now view the sensor readings in real time and combine this sensor with other information.
-
-<img src="images/dashboard_co2.png" width="100%" height="100%" />
-
-### Monitoring And Logs
-
-You don't just get a momentary display but also a *continuous monitoring* and *logging*: when you click the sensor gauge, *Home Assistant* pulls the sensor log and shows a graph.
-
-Without diving too much into detail, all of this is highly customizable: you control the type and style of dashboard item, can define the timespan to show, and your *ESPHome* device *configuration* sets the *update interval* in which *Home Assistant* polls new sensor values.
+> [!IMPORTANT]
+> Up until now, you have just *provisioned* your microcontroller and turned it into a generic *ESPHome device*. This device isn't really doing anything useful yet. The indicator of success at this point is that your device shows up in *Home Assistant*, and that it is labeled *ONLINE* in the *ESPHome Dashboard*.
 
 
+> Tags: EspHome, Home Assistant, Provision, Initialize, Configuration
 
-<img src="images/sensordetail.png" width="100%" height="100%" />
-
-> Tags: EspHome, Home Assistant, ESP8266, ESP32
-
-[Visit Page on Website](https://done.land/tools/software/esphome/provisionnewesp?134804061917245543) - created 2024-06-02 - last edited 2024-06-16
+[Visit Page on Website](https://done.land/tools/software/esphome/provisionnewesp?134804061917245543) - created 2024-06-02 - last edited 2024-07-02

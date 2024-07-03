@@ -2,9 +2,9 @@
  
 # Add To Home Assistant
 
-> Adding ESPHome Device To Home Assistant ANd Turning It Into A Fully Manageable Sensor Or Actor
+> Adding ESPHome Device To Home Assistant
 
-While it is not required, adding an *ESPHome device* to *Home Assistant* opens a whole new range of options.
+While it is not required, adding an *ESPHome device* to *Home Assistant* opens a whole new world of options.
 
 <details><summary>Benefits of Home Assistant Integration</summary><br/>
 
