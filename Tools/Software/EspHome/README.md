@@ -80,16 +80,17 @@ While you can run *ESPHome* stand-alone, typically *ESPHome* is used in conjunct
 
 By using the *ESPHome Add-On* inside *Home Assistant*, you are combining *ESPHome features* with *Home Assistant features* and get even more very useful features for free:
 
-*Home Assistant* can...
+*Home Assistant* can automatically...
 
-* **Monitoring:** ...automatically monitor your devices, query data and sensor readings in defined intervals, monitor battery and online status, and keep logs for easy lookup.
-* **Dashboard:** ...provide graphical *dashboards* with switches, gauges, graphs, and more, to *visualize* the data retrieved from your devices.
-* **Interaction:** ...connect devices and perform *automations*. For example, when a *temperature sensor* registers a high temperature, a *Home Assistant* automation script could automatically turn on the *air conditioning*. Your devices no longer have to provide complete solutions but instead become flexible *lego pieces* that you can use to compose all kinds of *automation logic*.
+* **Monitor:** It monitors your devices and queries data and sensor readings in defined intervals. Monitoring can include battery and online status. All data is kept in a database for easy lookup.
+* **Show Information:** ...provide graphical *dashboards* with switches, gauges, graphs, and more, to *visualize* the data retrieved from your devices.
+* **Perform Tasks:** It can trigger *automation scripts* based on self-defined *conditions*. For example, when a *temperature sensor* registers a high temperature, an automation script could automatically turn on the *air conditioning*.    
+Devices no longer have to implement complete *stand-alone* solutions. They can now focus on a specific feature (i.e. measuring something), and *in combination* with other devices, *Home Assistant* implements the final solution.
 
-Because of this, it is strongly recommended to run *ESPHome* inside *Home Assistant*. Setting up *Home Assistant* is [really easy](https://done.land/components/microcontroller/families/raspberry/raspberrypi).
+Because of all of these benefits, it is strongly recommended to run *ESPHome* as part of *Home Assistant*. Setting up *Home Assistant* is [really easy](https://done.land/components/microcontroller/families/raspberry/raspberrypi).
 
 > [TIP:]
-> Running *ESPHome* **stand-alone** makes sense only if you want to design devices that are running **stand-alone** as well. Since this is not the typical use case, in the remainder of this article I am focusing on *ESPHome* as part of *Home Assistant*. If you are new to *Home Assistant*, you may want to browse the articles about [Home Assistant](https://done.land/tools/software/homeassistant) first to make yourself at home.     
+> Running *ESPHome* **stand-alone** makes sense if you want to use its *programming-free concept* to design devices that are running **stand-alone** as well. I can only urge you to *not* go this route and instead start with *Home Assistant*, then add *ESPHome* to it. If you are new to *Home Assistant*, it is [really simple](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup) to set up a *Raspberry Pi 5* with pre-installed *Home Assistant* and takes less than 10 minutes.   
 
 
 
@@ -102,10 +103,14 @@ From the perspective of *Home Assistant*, your *ESPHome devices* are treated jus
 
 #### Entities = Device Capabilities
 
-Whatever the capabilities of your *ESPHome device* may be (sensors, switches, lights, etc.), they all surface as *entities* in *Home Assistant*. These entities can then be accessed *manually* as well as *automatically*:
+To get a better feeling just how your *ESPHome microcontroller project* can interact with other devices in *Home Assistant*, it's useful to know how *Home Assistant* deals with the huge variety of *wireless devices* from *many different vendors* in a uniform way.
 
-* **Manually: Dashboards:** You can easily add as many *Dashboards* to *Home Assistant* as you may need. *Dashboards* enable you to *manually* interact with devices. Each *dashboard* is composed of graphical *user controls* that are tied to one or more *entities*. For example, the entity representing a *temperature sensor* can be tied to a *gauge* or a *graph*. Likewise, an entity representing a *button* or *switch* can be tied to a *GPIO* that may control a relais.
-* **Automatically: Automation Scripts:** Entities can as well be accessed from within *automation scripts*. *Home Assistant* automatically runs these scripts when the defined *conditions* are met. For example, when you tie the entity representing a *temperature sensor* to an automation script, you could define a condition to be a "temperature reading greater than 25 degree celsius", and when the condition is met, *automatically* access the entity representing an *electric plug* to turn on the *air conditioning*.
+Whatever the capabilities of your *ESPHome device* may be (sensors, switches, lights, etc.), they all surface as *entities* in *Home Assistant*. This is true for *any* device discovered by *Home Assistant*: *Entities* (and their unique *Ids*) are used to address specific features of *any* device.
+
+These entities can then be accessed *manually* or *automatically*:
+
+* **Manually:** You can easily add as many *Dashboards* to *Home Assistant* as you may need. *Dashboards* enable you to *manually* interact with devices. Each *dashboard* is composed of graphical *user controls* that are tied to one or more *entities*. For example, the entity representing a *temperature sensor* can be tied to a *gauge* or a *graph*. Likewise, an entity representing a *button* or *switch* can be tied to a *GPIO* that may control a relais.
+* **Automatically:** Entities can also be accessed from within *automation scripts*. *Home Assistant* runs these scripts when the defined *conditions* are met. For example, when you tie the entity representing a *temperature sensor* to an automation script, you could define a condition to be a "temperature reading greater than 25 degree celsius", and when the condition is met, the script automatically targets another entity representing an *electric plug* that turns on the *air conditioning*.
 
 
 
@@ -120,7 +125,12 @@ Whatever the capabilities of your *ESPHome device* may be (sensors, switches, li
 
 ### Home Assistant
 
-If you are running [Home Assistant](https://done.land/components/microcontroller/families/raspberry/raspberrypi), the installation of *ESPHome* is easiest: simply [click here](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon).
+If you have a running instance of *Home Assistant*, installing *ESPHome* on it is a matter of a simple click:
+
+[<img src="images/add_ha.svg" width="30%" height="30%">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+
+> [!TIP:]
+> If you *do not yet* run *Home Assistant*, consider [setting up](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup) your own *Home Assistant server* - it's really simple and well worth the investment.    
 
 
 <img src="images/install_esphome_addon.png" width="100%" height="100%" />
@@ -169,4 +179,4 @@ These steps are necessary only for *stand-alone* installations. When *ESPHome* r
 
 > Tags: EspHome, Home Assistant, Entity
 
-[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-01
+[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-02

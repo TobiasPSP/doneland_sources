@@ -1,12 +1,19 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
  
-# Assembling Raspberry Pi 5
+# Assembling Raspberry Pi 5 And Installing Home Assistant 
 
-> Step By Step Guide To Assemble A Raspberry Pi 5
+> Step By Step Guide To Assemble A Raspberry Pi 5 And Install Home Assistant OS Or Any Other OS
 
 Assembling a *Raspberry Pi 5* is a matter of just 10 minutes. Here are the steps required.
 
 <img src="images/raspberry_pi_5_logo_6_t.png" width="50%" height="50%" />
+
+> [!TIP:]
+> As part of the description, I am going to pre-load the free *Home Assistant* software on it. That's of course not required. You can choose a different image and run other operating systems on it as well.   
+
+
+
+
 
 ## Mounting Active Cooler
 For this you need the *Raspberry Pi 5 board* and the *Raspberry Pi 5 Active Cooler* kit:
@@ -71,13 +78,18 @@ Gently move the *SSD drive* downwards until the screw holes at the end of both *
 
 ### Preloading Software
 
+In order for *Raspberry Pi* to run, it needs an *operating system*. The best way is to *preload* the appropriate *operating system image* onto the SSD hard drive, so when you later turn it on, everything is in place, and the *Raspberry Pi* happily starts with the operating system of your choice.
+
 To *preload software* onto the *SSD drive*, plug it into your PC. Thanks to the *USB adapter* that you mounted the *SSD drive* on, it should appear as a regular *USB drive*.
 
+#### Raspberry Pi Imager
 The actual pre-loading is done by [Raspberry Pi Imager](https://www.raspberrypi.com/software/). The tool is available for *Windows*, *macOS*, and *Ubuntu*.
 
 <img src="images/raspberry_pi_imager.png" width="80%" height="80%" />
 
 Once you installed and opened *Raspberry Pi Imager* as *Administrator*, you can choose what software you want to preload onto the *SSD drive*.
+
+#### Picking Operating System
 
 Since *Raspberry Pi 5* is going to be *HomeAssistant server* in this example, the choices are *Raspberry Pi 5*, *Home Assistant OS*, and the storage device that represents the mounted *SSD drive*.
 
@@ -217,6 +229,6 @@ After a few seconds, `Find-NetworkDevice` returns all *IP addresses* that respon
 
 
 
-> Tags: Raspberry Pi, Assembly, Active Cooler, Fan, mDNS, IP address
+> Tags: Raspberry Pi, Assembly, Active Cooler, Fan, mDNS, IP address, Home Assistant
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-01 - last edited 2024-06-03
+[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-01 - last edited 2024-07-02
