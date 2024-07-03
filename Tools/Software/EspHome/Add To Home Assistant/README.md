@@ -93,7 +93,7 @@ Typically, this occurs when you have connected the computer that is running *ESP
 When your *WiFi* is running in *Router* mode (vs. *Access Point* mode), it runs a *separate* network. *mDNS* cannot traverse to the other network.
 
 > [!IMPORTANT:]
-> **Do not** light-heartedly switch your *WiFi* from *Router* mode to *Access Point* mode as this may have serious consequences for your existing network.     
+> **Do not** light-heartedly switch your *WiFi* from *Router* mode to *Access Point* mode as this may have *serious consequences* for your existing network.     
 
 
 
