@@ -2,7 +2,7 @@
  
 # ESPHome
 
-> Free Open-Source Software To Control And Manage ESP Microcontrollers
+> Free Open-Source Framework To Control And Manage ESP Microcontrollers (And Others, Too)
 
 [ESPHome](https://esphome.io/) is a free *open-source* software that seamlessly integrates into *Home Assistant*, but can also be installed *stand-alone* on various operating systems.
 
@@ -14,60 +14,69 @@ It automatically creates the *firmware* for *ESP* microcontrollers without writi
 
 
 
-
-When integrated into *Home Assistant*, your *ESPHome-enabled* microcontrollers can be discovered like any other device and seamlessly integrate into your dashboards. 
+*ESPHome* can run *stand-alone* or as part of *Home Assistant*. The latter is strongly recommended because then your *ESPHome devices* that you created can be discovered in *Home Assistant* just like any other (commercial) device, and seamlessly integrate into dashboards (self-defined user interfaces) and automation workflows. 
 
 ## Quick Overview
 
-Let's quickly identify the benefits of *ESPHome*, and where it may be useful for you.
+Let's first identify the benefits of *ESPHome*, and why *you* may want to use it.
 
 ### Repetitive Tasks
 
-When you create microcontroller projects, you are faced with a lot of *repetitive tasks* while programming firmware for it:
+Whenever you create microcontroller projects, you are faced with always the same *repetitive tasks* while programming firmware for it:
 
-* **Libraries:** You need to find, download and integrate the necessary libraries that support the devices and components you use.
-* **Displays:** When outputting information locally, you need to write code to drive a display or some other kind of *user interface*.
-* **Management:** in order to create a *useful* device, you often need to add *management capabilities*, i.e. a web interface, or some sort of web service that lets users remotely *query* or *control* the device.
-* **Wireless:** For *remote management capabilities*, you need to set up a wireless network and implement ways to provide your wifi *SSID* and password.
-* **OTA Updates:** Since devices are often mounted in inaccessible locations, you need to provision the microcontroller in a way that enables *over-the-air* updates
-* **Security:** To make sure that *only you* can access the microcontroller, you need to carefully implement security features and manage secret keys.
+* **Libraries:** You need to find, download and integrate libraries that support the devices and components you want to use.
+* **Displays:** When outputting information, you need to write extra code to drive a display, or manage some other kind of *user interface* or web interfaces.
+* **Connectivity:** For *remote management capabilities*, you need to set up a wireless network and implement ways to provide access parameters such as your wifi *SSID* and password.
+* **OTA Updates:** Since devices are often mounted in inaccessible locations, you need to provision the microcontroller in a way that enables *over-the-air* updates so you can maintain your firmware.
+* **Security:** To make sure that *only you* can access the microcontroller, you need to carefully implement security measures and manage secret keys.
 * **Build Environment:** Once you have written the firmware code, you need a tool chain to *compile* the code and *upload* the binary firmware file to your microcontroller.
 
-These are a lot of tasks that take up your valuable time that you'd probably much rather would like to spend on the *creative and fun* part (designing the special functionality of your device).
+These are a lot of tasks that take up valuable time that you'd probably much rather would like to focus on the *creative and fun* part of your projects: designing the special functionality of your device.
 
-Since these tasks are *repetitive* and are required for basically *any* new project, the default *ESPHome firmware* takes care of them and enables you to focus on the genuine new features you are trying to implement. 
+### Free Yourself From Boring Tasks
+Since above tasks are *repetitive* and required for basically *any* new project, the default *ESPHome firmware* takes care of them and enables you to focus on the genuine new features you are trying to implement. 
 
-### Describe Your Project
 
-All that is left for you to do is *tell ESPHome* (via a *YAML* file) which components your project uses, and what the *GPIOs* are that you use to connect them. Based on this *description*, *ESPHome* automatically includes all necessary libraries, composes the firmware code, compiles it, and uploads it to your microcontroller.
+All you need to do is *tell ESPHome* what your hardware looks like: what are the components you hooked up to your microcontroller, and which *GPIOs* did you connect them to.
 
-### Massive Benefits For Free
+Based on this description, *ESPHome* takes care of all the rest, identifies and integrates the necessary libraries, programs the firmware, compiles it and uploads it to your microcontroller. You don't need to program a single line of code.
 
-This simplifies the above mentioned *repetitive tasks* tremendously as you no longer have to chew on *default tasks* and get these benefits for free (as they are by default handled by the *ESPHome firmware*):
+> [!TIP]
+> *ESPHome* is extremely flexible: simple devices can be set up with almost no prior knowledge. Even complex devices are absolutely doable but require more advanced *ESPHome features*. So working professionally with *ESPHome* does have a learning curve, just like any other programming environment.   
+
+
+
+
+
+
+### Benefits For Free
+
+All of the above mentioned *repetitive tasks* are handled *automatically* by the *ESPHome firmware*, so you don't have to worry about them anymore:
 
 * **Libraries:** *ESPHome* supports almost all standard components (i.e. sensors, displays, etc) and *knows* the libraries required to drive them. It takes care of all provisioning.
-* **Displays:** For displays, above applies: *ESPHome* knows almost all commonly used displays and automatically integrates them.
-* **Management:** the *ESPHome* firmware automatically implements a basic web interface and web services. The device can be managed with the *ESP tools*. *ESPHome-enabled microcontrollers* are automatically discovered by *Home Assistant*, and their data can be conveniently managed via its dashboards.
-* **Wireless:** *ESPHome* automatically integrates the microcontroller into your *WiFi* network and lets you select the available *WiFi* networks.
-* **OTA Updates:** the *ESPHome* firmware supports *OTA* out of the box: once a microcontroller is *ESPHome-enabled*, it can be updated with just a click via the dashboard.
-* **Security:** all secret management (i.e. safely storing *WiFi* passwords) is done by *ESPHome* (and seamlessly integrates with *Home Assistant* if desired). Access to the microcontroller is protected by secret API keys that are, too, transparently managed by *ESPHome*.
-* **Build Environment:** since you do not need to write code, no additional tools are required. You change firmware simply by changing the properties of the *YAML* file that describes your microcontroller setup. *ESPHome* automatically derives the firmware from it and provides multiple options to upload new firmware safely to your microcontroller.
+* **Displays:** For displays, the same applies: *ESPHome* knows almost all commonly used displays and automatically integrates them if you want. *ESPHome firmware* automatically implements a basic web interface and web services. The device can be managed with the *ESP tools*, and they are automatically discovered by *Home Assistant*. 
+* **Connectivity:** *ESPHome* automatically connects your microcontroller to your *WiFi* network.
+* **OTA Updates:** the *ESPHome* firmware supports *OTA* out of the box: once a microcontroller is *ESPHome-enabled*, it can be updated with just a click over the air.
+* **Security:** all secrets management (i.e. safely storing *WiFi* passwords) is taken care of by *ESPHome* (and seamlessly integrates with *Home Assistant* if desired). Access to the microcontroller is protected by secret API keys that are, too, transparently managed by *ESPHome*.
+* **Build Environment:** since you do not need to write code, no additional tools are required. You update firmware simply by changing the properties of the *device configuration* file that describes your microcontroller hardware. *ESPHome* automatically derives the firmware from it and provides multiple options to upload firmware safely to your microcontroller.
 
 
 > [!TIP]
-> *ESPHome* is a great way to convert DIY projects into valuable devices used inside home automation. But even if you are not interested in *home automation* at all, its *programming-free* concept is appealing to pure electronic hobbyists as well.
+> *ESPHome* is a great way to convert DIY projects into valuable devices used inside home automation. Even if you are not interested in *home automation* at all, its *programming-free* concept might be appealing to pure electronic hobbyists as well and is definitely worth a look.
 
 
 
 
 
-## Adding Home Assistant
+## Home Assistant
 
-While you can run *ESPHome* stand-alone, typically *ESPHome* is used inside *Home Assistant*: 
+While you can run *ESPHome* stand-alone, typically *ESPHome* is used in conjunction with *Home Assistant*. *Home Assistant* is another free open-source framework designed to manage all kinds of wireless devices in one place. 
 
 
-* **ESPHome Stand-Alone:** *Python*-based software that can be installed and run on any computer that supports *Python*. *Python* can be [installed](https://www.python.org/downloads/) on most operating systems including *Windows*, *Linux*, *macOS*, and many more.
-* **ESPHome as a Home Assistant Add-On:** Once you installed *Home Assistant*, it takes just a few clicks to install the *ESPHome Add-On* inside of *Home Assistant*.
+* [ESPHome Stand-Alone:](https://esphome.io/guides/installing_esphome) the *Python*-based *ESPHome* software that can be installed and run on any computer that supports *Python*. *Python* can be [installed](https://www.python.org/downloads/) on most operating systems including *Windows*, *Linux*, *macOS*, and many more.
+* [ESPHome as a Home Assistant Add-On:](https://esphome.io/guides/getting_started_hassio) Once you installed *Home Assistant*, it takes just a [click](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) to install the *ESPHome Add-On* inside of *Home Assistant*.
+
+[<img src="images/add_ha_t.png">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
 
 By using the *ESPHome Add-On* inside *Home Assistant*, you are combining *ESPHome features* with *Home Assistant features* and get even more very useful features for free:
 
