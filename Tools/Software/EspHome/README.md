@@ -89,7 +89,7 @@ Devices no longer have to implement complete *stand-alone* solutions. They can n
 
 Because of all of these benefits, it is strongly recommended to run *ESPHome* as part of *Home Assistant*. Setting up *Home Assistant* is [really easy](https://done.land/components/microcontroller/families/raspberry/raspberrypi).
 
-> [TIP:]
+> [!TIP:]
 > Running *ESPHome* **stand-alone** makes sense if you want to use its *programming-free concept* to design devices that are running **stand-alone** as well. I can only urge you to *not* go this route and instead start with *Home Assistant*, then add *ESPHome* to it. If you are new to *Home Assistant*, it is [really simple](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup) to set up a *Raspberry Pi 5* with pre-installed *Home Assistant* and takes less than 10 minutes.   
 
 
