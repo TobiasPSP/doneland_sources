@@ -9,7 +9,7 @@
 It automatically creates the *firmware* for *ESP* microcontrollers without writing any code. Via a *YAML* file, you *describe* the features of your microcontroller project, i.e. which *GPIOs* you use and what kind of *sensors* or *displays* you connected. *ESPHome* then takes care of the heavy lifting and automatically creates the firmware necessary to operate the microcontroller.
 
 > [!NOTE]
-> *ESPHome* is no longer limited to *ESP* microcontrollers. Recent versions integrate [LibreTiny](https://esphome.io/components/libretiny.html), an open-source platform that supports *BK72xx* and *RTL87xx* microcontrollers often found in "smart" devices such as *Plugs* and *Sensors*.
+> *ESPHome* is no longer limited to *ESP* microcontrollers. You can also use *RP2040* microcontrollers (*Raspberry*). Recent *ESPHome* versions integrate [LibreTiny](https://esphome.io/components/libretiny.html), an open-source platform that supports *BK72xx* and *RTL87xx* microcontrollers often found in commercial "smart" devices such as *Plugs* and *Sensors*.
 
 
 
@@ -101,8 +101,8 @@ In order for *Home Assistant* to work with all kinds of different devices (inclu
 
 These entities can then be accessed *manually* or *automatically*:
 
-* **Manually:** You can easily add as many *Dashboards* to *Home Assistant* as you may need. *Dashboards* enable you to *manually* interact with devices. Each *dashboard* is composed of graphical *user controls* that are tied to one or more *entities*. For example, the entity representing a *temperature sensor* can be tied to a *gauge* or a *graph*. Likewise, an entity representing a *button* or *switch* can be tied to a *GPIO* that may control a relais.
-* **Automatically:** Entities can also be accessed from within *automation scripts*. *Home Assistant* runs these scripts when the defined *conditions* are met. For example, when you tie the entity representing a *temperature sensor* to an automation script, you could define a condition to be a "temperature reading greater than 25 degree celsius", and when the condition is met, the script automatically targets another entity representing an *electric plug* that turns on the *air conditioning*.
+* **Manually:** You can add as many *Dashboards* to *Home Assistant* as you need. *Dashboards* enable you to *manually* interact with devices. Each *dashboard* is composed of graphical *user controls* that are tied to one or more *entities*. For example, the entity representing a *temperature sensor* can be tied to a *gauge* or a *graph*. Likewise, an entity representing a *button* or *switch* can be tied to a *GPIO* that may control a relais.
+* **Automatically:** Entities can also be accessed from within *automation scripts*. *Home Assistant* runs these scripts when the defined *conditions* are met. For example, when you tie the entity representing a *temperature sensor* to an automation script, you could define a condition to be a "temperature reading greater than 25 degree celsius", and when the condition is met, the script automatically targets another entity in a completely different device, i.e. an entity representing an *electric plug* that turns on the *air conditioning*.
 
 
 
@@ -117,16 +117,16 @@ These entities can then be accessed *manually* or *automatically*:
 The recommended installation method is to use the *ESPHome Add-On* inside *Home Assistant*.
 
 
-> [!TIP]
-> If you *do not yet* run *Home Assistant*, consider [setting up](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup) your own *Home Assistant server* - it's really simple and well worth the investment.    
-
 If you have a running instance of *Home Assistant*, installing *ESPHome* is a matter of *one click*:
 
 [<img src="images/add_ha.svg" width="40%" height="40%">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
 
 
 
-This connects you to your local *Home Assistant* instance and opens an assistant that walks you through the installation once you click *INSTALL*:
+> [!TIP]
+> If you *do not yet* run *Home Assistant*, consider [setting up](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup) your own *Home Assistant server* - it's really simple and well worth the investment.    
+
+This connects you to your local *Home Assistant* instance and opens an assistant that walks you through the installation once you click *INSTALL*.
 
 
 Once installation is completed, make sure you enable *Start on boot*, *Watchdog*, and *Show in sidebar*:
@@ -139,13 +139,13 @@ This way, *ESPHome* is automatically started, and the *ESPHome Dashboard* is con
 
 ### Stand-Alone
 
-Installing *ESPHome* without *Home Assistant* is possible but not recommended because you miss out on many *synergies*.
+Installing *ESPHome* without *Home Assistant* is possible but not recommended because you miss out on important *synergies*. 
 
 Installation is a three-step process: 
 
 * **Prerequisites:** ensure that your operating system supports *Python*, and install *Python* if it is missing.   
 * **ESPHome Command Line Interface:** download and install the actual *ESPHome* Python software.   
-* **ESPHome Dashboard (GUI):** add the *ESPHome dashboard* on top of the rather cumbersome command line interface. This step is optional.   
+* **ESPHome Dashboard (GUI):** add the *ESPHome dashboard* on top of the command line interface. This step is optional.   
 
 
 #### Installing ESPHome On Windows
@@ -161,18 +161,17 @@ Here are the installation steps on a *Windows* computer:
 4. Next, in the console window create a new folder for your *ESPHome* projects and set the current path to this folder (adjust the paths in the next three commands accordingly): enter `mkdir d:\esphome_projects`, then enter `d:`, then enter `cd d:\esphome_prpjects`.
 
 
-Installing the *ESPHome Dashboard* is optional but strongly recommended. Without the dashboard, *ESPHome* is controlled entirely via cryptic console commands.
+Installing the *ESPHome Dashboard* is optional. Without the dashboard, *ESPHome* is controlled exclusively via cryptic console commands.
 
 
 
 <details><summary>Installing ESPHome Dashboard</summary><br/>
 
-These steps are necessary only for *stand-alone* installations. When *ESPHome* runs as part of *Home Assistant*, it always has a dashboard.
 
 1. In the console, enter this command: `pip install tornado esphome`. This installs the necessary files (if required).
-2. Launch the dashboard with this command (make sure you enter the path to your projects folder that you just created): `esphome dashboard d:\esphome_projects`.
-3. A *Windows Security Alert* dialog opens and asks for firewall permissions. This occurs automatically when a process opens a *web socket*. Since *ESPHome* is only using the local network, the dialog should be dismissed ny clicking *Cancel*. Do not change your firewall permissions.
-4. *ESPHome* is now running its own webserver for as long as the console window remains open. Open the *ESPHome dashboard* by opening a browser and entering the url `http://localhost:6052`.
+2. Launch the dashboard with this command (make sure you replace the path to your projects folder with the path that you used when you installed *ESPHome*): `esphome dashboard d:\esphome_projects`.
+3. A *Windows Security Alert* dialog opens and asks for firewall permissions. This occurs automatically when a process opens a *web socket*. Since *ESPHome* is only using the local network, the dialog should be dismissed by clicking *Cancel*. **Do not change your firewall permissions.**
+4. *ESPHome* is now running its own webserver for as long as the console window remains open. Visit the *ESPHome dashboard* by opening a browser and entering the url `http://localhost:6052`.
 
 
 <img src="images/consolegui.png" width="100%" height="100%" />
