@@ -1,10 +1,10 @@
 <img src="/assets/images/homeassistant.png" width="80%" height="80%" />
  
-# Add To Home Assistant
+# Add ESPHome Device To Home Assistant
 
-> Adding ESPHome Device To Home Assistant
+> Adding Your ESPHome Device To Home Assistant And Turning It Into A Fully Manageable Device
 
-While it is not required, adding an *ESPHome device* to *Home Assistant* opens a whole new world of options.
+While not required, adding an *ESPHome device* to *Home Assistant* opens a whole new world of options.
 
 <details><summary>Benefits of Home Assistant Integration</summary><br/>
 
@@ -27,20 +27,20 @@ Or you may want to create a really simple *ESPHome push button device* that you 
 ## Auto-Discovery
 
 
-When all is configured correctly, your *ESPHome device* is automatically discovered by *Home Assistant* seconds after it goes online. If you live in this perfect world, the process looks like this:
+When everything is configured correctly, your *ESPHome device* is automatically discovered by *Home Assistant* once it goes online. If you happen to live in this perfect world, the process looks like this:
 
-<img src="images/rasp_notification.png" width="100%" height="100%" />
+<img src="images/rasp_notification.png" width="80%" height="80%" />
 
 1. Click *Notifications* in the *Home Assistant* side bar, then *check it out*, to see the newly discovered device:
 
 
-<img src="images/10_discover.png" width="100%" height="100%" />
+    <img src="images/10_discover.png" width="80%" height="80%" />
   
 
 2. Click *CONFIGURE* to add the new *push button device* to *Home Assistant*. When you confirm this, the device is added, and you can optionally assign it a location.
 
 
-<img src="images/11_added.png" width="100%" height="100%" />
+    <img src="images/11_added.png" width="80%" height="80%" />
   
 
 If *Auto-Discovery* does not work for you, add the *ESPHome device* manually. For this, you need to know its *IP address*.
@@ -53,7 +53,7 @@ If you don't know the *IP address* assigned to the *ESPHome device* you want to 
 This opens a window with the device logs, and in this log you find the currently assigned IP address.
 
 
-<img src="images/logs.png" width="100%" height="100%" />
+<img src="images/logs.png" width="80%" height="80%" />
   
 Once you know the devices' currently assigned *IP address*, follow these steps:
 
@@ -61,12 +61,12 @@ Once you know the devices' currently assigned *IP address*, follow these steps:
 1. In *Home Assistant*, go to *Settings*, then *Devices & services*, then click on the integration *ESPHome*. 
 2. On the *ESPHpme* page, click *ADD DEVICE*:
 
-<img src="images/13_add_ha.png" width="100%" height="100%" />
+    <img src="images/13_add_ha.png" width="80%" height="80%" />
   
 
 3. A dialog opens. As *Host*, enter the currently assigned *IP address* of your *ESPHome device*. Leave the port at *6503*, and click *SUBMIT*.
 
-<img src="images/14_add_manually.png" width="100%" height="100%" />
+    <img src="images/14_add_manually.png" width="80%" height="80%" />
 
 
 
