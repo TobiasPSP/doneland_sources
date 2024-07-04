@@ -70,3 +70,4 @@ The power supplied to the board is regulated to *5V* and then exposed at various
 
 > Tags: Microcontroller, ESP32, Expansion Board, Development Board
 
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/expansionboards/devkitcv4?591341071504244301) - created 2024-07-03 - last edited 2024-07-03

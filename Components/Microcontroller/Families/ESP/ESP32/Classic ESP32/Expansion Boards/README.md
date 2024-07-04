@@ -48,3 +48,4 @@ Here are the few considerations when using an *expansion board*:
 
 > Tags: Microcontroller, ESP32, Expansion Board, Development Board
 
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/expansionboards?569323071504244301) - created 2024-07-03 - last edited 2024-07-03
