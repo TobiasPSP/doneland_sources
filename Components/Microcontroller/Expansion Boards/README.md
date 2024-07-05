@@ -61,4 +61,4 @@ Here is an updated list of *expansion boards* reviewed so far on this site:
 
 > Tags: Microcontroller, ESP32, Expansion Board, Development Board
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/expansionboards?569323071504244301) - created 2024-07-03 - last edited 2024-07-03
+[Visit Page on Website](https://done.land/components/microcontroller/expansionboards?569323071504244301) - created 2024-07-03 - last edited 2024-07-03
