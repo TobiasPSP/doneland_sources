@@ -2,7 +2,7 @@
  
 # Expansion Boards
 
-> Expansion Boards For Classic ESP32 Development Boards
+> Expansion Boards For Microcontroller Projects
 
 When working with microcontrollers, classic *breadboards* might not always work well for prototyping: microcontroller boards are so large that they don't fit on breadboards, or when they do, they occupy almost all usable space.
 
