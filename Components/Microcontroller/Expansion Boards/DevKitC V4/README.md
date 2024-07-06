@@ -35,7 +35,7 @@ Each *GPIO* is exposed via a *yellow* male pin that is accompanied by a *red* an
 
 
 #### Selecting Component Voltage
-Components require either *3.3V* or *5V* - which is why you can choose the voltage supplied by the *red* pins. A jumper controls this voltage (via jumper setting):
+Components require either *3.3V* or *5V* - which is why you can choose the voltage supplied by the *red* pins. A jumper controls this voltage:
 
 * **3.3V:** When the jumper is set to the *3.3V* position, then the *3.3V output* from the plugged in development board is routed to the *red* pins.
 
@@ -62,8 +62,8 @@ The board supplies *5V* to the microcontroller, and in turn draws power from its
 
 Two dedicated *5V* auxiliary pins are powered directly off the voltage regulator, and two dedicated *3.3V* auxiliary pins are powered by the microcontroller board.
 
-> [NOTE]
-> As mentioned earlier, the *jumper* controls the voltage routed to the *red* pins.
+> [!NOTE]
+> As mentioned, the *jumper* controls the voltage routed to the *red* pins.
 
 <img src="images/expansionboard_esp32_38pin_front_t.png" width="80%" height="80%" />
 
