@@ -62,10 +62,8 @@ To open and view the *configuration* of an *ESPHome device*, click *EDIT*. This 
 
 **Do not** touch the *default configuration* (unless you know what you are doing and would for example like to rename your project, or change its *WiFi* connection).
 
-Move to the *end* of the configuration, and *begin adding* new lines that describe the additional components that your project is using. How that is accomplished, and *what exactly* you add to your *configuration* will be explained in great detail in these examples:
+Move to the *end* of the configuration, and *begin adding* new lines that describe the additional components that your project is using. How that is accomplished, and *what exactly* you add to your *configuration* will be explained in great detail in these [examples](https://done.land/tools/software/esphome/exampledevices).
 
-* **CO2 Sensor:** Use a *SCD30* CO2 sensor component to precisely measure the *CO2 concentration* in the air.
-* **Push Button:** Use a simple push button that can then be tied to any other device. In essence, the *push button* serves as an example on how to build physical dashboards that can control any other device
 
 > [!IMPORTANT]
 > When you edit a *configuration*, always make sure you click *SAVE* in the upper right corner when you are done. Closing the editor without saving immediately discards all changes without confirmation.
