@@ -16,9 +16,9 @@ Now it is time to look at some example devices to better understand just *how yo
 I am adding new examples as I go, so below list is a *work in progress*:
 
 
+* [Push Button:](https://done.land/tools/software/esphome/exampledevices/pushbutton) Use a simple push button that can then be tied to any other device. In essence, the *push button* serves as an example on how to build physical dashboards that can control any other device   
+* [CO2 Sensor:](https://done.land/tools/software/esphome/exampledevices/co2sensor) Use a *SCD30* CO2 sensor component to precisely measure the *CO2 concentration* in the air.
 
-* **CO2 Sensor:** Use a *SCD30* CO2 sensor component to precisely measure the *CO2 concentration* in the air.
-* **Push Button:** Use a simple push button that can then be tied to any other device. In essence, the *push button* serves as an example on how to build physical dashboards that can control any other device
 
 > [!IMPORTANT]
 > When you edit a *configuration*, always make sure you click *SAVE* in the upper right corner when you are done. Closing the editor without saving immediately discards all changes without confirmation.
@@ -27,3 +27,4 @@ I am adding new examples as I go, so below list is a *work in progress*:
 
 > Tags: EspHome, Example, Configuration
 
+[Visit Page on Website](https://done.land/tools/software/esphome/exampledevices?315340071307243642) - created 2024-06-05 - last edited 2024-07-06

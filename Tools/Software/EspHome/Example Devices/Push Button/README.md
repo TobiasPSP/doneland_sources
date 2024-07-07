@@ -192,4 +192,4 @@ In this case, though, you created an *ESPHome device* which is designed to be ad
 
 > Tags: EspHome, Home Assistant, Push Button, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/editconfiguration/pushbutton?114898061229240725) - created 2024-06-24 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/exampledevices/pushbutton?114898061229240725) - created 2024-06-24 - last edited 2024-07-02
