@@ -1,35 +1,35 @@
 <img src="/assets/images/homeassistant.png" width="80%" height="80%" />
  
-# Push Button
+# Push Button (Toggle)
 
-> Controlling Any Device Via Physical Push Buttons
+> Controlling Any Device Via Physical Push Buttons (Toggle Button)
 
 In this very simple example, a *push button* is connected to a microcontroller. When the push button is pressed, it sends a message to *Home Assistant*, enabling you to physically control any other device.
+
+> [!NOTE]
+> The type of *push button* you are creating here acts like a *toggle button*: it does not preserve any *state* and has no distinct *on* and *off* state. Instead, it simply sends a signal when it is pressed and can be used to *toggle* devices.
 
 ## Use Case
 This example serves as a prototype for automating my lab: I want to build a physical dashboard with ten push buttons that controls ten "smart" plugs. This way, I can easily control devices in my lab (i.e. 3D printer, oscilloscope, bench supply, etc) from one simple-to-use physical control panel.
 
-This approach is much more versatile and also cheaper than mechanical plug bars with individual physical switches. In addition, I can separate locations for the switch board and for the actual plugs, eliminating the need to route AC cables back and forth through my lab. 
-
-Another benefit is that one plug can be controlled by any number of buttons. This way, I can have a "main" dashboard plus also single buttons close to certain devices. 
-
-For example, I want my *3D printer* to be controllable both from my main dashboard *and* via a button right next to the printer (the built-in switch in the printer is located at its back side which is not easily accessible).
-
-Button functionality is also fully adjustable. The button right next to the *3D printer* is going to turn on both the printer *and* the filament dryer.
+* This approach is much more versatile and also cheaper than mechanical plug bars with individual physical switches. In addition, I can separate locations for the switch board and for the actual plugs, eliminating the need to route AC cables back and forth through my lab.    
+* Another benefit is that one plug can be controlled by any number of buttons. This way, I can have a "main" dashboard plus also single buttons close to certain devices. 
+  For example, I want my *3D printer* to be controllable both from my main dashboard *and* via a button right next to the printer (the built-in switch in the printer is located at its back side which is not easily accessible).   
+* Button functionality is also fully adjustable. The button right next to the *3D printer* is going to turn on both the printer *and* the filament dryer.
 
 
 ## Implementation
-In this example, I am using a *ESP32 DevKitC V4* board on an *expansion board* for easy prototyping, and the push button is connected to *GPIO4*. You can of course adapt this to just about any microcontroller board and any *GPIO*.
+For this example, I am using a *ESP32 DevKitC V4* board on an *expansion board* for easy prototyping, and the push button is connected to *GPIO4*. You can of course adapt this to just about any microcontroller board and any *GPIO*.
 
 
 <img src="images/expansionboard_esp32_38_side_t.png" width="100%" height="100%" />
 
 
 ### 2 Steps
-The implementation of an *ESPHome device* always consists of two steps:
+The implementation of an *ESPHome device* always consists of these two steps:
 
 * **Hardware Schematics:** design the hardware circuitry (just as you would in conventional programming projects)
-* **Translate Hardware To Configuration:** rather than programming the <*firmware* yourself, you *describe* your hardware in the *ESPHome device configuration*.
+* **Translate Hardware To Configuration:** rather than programming the *firmware* yourself, you *describe* your hardware in the *ESPHome device configuration*.
 
 
 ## Hardware Schematics
@@ -38,9 +38,8 @@ Here is the hardware schematic for this very simple project:
 
 <img src="images/schematics_button.png" width="100%" height="100%" />
 
-* When the user presses the *push button*, *GPIO4* is pulled *low*. 
-
-* When the user *releases* the button, the pin is *floating*. So the pin needs to be configured as *input* and *pullup* (activating the *ESP32* internal pullup resistor to keep the pin *high* when the button is not pressed).
+* When the user presses the *push button*, *GPIO4* is pulled *low*.    
+* When the user *releases* the button, the pin is *floating*. So the pin needs to be configured as *input* and *pullup* (activating the *ESP32* internal pullup resistor to keep the pin *high* when the button is not pressed).   
 
 Thanks to the [expansion board](https://done.land/components/microcontroller/expansionboards/devkitcv4) that I use, and its dedicated *GND* pins for every *GPIO*, wiring is extremely simple:
 
@@ -50,7 +49,7 @@ Thanks to the [expansion board](https://done.land/components/microcontroller/exp
 
 In more conventional *IDEs* like *Arduino IDE* or *platformio*, you would now open the code editor and start manually programming the firmware.
 
-In *ESPHome*, you are *describing* your hardware details and requirements by as adding lines to the end of your existing *default configuration*.
+In *ESPHome*, you *describe* your hardware details and requirements by as adding lines to the *end* of your existing *default configuration*.
 
 > [!NOTE]
 > I am assuming you already [provisioned](https://done.land/tools/software/esphome/provisionnewesp) your microcontroller in *ESPHome*.   
@@ -73,7 +72,7 @@ binary_sensor:
 
 
 ### Component **binary_sensor**
-A [binary_sensor:](https://esphome.io/components/binary_sensor/gpio.html#gpio-binary-sensor) describes a component that can have exactly *two states*. The details (i.e. the *GPIO* the component is connected to) are specified as *indented* properties: 
+A [binary_sensor](https://esphome.io/components/binary_sensor/gpio.html#gpio-binary-sensor) describes a component that can have exactly *two states*. The details (i.e. the *GPIO* the component is connected to) are specified as *indented* properties: 
 
 * *platform:* always *GPIO*
 * *pin:* the *pin number* you are using
@@ -85,6 +84,7 @@ However, I haven't yet completely described my requirements. The pin needs to be
 ### Fine-Tuning ESPHome Component
 There are a few more things that need to be added to the *configuration* to adequately describe the hardware and its requirements:
 
+* **Input:** The *GPIO* should act as an *input* because it *reads* the state of the connected push button.
 * **Pullup Resistor:** The *GPIO* needs to activate its pullup resistor (so the GPIO is not in *floating* (undefined) state when the button is *not* pressed)
 * **Debouncing:** We need *debouncing* because mechanical switches tend to *vibrate* and can produce unwanted high-frequency signals
 * **Exchange High And Low:** According to the *schematics*, the button is connected to *GND*, so the *GPIO* is *high* when the button is *not* pressed, and it is *low* when the button *is* pressed. We need to *invert* this because we want some action to occur when the button is pressed, so it should be *high* when it is *active*, not vice versa.
@@ -111,10 +111,10 @@ binary_sensor:
 
 Here is what the additional lines do:
 
-
-* **pullup:** activates the internal *pullup resistor*. When the pin has no contact, it is pulled *high*
-* **delayed_on/delayed_off:** a state change must occur for at least the specified amount of time, effectively *debouncing* the button
-* **inverted:** inverts the *GPIO* signal
+* **mode:** the mode determines whether the *GPIO* acts as *input* or *output*.
+* **pullup:** activates the internal *pullup resistor*. When the pin has no contact, it is pulled *high*.
+* **delayed_on/delayed_off:** a state change must occur for at least the specified amount of time, effectively *debouncing* the button.
+* **inverted:** inverts the *GPIO* signal.
 
 > [!TIP]
 > It is best to first focus on *one ESPHome component* only, i.e. the *binary_sensor*. Visit the [documentation](https://esphome.io/components/binary_sensor/gpio.html#gpio-binary-sensor) and the [pin schema](https://esphome.io/guides/configuration-types#config-pin-schema) to find out what the component can do for you.
@@ -127,7 +127,7 @@ When you are done updating your *configuration*, click *SAVE* and then close the
 
 
 ### Validate Configuration
-Before you proceed, immediately after edits go ahead and always *validate* your *configuration*.
+Before you proceed, immediately after any edits go ahead and *always validate* your *configuration*.
 
 This makes sure your updated *configuration* does not contain formal errors. Click the *three-dot* menu, and choose *Validate*. 
 
@@ -178,6 +178,15 @@ This is correct: the push button is *not* pressed, so the *GPIO* is *pulled high
 
 Once you press the push button, the value of *State* should immediately change from *false* to *true*. If it does not, you need to review your wiring and your *configuration* and make sure both match, and you specified the correct *GPIO pin*.
 
+## What's Next?
+You now have a fully functional wireless *toggle button*, however it does not do anything useful. After all, your device just has a toggle button, but there is nothing on your device that could be controlled by the button.
+
+That's by design - and a key difference to *classic programming* where devices are always *stand-alone* and must implement everything by themselves. 
+
+In this case, though, you created an *ESPHome device* which is designed to be added to *Home Assistant* and become just one of many devices. In the following articles you'll see all remaining steps:
+
+* [Adding To Home Assistant:](https://done.land/tools/software/esphome/addtohomeassistant) By adding your device to *Home Assistant*, it can control *any other device*.
+* [Adding Automation:](https://done.land/tools/software/esphome/addingautomation) By adding an *automation*, you *teach Home Assistant* what it should *automatically do* whenever you press the button.
 
 
 
