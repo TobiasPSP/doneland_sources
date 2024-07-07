@@ -45,6 +45,20 @@ Thanks to the [expansion board](https://done.land/components/microcontroller/exp
 
 <img src="images/pushbutton_esp32_t.png" width="100%" height="100%" />
 
+### Caveat: Pin Offset
+When using an *expansion board*, be aware of possible *pin offsets*. Take a look at this setup:
+
+<img src="images/expansionboard_pinoffset_t.png" width="100%" height="100%" />
+
+The pin labels on the *development board* do not necessarily match the pin labels on the *expansion board*:
+
+<img src="images/expansionboard_pinoffset_detail_t.png" width="100%" height="100%" />
+
+In the depicted case, the *GPIO4* label on the *development board* aligns with the *P0* label on the *expansion board*. The pin connected to *GPIO4* (labeled *P4*) is slightly offset to the right.
+
+> [!IMPORTANT]
+> When using *expansion boards*, always comply with the labels printed on the *expansion board*.
+
 ## Translate To Configuration
 
 In more conventional *IDEs* like *Arduino IDE* or *platformio*, you would now open the code editor and start manually programming the firmware.

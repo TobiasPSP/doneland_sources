@@ -22,6 +22,19 @@ This *expansion board* was originally designed for the *ESP32 DevKitC V4* which 
 
 <img src="images/expansionboard_esp32_38_side_t.png" width="80%" height="80%" />
 
+### Caveat: Pin Offset
+The pins on the *expansion board* do not exactly align with the pins on the *development board*. This can easily lead to wrongly connected wires when you connect wires based on the *development board labels*.
+
+Here is an example:
+
+<img src="images/expansionboard_pinoffset_detail_t.png" width="80%" height="80%" />
+
+The pin *GPIO4* on the *development board* surfaces slightly offset to the right as *P4* on the *expansion board*, and when you connect wires, you could easily connect the wire wrongly to *P0* (*GPIO0*) when in reality you want to connect to *GPIO4*.
+
+> [!IMPORTANT]
+> When using *expansion boards*, make it a habit to always conform to the labels printed on the *expansion board* only. 
+
+Aside from the offset, another benefit of *expansion boards* is their better PCB quality: labels are much more readably marked compared to many *development boards*.
 
 
 ### Dedicated Power Supply Pins
