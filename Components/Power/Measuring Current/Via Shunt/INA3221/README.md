@@ -54,7 +54,7 @@ In addition, all three channels **must share the same *GND***. The channel *bus 
 
 <img src="images/ina3221_top_both_t.png" width="70%" height="70%" />
 
-With the *purple* version, the PCB tracks are better recognizable. This helps to understand the *breakout board design*, and can more easily identify old PCB versions with their design flaw (see below).
+With the *purple* version, the PCB traces are better recognizable. This helps to understand the *breakout board design*, and can more easily identify old PCB versions with their design flaw (see below).
 
 ### Avoid Old PCB Versions
 The first version of this breakout board had a [serious design flaw](https://forum.arduino.cc/t/ina3221-breakout-board/482236) in which all three *IN+* pins were connected to each other. 
