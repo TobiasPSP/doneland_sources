@@ -106,6 +106,7 @@ The maximum current that can be measured depends on two factors:
 
 * **Shunt Resistor Value:** With the default *0.1 Ohm* shunt resistor found on most breakout boards, a maximum current of *1.638A* can be measured. Likewise, a *1 Ohm* shunt resistor could measure currents of up to *0.1638A* at a higher precision.   
 * **Tracks:** The *entire current* needs to go through the shunt resistor, so terminals and PCB tracks must be capable of handling this power.    
+
 While you could replace the default *R100* SMD shunt resistor with i.e. a *R020* (*0.02 Ohms*) and now measure currents of up to *8A*, it is doubtful whether the PCB tracks would allow such currents. If you must measure higher currents, then use *external shunt resistors*. The PCB really just needs to be connected to the *voltage drop* this way.
 
 > [!TIP]
