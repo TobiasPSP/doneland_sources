@@ -239,9 +239,9 @@ This graph illustrates the effect of *averaging*:
 
 In a nutshell, you can *optimize the accuracy* in a number of ways:
 
-* **Hardware Design:** move the *shunt resistor* as close to the *INA3221 input pins* to minimize noise effects in the first place
-* **Conversion Time:** give more time to the *ADC* for better sampling
-* **Average:** average the raw *ADC* samples, effectively filtering out single bad measurements
+* **Hardware Design:** move the *shunt resistor* as close to the *INA3221 input pins* to minimize noise effects in the first place.   
+* **Conversion Time:** give more time to the *ADC* for better sampling.   
+* **Average:** average the raw *ADC* samples, effectively filtering out single bad measurements.   
 
 
 > [!TIP]
