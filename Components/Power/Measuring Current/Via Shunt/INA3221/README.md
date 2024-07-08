@@ -162,4 +162,4 @@ This is an example of hooking up a *ESP32* microcontroller to the *I2C interface
 
 > Tags: Measure, Current, INA3221, Shunt, Voltage Drop
 
-
+[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina3221?786342071208244530) - created 2024-07-07 - last edited 2024-07-07
