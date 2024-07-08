@@ -213,15 +213,11 @@ Wake up from this mode takes *40us*
 * **PV:** all enabled channels have a *valid voltage* (*power valid*)
 * **C:** at least one channel has exceeded the *critical current*
 * **W:** at least one channel has exceeded the *warning current*
-* **TC:** the *power rails* on *channel 1* and *channel 2* did not start up quickly enough (*timing control*)
-
-
-
+* **TC:** the *power rails* on *channel 1* and *channel 2* did not start up quickly enough (*timing control*)   
 * **Critical:** very fast-acting alert that triggers whenever any enabled channel current exceeds a programmed threshold. Pin goes *low* in alert state. Can optionally use the *sum* of all enabled channels instead (provided all channels use the same *shunt resistor value*).
 * **Warning:** less quickly-acting but more fault-tolerant alert that triggers when the *average* current exceeds a programmed threshold. Pin goes *low* in alert state.
 * **Power Valid:** changes from *low* to *high* once all enabled channels reach a predefined voltage (by default *10V*). Goes back to *low* once any channel voltage drops below a second threshold (by default *9V*). As long as this pin is *high*, the device power supply is in expected shape. All thresholds can be reprogrammed to a minimum voltage of *2.7V*.
-* **Timing-Control:** This is a very specific alert that can be used to ensure proper power-supply sequencing but requires appropriate assignment of channels to the power supplies in question. This alert is not used for most typical application. Here is how it works:   
-At *power-up* only (or after a *reset*), the chip measures the *bus voltage* at *channel 1*, and once it exceeds *1.2V*, it continues to monitor the *bus voltage* at *channel 2*. If this voltage does not also exceed *1.2V* after *28.6ms* (four complete measurement cycles at default values), this pin pulls *low*, indicating that no valid power rail was present on channel 2.
+* **Timing-Control:** This is a very specific alert that can be used to ensure proper power-supply sequencing but requires appropriate assignment of channels to the power supplies in question. This alert is not used for most typical application. Here is how it works: At *power-up* only (or after a *reset*), the chip measures the *bus voltage* at *channel 1*, and once it exceeds *1.2V*, it continues to monitor the *bus voltage* at *channel 2*. If this voltage does not also exceed *1.2V* after *28.6ms* (four complete measurement cycles at default values), this pin pulls *low*, indicating that no valid power rail was present on channel 2.
 
 ## Conversion Time And Averaging
 
