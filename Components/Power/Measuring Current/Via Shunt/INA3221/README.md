@@ -44,7 +44,7 @@ The *current* is measured as a *voltage drop* across the *shunt resistor*. The *
 
 Each channel has two connectors: *VNx+* and *VNx-*. *VNx+* must always be connected to the positive voltage (*high side*). *VNx-* then connects to the positive side of the load you want to measure.
 
-In addition, all three channels **must share the same *GND***. The channel *voltage* thus is measured between *VNx+* and *GND*.
+In addition, all three channels **must share the same *GND***. The channel *bus voltage* is measured between *VNx-* and *GND*.
 
 
 
