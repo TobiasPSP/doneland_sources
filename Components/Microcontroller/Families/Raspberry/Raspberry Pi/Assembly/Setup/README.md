@@ -4,22 +4,24 @@
 
 > Step By Step Guide To Assemble A Raspberry Pi 5 And Install Home Assistant OS Or Any Other OS
 
-Assembling a *Raspberry Pi 5* is a matter of just 10 minutes. Here are the steps required.
+Assembling a *Raspberry Pi 5* is a matter of just 10 minutes. 
+
+> [!TIP]
+> Before you start assembling the *Raspberry Hardware*, go to your *PC* or *Apple Computer* and [prepare an *SD-Card* or *SSD Drive*](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/selectingos) with the *operating system* that you want to use on the Raspberry Pi. Once the drive is prepared
+
+Once you have prepared the disk drive that you want to use in your *Raspberry Pi*, here are the steps to put together the *Raspberry Hardware* and run it:
 
 <img src="images/raspberry_pi_5_logo_6_t.png" width="50%" height="50%" />
 
-> [!TIP:]
-> As part of the description, I am going to pre-load the free *Home Assistant* software on it. That's of course not required. You can choose a different image and run other operating systems on it as well.   
-
-
-
-
+ 
 
 ## Mounting Active Cooler
 For this you need the *Raspberry Pi 5 board* and the *Raspberry Pi 5 Active Cooler* kit:
 
 <img src="images/12_raspberry_pi_5_fan_t.png" width="50%" height="50%" />
 
+> [!TIP]
+> The *Raspberry Pi 5 Active Cooler* kit can be part of the Raspberry housing. In this case, the *active cooler kit* is located *inside the housing*, and you need to unscrew the housing and open it to get to the cooler.
 
 ### Two Mounting Holes
 
@@ -50,68 +52,31 @@ On the back side of the *active cooler*, *thermal adhesive* can be seen. Peel of
 
 Next, connect the plug from the *active cooler* to the connector on the board - done.
 
-## Preparing SSD
-Since this *Raspberry Pi 5* is intended to become a *HomeAssistant server*, next you should download and install all necessary software on the *SSD drive*. This is done on your regular PC.
 
-For this you need your *SSD drive* and the *USB adapter*. 
+## Adding Disk Drive To Raspberry
 
-### Temporary Mount as USB Drive
+*Raspberry Pi 5* really shines when you add a fast *SSD Drive* to it. In this section you learn how you add such a drive to your *Raspberry Pi*.
 
-By mounting your *SSD drive* to a *USB adapter*, you turn it into a *USB drive* that can be plugged into any computer. This way, you can *preload* the necessary files.
+A *SSD drive* isn't required, though. You can also use a *SD Card*. 
 
-<img src="images/20_raspberry_pi_5_ssd_usb_t.png" width="80%" height="80%" />
+> [!IMPORTANT]
+> A *SD Card* is not recommended for your primary operating system because it is so much slower than an *SSD drive* and can also *wear out* over time. Using an *SD Card* can still be a good option for *special scenarios* where you want your *Raspberry* to run a different environment temporarily.
 
-The image shows how the pins of the *SSD drive* align with the pins of the *USB adapter*:
+In either case, make sure you [pre-loaded your operating system of choice](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/selectingos) to either the *SSD drive* or a *SD Card* before you proceed.
 
-<img src="images/21_raspberry_pi_5_ssd_usb_premount_t.png" width="80%" height="80%" />
+### SD Card
+If you chose to use a *SD Card*, simply slide it into the Raspberry Pi *SD Card reader*.
 
-To *mount* the *SSD drive* to the adapter, firmly press the *SSD drive* towards the contacts on the adapter. Always make sure the pins align.
+### SSD Drive
+To add a *SSD drive* to the *Raspberry Pi, you need the *M.2 Shield for Raspberry Pi* which looks fairly similar to the *USB adapter* you  used to pre-load the drive on your *PC*. 
 
-Once the *SSD drive pins* snap into place, do not be surprised to see the *SSD drive* tilt upwards.
-
-
-<img src="images/23_raspberry_pi_5_mounted_unfixed_t.png" width="80%" height="80%" />
-
-Gently move the *SSD drive* downwards until the screw holes at the end of both *SSD drive* and *adapter* align. Fix them with the screw that came with the adapter.
-
-<img src="images/24_raspberry_pi_5_ssd_screw_t.png" width="80%" height="80%" />
-
-### Preloading Software
-
-In order for *Raspberry Pi* to run, it needs an *operating system*. The best way is to *preload* the appropriate *operating system image* onto the SSD hard drive, so when you later turn it on, everything is in place, and the *Raspberry Pi* happily starts with the operating system of your choice.
-
-To *preload software* onto the *SSD drive*, plug it into your PC. Thanks to the *USB adapter* that you mounted the *SSD drive* on, it should appear as a regular *USB drive*.
-
-#### Raspberry Pi Imager
-The actual pre-loading is done by [Raspberry Pi Imager](https://www.raspberrypi.com/software/). The tool is available for *Windows*, *macOS*, and *Ubuntu*.
-
-<img src="images/raspberry_pi_imager.png" width="80%" height="80%" />
-
-Once you installed and opened *Raspberry Pi Imager* as *Administrator*, you can choose what software you want to preload onto the *SSD drive*.
-
-#### Picking Operating System
-
-Since *Raspberry Pi 5* is going to be *HomeAssistant server* in this example, the choices are *Raspberry Pi 5*, *Home Assistant OS*, and the storage device that represents the mounted *SSD drive*.
-
-<img src="images/raspberry_imager_settings.png" width="80%" height="80%" />
-
-
-> [!TIP]
-> To select *Home Assistant* as *Operating System*, click on the combo box and select *Other specific-purpose OS*, then *Home assistants and home automation*, and finally *Home Assistant*, and the version you want.
-
-Once you click *Next*, you see a number of warnings that all data on the selected storage device will be deleted. Once you proceed, the tool starts to write the requested image to disk.
-
-Once this is done, *unmount* the *SSD drive* from the *USB adapter*.
-
-## Adding SSD To Raspberry
-
-To add the *SSD drive* to the *Raspberry Pi, you need the *M.2 Shield for Raspberry Pi* which looks fairly similar to the *USB adapter* you just used. The board is slightly bigger and has *three* mounting holes.
+The board is slightly bigger and has *three* mounting holes.
 
 
 <img src="images/17_raspberry_pi_5_ssd_shield_t.png" width="80%" height="80%" />
 
 > [!CAUTION]
-> When you unpack the *shield*, make sure you identify a *small ribbon cable* that comes with it. 
+> When you unpack the *shield*, make sure you identify a *small flat ribbon cable* that comes with it and is easily lost or confused with a stick of tape. 
 
 <img src="images/18_raspberry_pi_5_ssd_cable_t.png" width="80%" height="80%" />
 
@@ -243,4 +208,4 @@ After a few seconds, `Find-NetworkDevice` returns all *IP addresses* that respon
 
 > Tags: Raspberry Pi, Assembly, Active Cooler, Fan, mDNS, IP address, Home Assistant
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-01 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/setup?341188060004241323) - created 2024-06-01 - last edited 2024-07-07
