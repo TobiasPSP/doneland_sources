@@ -22,7 +22,18 @@ This *expansion board* was originally designed for the *ESP32 DevKitC V4* which 
 
 <img src="images/expansionboard_esp32_38_side_t.png" width="80%" height="80%" />
 
-### Caveat: Pin Offset
+### Caveats
+There are two caveats to watch out for when using this board:
+
+#### Firmware Upload
+You cannot use the *USB connectors* on this board to upload firmware to the microcontroller. The USB connectors on the *expansion port* are solely used to supply power.
+
+When you want to upload new firmware to the microcontroller via USB, you need to use the original USB connector on the *development board*, and **not** the USB connectors on the *expansion board*.
+
+> [!TIP]
+> The recommended way generally is to enable *OTA* (*over-the-air*) updates on your microcontroller so you can upload new firmware wirelessly. The easiest way to enable *OTA* is to use [ESPHome](https://done.land/tools/software/esphome).
+
+#### Pin Offset
 The pins on the *expansion board* do not exactly align with the pins on the *development board*. This can easily lead to wrongly connected wires when you connect wires based on the *development board labels*.
 
 Here is an example:
