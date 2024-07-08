@@ -90,7 +90,7 @@ New PCBs without the flaw can be recognized on the top side by looking at the th
 <img src="images/ina3221_top_tracks_arrow_t.png " width="70%" height="70%" />
 
 
-**INA226** internally uses a 16-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
+*INA3221* internally uses a 12-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
 
 The maximum measured *voltage* is *36V*. The maximum measured *current* depends on the value of the **Shunt**.
 
