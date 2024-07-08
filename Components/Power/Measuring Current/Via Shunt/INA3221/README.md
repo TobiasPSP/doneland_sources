@@ -206,7 +206,7 @@ Wake up from this mode takes *40us*
 
 *INA3221* supports four different *alerts* with programmable thresholds per channel. Alert states are available at designated pins. Breakout boards also connect these pins to built-in *LED* to indicate the alert state of the device:
 
-<img src="images/ina3221_led.png" width="60%" height="60%" />
+<img src="images/ina3221_led.png" width="40%" height="40%" />
 
 
 * **VS:** power supply to the board is present
