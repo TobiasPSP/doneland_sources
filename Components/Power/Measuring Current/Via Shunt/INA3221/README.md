@@ -90,11 +90,6 @@ New PCBs without the flaw can be recognized on the top side by looking at the th
 <img src="images/ina3221_top_tracks_arrow_t.png " width="70%" height="70%" />
 
 
-*INA3221* internally uses a 12-bit *ADC* (Analog-To-Digital converter) to measure *voltage*. It uses the **Shunt** principle to measure *current* via measuring the *voltage drop* at a **Shunt** resistor.
-
-The maximum measured *voltage* is *36V*. The maximum measured *current* depends on the value of the **Shunt**.
-
-Because of its high-resolution 16-bit *ADC* and automatic internal *averaging* of multiple samples, it produces very accurate and reliable readings. All of its measured and calculated values can be read by a microcontroller via *I2C*.
 
 ### Caveat When Using Example Schematics
 Since the *INA3221 breakout board* has undergone drastic redesign (as discussed above), this affects *examples* as well that you may find in the Internet.
@@ -103,15 +98,13 @@ Always make sure the *schematics* apply to the *same INA3221 breakout board vers
 
 ## Shunt Value and Maximum Current
 
-*INA3221* measures current via *voltage drop* at a *shunt resistor*. 
-
-The *INA3221* can sense this voltage drop in *40uV* increments up to a maximum of *163.8mV*, providing a 12-bit resolution with a total of 4.095 steps (one step is used internally).
+*INA3221* measures current via *voltage drop* at a *shunt resistor*. The *INA3221* can sense this voltage drop in *40uV* increments up to a maximum of *163.8mV*, providing a 12-bit resolution with a total of 4.095 steps (one step is used internally).
 
 The shunt resistor value is chosen so that with the maximum current to be measured the voltage drop across the shunt does not exceed *+/-163.8mV*.
 
 The maximum current that can be measured depends on two factors:
 
-* **Shunt Resistor Value:** With the default *0.1 Ohm* shunt resistor found on most breakout boards, a maximum current of *1.638A* can be measured. Likewise, a *1 Ohm* shunt resistor could measure currents of up to *0.1638A*.
+* **Shunt Resistor Value:** With the default *0.1 Ohm* shunt resistor found on most breakout boards, a maximum current of *1.638A* can be measured. Likewise, a *1 Ohm* shunt resistor could measure currents of up to *0.1638A* at a higher precision.   
 * **Tracks:** The *entire current* needs to go through the shunt resistor, so terminals and PCB tracks must be capable of handling this power.    
 While you could replace the default *R100* SMD shunt resistor with i.e. a *R020* (*0.02 Ohms*) and now measure currents of up to *8A*, it is doubtful whether the PCB tracks would allow such currents. If you must measure higher currents, then use *external shunt resistors*. The PCB really just needs to be connected to the *voltage drop* this way.
 
