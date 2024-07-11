@@ -6,20 +6,16 @@
 
 Whenever you want to create a new microcontroller-based electronics project with *ESPHome*, the first step is to take a supported microcontroller board and *provision* it.
 
-*Provisioning* means that you upload *ESPHome firmware* to the microcontroller. 
-
-Once you have done this, your microcontroller can be updated *wirelessly* over *OTA* (*over-the-air* updates) and no longer needs *USB cables*, tools, and awkward button presses.
+*Provisioning* means that you upload *ESPHome firmware* to the microcontroller. Once you have done this, your microcontroller can be updated *wirelessly* over *OTA* (*over-the-air* updates) and no longer needs *USB cables*, tools, and awkward button presses.
 
 ## Supported Microcontrollers
 
-You can provision any microcontroller that is supported by *ESPHome*. This includes the popular *ESP8266* and *ESPS* (the "classic" *ESP32*).
+You can provision any microcontroller that is supported by *ESPHome*. This includes the popular *ESP8266* and *ESP32S* (the "classic" *ESP32*).
 
 > [!NOTE]
-> *ESPHome* does support newer *ESP32* family members such as *S2*, *S3*, and *C3*. However, support for these is still under active development, so expect a few quirks and issues.
+> *ESPHome* does support newer *ESP32* family members such as *S2*, *S3*, and *C3*. However, support for these is still under active development, so expect a few minor quirks and issues.
 
-*ESPHome* is expanding constantly: meanwhile you can also use microcontrollers from other vendors, including *Raspberry*, *Beken*, and *Realtec*.
-
-The latter two additions are especially important because *Beken BK72xx* and *Realtec RTL87xx* microcontrollers are often found inside commercial *smart devices* such as *sensors*, *lamps*, or *plugs*. You can replace their default firmware with *ESPHome* and effectively free these devices from their *vendor cloud*.
+*ESPHome* is expanding: you can use microcontrollers from other vendors, including *Raspberry*, *Beken*, and *Realtec*. The latter two additions are especially important because *Beken BK72xx* and *Realtec RTL87xx* microcontrollers are often found inside commercial *smart devices* such as *sensors*, *lamps*, or *plugs*. You can replace their default firmware with *ESPHome* and effectively free these devices from their *vendor cloud*.
 
 > [NOTE]
 > In practice, this is not always trivial since commercial devices typically have neither USB ports nor UART chips to upload new firmware.
