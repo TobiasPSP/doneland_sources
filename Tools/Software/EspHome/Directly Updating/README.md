@@ -1,21 +1,24 @@
 <img src="/assets/images/homeassistant.png" width="80%" height="80%" />
  
-# Directly Updating
+# Provisioning Directly
 
-> Initializing New Microcontroller With A Configuration
+> Provisioning A New Microcontroller Directly Via USB Cable
 
-You do not necessarily have to *provision* a microcontroller first. 
+In the previous examples, the microcontroller was provisioned via a *binary firmware file* that was either downloaded from *esphome.io*, or downloaded from your *ESPHome Dashboard*.
 
-If you know what you want the microcontroller to do for you, you can also start by adding a *configuration* that describes your hardware.
+Here is another way that may be appealing if the computer that is running *ESPHome* is accessible to you:
 
-Next, let *ESPHome* create a specific *firmware file* from your *configuration*, and *initialize* your microcontroller *directly*.
+* **Create Configuration:** start in *ESPHome* by creating a *New Device* and describing your hardware
+* **Connect To ESPHome:** connect the microcontroller via *USB cable* to the computer **that is running ESPHome**.
+* **Install Directly:** create and upload the *firmware* directly to the microcontroller. 
+
+With this approach, there is no need for separate web-based tools like *ESPHome Web Tool*, and you don't need to fiddle with *firmware files* yourself.
+
 
 ## Adding New ESPHome Device
 
 This first step does not require any hardware. You are creating a *ESPHome default configuration*.
 
-
-### Visiting ESPHome Dashboard
 
 When using *ESPHome* inside *Home Assistant*, click *ESPHome* in the *Home Assistant* side bar. This opens your *ESPHome dashboard*:
 
@@ -197,38 +200,9 @@ If you have access to the computer that is running *ESPHome*, then this is the e
 
 5. Wait for the installation process to be finished. There is no distinct *finish* message: the dialog simply shows the output of the serial monitor until you click *STOP*. When you feel the installation is done (or when you are no longer interested in viewing the log entries), click *STOP* to close the window.
 
-### Upload Via Firmware File
-For security reasons, the initial firmware update must occur *locally* (unless you have set up a secure *https* connection to the webserver that runs *ESPHome*).
 
-If you cannot physically connect to the computer that is running *ESPHome* (see above), then download the *firmware file* to *your* computer, and then upload it locally from there:
-
-1. Visit the *ESPHome Dashboard*. and look for the tile that represents your *ESPHome device*. Click the *three-dot* icon, and choose *Install*. Then click *Manual download*.
-
-    <img src="images/b_download_firmware.png" width="100%" height="100%" />
-
-2. Click on *Factory format*, and download the firmware file to your computer. The file may be blocked by your browser or virus scanner unless you ask to keep it.
-
-    <img src="images/c_save.png" width="100%" height="100%" />
-
-3. Connect your microcontroller to *your* computer using a *USB cable*. Next, in your browser navigate to [web.esphome.io](https://web.esphome.io/), and click *CONNECT*.
-
-    <img src="images/a_webinstaller.png" width="100%" height="100%" />
-
-4. In supported browsers (i.e. *Chrome*), you now see the microcontroller board that is connected to your *USB port*. Select it, and click *Connect*:
-
-    <img src="images/d_pair_esp.png" width="100%" height="100%" />
-
-5. You are now presented with a few options. Click *Install*:
-
-    <img src="images/e_menu.png" width="100%" height="100%" />
-
-6. Next, click *Choose File*, then go to your *Downloads* folder and select the firmware file you downloaded earlier from your *ESPHome* instance. Click *INSTALL*.
-
-    <img src="images/f_select_firmware.png" width="100%" height="100%" />
-
-
-
-
+> [!TIP]
+> The tools used here are fundamentally identical to the ones found in the [ESP Web Tool](https://web.esphome.io/), so the same limitations apply: microcontroller boards that are incompatible with *ESP Web Tool* (like the *ESP32 S2 Mini) do not work with direct connections either.
 
 ### Verify Success
 
@@ -287,36 +261,6 @@ If you'd like to use *ping* instead of *mDNS* to check availability, in *Home As
 
 
 
-### Automatic Device Discovery
-
-*Home Assistant* should pick up your new *ESPHome* device automatically within seconds. Just make sure the device reports *ONLINE* in the *ESPHome Dashboard*.
-
-
-> [!TIP]
-> If your *ESPHome* device won't be automatically recognized by *Home Assistant*, check this: go to *Settings*, then *Add-ons*, then click on *ESPHome*. At the top of the page, click on *Configuration*, and turn on *Show unused optional configuration options*. Identify the option *Home Assistant Dashboard Integration* and turn it on if it was off. Then click on *SAVE*.  
-
-
-
-
-
-### Notification
-In its *side bar*, the item *Notification* is marked with an orange bullet, and when you click it, a newly discovered device is reported:
-
-
- 
-
-Click *Check it out* to see the newly discovered devices. In my example, the newly created *CO2 Sensor* shows up.
-
-<img src="images/rasp_co2sensor.png" width="100%" height="100%" />
-
-Click *CONFIGURE* to add it to *Home Assistant*. You can then assign it a room or location:
-
-<img src="images/rasp_adddevice.png" width="100%" height="100%" />
-
-> [!IMPORTANT]
-> Up until now, you have just *provisioned* your microcontroller and turned it into a generic *ESPHome device*. This device isn't really doing anything useful yet. The indicator of success at this point is that your device shows up in *Home Assistant*, and that it is labeled *ONLINE* in the *ESPHome Dashboard*.
-
-
 > Tags: EspHome, Home Assistant, Provision, Initialize, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/provisionnewesp/directlyupdating?350408071511241259) - created 2024-07-01 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/directlyupdating?350408071511241259) - created 2024-06-03 - last edited 2024-07-10

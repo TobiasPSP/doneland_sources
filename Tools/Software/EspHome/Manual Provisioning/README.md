@@ -4,11 +4,14 @@
 
 > Successfully Provision ESP32 S2 Mini (And Other Models Incompatible With ESPHome Web Tool)
 
-Some microcontrollers and/or boards do not work with the *ESP Web Tool* and produce connection errors.
+To provision a microcontroller, you *must* upload the *ESPHome firmware* at least once via *USB cable*. Only then can you use its advanced *wireless OTA capabilities* and skip all *USB and button-press hassles*.
+
+Unfortunately, some microcontroller *USB implementations* are incompatible with the [ESP Web Tool](https://web.esphome.io/) and the entire *ESPHome tool chain*, so you can't use them to upload firmware via *USB*.
+
 
 <img src="images/g_fail2.png" width="50%" height="50%" />
 
-In this article you learn how to successfully provision such microcontrollers, including *ESP32 S2 Mini* that is renown for its problematic *USB implementation*.
+The *ESP32 S2 Mini* is an example for a boards that cannot be *provisioned* by *ESPHome*. It is renown for its problematic *USB implementation*.
 
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
@@ -17,7 +20,7 @@ In this article you learn how to successfully provision such microcontrollers, i
 
 ## Quick Overview
 
-Connecting and uploading new *firmware* via *USB cables* is technically challenging and may work flawlessly, or may cause a plethora of issues and error messages.   
+Connecting and uploading new *firmware* via *USB cables* is technically challenging. It may work flawlessly, or may cause a plethora of issues and error messages.   
 
 <details><summary>Why USB Communications May Fail</summary><br/>
 
@@ -38,79 +41,47 @@ In the case of the *ESP32 S2 Mini*, the board uses a *dual UART concept*: when y
 
 </details>
 
+## More Robust Tools To The Rescue
+Tools like [ESPHome Web Tool](https://web.esphome.io/) do not work for some *USB configurations* and produce communications errors (like *failed to initialize*). When you are affected by this, switch to more robust tools like [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/).
 
-### USB Required At Least Once
-Unfortunately, using a *USB cable* to upload new firmware is required *at least once*: 
-
-Once you successfully uploaded new firmware that supports *OTA updates* (like *ESPHome firmware*), you no longer need *USB* for communications, and instead you use *WiFi*.
-
-### It's Worth The Effort
-If you are currently having troubles getting *ESPHome firmware* installed on a *ESP32 S2 Mini* (or any other microcontroller board), it is absolutely worth the effort to invest a bit of time: once you managed to upload *ESPHome firmware* **just once**, you can then use the default tools and tool chains via *WiFi*, and the *ESP32 S2 Mini* and any similarly affected board is *healed* from its *USB deficiencies*.
-
-### Check This First
-
-Before you dive into alternate tools, first check the most common user errors. Maybe you can use the default tools after all with a few simple tricks.
-
-<details><summary>Top Two Reasons Why Firmware Uploads Fail</summary><br/>
-
-
-### Enable Firmware Upload Mode
-
-To receive firmware via *USB cable*, the microcontroller must be switched to *firmware upload mode*. 
-
-This is done automatically for most boards, but some require that you *manually* switch to this mode *before you try and connect* it to *USB*.
-
-Here is the manual procedure:
-
-* **Hold Boot:** hold and keep pressed the *boot* button on the board.
-* **Press Reset:** press and release the *reset* button on the board.
-* **Release Boot:** release *boot* **after** you released *reset*
-
-*After* a firmware update, the *firmware update mode* needs to be closed by resetting the device. This, too, is taken care of automatically for most boards. 
-
-Press the *reset* button after any firmware update via *USB cable* - just to make sure.
-
-### UART Driver
-
-When you connect your microcontroller via USB to your computer, there should be an *audible sound* indicating that a "New USB Device (was) Discovered* by your PC. 
-
-If no sound plays then you may need to install a driver for the *UART chip* that your microcontroller board uses. Without a driver, the computer cannot connect to the microcontroller.
-
-> [!NOTE]
-> Most operatings systems (like *Windows* or *Mac*) ship with many drivers in place that cover the most commonly found devices. There are a couple of *UART* chips though that require manual driver installation.
-
-
-
-</details>
-
-## Successfully Uploading Firmware
-When tools like [ESPHome Web Tools](https://web.esphome.io/) do not work for you and produce communications errors (like *failed to initialize*), switch to more robust tools:
-
-[Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) works fine with *ESP32 S2 Mini* and many other similarly affected microcontroller boards. It runs right inside your browser, just like [ESPHome Web Tools](https://web.esphome.io/).
-
-
-### Key Difference
-Both tools upload binary files to a microcontroller. These are the differences:
-
-* [ESPHome Web Tools](https://web.esphome.io/) is a *specialized tool* designed for *ESPHome*.
-
-* [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) is a *generic firmware uploader* that can upload *any binary firmware file(s)*, optionally at different offset addresses.
-
-Both tools use the same *web serial* connection inside the browser. They both require a compatible browser, i.e. *Chrome*. Once connected to a microcontroller, this is what the tools look like:
+It works reliably with *ESP32 S2 Mini* and many other similarly affected microcontroller boards and runs right inside your browser, just like [ESPHome Web Tools](https://web.esphome.io/). Both tools use the same *web serial* connection inside the browser. They both require a compatible browser, i.e. *Chrome*. Once connected to a microcontroller, this is what the tools look like:
 
 <img src="images/esphome_adafruit_flasher.png" width="100%" height="100%" />
 
 
 ### Firmware File Required
-[Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) can only upload existing *firmware files* and has no option like *Provision For First Use* to automatically create a generic *ESPHome firmware*.
+Both tools essentially do the same thing: they upload a *binary firmware file* to a microcontroller. 
 
-That's not really a limitation, though, because *Provision For First Use* is, too, just uploading a binary *firmware file*.
+[ESPHome Web Tool](https://web.esphome.io/) differs a bit in that it optionally supports the function *Prepare for first use* which in the background downloads a *generic ESPHome firmware file* for you.
 
-Here are your two options to *get a firmware file* that you can then upload:
+[Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) always wants *you* to provide the *firmware file(s)* to upload.
 
-* **Single Microcontroller:** if you want to provision a *single microcontroller*, the best way is to create a dedicated *ESPHome configuration* for it, let *ESPHome* then create a *firmware file* for it, and upload this file using the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/).
-* **Bulk Provisioning:** if you want to provision *many* microcontrollers so you can later *adopt* them in *ESPHome dashboard*, upload the special *firmware file* that [ESPHome Web Tools](https://web.esphome.io/) uses when you click *Provision For First Use*.
+Here are the two options you have:
 
+* **Generic Provisioning:** to mimick the *Prepare for first use* functionality and *provision a microcontroller* in a way that it can later be *adopted* by *ESPHome*, download the generic firmware file that *ESP Web Tool* uses: [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin)
+* **Configuration:** to mimick the *Install* functionality and upload a *hand-tailored firmware file*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
+
+In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller.
+
+
+<details><summary>Downloading Generic Firmware File</summary><br/>
+The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
+
+To find out the *url*, just use [ESPHome Web Tools](https://web.esphome.io/), connect it with a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
+
+Now, click *PREPARE FOR FIRST USE* to start the firmware upload. In the *Network* tab, you now see the *urls* from where the web page downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* we are after. It carries the extension *.bin*:
+
+<img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
+
+When you hover over this entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
+
+The *firmware files* are **specific** for a given microcontroller type, so if you connected a *ESP32-C3*, the firmware file works for this microcontroller type only.
+
+However, once you know the *firmware file url*, it is no rocket science to change it to other microcontroller types: by replacing the two instances of **c3** with **s2**, you get the *url* for *ESP32-S2*.
+
+Maybe there are much easier ways of getting to these files, and possibly they are even part of a public repository. I searched for many hours without luck. If you find a better way, please leave a comment below.
+
+</details>
 
 <details><summary>Creating Firmware File For One Specific Microcontroller</summary><br/>
 
@@ -137,22 +108,10 @@ If you deal with just a *single* microcontroller and would like to *immediately*
 
 </details>
 
-### Using Generic ESPHome Firmware File
-The *default firmware file* used by [ESPHome Web Tools](https://web.esphome.io/) when you click *Provision For First Use* does not seem to be publicly available anywhere. I wasn't able to find it. Maybe I did not look hard enough.
-
-
-> [!TIP]
-> Just use [ESPHome Web Tools](https://web.esphome.io/) and its *Provision For First Use* functionality with a microcontroller that works (i.e. *ESP32-C3*). Open the *Google Developer Tools* in the browser while the firmware is uploaded. Its *Network* tab tells you the location from where the tool downloads the firmware file.
-
-For *ESP32 S2* microcontrollers including the *ESP32 S2 Mini*, the default firmware file is located here: [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin).
-
-With a bit of trial and error you can easily adjust the *url* and tailor it to other microcontroller types. Replace *s2* with a different type, i.e. *c3* - but note that the type is mentioned *twice* in the url.
-
-
 ## Uploading Firmware
-By now you have a *firmware file* - either created by hand for a specific microcontroller, or downloaded from *esphome.io*. Make sure you have the local path for this file available. You'll need it in a second.
+Once you have the *firmware file* at hand - either the generic one, or a *hand-tailored* that you created via a specific *configuration* - you can now upload it to your microcontroller.
 
-To finally *upload* it to your microcontroller board, open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in your browser:
+Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in your browser:
 
 1. Connect the microcontroller via *USB cable* to your computer. Hold its *boot* button while pressing *reset* to force it into *firmware upload mode*.
 
@@ -220,4 +179,4 @@ This is how you set (or change) *WiFi access*:
 
 > Tags: EspHome, Firmware, Upload, ESP32 S2 Mini, ESPHome Web Tool, Adafruit ESPTool
 
-[Visit Page on Website](https://done.land/tools/software/esphome/provisionnewesp/workarounds?134804061917245543) - created 2024-07-03 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/manualprovisioning?134804061917245543) - created 2024-06-02 - last edited 2024-07-02

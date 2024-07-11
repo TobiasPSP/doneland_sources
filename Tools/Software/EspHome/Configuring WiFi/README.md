@@ -4,24 +4,20 @@
 
 > Making Sure Your ESPHome Device Knows How To Connect To Your WiFi
 
-Typically, when you create your own *firmware*, you have added the *WiFi access parameters* to your configuration, so your device connects automatically.
+By now you have uploaded *ESPHome firmware* to your microcontroller - one way or another.
 
-If you have just *provisioned* the device, or if *WiFi* has changed for some reason and you have no access to your *ESPHome dashboard*, then you can always reconfigure your device.
+If your *firmware* was *hand-tailored* via a specific *configuration*, it typically already includes the access parameters to automatically connect to your *WiFi*, and you can skip this article: once you reboot the microcontroller, it automatically connects to your *WiFi*.
 
-> [!IMPORTANT]
-> Manually setting the *WiFi access parameters* is mandatory for *provisioned devices* (where you just installed the generic *ESPHome firmware*). Only when a device connects to your *WiFi* can it be auto-detected by *ESPHome* and *Home Assistant*.
-
-
+If you have *provisioned* the microcontroller with a *generic firmware* and not yet configured *WiFi access*, then now is the time to do this: only then will the *ESPHome device* become visible to *ESPHome*.
 
 ## Connecting New Device To WiFi
 
+Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is available only for microcontrollers that support *bluetooth* - *ESP32 S2* for example does not support *bluetooth*). 
 
-If you used the *default provisioning firmware* downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*.
+"Improv_serial* lets you connect to your microcontroller via *USB cable* and configure its *WiFi parameters*.
 
-
-Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available since *ESP32 S2* does not support *bluetooth*). 
-
-This is how you set (or change) *WiFi access*:
+> [!TIP]
+> *Improv_serial* works with almost all microcontroller boards, including the dreaded *ESP32-S2 Mini*. That's because it uses the initial UART (when using *ESP32-S2 Mini, it surfaces as *USBTiny*). It is the *secondary UART* in *ESP32 S2 Mini* (surfacing as *ESP32-S2*) that is invoked by the *firmware upload mode* and is causes so much trouble.
 
 
 1. Connect the microcontroller via *USB cable* to your computer. **Do not** enable *firmware update mode*. If in doubt, press the *reset* button once. 
@@ -41,4 +37,4 @@ This is how you set (or change) *WiFi access*:
 
 > Tags: EspHome, WiFi, Improv
 
-[Visit Page on Website](https://done.land/tools/software/esphome/configuringwifi?051647071511241259) - created 2024-07-06 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/configuringwifi?051647071511241259) - created 2024-06-04 - last edited 2024-07-10

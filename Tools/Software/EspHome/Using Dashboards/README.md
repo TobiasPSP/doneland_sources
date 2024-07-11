@@ -72,4 +72,4 @@ The card you added is immediately functional: when you press the push button on 
 
 > Tags: EspHome, Home Assistant, Dashboard, Entity
 
-[Visit Page on Website](https://done.land/tools/software/esphome/usingdashboards?224689061229240725) - created 2024-07-10 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/usingdashboards?224689061229240725) - created 2024-07-07 - last edited 2024-07-10

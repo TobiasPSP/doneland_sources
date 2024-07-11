@@ -27,4 +27,4 @@ I am adding new examples as I go, so below list is a *work in progress*:
 
 > Tags: EspHome, Example, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/exampledevices?315340071307243642) - created 2024-07-05 - last edited 2024-07-06
+[Visit Page on Website](https://done.land/tools/software/esphome/exampledevices?315340071307243642) - created 2024-06-12 - last edited 2024-07-06
