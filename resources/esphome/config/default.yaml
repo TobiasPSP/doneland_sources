@@ -1,0 +1,57 @@
+substitutions:
+  device_name: "ESP32-S2 Node"
+  project_name: "Default Project"
+  project_version: "1.0.0"
+
+esphome:
+  name: "${name}"
+  # Friendly names are used where appropriate in Home Assistant
+  friendly_name: "${friendly_name}"
+  # Automatically add the mac address to the name
+  # so you can use a single firmware for all devices
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: "{$project_name}"
+    version: "${project_version}"
+
+esp32:
+  board: esp32-s2-saola-1
+  framework:
+    type: arduino
+
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+  platform: esphome
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://esphome/esphome-project-template/project-template-esp32.yaml@v6
+  import_full_config: false # or true
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+# esp32_improv:
+#   authorizer: none
+
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
