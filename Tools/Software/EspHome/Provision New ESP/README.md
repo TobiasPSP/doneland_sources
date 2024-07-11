@@ -17,7 +17,7 @@ You can provision any microcontroller that is supported by *ESPHome*:
 * **Raspberry:** *RP2040*
 * **Beken and Realtec:** *Beken BK72xx* and *Realtec RTL87xx* are often found in commercial *smart devices* such as *sensors*, *lamps*, or *plugs* and can be converted to *ESPHome devices*, effectively freeing them from proprietary vendor clouds and turning them into locally controlled devices.
 
-> [NOTE]
+> [!NOTE]
 > In practice, this is not always trivial since commercial devices typically have neither USB ports nor UART chips to upload new firmware.
 
 
