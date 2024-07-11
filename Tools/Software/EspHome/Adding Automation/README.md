@@ -65,4 +65,4 @@ When you now press the push button, *Home Assistant* automatically senses the st
 
 > Tags: EspHome, Home Assistant, Automation, Push Button, Toggle
 
-[Visit Page on Website](https://done.land/tools/software/esphome/addingautomation?769352071207240856) - created 2024-07-06 - last edited 2024-07-06
+[Visit Page on Website](https://done.land/tools/software/esphome/addingautomation?769352071207240856) - created 2024-07-10 - last edited 2024-07-10
