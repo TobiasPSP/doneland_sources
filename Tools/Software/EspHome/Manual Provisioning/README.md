@@ -67,7 +67,7 @@ Here are the two options you have:
 > [!IMPORTANT]
 > The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type* and does not work with other types. The link above points to the firmware for *ESP32 S2* microcontrollers. If you need the download link for other microcontroller types, expand *Downloading Generic Firmware File* below.
 > 
-In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller.
+In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions for both approaches:
 
 
 <details><summary>Downloading Generic Firmware File</summary><br/>
