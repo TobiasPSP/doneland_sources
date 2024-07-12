@@ -4,22 +4,20 @@
 
 > Adopting Provisioned ESPHome Devices 
 
-Once you have *provisioned* a *ESPHome* device and made sure it can connect to your *WiFi*, it automatically surfaces in *ESPHome Dashboard* and can be *adopted*.
+Once you have [provisioned](https://done.land/tools/software/esphome/provisionnewmicrocontroller) an *ESPHome* device and made sure it [can connect to *WiFi*](https://done.land/tools/software/esphome/configuringwifi), it automatically surfaces in *ESPHome Dashboard* and can be *adopted*.
 
-If you created your own *firmware file* from a specific *configuration* and uploaded this to the microcontroller, it is already part of your *ESPHome Dashboard*, and you can skip this article.
-
-*Adoption* only applies to devices that use a *generic ESPHome firmware*. Such devices can potentially be added to *any* ESPHome Dashboard instance.
-
-## Adopting New Device
-Once a *provisioned ESPHome device* is connected to your *WiFi*, the *ESPHome Dashboard* picks it up and shows a green *DISCOVERED*:
 
 <img src="images/1_adopt_tile_esphome.png" width="50%" height="50%" />
 
-Note that the device uses the same *name* that was shown by the *ESPHome Web Tool* when you configured its *WiFi access*.
+*Adoption* only applies to devices that use a *generic ESPHome firmware*. Such devices can be added to *any* ESPHome Dashboard instance.
 
-> [!TIP]
-> If your device does not surface in your *ESPHome Dashboard*, then *ESPHome* can simply not find it. You either did not yet configure its *WiFi parameters*, or the device and *ESPHome* are connected to different networks (i.e. *WiFi* network and *wired network*), so *mDNS* does not work.
+## Adopting New Device
+Once a [fully provisioned ESPHome device](https://done.land/tools/software/esphome/provisionnewmicrocontroller) connects to *WiFi*, *ESPHome Dashboard* picks it up and shows a green *DISCOVERED*.
 
+> [!NOTE]
+> Make sure the device and *ESPHome* are connected **to the same network**.
+
+The device still uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning, and that was shown when the [WiFi details were assigned](https://done.land/tools/software/esphome/configuringwifi).
 
 You can now *Adopt* the device.
 
