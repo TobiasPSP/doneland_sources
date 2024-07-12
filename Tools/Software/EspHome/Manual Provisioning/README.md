@@ -56,9 +56,7 @@ As if that wasn't enough, some microcontroller boards like *ESP32 S2 Mini* actua
 ### Firmware File Required
 Both tools essentially do the same thing: they upload a *binary firmware file* to a microcontroller. 
 
-[ESPHome Web Tool](https://web.esphome.io/) differs a bit in that it optionally supports the function *Prepare for first use* which in the background downloads a *generic ESPHome firmware file* for you.
-
-[Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) always wants *you* to provide the *firmware file(s)* to upload.
+[ESPHome Web Tool](https://web.esphome.io/) differs a bit in that it optionally supports the function *Prepare for first use* which in the background downloads a *generic ESPHome firmware file* for you. [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) always wants *you* to provide the *firmware file(s)* to upload.
 
 Here are the two options you have:
 
