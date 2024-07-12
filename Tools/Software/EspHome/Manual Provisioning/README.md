@@ -77,9 +77,11 @@ The *default firmware file* used by *Provision For First Use* is used internally
 
 To find out the *url*, just visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
 
+
+<img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />v
+
 Now, click *PREPARE FOR FIRST USE* to start the firmware upload. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you need. It carries the extension *.bin*:
 
-<img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
 
 When you hover over its entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
 
@@ -127,7 +129,7 @@ Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTo
 
     <img src="images/1_ada_s2.png" width="100%" height="100%" />
 
-3. Select the microcontroller in the dialog, and click *Connect*. Once connected, in the lower part of the window, click *Erase* to erase the memory. This may take a few seconds, and there are no progress indicators. Just hang in there for a while.
+3. Select the microcontroller in the dialog, and click *Connect*. Once connected, in the lower part of the window, click *Erase* to erase the memory. This may take a few seconds, and there are no progress indicators. The black terminal window tells you when the erase process has completed.
 
 
     <img src="images/2_erase_s2.png" width="100%" height="100%" />
@@ -139,17 +141,20 @@ Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTo
 
     <img src="images/4_ada_s2_progress.png" width="100%" height="100%" />
 
-6. Once the firmware has been transferred, press the reset button. 
+6. Once the firmware has been transferred, press the *reset* button on your microcontroller board to make sure it boots from the newly uploaded *firmware*. 
 
 ## What's Next
-If you used the default provisioning firmware downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*.
-
-> [!TIP]
-> You may not want to immediately configure *WiFi* (as described below). If you just provisioned a bunch of microcontrollers but have no immediate use for them, just place them in a drawer. Once you are ready to use one of them, go ahead and configure *WiFi*.
+If you used the default provisioning firmware that you downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*. You need to tell the device the *WiFi SSID* and *WiFi password* before it can go online and be discovered by *ESPHome*.
 
 Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available with the *ESP32 S2* as it does not support *bluetooth*). 
 
-This is how you set (or change) *WiFi access*:
+*Improv_serial* allows you to connect the device via *USB cable* and [ESPHome Web Tool](https://web.esphome.io/), then configure its *WiFi* in your browser.
+
+
+> [!NOTE]
+> The [default provisioning process](https://done.land/tools/software/esphome/provisionnewmicrocontroller) using [ESPHome Web Tool][ESPHome Web Tool](https://web.esphome.io/) *failed* for your particular microcontroller (which is why you are *on this page*). Fortunately, *Improv* uses the default *USB Port* and *not* the secondary USB Port that becomes active in *firmware upload mode*. So the *ESPHome Web Tool* works just fine - even with problematic boards like *ESP32 S2 Mini* - once a microcontroller is running *ESPHome firmware*.
+
+You can configure *WiFi* now (and complete the *provisioning process*), or do it later at any time. It just needs to be done *before* you can *see* and *adopt* the microcontroller into *ESPHome*.
 
 
 1. Connect the microcontroller via *USB cable* to your computer. **Do not** enable *firmware update mode*. If in doubt, press the *reset* button once. 
@@ -166,9 +171,6 @@ This is how you set (or change) *WiFi access*:
 
 5. Click *CONNECT TO WI-FI*, select the *WiFi SSID* you want to connect to, and click *CONNECT*. After a few seconds, you get a confirmation that the device is now fully configured.
 
-
-> [!NOTE]
-> Surprisingly, the *ESPHome Tool* works just fine with *ESP32 S2 Mini via USB* when configuring *WiFi*. That's because *Improv* uses its default *USB Port* that surfaces as *TinyUSB*. Just the secondary USB Port named *ESP32-S2* and opens in *firmware upload mode* is inaccessible to the *ESPHome Tool*.
 
 
 

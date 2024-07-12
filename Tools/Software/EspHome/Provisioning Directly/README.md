@@ -4,67 +4,66 @@
 
 > Provisioning A New Microcontroller Directly Via USB Cable
 
-In the previous examples, the microcontroller was provisioned via a *binary firmware file* that was either downloaded from *esphome.io*, or downloaded from your *ESPHome Dashboard*.
+In the previous examples, the microcontroller was provisioned via a *binary firmware file* that was either downloaded from *esphome.io*, or downloaded from your *ESPHome Dashboard*. [ESPHome Web Tool](https://web.esphome.io/) or [Adafruit ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) was then used to upload the *firmware file* to the microcontroller.
 
-Here is another way that may be appealing if the computer that is running *ESPHome* is accessible to you:
+Here is another way to *provision* a fresh microcontroller. It *directly uploads* the *firmware* to the microcontroller without first exporting the *firmware* to a file.
 
-* **Create Configuration:** start in *ESPHome* by creating a *New Device* and describing your hardware
+## Prerequisites
+This approach is very convenient but has two important rules that must be met: 
+
+* **Connect USB To ESPHome:** the microcontroller must be connected via *USB cable* to the computer *that is running ESPHome*. When you run *ESPHome* locally, this would be your own computer. However, when you run *ESPHome Add-On* inside *Home Assistant*, it would be the computer that runs *Home Assistant*. Often, this is a *Raspberry Pi*. If it is physically accessible to you, just connect the *USB cable* to one of its *USB ports*.
+* **Compatible Microcontroller:** the microcontroller (board) must be compatible with [ESPHome Web Tool](https://web.esphome.io/). If you can't upload firmware with this tool, then you can't upload it directly, either, because *ESPHome* is using the same tool chain. So if you get connection errors with your microcontroller, you are limited to [manual provisioning](https://done.land/tools/software/esphome/manualprovisioning).
+
+
+## Provisioning Directly
+These are the steps to *provision* a new microcontroller *directly* from within *ESPHome*:
+
+* **Add New Device:** start in *ESPHome* by creating a *New Device*. This creates a new *default configuration*. You can *edit* it to describe your hardware, or start with the automatically created *default configuration*.
 * **Connect To ESPHome:** connect the microcontroller via *USB cable* to the computer **that is running ESPHome**.
 * **Install Directly:** create and upload the *firmware* directly to the microcontroller. 
 
 With this approach, there is no need for separate web-based tools like *ESPHome Web Tool*, and you don't need to fiddle with *firmware files* yourself.
 
 
-## Adding New ESPHome Device
+### Adding New ESPHome Device
 
-This first step does not require any hardware. You are creating a *ESPHome default configuration*.
+Open the *ESPHome Dashboard*. If you are using *Home Assistant*, click *ESPHome* in its *sidebar*.
 
 
-When using *ESPHome* inside *Home Assistant*, click *ESPHome* in the *Home Assistant* side bar. This opens your *ESPHome dashboard*:
 
-<img src="images/gui_esphome_addon.png" width="100%" height="100%" />
+<details><summary>How To Open ESPHome Dashboard Without Home Assistant</summary><br/>
 
-<details><summary>Using ESPHome Stand-Alone</summary><br/>
-
-If you have installed *ESPHome* stand-alone, you need to first start the local *ESPHome webserver* via this command: `esphome dashboard d:\esphome_projects`. Make sure you adjust the path at the end of the command with the path to your local *ESPHome* project folder that you created during installation.
+If you have [installed *ESPHome* stand-alone](https://done.land/tools/software/esphome#installing-stand-alone-esphome-instance), you need to first start the local *ESPHome webserver* via this command: `esphome dashboard d:\esphome_projects`. Make sure you adjust the path at the end of the command with the path to your local *ESPHome* project folder that you created during installation.
 
 > [!TIP]
 > You can enter above command in any *CLI console* (i.e. *cmd.exe* or *powershell.exe*), or you can press `WIN`+`R` to open the *Run* dialog, and enter the command here.
 
 
-
-
-
-The command opens a console window that runs the local webserver. Now open a browser, and enter this url: `http://localhost:6052`. This opens the local stand-alone *ESPHome dashboard*:
-
-
-<img src="images/dashboard_local.png" width="100%" height="100%" />
-
+The command opens a console window that runs the local webserver. Now open a browser, and enter this url: `http://localhost:6052`. This opens the local stand-alone *ESPHome dashboard*.
 
 </details>
 
-
-### Add New Configuration
+<img src="images/gui_esphome_addon.png" width="100%" height="100%" />
 
 Inside the *ESPHome Dashboard*, add a new device:
 
-1. Click *NEW DEVICE*. A dialog opens and explains a lot of things that you can safely ignore for now. Just click *CONTINUE*.
+1. Click *NEW DEVICE*. A dialog opens and explains things that you can ignore for now. Just click *CONTINUE*.
 
-<img src="images/1_esphome_config_start.png" width="100%" height="100%" />
+    <img src="images/1_esphome_config_start.png" width="100%" height="100%" />
 
-2. You are asked to assign a *name* to your new device. Spaces will be converted to hyphens. In this example, the chosen name is *CO2 Sensor #1* (because ultimately, I want this new *ESPHome device* to become a precision CO2 sensor). Click *Next*.
+2. Assign a *name* to your new device that describes your project and is not used with any other existing *ESPHome device*. Spaces are converted to hyphens. Click *Next*.
 
-<img src="images/2_esphome_config_name.png" width="100%" height="100%" />
+    <img src="images/2_esphome_config_name.png" width="100%" height="100%" />
 
-4. Now select the type of microcontroller you are using. 
+3. Select the type of microcontroller you are using. 
 
-<img src="images/3_esphome_config_type.png" width="100%" height="100%" />
+    <img src="images/3_esphome_config_type.png" width="100%" height="100%" />
 
-5. Access to your device is going to be protected by an *API key*. The next dialog page shows the assigned key so you can copy it. This is not necessary though as *ESPHome* manages the key for you, and you can always show it in the *ESPHome dashboard* later. Click *SKIP* to skip uploading the automatically generated firmware to your microcontroller for now.
+4. Access to your device is going to be protected by an *API key*. The next dialog page shows the assigned key so you can copy it. This is not necessary though as *ESPHome* manages the key for you, and you can always show it in the *ESPHome dashboard* later. Click *SKIP* to skip uploading the automatically generated firmware to your microcontroller for now.
 
 <img src="images/4_esphome_config_secret.png" width="100%" height="100%" />
 
-In your *ESPHome dashboard*, you now see your new *ESPHome device*. It is marked as *OFFLINE* in the tiles' right upper corner which isn't surprising: the device does not yet physically exist. Up to this point, we just created the *default configuration*.
+In *ESPHome dashboard*, you now see your new *ESPHome device*. It is marked as *OFFLINE* in the tiles' right upper corner. Since the device does not yet physically exist, that's not surprising. Up to this point, we just created a *default configuration*.
 
 
 ### Default Configuration
@@ -263,4 +262,4 @@ If you'd like to use *ping* instead of *mDNS* to check availability, in *Home As
 
 > Tags: EspHome, Home Assistant, Provision, Initialize, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/directlyupdating?350408071511241259) - created 2024-06-03 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/provisioningdirectly?350408071511241259) - created 2024-06-03 - last edited 2024-07-10
