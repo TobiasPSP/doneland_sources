@@ -29,7 +29,7 @@ Which is why it is extremely *frustrating* when the [ESP Web Tool](https://web.e
 
 Connecting and uploading new *firmware* via *USB cables* is technically challenging: it may work flawlessly with one microcontroller type, and may as well cause a plethora of frustrating issues and error messages with another.   
 
-<details><summary>Why USB Communications Is So Prone To Error</summary><br/>
+<details><summary>Why USB Communications Is So Prone To Errors</summary><br/>
 
 
 
@@ -143,12 +143,14 @@ If you created your own *firmware*, you probably added your *WiFi access informa
 > [!TIP]
 > You may not want to immediately configure *WiFi* as described below. If you just provisioned a bunch of microcontrollers but have no immediate use for them, just place them in a drawer. Once you are ready to use one of them, go ahead and configure *WiFi*.
 
-Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available since *ESP32 S2* does not support *bluetooth*). This is how you set (or change) *WiFi access*:
+Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available with the *ESP32 S2* as it does not support *bluetooth*). 
+
+This is how you set (or change) *WiFi access*:
 
 
 1. Connect the microcontroller via *USB cable* to your computer. **Do not** enable *firmware update mode*. If in doubt, press the *reset* button once. 
 
-2. Make sure you closed all other tools (i.e. the *Adafruit* flasher). Then open the[ESPHome Web Tools](https://web.esphome.io/) in your browser.
+2. Make sure you closed all other tools (i.e. the *Adafruit* flasher). Then open the [ESPHome Web Tool](https://web.esphome.io/) in your browser.
 
 3. Click *CONNECT*, and select the microcontroller in the dialog. Then click the *three dot* menu and choose *Configure Wi-Fi*.
 
