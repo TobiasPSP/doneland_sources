@@ -5,7 +5,7 @@
 > Programming A ESPHome Device By Describing Its Hardware 
 
 
-Once you provisioned a new device in *ESPHome*, you are now ready to *program* its microcontroller - without actually writing a single line of code. Instead, you *describe* your hardware to *ESPHome*.
+Once you added a new device to *ESPHome Dashboard*, you are now ready to *program* its microcontroller - without actually writing a single line of code. Instead, you *describe* your hardware to *ESPHome*.
 
 Here is the typical workflow:
 
