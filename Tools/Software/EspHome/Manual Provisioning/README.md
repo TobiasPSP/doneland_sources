@@ -63,6 +63,10 @@ Here are the two options you have:
 * **Generic Provisioning:** to mimick the *Prepare for first use* functionality and *provision a microcontroller* in a way that it can later be *adopted* by *ESPHome*, download the generic firmware file that *ESP Web Tool* uses: [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin)
 * **Configuration:** to mimick the *Install* functionality and upload a *hand-tailored firmware file*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
 
+
+> [!IMPORTANT]
+> The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type* and does not work with other types. The link above points to the firmware for *ESP32 S2* microcontrollers. If you need the download link for other microcontroller types, expand *Downloading Generic Firmware File* below.
+> 
 In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller.
 
 
