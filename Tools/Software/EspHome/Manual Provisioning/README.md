@@ -67,25 +67,25 @@ Here are the two options you have:
 > [!IMPORTANT]
 > The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type* and does not work with other types. The link above points to the firmware for *ESP32 S2* microcontrollers. If you need the download link for other microcontroller types, expand *Downloading Generic Firmware File* below.
 > 
-In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions for both approaches:
+In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. 
+
+Here are the step-by-step instructions for both approaches:
 
 
 <details><summary>Downloading Generic Firmware File</summary><br/>
 The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
-To find out the *url*, just use [ESPHome Web Tools](https://web.esphome.io/), connect it with a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
+To find out the *url*, just visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
 
-Now, click *PREPARE FOR FIRST USE* to start the firmware upload. In the *Network* tab, you now see the *urls* from where the web page downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* we are after. It carries the extension *.bin*:
+Now, click *PREPARE FOR FIRST USE* to start the firmware upload. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you need. It carries the extension *.bin*:
 
 <img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
 
-When you hover over this entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
+When you hover over its entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
 
-The *firmware files* are **specific** for a given microcontroller type, so if you connected a *ESP32-C3*, the firmware file works for this microcontroller type only.
+The *firmware files* are **specific** for a given microcontroller type, so if you connected a *ESP32-C3*, the firmware file works for this microcontroller type only. However, once you know the *firmware file url*, it is no rocket science to change it to other microcontroller types: by replacing the two instances of **c3** with **s2**, you get the *url* for *ESP32-S2*.
 
-However, once you know the *firmware file url*, it is no rocket science to change it to other microcontroller types: by replacing the two instances of **c3** with **s2**, you get the *url* for *ESP32-S2*.
-
-Maybe there are much easier ways of getting to these files, and possibly they are even part of a public repository. I searched for many hours without luck. If you find a better way, please leave a comment below.
+Maybe there are easier ways to get these files, and possibly they are even part of a public repository. I searched for many hours without luck. If you find a better way, please leave a comment below.
 
 </details>
 
