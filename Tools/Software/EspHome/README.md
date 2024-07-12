@@ -213,4 +213,4 @@ To get the same easy-to-use graphical *ESPHome Dashboard* that the *ESPHome Add-
 
 > Tags: EspHome, Dashboard, Home Assistant, Entity
 
-[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-12
+[Visit Page on Website](https://done.land/tools/software/esphome?105913061917245543) - created 2024-06-16 - last edited 2024-07-11
