@@ -12,7 +12,7 @@ Which is why it is extremely *frustrating* when the [ESP Web Tool](https://web.e
 <img src="images/g_fail2.png" width="50%" height="50%" />
 
 > [!TIP] 
-*ESP32 S2 Mini* is a popular example for a board that cannot be *provisioned* by *ESPHome* (because of its strange *USB implementation*). With the steps below, you get it done anyway. Thanks to the new *ESPHome firmware* and its *wireless updates*, you *heal* its *USB woes* as in the future you no longer need *USB firmware upload mode*.
+> *ESP32 S2 Mini* is a popular example for a board that cannot be *provisioned* by *ESPHome* (because of its strange *USB implementation*). With the steps below, you get it done anyway. Thanks to the new *ESPHome firmware* and its *wireless updates*, you *heal* its *USB woes* as in the future you no longer need *USB firmware upload mode*.
 
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
