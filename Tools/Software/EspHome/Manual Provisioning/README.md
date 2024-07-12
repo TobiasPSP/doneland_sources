@@ -4,14 +4,15 @@
 
 > Successfully Provision ESP32 S2 Mini (And Other Models Incompatible With ESPHome Web Tool)
 
-To provision a microcontroller, you *must* upload the *ESPHome firmware* at least once via *USB cable*. Only then can you use its advanced *wireless OTA capabilities* and skip all *USB and button-press hassles*.
+Provisioning requires that you at least *once* upload *ESPHome firmware* via *USB cable*. After this succeeds, you then use  *wireless OTA* to upload any future firmware updates. All *USB and button-press hassles* are a thing from the past.
 
-Unfortunately, some microcontroller *USB implementations* are incompatible with the [ESP Web Tool](https://web.esphome.io/) and the entire *ESPHome tool chain*, so you can't use them to upload firmware via *USB*.
+Which is why it is extremely *frustrating* when the [ESP Web Tool](https://web.esphome.io/) does not work with your microcontroller board, and you just can't get the *initial ESPHome firmware update* done via *USB*.
 
 
 <img src="images/g_fail2.png" width="50%" height="50%" />
 
-The *ESP32 S2 Mini* is an example for a boards that cannot be *provisioned* by *ESPHome*. It is renown for its problematic *USB implementation*.
+> [!TIP] 
+*ESP32 S2 Mini* is a popular example for a board that cannot be *provisioned* by *ESPHome* (because of its strange *USB implementation*). With the steps below, you get it done anyway. Thanks to the new *ESPHome firmware* and its *wireless updates*, you *heal* its *USB woes* as in the future you no longer need *USB firmware upload mode*.
 
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
@@ -20,24 +21,25 @@ The *ESP32 S2 Mini* is an example for a boards that cannot be *provisioned* by *
 
 ## Quick Overview
 
-Connecting and uploading new *firmware* via *USB cables* is technically challenging. It may work flawlessly, or may cause a plethora of issues and error messages.   
+Connecting and uploading new *firmware* via *USB cables* is technically challenging - period. 
 
-<details><summary>Why USB Communications May Fail</summary><br/>
+It may work flawlessly with one microcontroller type, and may as well cause a plethora of frustrating issues and error messages with another.   
+
+<details><summary>Why USB Communications Is So Prone To Error</summary><br/>
 
 
 
-The reason for communication problems via *USB* is it is not straight-forward. 
-
-Instead, a variety of techniques exist by which microcontrollers and boards can transfer information via *USB*: 
+TCommunication via *USB* is technically not at all straight-forward: a variety of techniques are used by which microcontrollers and boards can transfer information via *USB*: 
 
 * **Native USB support:** newer microcontrollers come with native *USB support* built-in. However, there are different levels of native *USB support*.
   * **USB OTG (On-The-Go):** found in *ESP32-S2* and *ESP32-S3*
   * **USB Serial/JTAG:** found in *ESP32-C3*
 * **UART Chips:** microcontrollers lacking native *USB support* use separate *UART chips* on the microcontroller boards. There are many different *UART chip families*, and they require specialized drivers on your PC that may or may not be part of the OS. Some require separate driver installation.
 
-Not all tools support all of these techniques, and if your microcontroller or board is not supported, you may have a hard time uploading firmware.
+What makes matters worse is that firmware updates via USB require the microcontroller to enter a special *firmware upload mode*. Some boards switch to this mode automatically, some switch *sometimes* automatically, and some require the *boot* switch to be pressed during a *reset*.
 
-In the case of the *ESP32 S2 Mini*, the board uses a *dual UART concept*: when you connect it to *USB*, a port named *TinyUSB* surfaces. Once you switch the board to *firmware upload mode* (or once it is switched to this mode automatically by tools), it exposes a different COM port named *ESP32-S2*. This breaks many tools and their connections.
+As if that wasn't enough, some microcontroller boards like *ESP32 S2 Mini* actually change *USB port* when switching from normal mode to *firmware upload mode*, breaking the connection to tools like the *ESPHome Web Tool* that are not expecting this.
+
 
 </details>
 
