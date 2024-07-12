@@ -48,9 +48,7 @@ As if that wasn't enough, some microcontroller boards like *ESP32 S2 Mini* actua
 </details>
 
 ## More Robust Tools To The Rescue
-Tools like [ESPHome Web Tool](https://web.esphome.io/) do not work for some *USB configurations* and produce communications errors (like *failed to initialize*). When you are affected by this, switch to more robust tools like [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/).
-
-It works reliably with *ESP32 S2 Mini* and many other similarly affected microcontroller boards and runs right inside your browser, just like [ESPHome Web Tools](https://web.esphome.io/). Both tools use the same *web serial* connection inside the browser. They both require a compatible browser, i.e. *Chrome*. Once connected to a microcontroller, this is what the tools look like:
+[Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) works reliably with *ESP32 S2 Mini* and many other similarly affected microcontroller boards. It runs right inside your browser, just like [ESPHome Web Tools](https://web.esphome.io/): both tools use the same *web serial* connection inside the browser and require a compatible browser, i.e. *Chrome*. Once connected to a microcontroller, this is what the tools look like:
 
 <img src="images/esphome_adafruit_flasher.png" width="100%" height="100%" />
 
