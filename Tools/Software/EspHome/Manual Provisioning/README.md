@@ -27,9 +27,7 @@ Which is why it is extremely *frustrating* when the [ESP Web Tool](https://web.e
 
 ## Quick Overview
 
-Connecting and uploading new *firmware* via *USB cables* is technically challenging - period. 
-
-It may work flawlessly with one microcontroller type, and may as well cause a plethora of frustrating issues and error messages with another.   
+Connecting and uploading new *firmware* via *USB cables* is technically challenging: it may work flawlessly with one microcontroller type, and may as well cause a plethora of frustrating issues and error messages with another.   
 
 <details><summary>Why USB Communications Is So Prone To Error</summary><br/>
 
