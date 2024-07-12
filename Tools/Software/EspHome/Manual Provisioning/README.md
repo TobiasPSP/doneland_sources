@@ -142,10 +142,10 @@ Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTo
 6. Once the firmware has been transferred, press the reset button. 
 
 ## What's Next
-If you created your own *firmware*, you probably added your *WiFi access information* to the configuration: once your microcontroller boots on the new firmware, it automatically connects to your *WiFi*. Else, your device does not know yet how to access your *WiFi*. 
+If you used the default provisioning firmware downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*.
 
 > [!TIP]
-> You may not want to immediately configure *WiFi* as described below. If you just provisioned a bunch of microcontrollers but have no immediate use for them, just place them in a drawer. Once you are ready to use one of them, go ahead and configure *WiFi*.
+> You may not want to immediately configure *WiFi* (as described below). If you just provisioned a bunch of microcontrollers but have no immediate use for them, just place them in a drawer. Once you are ready to use one of them, go ahead and configure *WiFi*.
 
 Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available with the *ESP32 S2* as it does not support *bluetooth*). 
 
