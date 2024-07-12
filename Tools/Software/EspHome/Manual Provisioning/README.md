@@ -138,24 +138,12 @@ Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTo
 6. Once the firmware has been transferred, press the reset button. 
 
 ## What's Next
-If you created your own *firmware*, you probably added your *WiFi access information* to the configuration: once your microcontroller boots on the new firmware, it automatically connects to your *WiFi*.
-
-Else, your device does not know yet how to access your *WiFi*. And that may be a good thing: if you provisioned a bunch of microcontrollers with the *generic ESPHome firmware*, just leave their *WiFi* unconfigured. Put the provisioned microcontrollers in a drawer.
-
-Only when you are ready to actually use one of them in a project, go ahead and configure its *WiFi*.
-
-Once *WiFi* is configured, and the device goes online, *ESPHome* will pick the device up and offers to *adopt* it.
-
-### Configuring WiFi
-
-If you used the *default provisioning firmware* downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*.
+If you created your own *firmware*, you probably added your *WiFi access information* to the configuration: once your microcontroller boots on the new firmware, it automatically connects to your *WiFi*. Else, your device does not know yet how to access your *WiFi*. 
 
 > [!TIP]
-> You may not want to immediately configure *WiFi* as described below. If you just provisioned a bunch of microcontrollers to double-check they work, you can place them in a drawer. Once you are ready to use one of them, that's the best time to go ahead and configure its *WiFi*.
+> You may not want to immediately configure *WiFi* as described below. If you just provisioned a bunch of microcontrollers but have no immediate use for them, just place them in a drawer. Once you are ready to use one of them, go ahead and configure *WiFi*.
 
-Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available since *ESP32 S2* does not support *bluetooth*). 
-
-This is how you set (or change) *WiFi access*:
+Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available since *ESP32 S2* does not support *bluetooth*). This is how you set (or change) *WiFi access*:
 
 
 1. Connect the microcontroller via *USB cable* to your computer. **Do not** enable *firmware update mode*. If in doubt, press the *reset* button once. 
