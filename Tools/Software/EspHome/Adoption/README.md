@@ -26,11 +26,9 @@ You can now *Adopt* the device.
 <details><summary>Understanding ESPHome Adoption</summary><br/>
 
 
-When *ESPHome* discovers a new device with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. 
+When *ESPHome* discovers a new device with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you can assign a new name to the device, and *ESPHome* creates a *configuration* for this device, including unique access keys.
 
-If you accept by clicking *ADOPT*, you can assign a new name to the device, and *ESPHome* creates a *configuration* for this device, including unique access keys.
-
-Once the device is adopted, you turned it into a *specific device*. You can now edit and update its *configuration*, and install new firmware wirelessly.
+Once the device is adopted, you turned it into a *specific device*. You can now edit and update its *configuration*, and install new firmware wirelessly - but only in the *ESPHome instance* that *adopted* the device. The device is now no longer *generic* and can no longer be adopted by other *ESPHome instances*.
 
 
 </details>
@@ -63,7 +61,7 @@ Once the device has rebooted, you are done: your device now uses the name you as
 
 <img src="images/6_adopt_done.png" width="50%" height="50%" />
 
-You can now click *EDIT* and review or expand your device *configuration*, save it, then click the *three dot* menu and choose *Install* - *Wirelessly* to program and work with your new device.
+You can now click *EDIT* and review or expand your device *configuration*, save it, then click the *three dot* menu and choose *Install* - *Wirelessly* to program and work with your new device - but only in the *ESPHome instance* that *adopted* the device. The device is now no longer *generic* and can no longer be adopted by other *ESPHome instances*.
 
 
 > Tags: EspHome, Adopt
