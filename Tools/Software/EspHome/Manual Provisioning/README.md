@@ -4,7 +4,7 @@
 
 > Successfully Provision ESP32 S2 Mini (And Other Models Incompatible With ESPHome Web Tool)
 
-Provisioning requires that you at least *once* upload *ESPHome firmware* via *USB cable*. After this succeeds, you then use  *wireless OTA* to upload any future firmware updates. All *USB and button-press hassles* are a thing from the past.
+Provisioning requires that you at least *once* upload *ESPHome firmware* via *USB cable*. After this succeeds, you then use  *wireless OTA* to upload any future firmware updates. All *USB and button-press hassles* are then a thing from the past.
 
 Which is why it is extremely *frustrating* when the [ESP Web Tool](https://web.esphome.io/) does not work with your microcontroller board, and you just can't get the *initial ESPHome firmware update* done via *USB*.
 
