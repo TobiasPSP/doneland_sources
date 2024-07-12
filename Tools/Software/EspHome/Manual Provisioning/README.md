@@ -168,7 +168,7 @@ This is how you set (or change) *WiFi access*:
 
 
 > [!NOTE]
-> Funnily enough, the *ESPHome Tool* works just fine with *ESP32 S2 Mini via USB* when configuring *WiFi*. *Improv* uses its default *USB Port* that surfaces as *TinyUSB*. Just the secondary USB Port named *ESP32-S2* that opens in *firmware upload mode* is inaccessible to the *ESPHome Tool*.
+> Surprisingly, the *ESPHome Tool* works just fine with *ESP32 S2 Mini via USB* when configuring *WiFi*. That's because *Improv* uses its default *USB Port* that surfaces as *TinyUSB*. Just the secondary USB Port named *ESP32-S2* and opens in *firmware upload mode* is inaccessible to the *ESPHome Tool*.
 
 
 
