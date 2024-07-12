@@ -101,7 +101,7 @@ The device is now *provisioned*, however it is not yet connected to any specific
 To actually use it in *ESPHome*, it needs to connect to the *WiFi* that *ESPHome* is connected to (see next step).
 
 > [!TIP]
-> Whether you provision the *WiFi access* as well or postpone this step to later is up to you. If you plan to use the microcontroller in your own environment, I recommend to *fully provision* it and add the *WiFi credentials* as well (see below).
+> Whether you provision the *WiFi access* as well or postpone this step is up to you. If you plan to use the microcontroller in your own environment, I recommend to *fully provision* it and add the *WiFi credentials* now (see below).
 
 ### Connecting To WiFi
 The provisioning process automatically re-connects to the device and shows this dialog:
