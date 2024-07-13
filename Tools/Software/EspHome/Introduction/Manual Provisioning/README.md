@@ -145,6 +145,9 @@ If you deal with just a *single* microcontroller and would like to *immediately*
 ## Uploading Firmware
 Once you have the *firmware file* at hand - either the generic one, or a *hand-tailored* that you created via a specific *configuration* - you can now upload it to your microcontroller.
 
+> [!IMPORTANT]
+> If you choose to upload the *generic ESPHome firmware file* that you downloaded from *firmware.esphome.io*, **make sure you are selecting the firmware file for your microcontroller type**! If you accidentally upload the firmware made for *ESP32-S3* to a *ESP32-S2*, then the microcontroller will no longer respond. Since *ESP* microcontrollers have a write-protected boot loader, you can simply repeat the steps and upload the *correct* firmware file to fix this. You **cannot brick** *ESP* microcontrollers.
+
 Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in your browser:
 
 1. Connect the microcontroller via *USB cable* to your computer. Hold its *boot* button while pressing *reset* to force it into *firmware upload mode*.
@@ -155,21 +158,23 @@ Open the [Adafruit ESP Tool](https://adafruit.github.io/Adafruit_WebSerial_ESPTo
 
     <img src="images/1_ada_s2.png" width="100%" height="100%" />
 
-3. Select the microcontroller in the dialog, and click *Connect*. Once connected, in the lower part of the window, click *Erase* to erase the memory. This may take a few seconds, and there are no progress indicators. The black terminal window tells you when the erase process has completed.
+3. Select the microcontroller in the dialog, and click *Connect*. If the tool reports that *no compatible device* was found, make sure you *enabled the firmware upload mode* on the microcontroller: hold its *boot* button while you press its *reset* button.
+
+4. Once connected, in the lower part of the window, click *Erase* to erase the memory. This may take a few seconds, and there are no progress indicators. The black terminal window tells you when the erase process has completed.
 
 
     <img src="images/2_erase_s2.png" width="100%" height="100%" />
 
-4. Click the top-most *Choose file* button, then select the *firmware file* you created and downloaded. Click *Program*.
+5. Click the top-most *Choose file* button, then select the *firmware file* you created and downloaded. Click *Program*.
 
     <img src="images/3_ada_s2_program.png" width="100%" height="100%" />
-5. The firmware is transferred to your microcontroller. A progress bar shows the status.
+6. The firmware is transferred to your microcontroller. A progress bar shows the status.
 
     <img src="images/4_ada_s2_progress.png" width="100%" height="100%" />
 
-6. Once the firmware has been transferred, press the *reset* button on your microcontroller board to make sure it boots from the newly uploaded *firmware*. 
+7. Once the firmware has been transferred, click *Disconnect*, and **only then** press the *reset* button on your microcontroller board to make sure it boots from the newly uploaded *firmware*. 
 
-## What's Next
+## Configure WiFi Access
 If you used the default provisioning firmware that you downloaded from *esphome.io*, the device does not yet know how to connect to your *WiFi*. You need to tell the device the *WiFi SSID* and *WiFi password* before it can go online and be discovered by *ESPHome*.
 
 Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv* via *BLE* is not available with the *ESP32 S2* as it does not support *bluetooth*). 
@@ -187,19 +192,39 @@ You can configure *WiFi* now (and complete the *provisioning process*), or do it
 
 2. Make sure you closed all other tools (i.e. the *Adafruit* flasher). Then open the [ESPHome Web Tool](https://web.esphome.io/) in your browser.
 
-3. Click *CONNECT*, and select the microcontroller in the dialog. Then click the *three dot* menu and choose *Configure Wi-Fi*.
+3. Click *CONNECT*, and select the microcontroller in the dialog. A *ESP32 S2 Mini* should show as *TinyUSB* in this list. If you instead see *ESP32-S2*, then the microcontroller is in *firmware upload mode*. In this case press its *reset* button to return to normal mode.
+
+4. Once connected, click the *three dot* menu and choose *Configure Wi-Fi*.
 
 <img src="images/1_wificonfig_workaround.png" width="100%" height="100%" />
 
-4. A dialog opens. Note the *temporary device name* (i.e. *esphome-web-8b87ca*). With this name will the device surface in *ESPHome Dashboard* once you configured *WiFi*.
+5. A dialog opens. Note the *temporary device name* (i.e. *esphome-web-8b87ca*). With this name will the device surface in *ESPHome Dashboard* once you configured *WiFi*.
 
 <img src="images/2_workaround_wifi.png" width="70%" height="70%" />
 
-5. Click *CONNECT TO WI-FI*, select the *WiFi SSID* you want to connect to, and click *CONNECT*. After a few seconds, you get a confirmation that the device is now fully configured.
+6. Click *CONNECT TO WI-FI*, select the *WiFi SSID* you want to connect to, and click *CONNECT*. After a few seconds, you get a confirmation that the device is now fully configured.
+
+7. Click *CLOSE*, then click the *three-dot* menu, and choose *Disconnect*.
 
 
+> [!TIP]
+> If you can *connect* to your microcontroller, but once you click *Configure Wi-Fi*, you get an error message stating that *Improv Wi-Fi Serial* was not detected, then you either connected the microcontroller in *firmware upload mode* (press its *reset* button, and try again), or you uploaded a wrong *firmware file* that was made for a different microcontroller type (repeat the provisioning with the *correct* firmware file). 
 
 
+<img src="images/improv_not_avail_provisioning.png" width="70%" height="70%" />
+
+
+### Flood Of Discovered Devices
+If you provision a bunch of microcontrollers this way, whenever you configure its *WiFi*, the connection is automatically tested, so the devices go online and connect to your *WiFi*. 
+
+Even if you turn them off and put them in a drawer immediately after the provisioning process has completed, *ESPHome* may have already picked up the provisioned devices, and the *ESPHome Dashboard* is filling with *discovered devices* that are ready to *adopt*.
+
+<img src="images/multiadopt_esphome_dashboard.png" width="100%" height="100%" />
+
+Don't worry though: once a *discovered device* goes online, after a grace period *ESPHome* automatically removes its tile again from the dashboard.
+
+> [!TIP]
+> Typically, newly provisioned devices surface with their cryptic  *temporary name* in *ESPHome dashboard*. If however you adopted this device before - even if you have meanwhile deleted it from *ESPHome* - it pops up again with the last name that was assigned to it. That's because *ESPHome* identifies new devices by their *MAC address* - which doesn't change.
 
 > Tags: EspHome, Firmware, Upload, ESP32 S2 Mini, ESPHome Web Tool, Adafruit ESPTool
 
