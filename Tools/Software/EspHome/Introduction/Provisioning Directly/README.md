@@ -12,7 +12,7 @@ Here is another way to *provision* a fresh microcontroller. It *directly uploads
 There are *two rules* that need to be met in order to *directly provision* a device from within *ESPHome*: 
 
 * **Direct USB-Connection To ESPHome:** the microcontroller must be connected via *USB cable* to the computer *that is running ESPHome*. When you run *ESPHome* locally, this is your own computer, but if you run *ESPHome Add-On* inside *Home Assistant*, it would be the computer that runs *Home Assistant*. Often, this is a *Raspberry Pi*. If it is physically accessible, connect the *USB cable* to one of its *USB ports*.
-* **Compatible Microcontroller:** the microcontroller (board) must be compatible with [ESPHome Web Tool](https://web.esphome.io/). If you can't upload firmware with this tool, then you can't upload it directly, either, because *ESPHome* is using the same tool chain. So if you get connection errors with your microcontroller, you are limited to [manual provisioning](https://done.land/tools/software/esphome/manualprovisioning).
+* **Compatible Microcontroller:** the microcontroller (board) must be compatible with [ESPHome Web Tool](https://web.esphome.io/). If you can't upload firmware with this tool, then you can't upload it directly, either, because *ESPHome* is using the same tool chain. So if you get connection errors with your microcontroller, you are limited to [manual provisioning](https://done.land/tools/software/esphome/introduction/manualprovisioning).
 
 
 ## Provisioning Directly
@@ -54,17 +54,17 @@ Inside the *ESPHome Dashboard*, add a new device:
 
 2. Assign a *name* to your new device that describes your project and is not used with any other existing *ESPHome device*. Spaces are converted to hyphens. Click *Next*.
 
-    <img src="images/2_esphome_config_name.png" width="100%" height="100%" />
+    <img src="images/2_esphome_config_name.png" width="70%" height="70%" />
 
 3. Select the type of microcontroller you are using. 
 
-    <img src="images/3_esphome_config_type.png" width="100%" height="100%" />
+    <img src="images/3_esphome_config_type.png" width="70%" height="70%" />
 
 4. Accessing your device is protected by a *secret key* that is shown on the next dialog page. Since this key is saved in the *configuration file*, you don't need to remember it. 
 
 <img src="images/4_esphome_config_secret.png" width="100%" height="100%" />
 
-If you want to [review](https://done.land/tools/software/esphome/defaultconfiguration) or [edit](https://done.land/tools/software/esphome/editconfiguration) the *configuration*, click *SKIP*. 
+If you want to [review](https://done.land/tools/software/esphome/introduction/defaultconfiguration) or [edit](https://done.land/tools/software/esphome/introduction/editconfiguration) the *configuration*, click *SKIP*. 
 
 Else, proceed directly to *uploading the firmware* by clicking *INSTALL*.
 
@@ -99,9 +99,9 @@ Once the firmware has been uploaded to your microcontroller board, it reboots an
 
 <img src="images/rasp_sensor_online.png" width="100%" height="100%" />
 
-If your board does *not* show *ONLINE* after a few seconds, review the [troubleshooting tips](https://done.land/tools/software/esphome/troubleshooting). 
+If your board does *not* show *ONLINE* after a few seconds, review the [troubleshooting tips](https://done.land/tools/software/esphome/introduction/troubleshooting). 
 
 
 > Tags: EspHome, Provision, USB Cable, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisioningdirectly?350408071511241259) - created 2024-06-03 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisioningdirectly?350408071511241259) - created 2024-06-03 - last edited 2024-07-13

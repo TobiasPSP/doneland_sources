@@ -4,9 +4,9 @@
 
 > Default Configuration Defines The ESPHome Device Fundamentals And How You Can Wirelessly Access It
 
-Whenever you [create](https://done.land/tools/software/esphome/provisioningdirectly) or [adopt](https://done.land/tools/software/esphome/adoption) a new device in *ESPHome*, a *default configuration file* is automatically assigned to it and surfaces in *ESPHome Desktop*.
+Whenever you [create](https://done.land/tools/software/esphome/introduction/provisioningdirectly) or [adopt](https://done.land/tools/software/esphome/introduction/adoption) a new device in *ESPHome*, a *default configuration file* is automatically assigned to it and surfaces in *ESPHome Desktop*.
 
-This *configuration* defines every detail of your device. The initial *default content* focuses on the bare device fundamentals, and you can [add more details](https://done.land/tools/software/esphome/editconfiguration), for example to describe your hardware setup and add special functionality.
+This *configuration* defines every detail of your device. The initial *default content* focuses on the bare device fundamentals, and you can [add more details](https://done.land/tools/software/esphome/introduction/editconfiguration), for example to describe your hardware setup and add special functionality.
 
 ## Overview
 Each device is represented by its own *configuration file* and surfaces as a *tile* in *ESPHome Dashboard*. 
@@ -94,7 +94,7 @@ Here is a quick overview of the *default entries* in your *default configuration
 ## Verifying Configuration
 You can always formally verify a *configuration* by clicking the *three dot* menu in the device tile, then choosing *Validate*.
 
-Validation makes sure your *configuration* is formally valid. This is an important check once you start [editing and appending](https://done.land/tools/software/esphome/editconfiguration) the configuration, but it can reveal issues even without you touching anything.
+Validation makes sure your *configuration* is formally valid. This is an important check once you start [editing and appending](https://done.land/tools/software/esphome/introduction/editconfiguration) the configuration, but it can reveal issues even without you touching anything.
 
 ### Fixing Breaking Changes
 Every now and then, *ESPHome updates* introduce *breaking changes* that may include changes in the formatting rules. One such *breaking change* was introduced just recently (June, 2024). Let's look at this change, and how to identify (and fix) it.
@@ -121,4 +121,4 @@ In the case of this breaking change, adding the line  `- platform: esphome` to t
 
 > Tags: EspHome, Configuration, OTA, Breaking Change
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/defaultconfiguration?509558071812240227) - created 2024-06-08 - last edited 2024-07-11
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/defaultconfiguration?509558071812240227) - created 2024-06-08 - last edited 2024-07-13

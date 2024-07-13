@@ -152,7 +152,7 @@ Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv*
 
 
 > [!NOTE]
-> The [default provisioning process](https://done.land/tools/software/esphome/provisionnewmicrocontroller) using [ESPHome Web Tool][ESPHome Web Tool](https://web.esphome.io/) *failed* for your particular microcontroller (which is why you are *on this page*). Fortunately, *Improv* uses the default *USB Port* and *not* the secondary USB Port that becomes active in *firmware upload mode*. So the *ESPHome Web Tool* works just fine - even with problematic boards like *ESP32 S2 Mini* - once a microcontroller is running *ESPHome firmware*.
+> The [default provisioning process](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) using [ESPHome Web Tool][ESPHome Web Tool](https://web.esphome.io/) *failed* for your particular microcontroller (which is why you are *on this page*). Fortunately, *Improv* uses the default *USB Port* and *not* the secondary USB Port that becomes active in *firmware upload mode*. So the *ESPHome Web Tool* works just fine - even with problematic boards like *ESP32 S2 Mini* - once a microcontroller is running *ESPHome firmware*.
 
 You can configure *WiFi* now (and complete the *provisioning process*), or do it later at any time. It just needs to be done *before* you can *see* and *adopt* the microcontroller into *ESPHome*.
 
@@ -167,7 +167,7 @@ You can configure *WiFi* now (and complete the *provisioning process*), or do it
 
 4. A dialog opens. Note the *temporary device name* (i.e. *esphome-web-8b87ca*). With this name will the device surface in *ESPHome Dashboard* once you configured *WiFi*.
 
-<img src="images/2_workaround_wifi.png" width="100%" height="100%" />
+<img src="images/2_workaround_wifi.png" width="70%" height="70%" />
 
 5. Click *CONNECT TO WI-FI*, select the *WiFi SSID* you want to connect to, and click *CONNECT*. After a few seconds, you get a confirmation that the device is now fully configured.
 
@@ -177,4 +177,4 @@ You can configure *WiFi* now (and complete the *provisioning process*), or do it
 
 > Tags: EspHome, Firmware, Upload, ESP32 S2 Mini, ESPHome Web Tool, Adafruit ESPTool
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/manualprovisioning?134804061917245543) - created 2024-06-02 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/manualprovisioning?134804061917245543) - created 2024-06-02 - last edited 2024-07-13

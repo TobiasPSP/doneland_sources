@@ -4,7 +4,7 @@
 
 > Adopting Provisioned ESPHome Devices 
 
-Once you have [provisioned](https://done.land/tools/software/esphome/provisionnewmicrocontroller) an *ESPHome* device and made sure it [can connect to *WiFi*](https://done.land/tools/software/esphome/configuringwifi), it automatically surfaces in *ESPHome Dashboard* and can be *adopted*.
+Once you have [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) an *ESPHome* device and made sure it [can connect to *WiFi*](https://done.land/tools/software/esphome/introduction/configuringwifi), it automatically surfaces in *ESPHome Dashboard* and can be *adopted*.
 
 
 <img src="images/1_adopt_tile_esphome.png" width="50%" height="50%" />
@@ -12,12 +12,12 @@ Once you have [provisioned](https://done.land/tools/software/esphome/provisionne
 *Adoption* only applies to devices that use a *generic ESPHome firmware*. Such devices can be added to *any* ESPHome Dashboard instance.
 
 ## Adopting New Device
-Once a [fully provisioned ESPHome device](https://done.land/tools/software/esphome/provisionnewmicrocontroller) connects to *WiFi*, *ESPHome Dashboard* picks it up and shows a green *DISCOVERED*.
+Once a [fully provisioned ESPHome device](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) connects to *WiFi*, *ESPHome Dashboard* picks it up and shows a green *DISCOVERED*.
 
 > [!NOTE]
 > Make sure the device and *ESPHome* are connected **to the same network**.
 
-The device still uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning, and that was shown when the [WiFi details were assigned](https://done.land/tools/software/esphome/configuringwifi).
+The device still uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning, and that was shown when the [WiFi details were assigned](https://done.land/tools/software/esphome/introduction/configuringwifi).
 
 You can now *Adopt* the device.
 
@@ -64,4 +64,4 @@ You can now click *EDIT* and review or expand your device *configuration*, save 
 
 > Tags: EspHome, Adopt
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/adoption?010732071511241259) - created 2024-06-07 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/adoption?010732071511241259) - created 2024-06-07 - last edited 2024-07-13

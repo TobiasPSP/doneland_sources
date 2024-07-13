@@ -14,7 +14,7 @@ To view and add new automations, click *Settings* in the *Home Assistant* sideba
 To create a new *automation*, click *CREATE AUTOMATION* in the lower right corner. This opens a dialog that walks you through creating the new automation task.
 
 > [!NOTE]
-> I'll walk you through creating a simple new automation that assumes that you have [created a simple push button device](https://done.land/tools/software/esphome/editconfiguration/pushbutton), and you'll see how easy it is to connect this push button to a remotely controllable electrical plug: in the future, whenever you press the push button, the electric plug toggles state.
+> I'll walk you through creating a simple new automation that assumes that you have [created a simple push button device](https://done.land/tools/software/esphome/introduction/editconfiguration/pushbutton), and you'll see how easy it is to connect this push button to a remotely controllable electrical plug: in the future, whenever you press the push button, the electric plug toggles state.
 
 
 
@@ -65,4 +65,4 @@ When you now press the push button, *Home Assistant* automatically senses the st
 
 > Tags: EspHome, Home Assistant, Automation, Push Button, Toggle
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/addingautomation?769352071207240856) - created 2024-07-08 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/addingautomation?769352071207240856) - created 2024-07-08 - last edited 2024-07-13

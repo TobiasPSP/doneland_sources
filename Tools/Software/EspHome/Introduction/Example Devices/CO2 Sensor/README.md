@@ -69,7 +69,7 @@ To verify correct functionality, in the *Home Assistant* side bar, click *Develo
 
 
 > [!IMPORTANT]
-> If your sensor does not show up, you might [have to add it to *Home Assistant*](https://done.land/tools/software/esphome/addtohomeassistant) first. Check *Notifications* in the sidebar to see whether *Home Assistant* has auto-detected your device, and add it to *Home Assistant*.
+> If your sensor does not show up, you might [have to add it to *Home Assistant*](https://done.land/tools/software/esphome/introduction/addtohomeassistant) first. Check *Notifications* in the sidebar to see whether *Home Assistant* has auto-detected your device, and add it to *Home Assistant*.
 You now see the current readings, and (depending on the update interval you set) you can now see these values change over time.
 
 
@@ -93,4 +93,4 @@ Without diving too much into detail, all of this is highly customizable: you con
 
 > Tags: EspHome, Home Assistant, CO2, Sensor, Sensirion, SCD30
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor?036545061229240725) - created 2024-07-01 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor?036545061229240725) - created 2024-07-01 - last edited 2024-07-13

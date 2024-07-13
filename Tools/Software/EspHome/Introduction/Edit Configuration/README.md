@@ -19,7 +19,7 @@ It is really this simple.
 This article assumes that you already completed these steps:
 
 * [ESPHome installed:](https://done.land/tools/software/esphome#installation) *ESPHome* should be up and running already, either as part of *Home Assistant*, or *stand-alone*
-* [New Device created:](https://done.land/tools/software/esphome/provisionnewesp#adding-new-esphome-device) You created a *new device* in the *ESPHome Dashboard* and ensured that it is marked *ONLINE*.  
+* [New Device created:](https://done.land/tools/software/esphome/introduction/provisionnewesp#adding-new-esphome-device) You created a *new device* in the *ESPHome Dashboard* and ensured that it is marked *ONLINE*.  
 
 <details><summary>Recap: How To Successfully Provision A New EspHome Device</summary><br/>   
 
@@ -62,7 +62,7 @@ To open and view the *configuration* of an *ESPHome device*, click *EDIT*. This 
 
 **Do not** touch the *default configuration* (unless you know what you are doing and would for example like to rename your project, or change its *WiFi* connection).
 
-Move to the *end* of the configuration, and *begin adding* new lines that describe the additional components that your project is using. How that is accomplished, and *what exactly* you add to your *configuration* will be explained in great detail in these [examples](https://done.land/tools/software/esphome/exampledevices).
+Move to the *end* of the configuration, and *begin adding* new lines that describe the additional components that your project is using. How that is accomplished, and *what exactly* you add to your *configuration* will be explained in great detail in these [examples](https://done.land/tools/software/esphome/introduction/exampledevices).
 
 
 > [!IMPORTANT]
@@ -172,4 +172,4 @@ You just successfully re-programmed your microcontroller - without writing any c
 
 > Tags: EspHome, Home Assistant, Configuration, Programming, YAML, Validation
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/editconfiguration?070255061229240725) - created 2024-06-10 - last edited 2024-07-04
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/editconfiguration?070255061229240725) - created 2024-06-10 - last edited 2024-07-13

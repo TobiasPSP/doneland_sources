@@ -7,7 +7,7 @@
 This article assumes you have uploaded *ESPHome firmware* to your microcontroller - one way or another.
 
 
-If you have [provisioned](https://done.land/tools/software/esphome/provisionnewmicrocontroller) the microcontroller with *generic ESPHome firmware*, and you haven't yet configured the *WiFi access details*, then now is the time to do this.
+If you have [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) the microcontroller with *generic ESPHome firmware*, and you haven't yet configured the *WiFi access details*, then now is the time to do this.
 
 A device **must** connect to *WiFi* in order to become visible and manageable in *ESPHome*.
 
@@ -32,7 +32,7 @@ Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv*
 
 4. A dialog opens. Note the *temporary device name* (i.e. *esphome-web-8b87ca*). With this name will the device surface in *ESPHome Dashboard* once you configured *WiFi*.
 
-    <img src="images/2_workaround_wifi.png" width="100%" height="100%" />
+    <img src="images/2_workaround_wifi.png" width="70%" height="70%" />
 
 5. Click *CONNECT TO WI-FI*, select the *WiFi SSID* you want to connect to, and click *CONNECT*. After a few seconds, you get a confirmation that the device is now fully configured.
 
@@ -40,4 +40,4 @@ Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv*
 
 > Tags: EspHome, WiFi, Improv, SSID, Configure
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/configuringwifi?051647071511241259) - created 2024-06-04 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/configuringwifi?051647071511241259) - created 2024-06-04 - last edited 2024-07-13

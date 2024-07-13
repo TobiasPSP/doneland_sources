@@ -76,24 +76,23 @@ In this first step, you upload generic *ESPHome firmware* to your microcontrolle
 
     <img src="images/d_pair_esp.png" width="100%" height="100%" />
 
-    > [!IMPORTANT]
     > If you can't see your connected microcontroller in the list, you may have to manually putting it into *firmware download mode* by holding the *boot* button while pressing the *reset* button. Release the *boot* button **after** you release the *reset* button.
 
 4. You are presented with a menu. Click *Prepare for first use*:
 
-    <img src="images/e_menu.png" width="100%" height="100%" />
+    <img src="images/e_menu.png" width="60%" height="60%" />
 
 5. A dialog explains that you are about to upload the basic *ESPHome firmware* to your microcontroller. Click *INSTALL*. 
 
-    <img src="images/a1_firstuse.png" width="100%" height="100%" />
+    <img src="images/a1_firstuse.png" width="80%" height="80%" />
 
 6. The *ESPHome default firmware* is copied to your microcontroller which takes a few seconds.
 
-    <img src="images/b1_install.png" width="100%" height="100%" />
+    <img src="images/b1_install.png" width="70%" height="70%" />
 
 7. Once the installation is complete, you are greeted with a success message. Click *CLOSE*.  
 
-    <img src="images/c1_done.png" width="100%" height="100%" />
+    <img src="images/c1_done.png" width="70%" height="70%" />
 
 
 8. Press the *reset* button on the microcontroller board to make sure it boots from the new firmware.
@@ -107,29 +106,29 @@ The device is now *provisioned*, however it is not yet connected to any specific
 The provisioning process automatically re-connects the device and shows this dialog:
 
 
-<img src="images/d1_connect_wifi.png" width="100%" height="100%" />
+<img src="images/d1_connect_wifi.png" width="70%" height="70%" />
 
 If you do not want to configure *WiFi* at this point, click *CLOSE*. 
 
 > [!TIP]
-> You can always [return to this point](https://done.land/tools/software/esphome/configuringwifi) by connecting the microcontroller via USB cable, and opening [ESPHome Web Tool](https://web.esphome.io/) in your browser. Once the browser has connected to the microcontroller, click the *three-dot* menu to configure *WiFi access*.
+> You can always [return to this point](https://done.land/tools/software/esphome/introduction/configuringwifi) by connecting the microcontroller via USB cable, and opening [ESPHome Web Tool](https://web.esphome.io/) in your browser. Once the browser has connected to the microcontroller, click the *three-dot* menu to configure *WiFi access*.
 
 To *complete provisioning* and enable the device to automatically connect to your *WiFi*, click *CONNECT TO WI-FI*. 
 
 In a drop-down list, select the *WiFi SSID* you want to connect to, and provide the *WiFi password*. The connection is then tested, and provisioning is successfully completed.
 
-<img src="images/e1_provisioned.png" width="100%" height="100%" />
+<img src="images/e1_provisioned.png" width="70%" height="70%" />
 
 ## What's Next
 When you *supply power* to a microcontroller that has been *fully provisioned before*, it automatically boots with its *ESPHome firmware* and connects to your *WiFi*.
 
-Once it is online, it is automatically detected by *ESPHome* and appears as a *newly discovered* device that can be [adopted](https://done.land/tools/software/esphome/adoption) it. 
+Once it is online, it is automatically detected by *ESPHome* and appears as a *newly discovered* device that can be [adopted](https://done.land/tools/software/esphome/introduction/adoption) it. 
 
 During *adoption*, it receives its own individual *configuration file* and now is no longer *adoptable* by any *ESPHome instance*. 
 
-You can now [edit its configuration](https://done.land/tools/software/esphome/editconfiguration) and add specific logic to it as required.
+You can now [edit its configuration](https://done.land/tools/software/esphome/introduction/editconfiguration) and add specific logic to it as required.
 
 
 > Tags: EspHome, Provisioning, WiFi
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller?261597071511241259) - created 2024-06-01 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller?261597071511241259) - created 2024-06-01 - last edited 2024-07-13

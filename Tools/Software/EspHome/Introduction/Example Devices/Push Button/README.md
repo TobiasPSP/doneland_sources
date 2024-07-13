@@ -66,7 +66,7 @@ In more conventional *IDEs* like *Arduino IDE* or *platformio*, you would now op
 In *ESPHome*, you *describe* your hardware details and requirements by as adding lines to the *end* of your existing *default configuration*.
 
 > [!NOTE]
-> I am assuming you already [provisioned](https://done.land/tools/software/esphome/provisionnewesp) your microcontroller in *ESPHome*.   
+> I am assuming you already [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewesp) your microcontroller in *ESPHome*.   
 
 **Do not replace your default configuration altogether with the code below! Just *append* the hardware information to the default configuration.**
 
@@ -158,7 +158,7 @@ mapping values are not allowed here
 
 The most likely cause are wrong *indentation*, wrong *keyword order*, and missing *hyphens*.
 
-Always review the *ESPHome documentation* for the component you are using to see which keywords belong to the same entity, and [how they should be grouped](https://done.land/tools/software/esphome/editconfiguration#caveat-indentation).
+Always review the *ESPHome documentation* for the component you are using to see which keywords belong to the same entity, and [how they should be grouped](https://done.land/tools/software/esphome/introduction/editconfiguration#caveat-indentation).
 
 
 ## Uploading New Firmware
@@ -178,7 +178,7 @@ To test and diagnose a device in *Home Assistant*, click *Developer tools* in th
 
 
 > [!IMPORTANT]
-> If your sensor does not show up, you might [have to add it to *Home Assistant*](https://done.land/tools/software/esphome/addtohomeassistant) first. Check *Notifications* in the sidebar to see whether *Home Assistant* has auto-detected your device, and add it to *Home Assistant*.
+> If your sensor does not show up, you might [have to add it to *Home Assistant*](https://done.land/tools/software/esphome/introduction/addtohomeassistant) first. Check *Notifications* in the sidebar to see whether *Home Assistant* has auto-detected your device, and add it to *Home Assistant*.
 
 
 Next, click the text box below *Entity*, and enter part of the name of your device. You can now see its *entities*:
@@ -199,11 +199,11 @@ That's by design - and a key difference to *classic programming* where devices a
 
 In this case, though, you created an *ESPHome device* which is designed to be added to *Home Assistant* and become just one of many devices. In the following articles you'll see all remaining steps:
 
-* [Adding To Home Assistant:](https://done.land/tools/software/esphome/addtohomeassistant) By adding your device to *Home Assistant*, it can control *any other device*.
-* [Adding Automation:](https://done.land/tools/software/esphome/addingautomation) By adding an *automation*, you *teach Home Assistant* what it should *automatically do* whenever you press the button.
+* [Adding To Home Assistant:](https://done.land/tools/software/esphome/introduction/addtohomeassistant) By adding your device to *Home Assistant*, it can control *any other device*.
+* [Adding Automation:](https://done.land/tools/software/esphome/introduction/addingautomation) By adding an *automation*, you *teach Home Assistant* what it should *automatically do* whenever you press the button.
 
 
 
 > Tags: EspHome, Home Assistant, Push Button, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/pushbutton?114898061229240725) - created 2024-06-24 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/pushbutton?114898061229240725) - created 2024-06-24 - last edited 2024-07-13

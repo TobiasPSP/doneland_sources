@@ -140,4 +140,4 @@ Instead, make sure the *Home Assistant server* is **on the same network** with y
 
 > Tags: EspHome, Home Assistant, Discovery, Auto-Discovery, Adding
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/addtohomeassistant?002745061229240725) - created 2024-07-04 - last edited 2024-07-08
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/addtohomeassistant?002745061229240725) - created 2024-07-04 - last edited 2024-07-13

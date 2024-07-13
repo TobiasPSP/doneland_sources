@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="overview.svg">
+   sodipodi:docname="overview_esphome_parts.svg">
   <defs
      id="defs2">
     <marker
@@ -221,9 +221,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="549.12525"
-     inkscape:cy="396.46792"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="406.53994"
+     inkscape:cy="514.64373"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -13834,10 +13834,10 @@ mpcAAAAASUVORK5CYII=
        x="185.17111"
        y="127.86179" />
     <rect
-       style="fill:none;stroke:#e5c02b;stroke-width:0.499999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#e5c02b;stroke-width:0.44275;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect1009"
        width="108.02356"
-       height="81.677513"
+       height="64.044289"
        x="185.17111"
        y="127.86179" />
     <image
