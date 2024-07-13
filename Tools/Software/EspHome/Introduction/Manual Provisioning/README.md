@@ -67,7 +67,7 @@ Either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to y
 
 
 <details><summary>Downloading Generic Firmware File (aka *Prepare for first use* in *ESPHome Web Tool*)</summary><br/>
-The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
+The *default firmware file* used by *Prepare For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
 
 These are the *binary firmware files* I successfully used for various microcontroller types, distributed as *zip*-files that **need to be unpacked before use**:
