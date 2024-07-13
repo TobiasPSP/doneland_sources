@@ -60,18 +60,17 @@ Both tools essentially do the same thing: they upload a *binary firmware file* t
 
 Here are the two options you have:
 
-* **Generic Provisioning:** to mimick the *Prepare for first use* functionality and *provision a microcontroller* in a way that it can later be *adopted* by *ESPHome*, download the generic firmware file that *ESP Web Tool* uses: [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin)
-* **Configuration:** to mimick the *Install* functionality and upload a *hand-tailored firmware file*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
+* **Generic Provisioning:** to mimick the *Prepare for first use* functionality and *provision a microcontroller* in a way that it can later be *adopted* by *ESPHome*, **download** the generic firmware file that *ESP Web Tool* uses.
+* **Configuration:** to mimick the *Install* functionality and upload a *newly created firmware file* that works just for *one particular microcontroller*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
+
+Either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions to create the *binary firmware files* for both approaches:
 
 
+<details><summary>Downloading Generic Firmware File</summary><br/>
+The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
 
-> [!IMPORTANT]
-> The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type* and does not work with other types. The link above points to the firmware for *ESP32 S2* microcontrollers. If you need the download link for other microcontroller types, expand *Downloading Generic Firmware File* below.
-
-
-
-These are the *binary firmware files* I successfully used for various microcontroller types, distributed as *zip*-files that need to be unpacked before use:
+These are the *binary firmware files* I successfully used for various microcontroller types, distributed as *zip*-files that **need to be unpacked before use**:
 
 | Microcontroller | Generic ESPHome Provisioning Firmware File (zip) | Original Size (KB) | 
 | --- | --- | --- |
@@ -81,20 +80,24 @@ These are the *binary firmware files* I successfully used for various microcontr
 | ESP32-S3 | [esphome-web-esp32s3.factory.bin](binary_firmware_files/esphome-web-esp32s3.factory.zip) | 1.365 |
 | ESP32-C3 | [esphome-web-esp32c3.factory.bin](binary_firmware_files/esphome-web-esp32c3.factory.zip) | 1.516 |
 
+
+
+> [!IMPORTANT]
+> The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type*. Make sure you download and use the *firmware file* for the microcontroller you use.
+
+
+
+
+
 > [!NOTE]
 > Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
 
-In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions to create the *binary firmware files* for both approaches:
 
 
-<details><summary>Downloading Generic Firmware File</summary><br/>
-The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
-You can download the *bin* files I used (linked above). Just make sure you *unpack* the *zip*-file before use and use the *bin*-file, not the *zip*-file. 
+Those *firmware files* may be stale by the time you read this: they are based on *ESPHome 2026.6.6*. That's not really a problem as you *update to the latest ESPHome version anyway* when you later *adopt* the provisioned device into your *ESPHome Dashboard*. 
 
-Those *firmware files* may well be stale by the time you read this. They are based on *ESPHome 2026.6.6*. That's not really a problem as you *update to the latest ESPHome version anyway* when you later *adopt* the provisioned device into your *ESPHome Dashboard*. 
-
-Or you use the *urls* I figured out, keeping fingers crossed that they still point to the latest version of the *firmware file*:
+Alternatively, you can try and use the *urls* I figured out, hoping that they still work and point to the latest version of the *firmware file*:
 
 | Microcontroller | Firmware Download for *Prepare for first use* | 
 | --- | --- | 
@@ -104,32 +107,22 @@ Or you use the *urls* I figured out, keeping fingers crossed that they still poi
 | ESP32-S3 | [https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin](https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin) | 
 | ESP32-C3 | [https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin](https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin) | 
 
-If you would rather like to find out the *url* that *ESPHome Web Tool* is *currently* using, follow the procedure below:
+Or, you *figure out* the *url* that *ESPHome Web Tool* is using *right now*, follow the same procedure I originally used. This guarantees that you work with the *latest firmware file* and get exactly the same results that you would get by using the *ESPHome Web Tool today*:
 
-Visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. 
+1. Open the [ESPHome Web Tool](https://web.esphome.io/) in your browser.
+2. Connect *a supported microcontroller* to your computer via *USB cable* (i.e. *ESP32* or *ESP32-C3*). Do **not** connect the *problematic* microcontroller.
+3. Once *ESPHome Web Tool* is connected, on the web page, **right**-click the button *PREPARE FOR FIRST USE*. A context menu opens. Click *Inspect*. 
+4. This opens the browser *developer tools*. Click the tab *Network*.
 
-This opens the browser *developer tools*. Click the tab *Network*.
+    <img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
 
+5. Now, **normal**-click *PREPARE FOR FIRST USE* to actually start the firmware upload.
+6. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you are after. It carries the extension *.bin*:
+7. When you hover over its entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
 
-<img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
+The *firmware files* are **specific** for a given microcontroller type, so if you connected an *ESP32-C3*, you figured out the download url for the *firmware file* that works for this microcontroller type only. Simply compare the *url* you figured out with the table of *download urls* I figured out (see above). If your *url* matches the one in the table, simply use the *urls* in the table for the microcontroller type you are after. 
 
-Now, click *PREPARE FOR FIRST USE* to actually start the firmware upload. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you need. It carries the extension *.bin*:
-
-
-
-When you hover over its entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
-
-The *firmware files* are **specific** for a given microcontroller type, so if you connected a *ESP32-C3*, the firmware file works for this microcontroller type only. However, once you know the *firmware file url*, it is no rocket science to change it to other microcontroller types: by replacing the two instances of **c3** with **s2**, you get the *url* for *ESP32-S2*.
-
-This is the *url* that worked for me and *ESP32 S2*:
-````
-https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin
-````
-
-Since this seems to be a *nonpublic url*, it can change any time without notice. 
-
-
-
+If the *url* differs from the ones in the table, then meanwhile the *url structure* or *general download location* must have changed. In this case, try and adjust the *url* you just figured out and make it point to the *firmware file* for other microcontroller types: replace any instance of the microcontroller type, i.e. **c3**, with the *required type*, i.e. **s2**. Note that this type designator may appear more than once in the url. Replace all occurances. This way, you get the *url* for the microcontroller you need.
 
 Maybe there are easier ways to get these files, and possibly they are even part of a public repository. I searched for many hours without luck. If you find a better way, please leave a comment below.
 
