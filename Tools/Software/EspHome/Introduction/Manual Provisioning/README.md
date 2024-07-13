@@ -97,7 +97,7 @@ These are the *firmware files* I used for various microcontroller types, downloa
 
 Those *firmware files* may be stale by the time you read this: they are based on *ESPHome 2026.6.6*. That's not really a problem as you *update to the latest ESPHome version anyway* when you later *adopt* the provisioned device into your *ESPHome Dashboard*. 
 
-Alternatively, you can try and use the *urls* I figured out, hoping that they still work and point to the latest version of the *firmware file*:
+However, you can try and use the *original urls*, hoping that they still work and meanwhile point to a more recent version of the *firmware file*:
 
 | Microcontroller | Firmware Download for *Prepare for first use* | 
 | --- | --- | 
