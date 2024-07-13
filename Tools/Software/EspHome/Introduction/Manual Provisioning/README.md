@@ -177,4 +177,4 @@ You can configure *WiFi* now (and complete the *provisioning process*), or do it
 
 > Tags: EspHome, Firmware, Upload, ESP32 S2 Mini, ESPHome Web Tool, Adafruit ESPTool
 
-[Visit Page on Website](https://done.land/tools/software/esphome/manualprovisioning?134804061917245543) - created 2024-06-02 - last edited 2024-07-02
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/manualprovisioning?134804061917245543) - created 2024-06-02 - last edited 2024-07-02

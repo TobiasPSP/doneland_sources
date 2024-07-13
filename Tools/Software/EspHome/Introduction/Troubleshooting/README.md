@@ -51,4 +51,4 @@ If you'd like to use *ping* instead of *mDNS* to check availability, in *Home As
 
 > Tags: EspHome, Troubleshooting
 
-[Visit Page on Website](https://done.land/tools/software/esphome/troubleshooting?181356071911242818) - created 2024-07-10 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/troubleshooting?181356071911242818) - created 2024-07-10 - last edited 2024-07-10

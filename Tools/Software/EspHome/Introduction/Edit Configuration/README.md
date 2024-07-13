@@ -172,4 +172,4 @@ You just successfully re-programmed your microcontroller - without writing any c
 
 > Tags: EspHome, Home Assistant, Configuration, Programming, YAML, Validation
 
-[Visit Page on Website](https://done.land/tools/software/esphome/editconfiguration?070255061229240725) - created 2024-06-10 - last edited 2024-07-04
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/editconfiguration?070255061229240725) - created 2024-06-10 - last edited 2024-07-04

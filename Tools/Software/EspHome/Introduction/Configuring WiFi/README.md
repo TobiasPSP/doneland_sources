@@ -40,4 +40,4 @@ Part of the default *ESPHome* provisioning firmware is *improv_serial* (*improv*
 
 > Tags: EspHome, WiFi, Improv, SSID, Configure
 
-[Visit Page on Website](https://done.land/tools/software/esphome/configuringwifi?051647071511241259) - created 2024-06-04 - last edited 2024-07-10
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/configuringwifi?051647071511241259) - created 2024-06-04 - last edited 2024-07-10

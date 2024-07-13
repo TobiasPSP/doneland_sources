@@ -65,4 +65,4 @@ There is another control panel that you may visit. It is not related to your *ES
 
 > Tags: EspHome, Home Assistant, Entities, Entity, Configuration, Options
 
-[Visit Page on Website](https://done.land/tools/software/esphome/reviewdeviceentities?200026061229240725) - created 2024-07-06 - last edited 2024-07-09
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/reviewdeviceentities?200026061229240725) - created 2024-07-06 - last edited 2024-07-09
