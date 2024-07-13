@@ -106,7 +106,9 @@ Or you use the *urls* I figured out, keeping fingers crossed that they still poi
 
 If you would rather like to find out the *url* that *ESPHome Web Tool* is *currently* using, follow the procedure below:
 
-Visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
+Visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. 
+
+This opens the browser *developer tools*. Click the tab *Network*.
 
 
 <img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
