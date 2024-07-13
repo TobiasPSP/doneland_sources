@@ -107,7 +107,7 @@ However, you can try and use the *original urls*, hoping that they still work an
 | ESP32-S3 | [https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin](https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin) | 
 | ESP32-C3 | [https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin](https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin) | 
 
-Or, you *figure out* the *url* that *ESPHome Web Tool* is using *right now*, follow the same procedure I originally used. This guarantees that you work with the *latest firmware file* and get exactly the same results that you would get by using the *ESPHome Web Tool today*:
+Or, you *figure out* the *url* that *ESPHome Web Tool* is using *right now*: follow the same procedure I originally used. This guarantees that you work with the *latest firmware file* and get exactly the same results that you would get by using the *ESPHome Web Tool today*:
 
 1. Open the [ESPHome Web Tool](https://web.esphome.io/) in your browser.
 2. Connect *a supported microcontroller* to your computer via *USB cable* (i.e. *ESP32* or *ESP32-C3*). Do **not** connect the *problematic* microcontroller.
