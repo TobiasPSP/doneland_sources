@@ -113,7 +113,7 @@ This opens the browser *developer tools*. Click the tab *Network*.
 
 <img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
 
-Now, click *PREPARE FOR FIRST USE* to start the firmware upload. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you need. It carries the extension *.bin*:
+Now, click *PREPARE FOR FIRST USE* to actually start the firmware upload. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you need. It carries the extension *.bin*:
 
 
 
