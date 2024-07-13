@@ -71,7 +71,7 @@ Here are the two options you have:
 These are the *binary firmware files* I successfully used for various microcontroller types:
 
 | Microcontroller | Generic ESPHome Provisioning Firmware File | Size (KB) | 
-| --- | --- |
+| --- | --- | --- |
 | ESP8266 | [esphome-web-esp8266.factory.bin](./binary_firmware_files/esphome-web-esp8266.factory.bin) | 418 |
 | ESP32 | [esphome-web-esp32.factory.bin](./binary_firmware_files/esphome-web-esp32.factory.bin) | 1.602 |
 | ESP32-S2 | [esphome-web-esp32s2.factory.bin](./binary_firmware_files/esphome-web-esp32s2.factory.bin) | 864 |
