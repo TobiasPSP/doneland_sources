@@ -96,7 +96,7 @@ Those *firmware files* may well be stale by the time you read this. They are bas
 
 Or you use the *urls* I figured out, keeping fingers crossed that they still point to the latest version of the *firmware file*:
 
-| Microcontroller | Firmware Download | 
+| Microcontroller | Firmware Download for *Prepare for first use* | 
 | --- | --- | 
 | ESP8266 | [https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin](https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin) | 
 | ESP32 | [https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin](https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin) | 
