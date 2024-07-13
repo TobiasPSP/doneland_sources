@@ -84,13 +84,29 @@ These are the *binary firmware files* I successfully used for various microcontr
 > [!NOTE]
 > Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
 
-In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions for both approaches:
+In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions to create the *binary firmware files* for both approaches:
 
 
 <details><summary>Downloading Generic Firmware File</summary><br/>
 The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
-To find out the *url*, just visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
+You can download the *bin* files I used (linked above). Just make sure you *unpack* the *zip*-file before use and use the *bin*-file, not the *zip*-file. 
+
+Those *firmware files* may well be stale by the time you read this. They are based on *ESPHome 2026.6.6*. That's not really a problem as you *update to the latest ESPHome version anyway* when you later *adopt* the provisioned device into your *ESPHome Dashboard*. 
+
+Or you use the *urls* I figured out, keeping fingers crossed that they still point to the latest version of the *firmware file*:
+
+| Microcontroller | Firmware Download | 
+| --- | --- | 
+| ESP8266 | [https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin](https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin) | 
+| ESP32 | [https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin](https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin) | 
+| ESP32-S2 | [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin) | 
+| ESP32-S3 | [https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin](https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin) | 
+| ESP32-C3 | [https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin](https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin) | 
+
+If you would rather like to find out the *url* that *ESPHome Web Tool* is *currently* using, follow the procedure below:
+
+Visit the [ESPHome Web Tool](https://web.esphome.io/), connect it via *USB cable* to a supported microcontroller (i.e. *ESP32* or *ESP32-C3*). Once connected, right-click *PREPARE FOR FIRST USE*, and in the context menu click *Inspect*. This opens the browser *developer tools*. Click the tab *Network*.
 
 
 <img src="images/google_chrome_devtools_bin.png" width="100%" height="100%" />
