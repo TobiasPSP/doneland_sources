@@ -99,7 +99,7 @@ Those *firmware files* may be stale by the time you read this: they are based on
 
 However, you can try and use the *original urls*, hoping that they still work and meanwhile point to a more recent version of the *firmware file*:
 
-| Microcontroller | Firmware Download for *Prepare for first use* | 
+| Microcontroller | Original Firmware Download Urls for *Prepare for first use* | 
 | --- | --- | 
 | ESP8266 | [https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin](https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin) | 
 | ESP32 | [https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin](https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin) | 
@@ -120,9 +120,9 @@ Or, you *figure out* the *url* that *ESPHome Web Tool* is using *right now*: fol
 6. In the *Network* tab, you see the *urls* from which the tool downloads files. The list contains a bunch of *javascript files* plus the *binary firmware file* you are after. It carries the extension *.bin*:
 7. When you hover over its entry or click it with the right mouse button, you see the full *url* and can open it in a separate browser tab (which essentially downloads it).
 
-The *firmware files* are **specific** for a given microcontroller type, so if you connected an *ESP32-C3*, you figured out the download url for the *firmware file* that works for this microcontroller type only. Simply compare the *url* you figured out with the table of *download urls* I figured out (see above). If your *url* matches the one in the table, simply use the *urls* in the table for the microcontroller type you are after. 
+The *firmware files* are **specific** for a given microcontroller type, so if you connected an *ESP32-C3*, you figured out the download url for the *firmware file* that works for this microcontroller type only. Simply compare the *url* you figured out with the table of *download urls* I figured out a while ago (see above). If your *url* matches the one in the table, then they apparently haven't changed, and you can simply use the *url* in the table that matches your microcontroller type. 
 
-If the *url* differs from the ones in the table, then meanwhile the *url structure* or *general download location* must have changed. In this case, try and adjust the *url* you just figured out and make it point to the *firmware file* for other microcontroller types: replace any instance of the microcontroller type, i.e. **c3**, with the *required type*, i.e. **s2**. Note that this type designator may appear more than once in the url. Replace all occurances. This way, you get the *url* for the microcontroller you need.
+If however the *url* differs from the ones in the table, then apparently the *url structure* or *general download location* has changed. In this case, simply try and adjust the *url* you just figured out to make it point to the *firmware file* for the microcontroller type you need: replace any instance of microcontroller type, i.e. **c3**, in the *url* you just figured out, with the *required type*, i.e. **s2**. Note that the microcontroller type may appear more than once in the url. Replace all occurances. This way, you get the *url* for the microcontroller you need.
 
 Maybe there are easier ways to get these files, and possibly they are even part of a public repository. I searched for many hours without luck. If you find a better way, please leave a comment below.
 
