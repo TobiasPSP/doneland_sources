@@ -23,7 +23,7 @@ This article assumes that you already completed these steps:
 
 <details><summary>Recap: How To Successfully Provision A New EspHome Device</summary><br/>   
 
-Let's recap the process of *initializing* a new microcontroller in *ESPHome*:
+Let's recap the process of one of the many ways to *initialize* a new microcontroller in *ESPHome*:
 
 1. **Create New Device:** inside the *ESPHome Dashboard*, create a new device during which you will be asked to *name* your project, and to select the type of *microcontroller* you are using. At the end of the creation process, the dialog offers to *Install* the created firmware to your microcontroller. Choose *Skip*.
 
@@ -50,6 +50,8 @@ Let's recap the process of *initializing* a new microcontroller in *ESPHome*:
 
   <img src="images/5_online.png" width="80%" height="80%" />
 
+> [!TIP]
+> If this quick guide did not work for you, start with [provisioning a new microcontroller](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller).
 
 </details>
 
