@@ -68,7 +68,8 @@ Either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to y
 
 <details><summary>Downloading Generic Firmware File (aka *Prepare for first use* in *ESPHome Web Tool*)</summary><br/>
 The *default firmware file* that is used by *Prepare For First Use* in *ESPHome Web Tool* is not officially advertised as a separate download. *ESPHome Web Tool* loads it from a *non-public url* that can change without notice.    
- 
+
+
 These are the *firmware files* I used for various microcontroller types, downloadable as *zip*-files that **need to be unpacked before use**:
 
 | Microcontroller | Generic ESPHome Provisioning Firmware File (zip) | Original Size (KB) | 
