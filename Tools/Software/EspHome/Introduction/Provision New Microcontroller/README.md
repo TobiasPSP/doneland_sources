@@ -20,6 +20,72 @@ Any microcontroller that is supported by *ESPHome* can be provisioned:
 > [!NOTE]
 > In practice, this is not always trivial since commercial devices typically have neither USB ports nor UART chips to upload new firmware.
 
+<details><summary>Support for ESP32-C6 and ESP32-H2</summary><br/>
+
+Currently, of the *Espressif* family of microcontrollers, *ESP8266*, *ESP32*, *ESP32-S2*, *ESP32-S3*, and *ESP32-C3* are fully supported.
+
+
+<img src="images/provision_supported_controllers.png" width="60%" height="60%" />
+
+
+If you'd like to use *ESP32-H2* or *ESP32-C6* today, this is already possible - provided you are willing to *experiment*, use the *esp-idf* framework instead of *Arduino*, and work with some *alternate tools* that do not seamlessly integrate in *ESPHome*.
+
+Here is a *configuration* targeting *ESP32-C6*:
+
+````
+esphome:
+  name: esp32-c6
+  friendly_name: esp32 c6
+
+esp32:
+  board: esp32-c6-devkitc-1
+  flash_size: 8MB
+  variant: esp32c6
+  framework:
+    type: esp-idf
+    version: "5.2.1"
+    platform_version: 6.6.0
+    sdkconfig_options:
+      CONFIG_OPENTHREAD_ENABLED: n
+      CONFIG_ENABLE_WIFI_STATION: y
+      CONFIG_USE_MINIMAL_MDNS: y
+      CONFIG_ESPTOOLPY_FLASHSIZE_8MB: y
+
+# fix for logger from luar123
+external_components:
+    - source: github://luar123/esphome@fix_logger
+      components: [ logger ]
+      refresh: never
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "..."
+
+ota:
+  - platform: esphome
+    password: "..."
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-C6 Fallback Hotspot"
+    password: "..."
+
+captive_portal:
+````
+
+You can *compile* it in *ESPHome*. To upload the resulting *firmware file*, you need to use a tool like [esptool-js](https://github.com/espressif/esptool-js) though since [ESPHome Web Tool](https://web.esphome.io/) and the [ESPHome] tool chain aren't supporting those microcontrollers yet.
+
+In any respect, it illustrates that it is just a matter of time until *ESPHome* adds full support for the latest *ESP family members*.
+
+</details>
 
 ## Provisioning Strategies
 There are two ways of provisioning a microcontroller for use with *ESPHome*:
