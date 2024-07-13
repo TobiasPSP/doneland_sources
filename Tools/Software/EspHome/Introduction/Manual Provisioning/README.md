@@ -70,13 +70,16 @@ Here are the two options you have:
 
 These are the *binary firmware files* I successfully used for various microcontroller types:
 
-| Microcontroller | Generic ESPHome Provisioning Firmware File | Size (KB) | 
+| Microcontroller | Generic ESPHome Provisioning Firmware File (zip) | Original Size (KB) | 
 | --- | --- | --- |
-| ESP8266 | [esphome-web-esp8266.factory.bin](binary_firmware_files/esphome-web-esp8266.factory.bin) | 418 |
-| ESP32 | [esphome-web-esp32.factory.bin](binary_firmware_files/esphome-web-esp32.factory.bin) | 1.602 |
-| ESP32-S2 | [esphome-web-esp32s2.factory.bin](binary_firmware_files/esphome-web-esp32s2.factory.bin) | 864 |
-| ESP32-S3 | [esphome-web-esp32s3.factory.bin](binary_firmware_files/esphome-web-esp32s3.factory.bin) | 1.365 |
-| ESP32-C3 | [esphome-web-esp32c3.factory.bin](binary_firmware_files/esphome-web-esp32c3.factory.bin) | 1.516 |
+| ESP8266 | [esphome-web-esp8266.factory.zip](binary_firmware_files/esphome-web-esp8266.factory.zip) | 418 |
+| ESP32 | [esphome-web-esp32.factory.zip](binary_firmware_files/esphome-web-esp32.factory.zip) | 1.602 |
+| ESP32-S2 | [esphome-web-esp32s2.factory.zip](binary_firmware_files/esphome-web-esp32s2.factory.zip) | 864 |
+| ESP32-S3 | [esphome-web-esp32s3.factory.zip](binary_firmware_files/esphome-web-esp32s3.factory.zip) | 1.365 |
+| ESP32-C3 | [esphome-web-esp32c3.factory.zip](binary_firmware_files/esphome-web-esp32c3.factory.zip) | 1.516 |
+
+> [!IMPORTANT]
+> Make sure you unpack the downloaded *zip* files before use. 
 
 > [!NOTE]
 > Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
