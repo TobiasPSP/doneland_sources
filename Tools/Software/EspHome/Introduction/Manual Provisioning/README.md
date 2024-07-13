@@ -90,7 +90,7 @@ These are the *firmware files* I used for various microcontroller types, downloa
 
 
 > [!NOTE]
-> Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
+> Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (*WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
 
 
 
