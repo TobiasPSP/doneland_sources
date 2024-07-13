@@ -84,9 +84,7 @@ These are the *binary firmware files* I successfully used for various microcontr
 > [!NOTE]
 > Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
 
-In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. 
-
-Here are the step-by-step instructions for both approaches:
+In either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions for both approaches:
 
 
 <details><summary>Downloading Generic Firmware File</summary><br/>
