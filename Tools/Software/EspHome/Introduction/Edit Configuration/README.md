@@ -19,7 +19,7 @@ It is really this simple.
 This article assumes that you already completed these steps:
 
 * [ESPHome installed:](https://done.land/tools/software/esphome#installation) *ESPHome* should be up and running already, either as part of *Home Assistant*, or *stand-alone*
-* [New Device created:](https://done.land/tools/software/esphome/introduction/provisionnewesp#adding-new-esphome-device) You created a *new device* in the *ESPHome Dashboard* and ensured that it is marked *ONLINE*.  
+* [New ESPHome Device created:]([https://done.land/tools/software/esphome/introduction/provisionnewesp#adding-new-esphome-device](https://done.land/tools/software/esphome/introduction/provisioningdirectly#add-new-device)) You created a *new device* in the *ESPHome Dashboard*, or you [adopted](https://done.land/tools/software/esphome/introduction/adoption) a microcontroller that you previously [provisioned for ESPHome](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller), and ensured that it is marked *ONLINE* (that it is fully working and ready for action).
 
 <details><summary>Recap: How To Successfully Provision A New EspHome Device</summary><br/>   
 
