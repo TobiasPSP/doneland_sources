@@ -121,4 +121,4 @@ In the case of this breaking change, adding the line  `- platform: esphome` to t
 
 > Tags: EspHome, Configuration, OTA, Breaking Change
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/defaultconfiguration?509558071812240227) - created 2024-06-08 - last edited 2024-07-13
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/defaultconfiguration?509558071812240227) - created 2024-06-08 - last edited 2024-07-12

@@ -131,4 +131,4 @@ You can now [edit its configuration](https://done.land/tools/software/esphome/in
 
 > Tags: EspHome, Provisioning, WiFi
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller?261597071511241259) - created 2024-06-01 - last edited 2024-07-13
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller?261597071511241259) - created 2024-06-01 - last edited 2024-07-12

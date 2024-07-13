@@ -104,4 +104,4 @@ If your board does *not* show *ONLINE* after a few seconds, review the [troubles
 
 > Tags: EspHome, Provision, USB Cable, Configuration
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisioningdirectly?350408071511241259) - created 2024-06-03 - last edited 2024-07-13
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/provisioningdirectly?350408071511241259) - created 2024-06-03 - last edited 2024-07-12

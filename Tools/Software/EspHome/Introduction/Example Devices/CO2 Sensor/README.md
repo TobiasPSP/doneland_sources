@@ -93,4 +93,4 @@ Without diving too much into detail, all of this is highly customizable: you con
 
 > Tags: EspHome, Home Assistant, CO2, Sensor, Sensirion, SCD30
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor?036545061229240725) - created 2024-07-01 - last edited 2024-07-13
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor?036545061229240725) - created 2024-07-01 - last edited 2024-07-12

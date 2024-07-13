@@ -64,4 +64,4 @@ You can now click *EDIT* and review or expand your device *configuration*, save 
 
 > Tags: EspHome, Adopt
 
-[Visit Page on Website](https://done.land/tools/software/esphome/introduction/adoption?010732071511241259) - created 2024-06-07 - last edited 2024-07-13
+[Visit Page on Website](https://done.land/tools/software/esphome/introduction/adoption?010732071511241259) - created 2024-06-07 - last edited 2024-07-12
