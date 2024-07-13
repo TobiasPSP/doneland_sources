@@ -66,7 +66,7 @@ Here are the two options you have:
 Either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions to create the *binary firmware files* for both approaches:
 
 
-<details><summary>Downloading Generic Firmware File</summary><br/>
+<details><summary>Downloading Generic Firmware File (aka *Prepare for first use* in *ESPHome Web Tool*)</summary><br/>
 The *default firmware file* used by *Provision For First Use* is used internally by the *ESPHome Web Tool*. Its *url* is not actively communicated and can change without notice. 
 
 
@@ -128,7 +128,7 @@ Maybe there are easier ways to get these files, and possibly they are even part 
 
 </details>
 
-<details><summary>Creating Firmware File For One Specific Microcontroller</summary><br/>
+<details><summary>Creating Firmware File For One Specific Microcontroller (aka *Install* in *ESPHome Web Tool*)</summary><br/>
 
 If you deal with just a *single* microcontroller and would like to *immediately* put it to work, then this is what you do to create the *firmware file*:
 
