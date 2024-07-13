@@ -33,7 +33,7 @@ Connecting and uploading new *firmware* via *USB cables* is technically challeng
 
 
 
-TCommunication via *USB* is technically not at all straight-forward: a variety of techniques are used by which microcontrollers and boards can transfer information via *USB*: 
+Communication via *USB* is technically not strictly standardized: a variety of techniques exist by which microcontrollers and boards can transfer information via *USB*: 
 
 * **Native USB support:** newer microcontrollers come with native *USB support* built-in. However, there are different levels of native *USB support*.
   * **USB OTG (On-The-Go):** found in *ESP32-S2* and *ESP32-S3*
@@ -64,22 +64,22 @@ Here are the two options you have:
 * **Configuration:** to mimick the *Install* functionality and upload a *hand-tailored firmware file*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
 
 
+
+
 > [!IMPORTANT]
 > The *generic* firmware file that you download from *firmware.esphome.io* is *targeting a specific microcontroller type* and does not work with other types. The link above points to the firmware for *ESP32 S2* microcontrollers. If you need the download link for other microcontroller types, expand *Downloading Generic Firmware File* below.
-> 
 
-These are the *binary firmware files* I successfully used for various microcontroller types:
+
+
+These are the *binary firmware files* I successfully used for various microcontroller types, distributed as *zip*-files that need to be unpacked before use:
 
 | Microcontroller | Generic ESPHome Provisioning Firmware File (zip) | Original Size (KB) | 
 | --- | --- | --- |
-| ESP8266 | [esphome-web-esp8266.factory.zip](binary_firmware_files/esphome-web-esp8266.factory.zip) | 418 |
-| ESP32 | [esphome-web-esp32.factory.zip](binary_firmware_files/esphome-web-esp32.factory.zip) | 1.602 |
-| ESP32-S2 | [esphome-web-esp32s2.factory.zip](binary_firmware_files/esphome-web-esp32s2.factory.zip) | 864 |
-| ESP32-S3 | [esphome-web-esp32s3.factory.zip](binary_firmware_files/esphome-web-esp32s3.factory.zip) | 1.365 |
-| ESP32-C3 | [esphome-web-esp32c3.factory.zip](binary_firmware_files/esphome-web-esp32c3.factory.zip) | 1.516 |
-
-> [!IMPORTANT]
-> Make sure you unpack the downloaded *zip* files before use. 
+| ESP8266 | [esphome-web-esp8266.factory.bin](binary_firmware_files/esphome-web-esp8266.factory.zip) | 418 |
+| ESP32 | [esphome-web-esp32.factory.bin](binary_firmware_files/esphome-web-esp32.factory.zip) | 1.602 |
+| ESP32-S2 | [esphome-web-esp32s2.factory.bin](binary_firmware_files/esphome-web-esp32s2.factory.zip) | 864 |
+| ESP32-S3 | [esphome-web-esp32s3.factory.bin](binary_firmware_files/esphome-web-esp32s3.factory.zip) | 1.365 |
+| ESP32-C3 | [esphome-web-esp32c3.factory.bin](binary_firmware_files/esphome-web-esp32c3.factory.zip) | 1.516 |
 
 > [!NOTE]
 > Firmware files for microcontrollers without *bluetooth support* (*ESP8266* and *ESP32-S2*) do not include *Improv-BLE* (for *WiFi* configuration via bluetooth). Their firmware file sizes are considerably smaller.
