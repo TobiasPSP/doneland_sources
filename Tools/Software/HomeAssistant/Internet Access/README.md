@@ -17,36 +17,26 @@ If you'd like to visit the *Home Assistant UI* from outside your private network
 * [Cloudflare Tunnel:](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/) *Tunnels* work similar to *VPN* in that they allow secure access to your private network. *Cloudflare* is a renown US-based CDN and Internet Security company that offers *free accounts* enabling you to set up a *tunnel*. Combined with a matching [Home Assistant integration](https://github.com/brenner-tobias/addon-cloudflared), this resembles a technically robust and *free* solution. You do need to own a *domain name* or register one. Any domain name will do. Domain registration starts at €5/year. 
 * **Port forwarding:** this is *insecure* and not recommended since you are making a *port* publicly available at your *Router*. It adds a *dangerous attack surface* since now *anyone in the world* can access this port and try and break into your *home automation systems*. On top, most *Internet Service Providers* assign *dynamic IP addresses* to private customers, so you would have to set up additional services in order to *know* what the currently assigned *IP address* of your home is.
 
+If you don't mind the monthly charge, then *Home Assistant Cloud* is probably the easiest, safest, and most complete type of remote access you can get. Accessing *Home Assistant* via its built-in [Remote UI](https://www.nabucasa.com/config/remote/) just requires a *paid Nabu Casa account* and setting up the [Home Assistant Cloud](https://www.nabucasa.com/config/). Setting this up is well explained in the links provided above and not covered here in any more detail.
 
-## Remote UI
-Accessing *Home Assistant* via its built-in [Remote UI](https://www.nabucasa.com/config/remote/) just requires a *paid Nabu Casa account* and setting up the [Home Assistant Cloud](https://www.nabucasa.com/config/).
+If all you need is using the web based *Home Assistant front-end* from abroad, and you are not asking for devices or your phone to sending back sensor data while being away from your home network, then the *Cloudflare tunnel* in combination with the *Home Assistant add-on **cloudflared*** is probably the second best solution.
 
-Setting this up is well explained in the links provided above and not covered here in any more detail.
+Since the latter requires a few configuration steps on your part, setting it up is explained in great detail below.
 
 ## Using Cloudflare Tunnel
 
-Using a *Cloudflare Tunnel* to access *Home Assistant remotely* is probably one of the best **free** solutions and relatively simple to set up. 
+Here are the configuration steps to set up a *Cloudflare tunnel* to remotely access *Home Assistant* in a browser:
 
-Here is what you need:
-
-* [Free Cloudflare Account:](https://dash.cloudflare.com/sign-up) Sign up for a free Cloudflare account
-* **Domain Name:** if you do not own a domain name yet, *register one*. There are numerous places where you can register domain names, and you can register new domains also from within your *Cloudflare account* once you logged in.
-
-> [!TIP]
-> The *name* and *ending* of your domain name is technically irrelevant. There are tremendous differences in registration cost, so simply choose a less popular *domain name* for as little money as possible.
-
-Here are the configuration steps that we perform step-by-step in the remaining sections:
-
-* **Register Domain:** if you don't yet own a *domain*, register one
-* **Add Domain To Cloudflare:** add the *domain* to *CloudFlare* so *Cloudflare* can control *DNS* for it
+* **Grant permission:** in *Home Assistant*, grant permission for the *add-on cloudflared* to act as a *proxy* for you. This is the most technical part as this permission is not controllable via simple controls in the user interface but requires adding a few lines to a *Home Assistant file*.
+* **Cloudflare:** create a *free Cloudflare account*, register a domain name, and switch the domain DNS to *Cloudflare*.
 * 
 
 
 
-### Configure Home Assistant
+## Configure Home Assistant
 This step is probably the hardest part because it involves editing a *Home Assistant file*. 
 
-#### Advanced Setting
+### Advanced Setting
 
 This configuration step is necessary because the add-on *cloudflared* needs permission to send requests on your behalf - after all *cloudflared* is your *proxy* (or *puppet*) that does *locally* what you ask it to do *remotely* via the *tunnel*. 
 
@@ -56,10 +46,10 @@ These prerequisites are really the hardest part, and I am starting with this so 
 
 Cheer up, this step isn't really hard, and the remaining steps are really a piece of cake and just a few clicks. As a reward for your effort, you get an awesome and robust *Home Assistant remote access* - so don't feel discouraged easily. 
 
-#### Install Editor Add-On
+### Install Editor Add-On
 If you haven't installed an editor add-on yet, you may want to look into add-ons like *File Editor* or *Studio Code Server*. Installing such add-ons is not part of this article and works no different from any other *add-on*.
 
-#### Granting Proxy Permission
+### Granting Proxy Permission
 Once the *editor add-on* is visible in the *Home Assistant sidebar*, this is what you do:
 
 1. In *Home Assistant*, open a *file editor*. There is no file editor installed by default. You need to install a *file editor add-on* yourself.
@@ -79,11 +69,13 @@ Once the *editor add-on* is visible in the *Home Assistant sidebar*, this is wha
 4. Click *RESTART*, then *Restart Home Assistant* to fully restart *Home Assistant*.
 
 
-### Signing Up With CloudFlare
+
+## Signing Up With CloudFlare
 Start by creating your new free account with [CloudFlare](https://dash.cloudflare.com/sign-up). 
 
 > [!TIP]
 > An overview of its services and what you can do with your account can be found [here](https://developers.cloudflare.com/fundamentals/setup/).
+
 
 ### Registering Domain Name
 Register a new domain name with [United Domains](https://www.united-domains.de/),  [Namecheap](https://www.namecheap.com/), [GoDaddy](https://www.godaddy.com/) or any other registrar.
@@ -93,12 +85,31 @@ Register a new domain name with [United Domains](https://www.united-domains.de/)
 > "Free" domain names from services like [FreeNom](https://www.freenom.com/) do not work.
 
 
-Once you signed in into *Cloudflare* with your new account, you can register new domains right here as well:
+Once you signed up with *Cloudflare* and logged into the *Cloudflare dashboard*, you can register a new domain right there, too. In this case you do not need to separately switch *DNS* for the domain to *Cloudflare*.
 
 <img src="images/1_register_domain_cloudflare.png" width="100%" height="100%" />
 
 > [!NOTE]
 > Save cost by choosing a less popular *domain name*: *fredslittlehomeautomation.online* currently costs €3 in first year whereas *myhome.cloud* is available for €9.554.
+
+
+
+### Add Domain DNS To Cloudflare
+Switch the *DNS* for your *domain* to *Cloudflare* so *Cloudflare* can manage it:
+
+1. Log into your *Cloudflare dashboard*, and in the sidebar click *Websites*. 
+2. lick *Add a site* to add your domain name. Follow the instructions.
+
+## Install Add-On "Cloudflared"
+
+On *Home Assistant*, install the *add-on Cloudflared*. It automatically creates the *Cloudflare tunnel* for you and acts as a *proxy*: it invokes *locally inside Home Assistant* what you requested *remotely*.
+
+Here are the three steps required:
+
+* **Add-On Store:** make sure the add-on is available in the *Home Assistant Add-On Store*
+* **Install:** install the add-on from the store
+* **Configure:** set the domain name that you want to use to externally access *Home Assistant*
+* **Launch Add-On:** launch the add-on, let it auto-create the tunnel, and authorize it in your *Cloudflare dashboard*
 
 ### Make Cloudflared Add-On Available
 The add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) is not part of the "official" *Home Assistant* add-ons. To be able to *install* it in the *Home Assistant Add-On Store*, it first must be added to the list of available add-ons:
@@ -126,7 +137,7 @@ The add-on [Cloudflared](https://github.com/brenner-tobias/addon-cloudflared) is
 > You have just *added the source location* of the *add-on* to your *Add-On Store* so you can later *install* it. The *add-on* is at this point not yet installed (see next step).
 
 
-## Install Cloudflared Add-On
+### Install Cloudflared Add-On
 Next, *install* the *cloudflared* add-on:
 
 1. In the *Home Assistant sidebar*, click *Settings*, then *Add-ons*. This opens a page with all of your currently installed *add-ons*.
@@ -191,5 +202,5 @@ You are greeted with the *Home Assistant login* and can now use your credentials
 <img src="images/16_using_cloudflared_with_ha_remotely.png" width="100%" height="100%" />
 
 
-> Tags: Home Assistant, Internet, Access, Cloudflare, 
+> Tags: Home Assistant, Internet, Access, Cloudflare, Cloudflared, Proxy, Remote Access 
 
