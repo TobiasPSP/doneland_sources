@@ -29,12 +29,15 @@ Here are the configuration steps to set up a *Cloudflare tunnel* to remotely acc
 
 * **Grant permission:** in *Home Assistant*, grant permission for the *add-on cloudflared* to act as a *proxy* for you. This is the most technical part as this permission is not controllable via simple controls in the user interface but requires adding a few lines to a *Home Assistant file*.
 * **Cloudflare:** create a *free Cloudflare account*, register a domain name, and switch the domain DNS to *Cloudflare*.
-* 
+* **Install Cloudflared:** install the *Home Assistant add-on CloudFlared*, and tell it the *domain name* you want to use for external access. It automatically creates the *Cloudflare tunnel* for you.
+* **Authorize Tunnel:** Authorize the new tunnel in your *Cloudflare Dashboard*, and assign it the *domain name*. 
+
+Done: you now can access your *Home Assistant Dashboard* from anywhere in the world by entering the *domain name* into a browser window.
 
 
 
 ## Configure Home Assistant
-This step is probably the hardest part because it involves editing a *Home Assistant file*. 
+This step is probably the hardest part because it involves editing a *Home Assistant file*. The rest is simple.
 
 ### Advanced Setting
 
@@ -158,7 +161,7 @@ Next, *install* the *cloudflared* add-on:
 
 
 ### Configure Cloudflared
-Now it is time to teach *cloudflared* the *domain name* you want to use to access *Home Assistant*. For this, in the *add-on page*, at the top click *Configuration*.
+Teach *cloudflared* the *domain name* you want to use to access *Home Assistant*. For this, in the *add-on page*, at the top click *Configuration*.
 
 
 
@@ -172,7 +175,7 @@ Now it is time to teach *cloudflared* the *domain name* you want to use to acces
 
 
 ### Launch Cloudflared
-Now it is time to *start* the add-on *cloudflared*:
+*Start* the add-on *cloudflared*:
 
 1. At the top, click the tab *Info*, then turn on the options *Start on boot* and *Watchdog* to make sure the *add-on* is always available. Finally, in the bottom part click *START*.
 
@@ -188,6 +191,9 @@ Now it is time to *start* the add-on *cloudflared*:
     <img src="images/14_cloudflared_view_log.png" width="100%" height="100%" />
 
 4. You can switch back to the *Log* tab to view this part from *cloudflared's perspective*.
+
+> [!IMPORTANT]
+> In *Cloudflare Dashboard*, you can enable of additional *security features* to protect access. Start by following the security advisor, and at minimum make sure *Cloudflare* enforces *https* access. Do **not** use *http* to access *Home Assistant*.
 
 ## Accessing Home Assistant Remotely
 
