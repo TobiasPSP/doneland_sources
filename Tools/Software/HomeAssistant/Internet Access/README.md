@@ -4,7 +4,7 @@
 
 > Control Home Assistant Dashboard From Anywhere In The World
 
-[Home Assistant](https://www.home-assistant.io/) runs as a local service in your private network and is accessible through a local ip address (or its default *mDNS* name *home.assistant*) at port 8123.
+[Home Assistant](https://www.home-assistant.io/) runs as a local service in your private network and is accessible through a local ip address (or its default *mDNS* name *homeassistant.local*) at port 8123.
 
 If you'd like to visit the *Home Assistant UI* from outside your private network - i.e. via your smartphone while you are on vacation - you can set up *remote access*.
 
