@@ -202,5 +202,6 @@ You are greeted with the *Home Assistant login* and can now use your credentials
 <img src="images/16_using_cloudflared_with_ha_remotely.png" width="100%" height="100%" />
 
 
-> Tags: Home Assistant, Internet, Access, Cloudflare, Cloudflared, Proxy, Remote Access 
+> Tags: Home Assistant, Internet, Access, Cloudflare, Cloudflared, Proxy, Remote Access
 
+[Visit Page on Website](https://done.land/tools/software/homeassistant/internetaccess?705421071514241948) - created 2024-07-13 - last edited 2024-07-13
