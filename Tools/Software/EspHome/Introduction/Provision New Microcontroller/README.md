@@ -148,6 +148,8 @@ In this first step, you upload generic *ESPHome firmware* to your microcontrolle
 
     <img src="images/e_menu.png" width="60%" height="60%" />
 
+    > If the list is empty and your microcontroller is not recognized, close all programs and *reboot* your computer. 
+
 5. A dialog explains that you are about to upload the basic *ESPHome firmware* to your microcontroller. Click *INSTALL*. 
 
     <img src="images/a1_firstuse.png" width="80%" height="80%" />
@@ -156,7 +158,7 @@ In this first step, you upload generic *ESPHome firmware* to your microcontrolle
 
     <img src="images/b1_install.png" width="70%" height="70%" />
 
-    > If you just see a spinning wheel for a *prolonged time*, try keeping the *boot* button on the microcontroller pressed until the *firmware upload* starts.
+    > If you just see a spinning wheel for more than a few seconds, keep the *boot* button on the microcontroller pressed until the *firmware upload* starts.
 
 7. Once the installation is complete, you are greeted with a success message. Click *CLOSE*.  
 
@@ -177,6 +179,13 @@ The provisioning process automatically re-connects the device and shows this dia
 <img src="images/d1_connect_wifi.png" width="70%" height="70%" />
 
 If you do not want to configure *WiFi* at this point, click *CLOSE*. 
+
+If you instead see the dialog below, click *CLOSE*, then click the *three dot* menu, and choose *Configure Wi-Fi*.
+
+<img src="images/provisioning_wrong_wifi_dialog.png" width="70%" height="70%" />
+
+
+
 
 > [!TIP]
 > You can always [return to this point](https://done.land/tools/software/esphome/introduction/configuringwifi) by connecting the microcontroller via USB cable, and opening [ESPHome Web Tool](https://web.esphome.io/) in your browser. Once the browser has connected to the microcontroller, click the *three-dot* menu to configure *WiFi access*.
