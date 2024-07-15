@@ -353,7 +353,7 @@ If you *know* that you will be using your *remote access* only from certain devi
 
 1. [Find out](https://www.whatismybrowser.com/detect/what-is-my-user-agent/) the user agent for all devices you are planning to use, and make a list of user agents you want to *allow*.
 
-2. Follow the steps for [Blocking Countries](#blocking-malicious-actors), then create a new rule, and assign it a name: *Block User Agents*.
+2. Follow the steps for **Blocking Countries**, then create a new rule, and assign it a name: *Block User Agents*.
 
 3. In *Field*, select *User Agent*. Use the operator *does not start with*, then put *one* of your legit *user agent strings* into the field *Value*. 
 
@@ -379,7 +379,7 @@ For debugging, you can *disable* selected rules and check to see whether this ca
 *Cloudflare* can automatically protect your *remote access* against all *known bots*.
 
 
-1. Follow the steps for [Blocking Countries](#blocking-malicious-actors), then create a new rule, and assign it a name: *Block Known Bots*.
+1. Follow the steps for **Blocking Countries**, then create a new rule, and assign it a name: *Block Known Bots*.
 
 2. In *Field*, select *Known Bots*. Enable *Value*.
 
@@ -394,7 +394,7 @@ The result is a numerical value in the range of 0 to 100 with 0 representing *lo
 Here is a rule that restricts access to your *tunnel* based on the *threat level*:
 
 
-1. Follow the steps for [Blocking Countries](##blocking-malicious-actors), then create a new rule, and assign it a name: *Block Threats*.
+1. Follow the steps for **Blocking Countries**, then create a new rule, and assign it a name: *Block Threats*.
 
 2. In *Field*, select *Threat Score*. Use the operator *greater than*, and in *Value*, pick the *threat level*, for example *10*.
 
