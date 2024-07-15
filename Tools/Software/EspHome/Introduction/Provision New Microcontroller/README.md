@@ -156,6 +156,8 @@ In this first step, you upload generic *ESPHome firmware* to your microcontrolle
 
     <img src="images/b1_install.png" width="70%" height="70%" />
 
+    > If you just see a spinning wheel for a *prolonged time*, you may have to hold the *boot* button and press the *reset* button on the microcontroller again, then wait a few seconds.
+
 7. Once the installation is complete, you are greeted with a success message. Click *CLOSE*.  
 
     <img src="images/c1_done.png" width="70%" height="70%" />
