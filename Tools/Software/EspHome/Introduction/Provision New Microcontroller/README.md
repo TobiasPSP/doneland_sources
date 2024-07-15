@@ -142,13 +142,13 @@ In this first step, you upload generic *ESPHome firmware* to your microcontrolle
 
     <img src="images/d_pair_esp.png" width="100%" height="100%" />
 
-    > If you can't see your connected microcontroller in the list, you may have to manually putting it into *firmware download mode* by holding the *boot* button while pressing the *reset* button. Release the *boot* button **after** you release the *reset* button.
+    > If the list is empty and your microcontroller is not recognized, close all programs and *reboot* your computer.
 
 4. You are presented with a menu. Click *Prepare for first use*:
 
     <img src="images/e_menu.png" width="60%" height="60%" />
 
-    > If the list is empty and your microcontroller is not recognized, close all programs and *reboot* your computer. 
+     
 
 5. A dialog explains that you are about to upload the basic *ESPHome firmware* to your microcontroller. Click *INSTALL*. 
 
