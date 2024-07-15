@@ -228,18 +228,44 @@ Teach *cloudflared* the *domain name* you want to use to access *Home Assistant*
 
     <img src="images/12_authorize_cloudflared.png" width="100%" height="100%" />
 
-2. At the top, click *Log* and scroll to the bottom where you find a *cloudflare url* that you need to visit to authorize the tunnel. Copy and paste the *url* into your browser, and log into your *Cloudflare account*.
+2. At the top, click *Log* and scroll to the bottom where you find a *cloudflare url* that you need to visit to authorize the tunnel. 
+
+> [!IMPORTANT]
+> Leave this window open - you need it in the next step.
+
+### Authorize New Tunnel
+Authorize the new *tunnel* in *CloudFlare*, and associate it with the domain you want to use:
+
+1. Copy and paste the *url* from the *Cloudflared log* (see previous step) into your browser. This takes you directly into your *CloudFlare Dashboard* where you need to log in using your *Cloudflare account credentials*.
 
     <img src="images/13_authorize_cloudflared.png" width="100%" height="100%" />
 
-3. Inside *Cloudflare*, you are then asked to select the *domain* you wish to assign to the tunnel (if you use more than one). *Cloudflare* automatically creates a *certificate* that is picked up by the *cloudflared add-on*, and you are set.
+
+2. Once logged into *Cloudflare*, you are asked to select the *domain* you wish to assign to the tunnel (if you use more than one). *Cloudflare* automatically creates a *certificate* that is picked up by the *cloudflared add-on*, and you are set.
 
     <img src="images/14_cloudflared_view_log.png" width="100%" height="100%" />
 
-4. You can switch back to the *Log* tab to view this part from *cloudflared's perspective*.
 
-> [!IMPORTANT]
-> In *Cloudflare Dashboard*, you can enable of additional *security features* to protect access. Start by following the security advisor, and at minimum make sure *Cloudflare* enforces *https* access. Do **not** use *http* to access *Home Assistant*.
+> [!TIP]
+> Switch back to the *Cloudflared* (see previous step) tab **Log** to view the authorization process from *cloudflared's perspective* and verify that there are no errors logged.
+
+
+### Enable Home Assistant Remote Access
+Tell *Home Assistant* the new *domain name* that now can be used for *remote access*. 
+
+This ensures that applications such as the official *Home Assistant App* can also remotely access your *Home Assistant*:
+
+1. In *Home Assistant*, in its sidebar click *Settings*, then *System*, and look for the tile *Network*. Below the tile, it reads *External access disabled*.
+
+    <img src="images/17_cloudflared_ha_network.png" width="100%" height="100%" />
+
+2. Click *Network*. In the text box *Internet*, enter your fully qualified domain name. Do not forget to prepend the *domain name* with `https://`. Then click *SAVE*.
+
+    <img src="images/18_cloudflared_ha_network2.png" width="100%" height="100%" />
+
+4. At the top, click the *left arrow* in front of *Network* to go back one page. The tile *Network* now reads *External access enabled*.
+
+    <img src="images/19_cloudflared_ha_network3.png" width="50%" height="50%" />
 
 ## Accessing Home Assistant Remotely
 
@@ -253,6 +279,162 @@ You are greeted with the *Home Assistant login* and can now use your credentials
 
 <img src="images/16_using_cloudflared_with_ha_remotely.png" width="100%" height="100%" />
 
+### Using iPhone App
+Once your remote access works in a browser, it also works with the official *Home Assistant app* on an *iPhone*.
+
+
+
+> [!NOTE]
+> I was not yet able to test this on *Android* smartphones. If you tried it, please leave a comment below.
+
+
+<img src="images/iphone_app_remote_ha.jpg.png" width="100%" height="100%" />
+
+
+> [!NOTE]
+> The *remote access* enables you to check on your home and turn devices on and off. Anything beyond I did not test yet. Trying to transfer sensor readings from your remote device into *Home Assistant* may still fail with this simple setup. Sharing your experience via a comment below would be greatly appreciated, and if you can contribute tips on further improve this solution, please share.
+
+#### iPhone Cannot Connect
+If your iPhone cannot connect
+
+
+
+## Final Steps
+Your *remote access* is already working: when you enter your *domain name* into any browser, you are taken directly to your *Home Assistant Dashboard*.
+
+Below are a few recommended steps to *secure* and *polish* your *remote access*.
+
+
+### Forcing HTTPS Access
+Ask *Cloudflare* to automatically *encrypt* your network connection to prevent *man-in-the-middle* attacks and *network sniffers* that otherwise might spy on the *credentials* you use to log into *Home Assistant*:
+
+1. Visit your [Cloudflare Dashboard](https://dash.cloudflare.com/). In its sidebar, click *Websites*, then click on the tile representing the *domain* you have configured to *remotely access Home Assistant*. 
+
+    <img src="images/20_cloudflare_ssl_cloudflared.png" width="100%" height="100%" />
+
+2. In the sidebar, go to *SSL/TLS*. Make sure the mode is set to *Flexible*. Then in the sidebar, click the subitem *Edge Certificates*.
+
+    <img src="images/21_cloudflare_ssl_cloudflared2.png" width="100%" height="100%" />
+
+3. Scroll down the list of security features until you see *Always use HTTPS*, and enable this setting.
+
+Now, when you just enter your *domain name* into a browser, or when you accidentally use the prefix *http://*, *Cloudflare* automatically changes this to *https://* and *encrypts* your data.
+
+### Blocking Malicious Actors
+*Cloudflare* lets you configure custom *Web Application Firewall Rules* that are a powerful way of blocking malicious attackers.
+
+Below are *four examples* for significantly limiting your *attack surface*, based on *geography*, *device type*, *ip address*, and *bot detection*.
+
+> [!TIP]
+> *Free CloudFlare accounts can define up to *five custom WAF rules*. Below *four rules* can be *combined* by using the locical operators *and* and *or* in case you are exceeding your rule limit.
+
+#### Blocking Countries
+Most malicious attacks typically do not originate in your neighborhood. By blocking countries that you are not visiting, you can limit your *attack surface* considerably.
+
+
+1. Visit your [Cloudflare Dashboard](https://dash.cloudflare.com/). In its sidebar, click *Websites*, then click on the tile representing the *domain* you have configured to *remotely access Home Assistant*. 
+
+2. In the sidebar, go to *Security*, and click the subitem *WAF* (*Web Application Firewall*). Below, click *Custom rules*.
+
+    <img src="images/1_waf_cloudflared_1.png" width="100%" height="100%" />
+
+
+3. Scroll down a bit, and click *Create rule*. Assign a name to your rule, i.e. *Block countries*. Below *When incoming requests match...*, in *Field* select *Country*. Use *is not in* as *Operator*. In *Value*, now enter the countries in which you **want** to use *remote access*.
+
+    <img src="images/2_waf_block_countries.png" width="100%" height="100%" />
+
+4. Below *Then take action...* select *Block*. Then click *Deploy*. 
+
+Now any request from any country *except the ones you explicitly whitelisted* will be blocked.
+
+> [!TIP]
+> You can [find out](https://www.whatismybrowser.com/detect/what-is-my-user-agent/) the *user agent string* by which a particular browser on a particular device identifies itself. Navigate to this link from all devices that you plan to use, then create a rule that identifies these user agents.
+
+#### Blocking User Agents
+If you *know* that you will be using your *remote access* only from certain devices, you can limit access to the *user agent ids* of such devices.
+
+1. [Find out](https://www.whatismybrowser.com/detect/what-is-my-user-agent/) the user agent for all devices you are planning to use, and make a list of user agents you want to *allow*.
+
+2. Follow the steps for [Blocking Countries](#blocking-malicious-actors), then create a new rule, and assign it a name: *Block User Agents*.
+
+3. In *Field*, select *User Agent*. Use the operator *does not start with*, then put *one* of your legit *user agent strings* into the field *Value*. 
+
+
+    <img src="images/3_waf_block_useragents.png" width="100%" height="100%" />
+
+4. Remove from the *right side* (the end of the *user agent*) as much information as you like to find a balance of being *specific* while not being *too specific*. If you check for the *entire user agent*, your rule blocks access to your devices when they *update* any of their browser components, and the version numbers in the *user agent string* change.
+
+5. Click the button *And*. Repeat the steps for all *user agents* you want to *allow*.
+
+6. If you plan on using the *Home Assistant App* remotely, click *And*, then add another *user agent* named *Home Assistant*.
+
+7. When you are done, click *Deploy*.
+
+Test your *remote access* with all devices you want to use. 
+
+If a particular device (or *browser* or *app*) no longer works, go back to your rules and adjust them. 
+
+For debugging, you can *disable* selected rules and check to see whether this causes the unwanted block, then refine the rule settings.
+
+> [!TIP]
+> If your *Home Assistant App* gets blocked due to errors in your *rules*, the app shows its *initialization screen* and wants to search for your *Home Assistant instance* again. Even if you change or disable your rules, the app stays in this mode. You need to connect your smartphone to *WiFi* and follow the instructions in the app to redo its initial setup. Only then can you continue testing your remote access with the app.
+
+#### Blocking Bots
+*Cloudflare* can automatically protect your *remote access* against all *known bots*.
+
+
+1. Follow the steps for [Blocking Countries](#blocking-malicious-actors), then create a new rule, and assign it a name: *Block Known Bots*.
+
+2. In *Field*, select *Known Bots*. Enable *Value*.
+
+3. In *Choose action*, select *Block*, then click *Deploy*
+
+
+#### Blocking Threats
+*Cloudflare* associates any *IP address* with a *threat score* based on its reputation, calculated based on [Project Honeypot](https://www.projecthoneypot.org/) and internal *Cloudflare intelligence*.
+
+The result is a numerical value in the range of 0 to 100 with 0 representing *low risk*. Values above 10 may represent *spammers* or *bots*, while values above 40 identify *bad actors* on the Internet.
+
+Here is a rule that restricts access to your *tunnel* based on the *threat level*:
+
+
+1. Follow the steps for [Blocking Countries](##blocking-malicious-actors), then create a new rule, and assign it a name: *Block Threats*.
+
+2. In *Field*, select *Threat Score*. Use the operator *greater than*, and in *Value*, pick the *threat level*, for example *10*.
+
+3. In *Choose action*, select *Block*, then click *Deploy*
+
+### Monitor Remote Access
+It is recommended to regularly *monitor* your *remote access* in your [Cloudflare Dashboard](https://dash.cloudflare.com/) to become aware of unusual activities.
+
+Once logged in, in the *Cloudflare Dashboard sidebar* click *Websites*, then click the tile of your *domain name*.
+
+This provides you with a general overview of *visitors*, *traffic*, and *origin*. Make sure what you see is what you expect.
+
+
+<img src="images/4_installed_cloudflare_tunnel.png" width="100%" height="100%" />
+
+> [!TIP]
+> If for instance you see unusual visitors from a country other than the ones you have been to recently, review your *WAF firewall rules* to *block these countries* (see above).
+
+#### Firewall Events
+Next, in the sidebar click *Security*. Now you see your *WAF Firewall Events*. This shows the results of your *firewall rules*.
+
+
+<img src="images/5_security_cloudflare_overview2.png" width="100%" height="100%" />
+
+### Security Conclusions
+
+Always keep in mind: no matter how you implement your *remote access*: it will almost immediately be under constant attack. 
+
+No one is targeting you *personally*. *IP addresses* are attacked *automatically*, and highly sophisticated systems test for a wide range of *vulnerabilities* and *zero-day exploits*. 
+
+*Cloudflare* is a highly specialized company that protects web businesses around the globe - and with just a bit of configuration (as outlined above), your *remote access* is now also much better protected than most alternatives. If you need even more protection, *upgrade to a paid plan*.
+
+Also re-evaluate the *need* for your remote access: do you *really* need it, and is it worth the additional risk?
+
+> [!TIP]
+> *Disabling* your remote access until you do go on vacation or are away from home for a prolonged period of time might be a wise *trade-off*.
 
 > Tags: Home Assistant, Internet, Access, Cloudflare, Cloudflared, Proxy, Remote Access
 
