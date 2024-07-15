@@ -288,14 +288,12 @@ Once your remote access works in a browser, it also works with the official *Hom
 > I was not yet able to test this on *Android* smartphones. If you tried it, please leave a comment below.
 
 
-<img src="images/iphone_app_remote_ha.jpg.png" width="100%" height="100%" />
+<img src="images/iphone_app_remote_ha.jpg" width="40%" height="40%" />
 
 
 > [!NOTE]
 > The *remote access* enables you to check on your home and turn devices on and off. Anything beyond I did not test yet. Trying to transfer sensor readings from your remote device into *Home Assistant* may still fail with this simple setup. Sharing your experience via a comment below would be greatly appreciated, and if you can contribute tips on further improve this solution, please share.
 
-#### iPhone Cannot Connect
-If your iPhone cannot connect
 
 
 
@@ -326,7 +324,7 @@ Now, when you just enter your *domain name* into a browser, or when you accident
 Below are *four examples* for significantly limiting your *attack surface*, based on *geography*, *device type*, *ip address*, and *bot detection*.
 
 > [!TIP]
-> *Free CloudFlare accounts can define up to *five custom WAF rules*. Below *four rules* can be *combined* by using the locical operators *and* and *or* in case you are exceeding your rule limit.
+> *Free CloudFlare accounts* can define up to *five custom WAF rules*. Below *four rules* can be *combined* by using the locical operators *and* and *or* in case you are exceeding your rule limit.
 
 #### Blocking Countries
 Most malicious attacks typically do not originate in your neighborhood. By blocking countries that you are not visiting, you can limit your *attack surface* considerably.
@@ -370,9 +368,7 @@ If you *know* that you will be using your *remote access* only from certain devi
 
 7. When you are done, click *Deploy*.
 
-Test your *remote access* with all devices you want to use. 
-
-If a particular device (or *browser* or *app*) no longer works, go back to your rules and adjust them. 
+Test your *remote access* with all devices you want to use. If a particular device (or *browser* or *app*) no longer works, go back to your rules and adjust them. 
 
 For debugging, you can *disable* selected rules and check to see whether this causes the unwanted block, then refine the rule settings.
 
@@ -412,7 +408,7 @@ Once logged in, in the *Cloudflare Dashboard sidebar* click *Websites*, then cli
 This provides you with a general overview of *visitors*, *traffic*, and *origin*. Make sure what you see is what you expect.
 
 
-<img src="images/4_installed_cloudflare_tunnel.png" width="100%" height="100%" />
+<img src="images/4_security_cloudflare_overview.png" width="100%" height="100%" />
 
 > [!TIP]
 > If for instance you see unusual visitors from a country other than the ones you have been to recently, review your *WAF firewall rules* to *block these countries* (see above).
