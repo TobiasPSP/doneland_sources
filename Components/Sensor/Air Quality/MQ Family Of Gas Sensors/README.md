@@ -19,7 +19,7 @@ The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* t
 ## Sensor Types
 Here is a list of available sensors and their target gases:
 
-| Sensor Type | Target Gas | Detection Range 
+| Sensor Type | Target Gas | Detection Range (ppm) |
 | --- | --- | --- | 
 | MQ-2 | propane, smoke, natural gas (flammable gases and smoke) | 10-10.000 | 
 | MQ-3 | ethanol | 20-500   |
