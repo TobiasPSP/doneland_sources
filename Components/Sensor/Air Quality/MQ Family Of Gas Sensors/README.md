@@ -33,7 +33,7 @@ Here is a list of available sensors and their target gases:
 | MQ-139 | freon halogen | 10-1.000 |
 
 > [!NOTE]
-> Most types are cheap and cost between €1-2. Some models (i.e. MQ-131 and all above MQ-136ff) can be very pricey.
+> Most types are cheap and cost between €1-2. Some models (i.e. MQ-131 and all above MQ-136ff) can be more costly.
 
 
 ## Pins
