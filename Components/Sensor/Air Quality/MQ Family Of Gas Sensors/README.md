@@ -51,9 +51,7 @@ The sensors come with *six pins*:
 *A* and *B* deliver a *voltage* that corresponds to the concentration of the *target gas(es)*.
 
 ### Breakout Boards
-*Breakout boards* often combine the sensor with a *potentiometer* and an *OpAmp* to provide an additional *digital output*: 
-
-With a *potentiometer*, a *threshold voltage* is set, and when the analog sensor output exceeds the *threshold*, a digital output pin goes *high*.
+*Breakout boards* often combine the sensor with a *potentiometer* and an *OpAmp* to provide an additional *digital output*: via a *potentiometer*, a *threshold voltage* is set, and when the analog sensor output exceeds the *threshold*, a digital output pin goes *high*.
 
 ## Caveats
 These are *MOS sensors* so they are fairly *unspecific* and cannot be used to reliably detect *one specific gas*. *Humidity* has a significant influence on sensor readings.
