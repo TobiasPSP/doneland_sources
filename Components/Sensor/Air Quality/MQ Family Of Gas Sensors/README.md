@@ -17,12 +17,12 @@ Here is a list of available sensors and their target gases:
 
 | Sensor Type | Target Gas | Detection Range 
 | --- | --- | --- | 
-| MQ-2 | propane, smoke, natural gas (flammable gases and smoke) | LPG, alcohol, propane, hydrogen, CO, methane 
+| MQ-2 | propane, smoke, natural gas (flammable gases and smoke) | 10-10.000 | 
 | MQ-3 | ethanol | 20-500   |
 | MQ-4 | methane, natural gas (flammable gas) | 300-10.000  | 
 | MQ-5 | propane, methane, LPG (combustible gas) | 300-10.000   |
 | MQ-6 | LPG, CH4 (flammable gas) | 300-10.000 |
-| MQ-7 | carbon monoxide | CO  |
+| MQ-7 | carbon monoxide | 10-500  |
 | MQ-8 | H2 (hydrogen) | hydrogen | 100-1.000 |
 | MQ-9 | CO (carbon monoxide), CH4 | CO: 10-500, CH4: 300-10.000 |
 | MQ-131 | ozone | 10-1.000 |
@@ -64,9 +64,7 @@ Since they require a *heater*, their power consumption can be relatively high. S
 The *heater* inside the sensor needs to *warm up* before the sensor can work. This takes *20-30s*.
 
 ### Burn-In Time
-For the sensor readings to stabilize, the sensor must have been operational for more than *24hrs*. 
-
-In this initial phase, the *heater* might change the chemical structure of the sensing element, causing slight variations in sensor readings.
+For the sensor readings to stabilize, the sensor must have been operational for more than *24hrs*. In this initial phase, the *heater* might change the chemical structure of the sensing element, causing slight variations in sensor readings.
 
 
 Technically, you just have to wait *20-30s* for the heater to warm up and can skip the *burn-in time* if it is ok for you that sensor readings may not be as stable within the first *24hrs*.
