@@ -23,7 +23,7 @@ Here is a list of available sensors and their target gases:
 | MQ-5 | propane, methane, LPG (combustible gas) | 300-10.000   |
 | MQ-6 | LPG, CH4 (flammable gas) | 300-10.000 |
 | MQ-7 | carbon monoxide | 10-500  |
-| MQ-8 | H2 (hydrogen) | hydrogen | 100-1.000 |
+| MQ-8 | H2 (hydrogen) | 100-1.000 |
 | MQ-9 | CO (carbon monoxide), CH4 | CO: 10-500, CH4: 300-10.000 |
 | MQ-131 | ozone | 10-1.000 |
 | MQ-135 | ammonia, sulfide, benzene (air quality) |  10-1.000   | 
