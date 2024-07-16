@@ -10,7 +10,7 @@ The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* t
 
 
 > [!TIP]
-> In Chinese, *sensitive* translates to *Mĭngăn* and *Gas to* means *Qǐ lai*. *MQ* seems to have been derived from *sensitive to gas*. Note also that numbering of sensors is not consecutive, so there is neither i.e. a *MQ-1* sensor nor a *MQ-14* sensor.
+> In Chinese, *"sensitive"* translates to *"Mĭngăn"* and *"to Gas"* means *"Qǐ lai"*. *MQ* seems to have been derived from the Chinese words *"sensitive to gas"*. Note also that numbering of sensors is not consecutive, so there is neither i.e. a *MQ-1* sensor nor a *MQ-14* sensor.
 
 > [!CAUTION]
 > *CO2* is a key substance for determining *air quality*. None of the *MQ* series sensors can detect *CO2*, including *MQ-135* (target gas: *air quality*). Use a dedicated *NDIR CO2 sensor* if you want reliable air quality monitoring.
