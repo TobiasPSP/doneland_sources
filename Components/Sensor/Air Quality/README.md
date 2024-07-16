@@ -33,17 +33,6 @@ In normal environments, the most important sensor parameters for determining ave
 
 These parameters collectively provide insights into the overall air quality, indoor comfort, and potential health risks in normal environments.
 
-### CO2 Levels
-The CO2 concentration in the air is a good estimate for *air quality*. Specific CO2 NDIS sensors accurately measure the CO2 concentration in *ppm* (*parts per million*), which in turn allows conclusions on air quality:
-
-| ppm | Symptoms | Air Quality |
-| --- | --- | --- |
-| 250-400 | none | background concentration in fresh outdoor ambient air |
-| 400-1.000 | none |occupied indoor spaces with good air exchange |
-| 1.000-2.000 | Complaints of *drowsiness* | poor air |
-| 2.000-5.000 | *Headaches*, *sleepiness*, *loss of attention*, *poor concentration*, *increased heart rate* | stagnant, stale, stuffy air |
-| >5.000 | *unability to perform work* | enclosed non-ventilated spaces (i.e. silos) workplace exposure limit in most jurisdictions |
-| >40.000 | *permanent brain damage*, *coma*, *death*  | serious oxygen deprevation |
 
 ## Measuring Air Quality
 There are *specific* and *unspecific* approaches to measuring air quality data, varying in *complexity* (thus *cost*), and *accuracy*.
@@ -82,6 +71,31 @@ There are many other sensor types for *scientific* and *industrial* use with inc
 
 Such sensors involve *Chemical Absorption using chemical reagents*, *gas chromatography*, *photoacoustic spectroscopy* (*PAS*), and *Tunable Diode Laser Absorption Spectroscopy* (*TDLAS*). They are not discussed here.
 
-> Tags: CO2, MOS, NDIS, TDLAS, PAS
 
-[Visit Page on Website](https://done.land/components/sensor/airquality?671751061105240606) - created 2024-06-04 - last edited 2024-07-16
+## Practical Examples
+
+Below you find a list of practical sensor examples.
+
+### CO2 (Air Quality)
+*CO2* is one of the most specific substances for measuring air quality: in a closed room, humans consume *oxygen* and return *CO2*. The *CO2 level* therefore is a good indicator for the *freshness* of the air.
+
+
+### CO2 Levels
+The CO2 concentration in the air is a good estimate for *air quality*. Specific CO2 NDIS sensors accurately measure the CO2 concentration in *ppm* (*parts per million*), which in turn allows conclusions on air quality:
+
+| ppm | Symptoms | Air Quality |
+| --- | --- | --- |
+| 250-400 | none | background concentration in **fresh outdoor ambient air** |
+| 400-1.000 | none |occupied indoor spaces with good air exchange |
+| 1.000-2.000 | Complaints of *drowsiness* | poor air |
+| 2.000-5.000 | *Headaches*, *sleepiness*, *loss of attention*, *poor concentration*, *increased heart rate* | stagnant, stale, stuffy air |
+| >5.000 | *unability to perform work* | enclosed non-ventilated spaces (i.e. silos) workplace exposure limit in most jurisdictions |
+| >40.000 | *permanent brain damage*, *coma*, *death*  | serious oxygen deprevation |
+
+
+
+
+
+> Tags: CO2, MOS, NDIR, TDLAS, PAS
+
+[Visit Page on Website](https://done.land/components/sensor/airquality?671751061105240606) - created 2024-06-04 - last edited 2024-07-15

@@ -50,9 +50,10 @@ This is a **highly sensitive precision device**. Improper [handling](materials/s
 ## Overview
 The [SCD30](https://sensirion.com/products/catalog/SCD30) sensor module uses *non-dispersive infrared* (*NDIR*) technology to directly and specifically measure CO2 levels. 
 
-Due to the complex precision technology, the board is fairly expensive: price range starts at around EUR 20 and ends at EUR 90 - for the very same *sensor board*. 
+> [!TIP]
+> Compare sellers and prices carefully. This sensor is technically complex and thus pricey. The range of prices varies considerably from €20-€90 for the very same *sensor board*. 
 
-Using the sensor is simple and straight-forward thanks to its *I2C* interface but do note the *delicate handling instructions* below.
+Using the sensor is simple and straight-forward thanks to its *I2C* interface. Note the *delicate handling instructions* below.
 
 ### General Data
 
@@ -85,7 +86,7 @@ Using the sensor is simple and straight-forward thanks to its *I2C* interface bu
 
 ### Humidity and Temperature Sensor
 
-The *sensor board* includes a *temperature* and a *humidity* sensors. While these sensors were added primarily to internally auto-correct CO2 readings, both sensors can be accessed via *I2C* to also output current *temperature* and *humidity* readings.
+The *sensor board* includes a *temperature* and a *humidity* sensor. While these sensors were added primarily to internally auto-correct its *CO2* readings, both sensors can be accessed separately via *I2C*.
 
 | Humidity Sensor | Value |
 | --- | --- |
@@ -192,11 +193,10 @@ Or you use one of the two 4-wire *QWIICK* (*Stemma QT*) connectors.
 
 
 ## Test Code
+The code below illustrates how you access the sensor in a *stand-alone project*. If you'd rather use this sensor with [ESPHome](https://done.land/tools/software/esphome) and [Home Assistant](https://done.land/tools/software/homeassistant), here is a [detailed description](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor).
 
-
+### Wiring
 Connect *SDA* and *SCL* to the appropriate *I2C* pins of your microcontroller. *ESP32* typically use *GPIO21* for *SDA*, and *GPIO22* for *SCL*.
-
-
 
 <img src="images/scd30_test1_t.png" width="50%" height="50%" />
 
@@ -207,7 +207,7 @@ Next, connect *GND* to one of the microcontroller *GND* pins, and for *VDD* use 
 
 
 ### Code
-There are a number of libraries available for this sensor. The example below uses *SparkFun_SCD30_Arduino_Library* which works both for *Arduino* and *ESP32*:
+There are a number of libraries available for this sensor. The example code below uses *SparkFun_SCD30_Arduino_Library* which works for both *Arduino* and *ESP32*:
 
 ````c++
 #include <Wire.h>
