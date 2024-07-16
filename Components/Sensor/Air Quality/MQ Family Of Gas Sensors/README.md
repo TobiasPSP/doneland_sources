@@ -8,6 +8,8 @@
 The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* that can detect different gases in the air. Sensor types (and target gases) depend on the detection material used inside the sensor.
 
 
+<img src="images/mq_sensors_overview_t.png" width="100%" height="100%" />
+
 
 > [!TIP]
 > In Chinese, *"gas sensitive"* translates to *"**Q**ì **M**ǐn"* (*气敏*). *MQ* might have been derived from the Chinese words *"gas sensitive"*. Note also that numbering of sensors is not consecutive, so there is neither i.e. a *MQ-1* sensor nor a *MQ-14* sensor.
@@ -52,6 +54,10 @@ The sensors come with *six pins*:
 
 ### Breakout Boards
 *Breakout boards* often combine the sensor with a *potentiometer* and an *OpAmp* to provide an additional *digital output*: via a *potentiometer*, a *threshold voltage* is set, and when the analog sensor output exceeds the *threshold*, a digital output pin goes *high*.
+
+
+<img src="images/mq137_bottom_t.png" width="40%" height="40%" />
+
 
 ## Caveats
 These are *MOS sensors* so they are fairly *unspecific* and cannot be used to reliably detect *one specific gas*. *Humidity* has a significant influence on sensor readings.
