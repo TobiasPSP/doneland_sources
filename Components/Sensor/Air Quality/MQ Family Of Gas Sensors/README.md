@@ -5,7 +5,7 @@
 > Family Of MOS Gas Sensors For Detection Of Substances In The Air
 
 
-The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* that can detect different gases in the air. Sensor types (and target gas) depends on the detection material used inside the sensor.
+The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* that can detect different gases in the air. Sensor types (and target gases) depend on the detection material used inside the sensor.
 
 
 
