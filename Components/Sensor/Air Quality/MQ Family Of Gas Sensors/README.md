@@ -5,8 +5,12 @@
 > Family Of MOS Gas Sensors For Detection Of Substances In The Air
 
 
-The *MQ Family Of Gas Sensors* are simple and cheap *MOS Sensors* that can detect different gases in the air. Sensor types (and target gas) depends on the detection material used inside the sensor.
+The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* that can detect different gases in the air. Sensor types (and target gas) depends on the detection material used inside the sensor.
 
+
+
+> [!TIP]
+> In Chinese, 'sensitive' means 'Mĭngăn' and 'Gas to' means 'Qǐ lai'. *MQ* seems to have been derived from *sensitive to gas*. Note also that numbering of sensors is not consecutive, so there is neither i.e. a *MQ-1* sensor nor a *MQ-14* sensor.
 
 > [!CAUTION]
 > *CO2* is a key substance for determining *air quality*. None of the *MQ* series sensors can detect *CO2*, including *MQ-135* (target gas: *air quality*). Use a dedicated *NDIR CO2 sensor* if you want reliable air quality monitoring.
