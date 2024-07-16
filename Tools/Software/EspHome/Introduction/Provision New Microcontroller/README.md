@@ -120,15 +120,26 @@ Thanks to provisioning, they automatically connect to your *WiFi* and show in yo
 Below steps perform a *basic provisioning* for a fresh microcontroller, for example if you just received a bunch of new microcontrollers that you would like to *prepare* for use with *ESPHome* at a later time.
 
 > [!TIP]
-> As a side effect, *provisioning* also serves as a quick test whether your new microcontrollers work correctly.
+> *Provisioning* also serves as a quick test whether your new microcontrollers work correctly.
 
-No specific *prerequisite* or *ESPHome configurations* are needed for this step. In fact, you do not even need *ESPHome* for it. A compatible web browser (i.e. *Chrome*) is all you need.
+No specific *prerequisites* are needed for this step. In fact, you do not even need *ESPHome* for it. A compatible web browser (i.e. *Chrome*) is all you need.
 
-> [!TIP]
-> If the procedure below does not work for your microcontroller, there are alternate ways [to provision ESP32 S2 Mini and similar boards](https://done.land/tools/software/esphome/manualprovisioning) that use incompatible *USB/UART* connectivity.
+Should the procedure below not work for your particular microcontroller (board), then try alternate ways, i.e. [to provision ESP32 S2 Mini and similar boards](https://done.land/tools/software/esphome/manualprovisioning) that are notorious for using incompatible *USB/UART* designs.
 
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
+
+### Check WiFi Antenna
+Most *ESPxx* microcontrollers come with a built-in *WiFi PCB antenna* and are simple to use. 
+
+Some *ESP32 modules* have an **auxiliary** *IPEX* connector to attach an external antenna in case you need more reach. They still *also* have a visible *PCB antenna* which is active by default. The *IPEX connector* is not used until you take a *soldering iron* and actively change the antenna connection.
+
+Finally, some *ESP32 modules* have an *IPEX* connector but **no built-in PCB antenna**. This saves space in cases where you *always* want to use an external antenna.
+
+The downside is that you now **must** attach an external *WiFi antenna* before you can power on the microcontroller. If you operate it *without* antenna, this can damage its *RF unit*. While it typically does not cause harm to run such a microcontroller for just the few seconds it takes to *provision* it, you shouldn't take this risk and attach an external antenna before proceeding with the provisioning.
+
+> [!NOTE]
+> Operating a microcontroller without *WiFi antenna* is not just hurting its *RF unit*, it also severely limits reception. During *provisioning* you will only be able to connect to *very strong* WiFi signals.
 
 ### Upload Generic ESPHome Firmware
 In this first step, you upload generic *ESPHome firmware* to your microcontroller:

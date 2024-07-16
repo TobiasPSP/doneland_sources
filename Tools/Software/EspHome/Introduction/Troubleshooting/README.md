@@ -6,6 +6,61 @@
 
 There are many moving parts in the *ESPHome experience*. When everything works as expected, this platform is amazing. When things don't work, the many interacting parts make it sometimes difficult to troubleshoot.
 
+## Cannot Connect To Microcontroller Via USB
+If you cannot connect to your microcontroller via *USB*, check this first:
+
+1. Connect your microcontroller board via *USB cable* to your computer.
+2. Navigate to the [ESPHome Web Tool](https://web.esphome.io/) in a compatible browser like *Chrome*.
+3. Click *CONNECT* and check whether your microcontroller appears in the connection list.
+4. If that does not help, hold the *boot* button on the microcontroller board, then press the *reset* button. 
+
+
+### Check USB Cable
+If the list is *empty*, keep the connection dialog open, then while you are trying below steps, check to see whether your microcontroller board suddenly appears in the list:
+
+* **Check USB Cable Connections:** make sure the *USB cable* is connected **securely** and plugged in **all the way**. With *USB-C*, there should be an audible and feelable *click* when the connector securely plugs into place.
+* **Turn Plug Around:** If you are using *USB-C*, try plugging in the cable the other way (turning the plug by 180 degree)
+* **Try Different Cable:** use a different *USB cable*. Quite a few *USB cables* are not suitable for data transmission, either because they do not connect the *data pins* and are for *power supply only*, or because their plugs make loose contact at some pins.
+* **Direct Connection:** plug the cable directly into your PC, and do not use external *USB switches* or other devices.
+
+> [!TIP]
+> *USB cable issues* are among the most common connection issues. Once you found a cable that works for you, mark it so next time you know which cable to use.
+
+### Reboot PC
+If the *USB cable* was not causing the issue, close all programs and *reboot* your *PC*. Then try again.
+
+It is amazing to see this solve many issues related to *USB connections*. When you connected your PC to one or many microcontrollers before via *USB*, apparently the *USB connection* can be impaired, and the *PC* no longer recognizes connected microcontroller - until you *reboot it*.
+
+
+## Timeout Errors With USB Connections
+When trying to upload *firmware* to your microcontroller **via USB cable**, you may get *timeout errors*, and the *firmware upload* does not start.
+
+If you are using browser-based tools like the [ESPHome Web Tool](https://web.esphome.io/), you may see a *spinning wheel* forever.
+
+Here is what you do:
+
+* **Hold *boot* Button:** hold (and continue to hold) the *boot* button on the microcontroller board while your tool is trying to upload the *firmware*. If you already got some type of error message, it is *too late* for this. 
+* **Manually Enabling Firmware Upload Mode:** if holding the *boot* button does not work, press its *reset* button (while continuing to hold the *boot* button)
+
+
+
+
+
+## WiFi Configuration Via USB Not Available
+When trying to initially [configure Wifi](https://done.land/tools/software/esphome/introduction/configuringwifi) of a [provisioned microcontroller](https://done.land/tools/software/esphome/introduction/manualprovisioning), you may receive the error message *Improv is not available*.
+
+Here are steps to resolve the issue:
+
+* **Try multiple times:** *it is best to first try and repeat [configuring Wifi](https://done.land/tools/software/esphome/introduction/configuringwifi) a couple of times. Maybe your microcontroller wasn't yet ready for your request. 
+* **Reset device:** press the *reset* button on the microcontroller board to make sure it is not in *Firmware Upload Mode*.
+* **Restart PC:** restart your host PC, and close all other programs.
+* **Re-Provision:** repeat [provisioning the microcontroller](https://done.land/tools/software/esphome/introduction/manualprovisioning), then try [configuring Wifi](https://done.land/tools/software/esphome/introduction/configuringwifi) again.
+* **USB Connector:** on boards with *two USB connectors*, [provision](https://done.land/tools/software/esphome/introduction/manualprovisioning) the device using the other *USB connector*.
+
+
+
+
+
 ## Reconfiguration Issues
 Occasionally, *Home Assistant* may complain that an *ESPHome device* needs *reconfiguration*.
 

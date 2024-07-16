@@ -8,13 +8,16 @@ Sensors detect and respond to input from the *physical environment*, such as lig
 
 ## Sensor Breakout Boards
 
-Typically, *sensors* are available on ready-to-use breakout boards. Some sensors provide *analog* output in the form of a *voltage change*. Other sensors provide *digital output*, i.e. via a *I2C* interface. The latter require *microcontrollers* to interpret the digital output.
+Typically, *sensors* are available separately or on ready-to-use breakout boards. Some sensors provide *analog* output in the form of a *voltage change*. Other sensors provide *digital output*, i.e. via a *I2C* interface. The latter require *microcontrollers* to interpret the digital output.
 
-Breakout boards typically come with all that is required to operate a particular sensor. Some sensors may i.e. be sensitive to *input voltage* and can be destroyed when applying voltage outside their specs. A breakout board hosting such a sensor would include a *voltage regulator*. Often, but not always, this allows sensor breakout boards to be operated with a wide range of voltages, making them usable both with *3.3V* and *5V* environments.
+Breakout boards typically come with all external components required interface with a particular sensor. Such boards can also *protect* sensors that may be sensitive to *input voltage* and can be destroyed when applying voltage outside their specs. A breakout board hosting such a sensor would include a *voltage regulator*. Often, but not always, this allows sensor breakout boards to be operated with a wide range of voltages, making them usable both with *3.3V* and *5V* environments.
 
 ## Raw Sensors
 
-At the heart of any sensor breakout board is the actual sensor device. You may use the sensor directly provided you exactly know its requirements, i.e. its maximum operating voltage.
+At the heart of any sensor breakout board is the actual sensor device. You may use the sensor directly provided you exactly know its requirements, i.e. its minimum and maximum operating voltage.
+
+> [!TIP]
+> Some sensors require significant *currents* at regular intervals. Make sure your power supply and voltage regulator can supply the required *current*.
 
 Using a sensor directly without a breakout board can save space and reduce power consumption since you can tailor the circuitry exactly to your needs. It often requires more work and skills than using standard breakout boards.
 
@@ -45,6 +48,7 @@ There is an abundance of sensors available. Here is a quick overview of the most
 - **Water level sensors**: float switches
 
 In the subsections you find additional information on selected sensors.
+
 
 
 

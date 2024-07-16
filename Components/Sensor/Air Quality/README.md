@@ -2,11 +2,12 @@
  
 # Air Quality Sensors
 
-> Measuring CO2 And Toxic Gases
+> Measuring CO2 And Other Toxic Gases
 
 *Air Quality Sensors* measures various parameters within the air, including *particulate matter* (*PM*), *volatile organic compounds* (*VOCs*), *carbon dioxide* (*CO2*), *carbon monoxide* (*CO*), *ozone* (*O3*), *nitrogen dioxide* (*NO2*), and other pollutants. 
 
-Often, such sensors also measure *temperature* and *humidity*.
+> [!TIP]
+> Often, sensors also measure *temperature* and *humidity* to *compensate* their readings. 
 
 They provide real-time data on air pollution levels, helping to assess the overall air quality and potential health risks.
 
@@ -32,7 +33,7 @@ In normal environments, the most important sensor parameters for determining ave
 
 These parameters collectively provide insights into the overall air quality, indoor comfort, and potential health risks in normal environments.
 
-## CO2 Levels
+### CO2 Levels
 The CO2 concentration in the air is a good estimate for *air quality*. Specific CO2 NDIS sensors accurately measure the CO2 concentration in *ppm* (*parts per million*), which in turn allows conclusions on air quality:
 
 | ppm | Symptoms | Air Quality |
@@ -44,36 +45,43 @@ The CO2 concentration in the air is a good estimate for *air quality*. Specific 
 | >5.000 | *unability to perform work* | enclosed non-ventilated spaces (i.e. silos) workplace exposure limit in most jurisdictions |
 | >40.000 | *permanent brain damage*, *coma*, *death*  | serious oxygen deprevation |
 
-## Measuring CO2
-There are *specific* and *unspecific* approaches to measuring CO2, varying in *complexity* (thus *cost*), and *accuracy*.
+## Measuring Air Quality
+There are *specific* and *unspecific* approaches to measuring air quality data, varying in *complexity* (thus *cost*), and *accuracy*.
 
 ### Cheap MOS Sensors
-*Solid-state* *metal-oxide semiconductor* (*MOS*) sensors sensors are cheapest. They detect changes in electrical conductivity when exposed to gases *like* CO2 (many other gases also influence the readings). **They do not provide a *specific* CO2 ppm value.**
+*Solid-state metal-oxide semiconductor* (*MOS*) sensors are simple and cheap: they detect changes in electrical conductivity when exposed to gases *like* CO2 and many others. **Such sensors are *unspecific* and cannot measure a *single* parameter:
 
-MOS sensors only measure *generic changes in conductivity* rather than *directly detecting CO2* molecules: their results are affected by other gases or environmental factors like temperature and humidity. You need to *calibrate* such sensors in *fresh air* and then get an *estimate* for the overall *air quality* compared to the *fresh air* that you used for calibration.
+* **Unspecific:** they measure a *combination* of parameters, and one parameter (i.e. *CO2*) may be influenced by another (i.e. *organic substances*). That's why the provide only an *overall estimate* 
+* **Temperature and Humidity:** *MOS sensors* are substantially affected by *temperature* and *humidity*. Their sensor readings may overshoot with *high humidity*, and they may not work at all with *extremely low humidity*.
 
-This may well be sufficient to get a *low-cost air quality overview*.
-
-
-### Expensive NDIS Sensors
-*Non-Dispersive Infrared* (*NDIR*) sensors measure the concentration of CO2 by detecting its absorption of infrared radiation at specific wavelengths. In contrast to *MOS* sensors, *NDIS* sensors *specifically measure CO2* and are known for their *reliability* and *accuracy*.
-
-*NDIS sensors* are widely used in *high quality indoor air quality monitors*.
-
-Since NDIS sensors are much more complex, they are also much more expensive than MOS sensors and start at around 20 Euro.
+Because of this, *MOS sensors* are generally used to provide *overall air quality alarms* in controlled environments without extreme conditions for *temperature* and *humidity*. If you like a *MOS sensor* to *focus on a particular substance* (i.e. *CO2*), you need to know which *other substances* can influence the sensor, and exclude these.
 
 > [!TIP]
-> When you purchase *air quality monitoring devices* off the shelf, the used sensor type is often not disclosed. Since *NDIS* sensors alone cost at least 20 EUR, it is safe to assume that *cheap air quality monitors* use simple MOS sensors and allow just *rough guesses* about the *air quality*.
+> I noticed that *MOS sensors* do **not** correlate well with air quality in *conference rooms* or a *lab*. While *NDIR sensor readings* could very well be correlated to *human presence* and the *subjective feeling of good and bad air quality*, *cheap MOS sensor readings* were not suitable to trigger *air quality warnings*. Their readings appeared somewhat *random* and may have been influenced by many other factors. 
+
+> [!IMPORTANT]
+> *MOS sensors* often need a *burn-in time* of *24 hours* or more before producing accurate results. You may want to connect your sensors to a power supply and leave them powered on for a day before using them.
+
+
+### Expensive NDIR Sensors
+*Non-Dispersive Infrared* (*NDIR*) sensors measure the concentration of substances by detecting its absorption of infrared radiation at specific wavelengths. In contrast to *MOS* sensors, *NDIR* sensors *specifically measure the substance* they were designed for and are known for their *reliability* and *accuracy*. *NDIR sensors* are widely used in *high quality indoor air quality monitors*.
+
+*NDIR* is based on *infrared absorption effects*, so *NDIR sensors* are calibrated for a *specific substance* - make sure you pick the *NDIR sensor* for the substance you are after. *NDIR* can only be used to measure substances that in fact *absorb infrared light*. 
+
+Since *NDIR* sensors are technically much more complex, they are also significantly more expensive than *MOS sensors*.
+
+> [!TIP]
+> When you purchase *air quality monitoring devices* off the shelf, the sensor type used is often not disclosed. Since *NDIR* sensors by themselves cost around €20 (and even in bulk at least €10), it is safe to assume that *cheap air quality monitors* typically use simple *MOS sensors* and allow just *rough guesses* about *air quality*.
 
 
 
 
 
-### Other Sensors
-There are many other sensor types for *scientific* and *industrial* use. Their increased *accuracy* is irrelevant for normal use cases, and their prices are prohibitive.
+### Other Sensor Types
+There are many other sensor types for *scientific* and *industrial* use with increased *accuracy*. For normal home use cases, their cost outweighs any potential benefit.
 
-Such sensors involve *Chemical Absorption using chemical reagents*, *gas chromatography*, *photoacoustic spectroscopy* (*PAS*), and *Tunable Diode Laser Absorption Spectroscopy* (*TDLAS*).
+Such sensors involve *Chemical Absorption using chemical reagents*, *gas chromatography*, *photoacoustic spectroscopy* (*PAS*), and *Tunable Diode Laser Absorption Spectroscopy* (*TDLAS*). They are not discussed here.
 
 > Tags: CO2, MOS, NDIS, TDLAS, PAS
 
-[Visit Page on Website](https://done.land/components/sensor/airquality?671751061105240606) - created 2024-06-04 - last edited 2024-06-04
+[Visit Page on Website](https://done.land/components/sensor/airquality?671751061105240606) - created 2024-06-04 - last edited 2024-07-16
