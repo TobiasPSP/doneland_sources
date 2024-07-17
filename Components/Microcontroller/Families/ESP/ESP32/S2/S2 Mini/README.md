@@ -80,7 +80,7 @@ Due to its form factor, the *S2 Mini* does not expose *all available hardware pi
 | Size | 34.4x25.4mm |
 | Weight | 2.4g |
 
-Power consumption is very low compared to other *ESP* family members:
+Power consumption in its sleep modes is lower compared to classic *ESP32*:
 
 | Operation | Current |
 | --- | --- |
