@@ -20,13 +20,13 @@ Its form factor enables the *S2 Mini* to continue to use *shields* that were ori
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
 
 > [!TIP]
-> The *ESP32-S2 Mini* uses an unusual design for communicating via *USB cable*: it exposes *different ports* in *normal mode* vs. *firmware upload mode*, and because of this, many tools like [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). *Classic IDEs* work flawlessly. If you are using [ESPHome](https://done.land/tools/software/esphome) and experience trouble flashing this board, there are great and simple-to-use [workarounds](https://done.land/tools/software/esphome/introduction/manualprovisioning). Generally, try and enable *OTA* (wireless *over-the-air* updates) so you can bypass its strange *USB communication interface*.
+> The *ESP32-S2 Mini* uses an unusual design for communicating via *USB cable*: it exposes *different ports* in *normal mode* vs. *firmware upload mode*, and because of this, many tools like [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). *Classic IDEs* work flawlessly. If you are using [ESPHome](https://done.land/tools/software/esphome) and experience trouble flashing this board, there are great and simple-to-use [workarounds](https://done.land/tools/software/esphome/introduction/manualprovisioning). Generally, try and enable *OTA* (wireless *over-the-air* updates) so you can bypass its strange *USB communication interface* (the only flaw this excellent board seems to have).
 
 
 
 
 > [!NOTE]
-> While the *S2 Mini* microcontroller board is exceptional *value for the money*, the *S2* does not seem to be as *mainstream* as other microcontrollers: documentation for the *S2* is incomplete, and so is the *IDE support*: the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* for example needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. If you are looking for a great microcontroller board with best bang for the buck, then *S2 Mini* is an awesome choice, especially when you can buy it for around €1-2. If you are a rookie looking for a fool-proof board that needs no initial preparation, then you might want to invest a little more into a different microcontroller type.
+> While the *S2 Mini* microcontroller board is exceptional *value for the money*, the *S2* does not seem to be as *mainstream* as other microcontrollers with incomplete documentation and support: i.e. the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. For experienced users, the *ESP32-S2 Mini* is *excellent bang for the buck* (this board is regularly available for under €2). As a rookie, you might want to avoid the *ESP32 S2* and stick to trusted *ESP8266* or *ESP32*.
 
 
 
