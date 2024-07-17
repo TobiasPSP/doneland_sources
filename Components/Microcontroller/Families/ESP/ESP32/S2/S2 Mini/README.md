@@ -2,7 +2,7 @@
  
 # S2 Mini
 
-> Powerful ESP32 S2 Board That Works With ESP8266 Shields
+> Powerful ESP32-S2 Board That Works With ESP8266 Shields
 
 
 The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the *much more powerful **single-core** ESP32 S2 microcontroller*. This board is preserving pin compatibility to the *ESP8266 D1 Mini* and an ideal replacement for *ESP8266*-based projects. Like the *ESP8266*, the *ESP32-S2* does not support *bluetooth*. 
