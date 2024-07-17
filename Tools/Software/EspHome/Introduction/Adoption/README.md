@@ -15,7 +15,7 @@ Once you have [provisioned](https://done.land/tools/software/esphome/introductio
 Once a [fully provisioned ESPHome device](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) connects to *WiFi*, *ESPHome Dashboard* picks it up and shows a green *DISCOVERED*.
 
 > [!NOTE]
-> Make sure the device and *ESPHome* are connected **to the same network**.
+> For *adoption* to work, make sure the device and *ESPHome* are connected **to the same network**. Else, *ESPHome* won't discover the new device.
 
 The device still uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning, and that was shown when the [WiFi details were assigned](https://done.land/tools/software/esphome/introduction/configuringwifi).
 
