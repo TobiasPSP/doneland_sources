@@ -208,7 +208,7 @@ You cannot of course use *dual line header pins* with a prototyping bread board 
 For prototyping, it makes most sense to solder the *outer* header pins normally for a *ESP8266 D1 Mini*-compatible foot print. 
 
 
-<img src="images/esp32_s2_prototyping_t.png" width="80%" height="80%" />
+<img src="images/esp32_s2_prototyping_t.png" width="40%" height="40%" />
 
 
 The *inner* header pins should *not be connected* to the bread board. Instead, solder the header pins *on top*: this way, the additional pins can be connected using *female DuPont cables*.
@@ -216,7 +216,7 @@ The *inner* header pins should *not be connected* to the bread board. Instead, s
 
 
 
-<img src="images/esp32_s2_prototyping2_t.png" width="80%" height="80%" />
+<img src="images/esp32_s2_prototyping2_t.png" width="40%" height="40%" />
 
 
 ## Fixing Missing Pins
