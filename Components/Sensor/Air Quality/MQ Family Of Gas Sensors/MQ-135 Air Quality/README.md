@@ -53,3 +53,5 @@ The *threshold* for the *digital output* (*DO*) can be set with a *potentiometer
 
 
 > Tags: MQ-135, Air Quality
+
+[Visit Page on Website](https://done.land/components/sensor/airquality/mqfamilyofgassensors/mq-135airquality?715094071217240231) - created 2024-07-16 - last edited 2024-07-16

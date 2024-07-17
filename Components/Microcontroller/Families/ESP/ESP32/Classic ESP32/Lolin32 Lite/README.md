@@ -90,4 +90,4 @@ Here are some reasons to choose a different board:
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-07-17
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-07-16

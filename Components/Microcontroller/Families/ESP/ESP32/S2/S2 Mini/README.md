@@ -377,4 +377,4 @@ Once you have successfully uploaded *ESPHome firmware* at least **once** via *US
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Shield, Pin, I2C, SPI
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-07-17
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-07-16
