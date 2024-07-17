@@ -99,7 +99,7 @@ Power regulation is done by a *ME6211C33* regulator:
 
 
 ## Hardware I2C Interface
-Any pin can *emulate* a *I2C* interface (or define additional ones). Only the *hardware I2C interface* uses optimized hardware that does not put load on the microcontroller and is faster. Here are the pins:
+Any pin can *emulate* a *I2C* interface (or define additional ones). Only the *hardware I2C interface* uses optimized hardware that does not put load on the microcontroller and is faster. 
 
 | Pin | Label | Description |
 | --- | --- | --- |
@@ -109,9 +109,6 @@ Any pin can *emulate* a *I2C* interface (or define additional ones). Only the *h
 ## Hardware SPI Interface
 Any pin can *emulate* a *SPI* interface (or define additional ones). Only the *hardware SPI interface* uses optimized hardware that does not put load on the microcontroller. When connecting components with high data rates (i.e. *displays*), try and use *hardware SPI* for much higher frame rates.
 
-*SPI* is typically used by devices with a lot of data transfer, i.e. *Storage devices* or *color displays*. Using a *software SPI* will *significantly reduce* the performance of such devices or not work at all. Always use *hardware SPI*!
-
-Here are the pins for hardware SPI:
 
 | Pin | Label | Alternate Labels | Description |
 | --- | --- | --- | --- |
@@ -122,7 +119,7 @@ Here are the pins for hardware SPI:
 
 
 > [!TIP]
-> Since the *S2 Mini* is pin-compatible to *D1 Mini*, you can simply look up pins for the *D1 Mini* if in doubt. Documentation for *D1 Mini* is much more available than documentation targeting *S2 Mini*.
+> Since the *S2 Mini* is pin-compatible to *D1 Mini*, you can simply look up pins for the *D1 Mini* if you can't find documentation for *ESP32-S2*. Documentation for *D1 Mini* is much more readily available.
 
 
 
@@ -131,7 +128,7 @@ Here are the pins for hardware SPI:
 
 ### Pins And Compatible Shields
 
-The board comes with 32 pins in 2x2 rows of 8. The *outer* pins are *compatible with ESP8266 D1 Mini* pins. *D1 Mini-compatible shields* can be used with the *S2 Mini*:
+The board comes with 32 pins in 2x2 rows of 8. The *outer* pins are *compatible with ESP8266 D1 Mini* pins. *D1 Mini-compatible shields* can therefore be used with the *S2 Mini* as well:
 
 <img src="images/s2_pins.png" width="100%" height="100%" />
 
@@ -373,4 +370,4 @@ If the issue persists, check to see whether the board gets warmer as usual. The 
 
 > Tags: Microcontroller, ESP32, S2, ESP32 S2, Shield, Pin, I2C, SPI
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-05-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini?273412051205244129) - created 2024-05-04 - last edited 2024-07-17
