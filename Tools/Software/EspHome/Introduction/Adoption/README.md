@@ -23,7 +23,7 @@ The device initially uses the same *temporary name* that was assigned by [ESPHom
 <details><summary>Understanding ESPHome Adoption</summary><br/>
 
 
-When *ESPHome* discovers a new device that has been [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you *personalize* it: during *adoption*, you assign a unique device name, and *ESPHome* creates a *configuration file* for this device, including new unique access keys. The personalized *configuration* is then uploaded to the device which finalizes *adoption*.
+When *ESPHome* discovers a new wireless device that has been [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you *personalize* it: during *adoption*, you assign a unique device name, and *ESPHome* creates a *configuration file* for this device, including new unique access keys. The personalized *configuration* can then uploaded to the device *wirelessly* which finalizes *adoption*.
 
 Once *adopted*, the device works like any other *ESPHome device*: it can be edited via its *configuration file* and updated wirelessly, but only from within the *ESPHome instance* that *adopted* it (and has access to its *configuration file* including its *secret access keys*). 
 
