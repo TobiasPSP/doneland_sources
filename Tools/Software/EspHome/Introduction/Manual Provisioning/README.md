@@ -61,7 +61,7 @@ Both tools essentially do the same thing: they upload a *binary firmware file* t
 Here are the two options you have:
 
 * **Generic Provisioning:** to mimick the *Prepare for first use* functionality and *provision a microcontroller* in a way that it can later be [adopted](https://done.land/tools/software/esphome/introduction/adoption) by *ESPHome*, **download** the generic firmware file that *ESP Web Tool* uses.
-* **Configuration:** to mimick the *Install* functionality and upload a *newly created firmware file* that works just for *one particular microcontroller*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
+* **Configuration:** to mimick the *Install* functionality and upload a [newly created firmware file](https://done.land/tools/software/esphome/introduction/provisioningdirectly) that works just for *one particular microcontroller*, create a dedicated *ESPHome configuration*, let *ESPHome* then create a *firmware file* for it, and download the file to your computer.
 
 Either way, you get a *firmware file* that **Adafruit ESP Tool** can upload to your microcontroller. Here are the step-by-step instructions to create the *binary firmware files* for both approaches:
 
