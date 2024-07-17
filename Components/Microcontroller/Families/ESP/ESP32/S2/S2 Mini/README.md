@@ -26,7 +26,7 @@ Thanks to its form factor and *pin-compatibility*, you can continue to use *shie
 
 
 > [!NOTE]
-> While the *S2 Mini* microcontroller board is exceptional *value for the money*, the *ESP32-S2 microcontroller* used on this board does not seem to be as *mainstream* as other microcontrollers, resulting incomplete documentation and half-hearted support: i.e. the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. For experienced users, the *ESP32-S2 Mini* is *excellent bang for the buck* (this board is regularly available for under €2). As a rookie, you might want to avoid the *ESP32 S2* and stick to trusted *ESP8266* or *ESP32*.
+> While the *S2 Mini* microcontroller board is exceptional *value for the money*, the *ESP32-S2 microcontroller* used on this board does not seem to be as *mainstream* as other microcontrollers, resulting incomplete documentation and half-hearted support: i.e. the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. For experienced users, the *ESP32-S2 Mini* is *excellent bang for the buck* (this board is regularly available for under €2). As a rookie, you might want to avoid the *ESP32-S2* altogether and stick to trusted and well-established microcontroller types like *ESP8266* or *ESP32*.
 
 
 
