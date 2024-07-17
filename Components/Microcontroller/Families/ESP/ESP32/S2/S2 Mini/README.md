@@ -354,9 +354,12 @@ These are the steps to upload new firmware to *S2 Mini* using *platformio*:
 3. Upload the firmware in *platformio* by clicking *Upload*. *Platformio* will search for a port, then force the *S2 Mini* in reset, and then find a port and upload the sketch.
 4. Once the upload is done, short-press *RST* again. Now, the sketch should execute.
 
-If the *S2 Mini* is *not recognized* by your computer (no "new USB device" sound plays after you pressed the keys as described above), make sure the *USB cable* is fully plugged in, try and reverse the plugs, and use a different cable. Apparently, the *USB connectors* on this board do not always have proper contact. Trying with a different *USB cable* did occasionally solve the issue.
+If the *S2 Mini* is *not recognized* by your computer (no "new USB device" sound plays after you pressed the keys as described above), make sure the *USB cable* is fully plugged in, try and reverse the plugs, and use a different cable. Apparently, the *USB connectors* on this board do not always have proper contact. Trying with a different *USB cable* often solve the issue.
 
-If the issue persists, check to see whether the board gets warmer as usual. The build quality of these boards is not always great, and there have been instances where solder residue was short-circuiting CPU contacts. Closely inspect the board and all solderings.
+> [!TIP]
+> If changing the *USB cable* does not help, *reboot* your *PC*. It is *frequently* the case that *USB communications* fail over time, or that other running software blocks *USB discovery*. *Rebooting* the *PC* can then solve the issue which is not at all related to this particular board. It is related to *USB* and can occur with (any) microcontroller board/type that is using *USB*.
+
+If the issue still persists, check to see whether the board gets warmer as usual. The build quality of these boards is not always great, and there have been instances where solder residue was short-circuiting CPU contacts. Closely inspect the board and all solderings.
 
 ### ESPHome
 For flashing *S2 Mini* in [ESPHome](https://done.land/tools/software/esphome), the [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). Use this [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning) instead to upload *ESPHome firmware* or to provision the board with the generic *ESPHome firmware*. 
