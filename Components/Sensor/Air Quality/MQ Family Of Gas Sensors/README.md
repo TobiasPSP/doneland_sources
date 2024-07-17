@@ -21,8 +21,27 @@ The *MQ Family Of Gas Sensors* are simple and cheap Chinese-made *MOS Sensors* t
 > *CO2* is a key substance for determining *air quality*. None of the *MQ* series sensors can detect *CO2*, including *MQ-135* (target gas: *air quality*). Use a dedicated *NDIR CO2 sensor* if you want reliable air quality monitoring.
 
 
-## Sensor Types
-Here is a list of available sensors and their target gases:
+## Overview
+The *MQ* series of gas sensors are *MOS* sensors (*metal-oxide semiconductors*): they detect specific gases by changing their electrical resistance in response to the presence of these gases.
+
+
+<details><summary>How do these sensors detect gases?</summary><br/>
+
+
+The core of the sensor is a ceramic substrate coated with a thin layer of metal oxide as primary sensing element.
+
+Each sensor type uses a different *metal oxide* which determines the *target gases* and *sensitivities*.
+
+* In clean air, the metal oxide layer has a  baseline resistance. 
+* The metal oxide surface causes target gases to undergo *oxidation* or *reduction* reactions which changes the number of free electrons in the metal oxide, thereby changing its resistance proportionally to the concentration of the target gas.
+* The *sensor resistance* (as an indicator of gas concentration) is converted into a *voltage change* through a *voltage divider* with one known fixed *resistor* and outputted as *voltage*.
+
+
+</details>
+
+<details><summary>How do sensors differ, and how come they detect different gases?</summary><br/>
+
+Different *MQ sensor types* exist with different detectable *target gases*:
 
 | Sensor Type | Target Gas | Detection Range (ppm) |
 | --- | --- | --- | 
@@ -44,48 +63,117 @@ Here is a list of available sensors and their target gases:
 > [!NOTE]
 > Most types are cheap and cost between €1-2. Some models (i.e. MQ-131 and all above MQ-136ff) can be more costly.
 
+### Metal Oxides Used In Sensors
+While the general sensor design is identical in all sensor types, it is the actual *composition* of the *metal oxide* used in the sensing element that determines the *target gases* that a particular sensor can detect.
 
-## Pins
-The sensors come with *six pins*:
+#### Core Metal Oxide
+Most sensors use one of these two metal oxides to start with:
 
-| Pins | Description |
-| --- | --- |
-| 2xH | power supply for Nickel-Chromium heater |
-| 2xA, 2xB | connected to the sensing element, both *A* and both *B* are interconnected (*analog output*) |
+| Metal Oxide | Target Gases | Used in |
+| --- | --- | --- |
+| Tin Dioxide (SnO2) | flammable gases, alcohol, *air quality*-related gases | MQ-2, MQ-3, MQ-4, and MQ-135 |
+| Iron Oxide (Fe2O3) | flammable gases, carbon monoxide (CO) | MQ-7, MQ-9 |
 
-*A* and *B* deliver a *voltage* that corresponds to the concentration of the *target gas(es)*.
+#### Doping
+These metal oxides are then *doped* with additional materials to *enhance sensitivity* to specific gases.
 
-### Breakout Boards
-*Breakout boards* often combine the sensor with a *potentiometer* and an *OpAmp* to provide an additional *digital output*: via a *potentiometer*, a *threshold voltage* is set, and when the analog sensor output exceeds the *threshold*, a digital output pin goes *high*.
+The exact doping elements and their concentrations are usually proprietary information held by the manufacturer, but common dopants can include elements like *palladium (Pd)* or *platinum (Pt)* to improve response characteristics.
+
+#### Stability
+As a final step, the doped metal oxide is then mixed with *Aluminum Oxide (Al2O3)* which in itself is not active but is used to increase mechanical strength and surface area.
+
+
+</details>
+
+## Sensor Component
+
+Each sensor (regardless of type) has *six pins*. Underneath the metal mesh that protects the sensor and prevents *explosion hazards* (due to the internal *heater*), the six pins and their purpose becomes evident:
+
+<img src="images/mq_sensor_internal_t.png" width="60%" height="60%" />
+
+### Analog Sensor Output
+The *sensor element* is coated with metal (the actual metal *type* varies among sensor types and determines the detectable target gases as outlined above).
+
+It is connected on one side to both **A** pins, and on the other side to both **B** pins.
+
+The *sensor element* acts like a *variable resistor* and its *resistance* varies based on the gas concentrations it can detect. 
+
+To convert its *resistance* into a *measurable voltage (**AO**)*, a *load resistor* is used that acts as a simple voltage divider.
+
+The actual load resistor *value* is typically chosen based on the expected range of gas concentrations and the sensor's resistance range (see datasheet for particular resistor type).
+
+> [!TIP]
+> *MQ-xxx breakout boards* are designed to be used with *5V microcontrollers*. If you want to use them with *3.3V*, either add your own *voltage divider* to further reduce *AO*, or *replace* the *load resistor* on the *breakout board* against a *higher value resistor*. 
+
+### Heater
+For the *detectable chemical reaction to take place*, a *heater element* is connected to both **H** pins that can be used interchangeably (in fact you could apply *AC* to the *heater circuit*).
+
+
+<details><summary>How much current does the heater require?</summary><br/>
+
+The *heaters resistance* determines the *current* that flows through it. 
+
+A *MQ-135 sensor* i.e. has a *heater resistance* of *34 ohms* which at *5V* results in a *heating current* of *5V/34ohms* = *0.15A* (*5V*x*0.15A* = *0.75W*).
+
+
+> [!NOTE]
+> In the raw *sensor*, both *heating circuit* and *sensing circuit* are completely separated. The *heating circuit* must be operated with strictly *5V AC or DC* while the *sensor circuit* can theoretically be operated with up to *24V DC*. Breakout boards supply *5V DC* to both circuits.
+
+
+
+
+</details>
+
+
+## Breakout Boards
+Often, the *MQ sensors* come pre-mounted on a supporting *breakout board*. All sensor types use the same fundamental *breakout board design*.
+
+The *breakout board* adds the *essential load resistor*.
+
+> [!NOTE]
+> Depending on *sensor type*, the values for the *load resistor* vary.
+
+### Digital Alarm Functionality
+*Breakout boards* complement the *analog* sensor output (**AO**) with an additional *digital alarm output (**DO**)* that triggers when a setable *threshold* is exceeded:
+
+Via a *potentiometer*, a *threshold voltage* is set, and when the analog sensor output exceeds this *threshold*, an *OpAmp* switches the digital output pin (**DO**) from *low* to *high*.
 
 
 <img src="images/mq137_bottom_t.png" width="40%" height="40%" />
 
+The *schematic* of the base *breakout board* illustrates its functionality:
+
+<img src="images/schematics.PNG" width="100%" height="100%" />
+
+* **Sensor/Pin AO:** the *sensor* pins *A* and *B* are connected to *VCC* and *AO*, directly providing the *analog sensor output*. This output is the *voltage drop* across a *voltage divider*, consisting of the *sensor resistance* (which varies with gas concentrations), and a *fixed resistor*.
+* **Heater:** the sensor component internally uses a *NiCd heater* that is connected to *VCC* and *GND*. An additional *resistor* may limit the *heater current*. 
+* **Alarm/Pin DO:** A *potentiometer* is used as a *voltage divider* to manually define a *reference voltage* that is fed into an *OpAmp*. The *OpAmp* compares this reference voltage to the actual *sensor voltage* (*AO*). When the *sensor voltage **exceeds*** the *reference voltage*, the *OpAmp* sets *D0* to *high* and  turns on the *LED* on the board.
+
 
 ## Caveats
-These are *MOS sensors* so they are fairly *unspecific* and cannot be used to reliably detect *one specific gas*. *Humidity* has a significant influence on sensor readings.
+Like all *MOS* sensors, they are fairly *unspecific* and sensitive to a range of *target gases*.
 
-All sensors are *5V* devices. 
+### Interference
+
+The chemical reaction responsible for changing the *sensor resistance* (and thus its output) is susceptible to many unspecific environmental factors, such as *temperature* and *humidity*: 
+
+*High* humidity causes over-shooting readings whereas *extremely low* humidity causes the sensor to stop working.
 
 
 ### High Power Consumption
-Since they require a *heater*, their power consumption can be relatively high. Some types require *800mW*. Usage in battery-driven devices is prohibitive for such sensors.
+The *heater* requires relatively high *current* (depending on sensor type) which makes using these sensors in battery-powered devices difficult.
 
 ### Warm-Up Time
-The *heater* inside the sensor needs to *warm up* before the sensor can work. This takes *20-30s*.
+The *heater* needs to *warm up* and bring the sensor to *operational temperatures* before it can work. Warming up takes *30s*.
+
+For the same reason, usual *energy savings procedures* such as taking readings in intervals does not work well. For example, taking a reading every minute would require the sensor to *pre-heat* for *30s* each time.
 
 ### Burn-In Time
-For the sensor readings to stabilize, the sensor must have been operational for more than *24hrs*. In this initial phase, the *heater* might change the chemical structure of the sensing element, causing slight variations in sensor readings.
+Since the sensor principle is based on a *chemical reaction*, the *metal oxid layer* inside the sensor requires an initial *burn in time* of *48h* (exact time depends on sensor type, see datasheet):
 
+The sensor heater needs to run uninterrupted for *48h* so that coatings and chemical residues can settle. The sensor should be *calibrated* only after the *burn in* time during which the sensor readings have not stabilized yet.
 
-Technically, you just have to wait *20-30s* for the heater to warm up and can skip the *burn-in time* if it is ok for you that sensor readings may not be as stable within the first *24hrs*.
-
-> [!TIP]
-> You **should** perform a *24hrs burn in* if you plan to connect the sensor to a smart system that *calibrates* it: you do not want sensor readings to fluctuate during *calibration*.
-
-
-> [!NOTE]
-> Like most *MOS sensors*, they require an initial burn-in time of at least *24h*.
+That said, you may want to skip *burn in time* and immediately start using the sensor if you do not require *calibration* and *precise results* and just want to use the sensor to provide a *general tendency*.
 
 
 
