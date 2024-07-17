@@ -143,7 +143,7 @@ Only the *outer* pins match the *D1 Mini* pins (as the two inner lines of pins w
 This allows users to continue to use i.e. *battery shields* to add *charging* and battery power supply via existing *D1 Mini Shields* for *portable projects*:
 
 
-<img src="images/esp32_s2_shield_side_t.png" width="80%" height="80%" />
+<img src="images/esp32_s2_shield_side_t.png" width="40%" height="40%" />
 
 
 > [!CAUTION]
@@ -196,7 +196,7 @@ The pin numbers printed on the backside of the breakout board represent the expo
 The *S2 Mini* uses *dual line header pins* (2x8 pins on both sides for a total of 32 pins).
 
 
-<img src="images/s2_mini_dual_header_t.png" width="80%" height="80%" />
+<img src="images/s2_mini_dual_header_t.png" width="40%" height="40%" />
 
 
 This design was necessary to keep the *hardware compatibility* to the predecessor *ESP8266 D1 Mini* board: the *outer* 8-pin headers match the header pins in a *ESP8266 D1 Mini* (for power and *GND* pins at least).
