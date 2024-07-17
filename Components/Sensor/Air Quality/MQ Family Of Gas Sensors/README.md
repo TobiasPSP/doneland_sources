@@ -92,13 +92,12 @@ Each sensor (regardless of type) has *six pins*. Underneath the metal mesh that 
 <img src="images/mq_sensor_internal_t.png" width="60%" height="60%" />
 
 ### Analog Sensor Output
-The *sensor element* is coated with metal (the actual metal *type* varies among sensor types and determines the detectable target gases as outlined above).
+The *sensor element* is coated with metal (the actual metal *type* varies among sensor types and determines the detectable target gases as outlined above). It is connected on one side to both **A** pins, and on the other side to both **B** pins.
 
-It is connected on one side to both **A** pins, and on the other side to both **B** pins.
+The *sensor element* acts like a *variable resistor* and its *resistance* varies based on the gas concentrations it can detect. To convert its *resistance* into a *measurable voltage (**AO**)*, a *load resistor* is used that acts as a simple voltage divider.
 
-The *sensor element* acts like a *variable resistor* and its *resistance* varies based on the gas concentrations it can detect. 
-
-To convert its *resistance* into a *measurable voltage (**AO**)*, a *load resistor* is used that acts as a simple voltage divider.
+> [!IMPORTANT]
+> The *load resistor* is not part of the sensor and is provided by *breakout boards*. If you want to use a *raw sensor*, add an appropriate *load resistor* to your circuitry yourself.
 
 The actual load resistor *value* is typically chosen based on the expected range of gas concentrations and the sensor's resistance range (see datasheet for particular resistor type).
 
