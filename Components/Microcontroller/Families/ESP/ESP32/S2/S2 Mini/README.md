@@ -364,7 +364,7 @@ If the issue still persists, check to see whether the board gets warmer as usual
 ### ESPHome
 For flashing *S2 Mini* in [ESPHome](https://done.land/tools/software/esphome), the [ESPHome Web Tool](https://web.esphome.io/) is **incompatible** with this board and does not work (as of this writing). Use this [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning) instead to upload *ESPHome firmware* or to provision the board with the generic *ESPHome firmware*. 
 
-Once you have successfully uploaded *ESPHome firmware* **once** via *USB cable*, you can then use *OTA* to wirelessly upload any future firmware updates, and effectively bypass any *S2 Mini incompatibilities*.
+Once you have successfully uploaded *ESPHome firmware* at least **once** via *USB cable*, you can then use *OTA* to wirelessly upload any future firmware updates, effectively bypassing the *S2 Mini USB incompatibilities*.
 
 ## Materials
 
