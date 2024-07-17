@@ -19,7 +19,6 @@ Once a [fully provisioned ESPHome device](https://done.land/tools/software/espho
 
 The device initially uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning. This name was also shown when the [WiFi access was configured](https://done.land/tools/software/esphome/introduction/configuringwifi).
 
-You can now *Adopt* the device.
 
 <details><summary>Understanding ESPHome Adoption</summary><br/>
 
@@ -35,6 +34,8 @@ The advantage of the two-step *adoption process* (*provisioning*, then *adoption
 
 </details>
 
+
+You can now *Adopt* the device:
 
 1. Click *Adopt*. *ESPHome* opens a dialog, and you can now assign a meaningful name to the device. Click *ADOPT*.
 
