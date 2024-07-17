@@ -32,7 +32,7 @@ The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin3
 
 The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footprint* of the *Lite* board, and as a consequence of its smaller size the lack of some pins: *RX0*, *TX0*, and *5V* are not exposed. There is also just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
 
-To further reduce the board size, it has a *reset* but no *boot* button. This is not a problem as the board reliably automatically turns to *firmware upload mode* in *Arduino IDE*, *platform.io*, and *ESPHome*.
+To further reduce the board size, it has a *reset* but no *boot* button. This turns out not to be a disadvantage though as the board reliably turns to *firmware upload mode* automatically when flashing it in *Arduino IDE*, *platform.io*, and *ESPHome*.
 
 *Lolin32 **Lite*** specifically targets portable devices and focuses on a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
 
