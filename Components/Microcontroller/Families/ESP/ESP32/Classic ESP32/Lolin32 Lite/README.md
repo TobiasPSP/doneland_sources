@@ -2,7 +2,7 @@
  
 # Lolin32 Lite
 
-> Classic ESP32 With Battery Power Support
+> Classic ESP32 With LiIon/LiPo Battery Support For Use In Portable Devices
 
 The *Lolin32 Lite* development board features a classic *ESP32* microcontroller on a board that comes with battery support, making it an ideal choice for portable solutions.
 
