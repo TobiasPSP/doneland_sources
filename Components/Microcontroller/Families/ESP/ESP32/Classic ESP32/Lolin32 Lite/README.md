@@ -27,7 +27,7 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller and supports
 | Size | 49.2x25.5mm |
 | Weight  | 6.6g |
 
-### Comparison Lolin32
+### Comparison Lolin32 Lite vs. Lolin32 
 The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin32* development board. The latter has its *JST 2.0 battery socket* placed on the side rather than next to the *USB connector*.
 
 The differences between *Lolin32 **Lite*** and *Lolin32* is the *smaller footprint* and as a consequence the lack of these pins: *RX0*, *TX0*, and *5V*. There is just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
