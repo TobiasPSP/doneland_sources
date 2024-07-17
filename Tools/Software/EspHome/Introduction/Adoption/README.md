@@ -26,9 +26,11 @@ You can now *Adopt* the device.
 
 When *ESPHome* discovers a new device with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you *personalize* it: during *adoption*, you assign a unique device name, and *ESPHome* creates a *configuration file* for this device, including new unique access keys. The personalized *configuration* is then uploaded to the device which finalizes *adoption*.
 
-Once *adopted*, the device can be edited via its *configuration file*, and you can conveniently update your device wirelessly. The device can now only be managed by the *ESPHome instance* that *adopted* it (and has access to its *configuration file* including its *secret access keys*). 
+Once *adopted*, the device works like any other *ESPHome device*: it can be edited via its *configuration file* and updated wirelessly, but only from within the *ESPHome instance* that *adopted* it (and has access to its *configuration file* including its *secret access keys*). 
 
 *Adoption* only works *once*, and when a device has been *adopted*, it is no longer up for *adoption* by any other *ESPHome instance*.
+
+The advantage of the two-step *adoption process* (*provisioning*, then *adoption*) over *directly* uploading a manually created *configuration* is that you **do not need a *USB cable connection* between the device and the computer running *ESPHome*** for the initial firmware upload. Thanks to *provisioning* and *adoption*, the microcontroller is immediately able to receive firmware files *wirelessly* via *OTA*.
 
 
 </details>
