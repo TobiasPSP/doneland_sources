@@ -17,7 +17,7 @@ Once a [fully provisioned ESPHome device](https://done.land/tools/software/espho
 > [!NOTE]
 > For *adoption* to work, make sure the device and *ESPHome* are connected **to the same network**. Else, *ESPHome* won't discover the new device.
 
-The device still uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning, and that was shown when the [WiFi details were assigned](https://done.land/tools/software/esphome/introduction/configuringwifi).
+The device initially uses the same *temporary name* that was assigned by [ESPHome Web Tool](https://web.esphome.io/) during provisioning. This name was also shown when the [WiFi access was configured](https://done.land/tools/software/esphome/introduction/configuringwifi).
 
 You can now *Adopt* the device.
 
