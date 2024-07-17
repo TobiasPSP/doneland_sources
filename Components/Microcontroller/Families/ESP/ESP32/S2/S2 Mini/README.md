@@ -358,6 +358,10 @@ If the *S2 Mini* is *not recognized* by your computer (no "new USB device" sound
 
 If the issue persists, check to see whether the board gets warmer as usual. The build quality of these boards is not always great, and there have been instances where solder residue was short-circuiting CPU contacts. Closely inspect the board and all solderings.
 
+### ESPHome
+For flashing *S2 Mini* in [ESPHome](https://done.land/tools/software/esphome), the [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). Use this [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning) instead to upload *ESPHome firmware* or to provision the board with the generic *ESPHome firmware*. 
+
+Once you have successfully uploaded *ESPHome firmware* **once** via *USB cable*, you can then use *OTA* to wirelessly upload any future firmware updates, and effectively bypass any *S2 Mini incompatibilities*.
 
 ## Materials
 
