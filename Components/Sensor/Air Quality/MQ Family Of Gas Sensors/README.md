@@ -142,7 +142,7 @@ Via a *potentiometer*, a *threshold voltage* is set, and when the analog sensor 
 
 The *schematic* of the base *breakout board* illustrates its functionality:
 
-<img src="images/schematics.PNG" width="100%" height="100%" />
+<img src="images/schematic_mq_sensor_breakoutboard.png" width="100%" height="100%" />
 
 * **Sensor/Pin AO:** the *sensor* pins *A* and *B* are connected to *VCC* and *AO*, directly providing the *analog sensor output*. This output is the *voltage drop* across a *voltage divider*, consisting of the *sensor resistance* (which varies with gas concentrations), and a *fixed resistor*.
 * **Heater:** the sensor component internally uses a *NiCd heater* that is connected to *VCC* and *GND*. An additional *resistor* may limit the *heater current*. 
