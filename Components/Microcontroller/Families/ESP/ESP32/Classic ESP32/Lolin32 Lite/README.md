@@ -48,12 +48,6 @@ The board has *26 pins*.
 
 <img src="images/esp32_lolin_lite_pins_t.png" width="100%" height="100%" />
 
-### Pullup And Pulldown
-All *GPIO* pins support internal *pull-up* and *pull-down* resistors.
-
-
-<img src="images/esp32_lolin_top_t.png" width="40%" height="40%" />
-
 
 ## When To Use
 
@@ -64,6 +58,10 @@ These are some reasons for choosing a **Lolin32 Lite**:
 | Portable Device | comes with everything needed to hook up a *LiIon/LiPo* battery and has a small footprint |
 | Price | The board is relatively cheap |
 | 3.3V | You are planning to use *3.3V* components and do not need *5V* support |
+
+
+<img src="images/esp32_lolin_top_t.png" width="40%" height="40%" />
+
 
 Here are some reasons to choose a different board:
 
