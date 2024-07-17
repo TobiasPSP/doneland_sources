@@ -13,7 +13,7 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller and supports
 
 ## Technical Details
 
-Here are the fundamental board details:
+
 
 | Item | Description |
 | --- | --- |
