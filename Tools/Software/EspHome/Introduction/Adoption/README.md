@@ -24,9 +24,11 @@ You can now *Adopt* the device.
 <details><summary>Understanding ESPHome Adoption</summary><br/>
 
 
-When *ESPHome* discovers a new device with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you *personalize* it: during adoption, you assign a new name to the device, and *ESPHome* creates a *configuration* for this device, including unique access keys.
+When *ESPHome* discovers a new device with a *generic firmware*, it offers to *add this device* to your *ESPHome environment*. If you accept by clicking *ADOPT*, you *personalize* it: during *adoption*, you assign a unique device name, and *ESPHome* creates a *configuration file* for this device, including new unique access keys. The personalized *configuration* is then uploaded to the device which finalizes *adoption*.
 
-During adoption, you turn a *generic* device into a *specific device* that now can be edited via its *configuration*. Your device now updates wirelessly, too, but can only be managed from the *ESPHome instance* that originally *adopted* the device and now owns its *configuration file* with its *secret API keys*. *Adoption* only works *once*, and when a device has been *adopted*, it is no longer be up for *adoption* by any other *ESPHome instance*.
+Once *adopted*, the device can be edited via its *configuration file*, and you can conveniently update your device wirelessly. The device can now only be managed by the *ESPHome instance* that *adopted* it (and has access to its *configuration file* including its *secret access keys*). 
+
+*Adoption* only works *once*, and when a device has been *adopted*, it is no longer up for *adoption* by any other *ESPHome instance*.
 
 
 </details>
