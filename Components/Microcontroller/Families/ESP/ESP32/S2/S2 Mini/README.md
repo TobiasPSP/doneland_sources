@@ -107,7 +107,7 @@ Any pin can *emulate* a *I2C* interface (or define additional ones). Only the *h
 | 35 | SDL | Clock |
 
 ## Hardware SPI Interface
-Any pin can *emulate* a *SPI* interface (or define additional ones). Only the *hardware SPI interface* uses optimized hardware that does not put load on the microcontroller and is faster. 
+Any pin can *emulate* a *SPI* interface (or define additional ones). Only the *hardware SPI interface* uses optimized hardware that does not put load on the microcontroller. When connecting components with high data rates (i.e. *displays*), try and use *hardware SPI* for much higher frame rates.
 
 *SPI* is typically used by devices with a lot of data transfer, i.e. *Storage devices* or *color displays*. Using a *software SPI* will *significantly reduce* the performance of such devices or not work at all. Always use *hardware SPI*!
 
