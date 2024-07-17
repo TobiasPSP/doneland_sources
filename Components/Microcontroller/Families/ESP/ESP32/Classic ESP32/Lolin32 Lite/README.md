@@ -39,7 +39,7 @@ The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footpr
 
 
 
-<img src="images/esp32_lolin_back_t.png" width="80%" height="80%" />
+<img src="images/esp32_lolin_back_t.png" width="40%" height="40%" />
 
 ## Pins
 The board has *26 pins*. 
