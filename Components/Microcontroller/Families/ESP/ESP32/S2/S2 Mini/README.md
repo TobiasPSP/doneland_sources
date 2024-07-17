@@ -20,7 +20,7 @@ Thanks to its form factor and *pin-compatibility*, you can continue to use *shie
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
 
 > [!TIP]
-> The *ESP32-S2 Mini* uses an unusual design for communicating via *USB cable*: it exposes *different ports* in *normal mode* vs. *firmware upload mode*, and because of this, many tools like [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). *Classic IDEs* work flawlessly. If you are using [ESPHome](https://done.land/tools/software/esphome) and experience trouble flashing this board, there are great and simple-to-use [workarounds](https://done.land/tools/software/esphome/introduction/manualprovisioning). Generally, try and enable *OTA* (wireless *over-the-air* updates) so you can bypass its strange *USB communication interface* (the only flaw this excellent board seems to have).
+> The *ESP32-S2 Mini* uses an unusual design for communicating via *USB cable*: it exposes *different ports* in *normal mode* vs. *firmware upload mode*, and because of this, many tools like [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). *Classic IDEs* work flawlessly. If you are using [ESPHome](https://done.land/tools/software/esphome) and experience trouble flashing this board, there are great and simple-to-use [workarounds](https://done.land/tools/software/esphome/introduction/manualprovisioning). Generally, try and enable *OTA* (wireless *over-the-air* updates) so you can bypass its strange *USB communication interface* (the only flaw this otherwise excellent board seems to have).
 
 
 
