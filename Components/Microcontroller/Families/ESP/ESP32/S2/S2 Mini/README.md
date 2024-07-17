@@ -9,7 +9,7 @@ The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mi
 
 
 
-<img src="images/s2_mini_top_overview_t.png" width="80%" height="80%" />
+<img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
 
 
 Its form factor enables the *S2 Mini* to continue to use *shields* that were originally designed for the *D1 Mini*, i.e. *battery shields*.
