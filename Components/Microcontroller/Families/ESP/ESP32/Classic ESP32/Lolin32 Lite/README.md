@@ -31,42 +31,19 @@ Here are the fundamental board details:
 ### Comparison Lolin32
 The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin32* development board. The latter has its *JST 2.0 battery socket* placed on the side rather than next to the *USB connector*.
 
-The significant differences between *Lolin32 **Lite*** and *Lolin32* is the lack of these pins: *RX0*, *TX0*, and *5V*. 
+The differences between *Lolin32 **Lite*** and *Lolin32* is the *smaller footprint* and as a consequence the lack of these pins: *RX0*, *TX0*, and *5V*. There is just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
 
 > [!NOTE]
-> *Lolin32 **Lite*** is specifically designed to be operated by a connected battery in a *3.3V environment*. The board is not designed to receive power via an external power supply nor does it expose *5V* for external components. Its *GPIOs* are not *5V tolerant* either.
+> *Lolin32 **Lite*** specifically targets portable devices: a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
 
 
 
-
-
-Some connections differ just in the number of exposed pins: there is just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
-
-
-
-## Caveats
-This board is specifically designed for *portable devices* with a battery and focuses on a *small footprint*. This results in a few caveats.
-
-### Power Supply
-This board needs to be powered either by *USB* or *battery*. There is no separate *5V input pin*. While the board does output *3.3V* at its designated pin, you may not be able to run the board by providing *3.3V input*. If you do, the battery will not be charged.
-
-In a nutshell, this board is specifically designed for *portable apps* that run from a battery. The *USB connector* in this scenario is primarily used to *charge the battery*.
-
-### GPIOs
-The board exposes *19 GPIOs* and *4 inputs*. Compared to other boards, the number of *GPIOs* is limited. For special purpose projects where you need to access certain functionality (i.e. *I2S*), make sure all necessary hardware pins are exposed.
 
 
 <img src="images/esp32_lolin_back_t.png" width="80%" height="80%" />
 
-> [!CAUTION]
-> All *GPIO* are *3.3V* and *not 5V tolerant*. Use a *level shifter* to connect *5V devices*.
-
-
-
-
-
 ## Pins
-The board comes with *26 pins*. 
+The board has *26 pins*. 
 
 <img src="images/esp32_lolin_lite_pins_t.png" width="100%" height="100%" />
 
@@ -83,7 +60,7 @@ Here are reasons for choosing a **Lolin32 Lite**:
 
 | Feature | Use Cases |
 | --- | --- |
-| Battery | comes with everything needed to hook up a *LiIon/LiPo* battery |
+| Portable Device | comes with everything needed to hook up a *LiIon/LiPo* battery and has a small footprint |
 | Price | The board is relatively cheap |
 | 3.3V | You are planning to use *3.3V* components and do not need *5V* support |
 
@@ -91,39 +68,13 @@ These are *potential* reasons to choose a different microcontroller type:
 
 | Use Case | Recommendation |
 | --- | --- |
-| External Power | Cannot be operated with external *3.3V or 5V power supply* |
-| Limited GPIOs | Only relatively few *GPIO* are exposed. When you need a massive number of *GPIOs* or access to *specific CPU pins*, this board may not work for you |
+| External Power | Cannot be operated with external *3.3V or 5V power supply* (except via its *USB* connector) |
 | 5V components | if you need to work with *5V* components you might want to consider a different board. The *Lolin32 Lite* neither exposes *5V*, nor are its GPIOs *5V tolerant*. |
 
 
 <img src="images/esp32_lolin_front_t.png" width="80%" height="80%" />
 
 
-
-## Programming
-
-The *S2* supports the *Arduino Framework*.
-
-It can be programmed using [platformio](https://platformio.org/), the vendors' [esp-idf](https://github.com/espressif/esp-idf), or the classic [Arduino IDE](https://www.arduino.cc/en/software).
-
-<details><summary>Adding ESP Support To Arduino IDE</summary><br/>
-
-*Arduino IDE* by default only supports *Arduino*-compatible microcontrollers. To use it with *ESP* microcontrollers like the **S2**, the appropriate additional *board manager* needs to be installed. After that, *ESP* microcontrollers can be programmed just like any *Arduino* board.
-
-To add an *ESP-compatible board manager*, in *Arduino IDE* choose the menu item *File/Preferences*, fill the url *https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json* into the field *Additional Boards Manager URLs*, and click *OK*.
-
-
-Next, go to *Tools/Board/Boards Manager*, and search for *esp32*. Install the board manager created by *Espressif Systems*.   
-</details>
-
-### Connecting Microcontroller To Computer
-Most microcontroller boards come with a *USB connector* and a *USB-to-Serial* component. They can be directly connected to the *USB* interface of your computer.
-
-> [!TIP]
-> When you plug in the *USB cable* into your computer, you should hear the typical *sound* that plays when a new *USB device* is discovered. If you do not hear this sound (even though sound is enabled), make sure you are using a suitable *USB **data** cable*. Simple *USB charger cables* have no data pins and do not work. Also make sure you plugged in the USB cable *firmly* on both ends.
-
-
-Once the microcontroller board is successfully connected to the computer, most boards indicate *power on* status via a *red LED*. A new *port* should also become available.
 
 
 
@@ -140,4 +91,4 @@ Once the microcontroller board is successfully connected to the computer, most b
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-05-15
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-07-17
