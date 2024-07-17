@@ -4,13 +4,12 @@
 
 > Classic ESP32 With LiIon/LiPo Battery Support For Use In Portable Devices
 
-The *Lolin32 Lite* development board features a classic *ESP32* microcontroller on a board that comes with battery support, making it an ideal choice for portable solutions.
+The *Lolin32 Lite* development board features a classic *ESP32* microcontroller which supports connecting an external *LiIon/LiPo* rechargeable battery that is charged through the *USB-C* connector, making it an ideal choice for portable devices.
 
 
 
 <img src="images/esp32_lolin_connectors_t.png" width="40%" height="40%" />
 
-The board comes with a *USB C* connector to connect to a PC, plus a *JST 2.0* socket to connect a rechargeable *LiIon/LiPo* battery. The battery can power the board and is charged via the *USB C* connector.
 
 ## Technical Details
 
