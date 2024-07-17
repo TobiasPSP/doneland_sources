@@ -10,7 +10,7 @@ The *Lolin32 Lite* development board features a classic *ESP32* microcontroller 
 
 <img src="images/esp32_lolin_connectors_t.png" width="40%" height="40%" />
 
-The board comes with a *USB C* connector to connect to a PC, plus a *JST 2.0* socket to connect a battery. The battery can power the board, and the *USB C* connector can be used to charge it.
+The board comes with a *USB C* connector to connect to a PC, plus a *JST 2.0* socket to connect a rechargeable *LiIon/LiPo* battery. The battery can power the board and is charged via the *USB C* connector.
 
 ## Technical Details
 
