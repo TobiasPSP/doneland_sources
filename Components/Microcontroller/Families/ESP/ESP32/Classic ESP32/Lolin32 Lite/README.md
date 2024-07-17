@@ -30,12 +30,12 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller and supports
 ### Comparison Lolin32 Lite vs. Lolin32 
 The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin32* development board. The latter has its *JST 2.0 battery socket* placed on the side rather than next to the *USB connector*.
 
-The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footprint*, and as a consequence of its smaller size the lack of some pins: *RX0*, *TX0*, and *5V* are not exposed. There is also just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
+The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footprint* of the *Lite* board, and as a consequence of its smaller size the lack of some pins: *RX0*, *TX0*, and *5V* are not exposed. There is also just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
+
+*Lolin32 **Lite*** specifically targets portable devices and focuses on a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
 
 > [!NOTE]
-> *Lolin32 **Lite*** specifically targets portable devices: a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
-
-
+> *Lolin32 **Lite*** should have more accurately be named *Lolin32 **Portable*** as it is as powerful as *Lolin32* and not a *lite* version, rather optimized for **portable** use.
 
 
 
