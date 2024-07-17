@@ -14,7 +14,7 @@ Its additional capabilities (including generous *26 GPIOs*) are exposed via two 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
 
 
-Thanks to its form factor and *pin-compatibility*, with the *S2 Mini* you can continue to use *shields* originally designed for the *D1 Mini* (i.e. *battery shields*).
+Thanks to its form factor and *pin-compatibility*, you can continue to use *shields* originally designed for the *D1 Mini* (i.e. *battery shields*).
 
 
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
