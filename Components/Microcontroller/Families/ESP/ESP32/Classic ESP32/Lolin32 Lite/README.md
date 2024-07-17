@@ -35,7 +35,7 @@ The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footpr
 *Lolin32 **Lite*** specifically targets portable devices and focuses on a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
 
 > [!NOTE]
-> *Lolin32 **Lite*** should have more accurately be named *Lolin32 **Portable*** as it is as powerful as *Lolin32* and not a *lite* version, rather optimized for **portable** use.
+> *Lolin32 **Lite*** should have more accurately be named *Lolin32 **Portable*** as it is just as powerful as *Lolin32* and not at all a *lite* version, rather optimized for **portable** use.
 
 
 
