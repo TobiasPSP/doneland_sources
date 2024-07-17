@@ -29,7 +29,7 @@ Once *adopted*, the device works like any other *ESPHome device*: it can be edit
 
 *Adoption* only works *once*, and when a device has been *adopted*, it is no longer up for *adoption* by any other *ESPHome instance*.
 
-The advantage of the two-step *adoption process* (*provisioning*, then *adoption*) over *directly* uploading a manually created *configuration* is that you **do not need a *USB cable connection* between the device and the computer running *ESPHome*** for the initial firmware upload. Thanks to *provisioning* and *adoption*, the microcontroller is immediately able to receive firmware files *wirelessly* via *OTA*.
+The advantage of the two-step *adoption process* (*provisioning*, then *adoption*) over [directly uploading a manually created *configuration*](https://done.land/tools/software/esphome/introduction/provisioningdirectly) is that you **do not need a *USB cable connection* between the device and the computer running *ESPHome*** for the initial firmware upload. Thanks to *provisioning* and *adoption*, the microcontroller is immediately able to receive firmware files *wirelessly* via *OTA*.
 
 
 </details>
