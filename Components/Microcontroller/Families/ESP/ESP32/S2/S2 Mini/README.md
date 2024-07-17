@@ -132,9 +132,9 @@ The board comes with 32 pins in 2x2 rows of 8. The *outer* pins are *compatible 
 
 <img src="images/s2_pins.png" width="100%" height="100%" />
 
-In an effort to maintain *maximum backwards compatibility*, the *S2 Mini* board designers changed the order of some *pin pairs*: pins 2-11* are always designed and located on the board in *pairs*, i.e. *2/3*, *4/5*, *6/7*, *8/9*, *10/11*. For some pins, this scheme is reversed: pins *12* and *13* are located as *13/12* instead of *12/13*.
+In an effort to maintain *maximum backwards compatibility*, the *S2 Mini* board designers changed the order of some *pin pairs*: pins *2-11* are always located on the board in *pairs*, i.e. *2/3*, *4/5*, *6/7*, *8/9*, *10/11*. For some pins, this scheme is reversed: pins *12* and *13* are located as *13/12* instead of *12/13* to preserve pin compatibility to the *D1 Mini*:
 
-The reason for this is that only the *outer* pins match the *D1 Mini* pins (as the two inner lines of pins were added). Both pin *11* and *12* are used for the *hardware SPI interface* though. If the board designers would not have switched pins *12* and *13* around, then pin *12* would have been located on the *inner* lines of pins and thus become inaccessible for *D1 Mini*-compatible shields.
+Only the *outer* pins match the *D1 Mini* pins (as the two inner lines of pins were added). Both pin *11* and *12* are used for the *hardware SPI interface* though. If the board designers would not have switched pins *12* and *13* around, then pin *12* would have been located on the *inner* lines of pins and thus become inaccessible for *D1 Mini*-compatible shields.
 
 
 <img src="images/esp32_s2_shield_pns_top_t.png" width="80%" height="80%" />
