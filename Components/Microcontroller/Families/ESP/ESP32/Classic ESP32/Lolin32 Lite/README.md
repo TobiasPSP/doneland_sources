@@ -50,12 +50,12 @@ The board has *26 pins*.
 All *GPIO* pins support internal *pull-up* and *pull-down* resistors.
 
 
-<img src="images/esp32_lolin_top_t.png" width="80%" height="80%" />
+<img src="images/esp32_lolin_top_t.png" width="40%" height="40%" />
 
 
 ## When To Use
 
-Here are reasons for choosing a **Lolin32 Lite**:
+These are some reasons for choosing a **Lolin32 Lite**:
 
 | Feature | Use Cases |
 | --- | --- |
@@ -63,15 +63,15 @@ Here are reasons for choosing a **Lolin32 Lite**:
 | Price | The board is relatively cheap |
 | 3.3V | You are planning to use *3.3V* components and do not need *5V* support |
 
-These are *potential* reasons to choose a different microcontroller type:
+Here are some reasons to choose a different board:
 
 | Use Case | Recommendation |
 | --- | --- |
 | External Power | Cannot be operated with external *3.3V or 5V power supply* (except via its *USB* connector) |
-| 5V components | if you need to work with *5V* components you might want to consider a different board. The *Lolin32 Lite* neither exposes *5V*, nor are its GPIOs *5V tolerant*. |
+| 5V components | if you need to work with *5V* components you want to consider a different board.  |
 
 
-<img src="images/esp32_lolin_front_t.png" width="80%" height="80%" />
+<img src="images/esp32_lolin_front_t.png" width="40%" height="40%" />
 
 
 
