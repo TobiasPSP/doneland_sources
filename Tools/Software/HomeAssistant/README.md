@@ -27,7 +27,7 @@ Key features of *Home Assistant* are:
 ### Universal Dashboard
 Its unparalleled *extensibility* makes *Home Assistant* highly interesting not just for anyone interested in *automating their homes* and *making sure everything is alright at home*, but also for *electronics hobbyists* with no relation to *home automation* at all: 
 
-Simplifying DIY Microcontroller Projects
+#### Simplifying DIY Microcontroller Projects
 
 Microcontroller-based DIY projects can be *simplified* significantly with *Home Assistant*: it provides necessary *graphical interfaces* and helps you *manage* and *leverage the capabilities* of your self-made devices:
 
