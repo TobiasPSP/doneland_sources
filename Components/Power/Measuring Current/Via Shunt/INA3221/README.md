@@ -157,15 +157,16 @@ There is a [Power Monitor Tool](https://www.ti.com/tool/download/SBOR021) availa
 | IN2- | positive side of load 2 |
 | IN3+ | positive pin of power supply for load 3 |
 | IN3- | positive side of load 3 |
-| GND | Common ground (must be shared with all connected loads) |
 | VS | INA3221 power supply, 2.7-5.5V |
-| SDA | I2C SDA |
+| GND | Common ground (must be shared with all connected loads) |
 | SCL | I2C SCL |
+| SDA | I2C SDA |
 | PV | *power valid* alert, open-drain output |
 | CRI | *critical* alert, open-drain output, *conversion*-triggered |
 | WAR | *warning* alert, open-drain output, *average*-triggered |
 | TC | *timing control* alert, open-drain output |
-| A0 | defines the *I2C* address. Default address is *0x40* |
+| VPU | pull-up supply voltage used to bias *power valid* output circuitry (*on top side of board*) | 
+| A0 | defines the *I2C* address. Default address is *0x40* (*on top side of board*) |
 
 ## I2C Address
 
@@ -190,15 +191,29 @@ The *INA3221* is a *high side* device. Here are the rules:
 * **Common Ground:** all loads *channels* and the *INA3221 power supply* **must share the same GND**.
 * **High Side:** the *positive* pin of each channel must be connected to the positive power supply. The *negative* pin of the channel connects to the *positive* side of the load. The *negative* side of the load connects to common **GND**.
 
-### Example
+### Basic Example
 
 This is an example of hooking up a *ESP32* microcontroller to the *I2C interface* of *INA3221*, and exposing three screw terminals for three different loads to be measured:
 
 
 <img src="images/ina3221_basic_schematics.png" width="100%" height="100%" />
 
-> [!IMPORTANT]
-> Make sure you connect the positive power source that drives your load to *VNx+*, the negative power source to *GND*, the device's positive pole to the *VNx-*, and the device's negative pole to *GND*. All devices and power supplies must share the same *GND* with *INA3221*.
+This schematic uses the *minimal wiring*, and hooking up three devices to the three channels isn't necessarily intuitive:
+
+* Positive power source that drives your load is connected to *VNx+*
+* The device's positive pole is connected to the *VNx-*
+* Both negative power source *and* negative device pole are connected to *GND*
+
+
+### Enhanced Example
+With just slight wiring changes, a device can be created that uses *two* screw terminals per channel and can be used much more *intuitively*:
+
+* One screw terminal connects the power supply for the particular channel.
+* The other screw terminal connects the load for the particular channel.
+
+
+<img src="images/ina3221_enhanced_schematics.png" width="100%" height="100%" />
+
 
 
 ## Measurement Details
