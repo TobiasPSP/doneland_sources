@@ -10,9 +10,12 @@ Of course you know what *WiFi* is. This section focuses specifically on *WiFi de
 
 A wireless network (*WiFi*) provides the fundamental *infrastructure* to work with *wireless devices*. It makes a significant difference whether you set up *WiFi* for a typical *consumer household*, or whether you need it for *home automation*:
 
-* **Coverage:** there may be much higher requirements for seamless coverage as *wireless devices* may be located in areas much different from *consumer devices*: *garden* (i.e. to connect to *moisture* and *temperature* sensors or *cameras*), *garage* (i.e. *garage door sensors*, *cameras*, *alarm system*), *utility rooms* (for monitoring *heating system*, *gas and water meter*). In short, your *WiFi* should cover every area of your home property.
-* **Number of devices:** Once you start adding *smart wireless devices* to your home, you quickly and significantly increase the number of devices that are connected to *WiFi*: every device (every sensor, smart plug, remote button, etc.) counts as one. Thus, your *WiFi* needs to be capable of handling this many devices.
+* **Coverage:** with *home automation*, there may be much higher requirements for seamless coverage: *wireless devices* may be located in areas different from *consumer devices*: *garden* (*moisture* and *temperature* sensors or *cameras*), *garage* (*garage door sensors*, *cameras*, *alarm system*), *utility rooms* (*heating system*, *gas and water meter*). *WiFi* needs to cover virtually every area of your home property.
+* **Number of devices:** Once you start adding *smart wireless devices* to your home, you quickly and significantly increase the number of devices that are connected to *WiFi*: every *WiFi* device (every sensor, smart plug, remote button, etc.) counts as one. Thus, your *WiFi* needs to be capable of handling this many devices.
 * **WiFi Bands:** Modern *WiFi stations* use *2.4GHz*, *5GHz*, and even *6GHz* in parallel to transmit data. Each frequency band increases the *bandwidth* (speed of data transfer) and has individual transmission characteristics that in combination ensures good coverage across walls or levels - but only for *consumer devices* such as *smartphones*. *Home automation* uses *WiFi-enabled microcontrollers* that exclusively work with the *2.4GHz band*. So if *WiFi coverage* in this particular band is poor, impaired by interference, or if this band was disabled altogether, it hits *home automation* severely while at the same time, *WiFi* seems to operate smoothly for *consumer devices*.
+
+> [!TIP]
+> You might want to also look into using *Zigbee* devices (and an appropriate *Zigbee gateway*) to shift load off your *WiFi* and reduce the number of devices that need to connect to your *WiFi*: *Zigbee* automatically creates its own network in which any *Zigbee* device can act as *repeater* and extend *network coverage* automatically.
 
 
 ## WiFi Stations
@@ -161,6 +164,6 @@ Before you switch the *WiFi mode* to *Access Point*, consider these aspects:
 > If your computer **must** stay in the *wired* network, you may be able to work around the subnet issue by re-configuring software like *Home Assistant* and *ESPHome* to use *IP addresses* and *ping* instead of *mDNS*. Or, you can add a simple manual network switch that can switch between *wired* and *wireless* networks. Or, you can add another network card to your computer and connect it to *both* subnets. There are many more workarounds. Just make sure you *understand the problem* and configure your network in such a way that all devices can contact each other and share the required information with each other.
 
 
-> Tags: WiFi Mode, Subnet, Mesh, Backhaul, Access Point, Router
+> Tags: WiFi Mode, Subnet, Mesh, Backhaul, Access Point, Router, Zigbee
 
 [Visit Page on Website](https://done.land/fundamentals/network/wifi?438829071318241908) - created 2024-07-17 - last edited 2024-07-17
