@@ -67,7 +67,7 @@ Most *WiFi stations* use *Router mode* by default, so if you have already set up
 > While you *can* change the *WiFi mode* easily at any time, **do not do it just yet!** Understand the consequences first (see below).
 
 #### mDNS Cannot Traverse Subnets
-In *Router mode*, your *WiFi network* is a *separate network*. *mDNS name resolution* does not work across such networks. That has significant consequences when *mDNS device names* are used to resolve the *IP address* of a device.
+In *Router mode*, your *WiFi network* is a *separate subnet*. *mDNS name resolution* does not work across subnets. That has significant consequences when *mDNS device names* are used to resolve the *IP address* of a device.
 
 Here are typical real-world consequences that a *home automation* user may experience:
 
