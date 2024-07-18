@@ -12,7 +12,7 @@ A wireless network (*WiFi*) provides the fundamental *infrastructure* to work wi
 
 * **Coverage:** there may be much higher requirements for seamless coverage as *wireless devices* may be located in areas much different from *consumer devices*: *garden* (i.e. to connect to *moisture* and *temperature* sensors or *cameras*), *garage* (i.e. *garage door sensors*, *cameras*, *alarm system*), *utility rooms* (for monitoring *heating system*, *gas and water meter*). In short, your *WiFi* should cover every area of your home property.
 * **Number of devices:** Once you start adding *smart wireless devices* to your home, you quickly and significantly increase the number of devices that are connected to *WiFi*: every device (every sensor, smart plug, remote button, etc.) counts as one. Thus, your *WiFi* needs to be capable of handling this many devices.
-* **WiFi Bands:** Modern *WiFi stations* use *2.4GHz*, *5GHz*, and even *6GHz* in parallel to transmit data. Each frequency band increases the *bandwidth* (speed of data transfer) and has individual transmission characteristics that in combination ensures good coverage across walls or levels - but only for *consumer devices* such as *smartphones*. *Home automation* uses *WiFi-enabled microcontrollers* that exclusively work with the *2.4GHz band*. So if *WiFi coverage* in this particular band is poor, impaired by interference, or if this band was disabled altogether, it affects *home automation* severly while at the same time, *WiFi* seems to operate perfectly well for *consumer devices*.
+* **WiFi Bands:** Modern *WiFi stations* use *2.4GHz*, *5GHz*, and even *6GHz* in parallel to transmit data. Each frequency band increases the *bandwidth* (speed of data transfer) and has individual transmission characteristics that in combination ensures good coverage across walls or levels - but only for *consumer devices* such as *smartphones*. *Home automation* uses *WiFi-enabled microcontrollers* that exclusively work with the *2.4GHz band*. So if *WiFi coverage* in this particular band is poor, impaired by interference, or if this band was disabled altogether, it hits *home automation* severely while at the same time, *WiFi* seems to operate smoothly for *consumer devices*.
 
 
 ## WiFi Stations
@@ -69,11 +69,11 @@ In *Router mode*, your *WiFi network* is a *separate network*. *mDNS name resolu
 Here are typical real-world consequences that a *home automation* user may experience:
 
 * **Home Assistant:** *wireless* devices are not discovered and need to be manually added via their *IP address*. 
-* **ESPHome:** devices are reported to be *offline* when in fact they are *online*.
+* **ESPHome:** *wireless* devices are reported to be *offline* when in fact they are *online*.
 
-These issues occur because the user had connected his *Home Assistant server* with a network cable to his *wired* network, whereas the devices connect *wirelessly* to *WiFi*.
+These issues occur because the user has connected his *Home Assistant server* with a network cable to his *wired* network, whereas the devices connect *wirelessly* to *WiFi*, and his *WiFi* runs in *Router mode*.
 
-Because of the *WiFi Router Mode*, neither the devices could contact the *mDNS name **homeassistant.local***, nor was *Home Assistant* (and its *ESPHome* add-on) able to contact the *mDNS device name* to determine its online status.
+Because of the *WiFi Router Mode*, neither the devices can contact the *mDNS name **homeassistant.local*** (because it exists in a different subnet), nor can *Home Assistant* (as well as its *ESPHome* add-on) contact the *mDNS device name* of a *wireless* device to determine its online status (because it exists in a different subnet).
 
 
 <details><summary>Is My Network Setup Currently Affected By This?</summary><br/>
