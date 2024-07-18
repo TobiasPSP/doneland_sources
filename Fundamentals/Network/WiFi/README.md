@@ -157,7 +157,7 @@ Before you switch the *WiFi mode* to *Access Point*, consider these aspects:
 
 * **Primary Router:** is your primary router and its *DHCP service* capable of handling hundreds of devices? Do you possibly have to edit its settings and define a wider *DHCP address range*? Do you possibly have to change the network subnet mask from `255.255.255.0` to `255.255.252.0` to extend the number of available *IP addresses* from *253* to *1022*? Or do you even have to switch to an external *DHCP service*?
 * **Static IP Addresses:** have you set up any *static IP addresses* manually? Will they still work with the new DHCP settings?
-* **Integrations & Tunnels:** Have you set up any *integrations* or configured any *add-ons* in *Home Assistant* that rely on *IP Ranges*? Will they continue to work with your new *DHCP settings*?
+* **Integrations & Tunnels:** Have you set up any *integrations* or configured any *add-ons* in *Home Assistant* that rely on *IP Ranges*? Will they continue to work with your new *DHCP settings*? Or have you set up a *Cloudflare tunnel* to access your home network remotely, and does the tunnel possibly require re-configuration when you change the *IP Range* of your home network?
 
 
 > [!TIP]
