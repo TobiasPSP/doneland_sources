@@ -39,7 +39,7 @@ That's why *WiFi coverage* often is improved by using these strategies:
 
 
 ### Home Automation Aspects
-*Mesh WiFi* is the best strategy for setting up a *WiFi network* suitable for serious *home automation*: a *mesh* allows for extending coverage to any rooms, levels or locations simply by adding another *satellite*.
+*Mesh WiFi* is the most flexible strategy for setting up a *WiFi network* suitable for serious *home automation*: a *mesh* allows for extending coverage to any rooms, levels or locations simply by adding another *satellite*.
 
 Each new *WiFi station* also increases the total number of devices that can connect to *WiFi*. This number depends on two factors:
 
