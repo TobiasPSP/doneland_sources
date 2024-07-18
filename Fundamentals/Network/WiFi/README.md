@@ -61,7 +61,7 @@ Each *WiFi network* can operate in one of two modes which can have **significant
 Most *WiFi stations* use *Router mode* by default, so if you have already set up your *WiFi* and not paid special attention to the *WiFi mode*, chances are you are currently using *Router mode*.
 
 > [!IMPORTANT]
-> While you *can* change the *WiFi mode* easily at any time, **do not do it!**. Understand the consequences first (see below).
+> While you *can* change the *WiFi mode* easily at any time, **do not do it just yet!** Understand the consequences first (see below).
 
 #### mDNS Cannot Traverse Subnets
 In *Router mode*, your *WiFi network* is a *separate network*. *mDNS name resolution* does not work across such networks. That has significant consequences when *mDNS device names* are used to resolve the *IP address* of a device.
@@ -158,7 +158,7 @@ Before you switch the *WiFi mode* to *Access Point*, consider these aspects:
 
 
 > [!TIP]
-> If your computer **must** stay in the *wired* network, you may be able to work around the subnet issue by re-configuring software like *Home Assistant* and *ESPHome* to use *IP addresses* and *ping* instead of *mDNS*. Or, you can ad a simple manual network switch that can switch between *wired* and *wireless* networks. Or, you can add another network card to your computer and connect it to *both* subnets. 
+> If your computer **must** stay in the *wired* network, you may be able to work around the subnet issue by re-configuring software like *Home Assistant* and *ESPHome* to use *IP addresses* and *ping* instead of *mDNS*. Or, you can add a simple manual network switch that can switch between *wired* and *wireless* networks. Or, you can add another network card to your computer and connect it to *both* subnets. There are many more workarounds. Just make sure you *understand the problem* and configure your network in such a way that all devices can contact each other and share the required information with each other.
 
 
 > Tags: WiFi Mode, Subnet, Mesh, Backhaul, Access Point, Router
