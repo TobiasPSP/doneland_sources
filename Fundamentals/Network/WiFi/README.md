@@ -55,7 +55,7 @@ When setting up a *mesh WiFi*, here are a few considerations:
 
 ## WiFi Mode
 
-Each *WiFi network* can operate in one of two modes which can have **significant impact** on whether your *home automation solution* work well or not:
+Each *WiFi network* operates in one of two modes which can have **significant impact** on whether your *home automation solution* work well or not:
 
 * **Router Mode:** the main *WiFi station* acts like a *Router*: it defines its own *subnet*, runs its own *DHCP server*, and issues its own *IP addresses* to connected devices.
 * **Access Point Mode:** each *WiFi station* (regardless whether *main station* or *satellite*) connects wireless devices to the original router. Devices receive their *IP addresses* from the original router, and *no subnet is created*.
