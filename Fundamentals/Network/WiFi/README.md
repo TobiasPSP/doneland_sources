@@ -15,7 +15,7 @@ A wireless network (*WiFi*) provides the fundamental *infrastructure* to work wi
 * **WiFi Bands:** Modern *WiFi stations* use *2.4GHz*, *5GHz*, and even *6GHz* in parallel to transmit data. Each frequency band increases the *bandwidth* (speed of data transfer) and has individual transmission characteristics that in combination ensures good coverage across walls or levels - but only for *consumer devices* such as *smartphones*. *Home automation* uses *WiFi-enabled microcontrollers* that exclusively work with the *2.4GHz band*. So if *WiFi coverage* in this particular band is poor, impaired by interference, or if this band was disabled altogether, it hits *home automation* severely while at the same time, *WiFi* seems to operate smoothly for *consumer devices*.
 
 > [!TIP]
-> You might want to also look into using *Zigbee* devices (and an appropriate *Zigbee gateway*) to shift load off your *WiFi* and reduce the number of devices that need to connect to your *WiFi*: *Zigbee* automatically creates its own network in which any *Zigbee* device can act as *repeater* and extend *network coverage* automatically.
+> You might want to also look into using *Zigbee* devices (and add an appropriate *Zigbee gateway device* to your *WiFi network*) to shift load off your *WiFi* and reduce the number of devices that need to connect to your *WiFi*: *Zigbee* automatically creates its own network in which any *Zigbee* device can act as *repeater* and extend *network coverage* automatically.
 
 
 ## WiFi Stations
