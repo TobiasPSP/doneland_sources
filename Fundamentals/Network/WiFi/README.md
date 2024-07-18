@@ -161,7 +161,7 @@ Before you switch the *WiFi mode* to *Access Point*, consider these aspects:
 
 
 > [!TIP]
-> If your computer **must** stay in the *wired* network, you may be able to work around the subnet issue by re-configuring software like *Home Assistant* and *ESPHome* to use *IP addresses* and *ping* instead of *mDNS*. Or, you can add a simple manual network switch that can switch between *wired* and *wireless* networks. Or, you can add another network card to your computer and connect it to *both* subnets. There are many more workarounds. Just make sure you *understand the problem* and configure your network in such a way that all devices can contact each other and share the required information with each other.
+> If your computer **must** stay in the *wired* network, you may be able to work around the subnet issue by re-configuring software like *Home Assistant* and *ESPHome* to use *IP addresses* and *ping* instead of *mDNS*. Or, you can add a simple manual network switch that can switch between *wired* and *wireless* networks. Or, you can add another network card to your computer and connect it to *both* subnets. There are many more workarounds. Just make sure you *understand the problem* and configure your network in such a way that all devices can contact each other and share the required information.
 
 
 > Tags: WiFi Mode, Subnet, Mesh, Backhaul, Access Point, Router, Zigbee
