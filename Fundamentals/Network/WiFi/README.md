@@ -4,7 +4,7 @@
 
 > Practical Details You Should Know About Your WiFi Network
 
-Of course you know what *WiFi* is. This section focuses specifically on *WiFi details* you **may not yet know** and that can be very important for using *WiFi* with electronic devices.
+Of course you know what *WiFi* is. This section focuses specifically on *WiFi details* you **may not yet know** and that can be very important for using *WiFi* with *home automation* and *WiFi-enabled microcontrollers*.
 
 ## Overview
 
@@ -23,7 +23,7 @@ With *home automation*, additional thoughts and configurations are required to s
 ### Typical Consumer Setup
 In most *consumer homes*, connection to the Internet is established by a *Router* that was installed (or provided) by the *internet service provider* (*ISP*).
 
-This router is connected to the *phone line* (or whatever cable the *ISP* is using), and on its other end it provides *ethernet plugs* (to connect *wired* devices). The router also sets up a simple *WiFi* (to connect *wireless* devices).
+This router is connected to the *phone line* (or whatever cable the *ISP* is using), and on its other end it provides *ethernet plugs* (to connect *wired* devices) and sets up a simple *WiFi Access Point* (to connect *wireless* devices).
 
 ### Improving Coverage
 Simple *ISP routers* often do not provide sufficient coverage, even for pure *consumer scenarios* with no *home automation ambition* at all.
