@@ -49,7 +49,7 @@ Each new *WiFi station* also increases the total number of devices that can conn
 When setting up a *mesh WiFi*, here are a few considerations:
 
 * **Disable Original AP:** *disable* the built-in *WiFi access point* in your *ISP router* as it is no longer needed and would just *interfere*, especially if your new *WiFi* is using the same *SSID* (network name).
-* **Use wired backhaul:** whenever possible, use an ethernet cable to connect *satellites* with the main station. A wired backhaul is much faster and more stable. If no cable connection is possible between given satellites, they use a *wireless* backhaul automatically.
+* **Use Wired Backhaul:** whenever possible, use an ethernet cable to connect *satellites* with the main station. A wired backhaul is much faster and more stable. If no cable connection is possible between given satellites, they use a *wireless* backhaul automatically.
 * **WiFi Band:** make sure your *WiFi* uses the *2.4GHz band* which is the one used by *wireless-enabled microcontrollers and devices*.
 
 
