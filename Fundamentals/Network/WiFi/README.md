@@ -4,7 +4,7 @@
 
 > Practical Details You Should Know About Your WiFi Network
 
-Of course you know what *WiFi* is. This section focuses specifically on *WiFi details* you **may not yet know** and that can be very important for using *WiFi* with *home automation* and *WiFi-enabled microcontrollers*.
+Of course you know what *WiFi* is. This section focuses specifically on *WiFi details* you **may not yet know** that can be very important for using *WiFi* with *home automation* and *WiFi-enabled microcontrollers*.
 
 ## Overview
 
