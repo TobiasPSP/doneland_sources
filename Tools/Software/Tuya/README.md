@@ -64,10 +64,10 @@ One way of limiting the risk and improving *reliability* is to control *Tuya dev
 
 * **Cloud Works Great For Most Users:** Try the official *cloud* approach first, and test the stability **for yourself**. Any part of the *cloud* tool chain is a *single point of failure*: your network setup, ISP, *Home Assistant*, its integration, *Tuya* cloud servers, etc. This explains why the *majority* of users enjoys flawless operation while a few users are regularly hit by frustrating issues and interruptions. With a bit of luck, *Tuya devices* work great for you *as-is*.
 * **Solving Old Problems By Creating New Problems:** Always carefully evaluate solutions that claim to work *locally* (like [Tuya-Local](https://github.com/make-all/tuya-local)). Controlling *Tuya devices* locally is based on reverse engineering of the *Tuya local API*, and the result may not be supported for all device types, may require assigning *static IP addresses* or other *network and firewall configurations*, and may *still* require that the official *Tuya cloud API* is regularly contacted to update keys. Such solutions may work beautifully for you, but they are just *workarounds* with a lot of *configuration effort* that *do not really solve* the underlying problem and can stop working at any time (if the *Tuya local API* changes).
-* **Great Alternative, But Not For Free:** With [LibreTiny](https://github.com/libretiny-eu), there is a *great* alternative that truly *removes any cloud dependency*. Such a conversion is technically challenging though.
+* **Great Alternative, But Not For Everyone:** With [LibreTiny](https://github.com/libretiny-eu), there is a *great* alternative that truly *removes any cloud dependency*. Such a conversion is technically challenging though.
 
 
-### Conclusion
+## Conclusion
 Evaluate using *Tuya devices* with the official *Home Assistant Tuya integration* first: chances are this works amazingly well for you.
 
 If it does not, or if you'd like to remove *cloud dependency* for other reasons, the only other alternative is to replace the device *firmware* altogether, and use a new firmware that does not require *cloud services* at all. 
