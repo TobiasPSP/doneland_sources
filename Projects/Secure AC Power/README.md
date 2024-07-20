@@ -4,9 +4,13 @@
 
 > Monitoring Power Consumption And Securing Lab When Away From Home
 
-<details><summary>**Important:** Disclaimer and Safety Warnings</summary><br/>
+
+
 
 This article involves *dangerous AC currents*. Working with AC currents requires utmost caution and expertise. 
+
+
+<details><summary>Disclaimer and Safety Warnings</summary><br/>
 
 #### Warning
 Handling AC currents can be extremely dangerous. Improper handling can result in serious injury or death. Ensure all safety precautions are taken and consult with a professional.
@@ -81,3 +85,5 @@ Wiring is very simple: the device comes with two screw terminals: *N-IN* and *L-
 
 
 Tags: Plug, Smart Plug, Power Monitor
+
+[Visit Page on Website](https://done.land/projects/controlandsecureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-19

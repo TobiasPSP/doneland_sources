@@ -32,6 +32,6 @@ So what is the **Projects** section used for?
 It's simply a place for **me** to put any article that *doesn't (yet) fit* into any other category, and that in fact may not even be completed:
 
 * **Preliminary:** articles you find here might be *temporarily located* here - as I may not yet have figured out the best place to put them
-* **Incomplete:** articles in this section may not yet be completed: I might still be working on it. If that's the case, check back tomorrow to see if the article evolved.  
+* **Incomplete:** articles in this section may not yet be completed: I might still be working on it. If that's the case, check back tomorrow to see if the article evolved.
 
-[Visit Page on Website](https://done.land/projects?610244020426240854) - created 2024-02-27 - last edited 2024-07-20
+[Visit Page on Website](https://done.land/projects?610244020426240854) - created 2024-02-27 - last edited 2024-07-19
