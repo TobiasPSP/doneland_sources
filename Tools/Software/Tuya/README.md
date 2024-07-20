@@ -6,11 +6,11 @@
 
 [Tuya](https://www.tuya.com/) is a Chinese company offering an *IoT platform* for generic *IoT devices*: *wireless plugs*, *lights*, and more. 
 
-<img src="images/tuya_logo.png" width="30%" height="30%">]
+<img src="images/tuya_logo.png" width="30%" height="30%">
 
 When you come across a *smart device* with *tuya* logo, the device is designed and manufactured by a generic company that prepared the *device firmware* so that it utilizes the *Tuya cloud services*. 
 
-<img src="images/tuya_devices_overview_t.png" width="100%" height="100%">]
+<img src="images/tuya_devices_overview_t.png" width="100%" height="100%">
 
 
 > [!NOTE]
