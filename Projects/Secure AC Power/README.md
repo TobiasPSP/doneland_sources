@@ -138,12 +138,12 @@ That's why it is *very important* to always carefully connect *Ground*. The *pow
 
 Most cheap switches contain *only one* switch, so only *one* side of the circuit can be interrupted. When you plug in your device *in the wrong way* and reverse **L** and **N**, then the switch may cut the **N** line instead of the **L** line. 
 
-The loads still stop working when you break **N** instead of **L** (since the circuit is interrupted), but now the *load* is ***always** connected to the live line*, and if there was a defect, or if a user would touch an uninsulated part of this *live line*, the user would get an electrical shock even though the *power meter* was *turned off*.
+The loads still stop working when you break **N** instead of **L** (since the circuit is interrupted), but now the *load* is ***always** connected to the live line*, and if there was a defect, or if a user would touch an uninsulated part of this *live line*, the user would get an electrical shock even though the *power meter* had *turned off* the circuit.
 
-For practical purposes, this is not necessarily a problem: any *extension cord with a switch* has the same problem: when plugged in *"the wrong way"*, then the switch does not separate the loads from the *live line*. 
+For practical purposes, this is not necessarily a problem: any *extension cord with a switch* has the same problem: when plugged in *"the wrong way"*, then the switch does not separate the loads from the *live line* (except if it uses a switch that always cuts both the **N** and the **L** wire.
 
 > [!TIP]
-> Even if you use plugs, the device created here is not likely to be plugged in and out all the time. So when you plug it in, make sure you plug it in *the right way*, connecting its *live line* with the *live line* of the socket. In order to be able to do this, make sure you *mark* the *live line* at the plug of your device. 
+> The device created here is not likely to be plugged in and out all the time. So when you plug it in, make sure you plug it in *the right way*, connecting its *live line* with the *live line* of the socket. In order to be able to do this, make sure you *mark* the *live line* at the plug of your device. 
 
 </details>
 
