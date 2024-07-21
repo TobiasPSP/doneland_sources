@@ -164,9 +164,6 @@ In this particular use case, *extension cords* were used to power *lab devices* 
 > [!IMPORTANT]
 > Whether you should use *extension cords* or stationary *electrical installations* depends on the use case and the *power requirements* of the devices you use.
 
-> [!TIP]
-> Most likely, the cables of an extension cord use official color coding. Stick to the color scheme, and connect  *blue* cables to the **N** terminals, and *brown* cables to the **L** terminals.
-
 ### Connecting Cables
 
 When you connect cables, you may want to add *cable shoes*. 
