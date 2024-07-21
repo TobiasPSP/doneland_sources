@@ -239,6 +239,6 @@ Use four *M4* screws to secure both parts.
 > Before you close the housing, mark the **L** line at the plug. This way, for *added safety* you can plug it into a socket in such a way that the switch cuts the *live line* and not the *neutral line*.
 
 
-Tags: Plug, Smart Plug, Power Monitor
+Tags: Plug, Smart Plug, Power Monitor, Atorch GR2PWS, Rail Meter
 
 [Visit Page on Website](https://done.land/projects/secureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-20
