@@ -94,7 +94,7 @@ The *rail meter* picked is a *Tuya*-compliant  *Atorch GR2PWS* rated at *50-320V
 > [!IMPORTANT]
 > Pay **very close** attention to the exact device **model** you order: most vendors also sell look-alike models with less features. You need a model that supports both *WiFi* and *Switching*. Also make sure the model has a *Home Assistant integration*, i.e. supported by *Tuya*.
 
-Here are the different models for the *Atorch* device I used (along with the feature-limited models you want to avoid):
+Here are the different models for the *Atorch* device used in this example (along with feature-limited models you want to avoid):
 
 | Feature | GR2P | GR2PW | **GR2PWS** |
 | --- | --- | --- | --- |
