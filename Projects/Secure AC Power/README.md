@@ -66,7 +66,7 @@ By creating a device that *integrates* with *Home Assistant*, implementation eff
 
 ### Power Metering And Switching
 
-To ensure that *power metering* and *power switching* is *safe*, using a *DIY solution* is not efficient: the parts cost more than ready-to-use and safe devices. To *integrate with Home Assistant*, the device needs to be *WiFi*- or *Zigbee*-enabled, and there needs to be a *Home Assistant integration* that knows how to access the device. 
+To ensure that *power metering* and *power switching* is *safe*, using a *DIY solution* is not wise: the parts cost more than ready-to-use and safe devices. To *integrate with Home Assistant*, the device needs to be *WiFi*- or *Zigbee*-enabled, and there needs to be a *Home Assistant integration* that knows how to access the device. 
 
 #### Integration With Home Assistant
 One of the *most economic* approaches is to look for devices that work with [Tuya](https://done.land/tools/software/tuya): 
