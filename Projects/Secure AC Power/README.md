@@ -114,7 +114,9 @@ Wiring is as simple as connecting a regular switch: the device comes with two sc
 
 <details><summary>What does "N" and "L" mean?</summary><br/>
 
-*AC power* uses three lines: ***L** (Live)*, ***N** (Neutral)*, and *Ground*. According to *IEC60446*, the **L**-line should be marked by a *brown* cable, and the **N**-line is marked by a *blue* cable.
+
+
+*AC power* uses three lines: *L (Live)*, *N (Neutral)*, and *Ground*. According to *IEC60446*, the **L**-line should be marked by a *brown* cable, and the **N**-line is marked by a *blue* cable.
 
 * The **L**-line is *live* (dangerous): when you connect an *AC tester pen* to it, its indicator lamp glows. Likewise, when you *touch* this line, you get an electrical shock.
 
