@@ -218,22 +218,22 @@ Once the device has been added to your *Tuya* or *SmartLife* app, it gets automa
 
 The *rail meter* is designed to be used inside a *fuse box*. When you use it elsewhere, a proper housing is required.
 
-### Sample Housing
+### Design
 
-Since the device is not in plain view for the use case discussed here, no sophisticated housing was required. A *simple housing* can quickly be put together in *Fusion360* or any other CAD software:
+Since the device is not in plain view for the use case discussed here, no sophisticated housing is required, and a *simple protective housing* can quickly be put together in *Fusion360* or any other CAD software:
 
 
 <img src="images/housing_atorch_powerswitch.png" width="70%" height="70%" />
 
 ### 3D Printed Housing
-To print the housing using a *3D printer*, you can use the *STL files* below.
+To *3D print* the housing, use the *STL files* below.
 
 <img src="images/cura_atorch_print_housing.png" width="100%" height="100%" />
 
-* [Bottom:](materials/atorch_powermonitor_housing_bottom.stl) takes the *Atorch GR2PWS* component and provides room for *cable pull relief* (by using cable binders on both cable ends), and spared room for connecting both *Ground* wires.  
-* [Cover:](materials/atorch_powermonitor_housing_cover.stl): provides openings for ventilation, and an opening for the *Atorch GR2PWS screen and buttons*.
+* [Bottom:](materials/atorch_powermonitor_housing_bottom.stl) takes the *Atorch GR2PWS* component and provides room for *friction cable pull relief* (by using cable binders on both cable ends), and spared room for connecting both *Ground* wires.  
+* [Cover:](materials/atorch_powermonitor_housing_cover.stl) provides openings for ventilation, and an opening for the *Atorch GR2PWS screen and buttons*.
 
-Use four *M4* screws to secure both parts.
+Use four *M4* screws to secure both parts. You may want to use a drill to clean the first few millimeters of each hole from printing residue.
 
 > [!TIP]
 > Before you close the housing, mark the **L** line at the plug. This way, for *added safety* you can plug it into a socket in such a way that the switch cuts the *live line* and not the *neutral line*.
