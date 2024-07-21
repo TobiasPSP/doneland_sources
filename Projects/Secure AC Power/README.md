@@ -4,8 +4,6 @@
 
 > Monitoring Power Consumption And Securing Lab When Away From Home
 
-<img src="images/atorch_project_final_overview_t.png" width="50%" height="50%" />
-
 
 This article involves *dangerous AC currents*. Working with AC currents requires utmost caution and expertise. 
 
@@ -37,6 +35,9 @@ The information provided in this article is for educational and informational pu
 
 
 </details>
+
+
+<img src="images/atorch_project_final_overview_t.png" width="100%" height="100%" />
 
 
 > [!NOTE]
