@@ -37,7 +37,7 @@ The information provided in this article is for educational and informational pu
 </details>
 
 
-<img src="images/atorch_project_final_overview_t.png" width="100%" height="100%" />
+<img src="images/atorch_plug_overview3.png" width="100%" height="100%" />
 
 
 > [!NOTE]
@@ -261,7 +261,9 @@ To add *total power consumption*, and in fact to add ***all** missing Tuya entit
 
 The *rail meter* is designed to be used inside a *fuse box*. When you use it elsewhere, a proper housing is required.
 
-<img src="images/atorch_plug_overview3.png" width="100%" height="100%" />
+
+<img src="images/atorch_project_final_overview_t.png" width="100%" height="100%" />
+
 
 ### Design
 
