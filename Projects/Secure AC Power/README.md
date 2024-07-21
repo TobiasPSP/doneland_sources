@@ -78,7 +78,7 @@ One of the *most economic* approaches is to look for devices that work with [Tuy
 #### Reviewing Smart Plugs
 The cheapest solution is to use a *Tuya smart plug* (under €3 per piece): *built-in WiFi-enabled microcontroller*, *power metering*, rated for *220V 20A*, *Home Assistant*-compatible via *Tuya integration*: 
 
-<img src="images/smart_plug_overview_sidebyside_open.png" width="100%" height="100%" />
+<img src="images/smart_plug_overview_sidebyside_open.png" width="70%" height="70%" />
 
 On inspection, *smart plugs* this cheap use *mechanical relais* that despite their specs do not seem fit to deal with the anticipated currents.
 
@@ -86,7 +86,7 @@ On inspection, *smart plugs* this cheap use *mechanical relais* that despite the
 *Rail power meters* are designed to be mounted to standard *DIN 35mm* rails inside fuse boxes. They are commonly used to *measure and switch* entire electrical *segments* and use *solid state switches*.
 
 
-<img src="images/atorch_smart_rail_meter1_t.png" width="50%" height="50%" />
+<img src="images/atorch_smart_rail_meter1_t.png" width="40%" height="40%" />
 
 The *rail meter* picked was a *Tuya*-compliant  *Atorch GR2PWS* rated at *50-320V AC/100A/32KW*. There are similar devices from other vendors. They cost around €15-20.
 
@@ -105,6 +105,10 @@ Here are the different models for the *Atorch* device I used (along with the fea
 ## Wiring
 
 Wiring is as simple as connecting a regular switch: the device comes with two screw terminals: *N-IN* and *L-IN* are connected to *AC power*, and *N-OUT* and *L-OUT* connect to the devices.
+
+
+<img src="images/atorch_ground_bypasswire_t.png" width="70%" height="70%" />
+
 
 
 <details><summary>What does "N" and "L" mean?</summary><br/>
@@ -146,9 +150,92 @@ There are a few wiring options:
 * **Own Plugs:** dedicated two-pin earthed plugs (*"Schuko"* in Germany for *Schutzkontakt*) make a device fully portable: plug it into an outlet on one side, and plug in a load or an extension cord on its other side. This introduces unnecessary **risks** though because *each additional plug* introduces *additional resistance* which translates to *heat*, and with high currents adds *fire hazards*. It also requires you to add *cables*, and when you pick cables with insufficient cross-sectional area, again this adds a *fire hazard*. That's why using dedicated plugs **is not recommended here**.
 * **Grind In:** Take a *good quality* extension cord with the appropriate ratings, and cut its cord. Connect both ends of the cord to the *power meter*, and *directly contact* the *Ground* wires of both ends. This approach has the least risks attached as you are using only materials that are certified for the use case and just need to make sure you are connecting both ends of the wire properly.
 
+## Adding Power Meter 
 
+In this particular use case, *extension cords* were used to power *lab devices* before. The new *power meter and switch* was thus added directly to an extension cord.
+
+
+<img src="images/plug_atorch_final_overview1_t.png" width="100%" height="100%" />
+
+
+> [!IMPORTANT]
+> Whether you should use *extension cords* or stationary *electrical installations* depends on the use case and the *power requirements* of the devices you use.
+
+> [!TIP]
+> Most likely, the cables of an extension cord use official color coding. Stick to the color scheme, and connect  *blue* cables to the **N** terminals, and *brown* cables to the **L** terminals.
+
+### Connecting Cables
+
+When you connect cables, you may want to add *cable shoes*. 
+
+
+
+<img src="images/cable_connect_plug1_t.png" width="70%" height="70%" />
+
+
+* **L-IN** (brown) and **N-IN** (blue) are connected to the *plug*.
+* **L-OUT** (brown) and **N-OUT** (blue) are connected to the *extension cord body*.
+* **Ground** (yellow) needs to be connected by yourself (always **do connect** *ground* for safety reasons):
+
+    <img src="images/plug_groundwire_bypass_t.png" width="70%" height="70%" />
+
+* Add a *pull relief* of some kind to the cables, i.e. use *cable binders* that block the cables from being pulled out the housing.
+
+    <img src="images/atorch_connectors_detailview_t.png" width="50%" height="50%" />
+
+
+## Pairing And Programming
+
+
+Once you connect the plug to *AC power*, the *Atorch GR2PWS* turns on its screen and starts its intialization. You can customize it via the three push buttons when asked to, but if you simply *do nothing* and enjoy a coffee for a few minutes, the *power monitor boots fine with its default settings*.
+
+It now shows the *power meter data* on its screen, so when you plug a load into your *extension cord*, you can already measure power consumption.
+
+### Adding Device To WiFi
+To remotely control the *power monitor*, add it to the official *Tuya* or *SmartLife* app - like with any other *Tuya* device. 
+
+During this paring process, you are asked for the *WiFi* and *WiFi password* so the device can connect to your *WiFi*
+
+Once the device is *paired*, it is *remotely accessible* through the app, and you could stop right here.
+
+If you are not happy with the proprietary *Tuya* or *SmartLife* app, or would like to do *more*, add the device to *Home Assistant*.
+
+> [!NOTE]
+> If you enabled [remote access](https://done.land/tools/software/homeassistant/internetaccess) to *Home Assistant*, anything you add to *Home Assistant* automatically becomes remotely accessible.
+
+### Adding Device To Home Assistant
+Once the device has been added to your *Tuya* or *SmartLife* app, it gets automatically added to *Home Assistant* as well - provided you activated its *Tuya integration*.
+
+> [!NOTE]
+> Both the *Tuya*/*SmartLife* app and *Home Assistant* use the *Tuya Cloud API* to control and manage the device. *Home Assistant* just adds better ways of *organizing* its dashboards, and you can add the *power monitor* to your automations and other power monitoring data.
+
+
+
+## Housing
+
+The *rail meter* is designed to be used inside a *fuse box*. When you use it elsewhere, a proper housing is required.
+
+### Sample Housing
+
+Since the device is not in plain view for the use case discussed here, no sophisticated housing was required. A *simple housing* can quickly be put together in *Fusion360* or any other CAD software:
+
+
+<img src="images/housing_atorch_powerswitch.png" width="70%" height="70%" />
+
+### 3D Printed Housing
+To print the housing using a *3D printer*, you can use the *STL files* below.
+
+<img src="images/cura_atorch_print_housing.png" width="100%" height="100%" />
+
+* [Bottom:](materials/atorch_powermonitor_housing_bottom.stl) takes the *Atorch GR2PWS* component and provides room for *cable pull relief* (by using cable binders on both cable ends), and spared room for connecting both *Ground* wires.  
+* [Cover:](materials/atorch_powermonitor_housing_cover.stl): provides openings for ventilation, and an opening for the *Atorch GR2PWS screen and buttons*.
+
+Use four *M4* screws to secure both parts.
+
+> [!TIP]
+> Before you close the housing, mark the **L** line at the plug. This way, for *added safety* you can plug it into a socket in such a way that the switch cuts the *live line* and not the *neutral line*.
 
 
 Tags: Plug, Smart Plug, Power Monitor
 
-[Visit Page on Website](https://done.land/projects/secureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-19
+[Visit Page on Website](https://done.land/projects/secureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-20
