@@ -116,9 +116,9 @@ Wiring is as simple as connecting a regular switch: the device comes with two sc
 
 
 
-*AC power* uses three lines: *L (Live)*, *N (Neutral)*, and *Ground*. According to *IEC60446*, the **L**-line should be marked by a *brown* cable, and the **N**-line is marked by a *blue* cable.
+*AC power* uses three lines: *L (Live)*, *N (Neutral)*, and *Ground*. According to *IEC60446*, the *L*-line should be marked by a *brown* cable, and the *N*-line is marked by a *blue* cable.
 
-* The **L**-line is *live* (dangerous): when you connect an *AC tester pen* to it, its indicator lamp glows. Likewise, when you *touch* this line, you get an electrical shock.
+* The *L*-line is *live* (dangerous): when you connect an *AC tester pen* to it, its indicator lamp glows. Likewise, when you *touch* this line, you get an electrical shock.
 
     > More likely, when you touch (or connect a device to) the *live line*, the **RCD** (*residual current breaker*) triggers and cuts off power. *RCD*s are mandatory in electrical installations in Europe but may be missing elsewhere or in very old installations.
 
