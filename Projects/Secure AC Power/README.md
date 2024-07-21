@@ -84,12 +84,12 @@ The cheapest solution is to use a *Tuya smart plug* (under €3 per piece): *bui
 On inspection, *smart plugs* this cheap use *mechanical relais* that despite their specs do not seem fit to deal with the anticipated currents.
 
 #### Reviewing Rail Meters
-*Rail power meters* are designed to be mounted to standard *DIN 35mm* rails inside fuse boxes. They are commonly used to *measure and switch* entire electrical *segments* and use *solid state switches*.
+*Rail power meters* are designed to be mounted to standard *DIN 35mm* rails inside fuse boxes. They are commonly used to *measure and switch* entire electrical *segments*.
 
 
 <img src="images/atorch_smart_rail_meter1_t.png" width="40%" height="40%" />
 
-The *rail meter* picked is a *Tuya*-compliant  *Atorch GR2PWS* rated at *50-320V AC/100A/32KW*. There are similar devices from other vendors. They cost around €15-20.
+The *rail meter* picked is a *Tuya*-compliant *Atorch GR2PWS* rated at *50-320V AC/100A/32KW*. There are similar devices from other vendors. They cost around €15-20.
 
 > [!IMPORTANT]
 > Pay **very close** attention to the exact device **model** you order: most vendors also sell look-alike models with less features. You need a model that supports both *WiFi* and *Switching*. Also make sure the model has a *Home Assistant integration*, i.e. supported by *Tuya*.
