@@ -173,8 +173,8 @@ When you connect cables, you may want to add *cable shoes*.
 <img src="images/cable_connect_plug1_t.png" width="40%" height="40%" />
 
 
-* **L-IN** (brown) and **N-IN** (blue) are connected to the *plug*.
-* **L-OUT** (brown) and **N-OUT** (blue) are connected to the *extension cord body*.
+* **L-IN** (brown) and **N-IN** (blue) are connected to the *plug*.   
+* **L-OUT** (brown) and **N-OUT** (blue) are connected to the *extension cord body*.   
 * **Ground** (yellow) needs to be connected by yourself (always **do connect** *ground* for safety reasons):
 
     <img src="images/plug_groundwire_bypass_t.png" width="70%" height="70%" />
