@@ -192,13 +192,9 @@ Once you connect the plug to *AC power*, the *Atorch GR2PWS* turns on its screen
 It now shows the *power meter data* on its screen, so when you plug a load into your *extension cord*, you can already measure power consumption.
 
 ### Adding Device To WiFi
-To remotely control the *power monitor*, add it to the official *Tuya* or *SmartLife* app - like with any other *Tuya* device. 
+To remotely control the *power monitor*, add it to the official *Tuya* or *SmartLife* app - like with any other *Tuya* device. During this paring process, you are asked for the *WiFi* and *WiFi password* so the device can connect to your *WiFi*
 
-During this paring process, you are asked for the *WiFi* and *WiFi password* so the device can connect to your *WiFi*
-
-Once the device is *paired*, it is *remotely accessible* through the app, and you could stop right here.
-
-If you are not happy with the proprietary *Tuya* or *SmartLife* app, or would like to do *more*, add the device to *Home Assistant*.
+Once the device is *paired*, it is *remotely accessible* through the app, and you could stop right here. If you are not happy with the proprietary *Tuya* or *SmartLife* app, or would like to do *more*, add the device to *Home Assistant*.
 
 > [!NOTE]
 > If you enabled [remote access](https://done.land/tools/software/homeassistant/internetaccess) to *Home Assistant*, anything you add to *Home Assistant* automatically becomes remotely accessible.
