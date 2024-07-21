@@ -40,7 +40,7 @@ The information provided in this article is for educational and informational pu
 
 
 > [!NOTE]
-> Recently, a *smoldering USB cable* in the kitchen caught my attention. It was part of a USB charger for a *mist humidifier*. It caused a short circuit and was close to catching fire. Considering the *density* of devices of various origin and quality, power supplies and batteries, loose cables, and prototypes that can be found in a lab, it's a great idea to (a) cut off *AC power* when the lab is unattended, and (b) install a smoke alarm (if you haven't done so already).
+> Recently, a *smoldering USB cable* in the kitchen caught my attention. It was part of a USB *mist humidifier*, had a short circuit and was close to catching fire. Considering the *density* of devices of various origin and quality, power supplies and batteries, loose cables, and prototypes that can be found in our homes, let alone a *hobbyist lab*, it's a great idea to (a) cut off *AC power* when the lab is unattended, and (b) install a smoke alarm (if you haven't done so already).
 
 A *power meter* and *mains switch* can secure *AC power supply* in environments like *labs* (also in many other scenarios). *Securing AC power* while a certain environment is not used or unattended can help *save energy*, but even more so *prevent fire hazards*.
 
@@ -71,8 +71,9 @@ To ensure that *power metering* and *power switching* is *safe*, using a *DIY so
 #### Integration With Home Assistant
 One of the *most economic* approaches is to look for devices that work with [Tuya](https://done.land/tools/software/tuya): 
 
-* *Home Assistant* comes with *Tuya integration*.
+* *Home Assistant* comes with *Tuya integration*, integrates the device with your automations, and takes care of logging.
 * You can pick from a wide variety of devices and get good hardware at extremely competitive prices.
+* if all you need is *remote access*, the apps that come with *Tuya devices* already include *remote access*
 
 
 #### Reviewing Smart Plugs
