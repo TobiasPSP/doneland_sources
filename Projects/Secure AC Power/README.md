@@ -173,7 +173,7 @@ When you connect cables, you may want to add *cable shoes*.
 
 
 
-<img src="images/cable_connect_plug1_t.png" width="70%" height="70%" />
+<img src="images/cable_connect_plug1_t.png" width="40%" height="40%" />
 
 
 * **L-IN** (brown) and **N-IN** (blue) are connected to the *plug*.
