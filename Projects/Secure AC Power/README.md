@@ -4,7 +4,7 @@
 
 > Monitoring Power Consumption And Securing Lab When Away From Home
 
-
+<img src="images/atorch_project_final_overview_t.png" width="50%" height="50%" />
 
 
 This article involves *dangerous AC currents*. Working with AC currents requires utmost caution and expertise. 
@@ -53,43 +53,43 @@ Here are the *requirement specifications*:
 > [!NOTE]
 > Obviously these specs are just an *example* and should be arbitrarily adjusted: cutting off power for the *kitchen* while away from home would probably turn out to be not the best of ideas once you peek into the refrigerator after returning home.
 
-## Concept And Planning
-Goal of this project is to make *best use* of *existing solutions*, and create a device with *least effort*.
-
-### Adding Home Assistant
-[Home Assistant](https://done.land/tools/software/homeassistant) automatically fulfills two *common* requirements that are needed for all kinds of projects:
-
-* **Logging:** *Home Assistant* logs device data and allows for analyzing power consumption as well as viewing total consumption.
-* **Remote Access:** It is easy to set up [highly secure remote access](https://done.land/tools/software/homeassistant/internetaccess) for *Home Assistant*
-
-By creating a device that *integrates* with *Home Assistant*, implementation effort can focus solely on the *specifics* like *power metering* and *switching* capabilities.
-
-### Power Metering And Switching
-
-To ensure that *power metering* and *power switching* is *safe*, using a *DIY solution* is not wise: the parts cost more than ready-to-use and proven-to-be-safe devices. To *integrate with Home Assistant*, the device needs to be *WiFi*- or *Zigbee*-enabled, and there needs to be a *Home Assistant integration* that knows how to access the device. 
-
-#### Integration With Home Assistant
-One of the *most economic* approaches is to look for devices that work with [Tuya](https://done.land/tools/software/tuya): 
-
-* *Home Assistant* comes with *Tuya integration*, integrates the device with your automations, and takes care of logging.
-* You can pick from a wide variety of devices and get good hardware at extremely competitive prices.
-* if all you need is *remote access*, the apps that come with *Tuya devices* already include *remote access*
 
 
-#### Reviewing Smart Plugs
-The cheapest solution is to use a *Tuya smart plug* (under €3 per piece): *built-in WiFi-enabled microcontroller*, *power metering*, rated for *220V 20A*, *Home Assistant*-compatible via *Tuya integration*: 
+## Power Metering And Switching
+
+To ensure that *power metering* and *power switching* is *safe*, using a *DIY solution* is not wise: the parts cost more than ready-to-use and proven-to-be-safe devices. 
+
+
+### Logging And Remote Access
+
+Since part of the requirements is *remote access*, when choosing a *WiFi*- or *Zigbee*-enabled *power monitoring component*, you get these features for free, and the component can be remotely controlled via a *vendor app*.  Often, this also includes *logging*.
+
+A lot more features become available when you pick a vendor that is supported by any *Home Assistant integration* in which case the device can be easily added to [Home Assistant](https://done.land/tools/software/homeassistant). 
+
+This adds additional features for free:
+
+* more advanced logging
+* custom *dashboards*
+* *automation scripts* to connect the *power monitor features* with other devices.
+
+> [!TIP]
+> One of the *most economic* approaches is to look for devices that work with [Tuya](https://done.land/tools/software/tuya). You can pick from a wide variety of devices and get good hardware at extremely competitive prices.
+
+
+### Smart Plugs
+The cheapest solution is to use a *Tuya smart plug* (under €3 per piece): it comes with a *WiFi-enabled microcontroller*, *power metering*, is rated for *220V 20A*, and it can be integrated into *Home Assistant* via the official *Tuya integration*: 
 
 <img src="images/smart_plug_overview_sidebyside_open.png" width="70%" height="70%" />
 
-On inspection, *smart plugs* this cheap use *mechanical relais* that despite their specs do not seem fit to deal with the anticipated currents.
+On inspection, *smart plugs* in this low price region use very simple *mechanical relais* that - despite their specs - do not seem fit enough to deal with the anticipated currents.
 
-#### Reviewing Rail Meters
+### Rail Meters
 *Rail power meters* are designed to be mounted to standard *DIN 35mm* rails inside fuse boxes. They are commonly used to *measure and switch* entire electrical *segments*.
 
 
 <img src="images/atorch_smart_rail_meter1_t.png" width="40%" height="40%" />
 
-The *rail meter* picked is a *Tuya*-compliant *Atorch GR2PWS* rated at *50-320V AC/100A/32KW*. There are similar devices from other vendors. They cost around €15-20.
+The *rail meter* in this example is a *Tuya*-compliant *Atorch GR2PWS* rated at *50-320V AC/100A/32KW*. There are similar devices from other vendors. They cost around €15-20.
 
 > [!IMPORTANT]
 > Pay **very close** attention to the exact device **model** you order: most vendors also sell look-alike models with less features. You need a model that supports both *WiFi* and *Switching*. Also make sure the model has a *Home Assistant integration*, i.e. supported by *Tuya*.
@@ -103,7 +103,23 @@ Here are the different models for the *Atorch* device used in this example (alon
 | Switch | *missing* | *missing* | **yes** |
 
 
-## Wiring
+## Adding Power Meter 
+
+
+There are a few ways how you can add a *power meter*:
+
+* **Directly:** connect the *power meter* directly to an *AC line* ensures that you have full control over **L** and **N** lines since a user cannot *unplug and accidentally reverse* these lines. The installation effort is higher, and the device isn't portable anymore.
+* **Own Plugs:** dedicated two-pin earthed plugs (*"Schuko"* in Germany for *Schutzkontakt*) make a device fully portable: plug it into an outlet on one side, and plug in a load or an extension cord on its other side. This introduces  **risks** because *each additional plug* adds *additional resistance* which translates to *heat*, and with high currents results in *fire hazards*. It also requires you to add new *cables*, and when you pick cables with insufficient cross-sectional area, again this adds a *fire hazard*. That's why using dedicated plugs **is not recommended**.
+* **Grind In:** Take a *good quality* extension cord with the appropriate ratings, and cut its cord. Connect both ends of the cord to the *power meter*, and *directly contact* the *Ground* wires of both ends. This approach has the least risks attached as you are using only materials that are certified for the use case and just need to make sure you are connecting both ends of the wire properly.
+
+
+<img src="images/plug_atorch_final_overview1_t.png" width="100%" height="100%" />
+
+
+> [!IMPORTANT]
+> Whether you should use *extension cords* or stationary *electrical installations* depends on the use case and the *power requirements* of the devices you use.
+
+### Wiring
 
 Wiring is as simple as connecting a regular switch: the device comes with two screw terminals: *N-IN* and *L-IN* are connected to *AC power*, and *N-OUT* and *L-OUT* connect to the devices.
 
@@ -147,22 +163,6 @@ For practical purposes, this is not necessarily a problem: any *extension cord w
 
 </details>
 
-There are a few wiring options:
-
-* **Directly:** connect the *power meter* directly to an *AC line* ensures that you have full control over **L** and **N** since a user cannot *unplug and accidentally reverse* these lines. The installation effort is higher though, and the device isn't portable anymore.
-* **Own Plugs:** dedicated two-pin earthed plugs (*"Schuko"* in Germany for *Schutzkontakt*) make a device fully portable: plug it into an outlet on one side, and plug in a load or an extension cord on its other side. This introduces unnecessary **risks** though because *each additional plug* introduces *additional resistance* which translates to *heat*, and with high currents adds *fire hazards*. It also requires you to add *cables*, and when you pick cables with insufficient cross-sectional area, again this adds a *fire hazard*. That's why using dedicated plugs **is not recommended here**.
-* **Grind In:** Take a *good quality* extension cord with the appropriate ratings, and cut its cord. Connect both ends of the cord to the *power meter*, and *directly contact* the *Ground* wires of both ends. This approach has the least risks attached as you are using only materials that are certified for the use case and just need to make sure you are connecting both ends of the wire properly.
-
-## Adding Power Meter 
-
-In this particular use case, *extension cords* were used to power *lab devices* before. The new *power meter and switch* was thus added directly to an extension cord.
-
-
-<img src="images/plug_atorch_final_overview1_t.png" width="100%" height="100%" />
-
-
-> [!IMPORTANT]
-> Whether you should use *extension cords* or stationary *electrical installations* depends on the use case and the *power requirements* of the devices you use.
 
 ### Connecting Cables
 
@@ -189,27 +189,78 @@ When you connect cables, you may want to add *cable shoes*.
 
 Once you connect the plug to *AC power*, the *Atorch GR2PWS* turns on its screen and starts its intialization. You can customize it via the three push buttons when asked to, but if you simply *do nothing* and enjoy a coffee for a few minutes, the *power monitor boots fine with its default settings*.
 
-It now shows the *power meter data* on its screen, so when you plug a load into your *extension cord*, you can already measure power consumption.
+### Local Control
+If you stop here, the *power monitor* works in *local mode*: you can view the readings on its screen, and operate a simple menu via three push buttons.
+
+The component even *logs data* already, so you can switch to a *graph view* and analyze past power consumption.
+
 
 ### Adding Device To WiFi
-To remotely control the *power monitor*, add it to the official *Tuya* or *SmartLife* app - like with any other *Tuya* device. During this paring process, you are asked for the *WiFi* and *WiFi password* so the device can connect to your *WiFi*
+To remotely control the *power monitor*, you need to connect it to your *WiFi*. During *boot up*, the component displays a *QR code* that you can scan with your *smartphone* to use its temporary *access point*, and provide it with your *WiFi SSID* and *password*.
 
-Once the device is *paired*, it is *remotely accessible* through the app, and you could stop right here. If you are not happy with the proprietary *Tuya* or *SmartLife* app, or would like to do *more*, add the device to *Home Assistant*.
+<img src="images/atroch_project_wifi_qr_t.png" width="40%" height="40%" />
+
+### Remote Control
+If you'd like to later add the component to *Home Assistant*, or use the *vendor app* to control the component remotely from anywhere in the world, do not manually configure *WiFi* via the *QR code*. Instead, add the device to the *Tuya* or *SmartLife* app.
+
+<img src="images/add_tuya_device_atorch.jpg" width="30%" height="30%" />
+
+During this pairing, your *WiFi access* is shared with the device, and it appears in the app.
+
+You can now view the current state, and use the button at the bottom of the screen to toggle the component between *on* and *off*. Since this uses the *Tuya Cloud API*, it already works at home and abroad.
+
+<img src="images/atorch_project_app_operation.png" width="30%" height="30%" />
+
+
+> [!IMPORTANT]
+> By default, the *component* turns the load *off*. You need to at least press the power button in the app *once* to turn the load *on*. You hear a mechanical relais *click* when you do this.
+
+
+
+## Adding Device To Home Assistant
+Once the device has been added to your *Tuya* or *SmartLife* app, it will be automatically imported into *Home Assistant* if you have enabled its *Tuya Integration*.
+
+
+<img src="images/tuya_ha_restart_integration_atorch.png" width="100%" height="100%" />
+
+
+> [!TIP]
+> To refresh *Tuya devices* immediately, in *Home Assistant* go to *Settings*, then *Devices & services*, then click the *Tuya integration*. Next, click the *three dot* menu, and choose *Reload*. If you have any issues, you may as well *reboot Home Assistant* altogether.
+
+
+### Enabling Entities
+By default, when the *power meter* is added to *Home Assistant*, you do not see all of its *entities*. For example, the entities for the current *voltage* and *current* are missing.
+
+<img src="images/atorch_entities_not_shown.png" width="30%" height="30%" />
 
 > [!NOTE]
-> If you enabled [remote access](https://done.land/tools/software/homeassistant/internetaccess) to *Home Assistant*, anything you add to *Home Assistant* automatically becomes remotely accessible.
+> For some reason, *Home Assistant* generally **disables** many entities with *smart switches* and lets you only control the *switch*. You have to manually turn disabled entities on if you want to view the *readings*.
 
-### Adding Device To Home Assistant
-Once the device has been added to your *Tuya* or *SmartLife* app, it gets automatically added to *Home Assistant* as well - provided you activated its *Tuya integration*.
+To enable entities, click them, then in the top of the page, click the *gear* icon.
+
+<img src="images/atorch_entities_not_shown2.png" width="100%" height="100%" />
+
+Now, switch the entitiy to *Enabled*, then click *UPDATE*. It takes *30s* until the newly enabled entity becomes available in *Home Assistant*. Do this for all disabled entities.
+
+Once done, you can now use (almost) all entities and can for example add them to *Home Assistant dashboards*:
+
+<img src="images/atorch_entities_not_shown3.png" width="100%" height="100%" />
+
+### Viewing Total Power Consumption
+There is *one entity* that cannot be enabled and in fact is missing in *Home Assistant*: the total power consumption.
 
 > [!NOTE]
-> Both the *Tuya*/*SmartLife* app and *Home Assistant* use the *Tuya Cloud API* to control and manage the device. *Home Assistant* just adds better ways of *organizing* its dashboards, and you can add the *power monitor* to your automations and other power monitoring data.
+> Total power consumption is missing for all *Tuya devices*. It can by default only be viewed in the official vendor app.
 
+To add *total power consumption*, and in fact to add ***all** missing Tuya entities* to your *Tuya devices* in *Home Assistant*, install the ingenious [Xtended Tuya](https://github.com/azerty9971/xtend_tuya) integration.
 
+<img src="images/extendtuya_integration_ha.png" width="100%" height="100%" />
 
 ## Housing
 
 The *rail meter* is designed to be used inside a *fuse box*. When you use it elsewhere, a proper housing is required.
+
+<img src="images/atorch_plug_overview3.png" width="100%" height="100%" />
 
 ### Design
 
