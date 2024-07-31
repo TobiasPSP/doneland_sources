@@ -52,3 +52,5 @@ Despite the many advantages, *SSRs* have their own lost of important caveats and
 
 
 > Tags: Relais, SSR, Solid State Relais, MosFET, Thyristor, Triac, Fire Hazard, Heat Sink
+
+[Visit Page on Website](https://done.land/components/switch/relais/solidstate?888119072031245401) - created 2024-07-30 - last edited 2024-07-30
