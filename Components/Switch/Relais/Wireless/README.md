@@ -115,43 +115,39 @@ Cheap electronic components - like the ones discussed here - were designed to be
 **Before** you start using such components for DIY purposes, read and understand this:
 
 * **Hazardous Voltage:** these components can only work when they are connected to hazardous *AC high voltage* (their internal low voltage circuitry is powered by *AC voltage*).  
-* **AC Voltage can be deadly. It may not even hit you: you may be careful, and you may know the parts that "shouldn't be touched or pulled on". It may hit your child or a friend instead, when they trustfully operate one of your DIY devices that may not be safe to use. This may occur tomorrow. Or in two years time. Do not take this risk if you are not absolutely certain you know what you are doing.**
+* **AC Voltage can be deadly. It may not hit you: you may be careful, and you may know the parts that "shouldn't be touched or pulled on". It may hit your child or a friend instead, when they trustfully operate one of your DIY devices that may not be safe to use. This may occur tomorrow. Or in two years time. Do not take this risk if you are not absolutely certain you know what you are doing.**
 
 
 ### Dangerous Designs
 
-If you do decide to proceed, always make sure you *fully understand* how components are designed that you plan on using, and how they really work.
+If you do decide to proceed, make sure you *fully understand* the components you use. Even a simple component like a *wireless relais* may use unexpected designs and cause deadly misunderstandings. 
 
-Even such a simple component like a *relais* may use dangerous designs and cause deadly misunderstandings. 
-
-As an example, take a look at the terminals **S1** and **S2** found on all of the example devices I examined: 
-
-According to its documentation, these two terminals can be short-cutted to hook up an external *switch* in order to control the relais manually.
+Here is an example: look at the terminals **S1** and **S2** found on all of the example devices I examined: according to documentation, they can be short-cutted to control the relais manually.
 
 > [!NOTE]
-> **S1** and **S2** are perfectly in line with the original intention these components were designed for: when retrofitting remote control capabilities to a *light switch*, a licensed electrician would open the existing light switch, then hook up the *wireless relais* to the load, and finally hook up the *original switch* to **S1** and **S2**. This way, the load could now  be controlled via the existing switch **plus** also remotely.
+> That is perfectly in-line with the original intention: when retrofitting remote control capabilities to a *light switch*, a licensed electrician would open the existing light switch, then hook up the *wireless relais* to the load, and finally hook up the *original switch* to **S1** and **S2**. This way, the load could now  be controlled via the existing switch **plus** also remotely.
 
 
-When looking at the traces of this particular device, it becomes evident that dangerous *high voltage AC* is exposed at many surprising places, including **S1** and **S2**:
+When looking at the traces, dangerous *high voltage AC* is exposed at many surprising places, including **S1** and **S2**:
 
 
 <img src="images/relais_rf_traces.png" width="80%" height="80%" />
 
-**S1**, **Nin** and **Nout** are connected, and so is the built-in push button. When you hook up this device as intended, *live AC* is available at **S1** once the relais is turned on. And if you accidentally reversed *L* and *N*, *live AC* is available at **S1** all the time.
+**S1**, **Nin** and **Nout** are all connected, and so is the built-in push button. *Live AC* can be available at **S1**.
 
 ### Deadly Misunderstandings
-If you went just by the documentation, you might have *assumed* that **S1** and **S2** were terminals to connect a *low voltage* switch that interacts with the *low voltage control logic* - and this would have even been a sensible assumption: 
-
-With a dedicated *DIY component*, **S1** and **S2** would probably have been implemented this way - and some *WiFi-controlled* devices I examined did use this safe design. But not the one I showed above.  
+If you just went by the documentation, you might have **assumed** that **S1** and **S2** connect a *low voltage* switch that interacts with the *low voltage control logic* - and this would have even been a sensible assumption: with a dedicated *DIY component*, **S1** and **S2** would probably have been implemented this way - and some *WiFi-controlled* devices I examined did use this safe design. But not the one I showed above.  
 
 ### Dangerous Consequences
-If you had connected a simple *12V switch* to **S1** and **S2**, and used simple switching wires, possibly with a bit of sloppy insulation (assuming this to be part of the *5V circuit*), the result may be a life-threatening DIY execution device.
+If you had connected a simple *12V switch* to **S1** and **S2**, and used switching wires, possibly with a bit of sloppy insulation (**assuming** this to be part of the *5V circuit*), you might have accidentally built a life-threatening *DIY execution device*.
 
-### Think Twice
-So again, the devices discussed here are by no means rocket science, and can safely be used - if you have sufficient competence **and respect**. 
+## No Assumptions
+When working with *voltages above 36V*, and certainly when working with *dangerous AC voltages*, there is **no room for assumptions**: 
 
-The important part is that the devices discussed here *must be used with AC high voltage*, and you *must not* use this type of voltage unless you are *qualified* and *fully understand the design and functionality* of the components you use with *high voltage AC*.
+* You **must** have the required expertise, and you **must** have solid information that you can rely on. If the documentation is missing or incomplete, you **must** reverse-engineer the device until you know what it does and what it does not do.   
+* You **cannot assume** that people will handle your device with care, you **cannot assume** that the *five-year old neighbor daughter* probably won't find the device and probably won't pull at the funny colorful wires that connect it to a push button, and you also **cannot assume** that a *website* (including this one) provides correct and complete information.
 
+The above applies solely to working with **dangerous voltages**. Stick to battery-operated gadgets and DIY project, and generally use **voltages below 36V** to be always most comfortably on the **safe side**.
 
 
 > Tags: Relais, Remote Control, ASK, OOK, SRD, WiFi, Switch
