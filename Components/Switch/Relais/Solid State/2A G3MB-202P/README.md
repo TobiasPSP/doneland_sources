@@ -127,3 +127,5 @@ Here are your safe power options for connecting **DC+** and **DC-**:
 
 
 > Tags: SSR, Omron
+
+[Visit Page on Website](https://done.land/components/switch/relais/solidstate/2ag3mb-202p?041242081801240746) - created 2024-07-31 - last edited 2024-07-31
