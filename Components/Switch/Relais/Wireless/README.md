@@ -33,7 +33,7 @@ There are two types of radio signals used for remotely controlling devices:
 
 
 
-<img src="images/relais_rf_top_t.png" width="60%" height="60%" />
+<img src="images/relais_rf_top_t.png" width="50%" height="50%" />
 
 
 
