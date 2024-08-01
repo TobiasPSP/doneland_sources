@@ -1,341 +1,159 @@
 <img src="/assets/images/relais.png" width="80%" height="80%" />
  
-# Wireless Controlled Relais
+# Remote-Controlled Relais
 
-> Turning Devices On And Off Remotely
-
-
-When *relais* are paired with a *radio receiver*, they can be controlled remotely *over the air*, i.e. with a *remote control* or in automation projects.
-
-Most people use this setup every day without thinking about it: whenever you press the button on a *garage door opener*, switch channels on your *TV set*, or use home automation with a *smartphone app*, you are operating *relais* (or other type of switches) remotely - typically via *RF* (*radio frequency*).
+> Turning Devices On And Off Remotely Using Direct Radio Or WiFi
 
 
-## Overview
-
-With *RF controlled* relais, the control information is transmitted *over the air* using *radio waves*. 
-
-There are *two types* of *radio waves* used:
-
-* **Unlicensed Bands (RF):** *unlicensed bands* (*315MHz* in the US, *433MHz* in Europe) are legal to use for anyone. Dedicated *senders* (*remote control*) and *receivers* (*relais*) communicate directly and require no external setup.
-* **WiFi/Bluetooth:** the *2.4GHz* band is freely usable for anyone, too. This is where *WiFi*, *Bluetooth*, and related technologies operate. Control messages can be sent to relais, and since *WiFi* networks are typically connected to the *Internet*, this makes *relais* operable from *anywhere in the world*. 
 
 
-## Examples
 
-Ready-to-use *RF relais* are available for less than *EUR 3.00* per piece and can add *remote control capabilities* to any device:
+
+Most people control devices wirelessly every day without even thinking about it: by using a *garage door opener*, *TV remote control*, *smartphone apps*, etc, you are controlling all kinds of electrical devices.
+
+The *wireless relais* discussed here provide you with a *generic way* to retrofit *remote control capability* to *any* device you want.
+
+
+**The wireless relais discussed here require dangerous AC voltage. Never use AC high voltage in your DIY projects unless you are a qualified electrician or have comparable expertise.**
+
 
 
 <img src="images/relais_rfwifi_overview_top_t.png" width="80%" height="80%" />
 
-> [!CAUTION]
-> Look carefully at the device description to see *which technology* and *radio frequency* is used by a particular device. The picture shows (from *left* to *right*) a *WiFi-only*, a *WiFi/RF*, and a *RF-only 433MHz* device. 
 
-
-## Which Technology?
-
-There are *advantages* and *disadvantages* to both wireless technologies. Choose the one that matches your use case best.
-
-### 315/433 MHz RF
-
-In this band, your devices work almost like *walky talkies*: you operate a dedicated *sender* (in your remote control) and a dedicated *receiver* (attached to the *relais*).
-
-
-<img src="images/relais_rf_top_t.png" width="80%" height="80%" />
-
-The result is a direct *one-way communication* providing autonomy:
-
-* **Simple:** Setup is *simple* and no special prerequisite is required, nor are there points of failure beyond your control.
-* **Robust:** when your *WiFi* network fails or your *phone company's network* is temporarily down, your *RF-Controlled Solutions* continue to work.
-
-For the very same reasons, there are also *negative aspects:**
-
-* **Local Solution:** The distance you can bridge is limited to <10m: you need to be *close to the device* to operate it. This may be ok for *garage door openers* but prohibitive for *home automation* (where you'd like to monitor and control devices from anywhere in the world).
-* **No Feedback:** because of the *one-way communication*, the controlled device cannot return a feedback. Typically, the feedback you get is a *visual* feedback only (the *garage door* opens).
-* **Insecure:** while *RF*-solutions are not inherently insecure, they often are: radio frequencies are public and can be picked up by anyone. Most commonly, data sent via *RF* is neither *encrypted* nor *obscure*. The guaranteed protection is the limited reach (an attacker would need to be in physical proximity to listen in). This protection may be sufficient with enough distance to publicly accessible areas. It can as well be risky in densly populated metropol areas where attackers easily get close enough to your *sender* to sniff the *RF* data packages (and replay them later, i.e., to open your *garage door*).
 
 > [!NOTE]
-> There are plenty of good solutions to *secure RF transmissions*, i.e. *rolling codes* or *encryption*. Most *cheap out-of-the-box* solutions do not come with these, though.
+> *Wireless relais* may look very similarly, so always make sure you check the technical specs on the housing and ensure you are purchasing the *wireless technology* you intend to use.
 
 
-### WiFi
 
-Sending *control messages* via *WiFi* comes with a load of benefits:
+## Overview
+
+There are two types of radio signals used for remotely controlling devices:
+
+* **RF Signals:** a license-free radio frequency is used to pair a remote control (sender) directly with a device (receiver). This works everywhere and requires no special prerequisite like *WiFi coverage* or *Internet connectivity*, but you must be in close proximity (around *10m*). Pick the frequency that is legal to use in your region (Europe: 433MHz, US: 315MHz)   
+* **WiFi:** controllable via *WiFi* signals that are typically sent by a vendor-specific *cloud service*. You use the vendor-supplied *smartphone app* to initiate the control signals. This approach requires *Internet* and works from anywhere in the world.
+
+> [!NOTE]
+> Both techniques have their own set of advantages and shortcomings. Which one is preferrable depends entirely on your actual use case.
+
+
+
+<img src="images/relais_rf_top_t.png" width="60%" height="60%" />
+
+
+
+
+
+
+## Using Radio Frequency
+*RF-controlled relais* use a direct *one-way communication* that is providing *autonomy*:
+
+* **Simple:** no special prerequisites are required. You *do* need to purchase a compatible *RF remote control* separately, and pair it with the device.
+* **Robust:** when your *WiFi* network fails or your *phone company's network* is temporarily down, your *RF-Controlled solutions* continue to work like a charm.
+
+Here are the disadvantages:
+
+* **Local:** The distance you can bridge is limited to *around 10m*: you need to be *close to the device* to operate it. 
+* **No Feedback:** the *one-way communication* cannot send back feedback information. The *visual clue* you get from i.e. an opening garage door is all you get.
+* **Potentially Insecure:** since *RF* is travelling freely through the air, attackers can pick them up, record them, and later play them back to clone your remote control - provided the attacker can get close enough to your remote control when you operate it.
+
+> [!NOTE]
+> There are solutions to *secure RF transmissions*, i.e. *rolling codes* or *encryption*, however most *cheap out-of-the-box* solutions do not come with this. 
+
+
+## Using WiFi
+
+Sending *control messages* via *WiFi* has these benefits:
 
 * **Anywhere:** Commands issued by a *smartphone app* work anywhere and just need *Internet Access*. Your commands are automatically routed to your home *WiFi*, and then to the device that you want to control.
-* **Feedback:** since *WiFi* uses two-way communications, the controlled device can return feedback, i.e. show its state or confirm the operation.
+* **Feedback:** since *WiFi* uses two-way communications, the controlled device can return feedback, i.e. show its state, or confirm the operation.
 * **Secure:** *WiFi* data is encrypted by default. Attackers cannot listen in or use *playback attacks*.
 
-<img src="images/relais_wifi_top_t.png" width="80%" height="80%" />
+<img src="images/relais_wifi_top_t.png" width="60%" height="60%" />
 
-For the very same reasons, there are important drawbacks as well:
+Here is the price you pay for this:
 
-* **Infrastructure:** This solution works on top of an existing *WiFi* infrastructure. It will not work with low or no *WiFi* coverage, i.e. outside your house or in the garden.
-* **App & Cloud:** Most *out-of-the-box* solutions are very simple to set up because they base on specific *vendor solutions* and their *smartphone apps*. All of your actions are processed in the background by *vendor-owned* cloud datacenters. If their infrastructure is down, or when they decide to discontinue services, then you no longer can use your devices. Worse yet: anyone in control of the vendor backbone has the same control over your devices and could maliciously turn on or off your devices at will. In a nutshell, you are giving up a great amount of control.  
-
-### Conclusions
-
-There is no *one best* technology. You always need to make trade-offs.
-
-#### When To Use RF
-
-*RF* technology is best if you want to keep *all control* in your hands. 
-
-Security concerns can be leveraged by either using *secure devices* (i.e. *garage door openers* with *rolling codes* rather than transmitting *predictable repetitive* codes), or better yet, by using *generic RF transceivers* to build and program your own secure solution.
-
-One disadvantage cannot be overcome, though: *RF* solutions only work when *sender* and *receiver* are within a 10-20m range.
-
-#### When To Use WiFi
-
-*WiFi* technology is best when your devices are inside your *WiFi*-covered home, and when you want to control them from *anywhere in the world*.
-
-The primary disadvantage of depending on potentially insecure *vendor cloud architecture* can be overcome by replacing the device firmware with *open source* solutions, or purchase devices with such firmware in the first place.
-
-When you build your project from scratch, you can use *simple and cheap WiFi-enabled microprocessors* (such as the *ESP8266* and *ESP32*): set it up as a *webserver*, and connect a *relais* to one of its *GPIO* pins (using approproate techniques). This way, the microcontroller acts like a *webservice* and can control the *relais*.
-
-> [!NOTE]
-> When you go the *microcontroller* route, you *maximize your control* at the expense of *maximizing your work*: *you* are now in charge of everything yourself. It is up to you how you *expose* your microcontroller to the *Internet* to make it truly controllable from *anywhere* (i.e. using *MQTT*, or *host the microcontroller REST APIs* on *publicly accessible* servers).
+* **Coverage:** requires that your *WiFi network* provides good coverage. This may not be the case in areas like the garden or garage.
+* **Internet:** requires a specific *vendor cloud solution*. Devices can be controlled only when connected to the *Internet*.
+* **Privacy:** since you do not communicate directly with the device, all messages are routed through the vendor cloud service.
 
 
-## Hardware
 
-Whether you buy a pure *ready-to-use* remote-controllable *relais*, or whether it is *embedded* in a *plug*, or whether you choose to create the functionality from the required components yourself, here is an overview of the general setup.
+> [!TIP]
+> Each vendor uses their own **incompatible** cloud services. Whichever vendor you may choose: stick to it (i.e. *Tuya*, *EweLink*). You cannot mix *WiFi*-device from different vendors (unless you want to use a number of different smartphone apps to control them all).
 
-### Screw Terminals
 
-If your device has *screw terminals*, here is what they do:
+
+## Wiring
+
+
+
+Most commercial devices (regardless of wireless technology) use *screw terminals* similar to these:
 
 
 <img src="images/relais_rf_terminals.png" width="80%" height="80%" />
 
 | Terminal | Description |
 | --- | --- |
-| Lin, Lout | The actual *AC switch*, connected to the *relais* |
-| Nin, Nout | Short-circuited, the *neutral* **AC** line |
-| S1, S2 | When connected, the *relais* can be closed manually |
+| Lin, Lout | the "live" line, controlled by the relais. |
+| Nin, Nout | the *neutral* **AC** line. These two terminals are always connected. |
+| S1, S2 | when connected, turns relais *on* *(optional, can be dangerous)* |
 
-*Lin* and *Lout* perform the switching while *Nin* and *Nout* are just passed through.
 
-*S1* and *S2* typically enable you to optionally hook up a mechanical switch to also control the *relais* directly.
+
 
 > [!CAUTION]
-> *S1* and *S2* are exposed to *AC*! Never ever hook up a low voltage push button to these terminals!
+> **S1** and **S2** may be exposed to **AC**! **Never ever hook up a low voltage push button** to these terminals (see next section).
 
 
-### Beware: Hazardous Design
-Whenever devices are connected to dangerous voltages, make sure you fully understand how these devices work, or else you (or users of your project) may get killed.
 
-When looking at the traces of this particular device, it becomes evident that dangerous *AC* can be exposed at unexpected places:
+## Hazard
+
+Cheap electronic components - like the ones discussed here - were designed to be **installed by professional electricians**. They were also *specifically* designed to be **integrated into existing applicances**, i.e. *light switches*.
+
+**Before** you start using such components for DIY purposes, read and understand this:
+
+* **Hazardous Voltage:** these components can only work when they are connected to hazardous *AC high voltage* (their internal low voltage circuitry is powered by *AC voltage*).  
+* **AC Voltage can be deadly. It may not even hit you: you may be careful, and you may know the parts that "shouldn't be touched or pulled on". It may hit your child or a friend instead, when they trustfully operate one of your DIY devices that may not be safe to use. This may occur tomorrow. Or in two years time. Do not take this risk if you are not absolutely certain you know what you are doing.**
+
+
+### Dangerous Designs
+
+If you do decide to proceed, always make sure you *fully understand* how components are designed that you plan on using, and how they really work.
+
+Even such a simple component like a *relais* may use dangerous designs and cause deadly misunderstandings. 
+
+As an example, take a look at the terminals **S1** and **S2** found on all of the example devices I examined: 
+
+According to its documentation, these two terminals can be short-cutted to hook up an external *switch* in order to control the relais manually.
+
+> [!NOTE]
+> **S1** and **S2** are perfectly in line with the original intention these components were designed for: when retrofitting remote control capabilities to a *light switch*, a licensed electrician would open the existing light switch, then hook up the *wireless relais* to the load, and finally hook up the *original switch* to **S1** and **S2**. This way, the load could now  be controlled via the existing switch **plus** also remotely.
+
+
+When looking at the traces of this particular device, it becomes evident that dangerous *high voltage AC* is exposed at many surprising places, including **S1** and **S2**:
 
 
 <img src="images/relais_rf_traces.png" width="80%" height="80%" />
 
-The board interconnects *Nin*, *Nout*, *S1*, and the *push button*. *AC mains voltage* is present at all of these locations. *N* stands for *neutral AC line*, whereas *L* stands for *live AC line*. 
+**S1**, **Nin** and **Nout** are connected, and so is the built-in push button. When you hook up this device as intended, *live AC* is available at **S1** once the relais is turned on. And if you accidentally reversed *L* and *N*, *live AC* is available at **S1** all the time.
 
-If you connect the device accordingly, "only" the *neutral AC line* will be exposed. However, if you use a *plug* (that can be plugged in either way), or if you are just careless, then *live AC* is present at all of these locations.
+### Deadly Misunderstandings
+If you went just by the documentation, you might have *assumed* that **S1** and **S2** were terminals to connect a *low voltage* switch that interacts with the *low voltage control logic* - and this would have even been a sensible assumption: 
 
-While the push button is normally safely shielded by a plastic cover, the connections *S1* and *S2* are designed to hook up a *manual switch*. 
+With a dedicated *DIY component*, **S1** and **S2** would probably have been implemented this way - and some *WiFi-controlled* devices I examined did use this safe design. But not the one I showed above.  
 
-In professional installations done by certified *electricians*, this would typically be a standard *AC* light switch. 
+### Dangerous Consequences
+If you had connected a simple *12V switch* to **S1** and **S2**, and used simple switching wires, possibly with a bit of sloppy insulation (assuming this to be part of the *5V circuit*), the result may be a life-threatening DIY execution device.
 
-*DIY* makers however may be intreagued to connect other type of switches (i.e. simple low voltage push buttons), possibly without proper insulation or housing. 
+### Think Twice
+So again, the devices discussed here are by no means rocket science, and can safely be used - if you have sufficient competence **and respect**. 
 
-This can turn out to be a deadly mistake with this particular board design.
+The important part is that the devices discussed here *must be used with AC high voltage*, and you *must not* use this type of voltage unless you are *qualified* and *fully understand the design and functionality* of the components you use with *high voltage AC*.
 
-> [!NOTE]
-> Cheap Chinese devices often come in great quality. Just as often, though, they can have critical design issues and lack appropriate documentation. To be clear: the device discussed here was designed to be placed inside a *normal* *AC light switch* by a professional *electrician*. For this use case it can be considered *reasonably safe*. When used in hands of inexperienced *DIY makers*, though, it is *extremely hazardous*.
 
-Let's start the hardware review now, discussing the essential parts required by any *RF-controlled relais*:
 
+> Tags: Relais, Remote Control, ASK, OOK, SRD, WiFi, Switch
 
-### RF Receiver
-
-This is the commercial *ready-to-use* remote-controllable *relais* discussed above that can be controlled using *RF*:
-
-
-<img src="images/relais_rf_front_t.png" width="80%" height="80%" />
-
-> [!NOTE]
-> Note the specs on the housing: this device is using *433MHz* radio frequency (so it is designed for *Europe*). In the US, other frequencies (i.e. *315/915MHz* are used).
-
-
-Internally, it exposes all the components required by any *RF-controlled relais*.
-
-
-
-
-#### Opening Housing
-
-The two-part housing is pushed together by four pins and can easily be opened with a screw driver:
-
-<img src="images/relais_rf_open_t.png" width="80%" height="80%" />
-
-#### Relais
-
-The *relais* is the predominant black part: its markings show the ratings: it is controlled by *5V* and can switch loads of up to *16A* at *220V*:
-
-<img src="images/relais_rf_relais_t.png" width="80%" height="80%" />
-
-
-#### RF Receiver and Antenna
-
-This model uses a *PCB antenna* which can be seen in the picture below on the left side.
-
-PCB antennas typically *perform poorly*: you either need a very strong *sender*, or you need to be *very close* to the device in order to control it. 
-
-> [!TIP]
-> Occasionally, reception is so bad that the *remote control* needs to be within a *1m* range to the device. By cutting the *PCB trace* to the antenna and replacing it with a *17.3cm* wire, reception performace improves dramatically.
-
-
-<img src="images/relais_rf_antenna_t.png" width="80%" height="80%" />
-
-#### No Microcontroller
-
-The circuit board has a rectangular elongated cutout, clearly seen on the above picture. 
-
-This is where *WiFi*-enabled devices plug in a separate microcontroller board that takes care of communicating with *WiFi*.
-
-
-*RF*-controlled boards like this one *do not need microcontrollers*. 
-
-
-
-
-<img src="images/relais_rf_rx_t.png" width="80%" height="80%" />
-
-
-
-Instead, close to the *antenna* you find a *chip* that hosts the *radio receiver circuit*, and a *13.560MHz* crystal that tunes it to *433,92MHz*.
-
-
-
-
-#### Power Supply
-
-The discussed device can be directly connected to *AC mains*. 
-
-The majority of the remaining components on the board are resposible for supplying *DC* voltages to the electronic components, i.e. *diodes* for rectification, and the large *electrolytic capacitors* to *smoothen voltage ripple*.
-
-> [!CAUTION]
-> Note the *absence of a fuse*, and missing proper physical separation of *AC* and *DC* parts on the PCB.
-
-
-
-
-<img src="images/relais_rf__ams1117_2_t.png" width="80%" height="80%" />
-
-In the upper right corner of the board, a commonly used *AMS1117* voltage regulator chip provides a stabilized *3.3V* and can deliver up to *800mA*.
-
-#### Button
-
-On the backside, a *push button* is located. This is used to *pair* the *RF receiver* with the *remote control*. 
-
-*Pairing* is required so that the *receiver* learns the unique hardware code sent by the remote control. After pairing, the device *specifically listens* to the remote control code(s) you paired it to.
-
-Next to the button, you see an *LED*. It is used to provide *feedback*, i.e. to indicate whether a certain button press sequence has enabled *pairing mode*.
-
-
-<img src="images/relais_rf_back_open_t.png" width="80%" height="80%" />
-
-#### Pairing Process
-Since most *RF receivers* use the same *standard RF receiver chips*, pairing is performed in a similar manner for most devices:
-
-1. **Reset:** most receivers require an initial *reset* that can be invoked by pressing the button *eight* times. The *LED* typically flashes on success.
-2. **Enter Pairing:** to enter pairing mode, either press the button *once*, *twice*, or *three times* and watch the *LED*. It lights up constantly when in *pairing mode*. If short button presses do not work, try holding the button for *2-3s*.
-3. **Pair Remote Control:** While in pairing mode (the *LED* lights constantly), press a button on the *remote control*. On success, the *LED* starts blinking or turns off. The *receiver* is now *paired to the remote control*.
-
-
-> [!TIP]
-> Some devices allow pairing with multiple remote controls. Repeat the pairing process to pair the device with another remote control. Perform a *reset* to clear all *paired remote controls* from the device.
-
-
-#### Conclusion
-
-The examined device comes with the fundamentally required components (albeit in a potentially hazardous board design):
-
-* Power Supply
-* RF Receiver with Button and LED
-* Relais
-
-
-### WiFi Receiver
-
-A device designed to be controlled via *WiFi* (instead of *RF*) shares some components but requires also a few changes.
-
-Here is a similar device which is *WiFi*-controlled:
-
-<img src="images/relais_wifi_front_t.png" width="80%" height="80%" />
-
-
-#### Opening
-
-The two housing parts are held together by four clips. You can pry them open with a screwdriver. 
-
-
-<img src="images/wifi_relais_open_t.png" width="80%" height="80%" />
-
-
-
-#### WiFi Module
-
-A separate breakout board marked *LN-02* is piggy-backed onto the main board. 
-
-On the top rim, the PCB *WiFi antenna* is seen:
-
-<img src="images/wifi_relais_ln02_t.png" width="80%" height="80%" />
-
-> [!NOTE]
-> The *plug-in piggy-back* board illustrates how these devices are manufactured: based on desired control type, the *WiFi* board can be plugged into the main board, or left out. Plug-in boards with different *WiFi*-enabled microcontrollers can be found, depending on microcontroller market prices and availability.
-
-
-
-
-
-#### Microcontroller
-
-The microcontroller is a *LN882*, produced by *Lightning*. This microcontroller is comparable in features to the well-known *ESP8266* from *Espressif*.
-
-<img src="images/wifi_relais_ln02_close2_t.png" width="80%" height="80%" />
-
-> [!TIP]
-> For the longest time, *WiFi*-enabled devices used original *ESP8266* microcontrollers that could easily be reprogrammed. Newer devices use less documented variants. Various [Open Source Projects](https://openbekeniot.github.io/webapp/devicesList.html) aim to document, access and reprogram them. There are [detailed instructions](https://www.elektroda.de/rtvforum/topic4045390.html) for the *LN882* (albeit not in German, use Google translate).
-
-
-#### Power Supply
-
-A fuse resistor is present, as well as three large electrolytic capacitors. 
-
-
-<img src="images/wifi_relais_front1_t.png" width="80%" height="80%" />
-
-On the back, a *MB10* bridge rectifier and a *BP2525* transformerless *AC-to-DC* constant voltage converter turns *85-240V AC* directly to *5V DC* which is required to operate the *relais*.
-
-A separate *AMS1117* provides the *3.3V* constant voltage required for the microcontroller.
-
-
-<img src="images/wifi_relais_traces1_t.png" width="80%" height="80%" />
-
-#### Board Design
-
-The board and its traces show a better (safer) design: *Cut-outs* separate *AC* from *DC* parts, and while *Nin* and *Nout* are still connected (the cheap relais switches just one line and not both), the screw terminals for the *external switch* are *not connected* to *AC mains*.
-
-
-#### Conclusion
-
-A *WiFi*-controlled relais shares the same fundamental components:
-
-* Transformerless Power Supply
-* Relais
-* A separate *WiFi*-enabled microcontroller board is piggy-backed and digitally controls the *relais* via its *GPIO*
-
-
-## Datasheets
-
-[BP2525 AC-to-DC converter](materials/bp2525_datasheet.pdf)   
-[MB10 Bridge Rectifier](materials/mb10_datasheet.pdf)   
-[AMS1117 3.3V Voltage Regulator](materials/ams1117_datasheet.pdf)   
-
-
-
-> Tags: Relais, Remote Control, ASK, OOK, SRD
-
-[Visit Page on Website](https://done.land/components/switch/relais/wireless?137944041230242855) - created 2024-04-29 - last edited 2024-05-01
+[Visit Page on Website](https://done.land/components/switch/relais/wireless?137944041230242855) - created 2024-04-29 - last edited 2024-07-28
