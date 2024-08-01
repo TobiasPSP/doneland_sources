@@ -9,21 +9,15 @@
 
 
 
-Most people control devices wirelessly every day without even thinking about it: by using a *garage door opener*, *TV remote control*, *smartphone apps*, etc, you are controlling all kinds of electrical devices.
-
-The *wireless relais* discussed here provide you with a *generic way* to retrofit *remote control capability* to *any* device you want.
+Most people control devices wirelessly every day without even thinking about it: by using a *garage door opener*, *TV remote control*, *smartphone apps*, etc, you are controlling all kinds of electrical devices. The *wireless relais* discussed here provide you with a *generic way* to retrofit *remote control capability* to *any* device you want.
 
 
-**The wireless relais discussed here require dangerous AC voltage. Never use AC high voltage in your DIY projects unless you are a qualified electrician or have comparable expertise.**
+**Never use AC high voltage in your DIY projects unless you are a qualified electrician or have comparable expertise.**
 
 
 
 <img src="images/relais_rfwifi_overview_top_t.png" width="80%" height="80%" />
 
-
-
-> [!NOTE]
-> *Wireless relais* may look very similarly, so always make sure you check the technical specs on the housing and ensure you are purchasing the *wireless technology* you intend to use.
 
 
 
