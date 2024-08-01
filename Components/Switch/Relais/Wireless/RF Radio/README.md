@@ -143,3 +143,5 @@ Since most *RF receivers* use the same *standard RF receiver chips*, pairing is 
 
 
 > Tags: Relais, Remote Control, ASK, OOK, SRD
+
+[Visit Page on Website](https://done.land/components/switch/relais/wireless/rfradio?034194081301245115) - created 2024-07-31 - last edited 2024-07-31

@@ -111,4 +111,4 @@ A *WiFi*-controlled relais shares the same fundamental components:
 
 > Tags: Relais, Remote Control, WiFi, Microcontroller, LN882
 
-
+[Visit Page on Website](https://done.land/components/switch/relais/wireless/wifi?122956081301245115) - created 2024-07-31 - last edited 2024-07-31
