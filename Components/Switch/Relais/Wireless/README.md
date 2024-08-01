@@ -182,7 +182,7 @@ This model uses a *PCB antenna* which can be seen in the picture below on the le
 
 PCB antennas typically *perform poorly*: you either need a very strong *sender*, or you need to be *very close* to the device in order to control it. 
 
-> [TIP]
+> [!TIP]
 > Occasionally, reception is so bad that the *remote control* needs to be within a *1m* range to the device. By cutting the *PCB trace* to the antenna and replacing it with a *17.3cm* wire, reception performace improves dramatically.
 
 
@@ -244,7 +244,7 @@ Since most *RF receivers* use the same *standard RF receiver chips*, pairing is 
 3. **Pair Remote Control:** While in pairing mode (the *LED* lights constantly), press a button on the *remote control*. On success, the *LED* starts blinking or turns off. The *receiver* is now *paired to the remote control*.
 
 
-> [!TIP:]
+> [!TIP]
 > Some devices allow pairing with multiple remote controls. Repeat the pairing process to pair the device with another remote control. Perform a *reset* to clear all *paired remote controls* from the device.
 
 
