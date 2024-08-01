@@ -41,7 +41,7 @@ There are two types of radio signals used for remotely controlling devices:
 
 
 ## Using Radio Frequency
-*RF-controlled relais* use a direct *one-way communication* that is providing *autonomy*:
+*RF-controlled relais* use direct *one-way radio communication* that provides *autonomy*:
 
 * **Simple:** no special prerequisites are required. You *do* need to purchase a compatible *RF remote control* separately, and pair it with the device.
 * **Robust:** when your *WiFi* network fails or your *phone company's network* is temporarily down, your *RF-Controlled solutions* continue to work like a charm.
@@ -66,7 +66,7 @@ Sending *control messages* via *WiFi* has these benefits:
 
 <img src="images/relais_wifi_top_t.png" width="60%" height="60%" />
 
-Here is the price you pay for this:
+Here are the disadvantages:
 
 * **Coverage:** requires that your *WiFi network* provides good coverage. This may not be the case in areas like the garden or garage.
 * **Internet:** requires a specific *vendor cloud solution*. Devices can be controlled only when connected to the *Internet*.
@@ -75,7 +75,7 @@ Here is the price you pay for this:
 
 
 > [!TIP]
-> Each vendor uses their own **incompatible** cloud services. Whichever vendor you may choose: stick to it (i.e. *Tuya*, *EweLink*). You cannot mix *WiFi*-device from different vendors (unless you want to use a number of different smartphone apps to control them all).
+> Each vendor uses own *cloud services* that are **incompatible** and work only with devices authorized by the vendor. So whichever vendor you may choose: stick to it (i.e. *Tuya*, *EweLink*). You cannot mix *WiFi*-device from different vendors (unless you want to use a number of different smartphone apps to control them all).
 
 
 
@@ -86,7 +86,7 @@ Here is the price you pay for this:
 Most commercial devices (regardless of wireless technology) use *screw terminals* similar to these:
 
 
-<img src="images/relais_rf_terminals.png" width="80%" height="80%" />
+<img src="images/relais_rf_terminals.png" width="60%" height="60%" />
 
 | Terminal | Description |
 | --- | --- |
@@ -98,7 +98,7 @@ Most commercial devices (regardless of wireless technology) use *screw terminals
 
 
 > [!CAUTION]
-> **S1** and **S2** may be exposed to **AC**! **Never ever hook up a low voltage push button** to these terminals (see next section).
+> **S1** and **S2** may be exposed to **AC!** **Never ever hook up a low voltage push button** to these terminals (see next section).
 
 
 
@@ -106,17 +106,17 @@ Most commercial devices (regardless of wireless technology) use *screw terminals
 
 Cheap electronic components - like the ones discussed here - were designed to be **installed by professional electricians**. They were also *specifically* designed to be **integrated into existing applicances**, i.e. *light switches*.
 
-**Before** you start using such components for DIY purposes, read and understand this:
+**Before you start** using such components for DIY purposes, read and understand this:
 
 * **Hazardous Voltage:** these components can only work when they are connected to hazardous *AC high voltage* (their internal low voltage circuitry is powered by *AC voltage*).  
-* **AC Voltage can be deadly. It may not hit you: you may be careful, and you may know the parts that "shouldn't be touched or pulled on". It may hit your child or a friend instead, when they trustfully operate one of your DIY devices that may not be safe to use. This may occur tomorrow. Or in two years time. Do not take this risk if you are not absolutely certain you know what you are doing.**
+* **AC Voltage can be deadly. It may not hit you: you may be careful, and you may know the parts that "shouldn't be touched or pulled on". It may hit your child or a friend instead, when they trustfully operate one of your DIY devices. This may occur tomorrow. Or in two years time. Do not take this risk if you are not absolutely certain you know what you are doing.**
 
 
 ### Dangerous Designs
 
 If you do decide to proceed, make sure you *fully understand* the components you use. Even a simple component like a *wireless relais* may use unexpected designs and cause deadly misunderstandings. 
 
-Here is an example: look at the terminals **S1** and **S2** found on all of the example devices I examined: according to documentation, they can be short-cutted to control the relais manually.
+Here is an example: look at the terminals **S1** and **S2** found on all of the example devices I examined: according to documentation, they can be connected to control the relais manually.
 
 > [!NOTE]
 > That is perfectly in-line with the original intention: when retrofitting remote control capabilities to a *light switch*, a licensed electrician would open the existing light switch, then hook up the *wireless relais* to the load, and finally hook up the *original switch* to **S1** and **S2**. This way, the load could now  be controlled via the existing switch **plus** also remotely.
@@ -127,7 +127,7 @@ When looking at the traces, dangerous *high voltage AC* is exposed at many surpr
 
 <img src="images/relais_rf_traces.png" width="80%" height="80%" />
 
-**S1**, **Nin** and **Nout** are all connected, and so is the built-in push button. *Live AC* can be available at **S1**.
+**S1**, **Nin** and **Nout** are all connected, and so is the built-in push button. *Live AC* can be available at all of this places, including **S1**.
 
 ### Deadly Misunderstandings
 If you just went by the documentation, you might have **assumed** that **S1** and **S2** connect a *low voltage* switch that interacts with the *low voltage control logic* - and this would have even been a sensible assumption: with a dedicated *DIY component*, **S1** and **S2** would probably have been implemented this way - and some *WiFi-controlled* devices I examined did use this safe design. But not the one I showed above.  
