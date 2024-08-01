@@ -29,7 +29,7 @@ There are two types of radio signals used for remotely controlling devices:
 * **WiFi:** controllable via *WiFi* signals that are typically sent by a vendor-specific *cloud service*. You use the vendor-supplied *smartphone app* to initiate the control signals. This approach requires *Internet* and works from anywhere in the world.
 
 > [!NOTE]
-> Both techniques have their own set of advantages and shortcomings. Which one is preferrable depends entirely on your actual use case.
+> Both techniques have their own advantages and shortcomings. Which one is preferrable depends entirely on your actual use case.
 
 
 
