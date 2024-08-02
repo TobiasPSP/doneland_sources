@@ -288,4 +288,4 @@ Use four *M4* screws to secure both parts. You may want to use a drill to clean 
 
 Tags: Plug, Smart Plug, Power Monitor, Atorch GR2PWS, Rail Meter
 
-[Visit Page on Website](https://done.land/projects/secureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-20
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/secureacpower?099878071720241015) - created 2024-07-19 - last edited 2024-07-20

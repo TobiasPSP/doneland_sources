@@ -269,3 +269,5 @@ Test this for all six *GPIOs* to make sure your logic works as intended.
 
 
 Tags: Plug, Smart Plug, Home Assistant, ESPHome
+
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox?349454081302245855) - created 2024-08-01 - last edited 2024-08-01
