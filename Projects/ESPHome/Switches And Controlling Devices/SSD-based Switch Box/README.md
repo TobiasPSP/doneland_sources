@@ -264,7 +264,44 @@ Test this for all six *GPIOs* to make sure your logic works as intended.
 > [!TIP]
 > Verify that the *GPIO logic level* matches the logic level your *relais* requires. If the logic levels are mixed up, remove *inverted: true* from your configuration.
 
+## Indicator LED
+To indicate whether a socket is powered or not, *two LED* are used. When the socket is powered, a *green LED* is *on*, else a *red LED*.
 
+In order to keep the effort minimal, both *LED* should be controlled by the *same GPIO* that also controls the *SSR*. Here is the schematic:
+
+
+<img src="images/proj_6_ac_indicatorled_schematics.png" width="100%" height="100%" />
+
+### Description
+
+The *LEDs* used in this project require approximately *10mA* to light up. At *3.3V*, this requires a current limiting resistor of *90 ohms* for the *green LED*, and *130 ohms* for the *red LED*:
+
+````powershell
+PS> Get-LedResistor -Current 10 -OperatingVoltage 3.3 -Color red, green
+
+
+Required Resistor (Ohm) : 130
+Operating Voltage (V)   : 3.3
+Led Current (mA)        : 10
+Led Voltage (V)         : 2
+Led Color               : red
+
+Required Resistor (Ohm) : 90
+Operating Voltage (V)   : 3.3
+Led Current (mA)        : 10
+Led Voltage (V)         : 2.4
+Led Color               : green
+
+WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
+````
+
+The *GPIO* is either *high* (supplying *VDD*) or *low* (connected to *GND*).
+
+When the *GPIO* is *low*, then the *SSD* is *turned on* (since a *low level trigger SSD* is used). So the *green LED* is turned *on*.
+
+The *red LED* is *turned off* since it is currently wired *in the wrong direction*. A protective diode is not required since the *wrong polarity voltage* is well below *5V*.
+
+When the *SSR* is turned *off*, the *GPIO* switches to *high*. Now the *red LED* is *turned on*. 
 
 
 

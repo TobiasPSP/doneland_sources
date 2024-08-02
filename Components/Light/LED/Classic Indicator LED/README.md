@@ -83,89 +83,15 @@ Required Resistor (Ohm) Operating Voltage (V) Led Current (mA) Led Voltage (V) L
 
 <details><summary>PowerShell Script to calculate **LED** resistance values</summary><br/>
 
-Here is the **PowerShell** script that was used above to calculate the **LED** *series resistor* values:
+To use the *PowerShell Cmdlet* `Get-LedResistor`, install the [PowerShell Module DoneLandTools](https://done.land/tools/powershell#install-donelandtools).
 
-```powershell
-function Get-LedResistor
-{
-  [CmdletBinding(DefaultParameterSetName='ForwardVoltage')]
-  param
-  (
-    [Parameter(Mandatory,ValueFromPipeline)]
-    [double]
-    $OperatingVoltage,
-    
-    
-    [Parameter(Mandatory,ParameterSetName='precise')]
-    [double]
-    $ForwardVoltage,
-    
-    [Parameter(Mandatory,ParameterSetName='guess')]
-    [ValidateSet('yellow','orange','red','green','blue','white')]
-    [string[]]
-    $Color,
-    
-    [int]
-    $Current = 20    
-  )
-
-  begin
-  {
-    $colorToVoltage = @{
-      yellow = 1.8
-      orange = 1.9
-      red = 2.0
-      green = 2.4
-      blue = 3.0
-      white = 3.2
-    }
-  }
-  process
-  {
-    $Color | ForEach-Object {
-      $curColor = $_
-      if ($PSCmdlet.ParameterSetName -eq 'guess')
-      {
-        $ForwardVoltage = $colorToVoltage[$curColor]
-      }
-      else
-      {
-        $curColor = $colorToVoltage.GetEnumerator() | 
-        Sort-Object { [Math]::Abs($_.Value - $ForwardVoltage)  } | 
-        Select-Object -First 1 -ExpandProperty Key
-      }
-    
-      $voltageDrop = $OperatingVoltage - $ForwardVoltage
-      $resistance = $Current * 1000 / $voltageDrop
-  
-      [PSCustomObject]@{
-        'Required Resistor (Ohm)' = $resistance -as [Int]
-        'Operating Voltage (V)'   = $OperatingVoltage
-        'Led Current (mA)'        = $Current
-        'Led Voltage (V)'         = $ForwardVoltage
-        'Led Color'               = $curColor
-      }
-    }
-  }
-  end
-  {
-    if ($PSCmdlet.ParameterSetName -eq 'guess')
-    {
-      Write-Warning "LED Forward Voltage was guessed from color and can be completely different. Use at own risk."
-    }
-  }
-}
-```
-
-Run this script inside a **PowerShell** *console* or **IDE** like *Windows PowerShell ISE* or *VSCode* to define the new command `Get-LedResistor'.
-
-Next, use the command inside the same PowerShell session like below. As you will see, **PowerShell** commands are *extremely powerful and versatile*, and this one new command can calculate one individual resistor as well as *a resistor table* for a *wide range of operating voltages*:
+**PowerShell** commands are *extremely powerful and versatile*, and `Get-LedResistor` can calculate one individual resistor as well as *a resistor table* for a *wide range of operating voltages*:
 
 ````
 PS> Get-LedResistor -OperatingVoltage 3.3 -Color red -Current 10
 
 
-Required Resistor (Ohm) : 7692
+Required Resistor (Ohm) : 130
 Operating Voltage (V)   : 3.3
 Led Current (mA)        : 10
 Led Voltage (V)         : 2
@@ -178,7 +104,7 @@ WARNING: LED Forward Voltage was guessed from color and can be completely differ
 PS> Get-LedResistor -OperatingVoltage 10 -Current 15 -ForwardVoltage 2.2
 
 
-Required Resistor (Ohm) : 1923
+Required Resistor (Ohm) : 520
 Operating Voltage (V)   : 10
 Led Current (mA)        : 15
 Led Voltage (V)         : 2.2
@@ -192,28 +118,28 @@ PS> 3..24 | Get-LedResistor -Current 15 -Color blue | Select-Object -Property re
 WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
 Required Resistor (Ohm) Operating Voltage (V)
 ----------------------- ---------------------
-                                            3
-15000                                       4
-7500                                        5
-5000                                        6
-3750                                        7
-3000                                        8
-2500                                        9
-2143                                       10
-1875                                       11
-1667                                       12
-1500                                       13
-1364                                       14
-1250                                       15
-1154                                       16
-1071                                       17
-1000                                       18
-938                                        19
-882                                        20
-833                                        21
-789                                        22
-750                                        23
-714                                        24
+                      0                     3
+                     67                     4
+                    133                     5
+                    200                     6
+                    267                     7
+                    333                     8
+                    400                     9
+                    467                    10
+                    533                    11
+                    600                    12
+                    667                    13
+                    733                    14
+                    800                    15
+                    867                    16
+                    933                    17
+                   1000                    18
+                   1067                    19
+                   1133                    20
+                   1200                    21
+                   1267                    22
+                   1333                    23
+                   1400                    24
 ````
 
 </details>
