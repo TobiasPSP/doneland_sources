@@ -267,6 +267,8 @@ Test this for all six *GPIOs* to make sure your logic works as intended.
 ## Indicator LED
 To indicate whether a socket is powered or not, *two LED* are used. When the socket is powered, a *green LED* is *on*, else a *red LED*.
 
+### Schematics
+
 In order to keep the effort minimal, both *LED* should be controlled by the *same GPIO* that also controls the *SSR*. Here is the schematic:
 
 
@@ -302,6 +304,8 @@ When the *GPIO* is *low*, then the *SSD* is *turned on* (since a *low level trig
 The *red LED* is *turned off* since it is currently wired *in the wrong direction*. A protective diode is not required since the *wrong polarity voltage* is well below *5V*.
 
 When the *SSR* is turned *off*, the *GPIO* switches to *high*. Now the *red LED* is *turned on*. 
+
+### Testing
 
 
 
