@@ -50,6 +50,9 @@ In this case, the *GPIO* acts as *GND* (when *low*), and *sinks any voltage* tha
 > [!TIP]
 > With *sinking*, you are free to use any *voltage supply* at hand (provided it shares *GND* with the microcontroller). For example, when powering an *ESP32* with *5V USB*, you could power a *5V LED* directly from the power supply, and connect it to the *low active GPIO*.
 
+> [!IMPORTANT]
+> With *sinking*, *GPIO voltage limitations* still apply: according to its datasheet, i.e. *ESP32 GPIOs* can only handle voltages of up to *3.3V*. Reality shows though that *ESP32 GPIOs* apparently are *5V tolerant*, and many users successfully interface *ESP32 GPIOs* directly with *5V components*, and use *sinking* with up to *5V*.   
+
 ### Sourcing And Sinking
 Here is a great example illustrating how flexible *sinking* can be: a *digital output GPIO* needs a way for users to know whether the output is *on* or *off*. For this, two *LED* (one *green*, one *red*) should light up, depending on *GPIO state*.
 
