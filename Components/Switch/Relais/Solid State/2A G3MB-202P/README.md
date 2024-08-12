@@ -14,9 +14,11 @@ The *G3MB-202P* is a low-cost subminiature PCB-mounting solid state relais capab
 ## Overview
 The *G3MB-202P* is a widely used *SSR* for switching *AC loads* in a very small form factor. Its relatively low switching capabilities of just *2A* make it a choice for switching very light loads such as *lamps* or *small fans*.
 
+<img src="images/ssr_2a_ac_2_top_t.png" width="70%" height="70%" />
+
 It is often used with *breakout boards* that can use a single *SSR*, or combine two, four, or even eight *SSR* on one board.
 
-<img src="images/ssr_2a_ac_2_top_t.png" width="70%" height="70%" />
+<img src="images/ssr_2a_ac_4_side2_t.png" width="70%" height="70%" />
 
 > [!CAUTION]
 > This *SSR* is designed to switch **AC** loads. You cannot switch **DC** loads with it.
@@ -29,8 +31,13 @@ The *SSR* requires a basic *5V* power supply (**DC+**/**DC-**) and takes *12.5mA
 ### Low/High Level Trigger
 On *breakout boards*, the *SSR* can be operated in two different ways:
 
-* **Low Level Trigger:** when the trigger signal is *low* (0-2.5V), the *SSR* is *on*. When the trigger signal is *high* (*3V* or above), it is *off*.
+<img src="images/ssr_2a_ac_4_highlevel_t.png" width="70%" height="70%" />
+
 * **High Level Trigger:** opposite behavior: the trigger input must be *high* in order for the *SSR* to be *on*.
+* **Low Level Trigger:** when the trigger signal is *low* (0-2.5V), the *SSR* is *on*. When the trigger signal is *high* (*3V* or above), it is *off*.
+
+<img src="images/ssr_2a_ac_2_lowlevel_t.png" width="70%" height="70%" />
+
 
 > [!NOTE]
 > Regardless of trigger type, when you cut the power supply to the board, the *SSR(s)* turn off (become non-conductive): even a *low level trigger* board with *0V* at its trigger pin will cut the load once the power supply is removed from the board.
@@ -57,6 +64,11 @@ One side controls power supply and the *SSR state*:
 | Ch1 | logic level for first SSR |
 | Ch2 | logic level for second SSR |
 | Chx | one *Chx* pin for each additional SSR |
+
+Breakout boards with four or more *SSR* often provide *both* screw terminals *and* header pins for these connections:
+
+<img src="images/ssr_2a_ac_4_top_t_.png" width="70%" height="70%" />
+
 
 > [!IMPORTANT]
 > *G3MB-202* comes in *5V*, *12V*, and *24V* versions. Double-check the markings on the *SSR* to ensure you are using the correct version and supply voltage. This article covers the *5V* version.
