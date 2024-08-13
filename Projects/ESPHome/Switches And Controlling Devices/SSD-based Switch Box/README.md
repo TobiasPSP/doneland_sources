@@ -274,6 +274,12 @@ In order to keep the effort minimal, both *LED* should be controlled by the *sam
 
 <img src="images/proj_6_ac_indicatorled_schematics.png" width="100%" height="100%" />
 
+And here's a quick refresher on *LEDs* and where to find their *cathode* (**-**) and *anode* (**+**):
+
+<img src="images/overview_led_4xsocket.png" width="60%" height="60%" />
+
+
+
 ### Description
 
 The *LEDs* used in this project require approximately *10mA* to light up. At *3.3V*, this requires a current limiting resistor of *90 ohms* for the *green LED*, and *130 ohms* for the *red LED*:
@@ -299,14 +305,93 @@ WARNING: LED Forward Voltage was guessed from color and can be completely differ
 
 The *GPIO* is either *high* (supplying *VDD*) or *low* (connected to *GND*).
 
-When the *GPIO* is *low*, then the *SSD* is *turned on* (since a *low level trigger SSD* is used). So the *green LED* is turned *on*.
+* **Low:** When the *GPIO* is *low*, the **green** *LED* is on. Its *anode* (**+**) is connected to the positive voltage supply.
+* **High:** When the *GPIO* is *high*, then the *green LED* is *off* (because being a *diode*, it cannot conduct power in this direction). Instead, the **red** *LED* turns on: its *cathode* (**-**) is connected to *GND*.
 
-The *red LED* is *turned off* since it is currently wired *in the wrong direction*. A protective diode is not required since the *wrong polarity voltage* is well below *5V*.
+> [!IMPORTANT]
+> Make up your mind *which LED* should turn on *when*. The circuit cannot be changed later. Since I am using a *low level trigger* board, the *solid state relais* is *on* when the *GPIO* is *low*. Accordingly, the **green** *LED* will be *on* when the outlet has power. If you want it the other way around, or if you want to use a *high level trigger* board, simply flip both *LEDs* and their resistors.
 
-When the *SSR* is turned *off*, the *GPIO* switches to *high*. Now the *red LED* is *turned on*. 
+
+
+### Testing
+Let's first test the schematics. For this, connect *3.3V* and *GND* to the rails of your breadboard. 
+
+Then, connect one of the *GPIOs* that you use in your configuration (i.e. *GPIO4*) to both the *cathode* of the *green LED* and the *anode* of the *red LED*.
+
+
+
+<img src="images/project_led_gpio_status_smartplug_ssr_red_t.png" width="60%" height="60%" />
+
+Connect the *90 ohms* resistor to the *anode* of your *green LED*, and connect the other end of the resistor to *3.3V*.
+
+Likewise, connect the *130 ohms* resistor to the *cathode* of your *red LED*, and connect the other end of the resistor to *GND*.
+
+Now, when you change the switch in your *Home Assistant* dashboard that represents the *GPIO* you wired up, the *LEDs* should indicate the current switch status.
+
+## Creating Signal LED Panels
+
+For a *smart power strip* with *four sockets*, we need *four LED pairs*. I decided to keep it modular by placing two LED pairs on one perfboard. Make sure you place the *green* and the *red LED* in opposite orientation onto the perfboard:
+
+<img src="images/project_led_gpio_status_smartplug_ssr_1_t.png" width="20%" height="20%" />
+
+Next, ensure that both LED align with the perfboard and are not tilted:
+
+<img src="images/project_led_gpio_status_smartplug_ssr_2_t.png" width="60%" height="60%" />
+
+Finally, bend the LED legs all the way to the sides so the LEDs are fixed and won't slide out when you solder them to the perfboard.
+
+<img src="images/project_led_gpio_status_smartplug_ssr_5_t.png" width="40%" height="40%" />
+
+
+### Adding Resistors
+
+Identify the side of the LEDs that will be connected to the *GPIO*: that's the *cathode* (shorter leg) of the *green LED* and the *anode* (longer leg) of the *red LED*.
+
+On the *opposite* side of the *LEDs*, solder the *resistors* to the *LEDs*:
+
+
+<img src="images/project_led_gpio_status_smartplug_ssr_6_t.png" width="40%" height="40%" />
+
+Do this on both sides.
+
+<img src="images/project_led_gpio_status_smartplug_ssr_7_t.png" width="60%" height="60%" />
+
+Then trim off the legs of the *LEDs*. Do **Not** trim off any part of the resistors.
+
+### Wires For GPIOs
+
+Connect the other end of each *LED pair* with a wire, connecting the *red led anode* and the *green led cathode*. This provides you with two wires that later can be connected to the two *GPIOs* that you want to monitor.
+
+### Wires For Plus And Minus
+
+Connect the two resistors that come from the *red LEDs* somewhere in the middle of the perfboard. Where the resistors connect will be the place where you later connect *GND*.
+
+Do the same with the two resistors that come from the *green LEDs*: where these connect will later be the supply point for *3.3V*.
+
+> [!IMPORTANT]
+> Since the wires will cross over each other at some point, you may want to put the resistors that come from the *green LEDs* in red *heat shrink*. Note how one resistor is covered in heat shrink in the picture below:
+
+<img src="images/project_led_gpio_status_smartplug_ssr_8_t.png" width="60%" height="60%" />
+
+Finally, add the power supply cables: connect a *red wire* to the junction point of the two *green LED resistors*, and add a *black wire* to the junction point where the two *red LED resistors* connect:
+
+<img src="images/project_led_gpio_status_smartplug_ssr_11_tlabel.png" width="60%" height="60%" />
+
+
 
 ### Testing
 
+Once you have finished the perfboard, you can perform a first test: connect *3.3V* and *GND* to your red and black wire. Next, connect one of the *GPIO wires* to *GND*, then to *3.3V*. The appropriate LED should turn on.
+
+When that works, it's time to add the perfboard to your test setup: connect two wires to two of the GPIOs you use in this project (i.e. GPIO13 and GPIO14).
+
+<img src="images/project_led_gpio_status_smartplug_ssr_13_t.png" width="60%" height="60%" />
+
+Connect the perfboard cables for *3.3V* and *GND* to your breadboard power rail, then connect the two *GPIO wires* to the two GPIOs.
+
+The two *LED pairs* on your perfboard should immediately start to signal the *GPIO state*, and when you go to your *Home Assistant test dashboard* and change the switches, then the *LEDs* on your perfboard should reflect these changes.
+
+When this works for you, it is now time to add the *solid state relais*.
 
 
 > Tags: Plug, Smart Plug, Home Assistant, ESPHome
