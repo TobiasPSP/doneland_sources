@@ -309,6 +309,6 @@ When the *SSR* is turned *off*, the *GPIO* switches to *high*. Now the *red LED*
 
 
 
-Tags: Plug, Smart Plug, Home Assistant, ESPHome
+> Tags: Plug, Smart Plug, Home Assistant, ESPHome
 
 [Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox?349454081302245855) - created 2024-08-01 - last edited 2024-08-01
