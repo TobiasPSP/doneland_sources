@@ -1,6 +1,6 @@
 <img src="/assets/images/relais.png" width="80%" height="80%" />
  
-# WiFi
+# WiFi Relais
 
 > WiFi-Controlled Relais
 
