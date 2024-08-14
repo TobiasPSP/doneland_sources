@@ -175,3 +175,4 @@ Access Points that support *802.11w* offer three different login methods:
 
 > Tags: WiFi, Data Transfer, WPA, WPA2, WPA3, MFP, PMF, 802.11w, Router, Access Point, Firewall, DNS, DHCP, Range Extender, Bridge, WiFi Bridge, >NAT, Port, WAN, LAN
 
+[Visit Page on Website](https://done.land/components/datatransmission/wireless/wifi?570566081114241442) - created 2024-08-13 - last edited 2024-08-13
