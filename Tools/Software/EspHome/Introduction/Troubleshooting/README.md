@@ -185,6 +185,7 @@ As it turns out, *ESPHome devices* seem to go into a *production mode* where the
 
 But don't wait for too long. Apparently, the device may become unavailable shortly thereafter. If that happens to you, repeat the steps above to "wake up" the device again, then do whatever you need to do without much delay.
 
+If all else fails, cut power from the device for a moment. Once it rebooted, it becomes manageable from *ESPHome Dashboard* for a few hours.
 
 
 > Tags: EspHome, Troubleshooting
