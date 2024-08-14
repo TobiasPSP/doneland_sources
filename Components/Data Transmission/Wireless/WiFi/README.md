@@ -158,7 +158,7 @@ Unfortunately, *WiFi* does not encrypt the entire traffic. *Management Frames* a
 **MFP (Management Frame Protection)** aka (**PMF: Protected Management Frames**) aims to close this security issue by protecting management frames from unauthorized access and manipulation. This is outlined in *IEEE 802.11w-2009*.
 
 ### (Highly) Secure WiFi
-Operating a secure *WiFi* requires *all* devices to support *MFP/PMF*. Most computers and quality devices today support *802.11w*. For example, *Windows* uses this standard since *Windows 8*. However, wireless devices need to support *WPA3* which is not the case for the majority of consumer gear.
+Operating a secure *WiFi* requires *all* devices to support *MFP/PMF* (*802.11w*). Most computers and quality devices today support *802.11w*. For example, *Windows* uses this standard since *Windows 8*. However, wireless devices need to support *WPA3* which is not the case for the majority of consumer gear.
 
 Access Points that support *802.11w* offer three different login methods:
 
@@ -167,7 +167,7 @@ Access Points that support *802.11w* offer three different login methods:
 * **Client decides:** that's the compatibility mode that allows older clients to connect while enabling *802.11w* for any device that supports it. Put differently, this mode reduces the attack surface but does still provide room for attackers to penetrate.
 
 > [!NOTE]
-> *802.11w* aims at professional corporate wireless networks. Private users simply don't provide enough prey the would make attacks worthwhile. Still, being aware of *802.11w*/*WPA3* and trying to select device that support this makes sense for home users as well.  
+> *802.11w* aims at professional corporate wireless networks. Private users simply don't provide enough prey that would make attacks worthwhile, and *802.11w*-compliant consumer hardware is still expensive and less available. Still, being **aware** of *802.11w*/*WPA3*, and what it does, makes sense for home users as well: selecting devices that support *802.11w* (when cost and availability allows) enables you to eventually become ready for stepping up your security, too.  
 
 
 
