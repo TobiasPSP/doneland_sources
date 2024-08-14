@@ -167,7 +167,7 @@ As it turns out, *ESPHome devices* seem to go into a *production mode* where the
     WARNING Can't connect to ESPHome API for co2-sensor-1.local: Error resolving IP address: [Errno -5] No address associated with hostname (APIConnectionError)
     INFO Trying to connect to co2-sensor-1.local in the background
     ````
-3. Hang in, and wait a couple of minutes. Eventually, the connection will be established, and you see the device log.
+3. Hang in, and wait a couple of minutes. Apparently, *mDNS* resolution starts to respond when the device is ready to submit the next scheduled data. Depending on your setup, this may take a few minutes. Eventually, the connection will be established, and you see the device log.
     ````
     INFO Successfully connected to co2-sensor-1 @ 192.168.68.82 in 1.078s
     INFO Successful handshake with co2-sensor-1 @ 192.168.68.82 in 0.097s
