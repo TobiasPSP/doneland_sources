@@ -153,7 +153,37 @@ If you'd like to use *ping* instead of *mDNS* to check availability, in *Home As
 
 </details>
 
+### Waking Up ESPHome Devices
+Occasionally, you may see your *ESPHome* devices as being marked *offline* in the *ESPHome Dashboard*, but they still happily work and regularly update their sensor data to *Home Assistant*. So apparently, your *ESPHome devices* work perfectly well. You just can't manage them in your *ESPHome dashboard*.
 
+As it turns out, *ESPHome devices* seem to go into a *production mode* where they become unavailable to *ESPHome*. To fix this and "wake up" your device, follow these steps:
+
+1. Go to *ESPHome Dashboard*, and identify the tile for your *ESPHome device*. When it is marked *offline*, click *LOGS*. Then click *Wirelessly* to connect to the device via *WiFi*.
+2. This opens a terminal window, and *ESPHome* tries to contact the device. This fails.
+    ````
+    INFO ESPHome 2024.7.3
+    INFO Reading configuration /config/esphome/co2-sensor-1.yaml...
+    INFO Starting log output from co2-sensor-1.local using esphome API
+    WARNING Can't connect to ESPHome API for co2-sensor-1.local: Error resolving IP address: [Errno -5] No address associated with hostname (APIConnectionError)
+    INFO Trying to connect to co2-sensor-1.local in the background
+    ````
+3. Hang in, and wait a couple of minutes. Eventually, the connection will be established, and you see the device log.
+    ````
+    INFO Successfully connected to co2-sensor-1 @ 192.168.68.82 in 1.078s
+    INFO Successful handshake with co2-sensor-1 @ 192.168.68.82 in 0.097s
+    [12:36:09][I][app:100]: ESPHome version 2024.7.3 compiled on Aug  3 2024, 20:51:18
+    [12:36:09][C][wifi:599]: WiFi:
+    [12:36:09][C][wifi:427]:   Local MAC: E0:5A:1B:A7:5C:7C
+    [12:36:09][C][wifi:432]:   SSID: [redacted]
+    [12:36:09][C][wifi:435]:   IP Address: 192.168.68.82
+    [12:36:09][C][wifi:439]:   BSSID: [redacted]
+    [12:36:09][C][wifi:440]:   Hostname: 'co2-sensor-1'
+    [12:36:09][C][wifi:442]:   Signal strength: -37 dB ▂▄▆█
+    ....
+    ````
+4. Click *CLOSE* to close the terminal window. Now the device is marked *online*, and you can manage it, i.e. update and install configuration changes.
+
+But don't wait for too long. Apparently, the device may become unavailable shortly thereafter. If that happens to you, repeat the steps above to "wake up" the device again, then do whatever you need to do without much delay.
 
 
 
