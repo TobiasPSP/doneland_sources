@@ -91,7 +91,7 @@ The following 30 GPIOs can be safely used for general purpose input and output i
 
 The other *GPIOs* may serve purposes already. Some control boot behavior (strapping) and can be used after booting has completed. Others are used to communicate with external flash memory or provide access to hardware interfaces.
 
-By using the 30 GPIOs mentioned above, you make sure to not create any conflicts. If you need more than 28 *GPIOs*, then you can look into the potential purposes of the remaining *GPIOs*, and utilize them as well if (and when) they are not needed otherwise. For example, the *GPIO* connected to the internal board LED can be repurposed if it does not bother you to see the *LED* flicker.
+By using the 30 GPIOs mentioned above, you make sure to not create any conflicts. If you need more than 30 *GPIOs*, then you can look into the potential purposes of the remaining *GPIOs*, and utilize them as well if (and when) they are not needed otherwise. For example, the *GPIO* connected to the internal board LED can be repurposed if it does not bother you to see the *LED* flicker.
 
 > [!TIP]
 > In contrast to classic *ESP32*, the *ESP32-S2* uses much less *strapping GPIOs* (only 3), and *generally all GPIOs* work as *input or output*, and support *internal pullup and pulldown resistors* (45kOhm). 
