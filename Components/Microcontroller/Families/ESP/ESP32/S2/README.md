@@ -76,6 +76,70 @@ The 46 physical *GPIO* are labeled *GPIO0-GPIO21* and *GPIO26-GPIO46*.
 
 Each pin can be used as a general *input* or *output* pin, or connected to an internal peripheral signal. Internal peripheral signals can be routed to *any* pin.
 
+
+### 30 Recommended General-Purpose GPIOs
+The following 30 GPIOs can be safely used for general purpose input and output in your projects:
+
+| Pin | Remark |
+| --- | --- |
+| 1-9 | *input and output, pullup and pulldown resistors* |
+| 11 | *input and output, pullup and pulldown resistors* |
+| 21-23 | *input and output, pullup and pulldown resistors* |
+| 25-32 | *input and output, pullup and pulldown resistors* |
+| 37-44 | *input and output, pullup and pulldown resistors* |
+| 47, 48 | *input and output, pullup and pulldown resistors* |
+
+The other *GPIOs* may serve purposes already. Some control boot behavior (strapping) and can be used after booting has completed. Others are used to communicate with external flash memory or provide access to hardware interfaces.
+
+By using the 30 GPIOs mentioned above, you make sure to not create any conflicts. If you need more than 28 *GPIOs*, then you can look into the potential purposes of the remaining *GPIOs*, and utilize them as well if (and when) they are not needed otherwise. For example, the *GPIO* connected to the internal board LED can be repurposed if it does not bother you to see the *LED* flicker.
+
+> [!TIP]
+> In contrast to classic *ESP32*, the *ESP32-S2* uses much less *strapping GPIOs* (only 3), and *generally all GPIOs* work as *input or output*, and support *internal pullup and pulldown resistors* (45kOhm). 
+
+
+### Second Choice GPIO Pins
+The following GPIOs should be avoided if possible and are only *second choice*: they might be already in use for other purposes, and manipulating them while they are used by someone else can lead to unexpected results:
+
+| GPIO | Remark |
+| --- | --- |
+| 0 | Boot mode select (strapping) |
+| 10 | FSPI Chip Select (external flash) |
+| 12 | FSPI Clock (external flash) |
+| 13 | often used for internal LED (check your board) |
+| 14 | FSPI_WP (external flash)|
+| 15 | FSPI_HOLD (external flash)|
+| 16 | FSPI_Q_DATA2 (external flash)|
+| 17 | FSPI_Q_DATA3, DAC1 (external flash)|
+| 18 | DAC2 |
+| 19 | FSPI_Q_DATA0 (external flash)|
+| 20 | FSPI_Q_DATA1 (external flash)|
+| 24 | FSPI_Q_D0 (external flash)|
+| 33 | Hardware SCL for I2C |
+| 34 | SPI Chip Select |
+| 35 | Hardware SDA for I2C |
+| 36 | SPI Clock |
+| 45 | Bootloader configuration (strapping) |
+| 46 | Affects boot process (strapping) |
+
+*Strapping GPIOs* are used during boot-up and can be used afterwards. *FSPI GPIOs* are used to communicate with external flash memory (that may be invisibly built into the *ESP32-S2 chip*).
+
+Other pins (like *GPIO33* and *GPIO35*) are hard-wired to interfaces like *I2C* and can be used when you do not need the interface (or are using a (much slower) software implementation of this interface on other pins).
+
+### Built-In LED
+Depending on the board used, it may feature a built-in *LED* that can be connected to an arbitrary *GPIO* (check your board documentation). Here are some examples:
+
+| GPIO for internal LED | Board | LED on when... |
+| --- | --- | --- |
+| 13 | ESP32-S2 Mini | *high* |
+| 18 | ESP32-S2-Saola-1 | *low* |
+| 2 | ESP32-S2-DevKitM-1 | *low* |
+| 13 | Adafruit ESP32-S2 Feather | *high* |
+| 13 | Wemos D1 Mini ESP32-S2 | *high* |
+
+
+
+
+
 ### Analog Input
 
 *GPIO1-GPIO10* can be connected to *ADC1* for analog input, and *GPIO11-GPIO20* can be connected to *ADC2*.

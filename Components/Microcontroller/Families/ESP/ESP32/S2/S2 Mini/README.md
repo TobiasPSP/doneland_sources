@@ -5,28 +5,67 @@
 > Powerful ESP32-S2 Board That Works With ESP8266 Shields
 
 
-The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the *much more powerful **single-core** ESP32-S2 microcontroller*. This board is preserving pin compatibility to the *ESP8266 D1 Mini* and can serve as an ideal replacement for *ESP8266*-based projects. Like the *ESP8266*, the *ESP32-S2* does not support *bluetooth*. 
+The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the **single-core** ESP32-S2 microcontroller*. 
 
-Its additional capabilities (including generous *26 GPIOs*) are exposed via two additional pin header rows.
+## Pin-Compatible To Wemos D1 Mini (ESP8266)
 
+This board is preserving pin compatibility with the *ESP8266 D1 Mini*. Its additional capabilities are exposed via two additional pin header rows. 
 
-
-<img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
-
-
-Thanks to its form factor and *pin-compatibility*, you can continue to use *shields* originally designed for the *D1 Mini* (i.e. *battery shields*).
+It can serve as an ideal replacement for *ESP8266*-based projects. Like the *ESP8266*, the *ESP32-S2* does not support *bluetooth*, and you can continue to use *shields* originally designed for the *D1 Mini* (i.e. *battery shields*).
 
 
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
 
-> [!TIP]
-> The *ESP32-S2 Mini* uses an unusual design for communicating via *USB cable*: it exposes *different ports* in *normal mode* vs. *firmware upload mode*, and because of this, many tools like [ESPHome Web Tool](https://web.esphome.io/) are **incompatible** with this board (as of this writing). *Classic IDEs* work flawlessly. If you are using [ESPHome](https://done.land/tools/software/esphome) and experience trouble flashing this board, there are great and simple-to-use [workarounds](https://done.land/tools/software/esphome/introduction/manualprovisioning). Generally, try and enable *OTA* (wireless *over-the-air* updates) so you can bypass its strange *USB communication interface* (the only flaw this otherwise excellent board seems to have).
+## Huge Number Of Safely Usable GPIOs
+
+*ESP32-S2* comes with  *43 GPIOs* of which generous [30 GPIOs are safely usable as input and output](https://done.land/components/microcontroller/families/esp/esp32/s2) in your projects:
 
 
+| GPIO | Remark |
+| --- | --- |
+| 1-9 | *input and output, pullup and pulldown resistors* |
+| 11 | *input and output, pullup and pulldown resistors* |
+| 21-23 | *input and output, pullup and pulldown resistors* |
+| 25-32 | *input and output, pullup and pulldown resistors* |
+| 37-44 | *input and output, pullup and pulldown resistors* |
+| 47, 48 | *input and output, pullup and pulldown resistors* |
 
+All *GPIOs* support internal *pullup* and *pulldown resistors*.
 
-> [!NOTE]
-> While the *S2 Mini* microcontroller board is exceptional *value for the money*, the *ESP32-S2 microcontroller* used on this board does not seem to be as *mainstream* as other microcontrollers, resulting incomplete documentation and half-hearted support: i.e. the *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. For experienced users, the *ESP32-S2 Mini* is *excellent bang for the buck* (this board is regularly available for under €2). As a rookie, you might want to avoid the *ESP32-S2* altogether and stick to trusted and well-established microcontroller types like *ESP8266* or *ESP32*.
+<img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
+
+### Built-In LED
+The built-in *blue LED* is connected to *GPIO13* and *high-active*.
+
+## Caveats
+
+The *ESP32-S2* is **exceptional value for the money**, and an awesome board: with a record-number of *30 freely usable GPIO* and a *very small and flat form factor*, this board rocks. You can get it at *AliExpress* for well under EUR 2.00.
+
+However, there are a few strings attached. They are all workable, but you need to know about them:
+
+### Breadboard / Prototyping
+
+The *pin-compatibility* with the *D1 Mini* made it necessary to add dual header rows. Because of this, not only can you reuse *shields* made for *ESP8266 D1 Mini*. The board also has an excellently flat and very space-efficient form factor. 
+
+At the same time, the dual-row headers make it impossible to use it on a standard breadboard.
+
+### Strange USB Design
+The most limiting caveat is the way how the *S2 Mini* implemented its *USB interface*: it exposes ***two** different COM ports*: one in *normal mode*, and *another* one in *firmware upload mode*. 
+
+#### ESPHome Incompatibility (And Workaround)
+Many tools like [ESPHome Web Tool](https://web.esphome.io/) cannot handle this and are **incompatible** with this board (as of this writing). Using *ESP32-S2 Mini* with *ESPHome* is impossible unless you know a simple but largely unknown [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning).  
+
+*Classic IDEs* work flawlessly. You may have to manually press and hold the *Boot* button while trying to flash the chip via *USB cable* in *ArduinoIDE* or *platformio*.
+
+### Bluetooth
+*ESP32-S2* comes with *WiFi* support but has **no bluetooth support**. This is completely ok as the majority of DIY microcontroller projects do not need *bluetooth*, and you also save some energy this way.
+
+### Incomplete Support
+The *ESP32-S2 microcontroller* in general does not seem to be as *mainstream* as other microcontrollers, resulting in incomplete documentation. 
+
+The *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* for example needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. 
+
+If this hits you, either edit the *pins_arduino.h* file for your *IDE*, define the missing constants directly in your code and assign them free *GPIO* numbers, or use *GPIO numbers* in the first place.
 
 
 
