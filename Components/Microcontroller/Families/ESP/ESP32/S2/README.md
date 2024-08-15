@@ -20,7 +20,7 @@ Here are the top reasons for choosing a **S2**:
 | Low Energy | perfect for battery-driven devices |
 | MSC Support | can act as USB flash drive and also r/w from real USB flash drives, i.e. to easily transfer (sensor) data to a computer |
 | HID Support | can simulate *USB input devices* such as *keyboards* and also use attached real input devices, i.e. an external keyboard. Perfect for devices that require extensive or convenient human data input |
-| 43 GPIO | massive number of available *GPIOs* can control even very complex hardware scenarios |
+| 30 freely usable GPIO | massive number of available *GPIOs* that can control even the most complex hardware scenarios without having to add gpio expanders |
 | Temperature Sensor | **S2** can monitor its temperature. Perfect for use cases that can get (too) hot and then require an action |
 | Time Of Flight | **S2** can use *radio waves* to locate items and calculate distances (with low resolution of roughly *1m*)
 
