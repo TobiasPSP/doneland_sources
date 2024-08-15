@@ -130,7 +130,7 @@ Depending on the board used, it may feature a built-in *LED* that can be connect
 
 | GPIO for internal LED | Board | LED on when... |
 | --- | --- | --- |
-| 13 | ESP32-S2 Mini | *high* |
+| 15 | ESP32-S2 Mini | *high* |
 | 18 | ESP32-S2-Saola-1 | *low* |
 | 2 | ESP32-S2-DevKitM-1 | *low* |
 | 13 | Adafruit ESP32-S2 Feather | *high* |

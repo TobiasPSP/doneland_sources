@@ -35,7 +35,7 @@ All *GPIOs* support internal *pullup* and *pulldown resistors*.
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
 
 ### Built-In LED
-The built-in *blue LED* is connected to *GPIO13* and *high-active*.
+The built-in *blue LED* is connected to *GPIO15* and *high-active*.
 
 ## Caveats
 
