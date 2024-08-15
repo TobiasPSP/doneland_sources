@@ -5,7 +5,7 @@
 > Powerful ESP32-S2 Board That Works With ESP8266 Shields
 
 
-The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the **single-core** ESP32-S2 microcontroller*. 
+The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the **single-core** *ESP32-S2 microcontroller*. It is a *cheap* but extremely powerful board that is very small and *extremely flat* and features *30* freely available *GPIOs* that can be used for *input* and *output*.
 
 ## Pin-Compatible To Wemos D1 Mini (ESP8266)
 
