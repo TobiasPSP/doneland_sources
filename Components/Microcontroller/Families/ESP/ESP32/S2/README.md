@@ -9,7 +9,7 @@ In 2020, *Expressif* released both the *S-Series* and the first member of the *C
 
 
 
-<img src="images/esp32_s2_chip.jpg" width="80%" height="80%" />
+<img src="images/esp32_s2_chip.jpg" width="40%" height="40%" />
 
 ## When To Use
 
