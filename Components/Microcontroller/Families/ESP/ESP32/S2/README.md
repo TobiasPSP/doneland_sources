@@ -66,7 +66,7 @@ Aside from the much lower *energy consumption*, the **S2** got some enhancements
 
 ## GPIOs
 
-The **S2** comes with *43 physical GPIO pins*. Not all pins are fully usable, and not all boards expose all pins.
+The **S2** comes with *43 physical GPIO pins*. Not all pins are fully usable, and **not all boards expose all pins**. For example, the [S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini) uses internal flash memory, so it could provide even more than 30 *GPIOs*. However, due to form factor restraints, it exposes just *27 GPIOs* that can be used for projects - still many more than found on most other microcontroller boards, including much larger ones.
 
 > [!CAUTION]
 > Pins may be labelled differently by a board. *Hardware* pin **10** and the *generic pin label* **D10** for example do not necessarily designate the same pin.
