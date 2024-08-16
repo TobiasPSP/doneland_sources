@@ -16,19 +16,19 @@ It can serve as an ideal replacement for *ESP8266*-based projects. Like the *ESP
 
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
 
-## Huge Number Of Safely Usable GPIOs
+## 27 Safely Usable GPIOs
 
-*ESP32-S2* comes with  *43 GPIOs* of which generous [30 GPIOs are safely usable as input and output](https://done.land/components/microcontroller/families/esp/esp32/s2) in your projects:
+*ESP32-S2* comes with *43 GPIOs* of which typically a maximum of [30 GPIOs are safely usable as input and output](https://done.land/components/microcontroller/families/esp/esp32/s2). Since *ESP32-S2 Mini* uses the ESP32-S2FN4R2 chip with integrated flash memory, it does not require to communicate with external flash memory, freeing additional GPIOs. Due to the form factor restraints (aiming to be pin-compatible to *D1 Mini*), the *S2 Mini* does not provide access to all *GPIOs*: 27 *GPIOs* are more than enough for most projects, though:
+
+
 
 
 | GPIO | Remark |
 | --- | --- |
-| 1-9 | *input and output, pullup and pulldown resistors* |
-| 11 | *input and output, pullup and pulldown resistors* |
-| 21-23 | *input and output, pullup and pulldown resistors* |
-| 25-32 | *input and output, pullup and pulldown resistors* |
-| 37-44 | *input and output, pullup and pulldown resistors* |
-| 47, 48 | *input and output, pullup and pulldown resistors* |
+| 1-18 | *input and output, pullup and pulldown resistors* |
+| 21 | *input and output, pullup and pulldown resistors* |
+| 33-40 | *input and output, pullup and pulldown resistors* |
+
 
 All *GPIOs* support internal *pullup* and *pulldown resistors*.
 
