@@ -39,9 +39,7 @@ The built-in *blue LED* is connected to *GPIO15* and *high-active*.
 
 ## Caveats
 
-The *ESP32-S2* is **exceptional value for the money**, and an awesome board: with a record-number of *30 freely usable GPIO* and a *very small and flat form factor*, this board rocks. You can get it at *AliExpress* for well under EUR 2.00.
-
-However, there are a few strings attached. They are all workable, but you need to know about them:
+The *ESP32-S2* is **exceptional value for the money**, but there are a few strings attached. They are all workable, but you need to know about them:
 
 ### Breadboard / Prototyping
 
