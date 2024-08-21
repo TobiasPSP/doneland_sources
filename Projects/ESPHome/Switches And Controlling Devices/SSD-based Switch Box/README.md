@@ -10,7 +10,7 @@ In this project, I am building a *ESPHome device* that can control six *AC devic
 <details><summary>The story behind this project...</summary><br/>
 
 
-Controlling *AC Devices* remotely can be a lot of fun and is very convenient, especially when you need to control devices in a lab (oscilloscope, soldering iron, fan, various lights and magnifying lights, 3d printer, filament heater, usb and bench power supplies, computer monitor, you name it...): 
+Controlling *AC Devices* remotely can be a lot of fun and is very convenient, especially when you need to control devices in a lab (oscilloscope, soldering iron, fan, various lights and magnifying lights, 3d printer, filament heater, usb and bench power supplies, computer monitor, you name it...) or other hobby environment: 
 
 Rather than searching for power buttons (often in inconvenient locations), simply turn devices on or off via  smartphone app, or create physical dashboards with all important power buttons snug together in one place.
 
@@ -126,272 +126,87 @@ The information provided in this article is for educational and informational pu
 
 ## Overview
 
-This is the parts list for this project:
+Here is the fundamental concept of this *ESPHome PowerStrip* with all the fundamental parts:
 
-* **Microcontroller:** For prototyping and testing, I am using a *ESP32 DevKitC V4* as there are *expansion boards* available for it that make prototyping a breeze. For production, I am using a *ESP32 S2 Mini* due to its much smaller foot print. Both microcontrollers come with *WiFi capabilities* and provide sufficient general purpose *GPIO*.
+
+<img src="images/circuit_concept_esphome_powerstrip.png" width="100%" height="100%" />
+
+### Microcontroller
+
+Since this power strip is supposed to be remotely controllable via *ESPHome* and *Home Assistant*, it requires a *WiFi-enabled microcontroller*. You need a microcontroller that is [supported by ESPHome](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller#supported-microcontrollers) and that has at least *four available output GPIOs* (for a *four-socket-powerstrip*; one *GPIO* per socket).
+
+For prototyping and testing, I am using a *ESP32 DevKitC V4* as there are *expansion boards* available for it that make prototyping a breeze. For production, I am using a *ESP32 S2 Mini* due to its much smaller foot print. Both microcontrollers come with *WiFi capabilities* and provide sufficient general purpose *GPIO*.
 
 
 <img src="images/6xsocket_wifi_proj_parts_microcontroller_t.png" width="100%" height="100%" />
 
 
-* **Solid State Relais:** For my particular use case, I am using three *G3MB-202P solid state relais* on a break board with *two SSR each*. These boards are small, can be triggered directly via *GPIOs*, work with *3.3V*, and are cheap. Their drawback is the relatively low switching capacity of just *2A* (*440W*). Since I need to switch just low-current devices like lamps, small power supplies, and computer screens, that's a good match. These boards are available with two, four, and even six *SSR relais*, and it would have been a better choice to select the version with six *SSR*. The ones I had at hand had just two *SSR*, so I took three of these.
+
+Here's a quick comparison of sizes for three suitable and popular *ESP32*-family members: *ESP32-C3 Supermini*, *ESP32-S2 Mini*, and *ESP32 DevKit*:
+
+<img src="images/esp32_family_sizes_illustration_t.png" width="60%" height="60%" />
+
+### Relays
+Switching is performed by a *relay* (one per socket). If you need to switch small loads only (less than 400W), you can use very cheap and small *solid state relay boards* such as *G3MB-202P*. Such boards are small, come with *one*, *two*, *four*, or more relais, can be triggered directly via *GPIOs*, work with *3.3V* triggers, and are cheap. 
 
 <img src="images/6xsocket_wifi_proj_parts_ssr2_t.png" width="60%" height="60%" />
 
-> [!TIP]
-> You can easily swap the relais with *stronger SSR* if your loads require more current. Or you can fall back to using classic mechanical relais. Swapping relais types does not change the circuitry or concepts in any significant way. Just make sure you understand their voltage and current requirements. Mechanical relais for example cannot be driven directly by a *GPIO pin*, and you will need a *flyback diode* to protect your microcontroller.   
+Once you need to switch higher loads, you can either use mechanical relais that are often rated for *10A* or *16A*.
 
-* **Power Supply:** I decided to add a dedicated *5V 1A* power supply that is fed by *AC*. This way, the box requires just a *220V AC* plug and no additional *USB connector*. For safety reasons, I chose a *Hi-Link HLK-5M05* module.
+<img src="images/relay_mechanical_illustration_t.png" width="60%" height="60%" />
 
-<img src="images/6xsocket_wifi_proj_parts_powersupply_t.png" width="100%" height="100%" />
+> [!CAUTION]
+> When using a mechanical relais, make sure it has a *flyback diode* that takes care of high voltage spikes when the relais turns off and its magnetic field collapses. Also make sure your *5V power supply* provides enough current. Mechanical relais require much more current to operate than *SSR*.
 
-* **Sockets:** I wanted the six devices to be separately attachable, so I used *six generic 220V AC sockets* that I would be able to plug into the housing.
+Or, you use industrial *DA (*dc trigger-ac load*) SSR relais which are available in almost any strength:
 
-<img src="images/6xsocket_wifi_proj_parts_socket_t.png" width="100%" height="100%" />
+<img src="images/ssr_da_40_illustration_t.png" width="40%" height="40%" />
 
-* **LEDs:** I wanted to add a simple *visual clue* that indicates whether a given socket is powered or not. Of course, that's optional. I used two generic *LED* (one green, one red) plus appropriate resistors *per socket*. With six sockets, that sums up to six green and six red *LED*.
+> [!CAUTION]
+> Legit industrial SSR are costly. If you get these for cheap, divide their ratings by factor 4. Fake SSR typically use thyristors rated for half the claimed load, and might catch fire when used close to their claimed maximum ratings. A *40A SSR* from doubtful origin can typically be safely used for up to *10A loads* (entirely your own risk, the only safe way to find out is disassembling the SSR and looking at its internal parts). Note also that SSR switching loads of more than 1-2A **require a heat sink**.
+
+### Power Supply
+Most *SSR* and *mechanical relais* require a *5V power supply* (the trigger signal can be *3.3V*). 
+
+The safest way is adding completely shielded AC power modules like the ones from *Hi-Link*. If you are using *solid state relais*, you could use the *PM01* power supply that is good for *5V* and *600mA*.  
+
+<img src="images/ac-power-pm01-illustration_t.png" width="40%" height="40%" />
+
+If you want a little bit of security margin, or use mechanical relais, you may want to use the *5M05* which can deliver up to *1000mA*:
+
+<img src="images/ac-power-5m05-illustration_t.png" width="40%" height="40%" />
+
+### Sockets
+Obviously, the power strip needs rugged sockets to plug in devices. You may want to either use pluggable sockets that you can plug into your housing.
+
+
+
+<img src="images/6xsocket_wifi_proj_parts_socket_t.png" width="80%" height="80%" />
+
+You can also use *DIN rail plugs* which are especially easy to mount to an aluminum rail that can be screwed into a casing:
+
+<img src="images/socket-din-1_illustration_t.png" width="30%" height="30%" />
+
+Probably one of the safest and easiest approaches is to purchase a power strip with individually switchable sockets, then use this as a base, and replace the switches with your relays.
+
+<img src="images/powerstrip_individual_switch_t.png" width="100%" height="40%" />
+
+### Signal LEDs
+If the power strip is going to be located inaccessibly under a table or behind a chair, then *signal leds* won't help much - which is why they are completely *optional*.
+
+If you implement them, then they should work *without requiring additional GPIOs* or complex programming. Instead, they need to work with the *same GPIO that switches the plug*.
+
 
 <img src="images/6xsocket_wifi_proj_parts_led2_t.png" width="30%" height="30%" />
 
-* **Housing:** I designed a simple *housing* in *Fusion360* and exported the parts as *stl-files* for *3d Printing*.
+There are a few ways of implementing this:
 
-
-## ESPHome Configuration
-
-The microcontroller controls six switches that in turn switch six *GPIOs*. This makes the *ESPHome configuration* very simple:
-
-````
-switch:
-  - platform: gpio
-    pin: GPIO4
-    name: "LightSwitchSSR1"
-    inverted: true
-
-  - platform: gpio
-    pin: GPIO13
-    name: "LightSwitchSSR2"
-    inverted: true
-
-  - platform: gpio
-    pin: GPIO14
-    name: "LightSwitchSSR3"
-    inverted: true
-
-  - platform: gpio
-    pin: GPIO16
-    name: "LightSwitchSSR4"
-    inverted: true
-
-  - platform: gpio
-    pin: GPIO17
-    name: "LightSwitchSSR5"
-    inverted: true
-
-  - platform: gpio
-    pin: GPIO20
-    name: "LightSwitchSSR6"
-    inverted: true
-````
+* **Two LED:** using a *red* and a *green* LED in opposite direction is the easiest solution: one *LED* lights up when the *GPIO* is *high*, and the other one lights up when the *GPIO* is *low*. This solution can also be used with a *single RGB LED* provided it has *six* (and not *four*) legs so each *LED color* can be wired independently.
+* **Bi-Color Bi-Polar:** *bi-color bi-polar LED* have two legs and can emit two different colors, depending on the polarity you use. To run such LED on one *GPIO*, a simple and cheap *OpAmp* is needed.
+* **Bi-Color and RGB with Common Anode/Cathode:** Any other multi-color LED has either a *common anode* or a *common cathode*, so all *LED colors* share one side electrically. To use such *LED* on one *GPIO*, a cheap *dual OpAmp* is needed.
 
 > [!TIP]
-> If you are not familiar with *ESPHome* and don't know what a *configuration* is, you may want to head over to this [ESPHome Introduction](https://done.land/tools/software/esphome/introduction). In a nutshell, a *configuration* is the *programming* of your microcontroller, and as you see, with *ESPHome* there is no complex *C++ code*. You simply *describe* how you wired up your hardware - done.
-
-### Adjustments
-
-You may want to adjust this *configuration* in three places:
-
-* **GPIO:** I chose the *general purpose GPIOs* that are available with *ESP32* microcontrollers. If you are using a different microcontroller, adjust the *GPIOs* to the ones that can be used with your microcontroller.
-* **Inverted:** The *solid state relais* I use are *low level trigger*: to turn them *on*, the *GPIO signal* must be *low* (*high* turns them off). With *inverted: true* I ask *ESPHome* to pull the *GPIO low* when the switch is *on*, and vice versa. If you are using a *high level trigger* relais, simply remove this line for each *GPIO*.
-* **Name:** Obviously, you can name your entities as you wish. The name you pick will later (in *Home Assistant*) become the default name for the switch. You can also rename it later.
-
-
-## Test Driving Microcontroller
-
-Do not connect any components to your microcontroller. Power it up with its *USB connection*, then [install the configuration](https://done.land/tools/software/esphome/introduction/editconfiguration) to your microcontroller.
-
-Once the new firmware is uploaded and the microcontroller has rebooted, *Home Assistant* [auto-detects your new device](https://done.land/tools/software/esphome/introduction/addtohomeassistant). Make sure you approve adding your new device to *Home Assistant* when asked.
-
-Once done, it is now time to go and grab a coffee. Give *Home Assistant* a few minutes to *fully import* your new *ESPHome device*.
-
-> [!IMPORTANT]
-> If you start working right away with a freshly imported device in *Home Assistant*, it is not ready yet, and its *entities* may be missing, or are incomplete. It takes a few minutes for the import to be fully completed.
-
-
-### Creating Test Environment
-
-Before connecting any component or hardware to your microcontroller, first test its basic functionality, and set up a *test dashboard*.
-
-1. In *Home Assistant*, go to *Settings*, then *Devices & services*. On the *Integrations* tab, click *ESPHome*. You now see all of your imported *ESPHome devices*.
-
-    <img src="images/6xsocket_ha1.png" width="100%" height="100%" />
-
-2. Identify your device (mine is called *LightSwitch SSR #1*), and verify the number of *entities* reported below its name. There should be *7 entities*. If there is just one, you may have to wait a few more minutes for *Home Assistant* to fully import your device.
-
-    <img src="images/6xsocket_ha2.png" width="100%" height="100%" />
-
-3. Click on *7 entities*. You now see all seven *entities* and their *unique ID names*. Six of them represent the six switches you defined in your *configuration*. The seventh entity is added by default and can update the microcontroller firmware.
-
-    <img src="images/6xsocket_ha3.png" width="100%" height="100%" />
-
-4. Next, [add a new dashboard](https://done.land/tools/software/esphome/introduction/usingdashboards) in *Home Assistant*, and add the six entities that represent your six switches to the dashboard. You may rename your dashboards' default name *HOME* to something better. I called my dashboard *TestSwitch*. Your dashboard is easily accessible via the *Home Assistant sidebar* on the left side of the *Home Assistant screen*.
-
-    <img src="images/6xsocket_ha4.png" width="100%" height="100%" />
-
-### Testing Switch Logic
-You now have a great test environment where you can change any of the switches and verify the results:
-
-* Slide a switch to see if it stays that way. When it slides back after a moment, then your microcontroller may be offline or not reachable.
-* Click on the icon in front of a switch. This opens a larger version of the switch control that tells you when this switch was changed the last time. Play with the switches, and verify that the logging works as expected.
-
-    <img src="images/6xsocket_ha5.png" width="60%" height="60%" />
-
-### Testing Logic Levels
-Once that works, it's now time to test the actual *GPIOs* on your microcontroller.
-
-<img src="images/proj_6_ac_example_multimeter_test2.png" width="100%" height="100%" />
-
-Hook up a multimeter to one of the *GPIOs* you assigned to a switch, and to *GND*.
-
-> [!IMPORTANT]
-> Make sure you set your multimeter to a voltage range that can handle *5V* **before you connect the multimeter** to a *GPIO*. **Always disconnect** the multimeter before you turn it off again. Else, it may get **destroyed**: when you try and move its knob to **OFF**, it may switch to lower voltage ranges first (before it eventually reaches the **OFF** position). When the measured input signal is *high*, the *ADC* in cheap multimeters will be irreversibly damaged.
-
-The multimeter should show either *0V* (*low*) or something close to *3.3V* (*high*). When you change the switch in your test dashboard that is associated with the *GPIO* you measure, the voltage should change.
-
-If you used *inverted: true* in your *configuration*, the *GPIO* should show be *low* (and the multimeter should show *0V*) when the switch is **turned ON**.
-
-Test this for all six *GPIOs* to make sure your logic works as intended.
-
-> [!TIP]
-> Verify that the *GPIO logic level* matches the logic level your *relais* requires. If the logic levels are mixed up, remove *inverted: true* from your configuration.
-
-## Indicator LED
-To indicate whether a socket is powered or not, *two LED* are used. When the socket is powered, a *green LED* is *on*, else a *red LED*.
-
-### Schematics
-
-In order to keep the effort minimal, both *LED* should be controlled by the *same GPIO* that also controls the *SSR*. Here is the schematic:
-
-
-<img src="images/proj_6_ac_indicatorled_schematics.png" width="100%" height="100%" />
-
-And here's a quick refresher on *LEDs* and where to find their *cathode* (**-**) and *anode* (**+**):
-
-<img src="images/overview_led_4xsocket.png" width="60%" height="60%" />
-
-
-
-### Description
-
-The *LEDs* used in this project require approximately *10mA* to light up. At *3.3V*, this requires a current limiting resistor of *90 ohms* for the *green LED*, and *130 ohms* for the *red LED*:
-
-````powershell
-PS> Get-LedResistor -Current 10 -OperatingVoltage 3.3 -Color red, green
-
-
-Required Resistor (Ohm) : 130
-Operating Voltage (V)   : 3.3
-Led Current (mA)        : 10
-Led Voltage (V)         : 2
-Led Color               : red
-
-Required Resistor (Ohm) : 90
-Operating Voltage (V)   : 3.3
-Led Current (mA)        : 10
-Led Voltage (V)         : 2.4
-Led Color               : green
-
-WARNING: LED Forward Voltage was guessed from color and can be completely different. Use at own risk.
-````
-
-The *GPIO* is either *high* (supplying *VDD*) or *low* (connected to *GND*).
-
-* **Low:** When the *GPIO* is *low*, the **green** *LED* is on. Its *anode* (**+**) is connected to the positive voltage supply.
-* **High:** When the *GPIO* is *high*, then the *green LED* is *off* (because being a *diode*, it cannot conduct power in this direction). Instead, the **red** *LED* turns on: its *cathode* (**-**) is connected to *GND*.
-
-> [!IMPORTANT]
-> Make up your mind *which LED* should turn on *when*. The circuit cannot be changed later. Since I am using a *low level trigger* board, the *solid state relais* is *on* when the *GPIO* is *low*. Accordingly, the **green** *LED* will be *on* when the outlet has power. If you want it the other way around, or if you want to use a *high level trigger* board, simply flip both *LEDs* and their resistors.
-
-
-
-### Testing
-Let's first test the schematics. For this, connect *3.3V* and *GND* to the rails of your breadboard. 
-
-Then, connect one of the *GPIOs* that you use in your configuration (i.e. *GPIO4*) to both the *cathode* of the *green LED* and the *anode* of the *red LED*.
-
-
-
-<img src="images/project_led_gpio_status_smartplug_ssr_red_t.png" width="60%" height="60%" />
-
-Connect the *90 ohms* resistor to the *anode* of your *green LED*, and connect the other end of the resistor to *3.3V*.
-
-Likewise, connect the *130 ohms* resistor to the *cathode* of your *red LED*, and connect the other end of the resistor to *GND*.
-
-Now, when you change the switch in your *Home Assistant* dashboard that represents the *GPIO* you wired up, the *LEDs* should indicate the current switch status.
-
-## Creating Signal LED Panels
-
-For a *smart power strip* with *four sockets*, we need *four LED pairs*. I decided to keep it modular by placing two LED pairs on one perfboard. Make sure you place the *green* and the *red LED* in opposite orientation onto the perfboard:
-
-<img src="images/project_led_gpio_status_smartplug_ssr_1_t.png" width="20%" height="20%" />
-
-Next, ensure that both LED align with the perfboard and are not tilted:
-
-<img src="images/project_led_gpio_status_smartplug_ssr_2_t.png" width="60%" height="60%" />
-
-Finally, bend the LED legs all the way to the sides so the LEDs are fixed and won't slide out when you solder them to the perfboard.
-
-<img src="images/project_led_gpio_status_smartplug_ssr_5_t.png" width="40%" height="40%" />
-
-
-### Adding Resistors
-
-Identify the side of the LEDs that will be connected to the *GPIO*: that's the *cathode* (shorter leg) of the *green LED* and the *anode* (longer leg) of the *red LED*.
-
-On the *opposite* side of the *LEDs*, solder the *resistors* to the *LEDs*:
-
-
-<img src="images/project_led_gpio_status_smartplug_ssr_6_t.png" width="40%" height="40%" />
-
-Do this on both sides.
-
-<img src="images/project_led_gpio_status_smartplug_ssr_7_t.png" width="60%" height="60%" />
-
-Then trim off the legs of the *LEDs*. Do **Not** trim off any part of the resistors.
-
-### Wires For GPIOs
-
-Connect the other end of each *LED pair* with a wire, connecting the *red led anode* and the *green led cathode*. This provides you with two wires that later can be connected to the two *GPIOs* that you want to monitor.
-
-### Wires For Plus And Minus
-
-Connect the two resistors that come from the *red LEDs* somewhere in the middle of the perfboard. Where the resistors connect will be the place where you later connect *GND*.
-
-Do the same with the two resistors that come from the *green LEDs*: where these connect will later be the supply point for *3.3V*.
-
-> [!IMPORTANT]
-> Since the wires will cross over each other at some point, you may want to put the resistors that come from the *green LEDs* in red *heat shrink*. Note how one resistor is covered in heat shrink in the picture below:
-
-<img src="images/project_led_gpio_status_smartplug_ssr_8_t.png" width="60%" height="60%" />
-
-Finally, add the power supply cables: connect a *red wire* to the junction point of the two *green LED resistors*, and add a *black wire* to the junction point where the two *red LED resistors* connect:
-
-<img src="images/project_led_gpio_status_smartplug_ssr_11_tlabel.png" width="60%" height="60%" />
-
-
-
-### Testing
-
-Once you have finished the perfboard, you can perform a first test: connect *3.3V* and *GND* to your red and black wire. Next, connect one of the *GPIO wires* to *GND*, then to *3.3V*. The appropriate LED should turn on.
-
-When that works, it's time to add the perfboard to your test setup: connect two wires to two of the GPIOs you use in this project (i.e. GPIO13 and GPIO14).
-
-<img src="images/project_led_gpio_status_smartplug_ssr_13_t.png" width="60%" height="60%" />
-
-Connect the perfboard cables for *3.3V* and *GND* to your breadboard power rail, then connect the two *GPIO wires* to the two GPIOs.
-
-The two *LED pairs* on your perfboard should immediately start to signal the *GPIO state*, and when you go to your *Home Assistant test dashboard* and change the switches, then the *LEDs* on your perfboard should reflect these changes.
-
-When this works for you, it is now time to add the *solid state relais*.
+> Of course you can expand on this project, and add any type of visual indicator you want, including OLED displays or other fancy solutions. For this project, the requirement was to focus entirely on the switching part, and not congest the *ESPHome configuration* with anything else.
 
 
 > Tags: Plug, Smart Plug, Home Assistant, ESPHome
