@@ -201,4 +201,4 @@ switch:
 
 > Tags: Powerstrip, EspHome, Configuration, Restore Mode, Switch
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/esphomeconfiguration?363939081521244352) - created 2024-08-20 - last edited 2024-08-10
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/esphomeconfiguration?363939081521244352) - created 2024-08-10 - last edited 2024-08-10

@@ -77,7 +77,7 @@ Likewise, connect the *130 ohms* resistor to the *cathode* of your *red LED*, an
 
 Now, when you change the switch in your *Home Assistant* dashboard that represents the *GPIO* you wired up, the *LEDs* should indicate the current switch status.
 
-## Creating Signal LED Panels
+### Creating Signal LED Panels
 
 For a *smart power strip* with *four sockets*, we need *four LED pairs*. I decided to keep it modular by placing two LED pairs on one perfboard. Make sure you place the *green* and the *red LED* in opposite orientation onto the perfboard:
 
@@ -92,7 +92,7 @@ Finally, bend the LED legs all the way to the sides so the LEDs are fixed and wo
 <img src="images/project_led_gpio_status_smartplug_ssr_5_t.png" width="40%" height="40%" />
 
 
-### Adding Resistors
+#### Adding Resistors
 
 Identify the side of the LEDs that will be connected to the *GPIO*: that's the *cathode* (shorter leg) of the *green LED* and the *anode* (longer leg) of the *red LED*.
 
@@ -107,11 +107,11 @@ Do this on both sides.
 
 Then trim off the legs of the *LEDs*. Do **Not** trim off any part of the resistors.
 
-### Wires For GPIOs
+#### Wires For GPIOs
 
 Connect the other end of each *LED pair* with a wire, connecting the *red led anode* and the *green led cathode*. This provides you with two wires that later can be connected to the two *GPIOs* that you want to monitor.
 
-### Wires For Plus And Minus
+#### Wires For Plus And Minus
 
 Connect the two resistors that come from the *red LEDs* somewhere in the middle of the perfboard. Where the resistors connect will be the place where you later connect *GND*.
 
@@ -128,7 +128,7 @@ Finally, add the power supply cables: connect a *red wire* to the junction point
 
 
 
-### Testing
+#### Testing
 
 Once you have finished the perfboard, you can perform a first test: connect *3.3V* and *GND* to your red and black wire. Next, connect one of the *GPIO wires* to *GND*, then to *3.3V*. The appropriate LED should turn on.
 
@@ -145,4 +145,4 @@ When this works for you, it is now time to add the *solid state relais*.
 
 > Tags: Bi-Color, Signal LED
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/bi-colorsignalled?288563081521244352) - created 2024-08-20 - last edited 2024-08-11
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/bi-colorsignalled?288563081521244352) - created 2024-08-11 - last edited 2024-08-11
