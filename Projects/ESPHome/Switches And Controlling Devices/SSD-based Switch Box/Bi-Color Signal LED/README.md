@@ -140,8 +140,6 @@ Connect the perfboard cables for *3.3V* and *GND* to your breadboard power rail,
 
 The two *LED pairs* on your perfboard should immediately start to signal the *GPIO state*, and when you go to your *Home Assistant test dashboard* and change the switches, then the *LEDs* on your perfboard should reflect these changes.
 
-When this works for you, it is now time to add the *solid state relais*.
-
 
 > Tags: Bi-Color, Signal LED
 
