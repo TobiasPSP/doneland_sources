@@ -396,4 +396,4 @@ When this works for you, it is now time to add the *solid state relais*.
 
 > Tags: Plug, Smart Plug, Home Assistant, ESPHome
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox?349454081302245855) - created 2024-08-01 - last edited 2024-08-01
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/relay?349454081302245855) - created 2024-08-01 - last edited 2024-08-01

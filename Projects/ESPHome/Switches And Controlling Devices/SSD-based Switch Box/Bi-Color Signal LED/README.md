@@ -144,3 +144,5 @@ When this works for you, it is now time to add the *solid state relais*.
 
 
 > Tags: Bi-Color, Signal LED
+
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/bi-colorsignalled?288563081521244352) - created 2024-08-20 - last edited 2024-08-11
