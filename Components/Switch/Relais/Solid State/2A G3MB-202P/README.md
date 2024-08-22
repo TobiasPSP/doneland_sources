@@ -67,7 +67,7 @@ One side controls power supply and the *SSR state*:
 
 Breakout boards with four or more *SSR* often provide *both* screw terminals *and* header pins for these connections:
 
-<img src="images/ssr_2a_ac_4_top_t_.png" width="70%" height="70%" />
+<img src="images/ssr_2a_ac_4_top_t.png" width="70%" height="70%" />
 
 
 > [!IMPORTANT]
