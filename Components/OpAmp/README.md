@@ -1,8 +1,8 @@
 <img src="/assets/images/opampsmall.png" width="80%" height="80%" />
  
-# Operational Amplifier (OpAmp)
+# Operational Amplifier
 
-> Switching Loads And Amplifying Currents
+> OpAmp: Switching Loads And Amplifying Currents
 
 An *operational amplifier* (*OpAmp*) is an extremely versatile component: it amplifies the difference between two input voltages. This simple functionality enables a surprisingly wide area of functionalities: 
 
@@ -148,6 +148,6 @@ The *MCP6002* comes in a 8-pin DIP package:
 
     <img src="images/mcp6002_schematic2.png" width="100%" height="100%" />
 
-> Tags: OpAmp, Operational Amplifier
+> Tags: OpAmp, Operational Amplifier, MCP6002, Slew, DIP, Package, PDIP, SOT, SOIC, MSOP, Input Offset Voltage, rail-to-rail
 
 [Visit Page on Website](https://done.land/components/opamp?516644081822241138) - created 2024-08-21 - last edited 2024-08-21
