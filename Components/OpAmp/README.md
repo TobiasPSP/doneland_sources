@@ -67,19 +67,7 @@ When comparing *OpAmps*, these are specifications to look out for:
 
 
 
-## Example: MCP6002
-
-The [MCP6002](materials/mcp6002_datasheet.pdf) is a popular *OpAmp* found in many DIY projects. Let's take a closer look at this example.
-
-The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technology](https://www.microchip.com/en-us/product/MCP6002). It is part of the *MCP600x* series of op-amps, which are known for low power consumption, low offset voltage, and rail-to-rail input/output capability: 
-
-
-* **MCP6001:** 5-pin, **one** *OpAmp*
-* **MCP6002:** 8-pin, **two** *OpAmps*
-* **MCP6004:** 14-pin, **four** *OpAmps*
-
-
-<details><summary>Bigger is NOT always better...</summary><br/>    
+<details><summary>Caveat: bigger is NOT always better...</summary><br/>    
 
 Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case* - seems to make sense from an economic perspective: after all, *ICs* with four or more *OpAmps* are often not much more expensive than those with just one or two.
 
@@ -109,6 +97,18 @@ If you have unused *OpAmps*, then *use* them: employ them in a defined and safe 
 By far the easiest solution is to pick an *IC* with the number of *OpAmps* you really need in the first place. That's why stocking your lab with *OpAmp ICs* that have a high number of internal *OpAmps* - *just in case* - is **not** a good idea 
 
 </details>
+
+
+## Example: MCP6002
+
+The [MCP6002](materials/mcp6002_datasheet.pdf) is a popular *OpAmp* found in many DIY projects. Let's take a closer look at this example.
+
+The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technology](https://www.microchip.com/en-us/product/MCP6002). It is part of the *MCP600x* series of op-amps, which are known for low power consumption, low offset voltage, and rail-to-rail input/output capability: 
+
+
+* **MCP6001:** 5-pin, **one** *OpAmp*
+* **MCP6002:** 8-pin, **two** *OpAmps*
+* **MCP6004:** 14-pin, **four** *OpAmps*
 
 ### Key Specifications
 
