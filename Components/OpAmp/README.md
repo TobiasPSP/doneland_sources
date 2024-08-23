@@ -131,6 +131,7 @@ These are some of the key advantages that make *MCP6002* a popular choice in DIY
 * **Wide Operating Voltage Range:** it operates over a wide supply voltage range from 1.8V to 6.0V and thus supports both *3.3V* and *5V* microcontrollers.
 * **Rail-to-Rail:** input can swing from the negative rail (ground) to the positive rail (Vdd), and the output can go almost all the way to both supply rails. That is a very important benefit.
 * **Low Power Consumption:** unlike *MCP602*, the *MCP6002* is very energy efficient with a typical quiescent current of just 100 µA per amplifier at 5V. This makes it ideal for portable and battery-operated devices.
+* **Two OpAmps:** has *two* *OpAmps* which is what DIY projects typically need, minimizing the risk of leaving OpAmps unused (see above) as would often be the case with *MCP6004* or generally models that contain more than two *OpAmps*.
 * **Temperature Range:** with -40°C to +85°C, this *OpAmp* can be used in almost all environments.
 * **Low Cost:** widely available, with a robust supply chain ensuring easy sourcing for manufacturers.
 * **Single-Sided Power Supply:** operates in-between a positive voltage and **GND** (i.e. a *battery*, *USB power supply*, *bench power supply*). If you need to work with *positive* **and** *negative* voltages and use *GND* as a midpoint, you must use a different *OpAmp*.
