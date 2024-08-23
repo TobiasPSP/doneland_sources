@@ -71,11 +71,9 @@ When comparing *OpAmps*, these are specifications to look out for:
 
 Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case* - seems to make sense from an economic perspective: after all, *ICs* with four or more *OpAmps* are often not much more expensive than those with just one or two.
 
-This strategy may backfire though. First off, there are *obvious disadvantages* when you are using only part of the *OpAmps* in a chip: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA or so (whether you use it or not), takes up space, and adds pins. 
+There are *obvious disadvantages* when you are using only part of the *OpAmps* in a chip, though: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA or so (whether you use it or not), takes up space, and adds pins. Then again, you may not have space constraints, and you don't care about a couple 100 µA wasted power. Are you good then? Unfortunately not.
 
-Then again, you may not have space constraints, and you don't care about a couple 100 µA wasted power. Are you good then? 
-
-Not really: the effective power loss may be much higher, and you risk that your signal processing is not working as expected or the chip gets destroyed. Here is why (excerpt of [this engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.)):
+The effective power loss may be much higher, and you risk that your signal processing is not working as expected or the chip gets destroyed. Here is why (excerpt of [this engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.)):
 
 #### Power Waste Or Damage
 
