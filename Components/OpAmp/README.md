@@ -79,7 +79,7 @@ The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technol
 * **MCP6004:** 14-pin, **four** *OpAmps*
 
 
-<details><summary>Bigger is **not** always better...</summary><br/>    
+<details><summary>Bigger is NOT always better...</summary><br/>    
 
 Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case* - seems to make sense from an economic perspective: after all, *ICs* with four or more *OpAmps* are often not much more expensive than those with just one or two.
 
