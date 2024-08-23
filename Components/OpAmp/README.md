@@ -73,7 +73,7 @@ Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case
 
 There are *obvious disadvantages* when you are using only part of the *OpAmps* in a chip, though: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA or so (whether you use it or not), takes up space, and adds pins. Then again, you may not have space constraints, and you may not care about a couple hundred µA wasted power. Are you good then? Unfortunately not.
 
-The effective power loss may be much higher, and you risk that your signal processing is not working as expected or the chip gets destroyed. Here is why (excerpt from [an engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.)):
+The *real* power loss may be much higher, and you risk that your signal processing is not working as expected or the chip gets destroyed. Here is why (excerpt from [an engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.)):
 
 #### Power Waste Or Damage
 
