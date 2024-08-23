@@ -140,7 +140,7 @@ These are some of the key advantages that make *MCP6002* a popular choice in DIY
 * **Input Bias Current:** typically 1 pA, which is quite low (good). 
 
 > [!IMPORTANT]
-> The *MCP600x OpAmps* are *general purpose* components that are very well suited for most DIY projects. They respond swiftly to signal changes, but this may not be fast enough for projects involving *high frequency* or *rapid signal changes* due to its *GBWP* of *1 MHz*, and its *Slew Rate* of *0.6 V/µs*. 
+> The *MCP600x OpAmps* are *general purpose* components that are very well suited for most DIY projects. They respond swiftly to signal changes, but this may still not be fast enough for projects involving *high frequency* or *rapid signal changes* due to its *GBWP* of *1 MHz*, and its *Slew Rate* of *0.6 V/µs*. 
 
 
 ### Package Type
