@@ -78,9 +78,34 @@ The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technol
 * **MCP6002:** 8-pin, **two** *OpAmps*
 * **MCP6004:** 14-pin, **four** *OpAmps*
 
-> [!TIP]
-> *Bigger is **not** always better*: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA (whether you use it or not), takes up space, adds pins, and may cause interference when left unconnected. 
 
+<details><summary>Bigger is **not** always better...</summary><br/>    
+
+Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case* - seems to make sense from an economic perspective: after all, *ICs* with four or more *OpAmps* are often not much more expensive than those with just one or two.
+
+This strategy isn't smart though. First of all, there are *obvious disadvantages* when you are left with *unused OpAmps*: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA (whether you use it or not), takes up space, and adds pins. Then again, you may not have space constraints, and a couple 100 µA wasted power does not seem dramatic.
+
+#### Power Waste Or Damage
+However, *unused OpAmps* can be much more problematic and possibly waste a lot more energy or even destroy the entire chip. Here is why, which is an excerpt of [this engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.):
+
+If the terminals of unused *OpAmps* are left unconnected, stray electromagnetic fields can cause an input to go outside the supply rails. This may cause latch-up and destroy the chip. If latch-up does not happen, a *dc* field may cause saturation, and a power waste much higher than the quiescent current results. The amplifier may also pick up and amplify an *ac* field and, if overdriven, heavily modulates its own supply current, causing crosstalk to other amplifier(s) on the chip. In short, an unconnected *OpAmp* can do unexpected things based on electromagnetic fields.
+
+That's why users sometimes try and connect unused terminals in an effort to prevent stray electromagnetic influx. Here are some of the commonly seen strategies **that you definitely should NOT use:**
+
+* **Connect one input to the positive supply and the other input to the negative supply:** saturates the output, wastes power and may exceed the differential input voltage rating and damage the device. Even if damage does not occur, some input stages draw several tens of milliamps under these conditions, wasting even more power.
+* **Grounding both inputs, or shorting them together:** causes the output stage to saturate, since the offset voltage of an op-amp is never exactly zero; shorting them together and not biasing them has the same latch-up risks as mentioned before.
+
+#### Recommendations
+
+If you have unused *OpAmps*, then *use* them: employ them in a defined and safe way that draws the least energy:
+
+* **Follower:** connect the output to the inverting input, and connect the non-inverting input to a potential somewhere between the supply rails. Connecting to the positive or negative supply of a single supply system will cause saturation (power waste) if the offset voltage has the wrong polarity. 
+* **Buffer:** use it in a simple *buffer amplifier* configuration for some other part of your circuitry (that does not need one but might even perform slightly better if it had one, at least isn't hurt by an additional buffer).
+
+
+By far the easiest solution is to pick an *IC* with the number of *OpAmps* you really need in the first place. That's why stocking your lab with *OpAmp ICs* that have a high number of internal *OpAmps* - *just in case* - is **not** a good idea 
+
+</details>
 
 ### Key Specifications
 
