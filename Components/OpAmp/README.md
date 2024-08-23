@@ -83,10 +83,13 @@ The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technol
 
 Picking an *OpAmp IC* with as many internal *OpAmps* as possible - *just in case* - seems to make sense from an economic perspective: after all, *ICs* with four or more *OpAmps* are often not much more expensive than those with just one or two.
 
-This strategy isn't smart though. First of all, there are *obvious disadvantages* when you are left with *unused OpAmps*: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA (whether you use it or not), takes up space, and adds pins. Then again, you may not have space constraints, and a couple 100 µA wasted power does not seem dramatic.
+This strategy may backfire though. First off, there are *obvious disadvantages* when you are using only part of the *OpAmps* in a chip: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA or so (whether you use it or not), takes up space, and adds pins. 
+
+Then again, you may not have space constraints, and you don't care about a couple 100 µA wasted power. Are you good then? 
+
+Not really: the effective power loss may be much higher, and you risk that your signal processing is not working as expected or the chip gets destroyed. Here is why (excerpt of [this engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.)):
 
 #### Power Waste Or Damage
-However, *unused OpAmps* can be much more problematic and possibly waste a lot more energy or even destroy the entire chip. Here is why, which is an excerpt of [this engineering discussion at Analog Devices](https://www.analog.com/en/resources/analog-dialogue/raqs/raq-issue-46.html#:~:text=If%20the%20terminals%20are%20all,cause%20saturation%20and%20power%20waste.):
 
 If the terminals of unused *OpAmps* are left unconnected, stray electromagnetic fields can cause an input to go outside the supply rails. This may cause latch-up and destroy the chip. If latch-up does not happen, a *dc* field may cause saturation, and a power waste much higher than the quiescent current results. The amplifier may also pick up and amplify an *ac* field and, if overdriven, heavily modulates its own supply current, causing crosstalk to other amplifier(s) on the chip. In short, an unconnected *OpAmp* can do unexpected things based on electromagnetic fields.
 
