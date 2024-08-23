@@ -2,17 +2,15 @@
  
 # Operational Amplifier
 
-> OpAmp: Switching Loads And Amplifying Currents
+> Comparing Voltages And Amplifying Signals
 
-An *operational amplifier* (*OpAmp*) is an extremely versatile component: it amplifies the difference between two input voltages. This simple functionality enables a surprisingly wide area of functionalities: 
+An *operational amplifier* (*OpAmp*) is a very versatile component: it amplifies the difference between two input voltages. This simple functionality enables a surprisingly wide area of functionalities: *OpAmps* are found in the tone controls of audio amplifiers, in the feedback circuits of analog-to-digital converters, and in the active filters of signal processing systems.
 
-*OpAmps* are found in the tone controls of audio amplifiers, in the feedback circuits of analog-to-digital converters, and in the active filters of signal processing systems.
-
-In DIY projects, *OpAmps* can compare voltages, cut off power when a battery is fully charged, or build signal generators.
+In DIY projects, *OpAmps* compare voltages, cut off power when a battery is fully charged, or build signal generators.
 
 ## Common Use Cases
 
-These are typical use cases for *OpAmps*:
+*OpAmps* are used in a number of different use cases and configurations:
 
 - **Voltage Follower (Buffer)**: Provides impedance matching and signal isolation by delivering the same voltage as the input but with a high input impedance and low output impedance.
 - **Inverting Amplifier**: Amplifies the input signal with a phase inversion (180 degrees) and a gain determined by external resistors.
@@ -26,7 +24,7 @@ These are typical use cases for *OpAmps*:
 - **Oscillator**: Generates periodic waveforms (sine, square, triangle) by using op-amps in circuits like Wien bridge or phase-shift oscillators.
 
 ## Key Specs
-Here are important differences to look at when comparing *OpAmps*:
+When comparing *OpAmps*, these are specifications to look out for:
 
 - **Package Type**: Choose a package that fits your prototyping or final assembly needs. Common packages like DIP are easier to handle for breadboard prototyping, while surface-mount packages might be preferred for compact designs.   
 - **Power Supply Voltage Range**: Ensure the op-amp can operate within the voltage range available in your project. This is particularly important if you're using a specific power supply or battery.
@@ -59,7 +57,7 @@ Here are important differences to look at when comparing *OpAmps*:
 </details>
 
 ### Multiple OpAmps In One Package
-*OpAmp ICs* often contain more than one *OpAmp* circuit:
+*OpAmp ICs* can contain more than one *OpAmp* circuit:
 
 - **Single Op-Amp**: A chip with one operational amplifier. Common examples include the LM741 and LM358.
 - **Dual Op-Amp**: A chip with two operational amplifiers. Popular examples are the LM358 and the TL072.
@@ -69,16 +67,20 @@ Here are important differences to look at when comparing *OpAmps*:
 
 
 
-## Example OpAmp: MCP6002
+## Example: MCP6002
 
-There is a wealth of different *OpAmps* in many different packages available. The [MCP6002](materials/mcp6002_datasheet.pdf) is a popular *OpAmp* found in many DIY projects and picked as an example.
+The [MCP6002](materials/mcp6002_datasheet.pdf) is a popular *OpAmp* found in many DIY projects. Let's take a closer look at this example.
 
-The *MCP6002* is a low-power, dual operational amplifier from *Microchip Technology*. It is part of the *MCP600x* series of op-amps, which are known for low power consumption, low offset voltage, and rail-to-rail input/output capability: 
+The *MCP6002* is a low-power, dual operational amplifier from [Microchip Technology](https://www.microchip.com/en-us/product/MCP6002). It is part of the *MCP600x* series of op-amps, which are known for low power consumption, low offset voltage, and rail-to-rail input/output capability: 
 
 
 * **MCP6001:** 5-pin, **one** *OpAmp*
 * **MCP6002:** 8-pin, **two** *OpAmps*
 * **MCP6004:** 14-pin, **four** *OpAmps*
+
+> [!TIP]
+> *Bigger is **not** always better*: each individual *OpAmp* inside the *IC* requires a quiescent current of 100 µA (whether you use it or not), takes up space, adds pins, and may cause interference when left unconnected. 
+
 
 ### Key Specifications
 
@@ -95,7 +97,7 @@ The *MCP6002* is a low-power, dual operational amplifier from *Microchip Technol
 
 
 ### Advantages
-Here are the key advantages why *MCP6002* is popular for DIY projects:
+These are some of the key advantages that make *MCP6002* a popular choice in DIY projects:
 
 
 * **Wide Operating Voltage Range:** it operates over a wide supply voltage range from 1.8V to 6.0V and thus supports both *3.3V* and *5V* microcontrollers.
@@ -109,19 +111,19 @@ Here are the key advantages why *MCP6002* is popular for DIY projects:
 * **Input Bias Current:** typically 1 pA, which is quite low (good). 
 
 > [!IMPORTANT]
-> The *MCP600x* is a great *generic OpAmp*. Due to its *GBWP* of *1 MHz*, and its *Slew Rate* of *0.6 V/µs*, it may not be suitable for high frequency signal processing or for applications that require rapid signal changes, though.
+> The *MCP600x OpAmps* are *general purpose* components that are very well suited for most DIY projects. They respond swiftly to signal changes, but this may not be fast enough for projects involving *high frequency* or *rapid signal changes* due to its *GBWP* of *1 MHz*, and its *Slew Rate* of *0.6 V/µs*. 
 
 
 ### Package Type
-The *MCP6002* comes in different package types: *SOT-23-8* (*small outline transistor 8 leads*), *PDIP* (*plastic dual inline package*), *SOIC* (*small outline integrated circuit*), and *MSOP* (*mini small outline package*). 
+*Package type* describes the form factor in which the *OpAmps* reside. The *MCP6002* is available in different package types: *PDIP* (*plastic dual inline package*), *SOT-23-8* (*small outline transistor 8 leads*), *SOIC* (*small outline integrated circuit*), and *MSOP* (*mini small outline package*). 
 
-*SOT*, *SOIC* and *MSOP* are tiny and require special soldering techniques (reflow soldering). They are hard to use in DIY projects.
+*SOT*, *SOIC* and *MSOP* are tiny and require special soldering techniques (reflow soldering). They are hard to use in DIY projects and aim to miniaturize professionally produced PCBs.
 
 <img src="images/opamp-mcp6002_illustration_t.png" width="50%" height="50%" />
 
 
 
-*PDIP* (*DIP*) is the *classic IC package* and still has individual *legs* that can be easily plugged into prototyping bread boards. For simple DIY projects, this package type is most popular.
+*PDIP* (*DIP*) is the *classic IC package* that still has individual *legs* which can be easily plugged into prototyping bread boards. For simple DIY projects, this package type is most popular.
 
 ### Pin Out
 The *MCP6002* has eight pins and contains two *OpAmps*. Each *OpAmp* requires three pins plus a power supply:
