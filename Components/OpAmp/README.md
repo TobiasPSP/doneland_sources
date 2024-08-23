@@ -79,7 +79,7 @@ The effective power loss may be much higher, and you risk that your signal proce
 
 If the terminals of unused *OpAmps* are left unconnected, stray electromagnetic fields can cause an input to go outside the supply rails. This may cause latch-up and destroy the chip. If latch-up does not happen, a *dc* field may cause saturation, and a power waste much higher than the quiescent current results. The amplifier may also pick up and amplify an *ac* field and, if overdriven, heavily modulates its own supply current, causing crosstalk to other amplifier(s) on the chip. In short, an unconnected *OpAmp* can do unexpected things based on electromagnetic fields.
 
-That's why users sometimes try and connect unused terminals in an effort to prevent stray electromagnetic influx. Here are some of the commonly seen strategies **that you definitely should NOT use:**
+That's why users sometimes try and connect unused terminals to known potentials in an effort to prevent stray electromagnetic influences. Here are some commonly seen approaches **that you definitely should NOT do:**
 
 * **Connect one input to the positive supply and the other input to the negative supply:** saturates the output, wastes power and may exceed the differential input voltage rating and damage the device. Even if damage does not occur, some input stages draw several tens of milliamps under these conditions, wasting even more power.
 * **Grounding both inputs, or shorting them together:** causes the output stage to saturate, since the offset voltage of an op-amp is never exactly zero; shorting them together and not biasing them has the same latch-up risks as mentioned before.
