@@ -92,7 +92,9 @@ If you have unused *OpAmps*, then *use* them: employ them in a defined and safe 
 * **Buffer:** use it in a simple *buffer amplifier* configuration for some other part of your circuitry (that does not need one but might even perform slightly better if it had one, at least isn't hurt by an additional buffer).
 
 
-By far the easiest solution is to pick an *IC* with the number of *OpAmps* you really need in the first place. That's why stocking your lab with *OpAmp ICs* that have a high number of internal *OpAmps* - *just in case* - is **not** a good idea 
+By far the easiest solution is to pick an *IC* with just the number of *OpAmps* you need in the first place. For simple DIY projects and devices that are not critical when failing, try and at least pick an *IC* that is *close* to the number of *OpAmps* you need, minimizing the mentioned side effects: rather not use a *Quad Op-Amp* when you really just need one.
+
+
 
 </details>
 
