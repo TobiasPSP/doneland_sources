@@ -138,7 +138,7 @@ Since this power strip is supposed to be remotely controllable via *ESPHome* and
 For prototyping and testing, I am using a *ESP32 DevKitC V4* as there are *expansion boards* available for it that make prototyping a breeze. For production, I am using a *ESP32 S2 Mini* due to its much smaller foot print. Both microcontrollers come with *WiFi capabilities* and provide sufficient general purpose *GPIO*.
 
 
-<img src="images/6xsocket_wifi_proj_parts_microcontroller_t.png" width="100%" height="100%" />
+<img src="images/6xsocket_wifi_proj_parts_microcontroller_t.png" width="80%" height="80%" />
 
 
 
@@ -149,18 +149,18 @@ Here's a quick comparison of sizes for three suitable and popular *ESP32*-family
 ### Relays
 Switching is performed by a *relay* (one per socket). If you need to switch small loads only (less than 400W), you can use very cheap and small *solid state relay boards* such as *G3MB-202P*. Such boards are small, come with *one*, *two*, *four*, or more relais, can be triggered directly via *GPIOs*, work with *3.3V* triggers, and are cheap. 
 
-<img src="images/6xsocket_wifi_proj_parts_ssr2_t.png" width="60%" height="60%" />
+<img src="images/6xsocket_wifi_proj_parts_ssr2_t.png" width="40%" height="40%" />
 
 Once you need to switch higher loads, you can either use mechanical relais that are often rated for *10A* or *16A*.
 
-<img src="images/relay_mechanical_illustration_t.png" width="60%" height="60%" />
+<img src="images/relay_mechanical_illustration_t.png" width="40%" height="40%" />
 
 > [!CAUTION]
 > When using a mechanical relais, make sure it has a *flyback diode* that takes care of high voltage spikes when the relais turns off and its magnetic field collapses. Also make sure your *5V power supply* provides enough current. Mechanical relais require much more current to operate than *SSR*.
 
 Or, you use industrial *DA (*dc trigger-ac load*) SSR relais which are available in almost any strength:
 
-<img src="images/ssr_da_40_illustration_t.png" width="40%" height="40%" />
+<img src="images/ssr_da_40_illustration_t.png" width="30%" height="30%" />
 
 > [!CAUTION]
 > Legit industrial SSR are costly. If you get these for cheap, divide their ratings by factor 4. Fake SSR typically use thyristors rated for half the claimed load, and might catch fire when used close to their claimed maximum ratings. A *40A SSR* from doubtful origin can typically be safely used for up to *10A loads* (entirely your own risk, the only safe way to find out is disassembling the SSR and looking at its internal parts). Note also that SSR switching loads of more than 1-2A **require a heat sink**.
@@ -185,11 +185,11 @@ Obviously, the power strip needs rugged sockets to plug in devices. You may want
 
 You can also use *DIN rail plugs* which are especially easy to mount to an aluminum rail that can be screwed into a casing:
 
-<img src="images/socket-din-1_illustration_t.png" width="30%" height="30%" />
+<img src="images/socket-din-1_illustration_t.png" width="20%" height="20%" />
 
 Probably one of the safest and easiest approaches is to purchase a power strip with individually switchable sockets, then use this as a base, and replace the switches with your relays.
 
-<img src="images/powerstrip_individual_switch_t.png" width="100%" height="40%" />
+<img src="images/powerstrip_individual_switch_t.png" width="70%" height="70%" />
 
 ### Signal LEDs
 If the power strip is going to be located inaccessibly under a table or behind a chair, then *signal leds* won't help much - which is why they are completely *optional*.
@@ -197,7 +197,7 @@ If the power strip is going to be located inaccessibly under a table or behind a
 If you implement them, then they should work *without requiring additional GPIOs* or complex programming. Instead, they need to work with the *same GPIO that switches the plug*.
 
 
-<img src="images/6xsocket_wifi_proj_parts_led2_t.png" width="30%" height="30%" />
+<img src="images/6xsocket_wifi_proj_parts_led2_t.png" width="20%" height="20%" />
 
 There are a few ways of implementing this:
 
