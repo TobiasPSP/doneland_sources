@@ -1,10 +1,10 @@
 <img src="/assets/images/convert.jpg" width="80%" height="80%" />
  
-# SSD-based Switch Box
+# Remote Controlled Powerstrip
 
-> Controlling AC-Devices Wirelessly With SSD Relais
+> Creating A PowerStrip That Can Be Controlled By EspHome And Home Assistant
 
-In this project, I am building a *ESPHome device* that can control six *AC devices*.
+In this project, I am building a *ESPHome device* that can control six *AC devices*: effectively, a remote-controlled powerstrip.
 
 
 <details><summary>The story behind this project...</summary><br/>
@@ -211,4 +211,4 @@ There are a few ways of implementing this:
 
 > Tags: Plug, Smart Plug, Home Assistant, ESPHome
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox?349454081302245855) - created 2024-08-01 - last edited 2024-08-01
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip?349454081302245855) - created 2024-08-01 - last edited 2024-08-01

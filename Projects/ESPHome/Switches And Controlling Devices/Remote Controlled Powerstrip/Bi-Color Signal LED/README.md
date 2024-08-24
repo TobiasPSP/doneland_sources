@@ -143,4 +143,4 @@ The two *LED pairs* on your perfboard should immediately start to signal the *GP
 
 > Tags: Bi-Color, Signal LED
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/ssd-basedswitchbox/bi-colorsignalled?288563081521244352) - created 2024-08-11 - last edited 2024-08-11
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/bi-colorsignalled?288563081521244352) - created 2024-08-11 - last edited 2024-08-11
