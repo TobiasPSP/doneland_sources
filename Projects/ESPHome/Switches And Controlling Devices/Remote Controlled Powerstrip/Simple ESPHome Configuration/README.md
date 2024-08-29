@@ -1,13 +1,14 @@
 <img src="/assets/images/convert.jpg" width="80%" height="80%" />
  
-# ESPHome Configuration for Powerstrip
+# Simple ESPHome Configuration for Powerstrip
 
-> Designing And Testing ESPHome And Home Assistant Integration
+> ESPHome Configuration For A PowerStrip
 
-Let's first design a basic *ESPHome configuration* for the microcontroller so we can test-drive the switches and remaining circuitry as we go.
+The microcontroller inside the smart *powerstrip* is programmed using *ESPHome*: a *configuration file* describes the circuit, and what the microcontroller needs to do.
 
 If you are not familiar with *ESPHome* and don't know what a *configuration* is, you may want to head over to this [ESPHome Introduction](https://done.land/tools/software/esphome/introduction). In a nutshell, a *configuration* is the *programming* of your microcontroller, and as you see, with *ESPHome* there is no complex *C++ code*. You simply *describe* how you wired up your hardware - done.
 
+In this article, I walk you through creating a simple configuration to implement a number of switches. In this configuration, each switch operates exactly *one* GPIO.
 
 ## Basic ESPHome Configuration
 
@@ -201,4 +202,4 @@ switch:
 
 > Tags: Powerstrip, EspHome, Configuration, Restore Mode, Switch
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/esphomeconfiguration?363939081521244352) - created 2024-08-10 - last edited 2024-08-10
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/simpleesphomeconfiguration?363939081521244352) - created 2024-08-10 - last edited 2024-08-10
