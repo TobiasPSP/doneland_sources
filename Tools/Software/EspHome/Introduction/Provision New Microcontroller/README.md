@@ -101,7 +101,7 @@ Why bother performing a *basic provisioning* when a microcontroller gets provisi
 The key benefit of *basic provisioning* is that it enables your microcontroller to receive *firmware updates wirelessly* without the need to install the initial firmware via the computer that is running **your instance of ESPHome**. Instead, with *basic provisioning*, you can *provision the microcontroller* using *any computer anywhere in the world*.
 
 #### Enable Adoption
-That's possible because *basic provisioning* is using a *generic ESPHome firmware* that is not yet bound to a specific *configuration* hosted by a specific *ESPHome instance*. Instead, this special firmware is *detectable by any ESPHome instance*, and once detected, can be easily *individualized* through an [adoption process](https://done.land/tools/software/esphome/adoption).
+That's possible because *basic provisioning* is using a *generic ESPHome firmware* that is not yet bound to a specific *configuration* hosted by a specific *ESPHome instance*. Instead, this special firmware is *detectable by any ESPHome instance*, and once detected, can be easily *individualized* through an [adoption process](https://done.land/tools/software/esphome/introduction/adoption).
 
 #### Test New Microcontrollers
 *Basic provisioning* is also a good idea if you just want to *prepare* a bunch of microcontrollers for later use. As a welcome side effect, *basic provisioning* coincidentally tests the microcontroller and makes sure its components work as intended. It's a good idea to immediately apply *basic provisioning* to all new microcontrollers you purchase so you identify damaged items and can return them in time.
@@ -124,7 +124,7 @@ Below steps perform a *basic provisioning* for a fresh microcontroller, for exam
 
 No specific *prerequisites* are needed for this step. In fact, you do not even need *ESPHome* for it. A compatible web browser (i.e. *Chrome*) is all you need.
 
-Should the procedure below not work for your particular microcontroller (board), then try alternate ways, i.e. [to provision ESP32 S2 Mini and similar boards](https://done.land/tools/software/esphome/manualprovisioning) that are notorious for using incompatible *USB/UART* designs.
+Should the procedure below not work for your particular microcontroller (board), then try alternate ways, i.e. [to provision ESP32 S2 Mini and similar boards](https://done.land/tools/software/esphome/introduction/manualprovisioning) that are notorious for using incompatible *USB/UART* designs.
 
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />

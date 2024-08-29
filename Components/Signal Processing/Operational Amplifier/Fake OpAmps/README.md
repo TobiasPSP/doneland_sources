@@ -59,6 +59,6 @@ Such components should always be purchased at *trusted sellers* such as [Mouser]
 > Prices for components aren't *that* much different. What makes these distributors problematic is their shipping cost. Ordering small quantities is prohibitive once €20 shipping cost is added. That's why you should start a list, and add all the components you may want to stock. Maintain this list for a while until the volume of your order qualifies you for *free shipping*. At *Mouser*, for example, orders above €50 (€60 with included VAT) ship free.
 
 
-> Tags: OpAmp, Fake, Voltage Follower
+> Tags: OpAmp, Fake, Voltage Follower, Fake
 
 [Visit Page on Website](https://done.land/components/signalprocessing/operationalamplifier/fakeopamps?991347081329241500) - created 2024-08-20 - last edited 2024-08-28

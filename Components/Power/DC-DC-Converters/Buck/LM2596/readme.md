@@ -9,7 +9,6 @@ The **LM2596** from *Texas Instruments* is a monolithic buck converter accepting
 
 The chip exists in *fixed-output voltages* as well as in *variable output voltage*. It uses an internal 150 kHz switching frequency.
 
-<img src="images/XL4016_cv_w.png" width="70%" height="70%" />
 
 | Property | Value |
 | --- | --- |

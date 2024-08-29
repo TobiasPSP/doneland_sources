@@ -66,7 +66,7 @@ In more conventional *IDEs* like *Arduino IDE* or *platformio*, you would now op
 In *ESPHome*, you *describe* your hardware details and requirements by as adding lines to the *end* of your existing *default configuration*.
 
 > [!NOTE]
-> I am assuming you already [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewesp) your microcontroller in *ESPHome*.   
+> I am assuming you already [provisioned](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller) your microcontroller in *ESPHome*.   
 
 **Do not replace your default configuration altogether with the code below! Just *append* the hardware information to the default configuration.**
 

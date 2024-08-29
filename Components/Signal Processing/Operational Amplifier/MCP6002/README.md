@@ -21,7 +21,7 @@ The [MCP6002](materials/mcp6002_datasheet.pdf) is a modern low-power, dual opera
 
 
 > [!IMPORTANT]
-> Do not purchase the *MCP6002* from untrusted sources like *AliExpress*. Else, you will almost inevitably receive faked chips that in reality are very basic and old non-rail-to-rail *OpAmps* (at least I did from four different sellers). If you got them already, [always test them](https://done.land/components/signalprocessing/opamp/fakeopamps) before use. Akquire *MCP6002* from renown distributors like [Mouser](https://www.mouser.com), [DigiKey](https://www.digikey.com/), or similar.
+> Do not purchase the *MCP6002* from untrusted sources like *AliExpress*. Else, you will almost inevitably receive faked chips that in reality are very basic and old non-rail-to-rail *OpAmps* (at least I did from four different sellers). If you got them already, [always test them](https://done.land/components/signalprocessing/operationalamplifier/fakeopamps) before use. Akquire *MCP6002* from renown distributors like [Mouser](https://www.mouser.com), [DigiKey](https://www.digikey.com/), or similar.
 
 
 

@@ -146,7 +146,7 @@ Almost all *Espressif microcontrollers* will work, yet if space is constrained, 
 Here is what I did:
 
 * **Prototyping:** I used a *ESP32 DevKitC V4* as there are handy *expansion boards* available for it that make prototyping a breeze. 
-* **Production:** in the real thing - the *powerstrip* I use in every-day life - I went with the much smaller [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini) and [ESP32-C3 Super Mini](https://done.land/components/signalprocessing/microcontroller/families/esp/esp32/c3/c3supermini): the *S2 Mini* is exceptionally *flat* and can be slid into even the smallest gap, whereas the *C3 Super Mini* has the smallest surface area. Both provide more than enough *GPIOs*.
+* **Production:** in the real thing - the *powerstrip* I use in every-day life - I went with the much smaller [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini) and [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini): the *S2 Mini* is exceptionally *flat* and can be slid into even the smallest gap, whereas the *C3 Super Mini* has the smallest surface area. Both provide more than enough *GPIOs*.
 
 
 <img src="images/6xsocket_wifi_proj_parts_microcontroller_t.png" width="80%" height="80%" />

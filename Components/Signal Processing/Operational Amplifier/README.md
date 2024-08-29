@@ -11,7 +11,7 @@ This simple functionality enables a surprisingly wide area of functionalities: *
 In DIY projects, *OpAmps* compare voltages, cut off power when a battery is fully charged, or build signal generators.
 
 > [!IMPORTANT]
-> *OpAmps* are among the most commonly **faked components**, especially with modern and high quality *OpAmps* like the *MCP6002*. Never purchase them from untrusted sources such as *AliExpress*. If you have done  already, or are unsure whether your *OpAmp* is genuine, [test them](https://done.land/components/signalprocessing/opamp/fakeopamps). Using fake *OpAmps* in your projects and circuits is **complete frustration**:  circuits don't work, you waste hours in troubleshooting, and other components may even get damaged.
+> *OpAmps* are among the most commonly **faked components**, especially with modern and high quality *OpAmps* like the *MCP6002*. Never purchase them from untrusted sources such as *AliExpress*. If you have done  already, or are unsure whether your *OpAmp* is genuine, [test them](https://done.land/components/signalprocessing/operationalamplifier/fakeopamps). Using fake *OpAmps* in your projects and circuits is **complete frustration**:  circuits don't work, you waste hours in troubleshooting, and other components may even get damaged.
 
 ## Common Use Cases
 

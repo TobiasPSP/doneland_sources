@@ -26,7 +26,7 @@ Most DIY circuits are *single supply* (with a power supply ranging from a positi
 
 #### Dual-Supply Circuits
 
-In *dual-supply* scenarios (i.e. audio devices with positive **and** negative voltages), *bipolar LEDs* just require a single *OpAmp* to reverse the voltage as needed, and probably the only even simpler approach would be using [two separate LEDs](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/bi-colorsignalled/twoseparateled).
+In *dual-supply* scenarios (i.e. audio devices with positive **and** negative voltages), *bipolar LEDs* just require a single *OpAmp* to reverse the voltage as needed, and probably the only even simpler approach would be using [two separate LEDs](https://done.land/components/light/led/signalleds/bi-colorsignals/twoseparateled).
 
 Here is the basic schematic:
 
@@ -190,7 +190,7 @@ The previous example illustrated that a *bi-polar LED* can be driven by *two GPI
 
 In order to require *just one GPIO* (and ultimately simply use *any* GPIO that you may use for *any* kind of purpose), the *second* GPIO needs to be provided by someone else.
 
-For this, you can use an *operational amplifier* such as the [MCP6002](https://done.land/components/signalprocessing/opamp/mcp6002) and use it as an *inverter*.
+For this, you can use an *operational amplifier* such as the [MCP6002](https://done.land/components/signalprocessing/operationalamplifier/mcp6002) and use it as an *inverter*.
 
 
 > [!TIP]
@@ -206,7 +206,7 @@ When the *GPIO* turns *high*, the output switches to *low* and can now *sink* up
 
 
 > [!IMPORTANT]
-> I was unable to test this circuit yet because I, too, naively ordered *MCP6002* at some *AliExpress sellers*. These *OpAmps* obviously [turned out to be fake](https://done.land/components/signalprocessing/opamp/fakeopamps). I am now awaiting delivery of genuine components from [Mouser](https://www.mouser.com). If you have the option to test this circuit before I can, please leave a comment below. 
+> I was unable to test this circuit yet because I, too, naively ordered *MCP6002* at some *AliExpress sellers*. These *OpAmps* obviously [turned out to be fake](https://done.land/components/signalprocessing/operationalamplifier/fakeopamps). I am now awaiting delivery of genuine components from [Mouser](https://www.mouser.com). If you have the option to test this circuit before I can, please leave a comment below. 
 
 
 

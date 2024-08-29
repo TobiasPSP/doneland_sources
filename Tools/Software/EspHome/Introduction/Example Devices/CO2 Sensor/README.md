@@ -5,7 +5,7 @@
 > Creating A High Precision CO2 Sensor Based On SCD30
 
 
-The [Sensirion SCD30](https://done.land/components/sensor/airquality/scd30) is a high precision specialized NDIS CO2 sensor that can be used to monitor *air quality*.
+The [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30) is a high precision specialized NDIS CO2 sensor that can be used to monitor *air quality*.
 
 Using this sensor in an *ESPHome device* illustrates just how easy and straight-forward it is to build such sensor devices.
 

@@ -180,7 +180,7 @@ The address is based on *mDNS* and works only *locally* (within a network). Many
 
 If in this case you have connected the *Raspberry Pi 5* using a *network cable*, then you can only use the *mDNS address* from other network devices that are *wired*. It *will not resolve* for computers and devices that are connected to your network using WiFi. 
 
-If *mDNS* resolution fails, you can always use the actual *IP address*, i.e. `192.168.2.127:8123/`. However, this is only a temporary workaround, and you should [fix your network](https://done.land/tools/software/esphome/addtohomeassistant#check-network-configuration). *mDNS* is required by many other services (such as *ESPHome*).
+If *mDNS* resolution fails, you can always use the actual *IP address*, i.e. `192.168.2.127:8123/`. However, this is only a temporary workaround, and you should [fix your network](https://done.land/tools/software/esphome/introduction/addtohomeassistant#checking-network-configuration). *mDNS* is required by many other services (such as *ESPHome*).
 
 
 

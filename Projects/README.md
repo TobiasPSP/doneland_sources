@@ -7,7 +7,7 @@
 Most of my *projects* and *examples* are **not found** in **this section**. They are embedded into the articles about the *components* they use. 
 
 > [!TIP]
-> *Sample code* for creating precise *CO2 air quality sensors* based on *Sensirion SCD30* can i.e. be found right on the [page about SCD30](https://done.land/components/sensor/airquality/scd30). Should you prefer to use this sensor with [ESPHome](https://done.land/tools/software/esphome), you find a *configuration* for such a sensor [right in the section about ESPHome](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor).
+> *Sample code* for creating precise *CO2 air quality sensors* based on *Sensirion SCD30* can i.e. be found right on the [page about SCD30](https://done.land/components/data/sensor/airquality/scd30). Should you prefer to use this sensor with [ESPHome](https://done.land/tools/software/esphome), you find a *configuration* for such a sensor [right in the section about ESPHome](https://done.land/tools/software/esphome/introduction/exampledevices/co2sensor).
 
 
 The *static structure of this site* helps **me** better organize my articles. 

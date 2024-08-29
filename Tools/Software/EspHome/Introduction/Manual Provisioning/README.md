@@ -103,11 +103,11 @@ However, you can try and use the *original urls*, hoping that they still work an
 
 | Microcontroller | Original Firmware Download Urls for *Prepare for first use* | 
 | --- | --- | 
-| ESP8266 | [https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin](https://firmware.esphome.io/esphome-web/esp8266/esphome-web-esp8266.factory.bin) | 
-| ESP32 | [https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin](https://firmware.esphome.io/esphome-web/esp32/esphome-web-esp32.factory.bin) | 
-| ESP32-S2 | [https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/esp32s2/esphome-web-esp32s2.factory.bin) | 
-| ESP32-S3 | [https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin](https://firmware.esphome.io/esphome-web/esp32s3/esphome-web-esp32s3.factory.bin) | 
-| ESP32-C3 | [https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin](https://firmware.esphome.io/esphome-web/esp32c3/esphome-web-esp32c3.factory.bin) | 
+| ESP8266 | [https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp8266.factory.bin](https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp8266.factory.bin) | 
+| ESP32 | [https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32.factory.bin](https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32.factory.bin) | 
+| ESP32-S2 | [https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32s2.factory.bin](https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32s2.factory.bin) | 
+| ESP32-S3 | [https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32s3.factory.bin](https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32s3.factory.bin) | 
+| ESP32-C3 | [https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32c3.factory.bin](https://firmware.esphome.io/esphome-web/24.8.3/esphome-web-esp32c3.factory.bin) | 
 
 Or, you *figure out* the *url* that *ESPHome Web Tool* is using *right now*: follow the same procedure I originally used. This guarantees that you work with the *latest firmware file* and get exactly the same results that you would get by using the *ESPHome Web Tool today*:
 

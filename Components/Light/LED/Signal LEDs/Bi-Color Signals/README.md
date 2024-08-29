@@ -16,7 +16,7 @@ Here are the design approaches discussed:
 
 
 * [Using two separate LEDs on one GPIO](https://done.land/components/light/led/signalleds/bi-colorsignals/twoseparateled)
-* Using a bi-polar bi-color LED
+* [Using a bi-polar bi-color LED](https://done.land/components/light/led/signalleds/bi-colorsignals/bipolarbicolorled)
 * Using a RGB or three-legged bi-color LED
 
 
@@ -24,4 +24,4 @@ Here are the design approaches discussed:
 
 > Tags: Bi-Color, Signal LED
 
-[Visit Page on Website](https://done.land/components/light/led/signalleds/bi-colorsignals?288563081521244352) - created 2024-08-11 - last edited 2024-08-11
+[Visit Page on Website](https://done.land/components/light/led/signalleds/bi-colorsignals?288563081521244352) - created 2024-08-11 - last edited 2024-08-28
