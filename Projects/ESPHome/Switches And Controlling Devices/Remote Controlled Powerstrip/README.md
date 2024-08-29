@@ -157,6 +157,8 @@ Here is what I did:
 ### Relays
 Switching needs to be performed by an *electrical switch* (so the *GPIO* can control it): you need one *relay* per socket. 
 
+
+#### DIY SSR Relais
 For *small loads* (below *400W*), the small *solid state relay (SSR) boards* such as *G3MB-202P* are great. They come with *one*, *two*, *four*, or more relais,  can be triggered directly via *GPIOs*, work with *3.3V* triggers (while requiring *5V* supply voltage), and are cheap. As *SSR*, they are also completely noise-free and require no flyback diode.
 
 <img src="images/6xsocket_wifi_proj_parts_ssr2_t.png" width="40%" height="40%" />
@@ -165,6 +167,7 @@ For *small loads* (below *400W*), the small *solid state relay (SSR) boards* suc
 > Use these *SSR* only if you can *ascertain* that your *powerstrip* will **never** be used with loads greater than *400W* (per socket), or else you will blow the *SSR*. So if you just want to switch a few lamps, they are fine. If you want to control *heaters*, *printers*, or large *screens*, do *not* use them.
 
 
+#### Mechanical Relays
 When you need to switch higher loads, either use *mechanical relais* that are often rated for *10A* or *16A*.
 
 <img src="images/relay_mechanical_illustration_t.png" width="40%" height="40%" />
@@ -172,12 +175,25 @@ When you need to switch higher loads, either use *mechanical relais* that are of
 > [!CAUTION]
 > When using a mechanical relais, make sure it has a *flyback diode* that takes care of high voltage spikes when the relais turns off and its magnetic field collapses. Also make sure your *5V power supply* provides enough current. Mechanical relais require much more current to operate than *SSR*.
 
+#### Industrial SSR Relais
 Or, use industrial *DA* (*dc trigger-ac load*) SSR relais which are available in almost any strength:
 
 <img src="images/ssr_da_40_illustration_t.png" width="30%" height="30%" />
 
 > [!CAUTION]
-> Legit industrial SSR are costly. If you get these for cheap, divide their ratings by factor 4. Fake SSR typically use thyristors rated for half the claimed load, and might catch fire when used close to their claimed maximum ratings. A *40A SSR* from doubtful origin can typically be safely used for up to *10A loads* (entirely your own risk, the only safe way to find out is disassembling the SSR and looking at its internal parts). Note also that SSR switching loads of more than 1-2A **require a heat sink**.
+> Legit industrial SSR are costly. If you get these for cheap, divide their ratings by factor 4. Fake SSR typically use thyristors rated for half the claimed load, and might catch fire when used close to their claimed maximum ratings. A *40A SSR* from doubtful origin can typically be safely used for up to *10A loads* (entirely your own risk, the only safe way to find out is disassembling the SSR and looking at its internal parts). 
+
+SSR that switch loads of more than 1-2A **do require a heat sink** which adds to their already clumsy size. You'll have to judge for yourself whether the benefits of *SSR* outweigh their cost, risk, and space requirements:
+
+* **Noise Free:** *SSRs* make no *clicking* sound when switching
+* **No Sparks:** *SSRs* typically use *zero crossing detection* to switch the load, so when the *SSR* switches, the voltage is close to *0V*, and there are no high currents that may cause sparks and wear.
+* **Longevity:** since there is no mechanical wear, *SSRs* work more reliably and for a longer period of time than mechanical relais.
+
+On the contrary, here is the one big caveat when using *SSR* (with high currents of more than just a few ampere):
+
+* **Fire Hazard:** when you exceeed the current limits (possibly *accidentally* by using fake *SSR* with a current limit *much lower* than printed on them), or you do not use appropriate *heat sinks*, then the *SSR* may [forcefully explode](https://hackaday.com/2018/08/24/fail-of-the-week-solid-state-relay-fails-spectacularly/) and set your home on fire. Of course, none of this occurs with genuine *SSR* operated within their true tolerances and equipped with proper heat sinks.
+
+<img src="images/ssr_explode_illustration_t.png" width="100%" height="100%" />
 
 ### Power Supply
 The *powerstrip* is controlled by a microcontroller, so you need an energy-efficient and safe way to supply *5V DC*. 
@@ -198,12 +214,12 @@ The safest way is adding completely shielded AC power modules like the ones from
 
 ### Sockets
 
-If you want to design your *powerstrip* completely yourself, and i.e. *3D print* your own housing, you can use sockets that can be latched into your housing.
+If you want to design your *powerstrip* entirely yourself (including i.e. a *3D printed* housing), use sockets that latch into the openings of your housing:
 
 
 <img src="images/6xsocket_wifi_proj_parts_socket_t.png" width="80%" height="80%" />
 
-Or, you use *DIN rail plugs* which can be slid onto a *aluminum DIN rail*. This rail then can be safely screwed to the bottom of your housing.
+You can as well use *DIN rail plugs* which slide onto a *aluminum DIN rail*. This rail then can be safely screwed to the bottom of your housing. Since these sockets have a simple *round opening* and require no complex latching recesses in your housing, designing the housing is much easier:
 
 <img src="images/socket-din-1_illustration_t.png" width="20%" height="20%" />
 
