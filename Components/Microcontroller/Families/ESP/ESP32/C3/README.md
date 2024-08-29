@@ -9,11 +9,13 @@ In 2020, *Expressif* released both the *S-Series* and the first member of the *C
 
 ## C3 - RISC-V Architecture
 
-The **ESP32 C3** marks a fundamental change in processor architecture as it now uses *RISC-V*. The **C3** is a *very fast* one-core microcontroller.
+The **ESP32-C3** marks a fundamental change in processor architecture as it now uses *RISC-V*. The **C3** is a *very fast* one-core microcontroller.
 
 <img src="images/esp32_c3_seed_top_front_t.png" width="40%" height="40%" />
 
-<sup>**ESP32 C3** produced by *Seeed*</sup>
+The **C3** is a very cost-effective microcontroller that comes in development boards with a *tiny form factor*. The [Wemos/Lolin C3 Mini](https://www.wemos.cc/en/latest/c3/c3_mini.html) shares the form factor with the old and highly popular *ESP8266 D1 Mini*, so you can continue to use *shields* (i.e. power supply and battery shields) designed for the *D1 Mini*.
+
+The *ESP32-C3 Super Mini* board is even smaller: with *22.5x18mm*, it can fit into even the smallest projects and DIY devices. Unfortunately, there does not seem to be an official source of documentation for this popular and widely available board. Here is an [unofficial summary](material/esp32_c3_supermini_datasheet_artronshop.co.th.pdf) for the *ESP32-C3 Super Mini* found in the Internet.
 
 
 ## Changes Compared To ESP32 WROOM/WROVER

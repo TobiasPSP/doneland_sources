@@ -10,7 +10,7 @@ Since *I2C* is relatively slow, for components requiring higher data rates (such
 
 ## Quick Overview
 
-*I2C* is a bus that is used to inter-connect components *inside a device* and over a short distance. 
+[I2C](materials/um10204_i2c.pdf) is a bus that is used to inter-connect components *inside a device* and over a short distance. 
 
 Here are its key benefits:
 
@@ -42,7 +42,9 @@ Realistically, most components have *fixed addresses* or just a small number of 
 The most commonly used format are *hexadecimal addresses*.
 
 
+## Materials
 
+[I2C User Guide](materials/um10204_i2c.pdf)
 
 > Tags: I2C, Address
 

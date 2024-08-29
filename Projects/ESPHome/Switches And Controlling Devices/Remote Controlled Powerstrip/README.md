@@ -4,7 +4,7 @@
 
 > Creating A PowerStrip That Can Be Controlled By EspHome And Home Assistant
 
-In this project, I am building a *ESPHome device* that can control six *AC devices*: effectively, a remote-controlled powerstrip.
+In this project, I am creating a *Remote Control Powerstrip*, implemented as an [ESPHome device](https://done.land/tools/software/esphome) which integrates with [Home Assistant](https://done.land/tools/software/homeassistant).
 
 
 <details><summary>The story behind this project...</summary><br/>
@@ -126,39 +126,53 @@ The information provided in this article is for educational and informational pu
 
 ## Overview
 
-Here is the fundamental concept of this *ESPHome PowerStrip* with all the fundamental parts:
+You can build a *remote control powerstrip* in many different ways, and in this article you learn about the required components and your individual options and variations.
+
+The fundamental concept looks like this:
 
 
 <img src="images/circuit_concept_esphome_powerstrip.png" width="100%" height="100%" />
+
+Let's take a closer look at the parts (and the options you have):
 
 ### Microcontroller
 
 Since this power strip is supposed to be remotely controllable via *ESPHome* and *Home Assistant*, it requires a *WiFi-enabled microcontroller*. You need a microcontroller that is [supported by ESPHome](https://done.land/tools/software/esphome/introduction/provisionnewmicrocontroller#supported-microcontrollers) and that has at least *four available output GPIOs* (for a *four-socket-powerstrip*; one *GPIO* per socket).
 
-For prototyping and testing, I am using a *ESP32 DevKitC V4* as there are *expansion boards* available for it that make prototyping a breeze. For production, I am using a *ESP32 S2 Mini* due to its much smaller foot print. Both microcontrollers come with *WiFi capabilities* and provide sufficient general purpose *GPIO*.
+Almost all *Espressif microcontrollers* will work, yet if space is constrained, here is a quick comparison of sizes for three suitable and popular *ESP32*-family members: *ESP32-C3 Supermini*, *ESP32-S2 Mini*, and *ESP32 DevKit*:
+
+<img src="images/esp32_family_sizes_illustration_t.png" width="60%" height="60%" />
+ 
+Here is what I did:
+
+* **Prototyping:** I used a *ESP32 DevKitC V4* as there are handy *expansion boards* available for it that make prototyping a breeze. 
+* **Production:** in the real thing - the *powerstrip* I use in every-day life - I went with the much smaller [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini) and [ESP32-C3 Super Mini](https://done.land/components/signalprocessing/microcontroller/families/esp/esp32/c3/c3supermini): the *S2 Mini* is exceptionally *flat* and can be slid into even the smallest gap, whereas the *C3 Super Mini* has the smallest surface area. Both provide more than enough *GPIOs*.
 
 
 <img src="images/6xsocket_wifi_proj_parts_microcontroller_t.png" width="80%" height="80%" />
 
 
 
-Here's a quick comparison of sizes for three suitable and popular *ESP32*-family members: *ESP32-C3 Supermini*, *ESP32-S2 Mini*, and *ESP32 DevKit*:
-
-<img src="images/esp32_family_sizes_illustration_t.png" width="60%" height="60%" />
 
 ### Relays
-Switching is performed by a *relay* (one per socket). If you need to switch small loads only (less than 400W), you can use very cheap and small *solid state relay boards* such as *G3MB-202P*. Such boards are small, come with *one*, *two*, *four*, or more relais, can be triggered directly via *GPIOs*, work with *3.3V* triggers, and are cheap. 
+Switching needs to be performed by an *electrical switch* (so the *GPIO* can control it): you need one *relay* per socket. 
+
+For *small loads* (below *400W*), the small *solid state relay (SSR) boards* such as *G3MB-202P* are great. They come with *one*, *two*, *four*, or more relais,  can be triggered directly via *GPIOs*, work with *3.3V* triggers (while requiring *5V* supply voltage), and are cheap. As *SSR*, they are also completely noise-free and require no flyback diode.
 
 <img src="images/6xsocket_wifi_proj_parts_ssr2_t.png" width="40%" height="40%" />
 
-Once you need to switch higher loads, you can either use mechanical relais that are often rated for *10A* or *16A*.
+> [!CAUTION]
+> Use these *SSR* only if you can *ascertain* that your *powerstrip* will **never** be used with loads greater than *400W* (per socket), or else you will blow the *SSR*. So if you just want to switch a few lamps, they are fine. If you want to control *heaters*, *printers*, or large *screens*, do *not* use them.
+
+
+When you need to switch higher loads, either use *mechanical relais* that are often rated for *10A* or *16A*.
 
 <img src="images/relay_mechanical_illustration_t.png" width="40%" height="40%" />
 
 > [!CAUTION]
 > When using a mechanical relais, make sure it has a *flyback diode* that takes care of high voltage spikes when the relais turns off and its magnetic field collapses. Also make sure your *5V power supply* provides enough current. Mechanical relais require much more current to operate than *SSR*.
 
-Or, you use industrial *DA (*dc trigger-ac load*) SSR relais which are available in almost any strength:
+Or, use industrial *DA* (*dc trigger-ac load*) SSR relais which are available in almost any strength:
 
 <img src="images/ssr_da_40_illustration_t.png" width="30%" height="30%" />
 
@@ -166,47 +180,55 @@ Or, you use industrial *DA (*dc trigger-ac load*) SSR relais which are available
 > Legit industrial SSR are costly. If you get these for cheap, divide their ratings by factor 4. Fake SSR typically use thyristors rated for half the claimed load, and might catch fire when used close to their claimed maximum ratings. A *40A SSR* from doubtful origin can typically be safely used for up to *10A loads* (entirely your own risk, the only safe way to find out is disassembling the SSR and looking at its internal parts). Note also that SSR switching loads of more than 1-2A **require a heat sink**.
 
 ### Power Supply
-Most *SSR* and *mechanical relais* require a *5V power supply* (the trigger signal can be *3.3V*). 
+The *powerstrip* is controlled by a microcontroller, so you need an energy-efficient and safe way to supply *5V DC*. 
 
-The safest way is adding completely shielded AC power modules like the ones from *Hi-Link*. If you are using *solid state relais*, you could use the *PM01* power supply that is good for *5V* and *600mA*.  
+> [!TIP]
+> Do not look into *3.3V* power supplies because typically, the *SSR* and *mechanical relais* require a *5V power supply* (the trigger signal can be *3.3V*). 
 
-<img src="images/ac-power-pm01-illustration_t.png" width="40%" height="40%" />
+The safest way is adding completely shielded AC power modules like the ones from *Hi-Link*. 
 
-If you want a little bit of security margin, or use mechanical relais, you may want to use the *5M05* which can deliver up to *1000mA*:
+* **PM01:** when I used *solid state relais*, I picked the *PM01* which provides *600mA* at *5V*
 
-<img src="images/ac-power-5m05-illustration_t.png" width="40%" height="40%" />
+
+    <img src="images/ac-power-pm01-illustration_t.png" width="40%" height="40%" />
+
+* **5M05:** when using *mechanical relais*, more power is required, and I chose the slightly larger *5M05* which can deliver up to *1000mA*:
+
+    <img src="images/ac-power-5m05-illustration_t.png" width="40%" height="40%" />
 
 ### Sockets
-Obviously, the power strip needs rugged sockets to plug in devices. You may want to either use pluggable sockets that you can plug into your housing.
 
+If you want to design your *powerstrip* completely yourself, and i.e. *3D print* your own housing, you can use sockets that can be latched into your housing.
 
 
 <img src="images/6xsocket_wifi_proj_parts_socket_t.png" width="80%" height="80%" />
 
-You can also use *DIN rail plugs* which are especially easy to mount to an aluminum rail that can be screwed into a casing:
+Or, you use *DIN rail plugs* which can be slid onto a *aluminum DIN rail*. This rail then can be safely screwed to the bottom of your housing.
 
 <img src="images/socket-din-1_illustration_t.png" width="20%" height="20%" />
 
-Probably one of the safest and easiest approaches is to purchase a power strip with individually switchable sockets, then use this as a base, and replace the switches with your relays.
+Probably one of the safest, easiest and most economical approaches is to purchase a power strip with individually switchable sockets, then use this as a base, and replace the physical switches with relays.
 
 <img src="images/powerstrip_individual_switch_t.png" width="70%" height="70%" />
 
 ### Signal LEDs
-If the power strip is going to be located inaccessibly under a table or behind a chair, then *signal leds* won't help much - which is why they are completely *optional*.
-
-If you implement them, then they should work *without requiring additional GPIOs* or complex programming. Instead, they need to work with the *same GPIO that switches the plug*.
-
-
-<img src="images/6xsocket_wifi_proj_parts_led2_t.png" width="20%" height="20%" />
-
-There are a few ways of implementing this:
-
-* **Two LED:** using a *red* and a *green* LED in opposite direction is the easiest solution: one *LED* lights up when the *GPIO* is *high*, and the other one lights up when the *GPIO* is *low*. This solution can also be used with a *single RGB LED* provided it has *six* (and not *four*) legs so each *LED color* can be wired independently.
-* **Bi-Color Bi-Polar:** *bi-color bi-polar LED* have two legs and can emit two different colors, depending on the polarity you use. To run such LED on one *GPIO*, a simple and cheap *OpAmp* is needed.
-* **Bi-Color and RGB with Common Anode/Cathode:** Any other multi-color LED has either a *common anode* or a *common cathode*, so all *LED colors* share one side electrically. To use such *LED* on one *GPIO*, a cheap *dual OpAmp* is needed.
+If the power strip is going to be located inaccessibly under a table or behind a chair, then *signal leds* won't be much benefit, and you can omit them. 
 
 > [!TIP]
-> Of course you can expand on this project, and add any type of visual indicator you want, including OLED displays or other fancy solutions. For this project, the requirement was to focus entirely on the switching part, and not congest the *ESPHome configuration* with anything else.
+> If you use *mechanical relais*, their *click* sound may be enough of audible feedback, and you may not need the additional complexity of signal LEDs.
+
+If you'd like to add *signal LEDs*, you have a few options:
+
+
+
+* **Single LED:** you can drive a single classic LED off each *GPIO*. Then you'd see a signal when a particular socket is powered, else the LED is off. This is closest to how signal LEDs work in sockets with mechanical switches.
+
+
+    <img src="images/6xsocket_wifi_proj_parts_led2_t.png" width="20%" height="20%" />
+
+* **Two LEDs:** only marginally more complex is the use of *two* simple and classic signal LED, just in reverse direction to each other. In this case, one LED would light up when the socket is *on* (as previously), and the other LED (in a different color) would light up when the socket is *off*. [Here is an example](https://done.land/components/light/led/signalleds/bi-colorsignals/twoseparateled).
+* **Bi-Color LEDs:** if you would like to have just *one* LED that can display *two* colors (maybe there is just one *LED* hole in the powerstrip you are enhancing, and you don't want to drill another one), then you can either use [bi-polar LED](https://done.land/components/light/led/signalleds/bi-colorsignals/bipolarbicolorled) with *two legs* that are used in opposite polarity, or you use a *bi-color LED* with *three* legs and a common anode or cathode. In all of these cases, you'd now need *two GPIOs* per socket (unless you want to add complex hardware to solve the reversal of voltage in hardware).
+
 
 
 > Tags: Plug, Smart Plug, Home Assistant, ESPHome
