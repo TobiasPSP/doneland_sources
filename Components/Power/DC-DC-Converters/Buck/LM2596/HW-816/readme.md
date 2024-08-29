@@ -14,9 +14,6 @@ The board is occasionally available for under EUR 3.00 in which case it serves v
 >
 > By soldering wires to the push buttons, the output voltage decrement and increment functionality can easily be controlled by microcontroller *GPIOs*, additionally enhancing the versatility of this board. In combination with a voltage sensing shunt, the board can be an excellent choice for digitally controllable *constant voltage* power sources of up to *3A*.
 
-<img src="images/XL4016_cv_w.png" width="70%" height="70%" />
-
-
 
 > [!CAUTION]
 >
