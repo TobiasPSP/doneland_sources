@@ -196,3 +196,5 @@ With this in place, turn the switch *on* and *off*, and see how the *LED* change
 Once the *LED* works as expected, you can now connect the *relais trigger line* to **one** of the two *GPIOs*. Which one you choose depends on the type of *relais logic*, and how you want the relais to behave. With a *low active* relais, connect it to the *GPIO Low* pin (see the table above for the pin numbers). If you'd like the relais to be *off* when the switch is *on*, or if you are using a *high active* relais, take the other *GPIO*.
 
 > Tags: Powerstrip, EspHome, Configuration, Switch, Multiple GPIO
+
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/advancedesphomeconfiguration?529530081829243258) - created 2024-08-28 - last edited 2024-08-28
