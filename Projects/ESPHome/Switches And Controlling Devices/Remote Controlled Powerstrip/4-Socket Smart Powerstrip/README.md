@@ -12,7 +12,7 @@ The original socket comes with simple *3mm red signal LEDs* that are directly wi
 
 If you want more sophisticated *singal LEDs* that can signal both *on* and *off* state, replace the existing *LED* with *3mm bi-color bi-polar LEDs* that can emit *red* **and** *green* light, based on their polarity.
 
-### Replacement
+### LED Replacement
 Pull out the existing *LED*, and de-solder their wires (including their current limiting resistors).
 
 Solder a *330R* current limiting resistor to one leg of your *bi-polar LED*, and solder two wires to the other end of the resistor and the remaining *LED leg*. Make sure these wires are long enough to be connected to the microcontroller later.
@@ -23,11 +23,17 @@ Slide in the new LED into the holes in the housing where the old *LEDs* were loc
 ## Mounting Solid State Relais
 I chose to use commonly available *DIY AC solid state relays* for this project. Both *low level* and *high level* trigger boards will work:
 
-<img src="images/ssr_2a_ac_2_top_t.png" width="60%" height="60%" />
+<img src="images/ssr_2a_ac_2_top_t.png" width="40%" height="40%" />
 
 > [!IMPORTANT]
 > These simple DIY *SSR* can only handle **light loads** of up to *440W* (*2A*). For switching some simple low current lights, that is perfect. If you need to switch larger loads, do use appropriately rated *mechanical relais* or *industrial SSR*. When using the *SSR* I used here, **clearly label** your powerstrip. You (or others) may not remember this crucial limitation when the powerstrip is in use later.
 
+These boards come with low-quality screw terminals that are too small to use larger-diameter wire, plus the terminals waste a lot of space. That's why I decided to *remove the screw terminals* with a *hot air gun*, and solder cables directly. 
+
+<img src="images/ssr_diy_relais_remove_screw_terminals_t.png" width="100%" height="100%" />
+
+
+If you don't feel comfortable removing them, you could also solder your own wires directly to the solder pins on the backside of the board. If you do, you might want to use the *through-pins* of the *SSR* directly, and not use the *screw terminal pins*.
 
 Each relay board comes with *two relais*, so *two boards* are required.
 
