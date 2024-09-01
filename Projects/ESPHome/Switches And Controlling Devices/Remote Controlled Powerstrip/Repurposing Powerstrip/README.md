@@ -218,3 +218,4 @@ This is the maximum sustainable current the board can deliver.
 
 > Tags: Powerstrip, Repurposing
 
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip?306577082030245154) - created 2024-08-29 - last edited 2024-08-29
