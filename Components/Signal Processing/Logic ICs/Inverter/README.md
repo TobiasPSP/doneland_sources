@@ -62,3 +62,4 @@ All package types come with *five* pins:
 
 > Tags: Inverter, SN74LVC1G04DCKR, Source, Sink, Fake
 
+[Visit Page on Website](https://done.land/components/signalprocessing/logicics/inverter?776214091205242323) - created 2024-09-04 - last edited 2024-09-04
