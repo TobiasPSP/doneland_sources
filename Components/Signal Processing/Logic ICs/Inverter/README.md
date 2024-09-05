@@ -25,7 +25,7 @@ Unfortunately, this chip is not available in through-pin *DIP* packages. The two
 | Chip Model | Package |
 | --- | --- |
 | SN74LVC1G04**DBV** | *SOT-23* |
-| SN74LVC1G04**DCK** | *DC-70* |
+| SN74LVC1G04**DCK** | *SC-70* |
 
 These IC are typically distributed as a *reel* (adding an *R* to the chip model number).
 
