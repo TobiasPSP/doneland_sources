@@ -7,11 +7,14 @@
 In this article, I am using the [4-Socket Commericial Powerstrip](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip) that I disassembled before: it comes with all that is needed for a *smart powerstrip*, including a *5V power supply* and individually switchable sockets.
 
 
+<img src="images/4-socket-smart-powerstrip-original-housing_t.png" width="100%" height="100%" />
+
+
 ## Adding Microcontroller
-For this project, I am repurposing [this ESPHome configuration](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/dual-gpioesphomeconfiguration), and I am using a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini) because of its tiny footprint and low cost.
+For this project, I am repurposing [this ESPHome configuration](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/dual-gpioesphomeconfiguration), using a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini) because of its tiny footprint and low cost.
 
 > [!NOTE]
-> While you can solder all components directly to the *ESP32-C3 board* for robustness and minimal space requirements, I chose to solder header pins to the board, and use pluggable cables to be able to experiment and play with this prototype.
+> While it makes sense to solder all wires directly to the *ESP32-C3 board* for robustness and to further reduce space requirements, I chose to use header pins and pluggable cables so I can experiment and play with this prototype.
 
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard3_t.png" width="40%" height="40%" />
@@ -150,16 +153,16 @@ switch:
 ````
 
 ### Custom Expansion Board
-Since I want to *experiment* with this setup, I decided to create a simple custom *expansion board* for the *ESP32-C3 Super Mini* out of some left-over header pin sockets:
+Since I want to *play* with this setup and try out different components (such as different relays and signal LEDs), I created a simple *expansion board* for the *ESP32-C3 Super Mini* out of some left-over header pin sockets:
 
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard1_t.png" width="40%" height="40%" />
 
-The microcontroller can be plugged into the inner header row:
+The microcontroller plugs into the inner header row:
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard6_t.png" width="40%" height="40%" />
 
-On the back side, I connected the headers so each microcontroller pin has *two sockets* that I can use to connect a relais trigger and/or a signal LED:
+On the reverse side, I connected the headers so each microcontroller pin now has *two sockets* that I can use to connect relais trigger and/or signal LEDs:
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard2_t.png" width="40%" height="40%" />
 
@@ -168,13 +171,58 @@ On the back side, I connected the headers so each microcontroller pin has *two s
 
 Inside the commercial socket housing, I reuse the screw mounts that were originally holding the mechanical buttons. 
 
-## Adding Bi-Color Signal LEDs
-The original socket comes with simple *3mm red signal LEDs* that are directly wired to *AC power*. They are *on* when a particular socket was powered.
+#### Mount directly
+If you'd like to use the microcontroller board directly, a [3D printed part](materials/mc%20mount.stl) slides over one of the pilars of the original housing that previously secured the mechanical buttons, and can be screwed onto the pilar using the original screw:
 
-If you want more sophisticated *singal LEDs* that can signal both *on* and *off* state, replace the existing *LED* with *3mm bi-color bi-polar LEDs* that can emit *red* **and** *green* light, based on their polarity.
+<img src="images/4-socket-powerstrip-mc-mount.png" width="40%" height="40%" />
+
+Flipped over, you see the recess for the screw that secures the part to the housing, and an *M2 hole* at one of the corners that will secure the *PCB*:
+
+<img src="images/4-socket-powerstrip-mc-mount2.png" width="40%" height="40%" />
+
+The part provides you with a *30x33mm* flat mounting area where you can i.e. use glue or strips to secure the microcontroller board directly. Use this [3D .stl file](materials/mc%20mount.stl) to slice and print the part if you like.
+
+Slide the part over one of the screw pilars, then use the original screw to secure the part to it. Now you can glue or screw the microcontroller board onto the mounting area:
+
+<img src="images/4-socket-powerstrip-mc-mount-installed_t.png" width="40%" height="40%" />
+
+#### Mounting Expansion Board
+Since I am using a fairly large *expansion board* (see above), it cannot be mounted on the mounting plate. The overall height would exceed the space constraints.
+
+Instead, I drilled a *8mm* hole into the middle of the PCB so that it can slide onto the plastic pilar of the original housing. 
+
+
+<img src="images/4-socket-powerstrip-esp32c3-pcb-expansion_t.png" width="30%" height="30%" />
+
+With an even smaller [3D printed part](materials/mc%20mount%20small.stl), it can then secured using the original screw:
+
+<img src="images/4-socket-powerstrip-mc-mount_small.png" width="20%" height="20%" />
+
+Next, slide the PCB over one of the srew pilars:
+
+<img src="images/4-socket-powerstrip-mc-pcb-mount_t.png" width="60%" height="60%" />
+
+Press the *3D part* onto the pilar until the PCB cannot move anymore. Then use the original screw to tighten the cap on the pilar:
+
+
+<img src="images/4-socket-smart-powerstrip-pcb_screw_t.png" width="60%" height="60%" />
+
+Finally, plug in the *ESP32 C3 Super Mini*. You now have plenty of headroom to use header pins and cables and still be able to close the original housing:
+
+
+<img src="images/4-socket-smart-powerstrip-esp32c3-complete_t.png" width="60%" height="60%" />
+
+
+
+
+
+## Adding Bi-Color Signal LEDs
+The original powerstrip came with simple *3mm red signal LEDs* that are directly wired to *AC power* and *on* when a particular socket was powered. You can leave them in place if that's what you want.
+
+If you opt for more sophisticated *singal LEDs* that can signal both *on* and *off* state (in *red* and *green*), replace the existing *LED* with [3mm bi-color bi-polar LEDs](https://done.land/components/light/led/signalleds/bi-colorsignals/bipolarbicolorled) that can emit two colors, based on their polarity.
 
 ### LED Replacement
-Pull out the existing *LED*, and de-solder their wires (including their current limiting resistors).
+Pull out the existing *LED*, and de-solder their wires from the sockets (including their current limiting resistors).
 
 Solder a *330R* current limiting resistor to one leg of your *bi-polar LED*, and solder two wires to the other end of the resistor and the remaining *LED leg*. Make sure these wires are long enough to be connected to the microcontroller later.
 
@@ -227,8 +275,10 @@ The fixation can then be secured to the pillar using one of the original screws.
 
 ## Materials
 
+[STL file for large microcontroller mount](materials/mc%20mount.stl)
+[STL file for small microcontroller mount](materials/mc%20mount%20small.stl)
 [STL file for SSR mount](materials/ssr1_holder_4socket_smart_powerstrip.stl)
 
 > Tags: Smart Powerstrip, Home Assistant, ESPHome, Bi-Color LED, Bi-Polar LED
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/4-socketsmartpowerstrip?220724091201243010) - created 2024-08-31 - last edited 2024-08-31
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/4-socketsmartpowerstrip?220724091201243010) - created 2024-08-31 - last edited 2024-09-06
