@@ -249,8 +249,8 @@ Solder a *150R* current limiting resistor to one leg of your *bi-polar LED*. Sol
 
 <img src="images/4-socket-smart-powerstrip-led-smdresistor2_t.png" width="60%" height="60%" />
 
-> [!TIP
-> I had a left-over reel of 150R SMD resistors and used these with the *LEDs*. It is a bit more fiddly bit works well and saves space.
+> [!TIP]
+> I had a left-over reel of 150R SMD resistors and used these with the *LEDs*. It is a bit more fiddly but works well and saves space.
 
 Once you connect the *LED* to the microcontroller, power it on using external power (i.e. a powerbank). The LED should show a *red* light. If it emits *green*, then switch over the cables (reverse LED polarity).
 
@@ -317,9 +317,9 @@ The fixation can then be secured to the pillar using one of the original screws.
 
 ## Materials
 
-[STL file for large microcontroller mount](materials/mc%20mount.stl)
-[STL file for small microcontroller mount](materials/mc%20mount%20small.stl)
-[STL file for SSR mount](materials/ssr1_holder_4socket_smart_powerstrip.stl)
+[STL file for large microcontroller mount](materials/mc%20mount.stl)     
+[STL file for small microcontroller mount](materials/mc%20mount%20small.stl)     
+[STL file for SSR mount](materials/ssr1_holder_4socket_smart_powerstrip.stl)     
 
 > Tags: Smart Powerstrip, Home Assistant, ESPHome, Bi-Color LED, Bi-Polar LED
 
