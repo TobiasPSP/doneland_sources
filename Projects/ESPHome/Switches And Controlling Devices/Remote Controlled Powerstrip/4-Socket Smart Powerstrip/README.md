@@ -7,6 +7,167 @@
 In this article, I am using the [4-Socket Commericial Powerstrip](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip) that I disassembled before: it comes with all that is needed for a *smart powerstrip*, including a *5V power supply* and individually switchable sockets.
 
 
+## Adding Microcontroller
+For this project, I am repurposing [this ESPHome configuration](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/dual-gpioesphomeconfiguration), and I am using a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini) because of its tiny footprint and low cost.
+
+> [!NOTE]
+> While you can solder all components directly to the *ESP32-C3 board* for robustness and minimal space requirements, I chose to solder header pins to the board, and use pluggable cables to be able to experiment and play with this prototype.
+
+
+<img src="images/esp32-c3-super-mini-custom-prototypeboard3_t.png" width="40%" height="40%" />
+
+The microcontroller is going to control *four sockets* and uses *two GPIOs* per switch that are *inverted* (so you can use *low level trigger* and *high level trigger* relais, and can use [bi-polar bi-color signal LEDs](https://done.land/components/light/led/signalleds/bi-colorsignals/bipolarbicolorled)).
+
+Here is the *ESPHome configuration*:
+
+````
+esphome:
+  name: powerstrip-400w-ssr-1
+  friendly_name: SSR PowerStrip 400W
+  platformio_options:
+    board_build.f_flash: 40000000L
+    board_build.flash_mode: dio
+    board_build.flash_size: 4MB
+
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxx"
+
+ota:
+  - platform: esphome
+    password: "xxx"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Powerstrip-Ssr-400W"
+    password: "xxx"
+
+captive_portal:
+
+
+light:
+  - platform: status_led
+    name: "Status LED"
+    id: esp_status_led
+    icon: "mdi:alarm-light"
+    pin:
+      number: GPIO8
+      inverted: true
+    restore_mode: ALWAYS_OFF
+
+output:
+  - platform: gpio
+    pin: GPIO0
+    id: 'relay1'
+    inverted: true
+  - platform: gpio
+    pin: GPIO2
+    id: 'led1'
+  - platform: gpio
+    pin: GPIO3
+    id: 'relay2'
+    inverted: true
+  - platform: gpio
+    pin: GPIO4
+    id: 'led2'
+  - platform: gpio
+    pin: GPIO21
+    id: 'relay3'
+    inverted: true
+  - platform: gpio
+    pin: GPIO20
+    id: 'led3'
+  - platform: gpio
+    pin: GPIO10
+    id: 'relay4'
+    inverted: true
+  - platform: gpio
+    pin: GPIO7
+    id: 'led4'
+  
+switch:
+  - platform: output
+    name: "Switch1"
+    icon: "mdi:power-socket-eu"
+    restore_mode: RESTORE_DEFAULT_OFF
+    output: relay1
+    on_turn_on:
+      then: 
+        - output.turn_on: led1
+    on_turn_off:
+      then:
+        - output.turn_off: led1
+
+  - platform: output
+    name: "Switch2"
+    icon: "mdi:power-socket-eu"
+    restore_mode: RESTORE_DEFAULT_OFF
+    output: relay2
+    on_turn_on:
+      then: 
+        - output.turn_on: led2
+    on_turn_off:
+      then:
+        - output.turn_off: led2
+  
+  - platform: output
+    name: "Switch3"
+    icon: "mdi:power-socket-eu"
+    restore_mode: RESTORE_DEFAULT_OFF
+    output: relay3
+    on_turn_on:
+      then: 
+        - output.turn_on: led3
+    on_turn_off:
+      then:
+        - output.turn_off: led3
+
+  - platform: output
+    name: "Switch4"
+    icon: "mdi:power-socket-eu"
+    restore_mode: RESTORE_DEFAULT_OFF
+    output: relay3
+    on_turn_on:
+      then: 
+        - output.turn_on: led4
+    on_turn_off:
+      then:
+        - output.turn_off: led4
+````
+
+### Custom Expansion Board
+Since I want to *experiment* with this setup, I decided to create a simple custom *expansion board* for the *ESP32-C3 Super Mini* out of some left-over header pin sockets:
+
+
+<img src="images/esp32-c3-super-mini-custom-prototypeboard1_t.png" width="40%" height="40%" />
+
+The microcontroller can be plugged into the inner header row:
+
+<img src="images/esp32-c3-super-mini-custom-prototypeboard6_t.png" width="40%" height="40%" />
+
+On the back side, I connected the headers so each microcontroller pin has *two sockets* that I can use to connect a relais trigger and/or a signal LED:
+
+<img src="images/esp32-c3-super-mini-custom-prototypeboard2_t.png" width="40%" height="40%" />
+
+
+### Mounting Microcontroller
+
+Inside the commercial socket housing, I reuse the screw mounts that were originally holding the mechanical buttons. 
+
 ## Adding Bi-Color Signal LEDs
 The original socket comes with simple *3mm red signal LEDs* that are directly wired to *AC power*. They are *on* when a particular socket was powered.
 

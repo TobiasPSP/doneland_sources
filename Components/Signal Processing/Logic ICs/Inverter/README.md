@@ -33,11 +33,11 @@ These IC are typically distributed as a *reel* (adding an *R* to the chip model 
 
 The *SMB chips* are tiny. Here is a side-by-side comparison with a *5mm LED* and a SN74LVC1G04**DCK**R chip:
 
-<img src="images/bicolor_led_and_inverter_illustration1_t.png" width="40%" height="40%" />
+<img src="images/bicolor_led_and_inverter_illustration1_t.png" width="30%" height="30%" />
 
 When enlarging the *SN74LVC1G04DCKR*, you can see the *five pins* that would need to be soldered to wires when using these chips in manually-soldered circuits:
 
-<img src="images/sn74lvc1g04dckr_comparison_ali_mouser.png" width="100%" height="40%" />
+<img src="images/sn74lvc1g04dckr_comparison_ali_mouser.png" width="50%" height="50%" />
 
 ### Legit And Fake Chips
 When enlarging the picture (or using a magnifying glass), you see the *chip markings*. The picture shows two *SN74LVC1G04DCKR* from different sources side by side: the left one came from an **untrusted vendor** at the *AliExpress* market place, and the right one was ordered by a **renown distributor** ([Mouser](https://eu.mouser.com/c/?q=SN74LVC1G04DCKR)).
@@ -54,7 +54,29 @@ All package types come with *five* pins:
 
 <img src="images/sn74lvc1g04_pinout_annotated.png" width="100%" height="100%" />
 
+### Prototype Board
+Since these *inverter IC* are tiny and supposed to be surface-mounted on a *PCB*, you would have to either produce your own *PCB*, or use *PCB Adapter plates*. These come in many different formats and designs.
 
+Try and get one that matches exactly the *package size* of your chips. The *SN74LVC1G04**DCK*** i.e. uses a *SC-70* package size. 
+
+<img src="images/adapter_sc70-dual-illustration2_annotated_t.png" width="60%" height="60%" />
+
+Most commercially available *PCP Adapters* come in *dual designs* to support more package sizes. *SC-70*-compatible boards with **six** header pins and a *0.65mm pin spacing* on one side often feature a *SOT23* layout with *0.95mm spacing* on the flip side.
+
+
+> [!TIP]
+> Dedicated *SC-70 PCB adapters* aren't as available as other formats, and that is also why they can be relatively expensive. *SOP8*-compatible **eight** pin PCB with a *1.27mm spacing* on one side and a *0.65mm spacing* on the other side may also work for *SC-70* since the pitch (pin spacing) is what matters most.
+
+<img src="images/adapter_sc70-dual-illustration1_annotated_t.png" width="60%" height="60%" />
+
+If you use adapters that aren't specifically made for *SC-70* (but have a *0.65mm pitch*), they may have *more pins* than you need (just leave some unconnected), and the *chip size* may not match exactly. Most likely, *SC-70 chips* are more narrow, so you may have to bridge some pin distance with solder. 
+
+
+<img src="images/sot-70-prototype-illustration-inverter2_t.png" width="30%" height="30%" />
+
+As you see, while the *0.65mm pitch* matches *SC-70* perfectly, there are *eight* instead of *six* solder pads, and the *SC-70 chip* is too narrow for all of its pins to touch the solder pads on both sides:
+
+<img src="images/sot-70-prototype-illustration-inverter3_t.png" width="30%" height="30%" />
 
 ## Materials
 
@@ -62,4 +84,4 @@ All package types come with *five* pins:
 
 > Tags: Inverter, SN74LVC1G04DCKR, Source, Sink, Fake
 
-[Visit Page on Website](https://done.land/components/signalprocessing/logicics/inverter?776214091205242323) - created 2024-09-04 - last edited 2024-09-04
+[Visit Page on Website](https://done.land/components/signalprocessing/logicics/inverter?776214091205242323) - created 2024-09-04 - last edited 2024-09-07
