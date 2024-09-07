@@ -19,6 +19,7 @@ For this project, I am repurposing [this ESPHome configuration](https://done.lan
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard3_t.png" width="40%" height="40%" />
 
+### ESPHome Configuration
 The microcontroller is going to control *four sockets* and uses *two GPIOs* per switch that are *inverted* (so you can use *low level trigger* and *high level trigger* relais, and can use [bi-polar bi-color signal LEDs](https://done.land/components/light/led/signalleds/bi-colorsignals/bipolarbicolorled)).
 
 Here is the *ESPHome configuration*:
@@ -152,6 +153,25 @@ switch:
         - output.turn_off: led4
 ````
 
+### Testing
+Upload the *ESPHome configuration* to the microcontroller, and make sure everything works as expected - before you proceed with anything else:
+
+* **Add to Home Assistant:** *Home Assistant* should recognize your new device once it goes online for the first time. Add it to *Home Assistant*
+* **Visit Device:** In *Home Assistant*, go to *Settings/Devices&services*, click *Devices* tab, search for your device name, and check to see whether your device (and all of its entities) can be found.
+
+    <img src="images/4-socket-powerstrip-ha_test1.png" width="100%" height="100%" />
+
+* **Test-Drive Switches:** Open the device and double-check that the *Controls* section looks like this:
+
+    <img src="images/4-socket-powerstrip-ha_test2.png" width="100%" height="100%" />
+
+    Even if you did not yet connect anything to the microcontroller, you can still test it: use the *Status LED* switch to turn the blue on-boad LED on and off.
+
+Once everything works, you can disconnect the microcontroller and start mounting it in the powerstrip housing. Since the *AC*-driven *5V power supply* won't be functional until at the very end, you may want to connect the microcontroller to a powerbank via its *USB connection* so you can continuously test it while adding *LEDs* and relais boards.
+
+> [!IMPORTANT]
+> **Do not connect AC** to the powerstrip at this time. Since there are many uninsulated open contacts, that would be irresponsible and dangerous. We'll be able to do all testing with a safe *5V voltage supply* from a *USB powerbank*.
+
 ### Custom Expansion Board
 Since I want to *play* with this setup and try out different components (such as different relays and signal LEDs), I created a simple *expansion board* for the *ESP32-C3 Super Mini* out of some left-over header pin sockets:
 
@@ -224,12 +244,34 @@ If you opt for more sophisticated *singal LEDs* that can signal both *on* and *o
 ### LED Replacement
 Pull out the existing *LED*, and de-solder their wires from the sockets (including their current limiting resistors).
 
-Solder a *330R* current limiting resistor to one leg of your *bi-polar LED*, and solder two wires to the other end of the resistor and the remaining *LED leg*. Make sure these wires are long enough to be connected to the microcontroller later.
+Solder a *150R* current limiting resistor to one leg of your *bi-polar LED*. Solder two wires to the *LED* that are long enough to be connected to the microcontroller. Plug the wires into the two *GPIOs* that represent one switch, i.e. use *GPIO0* and *GPIO2* for *switch 1* (see *ESPHome configuration* above for GPIO assignments).
 
-Slide in the new LED into the holes in the housing where the old *LEDs* were located, and secure them with some *hot glue* or *superglue*.
 
+<img src="images/4-socket-smart-powerstrip-led-smdresistor2_t.png" width="60%" height="60%" />
+
+> [!TIP
+> I had a left-over reel of 150R SMD resistors and used these with the *LEDs*. It is a bit more fiddly bit works well and saves space.
+
+Once you connect the *LED* to the microcontroller, power it on using external power (i.e. a powerbank). The LED should show a *red* light. If it emits *green*, then switch over the cables (reverse LED polarity).
+
+<img src="images/4-socket-smart-powerstrip-led-smdresistor_test_t.png" width="60%" height="60%" />
+
+
+Next, go to *Home Assistant* again, and navigate to your device's *control* panel (see above). 
+
+<img src="images/4-socket-powerstrip-ha_test3_t.png" width="40%" height="40%" />
+
+Turn *Switch 1* on. The *LED* should turn *green*. *Turn off* the switch. The *LED* should turn *red*.
+
+Turn *on* the switch again, then remove power from the microcontroller. The *LED* is off. Now restore power. The *LED* should immediately come up with a *green* light. Thanks to the *restore mode*, each switch remembers its state.
+
+Once all four *LED* work as expected, you can position them in the existing *3mm LED holes*, and glue them.
+
+Now it's time to add the *relais* that do the actual *AC* switching. 
 
 ## Mounting Solid State Relais
+
+
 I chose to use commonly available *DIY AC solid state relays* for this project. Both *low level* and *high level* trigger boards will work:
 
 <img src="images/ssr_2a_ac_2_top_t.png" width="40%" height="40%" />
