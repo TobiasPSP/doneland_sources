@@ -10,6 +10,14 @@ In this article, I am turning a [4-Socket Commericial Powerstrip](https://done.l
 <img src="images/4-socket-powerstrip-done-intro.png" width="100%" height="100%" />
 
 
+| Parts | Cost |
+| --- | --- |
+| manually switchable powerstrip | €9.00 |
+| ESP32-C33 Super Mini | €1.50 |
+| 2x 2 Circuit Solid State Relais | 2x €2.20 |
+| 4x Bi-Color Bi-Polar LED | €1.90 for 100 |
+| 5V1A AC Power Supply | €2.10 |
+
 ## Preparing Manual Powerstrip
 Open and disassemble the powerstrip you want to use. Make sure it is a powerstrip with *individually switchable sockets*.
 
