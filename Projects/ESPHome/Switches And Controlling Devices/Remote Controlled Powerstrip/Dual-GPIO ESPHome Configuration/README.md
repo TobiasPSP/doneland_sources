@@ -177,7 +177,7 @@ switch:
     name: "Switch4"
     icon: "mdi:power-socket-eu"
     restore_mode: RESTORE_DEFAULT_OFF
-    output: relay3
+    output: relay4
     on_turn_on:
       then: 
         - output.turn_on: led4
