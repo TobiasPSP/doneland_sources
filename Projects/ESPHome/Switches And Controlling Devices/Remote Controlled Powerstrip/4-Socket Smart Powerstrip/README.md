@@ -7,6 +7,13 @@
 In this article, I am using the [4-Socket Commericial Powerstrip](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip) that I disassembled before: it comes with all that is needed for a *smart powerstrip*, including a *5V power supply* and individually switchable sockets.
 
 
+<img src="images/4-socket-powerstrip-done-intro.png" width="100%" height="100%" />
+
+
+## Preparing Manual Powerstrip
+Open and disassemble the powerstrip you want to use. Make sure it is a powerstrip with *individually switchable sockets*.
+
+
 <img src="images/4-socket-smart-powerstrip-original-housing_t.png" width="100%" height="100%" />
 
 
@@ -144,7 +151,7 @@ switch:
     name: "Switch4"
     icon: "mdi:power-socket-eu"
     restore_mode: RESTORE_DEFAULT_OFF
-    output: relay3
+    output: relay4
     on_turn_on:
       then: 
         - output.turn_on: led4
@@ -246,11 +253,14 @@ Pull out the existing *LED*, and de-solder their wires from the sockets (includi
 
 Solder a *150R* current limiting resistor to one leg of your *bi-polar LED*. Solder two wires to the *LED* that are long enough to be connected to the microcontroller. Plug the wires into the two *GPIOs* that represent one switch, i.e. use *GPIO0* and *GPIO2* for *switch 1* (see *ESPHome configuration* above for GPIO assignments).
 
-
 <img src="images/4-socket-smart-powerstrip-led-smdresistor2_t.png" width="60%" height="60%" />
 
 > [!TIP]
-> I had a left-over reel of 150R SMD resistors and used these with the *LEDs*. It is a bit more fiddly but works well and saves space.
+> I had a left-over reel of 150R SMD resistors and used these with the *LEDs*. It is a bit more fiddly but works well. A regular resistor is much easier to solder. Don't forget to use *shrink tube* to insulate and protect resistor and solder connections.
+
+<img src="images/4-socket-powerstrip-led_resistor3_t.png" width="60%" height="60%" />
+
+
 
 Once you connect the *LED* to the microcontroller, power it on using external power (i.e. a powerbank). The LED should show a *red* light. If it emits *green*, then switch over the cables (reverse LED polarity).
 
@@ -315,12 +325,106 @@ The fixation can then be secured to the pillar using one of the original screws.
 
 <img src="images/4-socket-smart-powerstrip-ssr-fixation4_t.png" width="60%" height="60%" />
 
+### Wiring
+The *two SSR relais* breakout boards I used have two *AC outputs*, marked as *A1/B1* and *A2/B2*. 
+
+* Connect the *blue AC wire* that comes from the outside AC wire to *A1* and *A2*.   
+* Connect *B1/B2* to one socket each. You may be able to reuse the existing red cable that originally connected to a mechanical button, or replace this wire with a longer wire (just make sure it has a sufficient diameter).
+
+* On the other (DC) side, the boards require *5V DC*, so solder two *black* and *red* wires, or use the scew terminals (if you did not remove them).   
+* The relais are triggered by *CH1/CH2*. Triggering can be done with *3.3V*, so connect each *CHx* to one of the *GPIOs* you assigned to switches.
+
+If you used the *ESPHome configuration* above, the *GPIO* assignments are as follows:
+
+| Switch | Low Active | High Active |
+| --- | --- | --- |
+| Switch 1 | GPIO0 | GPIO2 |
+| Switch 2 | GPIO3 | GPIO4 |
+| Switch 3 | GPIO21 | GPIO20 |
+| Switch 4 | GPIO10 | GPIO7 |
+
+> [!TIP]
+> *Relais can be *low active* (turned on when the GPIO is *low*) **or** *high active* (turned on when the GPIO is *high*). Since each switch has two complementary GPIOs, just pick the one that matches your relais board. 
+
+
+## Power Supply
+If the *commercial powerstrip* comes with a built-in *USB power supply*, you may want to use it for your microcontroller and relais. That's what I did first, too, and here are the results:
+
+
+<img src="images/4-socket-powerstrip-inner_done2_t.png" width="100%" height="100%" />
+
+On the left side, I connected the *DC power wires* directly to the *USB C* connector of the built-in power supply:
+
+<img src="images/4-socket-powerstrip-inner_done4_t.png" width="60%" height="60%" />
+
+### Caveats
+Using a built-in power supply of unknown origin may cause problems:
+
+* **Overload:** when a user connects a device to the USB power supply (i.e. a phone charger), this may overload the USB power supply, causing a voltage drop significant enough for the microcontroller to *brown out* and reset.  
+* **Bad Quality:** I did not anticipate the poor quality of these built-in power supplys: some of the *SSR boards* did not trigger correctly, most likely because of strong *EMI* emissions.
+
+### Unreliable SSR Trigger
+When I tested the setup using a power bank, all worked as expected. Once I powered it via the built-in power supply, strange things happened:
+
+The microcontroller continued to work just fine, and also the bi-color signal LEDs switched color based on state alright. So that part was alright, and the supply voltages were ok, too.
+
+However, only *one* SSR switched from *on* to *off* and vice versa. All remaining three relais were constantly *on*. So apparently, there was a problem either with the trigger voltage, or with the *SSR boards* altogether.
+
+Since the *supply voltage* was perfectly fine, it seemed unlikely that the built-in power supply was too weak, or that the *signal LED* would draw too much current and cause a voltage drop at the *GPIO*.
+
+#### EMI
+What made me wonder was that *one* relais did work correctly - which happened to be the one with the *greatest distance* to the *USB power supply*. So apparently, *EMI* (electromagnetic interference) generated by the unshielded and rather primitively designed built-in power supply interfered with the *SSR breakout boards*.
+
+Without further investigation, I removed the built-in USB power supply altogether. I won't need it anyway, and I definitely do not want to introduce a source of radio interference to my lab where I intend to use the *smart powerstrip*. 
+
+Plus, now I needed the space since I had to fit in a decent quality *5V 1A* encapsulated power module from *HiLink*:
+
+<img src="images/4-socket-powerstrip-powersupply1_t.png" width="30%" height="30%" />
+
+
+## Finalizing
+
+When all changes have been made, and the housing is closed, there are still some holes that were originally used by the manual buttons and the *USB power supply*.
+
+Below I provided *STL files* to *3D print* covers. You can use any type of cover. Just don't let these holes be accessible, and do not use simple card board covers: **there is dangerous AC voltage directly below. Do not let users ever touch and "explore" these holes.**
+
+Here is the original powerstrip with all *3D printed* covers in place:
+
+
+<img src="images/4-socket-powerstrip-done-illustration_t.png" width="100%" height="100%" />
+
+
+> [!IMPORTANT]
+> If you (like me) used simple *solid state relais* boards, make sure you add a prominent sticker that clearly states their limitations: *440W* (*400W* as a safety margin) per socket (relais) is the **maximum power* they can switch. Do not take this light-heartedly: these *SSR* will blow in a split-second when overloaded. Use a different type of relais if you need to switch more load.
+
+
+
+## Learning Points
+
+It's a thrilling moment when the *idea finally materializes*, and the end result works as expected. 
+
+Typically it is a *long way* until you get there, often much longer than anticipated. And not all of this way is always pure joy.
+
+Here are some lessons that I learned:
+
+* **Time:** Ideas seem *so simple*. Then they turn out to be much more complex. That's part of the learning experience, but to not get overwhelmed trying to *simplifying* projects is always a good idea. Aim get a rewarding end product within the time you have. No one likes *half finished* stuff, or revisiting projects from the past year. And once you lose the temper and rush things, the project is dead for sure. Rushing produces errors and results that break easily. So here are my back thoughts:
+    * It was a great idea to use a *switchable powerstrip* to start with. Building a *smart powerstrip* out of individual sockets and *3D printed housing* can be done but takes much more time.   
+    * It is debatable whether the two-color signal LEDs were worth the effort. They look awesome, yet *getting these LEDs*, adding complexity to the *ESPHome configuration*, plus a lot more wiring kept me wondering if keeping the *AC powered* built-in *signal LEDs* wouldn't have been the better approach. After all, the *smart powerstrip* will be hidden away most of the time anyway, so signal LEDs just need to signal state. The extra benefit of dual-color LEDs is esthetical at most, and adding them easily duplicated the project time.
+* **Material:** When the *needed material* isn't at hand, that sucks: wires of just the *right* diameter (big enough for the currents, small enough to fit the through holes) for example. Lacking the right components (and having to improvise or working around) is taking the most time and produces the least solid results. This boils down to *better planning*: what *are* actually the parts required?
+* **Soldering:** I can solder, but I *hate* it. I am just way too often missing a third arm.
+    * **PCB Design:** I am finally going to look into designing my own PCBs. I tried to ignore this topic but it is just too useful to be avoided. I am definitely fed up with perfboard and having to go through all kinds of compromises
+    * **Tools:** For cases where soldering is not related to *PCBs* (i.e. soldering wires or resistors to *LEDs* directly), I need better *helping hands*. The ones I have are too unprecise. They swing back and forth. I'd like to have something more rigid, with *wheels* to move the parts by the millimeter until they perfectly align. Maybe it's an *age thing*, too.
+
+
+
 ## Materials
 
-[STL file for large microcontroller mount](materials/mc%20mount.stl)     
-[STL file for small microcontroller mount](materials/mc%20mount%20small.stl)     
-[STL file for SSR mount](materials/ssr1_holder_4socket_smart_powerstrip.stl)     
+[STL file for large microcontroller mount](materials/mc%20mount.stl): flat *30x33mm* mounting surface     
+[STL file for small microcontroller mount](materials/mc%20mount%20small.stl): simple plastic cover to secure a PCB on one of the plastic pilars of the original housing     
+[STL file for SSR mount](materials/ssr1_holder_4socket_smart_powerstrip.stl): mounting part to hold a *SSD breakout board*.     
+[STL file for round cover](materials/cover_round.stl): round plastic cover (outer diameter *26mm*, inner diameter *24mm*) to cover the holes used by the removed mechanical buttons.   
+[STL file for usbport cover](materials/cover_round.stl): if you remove the built-in USB power supply, this part covers its holes in the housing.    
 
 > Tags: Smart Powerstrip, Home Assistant, ESPHome, Bi-Color LED, Bi-Polar LED
 
-[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/4-socketsmartpowerstrip?220724091201243010) - created 2024-08-31 - last edited 2024-09-06
+[Visit Page on Website](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/4-socketsmartpowerstrip?220724091201243010) - created 2024-08-31 - last edited 2024-09-07
