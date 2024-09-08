@@ -4,7 +4,7 @@
 
 > Enhancing Commercial 4-Socket Powerstrip With ESPHome-Based Home Assistant Controller
 
-In this article, I am tuning a [4-Socket Commericial Powerstrip](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip) into a *Home Assistant*-compatible *smart powerstrip* that can be remotely controlled via WiFi.
+In this article, I am turning a [4-Socket Commericial Powerstrip](https://done.land/projects/esphome/switchesandcontrollingdevices/remotecontrolledpowerstrip/repurposingpowerstrip) into a *Home Assistant*-compatible *smart powerstrip* that can be remotely controlled via WiFi.
 
 
 <img src="images/4-socket-powerstrip-done-intro.png" width="100%" height="100%" />
