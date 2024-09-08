@@ -175,7 +175,7 @@ Upload the *ESPHome configuration* to the microcontroller, and make sure everyth
 
 * **Test-Drive Switches:** Open the device and double-check that the *Controls* section looks like this:
 
-    <img src="images/4-socket-powerstrip-ha_test2.png" width="100%" height="100%" />
+    <img src="images/4-socket-powerstrip-ha_test2.png" width="70%" height="70%" />
 
     Without connecting anything to the microcontroller, you can already test it: use the *Status LED* switch in the *Home Assistant* control panel to turn the blue on-boad LED on and off.
 
