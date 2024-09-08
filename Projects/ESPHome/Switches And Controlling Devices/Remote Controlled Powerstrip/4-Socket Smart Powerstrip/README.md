@@ -11,7 +11,7 @@ In this article, I am turning a [4-Socket Commericial Powerstrip](https://done.l
 
 
 | Parts | Cost |
-| --- | --- |
+| --- | ---:|
 | manually switchable powerstrip | €9.00 |
 | ESP32-C33 Super Mini | €1.50 |
 | 2x 2 Circuit Solid State Relais | 2x €2.20 |
