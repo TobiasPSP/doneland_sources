@@ -10,6 +10,10 @@ Single *power LEDs* are typically rated for *500mA* up to *2000mA*. Compared to 
 
 Internally, it uses the [CN5711](materials/cn5711_datasheet.pdf) constant current controller chip.
 
+
+<img src="images/cn5711_chip_packshot_t.png" width="50%" height="50%" />
+
+
 ## CN5711
 The *CN5711* is a current regulation IC operating from an input voltage of *2.8V* to *6V*. The *constant current* output can be set by an external resistor (in the case of the breakout board, this is a small potentiometer) up to a maximum of *1.5A*. 
 
