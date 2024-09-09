@@ -48,3 +48,5 @@ In such cases, you **must** use a *constant voltage* supply and supply exactly t
 
 
 > Tags: LED Driver, WS2812, COnstant Current, Constant Voltage
+
+[Visit Page on Website](https://done.land/components/light/ledcontroller?319805092109242628) - created 2024-09-08 - last edited 2024-09-08

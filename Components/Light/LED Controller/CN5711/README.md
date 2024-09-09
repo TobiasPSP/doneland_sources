@@ -88,3 +88,5 @@ The thermal path is through the chip **ground plate**, and the PCB copper traces
 
 
 > Tags: LED Driver, CN5711, LDO6AJSA
+
+[Visit Page on Website](https://done.land/components/light/ledcontroller/cn5711?342744092109242628) - created 2024-09-08 - last edited 2024-09-08
