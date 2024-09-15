@@ -2,7 +2,7 @@
  
 # 3D Printer
 
-> Creating Prototyping Parts, Housings, Panels, Buttons, And So Much More
+> Prototyping Parts, Creating Housings, Panels, Custom Button Faces, And So Much More
 
 3D printing is a process where material is deposited layer by layer to create a physical object from a digital model. It is used in the industry as well as among DIY makers. While industrial 3D printing uses various materials like plastics, metals, or ceramics, affordable DIY 3D printing focuses on plastic printing materials.
 
