@@ -26,7 +26,7 @@ In a nutshell:
 * **Resin (SLA):** More complex, involving handling of fluids and potential hazardous materials, requiring good ventilation, but offering a *higher resolution* and smoother finish. Popular for printing miniatures, figurines, custom jewelry and highly accurate models.
 
 > [!NOTE]
-> To safely use a *Resin printer* at home, you need proper *Ventilation*, *Protective Gear* such as nitile gloves and safety goggles, a proper storage for the Resin (cool and dark), and the appropriate post-processing equipment (isopropyl alcohol for washing prints, UV light curing station), and safe disposal of potential toxic waste. That's why I do not use Resin. As you will see, modern *3D Filament Printers* can achieve excellent resolutions and perfect results at a fraction of cost and effort compared to Resin.
+> To safely use a *Resin printer* at home, you need proper *Ventilation*, *Protective Gear* such as nitrile gloves and safety goggles, a proper storage for the Resin (cool and dark), and the appropriate post-processing equipment (isopropyl alcohol for washing prints, UV light curing station), and safe disposal of potential toxic waste. That's why I do not use Resin. As you will see, modern *3D Filament Printers* can achieve excellent resolutions and perfect results at a fraction of cost and effort compared to Resin.
 
 ## 3D Printer Differences
 
