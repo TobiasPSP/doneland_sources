@@ -31,7 +31,7 @@ In a nutshell:
 ## 3D Printer Differences
 
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Since I am not using *Resin* printers for the reasons mentioned above, the remainder of this article **addresses 3D Filament Printers only**.
 
 Today, you can choose from a huge number of *3D Filament Printer Models*. Here are aspects to look out for:
