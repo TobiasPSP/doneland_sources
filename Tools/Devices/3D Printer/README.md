@@ -11,7 +11,7 @@ Here is the typical process of generating physical objects via *3D printing*:
 
 * **3D Model:** At the beginning, there is a *3D model* that describes the design of the object. You can download *3D models* created by others (i.e. [thingiverse.com](https://www.thingiverse.com/)), or design your own models with a variety of *3D Design Software* (i.e. [AutoDesk Fusion](https://www.autodesk.com/products/fusion-360/overview), formerly known as *Fusion 360*).
 * **Slicer:** Since a *3D Printer* prints objects layer by layer, the *3D Model* needs to be converted to a series of *2D layers*. This is what a *Slicer Software* such as [Ultimaker Cura](https://ultimaker.com/de/software/ultimaker-cura) does. Slicers receive *3D Models* in certain file formats, i.e. *STL*, and send their sliced data either directly via *WiFi* or via a *SD Memory Card* to a *3D Printer*.
-* **3D Printer:** Receives instructions on how to print a physical object layer by layer. *3D Printers* work similar to a CNC machine and can move a print head in *X* and *Y* direction. A heated *nozzle* melts plastics and deposits it onto the print bead. Once a layer is finished, the print head moves its *Z* axis one level up, and starts printing the next layer on top of the previous one.
+* **3D Printer:** Receives instructions on how to print a physical object layer by layer. *3D Printers* work similar to a CNC machine and can move a print head in *X* and *Y* direction. A heated *nozzle* melts plastics and deposits it onto the print bed. Once a layer is finished, the print head moves its *Z* axis one level up, and starts printing the next layer on top of the previous one.
 
 There are two different printing methods typically used at home: *Filament* and *Resin*.
 
@@ -36,8 +36,8 @@ In a nutshell:
 
 Today, you can choose from a huge number of *3D Filament Printer Models*. Here are aspects to look out for:
 
-* **Build Volume:** Make sure the print bead and head room is large enough to actually print what you'd like to print. Print beads shouldn't be smaller than *200x200mm*, and the build volume shouldn't be less than *200x200x200mm*.
-* **Materials:** The *maximum nozzle temperature* determines which *plastic materials* you can print. With temperatures of at least *250C*, you can print the two most popular materials *PLA* and *PETG*. With temperatures of at least *300C*, you can also print more sophisticated materials like *ABS*. The maximum *heat bead temperature* should match the material, or else it won't stick well enough during print.
+* **Build Volume:** Make sure the print bed and head room is large enough to actually print what you'd like to print. Print beds shouldn't be smaller than *200x200mm*, and the build volume shouldn't be less than *200x200x200mm*.
+* **Materials:** The *maximum nozzle temperature* determines which *plastic materials* you can print. With temperatures of at least *250C*, you can print the two most popular materials *PLA* and *PETG*. With temperatures of at least *300C*, you can also print more sophisticated materials like *ABS*. The maximum *heat bed temperature* should match the material, or else it won't stick well enough during print.
 * **Multi-Color:** Being able to print models with more than one color isn't just a creative edge. Sometimes, it can be crucial for creating backlit panels or transparent custom buttons. 
 * **Speed:** Since printing *3D Models* layer by layer is taking a lot of time, the *print speed* is a crucial factor. 
 * **Resolution:** Make sure you can easily adjust the diameter of the printing nozzle. Detail-rich prints may require a small diameter (such as 0.2mm), whereas printing large models may use a 0.8mm nozzle. The default nozzle size on most printers is 0.4mm. 
