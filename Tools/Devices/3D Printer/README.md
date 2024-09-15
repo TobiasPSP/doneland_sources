@@ -22,9 +22,8 @@ Resin 3D printing, or *SLA* (*Stereolithography*), uses liquid resin that is cur
 
 In a nutshell:
 
-* **Filament (FDM):** Simple, easy to use, clean(er), with cheaper material cost, and not emitting hazardous fumes. The downside is *limited resolution* and visible *layer lines* that may require post processing like sanding and/or painting if a smooth finish is required.  FDM is used for functional prototypes, housings for electronics, large models and cosplay where microscopic detail isn't required, toys, models, and even mechanical parts.
-* **Resin (SLA):** More complex, involving handling of fluids and potential hazardous materials, requiring good ventilation to not be exposed to hazardous fumes, but offering a *higher resolution* and smooth finish which is why this type of *3D printing* is popular for printing miniatures, figurines, custom jewelry and highly accurate models.
- and is controlled by computer software to precisely form intricate shapes. This technology is used across industries for rapid prototyping, manufacturing, and even medical applications like creating prosthetics.
+* **Filament (FDM):** Simple, easy to use, clean(er), with cheaper material cost, and not emitting hazardous fumes. The downside is *limited resolution* and visible *layer lines*  FDM is used for functional prototypes, housings, large models and even mechanical parts.
+* **Resin (SLA):** More complex, involving handling of fluids and potential hazardous materials, requiring good ventilation, but offering a *higher resolution* and smoother finish. Popular for printing miniatures, figurines, custom jewelry and highly accurate models.
 
 > [!NOTE]
 > To safely use a *Resin printer* at home, you need proper *Ventilation*, *Protective Gear* such as nitile gloves and safety goggles, a proper storage for the Resin (cool and dark), and the appropriate post-processing equipment (isopropyl alcohol for washing prints, UV light curing station), and safe disposal of potential toxic waste. That's why I do not use Resin. As you will see, modern *3D Filament Printers* can achieve excellent resolutions and perfect results at a fraction of cost and effort compared to Resin.
