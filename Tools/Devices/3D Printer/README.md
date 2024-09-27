@@ -6,6 +6,19 @@
 
 3D printing is a process where material is deposited layer by layer to create a physical object from a digital model. It is used in the industry as well as among DIY makers. While industrial 3D printing uses various materials like plastics, metals, or ceramics, affordable DIY 3D printing focuses on plastic printing materials.
 
+Here is a picture of an early 3D filament printer (*Ender*):
+
+<img src="images/3dprint_ender_2_t.png" width="50%" height="50%" />
+
+You can see the square build plate that moves in the *Y* axis, the *print head* with the extruder that moves in the *X* and *Z* axis, and the microcontroller unit on the right side that controls the print head.
+
+| Term | Description |
+| --- | --- |
+| Print Head | movable part that distributes melted plastic |
+| Extruder | part of the print head that emits the melted plastic |
+| Hotend | heater unit and extruder |
+| Filament | stripe of plastic that gets fed to the print head and typically comes as 1kg spools |
+
 ## Quick Overview
 Here is the typical process of generating physical objects via *3D printing*:
 
@@ -17,6 +30,8 @@ There are two different printing methods typically used at home: *Filament* and 
 
 ## Technique: Filament versus Resin 
 Filament 3D printing, or *FDM* (*Fused Deposition Modeling*), uses a spool of plastic filament that is heated and extruded through a nozzle to build objects layer by layer. It is generally more affordable, easier to use, and suitable for creating sturdy parts with a more noticeable layer structure. 
+
+
 
 Resin 3D printing, or *SLA* (*Stereolithography*), uses liquid resin that is cured by UV light to form highly detailed models with a smooth finish. Resin prints offer greater precision and surface quality but require more post-processing, like cleaning and curing the prints. Additionally, resin printing can be messier and more hazardous due to the chemicals involved compared to the relatively simple and cleaner filament process.
 
@@ -71,11 +86,21 @@ Printing in more than one color (i.e. filament type) may become a necessary in s
 
 To print in more than one color (or filament type), it is necessary to change the filament in mid-print. This can be done in two ways:
 
-* **IDEX (Independent Dual Extruder):** IDEX-printers have two print heads, one per color, i.e. [Snapmaker J1](https://eu.snapmaker.com/de/products/snapmaker-j1-independent-dual-extruder-3d-printer)). The printer is using the head with the color that is currently needed. While such printers are initially more expensive, this investment often pays off because printing models with two colors isn't more expensive than printing monochrome models. IDEX printers cannot print more than two colors, though.
-* **Automatic Material Systems (AMS):** Such systems are typically specific add-ons for certain printers (so you cannot hook up an *AMS* from one vendor to a printer from another vendor, i.e. [Bambulab AMS](https://wiki.bambulab.com/en/x1/manual/intro-ams)). The AMS manages more than one filament spool, and can automatically and in mid-print change the filament that is used by the single print head. This allows for as many different colors as the AMS can handle. The downside is *time*, *cost*, and *trouble*: changing the filament *takes time*, slowing down the print time. It also requires that a lot of good filament needs to be *purged* so that the new color filament can be inserted, easily doubling the material (and cost) that is required for a print, especially when there are color changes in each layer. And since *AMS* have a lot of mechanical parts, it is not uncommon for these systems to cause malfunctions and require manual interaction.
+* **IDEX (Independent Dual Extruder):** IDEX-printers have two print heads, one per color, i.e. [Snapmaker J1](https://eu.snapmaker.com/de/products/snapmaker-j1-independent-dual-extruder-3d-printer)). The printer is using the head with the color that is currently needed. While such printers are initially more expensive, this investment often pays off because printing models with two colors isn't more expensive than printing monochrome models. IDEX printers cannot print more than two colors, though.    
 
-> [!TIP]
-> Since *IDEX* printers have two independent print heads, they can also *print at the same time*, effectively printing *duplicates* or *mirrored copies* of a monochrome model. So when you need many objects of the same kind, *IDEX* printers can cut printing time in half by printing two objects at the same time. Unfortunately, this type of duplex print often requires vendor-specific slicer software.
+    Here is an example of a IDEX printer, the *Snapmaker J1*. You can clearly see its *two* print heads:    
+
+    <img src="images/3dprint_snapmaker_j1_1_t.png" width="70%" height="70%" />
+
+
+* **Automatic Material Systems (AMS):** Such systems are typically specific add-ons for certain printers (so you cannot hook up an *AMS* from one vendor to a printer from another vendor, i.e. [Bambulab AMS](https://wiki.bambulab.com/en/x1/manual/intro-ams)). The AMS manages more than one filament spool, and can automatically and in mid-print change the filament that is used by the single print head. This allows for as many different colors as the AMS can handle. The downside is *time*, *cost*, and *trouble*: changing the filament *takes time*, slowing down the print time. It also requires that a lot of good filament needs to be *purged* so that the new color filament can be inserted, easily doubling the material (and cost) that is required for a print, especially when there are color changes in each layer. And since *AMS* have a lot of mechanical parts, it is not uncommon for these systems to cause malfunctions and require manual interaction.    
+
+    Here is an example of a single print head printer with an external filament changer, the *Bambulab P1S* and the *Bambulab AMS*:    
+
+    <img src="images/3dprint_bambulab_p1s_ams_t (1).png" width="70%" height="70%" />
+
+
+
 
 ## Print Speed
 Printing a large *3D Model* can take many hours (smaller models print in a few minutes, too). That's why print speed is a major factor.
@@ -86,6 +111,7 @@ However, print speed is not just affected by the printer speed:
 * **Hotend:** the "hotend* (the heated print nozzle and its diameter) limit the maximum print speed. If the diameter is very small (i.e. *0.2mm*), if the print filament melts slowly (i.e. *PLA* or *PETG*), and/or if the *heater capacity* isn't heating *enough* plastics per second, then a fast-moving print head won't do any good.
 * **Filament:** For fast printing, the filament material needs to *melt quickly*, and the filament quality must be uniform and good. Cheap filaments cause *clogs* and can interrupt printing.
 * **Print Quality:** the faster you print, the poorer is the resulting print quality. Cutting print speed in half can improve the print quality remarkable, and vice versa.
+* **IDEX:** if you need to print multiple copies of the same model, an *IDEX printer* with its *two print heads* can cut printing time in half: both print heads can print simultaneously and produce *two* instead of *one* object in the same time - provided the object is small enough so that two of its kind fit on the build plate at the same time.
 
 For practical purposes and typical materials (such as *PLA* and *PETG*), a print speed of *100-180mm/sec* is recommended: it provides good results with a reasonable speed. Most modern printers support this speed.
 
