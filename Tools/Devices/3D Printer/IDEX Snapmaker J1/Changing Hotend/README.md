@@ -6,22 +6,60 @@
 
 The *hotend* is the part that emits the melted plastic. It consists of a *heater* and the *nozzle*. Obviously, there may be a time when you need to replace the hotend because of *wear and tear*, or other defects.
 
-A much more common reason is to change the *nozzle diameter* and improve print quality.
+A much more common reason is to change the *nozzle diameter* and improve print quality. Below picture shows a separator that I originally printed with the default *0.4mm nozzle* using transparent filament (right side). You can clearly see individual lines. The example on the left side was printed using white filament, using a *0.2mm* nozzle size. Almost no individual print lines are visible anymore, and the part looks much crispier and a lot more professional. Print time doubled.
 
-Recently, I needed to print high quality and detailed parts, so I decided to change the *nozzle diameter* from the default *0.4mm* to a finer *0.2mm*. Since *Snapmaker* does not support changing just the nozzles, below I illustrated the steps it takes to replace the *hotends* (including the nozzles) on a *Snapmaker J1 IDEX printer*.
+<img src="images/3dprint_nozzle_02_vs_04_separator_t.png" width="100%" height="100%" />
 
-## Nozzle Diameter
+Since *Snapmaker* does not support changing just the nozzles, I illustrate below the steps it takes to replace the *hotends* (including nozzles) on a *Snapmaker J1 IDEX printer*.
 
-Most 3D printers come with a default nozzle diameter of *0.4mm*. This diameter directly relates to the width of the "print lines" and determines the *resolution* of your printer.
+> [!NOTE]
+> It depends on your printer manufacturer, your experience, and your use case whether you can simply switch the metal nozzle, or whether you need to replace the entire *hotend*. Manufacturers like *Snapmaker* and *Bambulab* officially do not support swapping nozzles only.
 
-For better quality and to print more detail, you can *lower the diameter* to *0.2mm* at the expense of doubling the print time. Likewise, if you intend to print large objects, you may increase the nozzle diameter to *0.8mm*.
+## Why Nozzle Diameter Matters
+
+Most 3D printers come with a default nozzle diameter of *0.4mm* which is a good compromise between *print quality* and *print speed* and used for generic use cases.
+
+The *nozzle diameter* however directly relates to the *printer resolution* and thus greatly affects print quality:
+
+The nozzle diameter...
+
+* **X-Y Axis:** ...directly relates to the width of the "print lines" (X-Y axis): the smaller the diameter, the more narrow are the print lines. 
+* **Z Axis:** ...indirectly determines the minumum and maximum *layer height* you can use in your slicer software.
+
+Whenever you decrease the nozzle diameter, the increased resolution comes at the price of an increased print time.
+
+### Layer Height
+The *layer height* is the height of each layer of filament that gets deposited on top of each other. 
+
+Since this setting determines the distance that the print head is lifted away from the print surface for each new layer, it is a setting *in your slicer software*, and not **directly** related to print head, nozzle, or any other physical part of your printer. 
+
+However, the *nozzle diameter* does determine the **range** of layer heights that is available to you: a smaller nozzle can emit less material, thus the maximum possible layer height decreases. Likewise, a smaller nozzle enables *lower* layer heights because it can better control emitting *smaller amounts of material*.
 
 > [!IMPORTANT]
-> With many printers, you can change *nozzle diameter* by unscrewing the metal nozzle at the bottom of the hotend. Some printer manufacturers, including *Snapmaker* and *Bambulab*, do not support switching nozzles. Instead, they require users to switch the entire hotend. So in order to change the default *0.4mm nozzle diameter* on a *Snapmaker J1* to a finer *0.2mm*, you need to purchase *two new 0.2mm hotends* at a total cost of roughly €100.
+> Of course, you can set *any layer height you want* in your slicer software. However, when the layer height you set does not match the nozzle diameter (and thus the minimum and maximum material flow rate - the almighty physics so to say), you get under- or over-extrusion, and your prints may fail or look ugly.
+
+Here are some rules of thumb for *layer heights*:
+
+* **Standard Layer Height:** 50% of nozzle diameter. For a default *0.4mm* nozzle, this is a *0.2mm* layer height.
+* **Minimum Layer Height:** 25% of nozzle diameter
+* **Maximum Layer Height:** 80% of nozzle diameter
+
+### Best Practice
+Amd here are some suggestions for *nozzle diameter* plus appropriate *layer height*:
+
+| Use Case | Nozzle Diameter | Minimum | Default | Maximum |
+| --- | --- | --- | --- | --- |
+| High Detail | 0.2 | 0.05 | 0.1 | 0.16 |
+| Multi Purpose | 0.4 | 0.1 | 0.2 | 0.32 |
+| Large Models and Fast Print | 0.6 | 0.15 | 0.3 | 0.48 |
+| Very Large Models/Fast Prototyping | 0.8 | 0.2 | 0.4 | 0.64 |
+
+If *print time* is no concern to you, and *print quality* is your maximum priority, you could mount a *0.2mm nozzle*, and set the *layer height* in your slicer software to *0.05mm*.
+
 
 ## Overview
 
-*Snapmaker* offers *dual hotends* for the *J1* in various diameters for roughly €100. The box comes with a *left* and a *right* hotend (they are different and clearly marked), plus a small booklet:
+*Snapmaker* offers *dual hotends* for the *J1* in various diameters for roughly €100. The box comes with a *left* and a *right* hotend (they are different and clearly marked in the area where the fan is located), plus a small booklet:
 
 <img src="images/snapmaker_j1_hotend_overview2_t.png" width="100%" height="100%" />
 
@@ -108,6 +146,18 @@ Here is how you do this in *Cura*:
 
 > [!TIP]
 > Should you plan to change hotends (and different nozzle sizes) frequently, you may want to add your *3D printer* multiple times to *Cura*, and configure each instance to one of the nozzle sizes you use. This way, you can later easily switch back and forth without having to change settings each time.    
+
+### Updating Print Settings
+Once you change the *nozzle diameter*, you need to review some of your print settings, too:
+
+* **Layer Height:** smaller nozzles require smaller layer heights (see section above) because they cannot emit as much material as a larger nozzle, and smaller layer height increases print resolution in the *Z axis*.
+* **Line Width:** should not be less than the nozzle diameter.
+* **Wall Lines:** since smaller nozzles produce smaller print lines, you may want to increase the wall thickness and related settings to ensure the same object strength as before.
+* **Skirt:** since very fine print lines are hard to remove from the print bed, if you use a *skirt*, make sure you adjust the lines. If you used 2 lines for *0.4mm nozzles*, now use 4 lines.
+
+
+> [!TIP]
+> With *0.2mm nozzles*, print lines are very narrow. Single or double print lines can be hard to remove from the print bed. If you use 
 
 
 > Tags: IDEX, Snapmaker J1, Hotend, Nozzle, Diameter, Replace Hotend
