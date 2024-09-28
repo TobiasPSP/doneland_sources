@@ -8,7 +8,7 @@ The *hotend* is the part that emits the melted plastic. It consists of a *heater
 
 A much more common reason is to change the *nozzle diameter* and improve print quality.
 
-In order to print some small high quality parts, I needed to change the default *0.4mm nozzle diameter* on my *Snapmaker J1* to *0.2mm*. Here is how you do it. 
+Recently, I needed to print high quality and detailed parts, so I decided to change the *nozzle diameter* from the default *0.4mm* to a finer *0.2mm*. Since *Snapmaker* does not support changing just the nozzles, below I illustrated the steps it takes to replace the *hotends* (including the nozzles) on a *Snapmaker J1 IDEX printer*.
 
 ## Nozzle Diameter
 
@@ -17,7 +17,7 @@ Most 3D printers come with a default nozzle diameter of *0.4mm*. This diameter d
 For better quality and to print more detail, you can *lower the diameter* to *0.2mm* at the expense of doubling the print time. Likewise, if you intend to print large objects, you may increase the nozzle diameter to *0.8mm*.
 
 > [!IMPORTANT]
-> With meny printers, you can change *nozzle diameter* by unscrewing the metal nozzle at the bottom of the hotend. Some printer manufacturers, including *Snapmaker* and *Bambulab*, do not support switching nozzles. Instead, they require users to switch the entire hotend. So in order to change the default *0.4mm nozzle diameter* on a *Snapmaker J1* to a finer *0.2mm*, you need to purchase *two new 0.2mm hotends* at a total cost of roughly €100.
+> With many printers, you can change *nozzle diameter* by unscrewing the metal nozzle at the bottom of the hotend. Some printer manufacturers, including *Snapmaker* and *Bambulab*, do not support switching nozzles. Instead, they require users to switch the entire hotend. So in order to change the default *0.4mm nozzle diameter* on a *Snapmaker J1* to a finer *0.2mm*, you need to purchase *two new 0.2mm hotends* at a total cost of roughly €100.
 
 ## Overview
 
@@ -91,6 +91,25 @@ After you replaced hotends, start by removing the glas plate from the print bed.
 
 When done, replace the glas plate on the print bed.
 
+## Updating Slicer Software
+
+Whenever you change the *nozzle diameter* on any *3D printer*, you need to adjust the settings in your favorite slicer software as well. Your 3D models need to be sliced with the correct *nozzle diameter*.
+
+Here is how you do this in *Cura*:
+
+1. Choose *Settings/Printer/Manage Printers...*. This opens a dialog with all of your installed *3D Printers*.
+
+   <img src="images/cura_manageprinters.png" width="60%" height="60%" />
+2. Select the printer, then on the right side of the dialog, click *Machine Settings*.   
+3. For each extruder (print head), the dialog shows a separate tab. Click each extruder tab, then set the new *nozzle size*.   
+
+   <img src="images/cura_manageprinters_nozzlesize.png" width="60%" height="60%" />
+
+
+> [!TIP]
+> Should you plan to change hotends (and different nozzle sizes) frequently, you may want to add your *3D printer* multiple times to *Cura*, and configure each instance to one of the nozzle sizes you use. This way, you can later easily switch back and forth without having to change settings each time.    
+
 
 > Tags: IDEX, Snapmaker J1, Hotend, Nozzle, Diameter, Replace Hotend
 
+[Visit Page on Website](https://done.land/tools/devices/3dprinter/idexsnapmakerj1/changinghotend?585932091727244036) - created 2024-09-26 - last edited 2024-09-27
