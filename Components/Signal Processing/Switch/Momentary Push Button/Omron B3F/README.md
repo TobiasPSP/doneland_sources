@@ -79,3 +79,4 @@ Internally, the buttons use *one switch only*:
 
 > Tags: Momentary, Push Button, Omron, B3F, A14, A66, A111, A29, A30, A56, A101, Button Cap, Transparent Cover
 
+[Visit Page on Website](https://done.land/components/signalprocessing/switch/momentarypushbutton/omronb3f?959613091229241408) - created 2024-09-28 - last edited 2024-09-28
