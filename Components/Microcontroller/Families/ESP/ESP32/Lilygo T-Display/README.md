@@ -7,10 +7,10 @@
 
 The Chinese company [Lilygo](https://www.lilygo.cc/) produces a variety of *IoT* devices. Its *T-Display* series specializes on *ESP32*-based [development boards with integrated displays](https://www.lilygo.cc/collections/basic-module) that all come with integrated *LiIon battery* connector and charger. *T-Display boards* are a *one-stop* solution for many microcontroller-based *IoT projects*.
 
+
+<img src="images/lilygo_tdisplay_top_side_t.png" width="60%" height="60%" />
+
 The boards base on *ESP* microcontrollers, i.e. *ESP32S*, *ESP32-S3*, and *ESP32-C3/6*. [T-Pico](https://www.lilygo.cc/products/t-pico) *adds* an additional *Raspberry RP2040* to the *ESP* microcontroller (so you can use *both*).
-
-
-
 
 
 ## Overview
@@ -25,6 +25,10 @@ Since *Lilygo* has been around for years and has a reputation to defend, the boa
 The primary feature of *T-Display development boards* is their integrated display that comes in almost all shapes and technologies. 
 
 All boards also come with a connector for a *LiIon* battery: the board can be powered via USB (stationary or off a power bank), or via a dedicated *LiIon battery*. This battery gets automatically recharged once the board is connected to USB power.
+
+Here is a picture of a basic *T-Display* board: the *LiIon* battery can be connected via a *JST 1.25mm* plug on the backside of the board, and an appropriate cable with plug is included: 
+
+<img src="images/lilygo_tdisplay_top_horiz_t.png" width="60%" height="60%" />
 
 Some models also feature programmable buttons and shells.
 

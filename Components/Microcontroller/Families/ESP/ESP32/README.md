@@ -5,63 +5,110 @@
 > High-Powered Single- And Dual-Core Microcontrollers With WiFi, Bluetooth, And Now Also Zigbee And Thread Support
 
 
-## Pins
+## GPIOs
 Since understanding which *GPIO pins* are safe to use in projects is among the most frequently needed information, this information is placed at the beginning of this article.
 
 
-#### 6 Safe ESP32 Pins
+### Always-Safe ESP32 GPIOs
 
-Below *ESP32 pins* are **safe to use** for *whatever purpose*. Whether your microcontroller board actually *exposes* a particular pin depends on the board design.
+Below *ESP32 GPIOs* are **safe to use** for *whatever purpose*. Whether your microcontroller board actually *exposes* a particular pin depends on the board design.
 
+
+| GPIO | Modes | Remark | Remark |
+| --- | --- | --- | --- |
+| 4 | Ain Din Dout | D4 | general purpose input/output GPIO|
+| 16 | Din Dout | RX2 | general purpose input/output GPIO|
+| 17 | Din Dout | TX2 | general purpose input/output GPIO|
+| 25 | Ain Aout Din Dout | DAC1 | exposes DAC1 (if used) |
+| 26 | Ain Aout Din Dout | DAC2 | exposes DAC2 (if used) |
+| 27 | Ain Din Dout |  | general purpose input/output GPIO|
+| 32 | Ain Din Dout |  | general purpose input/output GPIO|
+| 33 | Ain Din Dout |  | general purpose input/output GPIO|
+| 34 | Ain Din |  | input only, no pullup/pulldown |
+| 35 | Ain Din |  | input only, no pullup/pulldown |
+| 36 | Ain Din |  | input only, no pullup/pulldown |
+| 37 | Ain Din |  | input only, no pullup/pulldown |
+| 38 | Ain Din |  | input only, no pullup/pulldown |
+| 39 | Ain Din |  | input only, no pullup/pulldown |
+
+
+
+
+
+### Safe ESP32 Input-Only GPIOs
+
+GPIOs *34-39* are *safe* to use as *digital or analog inputs only*. These GPIOs also do not have built-in *pullup/pulldown resistors*, so if you use them as *input pin*, you need to add an external resistor in order to keep the GPIO from *floating* and producing random input values. 
+
+
+
+
+### Reserve GPIOs
+If you need even more GPIOs for your project, you can look into using the GPIOs below. They serve other purposes, too, however if you do not need their functionality (i.e. your code does not use the *I2C* interface), you get valuable additional *GPIOs*:
+
+| GPIO | Modes | Caveat |
+| --- | --- | --- | 
+| 0| Ain Din Dout | input is pulled up, outputs PWM signal at boot, must be *low* to enter flashing mode |
+| 1| Dout | **TX** pin for serial communications, debug output at boot |
+| 2| Ain Din Dout | connected to on-board *LED*, *floating* or *low* to enter flashing mode |
+| 3| Din | **RX** pin for serial communications, *high* at boot |
+| 5| Din Dout | outputs PWM signal at boot, strapping pin, VSPI |
+| 12 | Ain Din Dout | boot fails if pulled *high*, strapping pin, HSPI |
+| 13 | Ain Din Dout | free to use if HSPI is not used|
+| 14 | Ain Din Dout | free to use if HSPI is not used |
+| 15 | Ain Din Dout | free to use if HSPI is not used |
+| 18 | Din Dout | free to use if VSPI is not used |
+| 19 | Din Dout | free to use if VSPI is not used |
+| 21 | Din Dout | free to use if I2C is not used |
+| 22 | Din Dout | free to use if I2C is not used |
+| 23 | Din Dout | free to use if VSPI is not used |
+
+
+
+### Interface Pins (I2C and SPI)
+The GPIOs below are used for *I2C* and *SPI* communications. If you do not require these interfaces, you are free to use these GPIOs for other things.
+
+#### I2C
+| GPIO | Label | Remark |
+| --- | --- | --- |
+| 21 | D21 | SDA |
+| 22 | D2 | SCL |
+
+#### SPI
+
+
+| Function | VSPI | HSPI | 
+| --- | --- | --- | 
+| MOSI | 23 | 13 | 
+| MISO | 19 | 12 |
+| CLK | 18 | 14 |
+| CS | 5 | 15 |
+
+
+### Strapping Pins
+If you *need even more* GPIOs, you can use the additional *four GPIOs* listed below - provided **you do not inappropriately use** these pins *during boot time*.
 
 | GPIO | Label | Remark |
 | --- | --- | --- |
-| 4 | D4 | general purpose input/output GPIO|
-| 13 | D13 | general purpose input/output GPIO|
-| 14 | D14 | general purpose input/output GPIO|
-| 16 | RX2 | general purpose input/output GPIO|
-| 17 | TX2 | general purpose input/output GPIO|
-| 20 | D20 | general purpose input/output GPIO|
+| 0  |  0 | *low* to run ROM serial boot loader. Else, run custom code |
+| 2 | D2 | if GPIO is *high*, then GPIO2 is ignored.  Else, must be *low/floating* to enter boot loader. |
+| 5 | D5 | controls timing of *SDIO slave*, default is *high* during boot (rising-edge output). Irrelevant when chip uses normal SPI flash. Used for CS in VSPI. |
+| 12 | D12 | sets flash voltage (3.3V by default). If set to *high* on accident during boot, 3.3V flash receives 1.8V and browns out |
+| 15 | D15 | *low* silences boot messages |
+
+In reality, the restrictions may not be so severe after all:
+
+* **GPIO0:** **do not use**
+* **GPIO2:** must never be hard-wired to *high*. In your code, you can freely use *GPIO2* because your code will not run when boot mode was enabled via the *boot button*, and *GPIO2* only matters in boot mode.
+* **GPIO5:** its strapping functionality does not apply to normal development boards, so it can be freely used unless *hardware SPI* is needed (i.e. for color displays or other high speed peripherals)
+* **GPIO12:** must never be hard-wired to *high*. In your code, you can freely use *GPIO2* because your code will only run *after* the flash voltage has been set.
+* **GPIO15:** Freely usable. Whether nor not boot messages are emitted is not interfering with boot.
+
+Try to avoid using these pins as *inputs* (in which case you cannot control whether a user or input sensor delivers a *high* signal in the wrong moment), and never hard-code these pins to *high* levels otherwise.
+
+From your code, you can use these *GPIOs* without much restrictions.
 
 
-#### 4 Safe ESP32 Input-Only Pins
-
-The pins below are *safe* to use for *inputs only*. These pins also do not have built-in *pullup/pulldown resistors*, so if you use them as *input pin*, you need to add an external resistor in order to keep the pin from *floating* and producing random input values. 
-
-| GPIO | Label | Remark |
-| --- | --- | --- |
-| 34-35 | D34-D35 | input only, no pullup/pulldown resistor |
-| 36 | VP | input only, no pullup/pulldown resistor |
-| 39 | VN | input only, no pullup/pulldown resistor |
-
-  
-
-#### 5 Interface Pins (I2C and SPI)
-The pins below are used for *I2C* and *SPI* communications. If you do not require these interfaces, you are free to use their pins for other things.
-
-
-| GPIO | Label | Remark |
-| --- | --- | --- |
-| 18-19 | D18-D19 | SPI: 18=SCLK, 19=MISO |
-| 21-22 | D21-D22 | I2C: 21=SDA, 22=SCL |
-| 23 | D23 | SPI: MOSI |
-
-
-#### 4 Strapping Pins
-If you *need even more* pins, you can use the additional *four pins* listed below - provided **you do not use** these pins *during boot time*.
-
-| GPIO | Label | Remark |
-| --- | --- | --- |
-| 0  |  0 | *low* to enter firmware upload mode |
-| 2 | D2 | pin is attached to internal LED (if present), must be *low* during boot |
-| 5 | D5 | must be *high* during boot |
-| 12 | D12 | must be *low* during boot |
-| 15 | D15 | prevents boot log if pulled *low* |
-
-> [!CAUTION]
-> *Strapping pin* states are read and set by the microcontroller during boot and determine things like *boot mode* (normal boot vs. firmware upload boot) and *boot logging*. **Do not** pull these pins high or low during *boot*, or else your microcontroller may not start correctly.    
-
-#### 2 Serial Comm Pins
+### Serial Com GPIOs
 
 The *serial communications interface* is used to upload new *firmware*, and often also to *communicate* with it: `Serial.print()` commands in your firmware code can output information, i.e. sensor data, that show in the *terminal window* of an *IDE*.
 
@@ -74,9 +121,19 @@ During normal operation, and if you don't need serial communications yourself, i
 | 3 | RX0 | serial comm (receive) |
 
 
-However, using these pins may require prerequisites to not interfere with required *serial comm* during *boot* or *firmware upload*.
+However, using these GPIOs may require prerequisites to not interfere with required *serial comm* during *boot* or *firmware upload*.
 
 Since *your firmware code* **can not** run at these sensitive instances, your code is always fine. What you do need to consider is your *hardware design* and *schematics*: **do not** physically pull-up or pull-down these pins or connect components to these pins that can alter their state during *boot*.
+
+### Ghost GPIOs
+For unknown reasons, six GPIOs are generally not exposed in the *ESP32S GPIO MUX*, so they are *never exposed* on *any board*:
+
+
+| GPIO | Label | 
+| --- | --- |
+| 20 | newer versions may expose this GPIO after all |
+| 24 | not working |
+| 28-30 | not working |
 
 
 ## ESP32 Microcontroller Types
