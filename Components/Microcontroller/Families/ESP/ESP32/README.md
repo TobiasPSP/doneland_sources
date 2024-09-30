@@ -68,10 +68,14 @@ If you need even more GPIOs for your project, you can look into using the GPIOs 
 The GPIOs below are used for *I2C* and *SPI* communications. If you do not require these interfaces, you are free to use these GPIOs for other things.
 
 #### I2C
+
+
 | GPIO | Label | Remark |
 | --- | --- | --- |
 | 21 | D21 | SDA |
 | 22 | D2 | SCL |
+
+
 
 #### SPI
 
