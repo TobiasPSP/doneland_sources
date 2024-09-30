@@ -146,3 +146,4 @@ There are three options to supply power to the board:
  
 > Tags: Lilygo, T-Display
 
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display?261761091530243112) - created 2024-09-29 - last edited 2024-09-29
