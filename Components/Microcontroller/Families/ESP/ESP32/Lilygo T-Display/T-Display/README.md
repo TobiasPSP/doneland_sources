@@ -48,8 +48,8 @@ Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two 
 | GPIO | Modes | Exposed? | Remark |
 | --- | --- | --- | --- |
 | 4 | Ain Din Dout | no | used for display BL |
-| >13 | Ain Din Dout | available*) |
-| >15 | Ain Din Dout | available*) |
+| >13 | Ain Din Dout | available&ast;) |
+| >15 | Ain Din Dout | available&ast;) |
 | 16 | Din Dout | no | used for display DC |
 | >17 | Din Dout | yes | available |
 | >25 | Ain Aout Din Dout | yes | available |
@@ -64,7 +64,7 @@ Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two 
 | 38 | Ain Din | yes | input only, no pullup/pulldown |
 | 39 | Ain Din | yes | input only, no pullup/pulldown |
 
-*) *HSPI* is not fully exposed anyway and therefore cannot be used - marked *GPIOs* are free to use for other purposes.
+&ast;) *HSPI* is not fully exposed anyway and therefore cannot be used - marked *GPIOs* are free to use for other purposes.
 
 > *GPIOs* marked with `>` are recommended *GPIOs* that can serve as *input* and *output* and have no caveats or restrictions.
 
@@ -90,8 +90,6 @@ The board uses the default *ESP32 I2C* pins:
 | 21 | SDA |
 | 22 | SCL |
 
-
-<img src="images/lilygo_tdisplay_top_side_t.png" width="90%" height="90%" />
 
 The board uses *VSPI* for its internal display. *HSPI* pins are not fully exposed (*GPIO14*/*CLK* missing) so *HSPI* is not meant to be used as a secondary *SPI* interface:
 
@@ -128,12 +126,19 @@ You are good to use the GPIOs below as long as you do not use them as *inputs*, 
 
 There are three options to supply power to the board:
 
+
+<img src="images/lilygo_tdisplay_top_side_t.png" width="90%" height="90%" />
+
 | Source | Voltage Range | Remarks |
 | --- | --- | --- |
 | USB-C | 3.8-6.0V | *5V input* passes the internal *AP2112K* voltage regulator which delivers *3.3V* to the board |
 | 5V pin | 3.8-6.0V | same as *USB input* |
 | 3.3V pin | 2.3-3.6V  | input power bypasses the voltage regulator and is directly supplied to the board and chip. The input voltage must be in the range of *2.3-3.6V* for the CPU (but may need to be closer to *3.3V* for the display). If the voltage exceeds *3.6V*, the CPU may be destroyed. *ESP32S* may be powered directly by *LiFePo4* batteries, but never directly off *LiIon* batteries. Supplying power via *3.3V pin* is improving overall efficiency and minimizing power consumption but requires you to ensure correct voltage range |
 | LiIon |  3.7-4.2V | All *T-Display* boards feature a *LiIon battery* connector (located on the back). When not connected to any other power source, *LiIon battery input* is processed by the same *AP2112K* voltage regulator that processes the *USB input voltage*. When connected to a *5V power source* like *USB*, an integrated charger (*TP4054*) recharges the *LiIon battery*.
+
+
+<img src="images/lilygo_tdisplay_back_side_t.png" width="90%" height="90%" />
+
 
 ## Materials
 

@@ -70,10 +70,10 @@ The GPIOs below are used for *I2C* and *SPI* communications. If you do not requi
 #### I2C
 
 
-| GPIO | Label | Remark |
-| --- | --- | --- |
-| 21 | D21 | SDA |
-| 22 | D2 | SCL |
+| GPIO | Remark |
+| ---  | --- |
+| 21  | SDA |
+| 22  | SCL |
 
 
 
