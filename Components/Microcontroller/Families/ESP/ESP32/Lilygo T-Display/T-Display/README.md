@@ -52,6 +52,10 @@ The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It ha
 | Voltage Regulator | [AP2112K](materials/ap2112_voltage_regulator.pdf), >600mA |
 | Support | [T-Display Github](https://github.com/Xinyuan-LilyGO/TTGO-T-Display) |
 
+
+<img src="images/lilygo_t-display_defaultfirmware_startscreen_t.png" width="60%" height="60%" />
+
+
 ## GPIOs
 The board offers generous 16 GPIOs, however certain restrictions apply:
 
@@ -205,6 +209,23 @@ The two larger buttons can be programmed:
 | 0 | left | *low active*, pulled up. When pressed during boot, the ROM bootloader launches. Once your firmware runs, *low* when button is pressed, else *high* |
 | 35 | right | *high active* |
 
+## Firmware
+The board comes with a preloaded default firmware which makes it simple to test-drive it. When you power on the board, the display shows a *TTGO* logo, followed by some full color screens.
+
+
+<img src="images/lilygo_t-display_defaultfirmware_startscreen2_t.png" width="60%" height="60%" />
+
+
+You then find yourself in a menu: pressling the left push button starts a *WiFi Scan*, while pressing the right button either shows the battery voltage (if an external LiIon battery is connected), or switches right away into deep-sleep mode.
+
+
+
+<img src="images/lilygo_t-display_defaultfirmware_scanner_t (1).png" width="60%" height="60%" />
+
+The board can be programmed by using the typical development environments (*ArduinoIDE* or *platformio*), or by using *ESPHome*.
+
+
+<img src="images/lilygo_t-display_defaultfirmware_clock_t.png" width="100%" height="100%" />
 
 
 ## Materials
