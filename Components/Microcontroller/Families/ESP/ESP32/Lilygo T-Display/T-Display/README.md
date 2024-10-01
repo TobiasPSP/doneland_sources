@@ -4,27 +4,52 @@
 
 > Classic ESP32S Microcontroller With 1.14 Inch Color TFT At 135x240 Resolution
 
-The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is an affordable *general purpose* *ESP32S development board*. It comes with a 1.14" TFT color display (135x240 resolution) at high density (260PPI), a *USB-C* connector, and a *JST 1.25mm* connector for a rechargeable *LiIon battery*.
+The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is the initial version of the *T-Display* series: it is an affordable *general purpose* *ESP32S development board*. Recent models ship with 16MB memory. 
+
+## Overview
+
+The board features a built-in SPI-driven 1.14" TFT color display (135x240 resolution) at high density (260PPI), equipped with a programmable backlight (*GPIO4*). 
+
+
+<img src="images/lilygo_t-display_pinout.png" width="100%" height="100%" />
+
+
+It comes with *two programmable push buttons*, a *JST 1.25mm connector* for a *LiIon battery* (that can be charged using its *USB-C power supply*), and a built-in voltage monitor.
+
+There are 8 freely usable digital and analog *GPIOs*, 4 digital and analog **input-only** *GPIOs*, two strapping pin *GPIOs*, and two *I2C GPIOs*. At a maximum, you can use *16 GPIOs*.
+
+### No Built-In LED
+The board does have a *blue LED* on the backside, however it is tied to the charger electronics and cannot be programmed. 
+
+So there is *no programmable LED* on this board - which is unfortunate: such LEDs can be useful for debugging, and testing the board with a simple *blink* sketch is not possible.
+
 
 
 <img src="images/lilygo_tdisplay_all_angle_t.png" width="60%" height="60%" />
 
-The package comes with a battery cable and is available with soldered or unsoldered header pins. The *ESP32S* is available in a *4MB* and a *16MB* version. A *shell case* can be ordered separately if you don't want to *3D print* your own.
+The package comes with a battery cable plus plug. The board is available with soldered or unsoldered header pins. 
+
+> [!TIP]
+> Do not immediately peel off the protective film on the display. Soldering the header pins takes place very close to the display, and there may be drops of flux spilled onto it.
+
+
+The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It has no *PSRAM*. A *shell case* can be ordered separately, or you can [3D print a shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file) yourself.
 
 | Item | Value |
 | --- | --- |
 | Microcontroller | ESP32S (Xtensa dual-core LX6) |
+| Memory | 4MB or 16MB |
 | UART | CH9102 |
-| Flash RAM | 4M or 16M |
 | Onboard functions | two programmable buttons, battery power detection, charger |
-| Display | 1.14 Inch IPS LCD |
+| Display | 1.14 Inch TFT |
 | Resolution | 135x240 |
 | Density | High Density 260 PPI |
-| Driver | ST7789 |
-| Charger | TP4054 |
+| Driver | [ST7789](materials/st7789_datasheet.pdf) |
+| Library | [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) |
+| Charger | [TP4054](materials/tp4054_datasheet.PDF) |
 | Charging Current | 500mA |
 | Size | 51.52x25.04x8.54mm |
-| Voltage Regulator | AP2112K |
+| Voltage Regulator | [AP2112K](materials/ap2112_voltage_regulator.pdf), >600mA |
 | Support | [T-Display Github](https://github.com/Xinyuan-LilyGO/TTGO-T-Display) |
 
 ## GPIOs
@@ -40,9 +65,11 @@ The board offers impressive 16 GPIOs, however certain restrictions apply:
 <img src="images/lilygo_tdisplay_top_2_t.png" width="90%" height="90%" />
 
 
-
 ### Eight Prime-Time GPIOs + Four Input-Only
-Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two of these for the built-in display, one to measure the battery voltage, and one for a built-in push button. 
+Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two of these for the built-in display, one to measure the battery voltage, and one for the right built-in push button.
+
+> [!NOTE]
+> The left push button is connected to *GPIO0* and is *low active*: when pressed, it connects to *GND*. Otherwise, it is *pulled up*. If you hold this button during power-on, the ROM bootloader is launched (so the button serves as classic *boot button*). Once your firmware takes control, *GPIO0* can be freely used, and when you configure it as *input*, it will be *low* when the left button is pressed, otherwise *high*.
 
 
 | GPIO | Modes | Exposed? | Remark |
@@ -77,22 +104,20 @@ Additional *GPIOs* can be used if your code does not require associated interfac
 
 | GPIO | Modes | Caveat |
 | --- | --- | --- | 
-| 2| Ain Din Dout | on-board *LED*, *floating* or *low* to enter flashing mode |
+| 2| Ain Din Dout | boot fails if pulled *high*, strapping pin |
 | 12 | Ain Din Dout | boot fails if pulled *high*, strapping pin, HSPI |
 | 21 | Din Dout | free to use if I2C is not used |
 | 22 | Din Dout | free to use if I2C is not used |
 
 ## I2C and SPI
 
-The board uses the default *ESP32 I2C* pins:
+The board uses the default *ESP32S I2C* pins:
 
 | Pin | Description |
 | --- | --- |
 | 21 | SDA |
 | 22 | SCL |
 
-> [!IMPORTANT]
-> In older *T-Display board designs*, the onboard *LED* was connected to *GPIO22* - which interfered with *I2C*. As a [workaround](https://www.paleotechnologist.net/?p=4689), *I2C SDL* was moved to *GPIO23*, which did not seem to work either for *I2C* (as this pin is not exposed). With the recent *T-Display* models, the *I2C GPIOs* are back in place. 
 
 The board uses *VSPI* for its internal display. *HSPI* pins are not fully exposed (*GPIO14*/*CLK* missing) so *HSPI* is not meant to be used as a secondary *SPI* interface:
 
@@ -104,7 +129,7 @@ The board uses *VSPI* for its internal display. *HSPI* pins are not fully expose
 | CLK | - | - |
 | CS | - | 15 |
 
-*Lilygo* labels these *GPIOs* as freely usable.
+That's why *Lilygo* labels these *GPIOs* as freely usable.
 
 ## Strapping Pins
 Here is a list of the exposed *strapping pins* that can influence (or impair) the boot process:
@@ -132,7 +157,7 @@ This board comes with a hard-wired 1.14 Inch color TFT display at a resolution o
 
 <img src="images/lilygo_tdisplay_top_side_t.png" width="90%" height="90%" />
 
-It uses these GPIOs:
+It internally uses these six GPIOs:
 
 | GPIO | Description |
 | --- | --- |
@@ -146,7 +171,7 @@ It uses these GPIOs:
 
 ## Power
 
-There are three options to supply power to the board:
+There are three options to power the board:
 
 
 
@@ -170,20 +195,19 @@ The two larger buttons can be programmed:
 
 | GPIO | Button | Remark |
 | --- | --- | --- |
-| 0 | left | when held down during boot, ROM boot loader is entered. In normal mode, *GPIO0* can be used as input to read the button state. *Low active*. |
-| 35 | right | |
+| 0 | left | *low active*, pulled up. When pressed during boot, the ROM bootloader launches. Once your firmware runs, *low* when button is pressed, else *high* |
+| 35 | right | *high active* |
 
 
 
 ## Materials
 
-[Schematics PNG](materials/lilygo_t-display.png)    
-[Schematics PDF](materials/lilygo_t-display.pdf)    
-[3D Printable Shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file)    
+[Schematics (PNG)](materials/lilygo_t-display.png),  [Schematics (PDF)](materials/lilygo_t-display.pdf)    
+[ST7789V Video Controller](materials/st7789_datasheet.pdf)    
 [AP2112 Voltage Regulator](materials/ap2112_voltage_regulator.pdf)    
 [TP4054 LiIon Charger](materials/tp4054_datasheet.PDF)    
-[ST7789V Video Controller](materials/st7789_datasheet.pdf)    
- 
+[3D Printable Shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file)    
+
 > Tags: Lilygo, T-Display
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display?261761091530243112) - created 2024-09-29 - last edited 2024-09-29
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display?261761091530243112) - created 2024-09-29 - last edited 2024-10-01
