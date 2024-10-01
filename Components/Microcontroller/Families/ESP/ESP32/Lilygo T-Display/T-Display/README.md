@@ -42,14 +42,15 @@ The board offers impressive 16 GPIOs, however certain restrictions apply:
 
 
 ### Eight Prime-Time GPIOs + Four Input-Only
-Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two of these for the built-in display. 
+Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two of these for the built-in display, one to measure the battery voltage, and one for a built-in push button. 
 
 
 | GPIO | Modes | Exposed? | Remark |
 | --- | --- | --- | --- |
 | 4 | Ain Din Dout | no | used for display BL |
-| >13 | Ain Din Dout | available&ast;) |
-| >15 | Ain Din Dout | available&ast;) |
+| >13 | Ain Din Dout | yes | available |
+| 14 | Ain Din Dout | no | measures battery voltage |
+| >15 | Ain Din Dout |yes | available |
 | 16 | Din Dout | no | used for display DC |
 | >17 | Din Dout | yes | available |
 | >25 | Ain Aout Din Dout | yes | available |
@@ -58,13 +59,13 @@ Below are the *always-safe GPIOs* available on any *ESP32S*. The board uses two 
 | >32 | Ain Din Dout | yes | available |
 | >33 | Ain Din Dout | yes | available |
 | 34 | Ain Din | no |  |
-| 35 | Ain Din | no |  |
+| 35 | Ain Din | not directly, wired to right onboard push button |  |
 | 36 | Ain Din | yes | input only, no pullup/pulldown |
 | 37 | Ain Din | yes | input only, no pullup/pulldown |
 | 38 | Ain Din | yes | input only, no pullup/pulldown |
 | 39 | Ain Din | yes | input only, no pullup/pulldown |
 
-&ast;) *HSPI* is not fully exposed anyway and therefore cannot be used - marked *GPIOs* are free to use for other purposes.
+> *HSPI* is not fully exposed anyway and therefore cannot be used - marked *GPIOs* are free to use for other purposes.
 
 > *GPIOs* marked with `>` are recommended *GPIOs* that can serve as *input* and *output* and have no caveats or restrictions.
 
@@ -90,6 +91,8 @@ The board uses the default *ESP32 I2C* pins:
 | 21 | SDA |
 | 22 | SCL |
 
+> [!IMPORTANT]
+> In older *T-Display board designs*, the onboard *LED* was connected to *GPIO22* - which interfered with *I2C*. As a [workaround](https://www.paleotechnologist.net/?p=4689), *I2C SDL* was moved to *GPIO23*, which did not seem to work either for *I2C* (as this pin is not exposed). With the recent *T-Display* models, the *I2C GPIOs* are back in place. 
 
 The board uses *VSPI* for its internal display. *HSPI* pins are not fully exposed (*GPIO14*/*CLK* missing) so *HSPI* is not meant to be used as a secondary *SPI* interface:
 
@@ -122,12 +125,30 @@ You are good to use the GPIOs below as long as you do not use them as *inputs*, 
 * **GPIO12:** must never be hard-wired to *high*. In your code, you can freely use *GPIO2* because your code will only run *after* the flash voltage has been set.
 * **GPIO15:** Freely usable. Whether nor not boot messages are emitted is not interfering with boot.
 
+## Display
+
+This board comes with a hard-wired 1.14 Inch color TFT display at a resolution of 135x240 and a pixel density of 260 PPI.
+
+
+<img src="images/lilygo_tdisplay_top_side_t.png" width="90%" height="90%" />
+
+It uses these GPIOs:
+
+| GPIO | Description |
+| --- | --- |
+| 4 | Backlight (BL) |
+| 5 | CS |
+| 16 | DC |
+| 18 | SCLK |
+| 19 | MOSI |
+| 23 | Reset (RST) |
+
+
 ## Power
 
 There are three options to supply power to the board:
 
 
-<img src="images/lilygo_tdisplay_top_side_t.png" width="90%" height="90%" />
 
 | Source | Voltage Range | Remarks |
 | --- | --- | --- |
@@ -138,6 +159,20 @@ There are three options to supply power to the board:
 
 
 <img src="images/lilygo_tdisplay_back_side_t.png" width="90%" height="90%" />
+
+## Onboard Buttons
+The board comes with *two large* push buttons on the top, and a smaller button on the side. The smaller button is the *Reset* button.
+
+
+<img src="images/lilygo_tdisplay_cover_front_t.png" width="60%" height="60%" />
+
+The two larger buttons can be programmed:
+
+| GPIO | Button | Remark |
+| --- | --- | --- |
+| 0 | left | when held down during boot, ROM boot loader is entered. In normal mode, *GPIO0* can be used as input to read the button state. *Low active*. |
+| 35 | right | |
+
 
 
 ## Materials
