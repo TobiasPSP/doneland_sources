@@ -127,7 +127,7 @@ Inside this folder, you find plenty of examples, organized by display resolution
 To use one of the examples, open the example *.ino* file in *VSCode*, select the entire code, and paste it into your main source code file `src\mainapp.cpp`. Replace all the sample code that existed in this file.
 
 
-<img src="images/lilygo_t-display_example_pong_t.png" width="100%" height="100%" />
+<img src="images/lilygo_t-display_example_pong_t.png" width="50%" height="50%" />
 
 If you want to follow along, choose the example `.pio\libdeps\lilygo-t-display\TFT_eSPI\examples\160 x 128\Pong_v3`. It will display an exciting round of super-fast *Pong* on the display (you can only watch, not play). This particular example covers a lot of excellent learning points, though:
 
@@ -276,7 +276,7 @@ With *T-Display*, there is no need to manually switch to bootloader mode. It is 
 
 
 
-<img src="images/lilygo_t-display_example_pong_t.png" width="100%" height="100%" />
+<img src="images/lilygo_t-display_example_pong_t.png" width="50%" height="50%" />
 
 
 
@@ -291,3 +291,5 @@ If you do run into issues, check these:
 [platformio T-Display Pong Example](materials/t_display_pong.zip)
 
 > Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong
+
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/writingcode?075453101202242631) - created 2024-10-01 - last edited 2024-10-01
