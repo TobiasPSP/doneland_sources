@@ -136,10 +136,10 @@ If you want to follow along, choose the example `.pio\libdeps\lilygo-t-display\T
 
 
 > [!IMPORTANT]
-> The simple *Pong3* example comes with a single source code file. If the example folder contains additional resources such as additional `.h` files, pictures, or fonts, then you need to *also* copy them to your main `src` folder. 
+> The simple *Pong3* example comes with a single source code file. If the example folder contained additional resources such as additional `.h` files, pictures, or fonts, then you would have needed to *also* copy them to your main `src` folder. 
 
 ### Testing Code
-Before you change the code in any way, make sure you got all that is needed: try and compile it: in the *platform.io Project Tasks* tree, click *Build*.
+Before you change the code in any way, make sure you got all that is needed. Try and compile it: in the *platform.io Project Tasks* tree, click *Build*.
 
 This starts the compilation process which takes place in the console window. Look for *errors*, and check to see whether the compilation ended successfully or failed.
 
@@ -151,17 +151,20 @@ This starts the compilation process which takes place in the console window. Loo
 
 
 ### Fixing Code Issues
-The most common causes for compilation failure are missing libraries (we have taken care of this), and *incompatibilities between **ArduinoIDE** and **platformio***.
+The most common causes for compilation failure are missing libraries (we have taken care of that), and *incompatibilities between **ArduinoIDE** and **platformio***.
 
-The latter is the culprit here: the example file's extension `.ino` suggested that these examples were created using *ArduinoIDE*. These files are a *special flavor* of generic `.cpp` files.
+The latter is the culprit here: the example file's extension `.ino` suggests that these examples have been created using *ArduinoIDE*. *Arduinos'* `.ino` files are a *special flavor* of generic `.cpp` files.
 
 #### Adding `Arduino.h`
-To fix this, add `#include <Arduino.h>` to your code. This include statement is added automatically in *ArduinoIDE* and may be needed elsewhere.
+To fix this, add `#include <Arduino.h>` to your code. This *include* statement is added automatically in *ArduinoIDE* and may be needed elsewhere.
 
 #### Changing Order Of Function Declarations
-A much more severe issue is the *order in which functions are defined* in your code. In *ArduinoIDE*, functions can be declared in any order. *platformio* is adhering more to *C++* standards and requires functions to be declared **before** they can be used by another function.
+A much more severe issue is the *order in which functions are defined* in the code:
 
-To fix this, you need to reorder the functions in your code. For this, take a look at the compiler errors. You see errors like this:
+* In *ArduinoIDE*, functions can be declared in any order.     
+* *platformio* is adhering more to *C++* standards and requires functions to be declared **before** they can be used by another function.
+
+To fix this, reorder functions in the code. For this, first take a look at the compiler errors. You see errors like this:
 
 ````
 src/main.cpp: In function 'void setup()':
@@ -185,14 +188,14 @@ src/main.cpp:80:3: note: suggested alternative: 'lpaddle_d'
 ````
 
 #### Moving `setup()` and `loop()` to the end
-Translating these error messages, they say: function *setup()* called function *initgame()*, but *initgame()* was not declared (at this point, at least). Same for *loop()*.
+Translating these error messages, they basically say: function *setup()* called function *initgame()*, but *initgame()* was not declared (at this point, at least). Same for *loop()*.
 
 Therefore, the first thing to try is to move *setup()* and *loop()* to the **end** of the code, then call *Build* again.
 
 If this does not fix all errors (like in this example), move to the next section. Else, you are done.
 
 #### Moving Individual Functions
-After shifting *setup()* and *loop()* to the end of the code, the number of compiler errors was reduced, but there are still errors:
+After shifting *setup()* and *loop()* to the end of the code, the number of compiler errors is reduced, but there are still errors:
 
 ````
 src/main.cpp: In function 'void initgame()':
@@ -201,28 +204,26 @@ src/main.cpp:66:3: error: 'calc_target_y' was not declared in this scope
    ^~~~~~~~~~~~~
 ````
 
-This time, the function *initgame()* called *calc_target_y()* before it was declared. So you need to move *calc_target_y* upwards in the code, above the declaration for *initgame()*.
+This time, the function *initgame()* called *calc_target_y()* before it was declared. You would need to move *calc_target_y* upwards in the code, above the declaration for *initgame()*.
 
-Then you'd need to do the same for all other conflicts that caused compiler errors.
+Or you could push *initgame()* lower, just like you did with *setup()* and *loop()*.
 
 > [!TIP]
-> In this particular example, *initgame()* serves a similar purpose as *setup()* and *loop()*. In cases like this, you should first try and move *loop()* to the end of the code, right above *setup()*, and *Build* again to see whether this already solved the issue. And it turns out: that fixed it!
+> *initgame()* seems to serve a similar purpose like *setup()* and *loop()*. That's why it is much easier to move *initgame()* to the end of the code, right above *setup()*, rather than *moving up* all other functions. *Build* again to see whether this solved the issue. And it turns out: it did.
 
 
 <img src="images/lilygo_t-display_platformio_examples3.png" width="100%" height="100%" />
 
 
 ### Adjusting Code
-Before you upload the code to your *T-Display board, you may want to adjust it.
-
-At the start of the code, it defines the display resolution (*128x160*):
+Before you upload the code to your *T-Display* board, you may want to fine-tune the code. At the start of the code, it defines the display resolution (*128x160*):
 
 ````c++
 int16_t h = 128;
 int16_t w = 160;
 ````
 
-The *T-Display* uses a resolution of *135x240*, so you may want to unlock the true real-estate of your display by changing:
+The *T-Display* uses a resolution of *135x240*, so to unlock the true real-estate of your display, change the code to this:
 
 ````c++
 int16_t h = 135;
