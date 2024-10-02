@@ -13,8 +13,6 @@ Programming your own firmware is the most flexible approach: **you** decide what
 
 The price to pay is *programming* (which requires some *C++* skills), and it is up to you to find and download appropriate libraries that support your peripherals - such as the built-in TFT display.
 
-> [!NOTE]
-> This article assumes that you have installed and configured *platformio* or are familiar with *ArduinoIDE*.
 
 
 You can start programming firmware in two ways:
@@ -53,8 +51,8 @@ board = lilygo-t-display
 framework = arduino
 ````
 
-### Add eTFT Library
-*T-Display* comes with a *TFT color display*. In order to program it and display things on it, you add the *TFT_eSPI* library to your project:
+### Add TFT Library
+*T-Display* comes with a *TFT color display*. In order to program it and display things on it, you can add the *TFT_eSPI* library to your project. It supports a rich set of TFT displays and video controllers (including those used in *T-Display*):
 
 1. In the *platformio* *Project Tasks* tree, click *Libraries*. A search panel opens. In the search text box, enter *TFT_eSPI*, and click the *magnifier* icon.
 
@@ -73,7 +71,7 @@ framework = arduino
 
     <img src="images/lilygo_t-display_platformio_newproject6.png" width="50%" height="50%" />
 
-It takes a few seconds for *platformio* to download and unpack the library. It is automatically placed inside your project folder.
+Once downloaded, the library is automatically unpacked and placed inside your project folder.
 
 Your *platformio.ini* file now looks like this:
 
@@ -88,24 +86,26 @@ lib_deps = bodmer/TFT_eSPI@^2.5.43
 
 
 ### Configure eTFT Library
-Adding the *TFT_eSPI* library to your project is not enough: you need to *configure* it so it matches your board, your display (and resolution), video controller, and used *GPIO* pins.
+Adding the *TFT_eSPI* library to your project is just the first of two steps: you need to *configure* the library so it know what your display and video controller is. Without this, your display remains blank.
 
-Fortunately, this step is really simple because the library already knows your board and display (among hundreds of others).
+Fortunately, this step is very simple: the library already knows your board and display (among hundreds of others). You just need to select it.
 
 The library is part of your project folder. In the explorer-like file tree in *VSCode*, the library is always located here: `.pio\libdeps\lilygo-t-display\TFT_eSPI`.
 
-Inside this folder, there is a file called `User_Setup_Select.h`. When you open it, it has only one active line:
+Inside this folder, there is a file called `User_Setup_Select.h`. When you open it, it has only one active `#include` line:
 
 ````c++
 #include <User_Setup.h>           // Default setup is root library folder
 ````
-All other lines are commented out. 
+All other `#include` lines are commented out. 
 
-To adapt the library to any display and/or controller, *comment out* the default line, and *comment in* the line that describes your scenario. For *T-Display*, here is what you do:
+To adapt the library to any display and/or controller, *comment out* the default line, and *comment in* the line that describes your setup. For *T-Display*, here is what you do:
 
 ````c++
+// comment out the default include:
 //#include <User_Setup.h>           // Default setup is root library folder
 
+// comment in the file for your board:
 #include <User_Setups/Setup25_TTGO_T_Display.h>    // Setup file for ESP32 and TTGO T-Display ST7789V SPI bus TFT
 ````
 Once you saved your changes, you are done.
@@ -116,12 +116,12 @@ The *TFT_eSPI* library comes with a lot of example code. It is just a bit unintu
 
 
 
-Inside this folder, you find plenty of examples, organized by display resolution and other features:
+Inside this folder, you find plenty of examples, organized by display resolution and features:
 
 <img src="images/lilygo_t-display_platformio_examples1.png" width="100%" height="100%" />
 
 > [!IMPORTANT]
-> *TFT_eSPI* is a *generic TFT display library* not affiliated with any particular board or display. The *T-Display resolution* of *135x240* pixels is rather unusual. Use the examples in the folder *160x128* as a start. You can adjust the resolution to your full screen capacity later.   
+> *TFT_eSPI* is a *generic TFT display library* not affiliated with any particular board or display. The *T-Display resolution* of *135x240* pixels is rather uncommon. Use the examples in the folder *160x128* as a start. You can adjust the resolution to your full screen capacity later.   
 
 ### Copying Example Code
 To use one of the examples, open the example *.ino* file in *VSCode*, select the entire code, and paste it into your main source code file `src\mainapp.cpp`. Replace all the sample code that existed in this file.
