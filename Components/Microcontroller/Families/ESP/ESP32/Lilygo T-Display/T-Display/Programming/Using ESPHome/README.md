@@ -323,12 +323,12 @@ Once the firmware is uploaded, the board does this:
 
 Connect the board via *USB-C* to a *powerbank*, or hook up a single *LiIon* battery to the *JST 1.25* jack at its bottom side, and move around to see the green bar change.
 
-### Home Assistant
-If you use *ESPHome* in combination with *Home Assistant*, you receive a notification that a new device was discovered. Add your new *T-Display* device to *Home Assistant*.
+## Home Assistant
+If you use *ESPHome* in combination with *Home Assistant*, the already useful *stand-alone device* gets extra benefits. So when you receive a notification from *Home Assistant* that a new device was discovered, add your new *T-Display* device to *Home Assistant*.
 
 <img src="images/t-display_esphome_device1.png" width="100%" height="100%" />
 
-On the *devices* page in *Settings/Devices & services/ESPHome*, you now see all the exposed entities:
+On the *devices* page in *Settings/Devices & services/ESPHome*, you now see all of its exposed entities:
 
 * **Display Backlight:** in the *Controls* tile, you can turn the *TFT display backlight* on or off. This uses a nice *1 sec* transition effect. The current *dimming level* that you may have set via the push buttons is kept.
 * **Buttons:** press one of the two push buttons to see their state change in the *Sensors* tile. 
@@ -344,11 +344,15 @@ Since *Home Assistant* automatically logs sensor readings, you can now easily ev
 > [!NOTE]
 > Don't worry about the high voltage spikes in the picture: when I started developing the configuration above, some settings were needed that I missed at first. Fortunately, you can start with a good configuration right away.   
 
+
+#### Power Consumption Monitoring
 Click *Show more*, then set a timespan, i.e. the past 30 minutes. You can now see how the battery voltage changed. This provides great clues about power consumption, and expected mileage that you get out of your battery.
 
 <img src="images/t-display_esphome_device1_voltage2.png" width="100%" height="100%" />
 
-The visible voltage flucuation of *0.05V* in the graph above could be eliminated by adding a simple *median filter* which is very effective in removing *outliers*:
+
+#### Smoothening Sensor Data
+The visible voltage flucuation of *0.05V* in the graph above can be eliminated by a simple *median filter*: it is very effective in removing *outliers*:
 
 ````
  filters:
@@ -358,9 +362,23 @@ The visible voltage flucuation of *0.05V* in the graph above could be eliminated
       send_every: 4
       send_first_at: 3
 ````
-   
 
-## Push Buttons
+This is illustrated by the next graph that monitored voltage drop over a course of two hours:
+
+<img src="images/t-display_esphome_device1_voltage3.png" width="100%" height="100%" />
+
+Initially, the update frequency was *1s*, and a uniform *voltage fluctuation* is visible. Next, the update frequency was raised to *5s*, and *averaging* with *20 samples* was employed. This just reduced the data points but kept the outliers. 
+
+Ultimately, the *median* filter was added which very efficiently took care of the outliers and produced a smooth curve correctly resembling the *LiIon battery* voltage drop over time.
+
+## Understanding ESPHome Configuration
+
+Now that you know what the device does, let's take a final look at the *ESPHome configuration* to see *how* this was done, and what your options are to *adjust* and *modify* the configuration to your needs.
+
+Let's take a look at the individual *T-Display* features the *configuration* addresses:
+
+
+### Push Buttons
 The two push buttons are implemented as regular `binary_sensor` of type *gpio*. Since both buttons are *low active*, the result is reversed: `inverted: True`.
 
 ````
@@ -429,11 +447,11 @@ The second button is implemented very similarly. Its *GPIO35* is however a pure 
             min_brightness: 20%
       - delay: 0.1s
 ````
-## Display
+### Display
 Let's take a look at how you access the built-in *TFT color display* in *ESPHome*:
 
 
-### SPI Interface
+#### SPI Interface
 Since the display is using the fast *SPI interface*, `spi` needs to be defined, and the approproate *GPIOs* specified.
 
 ````
@@ -443,7 +461,7 @@ spi:
   mosi_pin: GPIO19
 ````
 
-### Display and Resolution
+#### Display and Resolution
 The *display* is handled by `display`, and configured to use the `st7789v` video controller and the `TTGO TDisplay 135x240` display type.
 
 The *GPIOs* for *CS* and *DC* are specified. Note that I am **not** specifying the *GPIO4* for `backlight_pin`: in order to better control the backlight, and use dimming, it is separately declared as `light`.
@@ -458,44 +476,9 @@ display:
     backlight_pin: no
     model: TTGO TDisplay 135x240
 ````
-### Backlight
-The backlight is controlled separately via `light`, using an `output` rather than a *gpio* `binary_sensor`. This way, the backlight can be smoothly transitioned, and brightness be adjusted using *PWM*:
 
-````
-# handle built-in display backlight:
-# use a separate "light" component to enable dimming rather than
-# using the "display" property for backlight gpio
-output:
-  - platform: ledc
-    pin: 4
-    id: display_backlight_pwm
-
-light:
-  - platform: monochromatic
-    output: display_backlight_pwm
-    name: "Display Backlight"
-    id: back_light
-    restore_mode: RESTORE_AND_ON
-    effects:
-      - pulse:
-          name: noWifiConnection
-          min_brightness: 60%
-          max_brightness: 80%
-````
-As part of `light`, you can define *effects*. The configuration defines a *noWifiConnection* effect of type *pulse* that is controlled by the *lambda* inside `display` (see next section): when there is no *WiFi* connection, the effect is turned on, else off.
-
-The `light` also takes care of *restoring* the original dim level. Just make sure you set your preferences for the `flash_write_interval`: in order to protect the flash memory from constant writes, *ESPHome* writes persistent information only in intervals. That's a good thing because you don't want to save settings *while* the user may still be trying to figure out the best dimming level.
-
-The sample configuration uses a *10sec* interval: the current dimming level is preserved once it did not change for at least *10 seconds* (if you reboot or reset the board before, your recent adjustments are lost). 
-
-````
-# make sure state persists after 10sec of operation:
-preferences:
-  flash_write_interval: 10s
-````
-
-### Display Content
-The display content can be generated using a *lambda expression*. `update_interval` specifies how often the screen should be drawn:
+#### Display Content
+The display content can be generated using a *lambda expression*. `update_interval` specifies how often the screen is redrawn:
 
 ````
     update_interval: 1s
@@ -531,10 +514,47 @@ The display content can be generated using a *lambda expression*. `update_interv
       }
 ````
 
-It is of course up to you what you would like to draw on your display: `it` represents the *display` and its methods. 
+It is of course up to you what you would like to draw on your display: `it` represents the *display` and its methods.
 
-#### globals
-The configuration uses one *global variable* named *isOnline* and defaults it to *true*:
+#### Backlight
+The backlight is controlled separately via `light`, using an `output` rather than a *gpio* `binary_sensor`. This way, the backlight can be smoothly transitioned, and brightness be adjusted using *PWM*:
+
+````
+# handle built-in display backlight:
+# use a separate "light" component to enable dimming rather than
+# using the "display" property for backlight gpio
+output:
+  - platform: ledc
+    pin: 4
+    id: display_backlight_pwm
+
+light:
+  - platform: monochromatic
+    output: display_backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    restore_mode: RESTORE_AND_ON
+    effects:
+      - pulse:
+          name: noWifiConnection
+          min_brightness: 60%
+          max_brightness: 80%
+````
+As part of `light`, you can define *effects*. The configuration defines a *noWifiConnection* effect of type *pulse* that is controlled by the *lambda* inside `display` (see next section): when there is no *WiFi* connection, the effect is turned on, else off.
+
+The `light` also takes care of *restoring* the original dim level. Just make sure you set your preferences for the `flash_write_interval`: in order to protect the flash memory from constant writes, *ESPHome* writes persistent information only in intervals. That's a good thing because you don't want to save settings *while* the user may still be trying to figure out the best dimming level.
+
+The sample configuration uses a *10sec* interval: the current dimming level is preserved once it did not change for at least *10 seconds* (if you reboot or reset the board before, your recent adjustments are lost). 
+
+````
+# make sure state persists after 10sec of operation:
+preferences:
+  flash_write_interval: 10s
+````
+
+
+#### Global Variables
+The configuration uses one *global variable* (`globals`): *isOnline* is *boolean* and defaults to *true*:
 
 ````
 # store wifi connectivity state:
@@ -545,16 +565,17 @@ globals:
     initial_value: 'true'  
 ````
 
-The sole purpose of this variable is to handle the *display backlight effect*, so if you don't care about the effect switching, you can remove both the *lambda code* **and** this variable.
+The purpose of this variable is to handle the *display backlight effect switching*: if you don't care about effect switching, remove both the *lambda code* **and** this variable.
 
-Here is why the variable is needed:
+Here is why the variable is needed with *display backlight effect switching*:
 
-The display content is refreshed every *1s*, so the display *lambda code* is responsible for re-drawing the entire display content anyway. For this, a global variable wouldn't be helpful.
+The display content is refreshed every *1s* (`update_interval: 1s`), so the displays' *lambda code* is executed each second, and it is responsible for redrawing the entire display content. So there is nothing to gain here, the (re-)drawing cannot be skipped under *any* conditions, even if connectivity has not changed.
 
-However, backlight *effects* should not be restarted every second. They should just be turned on or off, based on a single *connectivity change*. That's where the global variable comes into play: if this variable differs from the current connectivity status, then it's time to change the backlight effect (and set the variable to the new mode).
+
+However, backlight *effects* should **not** be restarted every second. They should just be turned on or off *once*, based on a single *connectivity change*. That's where the global variable comes into play: if this variable differs from the current connectivity status, then it's time to change the backlight effect (and set the variable to the new mode).
 
 ### Icons
-Note how I am using *predefined google material font symbols* - no need to add icon files or complex bitmaps separately.
+Note how I am using *predefined google material font symbols* - no need to manually add icon files or design complex bitmaps separately.
 
 ````
 image:
@@ -565,6 +586,11 @@ image:
     id: wifiOff
     resize: 24x24
 ````
+
+> [!TIP]
+> If you are looking for a particular icon, browse to [Pictogrammers](https://pictogrammers.com/library/mdi/), and enter a keyword or search phrase into their search text box to quickly view all matching icons and their names.    
+
+
 ### Fonts
 The same goes for *google fonts*:
 
