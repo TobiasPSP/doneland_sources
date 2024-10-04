@@ -108,6 +108,10 @@ sensor:
     samples: 10
     filters:
       - multiply: 2.0
+      - median:
+          window_size: 7
+          send_every: 4
+          send_first_at: 3
 
 # handle the two built-in push buttons:
 binary_sensor:
@@ -344,8 +348,17 @@ Click *Show more*, then set a timespan, i.e. the past 30 minutes. You can now se
 
 <img src="images/t-display_esphome_device1_voltage2.png" width="100%" height="100%" />
 
-> [!NOTE]
-> TThere is a consistent fluctuation in voltage measurements in the range of *0.05V*, but you can easily increase the sample rate, and use averaging, if this bothers you. What's more important: *T-Display* ran one hour, and the voltage dropped in a linear way from *4.0V* to *3.92V*. Given that a *LiIon battery* is considered "empty" at *2.8V*, with the *1000mA battery* being used here, it is save to expect decent mileage considering that the configuration is not using any sleep modes or power optimizations yet.   
+The visible voltage flucuation of *0.05V* in the graph above could be eliminated by adding a simple *median filter* which is very effective in removing *outliers*:
+
+````
+ filters:
+  - multiply: 2.0
+  - median:
+      window_size: 7
+      send_every: 4
+      send_first_at: 3
+````
+   
 
 ## Push Buttons
 The two push buttons are implemented as regular `binary_sensor` of type *gpio*. Since both buttons are *low active*, the result is reversed: `inverted: True`.
