@@ -14,11 +14,11 @@ In this article, I walk you through a simple *ESPHome configuration* that turns 
 So once you have this little tool working, you can re-use the *configuration* to quick-start your own projects with *T-Display* and *ESPHome*.
 
 ## Prerequisites
-In order to program *T-Display* in *ESPHome*, you first need to [install ESPHome](https://done.land/tools/software/esphome#installing-esphome). 
+To program *T-Display* in *ESPHome*, you need to [install ESPHome](https://done.land/tools/software/esphome#installing-esphome). 
 
 * **ESPHome as part of Home Assistant:** The recommended way is to install [Home Assistant](https://done.land/tools/software/homeassistant) first, then [install ESPHome as part of Home Assistant](https://done.land/tools/software/esphome#installing-esphome). This provides you with the most functionality as *ESPHome* and *Home Assistant* are a perfect team. One of the easiest and most reliable ways is to [set up Home Assistant on a Raspberry Pi 5 Server](https://done.land/components/microcontroller/families/raspberry/raspberrypi/assembly/selectingos#picking-operating-system).
 
-* **Stand-Alone:** You *can* [install ESPHome stand-alone](https://done.land/tools/software/esphome#installing-stand-alone-esphome-instance) on your PC. This is straight-forward and simple to do. Without *Home Assistant*, you miss out though on being easily able to *centrally monitor* your devices, and create *automations* involving more than one device. 
+* **Stand-Alone:** You *can* [install ESPHome stand-alone](https://done.land/tools/software/esphome#installing-stand-alone-esphome-instance) on your PC. This is straight-forward and simple to do. Without *Home Assistant*, you miss out on being able to *centrally monitor* devices, and create *automations* across multiple devices. 
 
 > [!TIP]
 > *ESPHome* and *Home Assistant* may be a bit overwhelming at first when you are new to it: they consist of a number of moving parts that perfectly complement each other. You may want to quickly [review the ESPHome overview](https://done.land/tools/software/esphome/introduction).   
@@ -41,12 +41,16 @@ esp32:
     type: arduino
 ````
 
-*T-Display* is a typical *ESP32S* microcontroller at its heard which is why it uses the generic `esp32dev` board definition. By default, this sets the *flash RAM* to *4MB* (the minimum memory commonly used by *ESP32S*).
+*T-Display* is a typical *ESP32S* microcontroller at its heart which is why it uses the generic `esp32dev` board definition. By default, this sets the *flash RAM* to *4MB* (the minimum memory commonly used by *ESP32S*).
 
 *T-Display* comes in two versions: with *4MB* and with *16MB* flash memory. The latter is the more common type sold today. It is *crucial* that you *unlock your flash memory* and tell *ESPHome* that your board has *16MB* (if it does) by adding the line `flash_size: 16MB`. 
 
+If you are uncertain and would like to find out how much *flash memory* your *T-Display* really has, [use the Adafruit ESPTool](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display#finding-out-true-flash-memory).
+
+
+
 > [!IMPORTANT]
-> *ESPHome* requires considerable memory for its components. With a *4MB* board (or with a *16MB* board that is not advertising its capacity via `flash_size: 16MB`), you will quickly run out of memory and can't leverage the capabilities of your awesome *T-Display*.
+> *ESPHome* requires considerable memory for its components. With a *4MB* board (or with a *16MB* board that is not specifying its capacity via `flash_size: 16MB`), you quickly run out of memory and can't leverage the capabilities of your awesome *T-Display*.
 
 ## Accessing Display, Buttons, External Battery
 *T-Display* comes with a wealth of extra features that distinguishes it from generic *ESP32S boards*. These extras need to be *defined* in your configuration so you can use them. Here is how:
