@@ -2,7 +2,7 @@
  
 # Writing C++ Code For T-Display
 
-> Programming Custom Firmware For T-Display Using C++
+> Programming Custom Firmware For T-Display Using C++ And platformio
 
 
 
@@ -283,6 +283,7 @@ With *T-Display*, there is no need to manually switch to bootloader mode. It is 
 
 If you do run into issues, check these:
 
+* **Not Recognized:** if your computer does not play a *new USB device found* jingle when you connect the board via *USB cable* to it, then most probably you need to [install the driver](https://done.land/components/microcontroller/howtouse/connecttopc#installing-drivers) for the (relatively uncommon) *CH9102* UART chip.
 * **No Port:** if *platformio* could not even find an active COM port, then your board is either not connected (check cable, plugs), or you need to reboot your PC. Every once in a while, it seems the host computer needs a refresh this way. 
 * **No Uploading:** if the code cannot be transferred to the development board, then try to enable ROM bootloader mode manually: hold the left push button, and while holding it, shortly press the *reset* button on the **side** (not the other push button). 
 * **No Restart:** if the board does not respond after uploading code, try pressing the *reset* button (small button on its side). If there is still no response, then you may have forgotten to configure the *TFT_eSPI* library (see above) which is why the screen stays blank.
@@ -291,6 +292,6 @@ If you do run into issues, check these:
 ## Materials
 [platformio T-Display Pong Example](materials/t_display_pong.zip)
 
-> Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong
+> Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong, platformio
 
 [Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/writingcode?075453101202242631) - created 2024-10-01 - last edited 2024-10-01

@@ -18,6 +18,21 @@ It comes with *two programmable push buttons*, a *JST 1.25mm connector* for a *L
 
 There are 8 freely usable digital and analog *GPIOs*, 4 digital and analog **input-only** *GPIOs*, two strapping pin *GPIOs*, and two *I2C GPIOs*. At a maximum, you can use *16 GPIOs*.
 
+### Finding Out True Flash Memory
+There are *T-Display models* with just *4MB flash memory*, yet most currently sold models come with *16MB*. *4MB* is simply not enough.
+
+If you'd like to find out how much flash memory your development board *really* has, navigate to the [Adafruit ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in a compatible browser (such as *Chrome*).
+
+<img src="images/lilygo_tdisplay_adafruit_esptool.png" width="100%" height="100%" />
+
+Next, connect your board via *USB-C* and a USB cable to your PC, then *manually switch* the board to *ROM bootloader mode* (hold left push button, press *reset* button on the side). 
+
+Now, click *Connect* in the upper right side of the website, and select the USB port you connected the board to. The tool returns its technical specs including the real flash size.
+
+You can of course use this tool also to *manually upload binary firmware files* if you need to: click *Choose a file* in the top area, then *Erase* the flash memory and *Program* it with the file(s) you specified.
+
+
+
 ### No Built-In LED
 The board does have a *blue LED* on the backside, however it is tied to the charger electronics and cannot be programmed. 
 
@@ -39,7 +54,7 @@ The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It ha
 | --- | --- |
 | Microcontroller | ESP32S (Xtensa dual-core LX6) |
 | Memory | 4MB or 16MB |
-| UART | CH9102 |
+| UART | [CH9102](https://www.wch-ic.com/downloads/category/30.html), [installing driver](https://done.land/components/microcontroller/howtouse/connecttopc#installing-drivers) |
 | Onboard functions | two programmable buttons, battery power detection, charger |
 | Display | 1.14 Inch TFT |
 | Resolution | 135x240 |
@@ -207,7 +222,7 @@ The two larger buttons can be programmed:
 | GPIO | Button | Remark |
 | --- | --- | --- |
 | 0 | left | *low active*, pulled up. When pressed during boot, the ROM bootloader launches. Once your firmware runs, *low* when button is pressed, else *high* |
-| 35 | right | *high active* |
+| 35 | right | *low active* as well |
 
 ## Firmware
 The board comes with a preloaded default firmware which makes it simple to test-drive it. When you power on the board, the display shows a *TTGO* logo, followed by some full color screens.
@@ -216,7 +231,7 @@ The board comes with a preloaded default firmware which makes it simple to test-
 <img src="images/lilygo_t-display_defaultfirmware_startscreen2_t.png" width="60%" height="60%" />
 
 
-You then find yourself in a menu: pressling the left push button starts a *WiFi Scan*, while pressing the right button either shows the battery voltage (if an external LiIon battery is connected), or switches right away into deep-sleep mode.
+You then find yourself in a menu: pressing the left push button starts a *WiFi Scan*, while pressing the right button either shows the battery voltage (if an external LiIon battery is connected), or switches right away into deep-sleep mode.
 
 
 
