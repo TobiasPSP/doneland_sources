@@ -294,4 +294,4 @@ If you do run into issues, check these:
 
 > Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong, platformio
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/writingcode?075453101202242631) - created 2024-10-01 - last edited 2024-10-01
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingplatformio?075453101202242631) - created 2024-10-01 - last edited 2024-10-01

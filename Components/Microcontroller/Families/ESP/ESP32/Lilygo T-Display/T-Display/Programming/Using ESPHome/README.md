@@ -302,10 +302,16 @@ The sample configuration primarily illustrates how to access the *T-Display feat
 
 Once the firmware is uploaded, the board does this:
 
+
+<img src="images/lilygo_t-display_esphome1_t.png" width="50%" height="50%" />
+
 * **Offline:** at first, it shows a pulsating display with a red WiFi icon.
 * **Connected:** once the board successfully connects to your *WiFi*, the pulsating display backlight stops, and the WiFi icon turns green. The name of the *WiFi* it connected to is displayed.
 * **Signal Strength Tester:** from now on, the device acts as a *WiFi coverage* tester: a green bar visualizes the *WiFi coverage* at your current position. You can now use the device to test *WiFi coverage* in your home, and also judge the *T-Display* *WiFi sensitivity* and quality of its antenna.
 * **Display Dimming:** press the push buttons to adjust the brightness of the display backlight. The setting you choose is stored as your new preference, and when you turn off and later turn on the device, once it connected to *WiFi*, the display brightness is restored to your last setting.
+
+
+<img src="images/lilygo_t-display_esphome5_t.png" width="50%" height="50%" />
 
 Connect the board via *USB-C* to a *powerbank*, or hook up a single *LiIon* battery to the *JST 1.25* jack at its bottom side, and move around to see the green bar change.
 
@@ -622,3 +628,5 @@ Since this sensor returns *dBm*, a `copy` sensor is used with a *lambda* to conv
 ````
 
 > Tags: Lilygo, TTGO, T-Display, ESPHome, Home Assistant, Configuration, Battery, Voltage
+
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome?856302101504243514) - created 2024-10-03 - last edited 2024-10-03
