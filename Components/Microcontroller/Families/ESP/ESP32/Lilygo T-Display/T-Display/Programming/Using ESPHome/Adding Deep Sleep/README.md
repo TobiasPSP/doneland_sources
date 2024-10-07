@@ -82,11 +82,11 @@ It is crucial to send the command *SLEEPIN* (`0x10`) to the display to disable i
 
 The script can then be tied to any action you like: `- script.execute: prepare_for_sleep`. You can for example use *one* button to send the board to *deep sleep*, and another one to *wake it up again*:
 
-* **Deep Sleep Button:** invoke the script *prepare_for_sleep* when the button is pressed.
+* **Deep Sleep Button:** invoke the script `prepare_for_sleep` when the button is pressed.
 * **Wake Up Button:** define the button pin in `esp32_ext1_wakeup:`.
 
 > [!IMPORTANT]
-> **Never** use the same switch for *sending to deep sleep* and *wake up*, or else the board will immediately wake up again as the button is *still pressed* when *deep sleep* takes over. Also, never use *GPIO0* to send the board to *deep sleep* on a simple button press. *GPIO0* is the *boot* button, and you don't want the board to go in *deep sleep* when you really intended to boot into *ROM bootloader* mode. If you do use *GPIO0* (like in this example), make sure *deep sleep* is invoked only on a *long press*.
+> **Never** use the same button for *invoking deep sleep* and *wake up*, or else the board will immediately wake up again as the button is *still pressed* when *deep sleep* takes over. Also, never use *GPIO0* to send the board to *deep sleep* on a simple button press. *GPIO0* is the *boot* button, and you don't want the board to start *deep sleeping* when you really just wanted to boot into *ROM bootloader* mode. If you do use *GPIO0* (like in this example), make sure *deep sleep* is invoked only on a *long press*.
 
 When *deep sleep* is configured this way, it optimizes power efficiency:
 
@@ -131,9 +131,36 @@ Here is the complete sample configuration that extends the [intial version](http
 * **Sleep:** keep the left button pressed for at least 3 seconds to invoke *deep sleep*. A notification shows on the display when you start pressing the button, asking you to keep pressing.
 * **Wakeup:** press the right button to wake up the board.
 
+### Better Display Component
+Aside from *deep sleep*, in the configuration below I replaced the display driver. This driver is considered deprecated:
 
 ````
-# A script to run actions before deep sleep
+display:
+  - platform: st7789v
+````
+The new `ili9xxx` driver superseeds it and can handle a great number of TFT displays and drivers, including the *st7789v*. This is the replacement component configured for the *T-Display display*:
+
+````
+display:
+  - platform: ili9xxx
+    model: ST7789V
+    id: display1
+    cs_pin: GPIO5
+    dc_pin: GPIO16
+    reset_pin: GPIO23
+    dimensions:
+      height: 240
+      width: 135
+      offset_height: 40
+      offset_width: 52
+    invert_colors: true
+````
+
+### Configuration
+Here is the complete *configuration*:
+
+````
+# script to run actions before deep sleep, i.e. disable peripherals:
 script:
   - id: prepare_for_sleep
     then:
