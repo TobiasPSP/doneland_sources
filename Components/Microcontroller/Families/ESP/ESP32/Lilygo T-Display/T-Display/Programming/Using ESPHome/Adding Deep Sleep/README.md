@@ -35,14 +35,14 @@ deep_sleep:
   wakeup_pin: 35
 ````
 
-If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume an astonishing *9mA* though instead of the expected *370uA*, and here is why:
+If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume an astonishing *9mA* though instead of the *370uA* that it *should* take on this board, and here is why:
 
 * **Display Driver:** once you add a *display* component to your configuration, the display controller gets initialized. Even when you send the *ESP32* to *deep sleep* will this driver consume around *6.5mA*.
-* **RTC IO Mode:** when you use `wakeup_pin:`, you are automatically keeping the *RTC IO* subsystem active. This mode is called `ext0`, and it costs you another *2mA*. The better approach is to use ` esp32_ext1_wakeup:`: this mode can use *multiple wakeup pins*, however it only supports waking up the processor when *all specified pins turn **low** together*, or any *one* of them turns **high**. If that works for you, it saves another *2mA*.  
+* **RTC IO Mode:** when you use `wakeup_pin:`, you are automatically keeping the *RTC IO* subsystem active. This mode is called `ext0`, and it costs you another *2mA*. The better approach is to use `esp32_ext1_wakeup:`: this mode can use *multiple wakeup pins*, however it only supports waking up the processor when *all specified pins turn **low** together*, or any *one* of them turns **high**. If that works for you, it saves another *2mA*.  
 
 
 ### Correctly Adding Deep Sleep
-Here is the most energy efficient implementation for *deep sleep* and manual wake-up:
+Here is the most energy-efficient implementation for *deep sleep* and manual wake-up:
 
 ````
 # Add deep-sleep capabilities
@@ -433,3 +433,5 @@ image:
 
 
 > Tags: Lilygo, TTGO, T-Display, ESPHome, Deep Sleep, Ext0, Ext1, esp32_ext1_wakeup, Display Disable
+
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep?396856101907245252) - created 2024-10-06 - last edited 2024-10-06
