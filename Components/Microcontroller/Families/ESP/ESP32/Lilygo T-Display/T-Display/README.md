@@ -4,49 +4,34 @@
 
 > Classic ESP32S Microcontroller With 1.14 Inch Color TFT At 135x240 Resolution
 
-The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is the initial version of the *T-Display* series: it is an affordable *general purpose* *ESP32S development board*. Recent models ship with 16MB memory. 
+The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is the initial version of the *T-Display* series: an affordable *general purpose* *ESP32S development board*, available with 4MB and 16MB of flash memory. 
+
+The board (plus display) typically consumes between *90mA* and *130mA*, with spikes up to *370mA* when using WiFi. In *deep sleep*, the board requires at least *370uA*.
 
 ## Overview
 
-The board features a built-in SPI-driven 1.14" TFT color display (135x240 resolution) at high density (260PPI), equipped with a programmable backlight (*GPIO4*). 
+The board features a built-in SPI-driven 1.14" TFT color display (135x240 resolution) at high density (260PPI), equipped with a programmable backlight (*GPIO4*). Since *SPI pins* are not exposed, you cannot connect additional *SPI* devices.
 
 
 <img src="images/lilygo_t-display_pinout.png" width="100%" height="100%" />
 
 
-It comes with *two programmable push buttons*, a *JST 1.25mm connector* for a *LiIon battery* on the backside (that can be charged using its *USB-C power supply*), and a built-in voltage monitor.
-
 There are 8 freely usable digital and analog *GPIOs*, 4 digital and analog **input-only** *GPIOs*, two strapping pin *GPIOs*, and two *I2C GPIOs*. At a maximum, you can use *16 GPIOs*.
 
-### Finding Out True Flash Memory
-There are *T-Display models* with just *4MB flash memory*, yet most currently sold models come with *16MB*. *4MB* is simply not enough.
-
-If you'd like to find out how much flash memory your development board *really* has, navigate to the [Adafruit ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in a compatible browser (such as *Chrome*).
-
-<img src="images/lilygo_tdisplay_adafruit_esptool.png" width="100%" height="100%" />
-
-Next, connect your board via *USB-C* and a USB cable to your PC, then *manually switch* the board to *ROM bootloader mode* (hold left push button, press *reset* button on the side). 
-
-Now, click *Connect* in the upper right side of the website, and select the USB port you connected the board to. The tool returns its technical specs including the real flash size.
-
-You can of course use this tool also to *manually upload binary firmware files* if you need to: click *Choose a file* in the top area, then *Erase* the flash memory and *Program* it with the file(s) you specified.
 
 
-
-### No Built-In LED
-The board does have a *blue LED* on the backside, however it is tied to the charger electronics and cannot be programmed. 
-
-So there is *no programmable LED* on this board. Testing the board with a simple *blink* sketch is not possible.
-
-
+The board comes with *two freely programmable push buttons* (low active), a *JST 1.25mm connector* for connecting a *LiIon battery* on the backside (including charger using the *USB-C power supply*), and a built-in voltage sensor at *GPIO34*.
 
 <img src="images/lilygo_tdisplay_all_angle_t.png" width="60%" height="60%" />
 
-The package comes with a battery cable plus plug. The board is available with soldered or unsoldered header pins. 
+
+It is available pre-soldered or with unsoldered header pins. 
 
 > [!TIP]
 > Do not immediately peel off the protective film on the display. Soldering the header pins occurs in close proximity to the display, and there may be drops of flux spilling onto it.
 
+
+### Specs
 
 The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It has no *PSRAM*. A *shell case* can be ordered separately, or you can [3D print a shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file) yourself.
 
@@ -69,6 +54,73 @@ The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It ha
 
 
 <img src="images/lilygo_t-display_defaultfirmware_startscreen_t.png" width="60%" height="60%" />
+
+
+#### Determining True Flash Memory
+There are *T-Display models* with just *4MB flash memory*, yet most currently sold models come with *16MB*. *4MB* is simply not enough.
+
+If you'd like to find out how much flash memory your development board *really* has, navigate to the [Adafruit ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in a compatible browser (such as *Chrome*).
+
+<img src="images/lilygo_tdisplay_adafruit_esptool.png" width="100%" height="100%" />
+
+Next, connect your board via *USB-C* and a USB cable to your PC, then *manually switch* the board to *ROM bootloader mode* (hold left push button, press *reset* button on the side). 
+
+Now, click *Connect* in the upper right side of the website, and select the USB port you connected the board to. The tool returns its technical specs including the real flash size.
+
+You can of course use this tool also to *manually upload binary firmware files* if you need to: click *Choose a file* in the top area, then *Erase* the flash memory and *Program* it with the file(s) you specified.
+
+## Caveats
+This is an awesome board, especially since market prices have dropped below €5. Like most other things, it isn't perfect though. Here are a few caveats you should keep in mind:
+
+### No Built-In LED
+The board has a *blue LED* on its backside corner next to the *USB-C* connector, however it is wired to the internal charger and cannot be programmed: the blue LED is *on* when the board charges an external battery, else *off*.
+
+<img src="images/lilygo_t-display_charger_led_t.png" width="40%" height="40%" />
+
+So there is *no programmable LED* on this board. Testing the board with a simple *blink* sketch is not possible (unless you are using the display backlight on *GPIO4* instead).
+
+### No SPI Interface Exposed
+The board uses the primary *SPI interface* internally to connect to the built-in display. The pins are not exposed, so you cannot use it. The secondary *SPI interface* isn't fully exposed either (pin 14 is missing), so in a nutshell, you cannot connect external *SPI peripherals* to this board and are limited to *I2C*.
+
+### Charger and External Battery
+The board supports using an external *LiIon* or *LiPo* battery via a *JST 1.25* plug on its backside. You **cannot** use *LiFePo4* batteries.
+
+#### High Charging Current
+The charger is set to a relatively high *500mA* charging current. You **must** ensure that the batteries you connect can sustain this current. Typically, batteries smaller than *1.000mAh* require (much) less charging currents and can be damaged otherwise. Even for *1.000mAh*, charging with *500mA* is considered a stressful *quick-charge* that shortens its life span.
+
+> [!NOTE]
+> For *portable devices*, it may be desireable to re-charge them as quickly as possible.    
+
+#### Irritating Voltage Readings
+Note that the built-in *voltage sensor* reports correct battery voltage only *when powering from battery* (not charging). 
+
+Once you connect *USB power*, the reported voltage **during active charging** (with the blue charger LED turned on) is irritating: in the initial *constant current* charging phase it is *4.20V*, and in the concluding *constant voltage* charging phase, voltage gradually increases to way beyond *4.60V*.
+
+
+<img src="images/lilygo_tdisplay_charging_curve_1000mah.png" width="100%" height="100%" />
+
+These voltage readings **do not resemble the true battery terminal voltage**. Measuring the battery terminal voltage during charging reveals that the *TP4054 charger* does an excellent job, and the charging voltage slowly increases initially until it reaches a safe constant voltage of *4.20V*.
+
+
+
+### Low Voltage Tolerance
+The usefulness of external batteries is limited by the display: while the *ESP32* happily works with as low as *2.6V*, the display backlight starts to flicker when voltage drops below *3.2V*. The reason behind this needs more investigation, but be prepared that you might not get the entire battery mileage to your board.
+
+As a protective measure, you may want to add logic that switches the *ESP32* to deep sleep mode once a certain critical low voltage threshold is met.
+
+### Power-Off Capabilities
+Once a development board is equipped with an external battery, it needs an *off* switch - or else it would run until the battery is drained.
+
+For battery operation, you need to add a physical switch to your battery. *Deep sleep mode* consumes too much power to be usable as *power off switch* replacement.
+
+#### High Deep Sleep Power Consumption
+This board has a relatively high *deep sleep power consumption of *370uA* **at best**.
+
+When sending the board to deep sleep without prior optimization, *deep sleep consumption* can be as high as *9mA*.
+
+To put this consumption into perspective, the *ESP32* itself draws just *10uA* in *deep sleep*, and a typical development board consumes *70uA*.
+
+At *330uA*, a fully-charged *1.000mAh* battery would completely drain within four months just from deep sleeping, and at *9mA*, the battery would be done within short of 5 days.
 
 
 ## GPIOs
@@ -253,4 +305,4 @@ The board can be programmed by using the typical development environments (*Ardu
 
 > Tags: Lilygo, T-Display
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display?261761091530243112) - created 2024-09-29 - last edited 2024-09-30
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display?261761091530243112) - created 2024-09-29 - last edited 2024-10-05

@@ -682,6 +682,15 @@ Since this sensor returns *dBm*, a `copy` sensor is used with a *lambda* to conv
     device_class: ""
 ````
 
+## Deep Sleep 
+To keep this *configuration* simple and focus on the most important parts, it is not using *deep sleep*. Obviously, with a development board that can be powered by a battery, looking into *deep sleep* will become important once you are looking for a way to *turn off* the device.
+
+The easiest and most effective way would certainly be to implement a physical *power switch*: place it in the positive battery lead. Such a switch would of course not turn off the device when it is *USB powered*.
+
+Using one of the built-in push buttons to send the microcontroller to *deep sleep* on a long press, and waking it by pressing the other button sounds tempting. However, it is not as simple as that. While the *ESP32* only consumes *10uA* in *deep sleep*, the microcontroller is not the only power consumer on this board. In fact, when you just send the microcontroller to *deep sleep*, it consumes hefty *9mA* and will drain your battery in no time.
+
+In one of the upcoming articles, I'll look into optimization strategies to cut down power consumption in *deep sleep*.
+
 > Tags: Lilygo, TTGO, T-Display, ESPHome, Home Assistant, Configuration, Battery, Voltage
 
 [Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome?856302101504243514) - created 2024-10-03 - last edited 2024-10-03

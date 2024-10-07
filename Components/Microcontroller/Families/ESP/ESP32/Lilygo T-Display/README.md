@@ -5,7 +5,7 @@
 > ESP32 Development Boards With Integrated Display And Battery Charger
 
 
-The Chinese company [Lilygo](https://www.lilygo.cc/) produces a variety of *IoT* devices. Its *T-Display* series specializes on *ESP32*-based [development boards with integrated displays](https://www.lilygo.cc/collections/basic-module) that all come with integrated *LiIon battery* connector and charger. *T-Display boards* are a *one-stop* solution for many microcontroller-based *IoT projects*.
+The Chinese company [Lilygo](https://www.lilygo.cc/) produces a variety of *IoT* devices. Its *T-Display* series - also known as *TTGO* - specializes on *ESP32*-based [development boards with integrated displays](https://www.lilygo.cc/collections/basic-module) that all come with integrated *LiIon battery* connector and charger. *T-Display boards* are a *one-stop* solution for many microcontroller-based *IoT projects*. 
 
 
 <img src="images/lilygo_tdisplay_top_side_t.png" width="60%" height="60%" />
@@ -30,11 +30,11 @@ Here is a picture of a basic *T-Display* board: the *LiIon* battery can be conne
 
 <img src="images/lilygo_tdisplay_top_horiz_t.png" width="60%" height="60%" />
 
-Some models also feature programmable buttons and shells.
+Models also typically feature programmable buttons, and shells can be ordered separately.
 
 ## Models
 
-*T-Display models* vary in features, so always check their specs before you buy, or use the table below for quick comparison. It lists the most commonly used *general purpose* models, their microcontroller, and display type and size. For more details, click the model name.
+*T-Display models* vary in features. Use the table below for quick reference: it lists the most commonly used *general purpose* models, their microcontroller(s), and display type and size. For more details, click the model name.
 
 | Name | ESP32 Type | Display Type | Size (Inch)| Resolution | Touch | Driver | 
 | --- | --- | --- | --- | --- | --- | --- | 
@@ -50,6 +50,6 @@ Some models also feature programmable buttons and shells.
 
 
 
-> Tags: Lilygo, T-Display, Battery Charger, ESP32, TFT, OLED, RP2040, ESP32S, ESP32-C3, ESP32-C3, ESP32-S3
+> Tags: Lilygo, T-Display, TTGO, Battery Charger, ESP32, TFT, OLED, RP2040, ESP32S, ESP32-C3, ESP32-C3, ESP32-S3
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display?692403090930245026) - created 2024-09-29 - last edited 2024-09-29
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display?692403090930245026) - created 2024-09-29 - last edited 2024-10-05
