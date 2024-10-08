@@ -4,13 +4,20 @@
 
 > Measuring Tiny Currents And Optimizing Battery-Powered Devices
 
+When you need to measure *current* in *sub-Microampere* range, and/or when you need to identify very short *current spikes*, classic *multimeters* won't do. Such measurements are frequently necessary when analyzing and optimizing power consumption of battery- or solar-operated devices.
 
-Classic *multimeters* can measure currents as low as *0.1mA (100uA)* to *1mA*, depending on price and quality. This lower range isn't sufficient though when you want to analyze and optimize the power consumption of battery-powered devices. Especially when you need to investigate power consumption in *deep sleep* modes, you are dealing with currents in the range of a few Microamperes and even less. In addition, you often want to visualize the current consumption over time.
+This is where tools like the [Power Profiler Kit II (NRF-PPK2)](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2) come into play: 
+
+| Item | Classic Multimeter | Power Profiler Kit II |
+| ---  | --- | --- |
+| Resolution (*Current*) | *10uA* | *200nA* (*0.2uA*) |
+| Resolution (*Time*) | *0.5s* | *10uS* (*0.00001s*) |
+
+*Resolution* is not the only difference, though: *PPK2* produces high resolution graphs and offers a *dynamic range* from *200nA* to *1A*. 
 
 <img src="images/ppk2_unit_t.png" width="60%" height="60%" />
 
-
-[Nordic Semiconductor](https://www.nordicsemi.com/About-us) offers a powerful and affordable *current* analyzer called [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2) (*NRF-PPK2*) that is available for around €80 (due to popular demand, it is often out of stock, though). The amazing capabilities of this small stand-alone unit are:
+This device is available for around €80. It is specialized to support you whenever you need to investigate and analyze power consumption of *low powered devices*:
 
 
 
