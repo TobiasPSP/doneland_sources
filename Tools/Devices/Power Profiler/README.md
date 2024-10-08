@@ -166,7 +166,13 @@ Next, select the desired *sample frequency* in the range of *1S/s* to *100.000S/
 
 <img src="images/ppk2_sampling_rate.png" width="30%" height="30%" />
 
-Click *Start* to start the measurement. You now see in real-time the current consumption in a graph on the right side. A *sliding window* constantly calculates average consumption, and *PPK2* switches dynamically between five different current ranges, depending on the measured current.
+> [!IMPORTANT]
+> **Do not** use the maximum sample frequency of *100.000 samples per second* **unless you really need it**. If you just want to check power consumption over time, i.e. to test *deep sleep* modes, *100 Samples/second* are more than enough. *100.000S/s* produces *huge amounts of data* and can fill your hard drive quickly. This resolution is required only when you want to perform *logic analysis* (see below), or need to identify very short *current spikes*.     
+
+
+Click *Start* to start the measurement. The light on the *PPK2* switches from *pulse* to *solid*. 
+
+You now see in real-time the current consumption in a graph on the right side. A *sliding window* constantly calculates average consumption, and *PPK2* switches dynamically between five different current ranges, depending on the measured current.
 
 ### Dynamic Range
 
@@ -250,3 +256,4 @@ Overall system and interconnections:
 
 > Tags: NRF-PPK2, PPK2, Current, Microampere, Logic Analyzer, Power Optimization, Power Consumption, Analyze, nRF Connect For Desktop
 
+[Visit Page on Website](https://done.land/tools/devices/powerprofiler?262399101308241742) - created 2024-10-07 - last edited 2024-10-07
