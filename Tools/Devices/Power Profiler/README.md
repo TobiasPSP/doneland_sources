@@ -13,11 +13,19 @@ This is where tools like the [Power Profiler Kit II (NRF-PPK2)](https://www.nord
 | Resolution (*Current*) | *10uA* | *200nA* (*0.2uA*) |
 | Resolution (*Time*) | *0.5s* | *10uS* (*0.00001s*) |
 
-*Resolution* is not the only difference, though: *PPK2* produces high resolution graphs and offers a *dynamic range* from *200nA* to *1A*. 
+## Overview
+
+*PPK2* produces high resolution graphs and offers a *dynamic range* from *200nA* to *1A*. 
 
 <img src="images/ppk2_unit_t.png" width="60%" height="60%" />
 
-This device is available for around €80. It is specialized to support you whenever you need to investigate and analyze power consumption of *low powered devices*:
+This device is available for around €80 which is surprising at first: professional multimeters with similar specs can cost way north of €2.000. One key difference is accuracy: *PPK2* guarantees a *10%* accuracy (and can measure *200nA* +- *20nA*) whereas high-end laboratory equipment has a margin of error in the range of *0.005-0.001%*.
+
+*PPK2* is a very *cost-effective* tool for analyzing fast-changing currents across a huge dynamic range, and an ideal lab tool to analyze, understamd, and optimize battery- and solar-powered devices. It is *not* the right choice when you need *scientific-grade* accuracy.
+
+### Features
+
+Here are the features:
 
 
 
@@ -28,6 +36,11 @@ This device is available for around €80. It is specialized to support you when
 * **Advanced Logic Analyzing:** the unit comes with digital inputs that can be connected to *GPIO outputs* at the device under test. This enables code-synchronized measurements: your code sends markers by switching the *GPIO* to *high* or *low*, and these markers show up in the *current measurement graph*, enabling you to associate power consumption with particular code segments, helping to power-optimize code.
 
 
+[Hardware files](https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/dev-kits/power-profiler-kit-ii/pca63100-power-profiler-kit-ii---hw-files---1_0_1.zip) can be downloaded as [zip file](https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/dev-kits/power-profiler-kit-ii/pca63100-power-profiler-kit-ii---hw-files---1_0_1.zip) and contain schematics, gerber files, and altium designer files.
+
+
+
+### Dynamic Range
 Here are the five dynamically-controlled ranges:
 
 | Range | Resolution | Accuracy |
@@ -44,11 +57,11 @@ Here are the five dynamically-controlled ranges:
 > This link is helpful: [nordicsemi.com/startppk2](https://nordicsemi.com/startppk2). It is also printed onto the front cover of the device and brings you to a landing page where you find an overview plus a *Where to Buy* section listing resellers that currently have the unit in stock.
 
 
-[Hardware files](https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/dev-kits/power-profiler-kit-ii/pca63100-power-profiler-kit-ii---hw-files---1_0_1.zip) can be downloaded as [zip file](https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/dev-kits/power-profiler-kit-ii/pca63100-power-profiler-kit-ii---hw-files---1_0_1.zip) and contain schematics, gerber files, and altium designer files.
+### Package
+[Power Profiler Kit II](https://nordicsemi.com/startppk2) ships in a small box and consists of the analyzer unit, two *DuPont* cables, and no *Micro-USB* power cable. 
 
-
-## Overview
-[Power Profiler Kit II](https://nordicsemi.com/startppk2) ships in a small box and consists of the analyzer unit, plus two *DuPont* plugs and cables. No *Micro-USB* power cable is provided. A 4-pin cable is used for simple current measurements, and a 10-pin logic port cable takes advantage of the digital inputs for advanced logic analyzing.
+### Connectors
+A 4-pin cable is used for simple current measurements, and a 10-pin logic port cable can connect up to eight digital **inputs** to arbitrary *GPIO* **outputs** on the device under test to add *markers* to the log.
 
 <img src="images/ppk2_pcb3_t.png" width="60%" height="60%" />
 
@@ -82,9 +95,9 @@ Setting up *PPK2* requires these steps:
 4. Software may require a *firmware update* ("Device needs to be programmed"). Perform the firmware update as instructed.
 5. After the firmware update, the device may no longer be recognized. Reboot your computer.
 
-## Starting PPK2
+## Using PPK2
 
-Here are the steps to start *PPK2* and perform measurements (assuming *PPK2* has been connected to your computer as illustrated above, its power switch is in **ON** position, and it is showing a pulsating **green** light):
+Here are the steps to launch *PPK2* and perform measurements - assuming *PPK2* has been connected to your computer as illustrated above, its power switch is in **ON** position, and it is showing a pulsating **green** light:
 
 1. Launch *nRF Connect For Desktop*. Identify the app *Power Profiler*, and click *Open*.
 
