@@ -53,7 +53,7 @@ The *ESP32S* microcontroller is available in a *4MB* and a *16MB* version. It ha
 | Support | [T-Display Github](https://github.com/Xinyuan-LilyGO/TTGO-T-Display) |
 
 
-<img src="images/lilygo_t-display_defaultfirmware_startscreen_t.png" width="60%" height="60%" />
+<img src="images/lilygo_t-display_defaultfirmware_startscreen_t.png" width="50%" height="50%" />
 
 
 #### Determining True Flash Memory
@@ -61,7 +61,7 @@ There are *T-Display models* with just *4MB flash memory*, yet most currently so
 
 If you'd like to find out how much flash memory your development board *really* has, navigate to the [Adafruit ESPTool](https://adafruit.github.io/Adafruit_WebSerial_ESPTool/) in a compatible browser (such as *Chrome*).
 
-<img src="images/lilygo_tdisplay_adafruit_esptool.png" width="100%" height="100%" />
+<img src="images/lilygo_tdisplay_adafruit_esptool.png" width="60%" height="60%" />
 
 Next, connect your board via *USB-C* and a USB cable to your PC, then *manually switch* the board to *ROM bootloader mode* (hold left push button, press *reset* button on the side). 
 
@@ -73,11 +73,21 @@ You can of course use this tool also to *manually upload binary firmware files* 
 This is an awesome board, especially since market prices have dropped below €5. Like most other things, it isn't perfect though. Here are a few caveats you should keep in mind:
 
 ### No Built-In LED
-The board has a *blue LED* on its backside corner next to the *USB-C* connector, however it is wired to the internal charger and cannot be programmed: the blue LED is *on* when the board charges an external battery, else *off*.
+The board has a *blue LED* on its backside corner next to the *USB-C* connector, however it is wired to the internal charger and cannot be programmed: the blue LED is *on* when the voltage at the *JST 1.25* connector is below *4.2V*, else *off*:
+
+| Condition | Blue LED Status |
+| --- | --- |
+| no battery connected | on |
+| battery connected, charging | on |
+| battery connected, not charging | off |
+
 
 <img src="images/lilygo_t-display_charger_led_t.png" width="40%" height="40%" />
 
-So there is *no programmable LED* on this board. Testing the board with a simple *blink* sketch is not possible (unless you are using the display backlight on *GPIO4* instead).
+> [!TIP]
+> If you need to run this board in the most power-efficient way, make sure you power it through the *JST 1.25* connector.    
+
+There is *no programmable LED* on this board. Testing the board with a simple *blink* sketch is not possible (unless you are using the display backlight on *GPIO4* instead).
 
 ### No SPI Interface Exposed
 The board uses the primary *SPI interface* internally to connect to the built-in display. The pins are not exposed, so you cannot use it. The secondary *SPI interface* isn't fully exposed either (pin 14 is missing), so in a nutshell, you cannot connect external *SPI peripherals* to this board and are limited to *I2C*.
@@ -85,14 +95,14 @@ The board uses the primary *SPI interface* internally to connect to the built-in
 ### Charger and External Battery
 The board supports using an external *LiIon* or *LiPo* battery via a *JST 1.25* plug on its backside. You **cannot** use *LiFePo4* batteries.
 
-#### High Charging Current
+#### Charging Current
 The charger is set to a relatively high *500mA* charging current. You **must** ensure that the batteries you connect can sustain this current. Typically, batteries smaller than *1.000mAh* require (much) less charging currents and can be damaged otherwise. Even for *1.000mAh*, charging with *500mA* is considered a stressful *quick-charge* that shortens its life span.
 
 > [!NOTE]
 > For *portable devices*, it may be desireable to re-charge them as quickly as possible.    
 
-#### Irritating Voltage Readings
-Note that the built-in *voltage sensor* reports correct battery voltage only *when powering from battery* (not charging). 
+#### Voltage Sensor Readings
+The built-in *voltage sensor* reports correct battery voltage only *when powering from battery* (not charging). 
 
 Once you connect *USB power*, the reported voltage **during active charging** (with the blue charger LED turned on) is irritating: in the initial *constant current* charging phase it is *4.20V*, and in the concluding *constant voltage* charging phase, voltage gradually increases to way beyond *4.60V*.
 
