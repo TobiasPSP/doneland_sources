@@ -55,6 +55,11 @@ Here are some other *ESP32 models* worth looking at:
 
 The *ESP32 family* is constantly growing. Latest models such as *ESP32-C6* or *ESP32-H2* target new *wireless technologies* such as *Matter* or *Thread*, but are not yet fully supported by many development environments and code examples. You typically have to program them using the *Espressif* framework, and cannot use *Arduino code*. That's why you should avoid these unless you really need their unique selling points.
 
+> [!IMPORTANT]
+> **Do not** purchase *ESP8266* anymore. They are outdated, considered *unsafe* (no *https* support), and cost just about as much as *ESP32*.
+
+
+
 ## [ATTiny](https://done.land/components/microcontroller/families/attiny)
 
 If you need a microcontroller to just *control hardware* and *sensors* in very *space-constrained* environments and with **extremely low** *energy consumption*, then *ATtiny* is a good way to go.
