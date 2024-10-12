@@ -17,9 +17,7 @@ One solution not discussed here is to add a physical power switch to the positiv
 
 ## Overview
 
-This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it careless, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected.
-
-The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
+This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it careless, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected. The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
 
 
 I'll cover the required optimizations first, then present the entire configuration.
@@ -153,10 +151,26 @@ The graph shows that the board consumes only *373uA* in *deep sleep*. This is th
 <img src="images/lilygo_t_display_deep_sleep_consumption_platformio.png" width="100%" height="100%" />
 
 ## Invoking Deep Sleep
-Deep sleep can now be invoked manually, automatically, and even remotely.
+Deep sleep can now be invoked manually, automatically, and even remotely. The *reason* why the board entered *deep sleep* is published via a `text_sensor:`:
+
+````
+# log system state: running or deep sleep (and reason)
+  - platform: template
+    name: "DeepSleep State"
+    id: sleep_state
+    icon: "mdi:power-sleep"
+    entity_category: "diagnostic"
+    device_class: ""
+````
+
+This is important because *Home Assistant* shows the last known parameters, and if the board was sent to *deep sleep*, none of its user controls respond anymore. That's expected since a system in *deep sleep* is essentially *turned off*, but *Home Assistant* should report the fact that the system is currently *sleeping* - which is what this sensor does. It also reports *why* the system is *sleeping*.
+
+Here are the three ways how the board can enter *deep sleep*:
 
 ### Automatic Low Voltage Protection
-Whenever the battery voltage drops below *3.2V*, the display starts to flicker. To send the device to *deep sleep* in such cases, add this:
+*LiIon* and *LiPo* batteries shouldn't be discharged below *3.2V* to ensure longevity. Discharging lower than *3.2V* wouldn't make much sense anyway since the display starts to flicker below this voltage.
+
+To send the device automatically to *deep sleep* when the battery voltage drops below *3.2V*, add this:
 
 ````
   - platform: adc
@@ -164,19 +178,21 @@ Whenever the battery voltage drops below *3.2V*, the display starts to flicker. 
     id: battery_voltage
     name: "Voltage"
     update_interval: 1s
+    #internal: true
     accuracy_decimals: 2
     attenuation: 12dB
     samples: 10
     entity_category: "diagnostic"
     device_class: "voltage"
-    # transform the raw value (voltage divider) to actual voltage:
     filters:
-      - multiply: 2.0
-      # remove outliers:
-      - median:
+      # transform the raw value (voltage divider) to actual voltage:
+      - multiply: 2.04
+      # remove outliers (voltage spikes only):
+      - quantile:
           window_size: 7
           send_every: 4
           send_first_at: 3
+          quantile: .25
     # on new voltage readings, update battery statistics:
     on_value:
       then:
@@ -186,12 +202,31 @@ Whenever the battery voltage drops below *3.2V*, the display starts to flicker. 
     on_value_range:
       below: 3.2
       then:
+        - text_sensor.template.publish:
+            id: sleep_state
+            state: "Deep Sleep (low voltage)"
         - script.execute: prepare_for_sleep
 ````
 
-`on_value:` makes sure two more "virtual" battery sensors update, one of which shows the battery state of charge in *percent*, and the other one reports the power mode: *USB* or *Battery*.
+Note how the *sleep_state* `text_sensor:` is updated *before* the system enters *deep sleep*.
 
-Both are derived from the *ADC sensor* above. Battery mode is a simple `text_sensor:` that translates a voltage reading into a status text:
+#### Reading Battery Voltage
+Knowing the current *battery voltage* is crucial for battery-operated devices, and the previously discussed *automatic deep sleep* on *low voltage* is just one example. Displaying *battery icons* and status texts are other use cases.
+
+To actually get a *solid battery voltage reading* requires some processing which is also taken care of by this sensor. Here is what the remaining code does:
+
+* **Automatic Deep Sleep:** `on_value_range:` defines the threshold and executes the script to invoke *deep sleep*.
+* **Automatic Update:** `on_value:` makes sure dependent sensors are updated whenever the battery voltage changes, one of which shows the battery state of charge in *percent*, and the other one reports the power mode: *USB* or *Battery*.
+* **Filters:** the *battery sensor* is really a simple *ADC GPIO* that measures the battery voltage across a *voltage divider*. `filters:` processes the raw readings to create a stable battery voltage. It first uses `multiply:` to account for the voltage divider. The factor is *2.0*. For accurate readings, you should double-check your battery voltage, and make slight adjustments. In my case, the required factor was *2.04*. There are always slight variations in resistor values. Since the sensor frequently produces *voltage spikes*, a `quantile:` filter is used to cut off any value that is not in the bottom *25%* of values, effectively removing sudden positive spikes. Make sure you switch the *ADC* to `attenuation: 12dB`, or else your readings will be clipped, and you always measure a voltage around *1V*.
+
+The *battery voltage sensor* is crucial for updating icons and status text, so `update_interval:` is set to *1s*. *ESPHome* sends updates over the network to *Home Assistant* only when the battery voltage really changes. Increasing the *update interval* is not recommended as it would increase the *lag time* when you connect or disconnect the device to *USB power*.
+
+If you want to minimize network traffic, you can switch the sensor to `internal: true`. You then miss out on the advanced voltage logging and analysis capabilities of *Home Assistant*, though.
+
+#### Battery Status and Percentage
+The *raw battery voltage* is picked up by two sensors:
+
+*battery_status* is a `text_sensor:` that translates a voltage reading into a status text:
 
 ````
 text_sensor:
@@ -201,15 +236,47 @@ text_sensor:
     id: battery_status
     entity_category: "diagnostic"
     device_class: ""
+    icon: mdi:power-plug-battery
     lambda: |-
-      if (id(battery_voltage).state > 4.18) {
+      if (id(battery_voltage).state > 4.74) {
+        id(display1).filled_rectangle(111, -3, 24, 24, BLACK);
+        id(display1).image(111, -3, id(powerPlug), YELLOW, BLACK);
+        // clear text background:
+        id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+        // output text center-aligned horizontally
+        int display_centerwidth = id(display1).get_width()/2;
+        id(display1).print(display_centerwidth, -2, id(lato), GRAY, TextAlign::CENTER_HORIZONTAL, "USB");
         return {"USB"};
+      } else if (id(battery_voltage).state > 4.18) {
+        id(display1).filled_rectangle(111, -3, 24, 24, BLACK);
+        id(display1).image(111, -3, id(batcharge), YELLOW, BLACK);
+
+        // clear text background:
+        id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+        // output text center-aligned horizontally
+        int display_centerwidth = id(display1).get_width()/2;
+
+        if (id(battery_voltage).state > 4.5) {
+           id(display1).print(display_centerwidth, -2, id(lato), GREEN, TextAlign::CENTER_HORIZONTAL, "CV");
+           return {"Constant Voltage"};
+        } else {
+           id(display1).print(display_centerwidth, -2, id(lato), YELLOW, TextAlign::CENTER_HORIZONTAL, "CC");
+           return {"Constant Current"};
+        }
       } else {
         return {"Battery"};
       }
 ````
 
-*Battery %* is a lot more complex. It first *translates* raw voltages to *state of charge percentages*:
+It also updates icons and status text:
+
+* **Power Mode:** based on the current voltage readings, you get different icons and status texts for these modes:
+  * **USB:** board is powered by *USB*/*5V*, and not charging.
+  * **Charging:** board is charging a battery. The status differentiates between *constant current* (first charging phase up to *80%*), and *constant voltage* (second charging phase from *80-100%*). The display shows a yellow *CC* or a green *CV*. This allows you to disconnect the board from *USB* if you don't want to fully charge the battery to conserve its life.
+  * **Battery Power:** when powered by the battery, the display shows the remaining charge in percent.
+
+The latter - the battery *state of charge*, is determined by *battery_percent*, another templated sensor that is based on the current battery voltage:
+
 ````
 - platform: template
     name: "Battery %"
@@ -229,19 +296,28 @@ text_sensor:
           - 3.30 -> 1.0
           - 3.39 -> 10.0
           - 3.75 -> 50.0
-          - 4.11 -> 90.0
+          - 4.08 -> 97.0
+          - 4.11 -> 99.0
           - 4.20 -> 100.0
       # cap at 100%
-      - lambda: |-
-          if (x <= 100) {
-            return x;
-          } else {
-            return 100;
-          }
-          if (x <0) {
-            return 0;
-          }
+      - clamp:
+          min_value: 0
+          max_value: 100
+          ignore_out_of_range: true
+      # remove outliers (both directions):
+      - median:
+          window_size: 7
+          send_every: 4
+          send_first_at: 3
 ````
+
+`calibrate_linear:` calibrates the state of charge via some reference points. *LiIon* battery voltage often drops considerably right after disconnecting them from the charger (which is called *relaxation*). The reference points take this into account and produce a curve that linearly depicts the true *state of charge* based on current battery voltage.
+
+`clamp:` limits the range to *0-100*, eliminating invalid readings. And `median:` filters out outliers. Since outliers can be both *positive* and *negative*, this sensor uses the *median* filter rather than the *quantile* filter (which eliminated *positive* spikes).
+
+`on_value:` updates the battery icon whenever a new *state of charge* is emitted. It also prints the current battery charge (in percent) to the screen.
+
+#### Battery Icon and State of Charge
 It then also serves to update the battery icon in the display which occurs every time a new battery percentage is reported:
 
 ````
@@ -252,14 +328,12 @@ It then also serves to update the battery icon in the display which occurs every
         - lambda: |-
             // output battery percentage horizontally aligned:
 
-            // clear text background:
-            id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
-
-            // output text center-aligned horizontally
-            int display_centerwidth = id(display1).get_width()/2;
-            if (id(battery_voltage).state > 4.18) {
-              id(display1).printf(display_centerwidth, -2, id(lato), MEDIUMGRAY, TextAlign::CENTER_HORIZONTAL, "USB");
-            } else {
+            
+            if (id(battery_voltage).state < 4.18) {
+              // clear text background:
+              id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+              // output text center-aligned horizontally
+              int display_centerwidth = id(display1).get_width()/2;
               // update battery percent:
               id(display1).printf(display_centerwidth, -2, id(lato), LIGHTGRAY, TextAlign::CENTER_HORIZONTAL, "%.0f%%", id(battery_percent).state);
             }
@@ -322,12 +396,15 @@ binary_sensor:
             - ON for at least 3.1s
           then:
             # invoke deep sleep
-            - logger.log: "physically invoking deep sleep"
+            - text_sensor.template.publish:
+                id: sleep_state
+                state: "Deep Sleep (manual invoke)"
             - script.execute: prepare_for_sleep
 ````
 
-`on_multi_click:` is the only way you have to respond to a pushed-down button after a given time **without the need for the user to first release it**. So whenever a user pushes down the button for at least *3.1s*, the action invokes the *deep sleep* script.
+Note how the button publishes the *appropriate deep sleep event* to the `text_sensor:` named *sleep_state* before it actually invokes *deep sleep*.
 
+`on_multi_click:` is the only way you have to respond to a pushed-down button after a given time **without the need for the user to first release it**. So whenever a user pushes down the button for at least *3.1s*, the action invokes the *deep sleep* script.
 
 #### Freely Programmable Buttons
 All the other potential functionalities you may want to associate with this push button are handled via `on_click:`: 
@@ -366,21 +443,25 @@ You can use all of these events internally (within this *configuration*), i.e. t
 You can **also remotely** press the buttons from your *Home Assistant UI*. They are published to `Home Assistant` via `button:`. One button is virtual only and not attached to any physical button:
 
 ````
-# PUSH BUTTONS that can be pushed physically and remotely via Home Assistant
 button:
   - platform: template
-    name: "DeepSleep"
+    name: "DeepSleep Invoke"
     id: deep_sleep_button
+    entity_category: "diagnostic"
+    device_class: ""
+    icon: mdi:sleep
     # send device to deep sleep remotely:
     on_press: 
       then:
+        - text_sensor.template.publish:
+            id: sleep_state
+            state: "Deep Sleep (remote invoke)"
         - script.execute: prepare_for_sleep
 ````
 
 *Home Assistant* shows this button in the device user interface, and when you click it, the device enters *deep sleep*. All *physical buttons* also got virtual *Home Assistant* buttons, so they, too, can be remotely operated:
 
 ````
-
   - platform: template
     name: "Button1 ShortPress"
     id: short_press1
@@ -514,6 +595,7 @@ Here is the complete *configuration*:
 
 ````
 
+
 # PREFERENCES and GLOBAL VARIABLES:
 # save state changes to flash within 10s (i.e. new display backlight dim level)
 preferences:
@@ -535,12 +617,13 @@ sensor:
   - platform: wifi_signal
     name: "WiFi Signal dB"
     id: wifi_signal_db
-    update_interval: 1s
+    #update_interval: 60s
   # retrieve current WiFi signal strength in percent:
   - platform: copy 
     source_id: wifi_signal_db
     name: "WiFi Signal Percent"
     id: wifi_signal_percent
+    icon: mdi:cloud-percent
     filters:
       - lambda: return min(max(2 * (x + 100.0), 0.0), 100.0);
     unit_of_measurement: "Signal %"
@@ -552,19 +635,21 @@ sensor:
     id: battery_voltage
     name: "Voltage"
     update_interval: 1s
+    #internal: true
     accuracy_decimals: 2
     attenuation: 12dB
     samples: 10
     entity_category: "diagnostic"
     device_class: "voltage"
-    # transform the raw value (voltage divider) to actual voltage:
     filters:
-      - multiply: 2.0
-      # remove outliers:
-      - median:
+      # transform the raw value (voltage divider) to actual voltage:
+      - multiply: 2.04
+      # remove outliers (voltage spikes only):
+      - quantile:
           window_size: 7
           send_every: 4
           send_first_at: 3
+          quantile: .25
     # on new voltage readings, update battery statistics:
     on_value:
       then:
@@ -574,8 +659,22 @@ sensor:
     on_value_range:
       below: 3.2
       then:
+        - text_sensor.template.publish:
+            id: sleep_state
+            state: "Deep Sleep (low voltage)"
         - script.execute: prepare_for_sleep
 
+  # publish battery voltage in arbitrary intervals (when ADC sensor is set to internal)
+  #- platform: template 
+  #  name: "Battery Voltage"
+  #  id: battery_voltage_public
+  #  update_interval: 60s
+  #  accuracy_decimals: 2
+  #  lambda: return id(battery_voltage).state;
+  #  unit_of_measurement: "V" 
+  #  device_class: voltage  
+  #  state_class: measurement  
+  #  entity_category: "diagnostic"
   # publish battery state of charge in percent      
   - platform: template
     name: "Battery %"
@@ -595,18 +694,19 @@ sensor:
           - 3.30 -> 1.0
           - 3.39 -> 10.0
           - 3.75 -> 50.0
-          - 4.11 -> 90.0
+          - 4.08 -> 97.0
+          - 4.11 -> 99.0
           - 4.20 -> 100.0
       # cap at 100%
-      - lambda: |-
-          if (x <= 100) {
-            return x;
-          } else {
-            return 100;
-          }
-          if (x <0) {
-            return 0;
-          }
+      - clamp:
+          min_value: 0
+          max_value: 100
+          ignore_out_of_range: true
+      # remove outliers (both directions):
+      - median:
+          window_size: 7
+          send_every: 4
+          send_first_at: 3
     
     # on new battery percentage, update text and icon on display:
     on_value: 
@@ -615,14 +715,12 @@ sensor:
         - lambda: |-
             // output battery percentage horizontally aligned:
 
-            // clear text background:
-            id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
-
-            // output text center-aligned horizontally
-            int display_centerwidth = id(display1).get_width()/2;
-            if (id(battery_voltage).state > 4.18) {
-              id(display1).printf(display_centerwidth, -2, id(lato), MEDIUMGRAY, TextAlign::CENTER_HORIZONTAL, "USB");
-            } else {
+            
+            if (id(battery_voltage).state < 4.18) {
+              // clear text background:
+              id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+              // output text center-aligned horizontally
+              int display_centerwidth = id(display1).get_width()/2;
               // update battery percent:
               id(display1).printf(display_centerwidth, -2, id(lato), LIGHTGRAY, TextAlign::CENTER_HORIZONTAL, "%.0f%%", id(battery_percent).state);
             }
@@ -660,12 +758,45 @@ text_sensor:
     id: battery_status
     entity_category: "diagnostic"
     device_class: ""
+    icon: mdi:power-plug-battery
     lambda: |-
-      if (id(battery_voltage).state > 4.18) {
+      if (id(battery_voltage).state > 4.74) {
+        id(display1).filled_rectangle(111, -3, 24, 24, BLACK);
+        id(display1).image(111, -3, id(powerPlug), YELLOW, BLACK);
+        // clear text background:
+        id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+        // output text center-aligned horizontally
+        int display_centerwidth = id(display1).get_width()/2;
+        id(display1).print(display_centerwidth, -2, id(lato), GRAY, TextAlign::CENTER_HORIZONTAL, "USB");
         return {"USB"};
+      } else if (id(battery_voltage).state > 4.18) {
+        id(display1).filled_rectangle(111, -3, 24, 24, BLACK);
+        id(display1).image(111, -3, id(batcharge), YELLOW, BLACK);
+
+        // clear text background:
+        id(display1).filled_rectangle(40, -2, 55, 20, BLACK);
+        // output text center-aligned horizontally
+        int display_centerwidth = id(display1).get_width()/2;
+
+        if (id(battery_voltage).state > 4.5) {
+           id(display1).print(display_centerwidth, -2, id(lato), GREEN, TextAlign::CENTER_HORIZONTAL, "CV");
+           return {"Constant Voltage"};
+        } else {
+           id(display1).print(display_centerwidth, -2, id(lato), YELLOW, TextAlign::CENTER_HORIZONTAL, "CC");
+           return {"Constant Current"};
+        }
       } else {
         return {"Battery"};
       }
+  # log system state: running or deep sleep (and reason)
+  - platform: template
+    name: "DeepSleep State"
+    id: sleep_state
+    icon: "mdi:power-sleep"
+    entity_category: "diagnostic"
+    device_class: ""
+    
+    
 
 # DEEP SLEEP
 
@@ -696,14 +827,31 @@ script:
 # PUSH BUTTONS that can be pushed physically and remotely via Home Assistant
 button:
   - platform: template
-    name: "DeepSleep"
+    name: "DeepSleep Invoke"
     id: deep_sleep_button
     entity_category: "diagnostic"
     device_class: ""
+    icon: mdi:sleep
     # send device to deep sleep remotely:
     on_press: 
       then:
+        - text_sensor.template.publish:
+            id: sleep_state
+            state: "Deep Sleep (remote invoke)"
         - script.execute: prepare_for_sleep
+
+  - platform: template
+    name: "WiFi Measure Strength"
+    id: update_wifi
+    entity_category: "diagnostic"
+    device_class: ""
+    icon: mdi:wifi-sync
+    # manually update wifi signal strength
+    on_press:
+      then:
+        - sensor.template.publish:
+            id: wifi_signal_db
+            state: !lambda 'return id(wifi_signal_db).state;'
 
   - platform: template
     name: "Button1 ShortPress"
@@ -737,15 +885,6 @@ button:
       then:
         - logger.log: "Button2 LongPress Pressed"
 
-  - platform: template
-    name: "Button2 SuperLongPress"
-    id: superlong_press2
-    # no device action defined yet
-    on_press:
-      then:
-        - logger.log: "Button2 SuperLongPress Pressed"
-
-
 # ON/OFF SWITCHES that can be switched physically and remotely via Home Assistant:
 switch:
   # ON while device button 1 is kept pressed down
@@ -764,8 +903,29 @@ switch:
     icon: "mdi:toggle-switch-outline"
     optimistic: true
 
-# GPIOs (PHYSICAL BUTTONS)
 binary_sensor:
+  # Home Assistant API connectivity
+  - platform: status
+    name: "API Home Assistant"
+    id: api_status
+    on_state: 
+      then:
+        - if:
+            condition:
+              lambda: 'return id(api_status).state;'
+              # if Home Assistant API is connected, the board is running:
+            then:
+              - text_sensor.template.publish:
+                  id: sleep_state
+                  state: "Running"
+            # if the API is not in reach, the board is still running:
+            else:
+              - text_sensor.template.publish:
+                  id: sleep_state
+                  state: "Running"
+  
+  # physical GPIOs (buttons)
+
   # left button (boot button):
   - platform: gpio
     name: "Button Left"
@@ -814,7 +974,9 @@ binary_sensor:
             - ON for at least 3.1s
           then:
             # invoke deep sleep
-            - logger.log: "physically invoking deep sleep"
+            - text_sensor.template.publish:
+                id: sleep_state
+                state: "Deep Sleep (manual invoke)"
             - script.execute: prepare_for_sleep
     
     # holding down the button:
@@ -870,14 +1032,12 @@ binary_sensor:
       max_length: 500ms
       then:
         - logger.log: "physical Short Press 2"
-        - logger.log: "Short Press 2"
         - button.press: short_press2
     # long press:
     - min_length: 501ms
       max_length: 3000ms
       then:
         - logger.log: "physical Long Press 2"
-        - logger.log: "Long Press 2"
         - button.press: long_press2
 
     # super long press (<3s) without need to release
@@ -885,8 +1045,10 @@ binary_sensor:
         - timing:
              - ON for at least 3.1s
           then:
-             - logger.log: "physical Super Long Press 2"
-             - button.press: superlong_press2
+             # update wifi strength sensor:
+             - logger.log: "updating WiFi strength measurement"
+             - button.press: update_wifi
+             
     # holding down the button:
     on_press:
       then:
@@ -1090,7 +1252,7 @@ image:
   - file: mdi:battery-high
     id: bat5
     resize: 24x24
-  - file: mdi:battery-charging
+  - file: mdi:flash
     id: batcharge
     resize: 24x24
   - file: mdi:power-plug
