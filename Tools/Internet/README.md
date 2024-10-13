@@ -20,11 +20,11 @@ Most users focus on their *Internet Service Provider* (*ISP*) when it comes to *
 
 To understand why that is, you need to know that there are **two** crucial ingredients for fast Internet, and your *ISP Internet access* is just one of them:
 
-* **Internet Service Provider (ISP):** that's the company that provides you with a *modem*, and physically connect you to the *Internet*. *ISPs* provide you with the **last mile** only, though. The speed of your *ISP* is the *maximum theoretical limit*. Aiming to get the fastest possible *ISP* does make sense.
-* **Routing:** Once your data packages *enter* the *Internet* through your *ISP access*, they need to get directions how to get to the desired target, similar to a navigation system. That's called *Routing*. And this second part is just as important as a fast *ISP*. Routing can be efficient and send your data packages directly to the target, and it can also be very inefficient, sending your data packages around the globe and across weak or even failing routes.
+* **Internet Service Provider (ISP):** the company that provides you with a *modem* and physically connects you to the *Internet*. *ISPs* are responsible for taking care of the **last mile**: connecting *your home or smartphone* with all the other networks in the *Internet*. Having a *fast ISP* is your ticket to *entering the Internet in a fast way*. It does not guarantee *fast transfer speeds* **inside** the *Internet*, though.  
+* **Routing:** Once your data packages *enter* the *Internet* through your *ISP access point*, they need to get directions on how to travel to the desired target - similar to a navigation system. That's called *Routing*. Routing is just as important as a fast *ISP*. Routing can send your packages to the nearest available *CDN server* (good), or it can route your packages across the globe to the *original webserver* (very bad).
 
 > [!NOTE]
-> Even the fastest *Ferrari* (aka *ISP*) won't get you quickly to your target if your navigation system (aka *Routing*) sucks, sending you in the wrong direction and across dirt roads.   
+> View it this way: a *Ferrari* (aka *fast ISP*) won't win a race against a *Fiat* (aka *slow ISP*) when the *Ferarri's* navigation system (aka *Routing*) sends it back and forth and across the wildest dirt roads while the *Fiat navigation system* just takes the highway and uses the nearest exit.  
 
 ### Why *This* Website May Be Slow
 This website is hosted by *AWS*, backed by sophisticated *CDNs* (*Content Delivery Networks*), and uses *static HTML* - all the ingredients for *super fast and super responsive websites*. And indeed, regularly performed global tests prove that this website is speed-wise among the top 5%.
