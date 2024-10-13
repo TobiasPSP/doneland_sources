@@ -661,7 +661,7 @@ sensor:
       then:
         - text_sensor.template.publish:
             id: sleep_state
-            state: "Deep Sleep (low voltage)"
+            state: "Sleeping (low voltage)"
         - script.execute: prepare_for_sleep
 
   # publish battery voltage in arbitrary intervals (when ADC sensor is set to internal)
@@ -837,7 +837,7 @@ button:
       then:
         - text_sensor.template.publish:
             id: sleep_state
-            state: "Deep Sleep (remote invoke)"
+            state: "Sleeping (remote invoke)"
         - script.execute: prepare_for_sleep
 
   - platform: template
@@ -976,7 +976,7 @@ binary_sensor:
             # invoke deep sleep
             - text_sensor.template.publish:
                 id: sleep_state
-                state: "Deep Sleep (manual invoke)"
+                state: "Sleeping (manual invoke)"
             - script.execute: prepare_for_sleep
     
     # holding down the button:
