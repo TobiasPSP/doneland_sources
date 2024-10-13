@@ -4,14 +4,16 @@
 
 > Why This Website May Be Loading Slow, And What You Can Do To Boost Your Internet 
 
-[done.land](https://done.land/) is a very fast website, designed for speed and rapid response times. It shouldn't take more than a snap to load a page, including all pictures and assets.
+[done.land](https://done.land/) is a very fast and modern website, designed for speed and rapid response times. It **shouldn't take more than a second** to view a page, including all pictures and assets. Still, a few of you experience *severe* slow-downs, and at times it may take **minutes** until a single page is loaded - not good.
 
-Still, some of you may experience *severe* slow-downs, and at times it may take **minutes** until a single page is loaded - not good.
+The underlying problem is not *this particular website* - it's rather just a *symptom*, and you may experience other issues with downloads, services, and websites. The issue only affects a few websites, and the severity of the issue may vary during the day or over time.
 
-In this article, I am explaining what is amiss, why this may affect many other websites alike, and what you can do about it. If your hair is on fire, below is a quick summary.
+It took me some time to figure out the cause, and in this article I'll explain both the problem and some great fixes. They won't just speed up *this* website but generally provide you with a snappier and more reliable *Internet experience*.
+
+If your hair is on fire, below is a quick summary.
 
 > [!TIP]
-> Some *ISPs* like the *German Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: when communicating with (predominantly) *US-based networks* like *AWS* or *github*, they may send packages on (very) inefficient routes. This problem might be present when *some* websites and downloads are exceptionally slow for you, while others work normally. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ) (should you decide to use *NordVPN* through this link, you are extending my own paid *NordVPN* by three months at no extra cost for you).
+> Some *ISPs* like the *Deutsche Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: when communicating with (predominantly) *US-based networks* like *AWS* or *github*, they may send packages on (very) inefficient routes. This problem might be present when *some* websites and downloads are exceptionally slow for you, while others work normally. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ) (should you decide to use *NordVPN* through this link, you are extending my own paid *NordVPN* by three months at no extra cost for you).
 
 ## Ingredients For Fast Internet Experience
 Most users focus on their *Internet Service Provider* (*ISP*) when it comes to *fast Internet speed* and a great experience. They pay high monthly fees to get a "fast" *Internet connection*, i.e. *250MBit/s* or even *1GBit/s*. Even then, though, they occasionally experience surprisingly slow websites or downloads  while with other *urls*, the promised *high-speed Internet* works just fine.
@@ -62,16 +64,19 @@ over a maximum of 30 hops:
 
 Trace complete.
 ````
+
+Do you see the issue? My packets were routed through my own router to the *Telekom*, then travelled to *New York City* and finally reached some *US servers*.
+
+While it is true that my servers are located in the US, this is *not* where my website data comes from. I am using fast global *CDNs* (*content delivery networks) that operate servers all over the place. *You* should receive my website data from the nearest *CDN server* with lightning speed. Since I am currently located in *Germany*, my packets should definitely **not** cross the *Atlantic*. They should be routed to a *German CDN server*.
+
+Before we look at *why* the routing of some *ISPs* is so insanely off, let's first take a look at the *practical consequences*, and closely examine *why* the website is loading so slowly.
+
+
+
 ### Debugging Slow Website
-If the *route* has no obvious issues, then *debug* the website inside the browser. 
+Most modern browsers come with advanced debugging tools. In *Chrome* press `F12` to open its debug tools. Then click the tab *Network*, and empty the list of network requests.
 
-#### Open Browser Debugger
-In *Chrome*, for example, press `F12` to open the debug tools. Next, click the tab *Network*, and delete the list of network requests.
-
-#### Clear Browser Cache
-Always clear your browser cache before testing, so you are indeed measuring the download times rather than using cached elements from memory. 
-
-In *Chrome*, click the *three-dot* menu, and choose *Delete browsing data...*. It is sufficient to delete the last *24 hours* of cached data.  
+Always also clear your browser cache before testing so you are measuring download times rather than using cached elements from memory: in *Chrome*, click the *three-dot* menu, and choose *Delete browsing data...*. It is sufficient to delete the last *24 hours* of cached data.  
 
 #### Navigate To Webpage Under Test
 Now, enter the *url* of the website you want to test. I chose a random [*done.land* article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display) with a number of images and other resources. You can now watch how the browser downloads all the data that the web page is composed of, and for each resource you see its url, size, and time it took:
