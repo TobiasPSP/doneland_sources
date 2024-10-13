@@ -13,7 +13,7 @@ It took me some time to figure out the cause, and in this article I'll explain b
 If your hair is on fire, below is a quick summary.
 
 > [!TIP]
-> Some *ISPs* like the *Deutsche Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: when communicating with (predominantly) *US-based networks* like *AWS* or *github*, they may send packages on (very) inefficient routes. This problem might be present when *some* websites and downloads are exceptionally slow for you, while others work normally. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ) (should you decide to use *NordVPN* through this link, you are extending my own paid *NordVPN* by three months at no extra cost for you).
+> Some *ISPs* like the *Deutsche Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: when communicating with (predominantly) *US-based networks* like *AWS* or *github*, they may send packages on (very) inefficient routes. This problem might be present when *some* websites and downloads are exceptionally slow for you, while others work normally. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ) (should you decide to use *NordVPN* through this link, you are extending my own paid *NordVPN* by three months at no extra cost for you - which I would appreciate with gratitude).
 
 ## Ingredients For Fast Internet Experience
 Most users focus on their *Internet Service Provider* (*ISP*) when it comes to *fast Internet speed* and a great experience. They pay high monthly fees to get a "fast" *Internet connection*, i.e. *250MBit/s* or even *1GBit/s*. Even then, though, they occasionally experience surprisingly slow websites or downloads  while with other *urls*, the promised *high-speed Internet* works just fine.
@@ -114,14 +114,14 @@ Your data packages then travel within the *VPN* server network. *VPNs* optimize 
 
 Using a VPN has also *security benefits*: since you are *leaving your ISP network* at the first possible exit, your *privacy* is protected.
 
-The downside of *VPNs* is that they are a *paid service* with *monthly fees*. After careful comparison, I personally opted for the basic [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ) and purchased a *2-year-package* for around €90 in total. It comes with a *30-day money back guarantee so you can test whether it works for you and fixes the speed problems. 
+The downside of *VPNs* is that they are a *paid service* with *monthly fees*. After careful comparison, I personally opted for the basic [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ) and purchased a *2-year-package* for around €90 in total. It comes with a *30-day money back guarantee so you can test whether it works for you and fixes the speed problems. 
 
-> If you decide to use [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ), too, and sign up via this link, then this gets me another free three months at no extra cost for you. Consider carefully. I'd greatly appreciate your support.
+> If you decide to use [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ), too, and sign up via this link, then this gets me another free three months at no extra cost for you. Consider carefully. I'd greatly appreciate your support.
 
 For me, it solved all speed problems immediately, and I also finally got the transfer and download speeds with some other services that used to be "miraculously slow" at times.
 
 ## Walkthrough: NordVPN
-Here is a quick walk-through on how to set up and use [NordVPN](https://refer-nordvpn.com/DdmJlprBMeZ).
+Here is a quick walk-through on how to set up and use [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ).
 
 ### Download NordVPN App
 Your journey starts with downloading the [NordVPN app](https://nordvpn.com/download/). It is available for *Windows* and other operating systems as well as for smartphones.
@@ -131,7 +131,7 @@ Your journey starts with downloading the [NordVPN app](https://nordvpn.com/downl
 <img src="images/nordvpn_1.png" width="50%" height="50%" />
 
 
-After you installed the software, you find links on your *Desktop* and *Start Menu* (respective an *app icon* on your smartphone). When you start the *NordVPN* app, you can either *log in* or [create a NordVPN account (sign up)](https://refer-nordvpn.com/DdmJlprBMeZ). There are different *paid plans* and no *free tier*. If you have no *NordVPN* account yet, I'd greatly appreciate if you used [this link to sign up](https://refer-nordvpn.com/DdmJlprBMeZ) rather than the button in the dialog - with the link you can send me the gratitude of three more months on my own contract, at no extra cost for you.
+After you installed the software, you find links on your *Desktop* and *Start Menu* (respective an *app icon* on your smartphone). When you start the *NordVPN* app, you can either *log in* or [create a NordVPN account (sign up)](https://refer-nordvpn.com/DdmJIprBMeZ). There are different *paid plans* and no *free tier*. If you have no *NordVPN* account yet, I'd greatly appreciate if you used [this link to sign up](https://refer-nordvpn.com/DdmJIprBMeZ) rather than the button in the dialog - with the link you can send me the gratitude of three more months on my own contract, at no extra cost for you.
 
 When you click *Log in*, your browser opens and asks for your *username* and *password*. Once the browser-based authentication succeeds, you return to the *NordVPN app*.
 
