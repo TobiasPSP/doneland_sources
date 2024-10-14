@@ -5,7 +5,11 @@
 > Turning Off Battery-Driven T-Displays By Using Deep Sleep And Wakeup
 
 
-Once the [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) gets connected to an external *LiIon* or *LiPo* battery, it can run independently and requires no USB cable. At an average power consumption of *130mA*, it can theoretically run short of 8 hours from a *1.000 mAh* battery. Since the display starts flickering at around *3.2V*, though, you won't be able to utilize the full battery capacity.
+Once the [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) gets connected to an external *LiIon* or *LiPo* battery, it can run independently and requires no USB cable. At an average power consumption of *130mA*, it can theoretically run short of 8 hours from a *1.000 mAh* battery. 
+
+
+<img src="images/lilygo_t-display_deepsleep_esphome_display_overview2_t.png" width="40%" height="40%" />
+
 
 Battery-driven boards introduce new challenges:
 
@@ -18,6 +22,13 @@ One solution not discussed here is to add a physical power switch to the positiv
 ## Overview
 
 This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it careless, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected. The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
+
+<img src="images/lilygo_tdisplay_deepsleep_overview_ui.png" width="70%" height="70%" />
+
+The *configuration* also exposes all crucial device information to *Home Assistant*, including a battery icon with the current battery charging state, and a button to remotely send the device to *deep sleep*:
+
+
+<img src="images/lilygo_t_display_deep_ha1.png" width="100%" height="100%" />
 
 
 I'll cover the required optimizations first, then present the entire configuration.
@@ -165,6 +176,10 @@ Deep sleep can now be invoked manually, automatically, and even remotely. The *r
 
 This is important because *Home Assistant* shows the last known parameters, and if the board was sent to *deep sleep*, none of its user controls respond anymore. That's expected since a system in *deep sleep* is essentially *turned off*, but *Home Assistant* should report the fact that the system is currently *sleeping* - which is what this sensor does. It also reports *why* the system is *sleeping*.
 
+
+<img src="images/lilygo_t_display_deep_ha2-t.png" width="30%" height="30%" />
+
+
 Here are the three ways how the board can enter *deep sleep*:
 
 ### Automatic Low Voltage Protection
@@ -210,6 +225,8 @@ To send the device automatically to *deep sleep* when the battery voltage drops 
 
 Note how the *sleep_state* `text_sensor:` is updated *before* the system enters *deep sleep*.
 
+
+
 #### Reading Battery Voltage
 Knowing the current *battery voltage* is crucial for battery-operated devices, and the previously discussed *automatic deep sleep* on *low voltage* is just one example. Displaying *battery icons* and status texts are other use cases.
 
@@ -218,6 +235,15 @@ To actually get a *solid battery voltage reading* requires some processing which
 * **Automatic Deep Sleep:** `on_value_range:` defines the threshold and executes the script to invoke *deep sleep*.
 * **Automatic Update:** `on_value:` makes sure dependent sensors are updated whenever the battery voltage changes, one of which shows the battery state of charge in *percent*, and the other one reports the power mode: *USB* or *Battery*.
 * **Filters:** the *battery sensor* is really a simple *ADC GPIO* that measures the battery voltage across a *voltage divider*. `filters:` processes the raw readings to create a stable battery voltage. It first uses `multiply:` to account for the voltage divider. The factor is *2.0*. For accurate readings, you should double-check your battery voltage, and make slight adjustments. In my case, the required factor was *2.04*. There are always slight variations in resistor values. Since the sensor frequently produces *voltage spikes*, a `quantile:` filter is used to cut off any value that is not in the bottom *25%* of values, effectively removing sudden positive spikes. Make sure you switch the *ADC* to `attenuation: 12dB`, or else your readings will be clipped, and you always measure a voltage around *1V*.
+
+    Here is a graph taken from *Home Assistant*, showing *battery voltage* over time. On the left, I used a *median* filter, and voltage spikes are still present. On the right is the *25% quantile* filter with a nice and smooth linear discharge curve:
+
+
+    <img src="images/lilygo_t_display_deep_ha3.png" width="60%" height="60%" />    
+
+    The *flat line* at the bottom represents the *automatic low-voltage protection* when the board switched to *deep sleep* once the voltage fell below *3.2V*.
+
+    Make sure you switch the *ADC* to `attenuation: 12dB`, or else your readings will be clipped, and you always measure a voltage around *1V*.
 
 The *battery voltage sensor* is crucial for updating icons and status text, so `update_interval:` is set to *1s*. *ESPHome* sends updates over the network to *Home Assistant* only when the battery voltage really changes. Increasing the *update interval* is not recommended as it would increase the *lag time* when you connect or disconnect the device to *USB power*.
 
@@ -268,6 +294,11 @@ text_sensor:
       }
 ````
 
+Here is how *Home Assistant* converts this text sensor to a graph over time, providing detailed information about battery charging and discharging:
+
+<img src="images/lilygo_t_display_deep_ha5.png" width="100%" height="100%" />    
+
+
 It also updates icons and status text:
 
 * **Power Mode:** based on the current voltage readings, you get different icons and status texts for these modes:
@@ -310,6 +341,10 @@ The latter - the battery *state of charge*, is determined by *battery_percent*, 
           send_every: 4
           send_first_at: 3
 ````
+
+This *Home Assistant* graph shows a smooth and almost linear *battery percent* curve when discharging the battery:
+
+<img src="images/lilygo_t_display_deep_ha4.png" width="60%" height="60%" />    
 
 `calibrate_linear:` calibrates the state of charge via some reference points. *LiIon* battery voltage often drops considerably right after disconnecting them from the charger (which is called *relaxation*). The reference points take this into account and produce a curve that linearly depicts the true *state of charge* based on current battery voltage.
 
@@ -363,6 +398,11 @@ It then also serves to update the battery icon in the display which occurs every
               id(display1).image(111, -3, id(powerPlug), YELLOW, BLACK);
             }
 ````
+
+Note how the battery state and icon is added to the device in *Home Assistant* so you can immediately see which of your *ESPHome devices* has a battery, and what the current battery status is:
+
+<img src="images/lilygo_t_display_deep_ha6.png" width="60%" height="60%" />    
+
 
 ### Manual Deep Sleep
 When the *GPIO0 push button* is pressed for at least *3.1s*, deep sleep is manually invoked:
@@ -437,6 +477,10 @@ All the other potential functionalities you may want to associate with this push
         - logger.log: "physical Long Press 1"
         - button.press: long_press1
 ````
+
+
+<img src="images/lilygo_t_display_deep_ha7-t.png" width="40%" height="40%" />    
+
 
 You can use all of these events internally (within this *configuration*), i.e. to trigger other actions or local scripts. Currently, all events just invoke `logger.log:`, and write debug messages into the log.
 
@@ -577,12 +621,75 @@ it.filled_rectangle(0, -3, 24, 24, BLACK); // erase icon area
 it.image(0, -3, id(wifiOn), GREEN, BLACK); // draw new icon
 ````
 
+### Dimmable Display Backlight
+The *display backlight* is implemented as a `light:` component, and this *light* is tied to its *GPIO 4* via an `output:`:
+
+````
+# use a separate "light" component for dimmable display backlight management:
+output:
+  - platform: ledc
+    # GPIO4 is connected to display backlight:
+    pin: 4
+    id: display_backlight_pwm
+
+# display backlight:
+light:
+  - platform: monochromatic
+    output: display_backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    # remember last dim state:
+    restore_mode: RESTORE_AND_ON
+    # support a pulse effect:
+    effects:
+      - pulse:
+          name: noWifiConnection
+          min_brightness: 60%
+          max_brightness: 80%
+````
+
+This way, you can turn the backlight *on* and *off*, but you can also *dim* it: in *Home Assistant*, when you click the *light bulb icon* in the device *Controls*, a dimmable light control opens, and you can set the light intensity with a slider.
+
+
+
+<img src="images/lilygo_t_display_deep_ha8-t.png" width="50%" height="50%" />    
+
+At the bottom of this control, you see a drop-down list with available *light effects*. The *configuration* defines the *pulsating* effect *noWifiConnection* which is used initially when the device has not yet established a *WiFi connection*. With this *Home Assistant* control, you can turn this effect on and off manually any time you like.
+
+
+````
+# use a separate "light" component for dimmable display backlight management:
+output:
+  - platform: ledc
+    # GPIO4 is connected to display backlight:
+    pin: 4
+    id: display_backlight_pwm
+
+# display backlight:
+light:
+  - platform: monochromatic
+    output: display_backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    # remember last dim state:
+    restore_mode: RESTORE_AND_ON
+    # support a pulse effect:
+    effects:
+      - pulse:
+          name: noWifiConnection
+          min_brightness: 60%
+          max_brightness: 80%
+
+````
+
+`restore_mode: RESTORE_AND_ON` makes sure your last dim level is stored and used as future default.
+
+
+
 
 ## Sample Configuration
 
-The new *configuration* below is not just much more *power-efficient* when compared to the the [intial version](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
-
-It has also gained a lot more functionality:
+The *configuration* below is ready for *copy & paste*. It is not just much more *power-efficient* than the [intial version](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). It has also all the built-in functionality required by a *battery-operated device*:
 
 * **Status bar:** a small status bar shows a *WiFI* **and** a *battery* icon, indicating *connectivity* and *power status*. A horizontal bar shows the *reception strength* for *WiFI* which makes it easy to place the device in a spot with good *WiFi* coverage. In-between both icons, the current battery charge status is displayed in *percent* (unless connected to *USB* power).
 * **Display Dimming:** pressing either one of the two buttons **quickly** controls display brightness. The selected brightness is stored as your new preference.
@@ -591,11 +698,9 @@ It has also gained a lot more functionality:
 
 
 ### Configuration
-Here is the complete *configuration*:
+Here is the *ready to use* complete ESPHome *configuration*:
 
 ````
-
-
 # PREFERENCES and GLOBAL VARIABLES:
 # save state changes to flash within 10s (i.e. new display backlight dim level)
 preferences:

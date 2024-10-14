@@ -178,6 +178,12 @@ As a *Deutsche Telekom* user in *Germany*, I was **severely** affected by the sp
 
 After testing, I found that *NordVPN* solved all my issues, and then some: I always had a few websites and downloads which funnily wouldn't perform as well as the rest. With *NordVPN*, now *all* my Internet resources load equally fast, finally letting my *expensive superfast ISP internet access* live up to its full potential. 
 
+> [!IMPORTANT]
+> While you are connected to a *VPN*, your browser is communicating with this new virtual network. It can no longer resolve local *mDNS* names, i.e. `homeassistant.local:8123`. To access local devices, either *disconnect* from your *VPN*, or use the devices' local *IP address* instead of its *mDNS name*.
+
+
+
+
 ## Walkthrough: NordVPN
 If you are wondering how a *VPN* works, and how you set it up, here is a quick walk-through on my first steps with [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ).
 
@@ -200,8 +206,8 @@ When you click *Log in*, your browser opens and asks for your *username* and *pa
 ### Select VPN Server
 The *NordVPN app* shows your connection status: 
 
-* **Not Connected:** **red** *Not Connected*, you are using your *ISPs* routing, and you see your currently assigned *IP address*.
-* **Connected:** **green** *Connected*, you are using the *VPN* and its own routing. Your *ISP name* is no longer the *ISP* that connects your home to the Internet, and you are using anonymized *IP addresses*.
+* **Not Connected:** **red** *Not Connected*, you are using your *ISPs* routing, and you see your currently assigned *IP address*. In this mode, you can access local *mDNS* addresses as usual (i.e. `homeassistant:local:8123`)
+* **Connected:** **green** *Connected*, you are using the *VPN* and its own routing. Your *ISP name* is no longer the *ISP* that connects your home to the Internet, and you are using anonymized *IP addresses*. In this mode, you cannot access local *mDNS* addresses from your browser unless you replace the *mDNS* name with the device IP address (i.e. `http://192.168.68.123:8123`)
 
 You can enter the *VPN* through a wealth of servers located around the globe. If you'd like to maximize your speed, choose a *VPN server* as close as possible to your current location. 
 
