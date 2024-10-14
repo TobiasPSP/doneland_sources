@@ -18,7 +18,7 @@ If your hair is on fire, below is a quick summary.
 > Some *ISPs* like the *Deutsche Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: they point your requests to the origin of the website rather than the plenty of available local and fast *CDN mirror servers*. This affects websites that use certain *CDNs* only. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ) (the provided link adds a few free extra months for you (and me) - should you decide to sign up with them).
 
 ## Ingredients For Fast Internet Experience
-Most users focus just on their *Internet Service Provider* (*ISP*) for *fast Internet speed*. High monthly fees get you a supposingly fast *Internet connection*, i.e. *250MBit/s* or even *1GBit/s*. You might discover though that occasionally, your Internet speed is much slower, and **a few** (not all) websites and downloads (as well as video conferences) perform sluggishly.
+Most users focus just on their *Internet Service Provider* (*ISP*) for *fast Internet speed*. High monthly fees get you a supposingly fast *Internet connection*, i.e. *250MBit/s* or even *1GBit/s*. You might discover though that occasionally, your Internet speed is much slower, and **a few** (not all) websites and downloads (as well as other services such as video conferences) perform sluggishly.
 
 To understand why that is, you need to be aware that there are **two** crucial ingredients for fast Internet. Your *ISP Internet access* is just **one** of them:
 
@@ -31,7 +31,7 @@ To understand why that is, you need to be aware that there are **two** crucial i
 ### Why *This* Website May Be Slow
 The funny thing is that *bad routing* doesn't seem to affect *all websites* in the same way. That's why you are probably not aware of it at first. Here is why only *some* websites and downloads are affected:
 
-This website is hosted by *AWS*, backed by sophisticated *CDNs* (*Content Delivery Networks*), and uses *static HTML* - all the ingredients for *super fast and super responsive websites*. Routinely performed global audits prove that this website is among the top 5% speed-wise.
+This website is backed by sophisticated *CDNs* (*Content Delivery Networks*) and uses *static HTML* - all ingredients for *super fast and super responsive websites*. Routinely performed global audits underline that this website is among the top 5% speed-wise.
 
 If pages still take painstakenly long to load **for you**, and if **you** see images appear only slowly line by line, or spot missing fonts or dearranged icons, then there can only be *three* potential issues:
 
@@ -69,20 +69,59 @@ over a maximum of 30 hops:
 Trace complete.
 ````
 
-And this trace already visualizes the core problem: even though I was located in *Germany*, my data packets were routed across the Atlantic to *New York City* and finally ended up at *github* servers in the *US*.
+My packages start to enter the *Internet* at IP address *62.155.243.83* in *Frankfurt/Main*:
 
-While it is true that my servers are located in the US, this is *not* where my website data should come from. The *github server* in the *US* is storing my *original data*, but it is slow and does not scale well. Fast global *CDNs* (*content delivery networks*) that have mirror servers all over the world are the ones that serve websites to the audience in lightning speed. 
-
-So when you navigate to this website, your packets should be routed to the nearest *CDN server* in your neighborhood.
-
-> [!NOTE]
-> This explains why *bad routing* only affects *some* websites: *Deutsche Telekom* and a few other *ISPs* seem to have bad *routing agreements* for certain *CDNs*. Whenever a website (or a download) uses one of these *CDNs* in the background, then **you** are affected and experience slow performance. If a website (like this one) is hosted by an extremely slow server (like *github pages*) that is not meant to be hosting websites directly to a great audience, and if this server is located far away from you (as is the case with *German* users), the problem only aggrevates. With *this particular website* **and** *Deutsche Telekom users* located in *Germany*, all holes in the Swiss Cheese align, and the website becomes *so slow* that it is almost unusable. Other websites may also show degradition, but possibly to a lesser degree.
+````
+PS> irm ipinfo.io/62.155.243.83/json
 
 
+ip       : 62.155.243.83
+hostname : p3e9bf353.dip0.t-ipconnect.de
+city     : Frankfurt am Main
+region   : Hesse
+country  : DE
+loc      : 50.1155,8.6842
+org      : AS3320 Deutsche Telekom AG
+postal   : 60306
+timezone : Europe/Berlin
+````
+
+The target destination set by my *ISPs routing* is IP address *172.67.130.250* (my *CDN Cloudflare* in *Los Angeles*):
+
+````
+PS> irm ipinfo.io/172.67.130.250/json
 
 
-Before we look at *why* the routing of some *ISPs* is so insanely off, let's first take a look at the daily *practical consequences* this has.
+ip       : 172.67.130.250
+anycast  : True
+city     : San Francisco
+region   : California
+country  : US
+loc      : 37.7621,-122.3971
+org      : AS13335 Cloudflare, Inc.
+postal   : 94107
+timezone : America/Los_Angeles
+````
 
+The data packages are taking many detours, i.e. hopping via *216.6.90.14*:
+````
+PS> > irm ipinfo.io/216.6.90.14/json
+
+
+ip       : 216.6.90.14
+hostname : if-ae-0-2.tcore3.njy-newark.as6453.net
+city     : New York City
+region   : New York
+country  : US
+loc      : 40.7143,-74.0060
+org      : AS6453 TATA COMMUNICATIONS (AMERICA) INC
+postal   : 10001
+timezone : America/New_York
+````
+
+Aside from the high number of hops, this trace does not look alarming at first. I *am* apparently getting to the fast *CDN edge servers*, so I *should* receive a fast response. But is this true? 
+
+Let's see next how the actual website behaves.
 
 
 ### Debugging Slow Website
@@ -99,12 +138,16 @@ In this particular example, downloading the entire web page took insane *10.4 **
 
 When you look closely, the download wasn't even successful: one picture did not download and caused a timeout error: `ERR_QUIC_PROTOCOL_ERROR`.
 
-Obviously, here is something seriously amiss.
+Obviously, here is something seriously amiss: my *ISP* has routed my packets to the correct *CDN*, but has obviously targeted the *wrong* *CDN edge server*.
+
+The *IP addresses* of the *edge servers* (the entry points to the *CDN*) are *dynamic* and can change frequently, primarily due to security and infrastructure reasons. I may be off, but apparently the *ISP* is not using the correct target *IP addresses* based on my location. We'll come back to this in a moment. 
+
+Aside from the *why* and *how*, the website **is definitely impaired**, and the **reason is bad routing**.
 
 ### Border Gateway Protocol
 *Routing* is complex and consists of many parts. Your *ISP* is responsible for the *Border Gateway Protocol* (*BGP*). It is used to exchange routing information between large networks, or "autonomous systems" (AS), such as *ISPs* (*Internet Service Providers*), big players (such as *AWS*), and most importantly *CDNs* (like *Cloudflare*).
 
-Apparently, for many years now, some *ISPs* like the *Deutsche Telekom* in *Germany*, seem to have bad *Peering Agreements*: *ISPs* enter into peering agreements with each other to exchange traffic. If the ISP has poor peering relationships or high costs for certain routes, they might route traffic through less optimal paths to avoid costs, severely impacting speed. 
+Apparently, for many years now, some *ISPs* like the *Deutsche Telekom* in *Germany*, seem to have bad *Peering Agreements* (or do not update their information in a timely way): *ISPs* enter into peering agreements with each other to exchange traffic. If the ISP has poor peering relationships or high costs for certain routes, they might route traffic through less optimal or **outdated** paths, severely impacting speed. 
 
 There are [plenty of discussions in German forums](https://telekomhilft.telekom.de/t5/Festnetz-Internet/Unglaublich-schlechtes-Routing/td-p/6827554) illustrating the problem.
 
@@ -186,25 +229,78 @@ To see the effects of using *NordVPN*, let's repeat the website tests with the *
 ````
 PS> tracert done.land
 
-Tracing route to done.land [188.114.96.4]
+Tracing route to done.land [188.114.97.4]
 over a maximum of 30 hops:
 
-  1    15 ms    15 ms    15 ms  10.5.0.1
-  2     *        *        *     Request timed out.
-  3     *        *        *     Request timed out.
-  4    16 ms    16 ms    15 ms  188.114.96.4
+  1    10 ms    10 ms    10 ms  10.5.0.1
+  2    11 ms    11 ms    12 ms  185.161.202.2
+  3     *       15 ms     *     185.161.202.3
+  4     *       16 ms     *     ipv4.de-cix.ham.de.as13335.cloudflare.com [185.1.210.10]
+  5    11 ms    11 ms    12 ms  188.114.97.4
 
 Trace complete.
 ````
 
-Within just *four* anonymous hops the data packages reach their destination. Note also how the destination IP address has changed: I am now getting the website and resources from an ultra-fast *CDN server* close to my location.
 
-Now let's repeat the website test inside *Chrome* (don't forget to clear the browser cache before you test again). Last time, it took over **10 minutes** to fully load the web page.
+Within just *five **fast*** hops the data packages reach their destination. Note how the **destination IP address has changed**: it is now *188.114.97.4*:
+
+````
+PS> irm ipinfo.io/188.114.97.4/json
+
+
+ip       : 188.114.97.4
+anycast  : True
+city     : San Francisco
+region   : California
+country  : US
+loc      : 37.7621,-122.3971
+org      : AS13335 Cloudflare, Inc.
+postal   : 94107
+timezone : America/Los_Angeles
+````
+
+This target IP address is *still* registered to *Cloudflare* located in *San Francisco*. But *registration data* is **not necessarily identical to where the actual server is located**. 
+
+One hop before reaching the target, the trace reveals that we are hopping *ipv4.de-cix.ham.de.as13335.cloudflare.com* which is located in *Hamburg, Germany*, just around the corner from my location:
+
+````
+PS> irm ipinfo.io/185.1.210.10/json
+
+
+ip       : 185.1.210.10
+hostname : ipv4.de-cix.ham.de.as13335.cloudflare.com
+city     : Hamburg
+region   : Hamburg
+country  : DE
+loc      : 53.5507,9.9930
+postal   : 20038
+timezone : Europe/Berlin
+````
+
+In a nutshell, *VPN routing* has routed my data packets directly to the *closest available CDN server*, only a few kilometers away from where I live. The hops in-between (*185.161.202.2* and *185.161.202.3*) were also located right in *Hamburg*:
+
+````
+PS> irm ipinfo.io/185.161.202.2/json
+
+
+ip       : 185.161.202.2
+city     : Hamburg
+region   : Hamburg
+country  : DE
+loc      : 53.5507,9.9930
+org      : AS207137 PacketHub S.A.
+postal   : 20038
+timezone : Europe/Berlin
+````
+
+Keep in mind: before using *VPN*, my *ISP* had routed my packets all the way across the Atlantic ocean, and served the website from a different continent, with frequent total *packet loss*, resulting in extremely low speeds.
+
+Let's verify the trace information, and look at the *real world consequences* this new routing has: I'll repeat the website test in my *Chrome* browser (don't forget to clear the browser cache before you test again). Remember: last time, it took over **10 minutes** to fully load the web page.
 
 <img src="images/routing_slow_website_chrome_debug_vpn.png" width="100%" height="100%" />
 
-This time, the same web page appears instantly. After mere *1.12s*, the complete web page and all of its pictures were loaded, and *2.7MB* were transfered. The transfer rate was *2.4MByte/s* (rather than 2.8KB/s as initially), almost *1000x* faster.
+This time, the same web page appears instantly. After mere *1.12s*, the complete web page and all of its images and fonts were loaded, and *2.7MB* were transfered. The transfer rate was *2.4MByte/s* (rather than 2.8KB/s as initially), almost *1000x* faster.
 
-> Tags: Website, Slow, VPN, ISP, Router, NordVPN, Peering Agreement, Border Gateway Protocol, BGP, Telekom
+> Tags: Website, Slow, VPN, ISP, Routing, Cloudflare, NordVPN, Peering Agreement, Border Gateway Protocol, BGP, Telekom
 
 [Visit Page on Website](https://done.land/tools/internet?015434101113241156) - created 2024-10-12 - last edited 2024-10-13
