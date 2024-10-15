@@ -51,3 +51,5 @@ If you require this, either attach a low-power external *real time clock*, use a
 
 
 > Tags: Deep SLeep, Efficient, Low Power, RTC, Real Time Clock, TPL5110, Toggle
+
+[Visit Page on Website](https://done.land/components/signalprocessing/switch/bistableswitch?619701101615241329) - created 2024-10-14 - last edited 2024-10-14

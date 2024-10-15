@@ -2,18 +2,17 @@
  
 # XL-10AL
 
-> Extremely Power-Efficient Bistable Switch With Quiescent Current Of Just 100nA That Works With 3.3V
+> Extremely Power-Efficient Bistable Switch With Quiescent Current Of Just 120nA That Works With 3.3V
 
-The *XL-10AL* is a small *12.8x22.7mm* breakout board with a highly power-efficient *bistable switch* that works both with *3.3V* and *5V* microcontrollers at just *100-350nA* quiescent current.
+The *XL-10AL* is a small *12.8x22.7mm* breakout board with a highly power-efficient *bistable switch* that works both with *3.3V* and *5V* microcontrollers at just *120-350nA* quiescent current.
 
 <img src="images/xl-10al_top_side_t.png" width="40%" height="40%" />
 
 > [!NOTE]
-> The **10AL** in *XL-**10AL*** stands for **10A** and ***l**ow*, and there is also a *XL-10A**H***. The **H** stands for ***h**igh* and refers to the *voltage range*: it can handle voltages from *4.5-26V* (i.e. if you wanted to switch *12V car electric*) 
+> The **10AL** in *XL-**10AL*** stands for **10A** and **l***ow*, and there is also a *XL-10A***H**. The **H** stands for **h***igh* and refers to the *voltage range*: it can handle voltages from *4.5-26V* (i.e. if you wanted to switch *12V car electric*) 
 
 ## Overview
-The board comes with four solder pads: *Vin* and *GND* are connected to the power supply (i.e. a battery), and *Vout* and *GND* are connected to the device you want to control. The voltage you feed in is the voltage you get out.
-
+The board comes with four solder pads: *Vin* and *GND* are connected to the power supply (i.e. a battery), and *Vout* and *GND* are connected to the device you want to control. The voltage you feed in is the voltage you get out. 
 A *push button* can be used to manually *toggle* the switch. 
 
 
@@ -42,7 +41,7 @@ Since the *left* side of the push button is connected to *GND*, *toggling* is pe
 
 ## Voltage and Current
 
-The vendor markets this *bistable switch* as *power switch* for *high currents* of up to *10A*, and the published **specs apply to this use case only** (*high currents*):
+The vendor markets this *bistable switch* as *power switch* for *high currents* of up to *10A*, and the published specs apply to **high current use cases only**:
 
 | Item | Value |
 | --- | --- |
@@ -54,21 +53,21 @@ The vendor markets this *bistable switch* as *power switch* for *high currents* 
 > For currents *>5A*, the voltage should be *>4V*, and an additional *heat sink* may be required.
 
 ### Microcontroller Use-Case
-When you use this *bistable switch* with **low currents** (around *200mA*, as is common in microcontroller projects), the specs look quite differently:
+With **low currents** (around *200mA*, as is common in microcontroller projects), the specs look quite differently:
 
 | Item | Value |
 | --- | --- |
 | **Current** | **max. *200mA*** |
 | Voltage | *2.8-5.4V* |
 | Voltage Drop | none |
-| Quiescent Current | *80-300nA* |
+| Quiescent Current | *120-300nA* |
 
 
 
 ### 3.3V Microcontroller
 Operating the *XL-10AL* with *3.3V* is officially *out of spec* but entirely possible: as long as you switch *small currents*, the MosFET works just fine. 
 
-With currents around *200mA* (as is common in microcontroller projects),  voltages below *3V* perform well, and the quiescent current in *off* state is much smaller than *300nA* (around *130nA*). Another benefit is the absence of any noticeable *voltage drop*.
+With currents around *200mA* (as is common in microcontroller projects),  voltages below *3V* perform well, and the quiescent current in *off* state is much smaller than *300nA* (around *120nA*). Another benefit is the absence of any noticeable *voltage drop*.
 
 To verify, the graph below shows a measurement series at *2.98V* input voltage (simulating a nearly empty *LiIon battery*), and drawing a current of *200mA*:
 
@@ -89,3 +88,5 @@ At lower voltages, the *MosFET* can only handle *small* currents. If the *curren
 
 
 > Tags: 3.3V, Bistable Switch, Low Power, Microcontroller, ESP32, Quiescent Current, Voltage Drop, MosFET, Vgs
+
+[Visit Page on Website](https://done.land/components/signalprocessing/switch/bistableswitch/xl-10al?649702101615241329) - created 2024-10-14 - last edited 2024-10-14
