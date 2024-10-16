@@ -52,4 +52,4 @@ Here are a few use cases illustrating the potential of interfacing *ESPHome conf
 
 > Tags: ESPHome, Home Assistant, Interface, Event
 
-
+[Visit Page on Website](https://done.land/tools/software/esphome/interfacingwithhomeassistant/receivingbuttonstate?097052101316244926) - created 2024-10-15 - last edited 2024-10-15
