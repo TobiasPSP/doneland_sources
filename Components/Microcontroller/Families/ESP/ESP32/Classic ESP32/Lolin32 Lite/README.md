@@ -14,10 +14,43 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller, has *4MB fl
 > [!IMPORTANT]
 > High *deep sleep* power consumption makes this board *not a good choice* for battery-operated sensors designed to run continuously: a *deep sleep* consumption of *>4.500uA* is **much higher** than average boards (*300-500uA*), let alone power-optimized boards (*12uA*), and will drain batteries quickly. This board is a *good* choice for portable devices that you want to *completely switch off* when not in use, i.e. via a physical switch or a *bistable electronic switch*. 
 
+This board is officially *retired* by its manufacturer *WEMOS* since 2018, and is no longer referenced on their website. It is *still* a great board, and it is currently (2024) sold for extremely low prices (<€1.50). The currently sold version now has a *USB C* connector whereas the original version came with *Micro USB*.
+
+You can [view an archieved version of the *Lolin Lite* product page](https://web.archive.org/web/20191002041532/https://wiki.wemos.cc/products:lolin32:lolin32_lite). The successor of this board is the [WEMOS Lolin D32](https://www.wemos.cc/en/latest/d32/d32.html).
+
 ## Overview
+*Lolin32 Lite* is an *excellent classic *ESP32S* board with a small form factor while still exposing all important pins. It is *retired*, and meanwhile there are more modern and sophisticated microcontrollers and boards available. But not for a price of *€1.50* per piece.
 
 
 <img src="images/esp32_lolin_lite_pins2_t.png" width="100%" height="100%" />
+
+### Pros and Cons
+
+The things I like most about this board:
+
+* **Just Works:** dependably switches in *bootloader mode*. It is very simple to use and to flash.
+
+
+    <img src="images/esp32_lolin_auto_bootloader.png" width="30%" height="30%" />
+
+* **Small and Complete:** compared to the bulky *ESP32 DevKit* boards, this one is small, exposes all important pins, and fits in portable housings. It comes with an onboard LED: the [schematics](materials/lolin32_lite.pdf) clarify that *GPIO22* is **sinking** current; the other leg of the *LED* is connected to *3.3V*. Thus, the *LED* is *low active* (*on* when *GPIO22* is *low*):
+
+
+    <img src="images/esp32_lolin_lite_led.png" width="30%" height="30%" />
+
+
+* **Built-in LiIon Battery Support:** it's easy to hook up a *LiIon* or *LiPo* battery and run this board on the go.
+
+
+
+
+What I did not like:
+
+* **Unconventional I2C Pins:** board uses non-standard *I2C* pins which requires you to change the default pins in sample code.
+* **High Deep Sleep Power Consumption:** unlike *Lolin32*, this *Lite* board requires hefty *4.5mA* quiescent current while in *deep sleep*. *100-300uA* would be normal. So no good choice for *always-on sensor projects*.
+* **No Vin/5V Pin:** this board is designed to be powered either by *5V USB*, via *3V pin*, or via *LiIon battery*. There is no *Vin pin* to supply external power from a power supply. Likewise, there is no built-in way to power *5V peripherals*. You *can* of course solder your own *5V connection* to the *USB connector* but that's no fun.
+
+
 
 
 ### I2C
@@ -39,21 +72,29 @@ The board exposes the default *SPI pins*:
 | *22* | *WP*: wrrite-protect (also internal LED) |
 
 
-
+## Specs
 
 | Item | Description |
 | --- | --- |
 | Memory | external 4MB Flash |
 | Clock Speed | 240MHz |
-| Charging | 500mA charging current, LTH7/HM4054H |
-| Power Consumption | 45.4mA (normal), 1-4mA (sleep mode) |
+| Charging | 500mA charging current, TP4054 |
+| Voltage Regulator | ME6211 |
+| Power Consumption | 45.4mA (no WiFi), 130mA (WiFi), 4.5mA (deep sleep/hibernation) |
 | Internal LED | GPIO22 |
 | Battery | LiIon/LiPo 3.7V |
+| Battery Connector | Micro-JST 2.0 PH 2-Pin |
+| USB Connector | Micro-USB (older versions), USB-C (latest versions) |
 | USB-to-TTL | CH340 |
 | Size | 49.2x25.5mm |
 | Weight  | 6.6g |
 
-### Comparison Lolin32 Lite vs. Lolin32 
+## Charging
+Power can be supplied from a *LiIon*/*LiPo* via its *JST 2.0 PH* connector. The battery is charged when the board is connected to *USB* via a standard *TP4054* charger IC:
+
+<img src="images/esp32_lolin_4054.png" width="60%" height="60%" />
+
+## Comparison Lolin32 Lite vs. Lolin32 
 The *Lolin32 **Lite*** development board is the *smaller version* of the *Lolin32* development board. The latter has its *JST 2.0 battery socket* placed on the side rather than next to the *USB connector*.
 
 The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footprint* of the *Lite* board, and as a consequence of its smaller size the lack of some pins: *RX0*, *TX0*, and *5V* are not exposed. There is also just one *GND* pin (instead of five), and just one *3.3V* pin (instead of three).
@@ -61,7 +102,7 @@ The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footpr
 To further reduce the board size, it has a *reset* but no *boot* button. This turns out not to be a disadvantage though as the board reliably turns to *firmware upload mode* automatically when flashing it in *Arduino IDE*, *platform.io*, and *ESPHome*.
 
 > [!IMPORTANT]
-> For unknown reasons, while the *Lolin32* has excellent low *deep sleep* power consumption (around *70uA*), the *Lolin32 Lite* (discussed here) required astonishing *>4**m**A*. Despite all efforts - using *ext1* mode and hibernation, manually disabling *I2C pullups*, supplying power directly to the *3V* pin - the quiescent current remained above *4.5mA*. This indicates a serious hardware design flaw in which i.e. the battery charger or voltage regulator is consuming power while in *deep sleep* mode.
+> For unknown reasons, while the *Lolin32* has excellent low *deep sleep* power consumption (around *130uA*), the *Lolin32 Lite* (discussed here) required astonishing *>4**m**A*. Despite all efforts - using *ext1* mode and hibernation, manually disabling *I2C pullups*, supplying power directly to the *3V* pin - the quiescent current remained above *4.5mA*. This indicates a serious hardware design flaw in which i.e. the battery charger or voltage regulator is consuming power while in *deep sleep* mode.
 
 
 
@@ -98,7 +139,9 @@ One important draw-back is its missing support for *5V peripherals*. Another poi
 
 
 ## Materials
-[Lolin Lite eBook](https://megma.ma/wp-content/uploads/2021/08/Wemos-ESP32-Lolin32-Board-BOOK-ENGLISH.pdf)   
+[Lolin32 Lite Schematics](materials/lolin32_lite.pdf)
+[ME6211 Voltage Regulator](materials/me6211_ldo.pdf)
+[Lolin32 Lite eBook](https://megma.ma/wp-content/uploads/2021/08/Wemos-ESP32-Lolin32-Board-BOOK-ENGLISH.pdf)   
 [HM4054H Charger](materials/hm4054h_datasheet.pdf)   
 [LTH7R Charger (Chinese)](materials/lth7r_datasheet_ch.pdf)   
 [LTH7S Charger (Chinese)](materials/lth7s_datasheet_ch.pdf)   
