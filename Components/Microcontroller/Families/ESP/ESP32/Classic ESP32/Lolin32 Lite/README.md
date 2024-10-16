@@ -12,9 +12,32 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller, has *4MB fl
 
 
 > [!IMPORTANT]
-> High *deep sleep* power consumption makes this board *not a good choice* for battery-operated sensors designed to run continuously: a *deep sleep* consumption of *1-4mA* is **much higher** than average boards (*300-500uA*), let alone power-optimized boards (*12uA*), and will drain batteries quickly. This board is a *good* choice for portable devices that you want to *completely switch off* when not in use, i.e. via a physical switch or a *bistable electronic switch*. 
+> High *deep sleep* power consumption makes this board *not a good choice* for battery-operated sensors designed to run continuously: a *deep sleep* consumption of *>4.500uA* is **much higher** than average boards (*300-500uA*), let alone power-optimized boards (*12uA*), and will drain batteries quickly. This board is a *good* choice for portable devices that you want to *completely switch off* when not in use, i.e. via a physical switch or a *bistable electronic switch*. 
 
 ## Overview
+
+
+<img src="images/esp32_lolin_lite_pins2_t.png" width="100%" height="100%" />
+
+
+### I2C
+This board **does not expose** the usual pins for *I2C* (*21* and *22*): pin *21* is not exposed, and pin *22* is used for the internal *LED*. 
+
+*I2C* is connected to pins *2* (*SCL*) and *15* (*SDA*). That is a bit unfortunate since pin *2* is a *strapping pin*.
+
+Since *ESP32* can map *I2C pins* to any other *GPIO*, if the default pins cause trouble, pin *23* (*SDA*) and *19* (*SCL*) might work better for you.
+
+### SPI
+The board exposes the default *SPI pins*:
+
+| Pin | Description |
+| --- | --- |
+| *23* | *MOSI*: master-out-slave-in |
+| *19* | *MISO*: master-in-slave-out |
+| *18* | *SCK*: clock |
+| *5* | *CS*: chip select |
+| *22* | *WP*: wrrite-protect (also internal LED) |
+
 
 
 
@@ -37,7 +60,14 @@ The differences between *Lolin32 **Lite*** and *Lolin32* are the *smaller footpr
 
 To further reduce the board size, it has a *reset* but no *boot* button. This turns out not to be a disadvantage though as the board reliably turns to *firmware upload mode* automatically when flashing it in *Arduino IDE*, *platform.io*, and *ESPHome*.
 
-*Lolin32 **Lite*** specifically targets portable devices and focuses on a small footprint, rechargeable battery support (including charging), and the focus on *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
+> [!IMPORTANT]
+> For unknown reasons, while the *Lolin32* has excellent low *deep sleep* power consumption (around *70uA*), the *Lolin32 Lite* (discussed here) required astonishing *>4**m**A*. Despite all efforts - using *ext1* mode and hibernation, manually disabling *I2C pullups*, supplying power directly to the *3V* pin - the quiescent current remained above *4.5mA*. This indicates a serious hardware design flaw in which i.e. the battery charger or voltage regulator is consuming power while in *deep sleep* mode.
+
+
+
+*Lolin32 **Lite*** specifically targets portable devices and focuses on a small footprint, rechargeable battery support (including charging), and use of power-efficient *3.3V components* **only**. There is no *5V pin*, and its *GPIOs* are not *5V tolerant*. 
+
+The board receives power solely via a connected battery or its *USB connector*. While you can supply power via its *3.3V* pin directly, this disables the built-in battery charger.
 
 > [!NOTE]
 > *Lolin32 **Lite*** should have more accurately be named *Lolin32 **Portable*** as it is just as powerful as *Lolin32* and not at all a *lite* version, rather optimized for **portable** use.
@@ -45,30 +75,6 @@ To further reduce the board size, it has a *reset* but no *boot* button. This tu
 
 
 <img src="images/esp32_lolin_back_t.png" width="40%" height="40%" />
-
-## Pins
-The board has *26 pins*:
-
-<img src="images/esp32_lolin_lite_pins2_t.png" width="100%" height="100%" />
-
-
-### I2C
-This board **does not expose** the usual pins for *I2C* (*21* and *22*): pin *21* is not exposed, and pin *22* is used for the internal *LED*. 
-
-*I2C* is connected to pins *2* (*SCL*) and *15* (*SDA*). That is a bit unfortunate since pin *2* is a *strapping pin*.
-
-Since *ESP32* can map *I2C pins* to any other *GPIO*, if the default pins cause trouble, pin *23* (*SDA*) and *19* (*SCL*) might work better for you.
-
-### SPI
-The board exposes the default *SPI pins*:
-
-| Pin | Description |
-| --- | --- |
-| *23* | *MOSI*: master-out-slave-in |
-| *19* | *MISO*: master-in-slave-out |
-| *18* | *SCK*: clock |
-| *5* | *CS*: chip select |
-| *22* | *WP*: wrrite-protect (also internal LED) |
 
 
 ## When To Use
