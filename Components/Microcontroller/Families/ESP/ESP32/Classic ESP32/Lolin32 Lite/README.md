@@ -4,14 +4,17 @@
 
 > Classic ESP32 With LiIon/LiPo Battery Support For Use In Portable Devices
 
-The *Lolin32 Lite* development board uses a *ESP32* microcontroller and supports connecting an external *LiIon/LiPo* rechargeable battery. The battery can be charged through the *USB-C* connector. In combination with its low power consumption and small footprint, it is an ideal choice for use in portable devices.
+The *Lolin32 Lite* development board uses a *ESP32* microcontroller, has *4MB flash memory*, and supports connecting an external *LiIon/LiPo* rechargeable battery. The battery can be charged through the *USB-C* connector. In combination with its small footprint, it is a good choice for use in portable devices.
 
 
 
 <img src="images/esp32_lolin_connectors_t.png" width="40%" height="40%" />
 
 
-## Technical Details
+> [!IMPORTANT]
+> High *deep sleep* power consumption makes this board *not a good choice* for battery-operated sensors designed to run continuously: a *deep sleep* consumption of *1-4mA* is **much higher** than average boards (*300-500uA*), let alone power-optimized boards (*12uA*), and will drain batteries quickly. This board is a *good* choice for portable devices that you want to *completely switch off* when not in use, i.e. via a physical switch or a *bistable electronic switch*. 
+
+## Overview
 
 
 
@@ -20,7 +23,7 @@ The *Lolin32 Lite* development board uses a *ESP32* microcontroller and supports
 | Memory | external 4MB Flash |
 | Clock Speed | 240MHz |
 | Charging | 500mA charging current, LTH7/HM4054H |
-| Power Consumption | 45.4mA (normal), 1.28mA (sleep mode) |
+| Power Consumption | 45.4mA (normal), 1-4mA (sleep mode) |
 | Internal LED | GPIO22 |
 | Battery | LiIon/LiPo 3.7V |
 | USB-to-TTL | CH340 |
@@ -44,31 +47,42 @@ To further reduce the board size, it has a *reset* but no *boot* button. This tu
 <img src="images/esp32_lolin_back_t.png" width="40%" height="40%" />
 
 ## Pins
-The board has *26 pins*. 
+The board has *26 pins*:
 
-<img src="images/esp32_lolin_lite_pins_t.png" width="100%" height="100%" />
+<img src="images/esp32_lolin_lite_pins2_t.png" width="100%" height="100%" />
+
+
+### I2C
+This board **does not expose** the usual pins for *I2C* (*21* and *22*): pin *21* is not exposed, and pin *22* is used for the internal *LED*. 
+
+*I2C* is connected to pins *2* (*SCL*) and *15* (*SDA*). That is a bit unfortunate since pin *2* is a *strapping pin*.
+
+Since *ESP32* can map *I2C pins* to any other *GPIO*, if the default pins cause trouble, pin *23* (*SDA*) and *19* (*SCL*) might work better for you.
+
+### SPI
+The board exposes the default *SPI pins*:
+
+| Pin | Description |
+| --- | --- |
+| *23* | *MOSI*: master-out-slave-in |
+| *19* | *MISO*: master-in-slave-out |
+| *18* | *SCK*: clock |
+| *5* | *CS*: chip select |
+| *22* | *WP*: wrrite-protect (also internal LED) |
 
 
 ## When To Use
 
-These are some reasons for choosing a **Lolin32 Lite**:
+This is a relatively cheap yet solid board with many exposed pins at a small form factor. Thanks to its built-in *LiIon* battery support and relatively small size, it serves well in portable or *solar*-powered devices.
 
-| Feature | Use Cases |
-| --- | --- |
-| Portable Device | comes with everything needed to hook up a *LiIon/LiPo* battery and has a small footprint |
-| Price | The board is relatively cheap |
-| 3.3V | You are planning to use *3.3V* components and do not need *5V* support |
 
 
 <img src="images/esp32_lolin_top_t.png" width="40%" height="40%" />
 
 
-Here are some reasons to choose a different board:
+One important draw-back is its missing support for *5V peripherals*. Another point worth consodering in battery-operated projects is its relatively *high deep sleep power consumption*. If you need to maximize battery life, you either look into the *Lolin32* (without *Lite*) which uses just *70uA* in *deep sleep*. Or [you simply turn *this* board](https://done.land/components/signalprocessing/switch/bistableswitch/xl-10al) into a highly power-efficient solution (with only *130nA* sleep current) by adding a *bistable switch*.
 
-| Use Case | Recommendation |
-| --- | --- |
-| External Power | Cannot be operated with external *3.3V or 5V power supply* (except via its *USB* connector) |
-| 5V components | if you need to work with *5V* components you want to consider a different board.  |
+
 
 
 <img src="images/esp32_lolin_front_t.png" width="40%" height="40%" />
@@ -90,4 +104,4 @@ Here are some reasons to choose a different board:
 
 > Tags: Microcontroller, ESP32, Lolin Lite, Battery, Charger
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-07-16
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite?601146050916240343) - created 2024-05-15 - last edited 2024-10-15
