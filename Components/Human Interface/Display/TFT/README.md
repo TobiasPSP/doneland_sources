@@ -19,3 +19,5 @@ Almost all *TFT displays* come with a fast [SPI interface](https://done.land/fun
 
 
 > Tags: TFT, Display
+
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft?647185101517241243) - created 2024-10-16 - last edited 2024-10-16
