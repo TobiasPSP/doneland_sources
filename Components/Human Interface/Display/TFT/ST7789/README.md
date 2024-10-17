@@ -47,3 +47,5 @@ That said, the data sheets are *300 pages+*, filled with technical glibber and t
 *Adafruit* provides a free [library for ST77* drivers](https://github.com/adafruit/Adafruit-ST7735-Library) (including the *ST7789*). It is also supported by [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI).
 
 > Tags: Display Driver, Resolution, ST7789V, ST7789S, ST7789P, ST7789H
+
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/st7789?705830101817240754) - created 2024-10-16 - last edited 2024-10-16
