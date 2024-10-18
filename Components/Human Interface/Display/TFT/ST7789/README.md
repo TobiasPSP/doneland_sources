@@ -44,7 +44,7 @@ That said, the data sheets are *300 pages+*, filled with technical glibber and t
 [ESPHome](https://done.land/tools/software/esphome/introduction) started to support *ST7789* with a dedicated component called [ST7789V TFT LCD](https://esphome.io/components/display/st7789v.html). This component has been made redundant since the *ST7789* is now supported by the more generic [ILI9XXX](https://esphome.io/components/display/ili9xxx#ili9xxx) component.
 
 ## platformio/Arduino Support
-*Adafruit* provides a free [library for ST77* drivers](https://github.com/adafruit/Adafruit-ST7735-Library) (including the *ST7789*). It is also supported by [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI).
+[Adafruit](https://www.adafruit.com/) provides a free [Adafruit library for ST77* drivers](https://github.com/adafruit/Adafruit-ST7735-Library) (including the *ST7789*). It is also supported by [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI).
 
 > Tags: Display Driver, Resolution, ST7789V, ST7789S, ST7789P, ST7789H
 

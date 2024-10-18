@@ -462,10 +462,18 @@ spi:
   mosi_pin: GPIO19
 ````
 
-#### Display and Resolution
-The *display* itself is handled by `display`, and configured to use the `st7789v` video controller and the `TTGO TDisplay 135x240` display type.
+#### Display
+The *display* is using the [ST7789](https://done.land/components/humaninterface/display/tft/st7789) display controller. This controller is used widely with many different TFT displays up to a resolution of *240x320* pixels.
+
+*ESPHome* supports [ST7789](https://done.land/components/humaninterface/display/tft/st7789) with an [own platform](https://esphome.io/components/display/st7789v.html) which is used in this example:
+
+````
+display:
+  - platform: st7789v
+````
 
 The *GPIOs* for *CS* and *DC* are specified. Note that I am **not** specifying the *GPIO4* for `backlight_pin`, and leave this to `no`: in order to better control the backlight and use dimming and transition effects, the backlight is separately declared as generic `light`.
+
 
 ````
 display:
@@ -477,6 +485,32 @@ display:
     backlight_pin: no
     model: TTGO TDisplay 135x240
 ````
+
+#### New Optional Display Component: ILI9xxx
+While this works great, this platform has meanwhile been superseeded by the [ILI9xxx](https://esphome.io/components/display/ili9xxx#ili9xxx) component which is much more hardware neutral and supports a wide range of display controllers. 
+
+If you'd like to use the more modern generic [ILI9xxx TFT LCD Series](https://esphome.io/components/display/ili9xxx#ili9xxx) component, replace the section with this:
+
+````
+display:
+  - platform: ili9xxx
+    model: ST7789V
+    id: display1
+    cs_pin: GPIO5
+    dc_pin: GPIO16
+    reset_pin: GPIO23
+    dimensions:
+      height: 240
+      width: 135
+      offset_height: 40
+      offset_width: 52
+    invert_colors: true
+````
+
+Since the [ILI9xxx TFT LCD Series](https://esphome.io/components/display/ili9xxx#ili9xxx) is a more hardware-abstracted component that supports a wide range of display drivers, you add the specs of your particular display in `dimensions:`. The *T-Display* display requires `invert_colors: true` to take into account how it stores color information and ensure correct colors.
+
+> [!TIP]
+> You may also want to check out the [second part of this article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep) where the configuration is using the new [ILI9xxx TFT LCD Series](https://esphome.io/components/display/ili9xxx#ili9xxx) component and is optimized for *battery use* and *low power consumption*.
 
 #### Display Content
 The display content is generated using a *lambda expression*. `update_interval` specifies how often the screen is redrawn, and inside the *lambda*, `it` represents the display object and its methods:
@@ -516,6 +550,9 @@ The display content is generated using a *lambda expression*. `update_interval` 
 ````
 
 I am using `printf()` to print formatted text, and I use graphics primitives like `filled_rectangle()` that can all be looked up in the [ESPHome documentation](https://esphome.io/components/display/index.html).
+
+> [!NOTE]
+> In this example, the `display:` component handles all screen updates viq a *lambda*: the display automatically clears all content and redraws it completely every second (`update_interval: 1s`). That's simple but not very efficient. See the [second part of this article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep) which illustrates how you can efficiently only update those parts of the display that actually *need* new content.   
 
 #### Drawing Icons
 
@@ -693,4 +730,4 @@ In one of the upcoming articles, I'll look into optimization strategies to cut d
 
 > Tags: Lilygo, TTGO, T-Display, ESPHome, Home Assistant, Configuration, Battery, Voltage
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome?856302101504243514) - created 2024-10-03 - last edited 2024-10-03
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome?856302101504243514) - created 2024-10-03 - last edited 2024-10-17
