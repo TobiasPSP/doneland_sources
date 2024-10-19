@@ -72,3 +72,5 @@ If you do not use batteries for an extended period of time, *self-discharge* can
 * **Fully Charge:** while you shouldn't *routinely* charge your batteries to *100%*, a battery should be *fully charged* when you put it in storage. This way, natural *self-discharge* will take much longer until critical *over-discharge voltages* are reached.
 
 > Tags: Battery, Charge, BMS, Lead, NiCd, NiCad, LiIon, LiPo, LiFePo4, LFP, CR2025, CR2035, CR123A, Charging Cycle
+
+[Visit Page on Website](https://done.land/components/power/battery?676524101918241704) - created 2024-10-17 - last edited 2024-10-17
