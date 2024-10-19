@@ -104,7 +104,7 @@ The easiest way is to use a dedicated *battery capacity tester*. If you don't ha
 
 As you will probably discover, *most cheap batteries* do not reach the capacities of *quality batteries*, but their capacity may still be ok for your use cases. Typical *18650 fakes* (no complete fraud) come with capacities in the range of *1.500-2-500mAh*.
 
-> [Note]
+> [!NOTE]
 > A *capacity test* helps you understand whether or not you can use the battery at all. This test does not tell you though whether the battery is *new* or *old*, and how many charge cycles are remaining. It also does not reveal what the maximum discharge current is. For devices that require an exceptionally high discharge rate (i.e. battery packs for drills, electronic cigarettes), better not use batteries from unknown sources even if the seller claims they are good for *30A*. If there's a standard battery inside, it might explode in your face when you essentially *short circuit* it by drawing high currents.
 
 
@@ -115,21 +115,31 @@ This is something the *internal resistance* can tell. Measuring the *internal re
 
 <img src="images/battery_test_18650good_detail_t.png" width="40%" height="40%" />
 
-The battery under test in the picture above shows an internal resistance of *31mOhm* (which is excellent), and the capacity of *2.483mAh* at a voltage of *3.34V* is great as well. Discharging typically continues until *3.0V* is reached, so the expected battery capacity in this ongoing test is probably going to be around *2.600mA*.
+The battery under test in the picture above shows an internal resistance of *31mOhm* (which is good but indicates that the battery is not a special *high drain* battery, and its *C-Rate* is most likely around **1-3C**). The capacity of *2.483mAh* at a voltage of *3.34V* is great as well. Discharging typically continues until *3.0V* is reached, so the expected battery capacity in this ongoing test is probably going to be around *2.900mA*.
 
 Here is what the *internal resistance* can tell you about a battery:
 
-| **Battery Condition**         | **Internal Resistance (mΩ)**        | **Description**                                                        |
-|-------------------------------|-------------------------------------|------------------------------------------------------------------------|
-| New high-quality cells  | 10 mΩ to 50 mΩ                     | High-quality cells from reputable manufacturers like Panasonic, LG, etc. |
+| Battery Condition | Internal Resistance (mΩ) | Description |
+|---|---|---|
+| New **high-drain** quality cells  | 10 mΩ to 20 mΩ                     | High-quality cells from reputable manufacturers capable of *high current drains* well above **3C** |
+| New **normal** high-quality cells  | 20 mΩ to 50 mΩ                     | High-quality cells from reputable manufacturers like Panasonic, LG, etc. |
 | Standard quality cells         | 50 mΩ to 100 mΩ                    | Moderate quality, but still functional for most applications.           |
 | Used or aging cells            | 100 mΩ to 150 mΩ                   | Internal resistance increases with age and usage, showing signs of wear.|
 | Degraded or counterfeit cells  | 150 mΩ+                            | Cells with high internal resistance, indicating poor performance and potential safety concerns. |
 
-Lower internal resistance typically means better performance under high load. A high internal resistance may suggest the battery is degraded and cannot handle high current discharge.
 
 > [!NOTE]
 > For rough estimates, cheap battery testers (and the manual multimeter method) can give you a general idea of the battery's health but the margin of error is high (*10-30%*). Dedicated battery analyzers or internal resistance testers are much more accurate due to a different measurement scheme (but also much more expensive). 
+
+How *accurately* the *internal resistance* correlates to *battery health* is subject to debate. There seems to be a *high correlation* when measured and compared *per battery*: take a reading when the battery is *new*, and compare it to more readings over the course of its life time. The use of *internal resistance* to compare *different* batteries is limited, though.
+
+In a nutshell, this is what *internal resistance* can tell you:
+
+* **Lower is better:** Lower internal resistance typically means better performance under high load. 
+* **High:** A higher-than-expected *internal resistance* does not necessarily mean the battery needs replacement. It depends on your use case and just implies that the battery cannot supply *high currents* anymore. If you draw *low currents* from it, i.e. to supply a microcontroller, it may still be very good to use for a long time.
+* **Very high:** A very high *internal resistance* can suggest the battery is degraded.
+* **Health Indicator:** When monitoring *the internal resistance of the same battery* over time, *internal resistance* remains stable for most of its life time. Towards the end of its life time, it rapidly increases.
+
 
 
 
@@ -173,3 +183,4 @@ Repeat the steps until you either exceed the current you require, or until the b
 
 > Tags: Battery, Fake, 18650, Internal Resistance, Capacity, Weight, BMS, C-Rate, Discharge Test
 
+[Visit Page on Website](https://done.land/components/power/battery/fakebatteries?749978101219241946) - created 2024-10-18 - last edited 2024-10-18
