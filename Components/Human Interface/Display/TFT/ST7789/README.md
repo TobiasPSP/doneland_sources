@@ -159,11 +159,11 @@ When you power the display backlight via a *GPIO pin*, in the most efficient dee
 
 While you could choose a *less efficient deep sleep* mode for your *ESP32* and keep the backlight GPIO active, this is not the most power efficient approach. Instead, you should power the backlight pin independently from the microcontroller, either by directly connecting it to a positive voltage (depending on the display breakout board you are using), or via a current limiting resistor (or potentiometer to manually adjust brightness).
 
-This way, when you send your device to full deep sleep, the display would still display its last content. The total power consumption would just be the backlight current (which can be as low as *0.5mA*), and the *deep sleep current* (with a highly efficient *FireBeetle ESP32 breakout board*, this would be *12uA*, whereas a *Lolin32 Lite* would require *350uA*).
+This way, when you send your device to full deep sleep, the display would still display its last content. The total power consumption would just be the backlight current (which can be as low as *20mA*), and the *deep sleep current* (with a highly efficient *FireBeetle ESP32 breakout board*, this would be *12uA*, whereas a *Lolin32 Lite* would require *350uA*).
 
-### ESP32 With Running Display At 1mA
+### ESP32 With Active Display At 20mA
 
-In any respect, your *deep sleeping* device would have a running display with static content at just about *1mA* power consumption.
+In any respect, your *deep sleeping* device would have a running display with static content at just about *20mA* power consumption (with basically only the backlight LEDs consuming power).
 
 > Tags: Display Driver, Resolution, ST7789V, ST7789S, ST7789P, ST7789H
 
