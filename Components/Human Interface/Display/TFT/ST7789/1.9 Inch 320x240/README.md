@@ -25,6 +25,9 @@ In-between this price range, there are many other vendors offering their own *PC
 | Pixel Size | *0.1335x0.1335mm* |
 | Colors | *262K (18bit)* |
 | Controller | [ST7789](https://done.land/components/humaninterface/display/tft/st7789) |
+| Controller Power Consumption | *7mA* |
+| Backlight Power Consumption | *20-40mA* |
+| Sleep-In Power Consumption | *30uA* | 
 | Module Size | *29x62x5.1mm* |
 | Screen Size | *23.7x43.7mm* |
 | Visible Size | *22.7x42.7mm* (*0.5mm margin*) |
