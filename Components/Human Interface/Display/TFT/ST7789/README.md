@@ -14,10 +14,15 @@ Although *ST7789* exists in a number of variants, there seem to be *no substanti
 
 The key display features remain identical:
 
-* **Maximum Resolution:** *240(H)x320(V)* pixels
-* **Maximum Color Depth:** *18bit* (262K)
-* **Source and Gate Lines:** 720/320
-* **Interface:** [SPI](https://done.land/fundamentals/interface/spi) and *Parallel*
+| Item | Description |
+| --- | --- |
+| Maximum Resolution | *240(H)x320(V)* pixels |
+| Maximum Color Depth | *18bit* (262K) |
+| Source and Gate Lines | 720/320 |
+| Power Consumption | *7mA* |
+| Sleep-In Power Consumption | *30uA* |
+| Backlight Power Consumption | *20-40mA* |
+| Interface | [SPI](https://done.land/fundamentals/interface/spi) and *Parallel* |
 
 The power consumption also remains identical.
 
@@ -49,7 +54,7 @@ That said, the data sheets are *300 pages+*, filled with technical glibber and t
 
 
 ## Low Energy Modes
-The *ST7789* supports a *low power sleep mode* (**SLEEP IN**) in which *power consumption* drops from *6mA* to just a few *uA*. It is important to note that the **display keeps working** (although you cannot change its content in *sleep mode*).
+The *ST7789* supports a *low power sleep mode* (**SLEEP IN**) in which *power consumption* drops from *6mA* to *30uA*. It is important to note that the **display keeps working** (although you cannot change its content in *sleep mode*).
 
 | Command | Value |
 | --- | --- |
