@@ -4,51 +4,79 @@
 
 > Why This Website May Be Loading Slow For You, And What You Can Do To Boost Your Internet 
 
-We operate a modern and *very fast* website backed by state-of-the-art *content delivery networks* (*CDN*). Wherever you are located around the globe, this website should load in a snap and not take longer than a second.
+Even though we operate a modern website backed by state-of-the-art *Content Delivery Networks* (*CDN*) and *static HTML*, while most users around the globe experience a *lightning-fast website*, customers of some *ISPs* (*Internet Service Providers*) may encounter painstakingly slow load times. German customers of *Deutsche Telekom* (and its affiliates) are among those affected.
 
-Still, *a few users* experience **very slow** transfer rates, rendering this website almost unusable. These users typically are located in *Germany* and use *Deutsche Telekom* as *ISP* (or one of its spin-offs).
-
-If you are affected by a slow website experience, this is **not related to this particular website**. While most websites work well, every now and then you will come across websites (and downloads) that are much slower than expected. The severity of the issue may also vary during the day or over time.
-
-In this article, I'll explain the reasons, and what you can do about it to fix this issue. This won't just speed up *this* website: it will generally provide you with a much snappier, robust and enjoyable *Internet experience*.
-
-If your hair is on fire, below is a quick summary.
-
-> [!TIP]
-> Some *ISPs* like the *Deutsche Telekom* (and affiliated *ISPs* who are using the same infrastructure) are notorious for causing *routing problems*: they point your requests to the origin of the website rather than the plenty of available local and fast *CDN mirror servers*. This affects websites that use certain *CDNs* only. Your choices are either to *change your ISP*, or to use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ) (the provided link adds a few free extra months for you (and me) - should you decide to sign up with them).
-
-## Ingredients For Fast Internet Experience
-Most users focus just on their *Internet Service Provider* (*ISP*) for *fast Internet speed*. High monthly fees get you a supposingly fast *Internet connection*, i.e. *250MBit/s* or even *1GBit/s*. You might discover though that occasionally, your Internet speed is much slower, and **a few** (not all) websites and downloads (as well as other services such as video conferences) perform sluggishly.
-
-To understand why that is, you need to be aware that there are **two** crucial ingredients for fast Internet. Your *ISP Internet access* is just **one** of them:
-
-* **Internet Service Provider (ISP):** the company that provides you with a *modem* and physically connects you to the *Internet*. *ISPs* are responsible for taking care of the **last mile**: connecting *your home or smartphone* with all the other networks in the *Internet*. Having a *fast ISP* is your ticket to *entering the Internet in a fast way*. It does not guarantee *fast transfer speeds* **inside** the *Internet*, though.  
-* **Routing:** Once your data packages *enter* the *Internet* through your *ISP access point*, they need to get directions to travel to the desired target - similar to a navigation system in your car. That's called *Routing*. Routing is just as important as a fast *ISP*. It can send your packages to the nearest available *CDN server* (good), or it can route your packages across the globe to the *original webserver* (very bad).
+If you are experiencing a slow website, **read on** as this issue is **not specific to this website**. You might notice *slow downloads* and *almost unusably slow websites* with many other content providers. This is an issue with your *ISP*.
 
 > [!NOTE]
-> View it this way: a *Ferrari* (aka *fast ISP*) won't win a race against a *Fiat* (aka *slow ISP*) when the *Ferarri's* navigation system (aka *Routing*) sends it back and forth and across the wildest dirt roads while the *Fiat navigation system* just takes the highway and uses the nearest exit.  
+> After resolving this issue with my *ISP* (see below), several other *maker websites* I visit regularly suddenly became *fully functional*. I had always assumed they were broken: *images* wouldn't load or took a long time to appear. Fixing the *ISP problem* made these websites load instantly.
+
+The tricky part about this issue is that it affects *only some* websites and downloads at random. So when you run a *speed test* or visit other sites, things often work fine. The severity of the issue can also vary throughout the day or over time, which leads *ISPs* to blame individual websites for slow performance.
+
+In this article, I'll explain the reasons behind this issue, what you can do to fix it, and show that **the problem lies with the ISP**, not with individual websites.
+
+
+## Quick Summary
+If your hair is on fire, here’s a quick summary of the culprit and what you can do:
+
+Some *ISPs* (like *Deutsche Telekom* in Germany, and affiliated *ISPs*) are notorious for having *routing problems*. They direct your requests to outdated *edge servers* of *CDNs* (*Content Delivery Networks*).
+
+*CDNs* are designed to *speed up your internet experience*: their *edge servers* act like *mirrors* in your vicinity. When *routing* is correct, your requests take just a few hops to reach the closest *CDN server* in your neighborhood.
+
+However, affected *ISPs* route your requests to the *wrong CDN servers* in a completely different region of the world. This forces your requests to travel long distances, resulting in delays or even packet loss.
+
+This explains the observations:
+
+* **Only some users are affected**: They are customers of *ISPs* with bad routing. Customers of other *ISPs* are not affected.
+* **Only some websites or downloads are affected**: Websites using fast *CDNs* like *Cloudflare* are affected. Websites that don’t prioritize speed or use different *CDNs* are unaffected.
+* **The issue's severity may vary during the day or over time**: *Edge servers* frequently change *IP addresses* (for security reasons), so stale *ISP routing* may randomly point to the correct *CDN edge server*.
+
+There’s nothing *you* can do to fix your *ISP’s* routing. Likewise, the *website operator* (like me) cannot resolve it. However, **you can fix the issue indirectly**:
+
+* **Change ISP**: Switch to an *ISP* that handles *routing* correctly. This may not be easy due to ongoing contracts or infrastructure.
+* **Change Routing**: Use a *VPN* like [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ). A *VPN* bypasses your *ISP’s bad routing*, resulting in a *truly fast internet experience*. Most *VPN services* offer *trial periods* or *money-back guarantees*, so you can test this solution yourself.
+
+> [!NOTE]
+> With a *VPN*, you can easily switch between your *ISP’s routing* and the *VPN*. This proves that neither *your computer* nor the *website operator* is to blame for the slowness—it's the (bad) *ISP routing*.
+
+If you want to dive deeper and actually *see for yourself*, let’s run a couple of tests next.
+
+
+## Ingredients For Fast Internet Experience
+Most users focus solely on their *Internet Service Provider* (*ISP*) for *fast Internet speeds*. High monthly fees promise a supposedly fast *Internet connection*, such as *250Mbit/s* or even *1Gbit/s*. However, you might occasionally notice that your Internet speed is much slower, and **only certain** websites, downloads, or services (such as video conferences) perform sluggishly.
+
+To understand why this happens, it’s important to know that there are **two** crucial components for fast Internet. Your *ISP connection* is just **one** of them:
+
+* **Internet Service Provider (ISP):** This is the company that provides you with a *modem* and physically connects you to the *Internet*. *ISPs* are responsible for the **last mile**: connecting *your home or smartphone* to the rest of the *Internet*. Having a *fast ISP* gives you a fast entry into the *Internet*. However, it does not guarantee *fast transfer speeds* **within** the *Internet*.
+* **Routing:** Once your data packets *enter* the *Internet* through your *ISP's access point*, they need directions to reach their destination—similar to how a GPS navigates your car. This process is called *Routing*. Good *Routing* is just as important as having a fast *ISP*. It can either send your packets to the nearest *CDN server* (good), or route them across the globe to the *original webserver* (very bad).
+
+> [!NOTE]
+> Think of it like this: a *Ferrari* (your *fast ISP*) won’t win a race against a *Fiat* (a *slower ISP*) if the *Ferrari’s* GPS (aka *Routing*) sends it on detours through rough backroads, while the *Fiat’s GPS* takes the highway and exits at the closest ramp.
+
 
 ### Why *This* Website May Be Slow
-The funny thing is that *bad routing* doesn't seem to affect *all websites* in the same way. That's why you are probably not aware of it at first. Here is why only *some* websites and downloads are affected:
+The funny thing is that *bad routing* doesn’t seem to affect *all websites* equally. That’s why you probably don’t notice it at first. Here’s why only *some* websites and downloads are impacted:
 
-This website is backed by sophisticated *CDNs* (*Content Delivery Networks*) and uses *static HTML* - all ingredients for *super fast and super responsive websites*. Routinely performed global audits underline that this website is among the top 5% speed-wise.
+This website is backed by sophisticated *CDNs* (*Content Delivery Networks*) and uses *static HTML*—all the ingredients for *super fast and super responsive websites*. Routine global audits confirm that this website ranks among the top 5% for speed.
 
-If pages still take painstakenly long to load **for you**, and if **you** see images appear only slowly line by line, or spot missing fonts or dearranged icons, then there can only be *three* potential issues:
+If pages still take painstakingly long to load **for you**, and if **you** notice images loading slowly line by line, missing fonts, or misaligned icons, then there are only *three* possible reasons:
 
-* **Slow ISP/Bad Coverage:** Obviously, if you are using a *very slow ISP*, or if you are currently in an area with *very poor Internet coverage*, it is not surprising to experience slow Internet. In this case though, **all websites are slow**, not just *some*.
-* **Slow Hoster:** theoretically, the operator of the Website (which would be *me*) could have choosen a *poor* service provider with slow download speeds and insufficient capacity. In this case, **everyone would experience a slow website**, not just a *few users*, and our auditing would generally show slow specs (which it doesn't).
-* **Bad Routing:** if **you** experience a slow website while **others** enjoy lightning speed, then **your routing** is messed up: the data packets travel around the globe and take detours instead of the direct route, and this occurs both on the way *to* the website, and *back to you*. The majority of users enjoy *correct routing*, and for them, the website responds lightning fast.
+* **Slow ISP/Bad Coverage:** Obviously, if you are using a *very slow ISP*, or are in an area with *poor Internet coverage*, it’s no surprise you’d experience slow Internet. In this case, though, **all websites would be slow**, not just *some*.
+* **Slow Hosting Provider:** Theoretically, the website operator (that would be *me*) could have chosen a *poor* hosting provider with slow download speeds and insufficient capacity. However, in this case, **everyone** would experience a slow website, not just *some users*, and our audits would report slow performance (which they don’t).
+* **Bad Routing:** If **you** experience a slow website while **others** enjoy lightning-fast speeds, then **your routing** is the problem. Your data packets are taking detours around the globe instead of the direct route, both on the way *to* the website and *back to you*. The majority of users have *correct routing*, and for them, the website is lightning fast.
+
 
 
 ## What Does Routing Do?
-Without delving too much into networking, when you navigate to a website, your request is routed to the webserver hosting the website, and the website returns the website data back to you so your browser can display a page.
+Without delving too much into networking, when you navigate to a website, your request is routed to the web server hosting the website, and the server returns the data so your browser can display the page.
 
-*Internet* uses *data packages* and sends them from server to server, starting with servers close to you, until the data packages finally arrive at the intended target.
+The *Internet* uses *data packets*, which are sent from server to server, starting with those close to you, until they finally reach their destination.
 
-So *Routing* on the internet is the process of selecting paths through which data can travel from *you* to the *target* (and vice versa) across many interconnected networks. It works much like a *navigation system* in your car.
+*Routing* on the Internet is the process of selecting paths for data to travel from *you* to the *target* (and vice versa) across many interconnected networks. It works similarly to a *navigation system* in your car.
 
-### Visualizing Route
-You can visualize the *hops* your data packages take, i.e. with `tracert.exe` on *Windows*. Below you see the *route* that was selected for me to reach *done.land*:
+### Visualizing the Route
+You can visualize the *hops* your data packets take using tools like `tracert.exe` on *Windows*. Below is the *route* selected for me to reach *done.land*:
+
 
 ````
 PS C:\> tracert done.land
@@ -118,119 +146,110 @@ org      : AS6453 TATA COMMUNICATIONS (AMERICA) INC
 postal   : 10001
 timezone : America/New_York
 ````
+Aside from the high number of hops, this trace doesn’t seem alarming at first. I *am* apparently reaching the fast *CDN edge servers*, so I *should* be getting a fast response. But is this really the case?
 
-Aside from the high number of hops, this trace does not look alarming at first. I *am* apparently getting to the fast *CDN edge servers*, so I *should* receive a fast response. But is this true? 
+Let’s now examine how the actual website behaves.
 
-Let's see next how the actual website behaves.
+### Debugging a Slow Website
+Most modern browsers come with advanced debugging tools. In *Chrome*, press `F12` to open the Developer Tools, then click the *Network* tab and clear the list of network requests.
 
+To ensure you're measuring real download times (and not cached elements from your browser memory), clear your browser cache before testing. In *Chrome*, click the *three-dot* menu, then choose *Delete browsing data...*. It’s enough to delete the last *24 hours* of cached data.
 
-### Debugging Slow Website
-Most modern browsers come with advanced debugging tools. In *Chrome* press `F12` to open its debug tools. Then click the tab *Network*, and empty the list of network requests.
-
-Clear your browser cache before testing so you are measuring real download times rather than cached elements coming from your browser memory: in *Chrome*, click the *three-dot* menu, and choose *Delete browsing data...*. It is sufficient to delete the last *24 hours* of cached data.  
-
-#### Navigate To Webpage Under Test
-Now, enter the *url* of the website you want to test. I chose a random [*done.land* article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display) with a number of images and other resources. You can now watch the browser downloading all the web page data, and each downloaded resource lists its url, size, and time it took to download it:
+#### Navigate to the Webpage Under Test
+Now, enter the *URL* of the website you want to test. I chose a random [*done.land* article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display) containing multiple images and other resources. You can now watch the browser download all the webpage data, with each resource showing its URL, size, and the time it took to download:
 
 <img src="images/routing_slow_website_chrome_debug_error.png" width="100%" height="100%" />
 
-In this particular example, downloading the entire web page took insane *10.4 **minutes***. During this long time, just *1.8MB* of data was transferred. That is an average of *2800 bytes per second* on a *wired 250MBit/s ISP* internet connection.
+In this example, downloading the entire webpage took an absurd *10.4 **minutes***. During that time, only *1.8MB* of data was transferred—an average of *2800 bytes per second* on a *wired 250Mbit/s ISP* connection.
 
-When you look closely, the download wasn't even successful: one picture did not download and caused a timeout error: `ERR_QUIC_PROTOCOL_ERROR`.
+Even worse, the download wasn’t successful: one image failed to load, causing a timeout error: `ERR_QUIC_PROTOCOL_ERROR`.
 
-Obviously, here is something seriously amiss: my *ISP* has routed my packets to the correct *CDN*, but has obviously targeted the *wrong* *CDN edge server*.
+Clearly, something is seriously wrong. My *ISP* routed my packets to the correct *CDN*, but targeted the *wrong* *CDN edge server*.
 
-The *IP addresses* of the *edge servers* (the entry points to the *CDN*) are *dynamic* and can change frequently, primarily due to security and infrastructure reasons. I may be off, but apparently the *ISP* is not using the correct target *IP addresses* based on my location. We'll come back to this in a moment. 
+The *IP addresses* of the *edge servers* (the entry points to the *CDN*) are *dynamic* and frequently change for security and infrastructure reasons. While I may be wrong, it seems my *ISP* isn’t using the correct *IP addresses* for my location. We’ll dive deeper into this in a moment.
 
-Aside from the *why* and *how*, the website **is definitely impaired**, and the **reason is bad routing**.
+Regardless of the *why* or *how*, the website **is definitely impaired**, and the **cause is bad routing**.
+
 
 ### Border Gateway Protocol
-*Routing* is complex and consists of many parts. Your *ISP* is responsible for the *Border Gateway Protocol* (*BGP*). It is used to exchange routing information between large networks, or "autonomous systems" (AS), such as *ISPs* (*Internet Service Providers*), big players (such as *AWS*), and most importantly *CDNs* (like *Cloudflare*).
+*Routing* is complex and involves many components. Your *ISP* is responsible for the *Border Gateway Protocol* (*BGP*), which is used to exchange routing information between large networks, or "autonomous systems" (*AS*), such as *ISPs* (*Internet Service Providers*), major players (like *AWS*), and crucially, *CDNs* (such as *Cloudflare*).
 
-Apparently, for many years now, some *ISPs* like the *Deutsche Telekom* in *Germany*, seem to have bad *Peering Agreements* (or do not update their information in a timely way): *ISPs* enter into peering agreements with each other to exchange traffic. If the ISP has poor peering relationships or high costs for certain routes, they might route traffic through less optimal or **outdated** paths, severely impacting speed. 
+For many years, some *ISPs*, like *Deutsche Telekom* in *Germany*, seem to have struggled with poor *Peering Agreements* or outdated routing information. *ISPs* enter into peering agreements with one another to exchange traffic. When these agreements are poorly managed or costly for certain routes, the *ISP* might route traffic through less optimal or **outdated** paths, significantly affecting speed.
 
-There are [plenty of discussions in German forums](https://telekomhilft.telekom.de/t5/Festnetz-Internet/Unglaublich-schlechtes-Routing/td-p/6827554) illustrating the problem.
+There are [numerous discussions in German forums](https://telekomhilft.telekom.de/t5/Festnetz-Internet/Unglaublich-schlechtes-Routing/td-p/6827554) highlighting this issue.
 
 > [!IMPORTANT]
-> If you are experiencing slow *done.land* web pages, keep in mind that this is just a *symptom* of a larger problem. It is tricky because only certain networks and content delivery systems are affected. Even if you are not particular interested in *this site*, you may still want to fix your overall issue: you'll be surprised how much more enjoyable your *Internet experience* can become, and how much faster some downloads work.
-
+> If you are experiencing slow *done.land* web pages, remember that this is just a *symptom* of a larger issue. The challenge is that only specific networks and content delivery systems are impacted. Even if you're not particularly concerned with *this site*, addressing the problem could significantly enhance your *Internet experience* overall—and you may be surprised at how much faster your downloads become.
 
 
 ## Solving the Issue
-Since the fundamental *routing problem* is caused by the way how your *ISP* directs the data (and seems to ignore fast *CDNs*), you have two options:
+Since the fundamental *routing problem* is caused by how your *ISP* directs the data (and seems to ignore fast *CDNs*), you have two options:
 
-* **Change ISP:** Change your current *ISP*, and choose a new *ISP*. This may be complicated and time-consuming because of contracts, infrastructure, and alike. Plus, you would need to make sure that your *new ISP* isn't using crucial infrastructure provided by your *old ISP*.
-* **Use VPN:** The easiest solution is to use a *VPN* (*Virtual Private Network*). Basically, you exchange the *routing of your ISP* with the *routing of the VPN*.
+* **Change ISP:** Switch to a new *ISP*. This may be complex and time-consuming due to contracts, infrastructure, and the need to ensure that your *new ISP* isn’t reliant on the same critical infrastructure as your *old ISP*.
+* **Use VPN:** The simplest solution is to use a *VPN* (*Virtual Private Network*). Essentially, you bypass your *ISP's routing* in favor of the *VPN’s* routing.
 
 ### Using VPN
-When you use a *VPN*, you still use your *ISP* for the *last mile*. However, you then access the nearest (and fastest) possible *VPN server* in your vicinity.
+When you use a *VPN*, you still rely on your *ISP* for the *last mile*. However, from there, your data packets access the nearest and fastest *VPN server* in your region.
 
-Your data packages then travel **anonymously** within the *VPN* server network. *VPNs* optimize routing for best speed, plus they also protect your *privacy* by anonymizing *IP addresses*. That's why *VPNs* are prohibited in most dictatorships (obviously not in *Europe* or the *US*). 
+Your data then travels **anonymously** within the *VPN* server network. *VPNs* optimize routing for better speed and protect your *privacy* by anonymizing your *IP address*. That’s why *VPNs* are banned in most dictatorships (though not in *Europe* or the *US*).
 
-The downside of *VPNs* is that they are an additional *paid service* on top of your existing *ISP service*. But as you have seen, truly *fast and safe Internet access* consists of **two** things: a *fast last mile* (provided by your *ISP*),  **and** intelligent *routing* (not always provided by your *ISP*, can be added via a *VPN*).
+The downside is that *VPNs* are an additional *paid service* on top of your existing *ISP*. However, as mentioned, fast and safe Internet consists of two components: a *fast last mile* (provided by your *ISP*) and optimized *routing* (often lacking from your *ISP*, but provided by a *VPN*).
 
 > [!NOTE]
-> You may be lucky, and your *ISP* may provide *fast clever routing* out of the box. Even then, using a *VPN* gives you so much more control, and may or may not still make sense for the added *security* and *privacy*.
+> Your *ISP* may already offer fast, intelligent *routing*. Even so, using a *VPN* gives you extra control and could still make sense for added *security* and *privacy*.
 
-As a *Deutsche Telekom* user in *Germany*, I was **severely** affected by the speed issues, so adding a *VPN* was a no-brainer, with the added *privacy* being a welcomed benefit. After some comparison, I opted for the basic (cheapest) [NordVPN package](https://refer-nordvpn.com/DdmJIprBMeZ) and purchased a *2-year contract* for around €90 in total (paid with own money, so no affiliation). Since it comes with a *30-day money back guarantee*, you can test whether it works for you and fixes potential speed problems. 
+As a *Deutsche Telekom* customer in *Germany*, I was **heavily** affected by speed issues, so adding a *VPN* was an easy decision, with the additional *privacy* being a nice bonus. After comparing options, I went with the basic (cheapest) [NordVPN package](https://refer-nordvpn.com/DdmJIprBMeZ), getting a *2-year contract* for around €90 (paid out of pocket, no affiliation). With its *30-day money-back guarantee*, you can try it out to see if it resolves your speed issues.
 
-> By using this [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ) link, *you and me* both get a few free extra months. 
+> By using this [NordVPN link](https://refer-nordvpn.com/DdmJIprBMeZ), *you and I* will both get a few extra free months.
 
-After testing, I found that *NordVPN* solved all my issues, and then some: I always had a few websites and downloads which funnily wouldn't perform as well as the rest. With *NordVPN*, now *all* my Internet resources load equally fast, finally letting my *expensive superfast ISP internet access* live up to its full potential. 
+After testing, *NordVPN* fixed all my issues and more. Previously, I noticed certain websites and downloads performed worse than others. With *NordVPN*, all my Internet resources now load consistently fast, finally letting my *expensive, superfast ISP* deliver on its promises.
 
 > [!IMPORTANT]
-> While you are connected to a *VPN*, your browser is communicating with this new virtual network. It can no longer resolve local *mDNS* names, i.e. `homeassistant.local:8123`. To access local devices, either *disconnect* from your *VPN*, or use the devices' local *IP address* instead of its *mDNS name*.
-
+> While connected to a *VPN*, your browser communicates with the virtual network. This means it cannot resolve local *mDNS* names like `homeassistant.local:8123`. To access local devices, either *disconnect* from the *VPN* or use the device’s local *IP address* instead of its *mDNS name*.
 
 
 
 ## Walkthrough: NordVPN
-If you are wondering how a *VPN* works, and how you set it up, here is a quick walk-through on my first steps with [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ).
+If you're curious about how a *VPN* works and how to set it up, here’s a quick walkthrough of my initial steps with [NordVPN](https://refer-nordvpn.com/DdmJIprBMeZ).
 
 ### Download NordVPN App
-Your journey starts with downloading the [NordVPN app](https://nordvpn.com/download/). It is available for *Windows* and other operating systems as well as for smartphones.
-
-
+Your journey begins with downloading the [NordVPN app](https://nordvpn.com/download/). It’s available for *Windows*, other operating systems, and smartphones.
 
 <img src="images/nordvpn_1.png" width="50%" height="50%" />
 
+After installing the software, you’ll find links on your *Desktop* and in your *Start Menu* (or an *app icon* on your smartphone). When you launch the *NordVPN* app, you can either *log in* or [create a NordVPN account (sign up)](https://refer-nordvpn.com/DdmJIprBMeZ). There are various *paid plans*, but no *free tier*.
 
-After you installed the software, you find links on your *Desktop* and *Start Menu* (respective an *app icon* on your smartphone). When you start the *NordVPN* app, you can either *log in* or [create a NordVPN account (sign up)](https://refer-nordvpn.com/DdmJIprBMeZ). There are different *paid plans* and no *free tier*. 
+If you don’t have a *NordVPN* account yet, consider using [this link to sign up](https://refer-nordvpn.com/DdmJIprBMeZ), which gives *you and me* a few extra free months.
 
-If you have no *NordVPN* account yet, you might want to use [this link to sign up](https://refer-nordvpn.com/DdmJIprBMeZ) which provides *you and me* with a few free extra months.
-
-When you click *Log in*, your browser opens and asks for your *username* and *password*. Once the browser-based authentication is done, you return to the *NordVPN app*.
-
-
+When you click *Log in*, your browser will open and prompt you for your *username* and *password*. After completing the browser-based authentication, you’ll return to the *NordVPN app*.
 
 ### Select VPN Server
-The *NordVPN app* shows your connection status: 
+The *NordVPN app* displays your connection status:
 
-* **Not Connected:** **red** *Not Connected*, you are using your *ISPs* routing, and you see your currently assigned *IP address*. In this mode, you can access local *mDNS* addresses as usual (i.e. `homeassistant:local:8123`)
-* **Connected:** **green** *Connected*, you are using the *VPN* and its own routing. Your *ISP name* is no longer the *ISP* that connects your home to the Internet, and you are using anonymized *IP addresses*. In this mode, you cannot access local *mDNS* addresses from your browser unless you replace the *mDNS* name with the device IP address (i.e. `http://192.168.68.123:8123`)
+* **Not Connected:** **red** *Not Connected* indicates you’re using your *ISP’s* routing, and you can see your currently assigned *IP address*. In this mode, you can access local *mDNS* addresses as usual (i.e., `homeassistant.local:8123`).
+* **Connected:** **green** *Connected* signifies that you’re using the *VPN* and its routing. Your *ISP name* will no longer be the one connecting your home to the Internet, and you’ll be using anonymized *IP addresses*. In this mode, you cannot access local *mDNS* addresses from your browser unless you replace the *mDNS* name with the device's *IP address* (i.e., `http://192.168.68.123:8123`).
 
-You can enter the *VPN* through a wealth of servers located around the globe. If you'd like to maximize your speed, choose a *VPN server* as close as possible to your current location. 
+You can connect through numerous servers located worldwide. To maximize speed, choose a *VPN server* as close as possible to your current location.
 
 *Recent connections* (the top list) are your *favorites*. Initially, this list is randomly filled, so do not use *Quick Connect* or one of the servers in the top list.
 
-
-
 <img src="images/nordvpn_3.png" width="100%" height="100%" />
 
-Instead, in the *lower list* select the country where you are located. This adds the country to your *upper list* (your favorites), so from now on you can easily connect to a server in this country. 
+Instead, in the *lower list*, select the country where you are located. This action adds the country to your *upper list* (your favorites), allowing you to easily connect to a server in that country in the future.
 
 To actually *connect* and start using the VPN, click the country in your top list.
 
 > [!TIP]
-> When you click the *three-dot menu* to the right of the selected country in the **lower** list, you see the available *cities* in the selected country. By default, *NordVPN* automatically selects the city with the fastest connection to you.
+> Clicking the *three-dot menu* to the right of the selected country in the **lower** list reveals the available *cities* in that country. By default, *NordVPN* automatically selects the city with the fastest connection to you.
 
-Once you are connected, you see your *country flag* and the currently active *ISP* at the top left side of your window.
+Once connected, you’ll see your *country flag* and the currently active *ISP* at the top left of your window.
+
 
 
 <img src="images/nordvpn_4.png" width="30%" height="30%" />
 
 ## Results of fix
-To see the effects of using *NordVPN*, let's repeat the website tests with the *VPN* active. Here is what the route now looks like:
+To observe the effects of using *NordVPN*, let's repeat the website tests with the *VPN* active. Here’s what the route now looks like:
 
 ````
 PS> tracert done.land
@@ -264,10 +283,9 @@ org      : AS13335 Cloudflare, Inc.
 postal   : 94107
 timezone : America/Los_Angeles
 ````
+This target IP address is *still* registered to *Cloudflare*, located in *San Francisco*. However, the *registration data* is **not necessarily identical to where the actual server is located**.
 
-This target IP address is *still* registered to *Cloudflare* located in *San Francisco*. But *registration data* is **not necessarily identical to where the actual server is located**. 
-
-One hop before reaching the target, the trace reveals that we are hopping *ipv4.de-cix.ham.de.as13335.cloudflare.com* which is located in *Hamburg, Germany*, just around the corner from my location:
+One hop before reaching the target, the trace reveals that we are hopping through `ipv4.de-cix.ham.de.as13335.cloudflare.com`, which is located in *Hamburg, Germany*, just around the corner from my location:
 
 ````
 PS> irm ipinfo.io/185.1.210.10/json
@@ -282,8 +300,7 @@ loc      : 53.5507,9.9930
 postal   : 20038
 timezone : Europe/Berlin
 ````
-
-In a nutshell, *VPN routing* has routed my data packets directly to the *closest available CDN server*, only a few kilometers away from where I live. The hops in-between (*185.161.202.2* and *185.161.202.3*) were also located right in *Hamburg*:
+In a nutshell, *VPN routing* has directed my data packets straight to the *closest available CDN server*, just a few kilometers from my home. The hops in between (*185.161.202.2* and *185.161.202.3*) were also located right in *Hamburg*:
 
 ````
 PS> irm ipinfo.io/185.161.202.2/json
@@ -298,15 +315,15 @@ org      : AS207137 PacketHub S.A.
 postal   : 20038
 timezone : Europe/Berlin
 ````
+Keep in mind: before using *VPN*, my *ISP* had routed my packets all the way across the Atlantic Ocean, serving the website from a different continent with frequent total *packet loss*, resulting in extremely low speeds.
 
-Keep in mind: before using *VPN*, my *ISP* had routed my packets all the way across the Atlantic ocean, and served the website from a different continent, with frequent total *packet loss*, resulting in extremely low speeds.
+Let's verify the trace information and look at the *real-world consequences* of this new routing. I'll repeat the website test in my *Chrome* browser (don’t forget to clear the browser cache before you test again). Remember: last time, it took over **10 minutes** to fully load the web page.
 
-Let's verify the trace information, and look at the *real world consequences* this new routing has: I'll repeat the website test in my *Chrome* browser (don't forget to clear the browser cache before you test again). Remember: last time, it took over **10 minutes** to fully load the web page.
+![VPN Testing Result](images/routing_slow_website_chrome_debug_vpn.png)
 
-<img src="images/routing_slow_website_chrome_debug_vpn.png" width="100%" height="100%" />
+This time, the same web page appeared instantly. After just *1.12 seconds*, the complete web page, along with all its images and fonts, loaded, transferring *2.7MB* of data. The transfer rate was *2.4 MByte/s* (compared to the previous 2.8KB/s), making it almost *1000 times* faster.
 
-This time, the same web page appears instantly. After mere *1.12s*, the complete web page and all of its images and fonts were loaded, and *2.7MB* were transfered. The transfer rate was *2.4MByte/s* (rather than 2.8KB/s as initially), almost *1000x* faster.
 
 > Tags: Website, Slow, VPN, ISP, Routing, Cloudflare, NordVPN, Peering Agreement, Border Gateway Protocol, BGP, Telekom
 
-[Visit Page on Website](https://done.land/tools/internet?015434101113241156) - created 2024-10-12 - last edited 2024-10-13
+[Visit Page on Website](https://done.land/tools/internet?015434101113241156) - created 2024-10-12 - last edited 2024-10-20
