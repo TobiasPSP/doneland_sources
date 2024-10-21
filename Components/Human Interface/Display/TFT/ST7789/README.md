@@ -102,7 +102,6 @@ deep_sleep:
   esp32_ext1_wakeup:       # uses much less deep sleep power than wakeup_pin:
     pins:
       - number: 35
-        allow_other_uses: true
     mode: ALL_LOW 
 
 # perform all necessary actions to send peripherals to deep sleep
