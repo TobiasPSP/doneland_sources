@@ -1,6 +1,6 @@
 <img src="/assets/images/screenwire.png" width="100%" height="100%" />
 
-# 1.9 Inch 170x320 IPS TFT Display
+# 1.9" 170x320 IPS TFT Display
 
 > Full-Angle (IPS) Rectangular TFT Display With SPI And 262K Colors (18bit)
 
@@ -82,3 +82,5 @@ Here is a [good walkthrough](https://github.com/mboehmerm/IPS-Display-ST7789-170
 * [How To Connect Breakout-Board:](https://www.waveshare.com/wiki/1.9inch_LCD_Module) excellent and detailed documentation (by *WaveShare*) covering the *WaveShare* breakout board. Applies to breakout boards from other vendors as well. Covers using the display with various microcontrollers (including *Raspberry Pi*, *STM32*, and *Arduino*).
 
 > Tags: Display Driver, ST7789, TFT Display, Full Color, 18bit, 262K, SPI, 1.9 Inch, Adafruit, WaveShare, Estardyn, Lolin32 Lite, Raspberry
+
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/st7789/1.9inch320x240?519299101221242534) - created 2024-10-20 - last edited 2024-10-20
