@@ -65,6 +65,16 @@ The display backlight is controlled via pin **BLK**:
 > With the latter setup, the display remains on (and fully readable) when the board enters *deep sleep*. This can be highly power efficient if you want your device to display *static content*.
 
 
+### Reset
+Via the **RES** pin, the display controller can be resetted (*low active*). Here are your options:
+
+* **Don't care:** if you do not plan to reset the display, pull this pin *high* by connecting it to *VCC*, ensuring that the device won't reset itself randomly.
+* **Sync With Microcontroller:** when your microcontroller breakout board exposes its own *Reset pin*, you can connect **RES** to the *reset pin* of your microcontroller. This way, you don't waste a precious *GPIO* and get basic reset behavior: when you reset your microcontroller (i.e. by pressing its *Reset* button), the display is resetted as well. This may be invaluable because else, when you reset your microcontroller, the display would *still* continue to show its previous content. This can be highly confusing, especially when you flash the microcontroller with fresh firmware (without removing its power). If the new firmware isn't drawing content on the display, after the firmware update, the board would still show the old display content, and users could be led to believe the firmare update wasn't successful.
+* **Manual:** when wiring **RES** to any output *GPIO*, *you* can control when to reset the display. Make sure the *GPIO* has a pullup resistor enabled, and pull the *GPIO low* to reset the display controller.
+
+> [!TIP]
+> Unless you have a *real reason* why you wanted to ever manually reset the display controller, connecting **RES** to the *Reset Pin* of your microcontroller appears to be the best value (provided your development board exposes this pin).
+
 ## Programming
 The display boards use the [ST7789](https://done.land/components/humaninterface/display/tft/st7789) controller that can be programmed with these librarys and components:
 
