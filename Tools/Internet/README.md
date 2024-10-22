@@ -315,7 +315,7 @@ org      : AS207137 PacketHub S.A.
 postal   : 20038
 timezone : Europe/Berlin
 ````
-Keep in mind: before using *VPN*, my *ISP* had routed my packets all the way across the Atlantic Ocean, serving the website from a different continent with frequent total *packet loss*, resulting in extremely low speeds.
+Keep in mind: before using *VPN*, my *ISP* had routed my packets all the way across the Atlantic Ocean, serving the website from a different continent with frequent total *packet losses*, resulting in extremely low speeds.
 
 Let's verify the trace information and look at the *real-world consequences* of this new routing. I'll repeat the website test in my *Chrome* browser (don’t forget to clear the browser cache before you test again). Remember: last time, it took over **10 minutes** to fully load the web page.
 
