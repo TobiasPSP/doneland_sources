@@ -163,6 +163,15 @@ In the section on the *solar controller*, we will explore how using solar panels
 
 ## Budget Recommendation
 
+# Solar Controller
+
+In the section on the *solar controller*, we will explore how using solar panels in series with a higher voltage can be advantageous **if you choose an appropriate solar charge controller**:
+
+* **Cheap PWM Charge Controller:** These devices function similarly to *LDO voltage regulators*, converting excess voltage into *heat*. They work best when the incoming voltage from your solar panels is close to the battery charging voltage. Therefore, in budget-friendly *12V systems* with *PWM controllers*, **do not connect panels in series**.
+* **Professional MPPT Charge Controller:** These controllers are **significantly more expensive** and operate like *efficient buck converters*. When the incoming voltage is excessively high, they convert it to lower voltages without wasting energy. Additionally, *MPPT* (Maximum Power Point Tracking) technology allows the controller to adjust the duty cycle, ensuring that the solar panel voltage remains at its most efficient point, maximizing energy extraction. When using an *MPPT controller*, connect multiple panels in series to feed higher voltages, such as *36V* (2S) or *54V* (3S). This configuration allows solar panels to deliver adequate voltages for battery charging, even on cloudy days.
+
+## Budget Recommendation
+
 Your available *space* is crucial in determining the best value for your investment.
 
 * **Space is King:** The most important factor is the *overall surface area* available for harvesting sunlight. If you have sufficient space, investing your budget in solar panels is always the best approach.
@@ -172,35 +181,18 @@ Your available *space* is crucial in determining the best value for your investm
 
 Here are some calculations that illustrate the significance of space and the costs associated with *reducing space requirements*:
 
-For example, you can reduce *10 cm²* of space to *6.5 cm²* by switching from a *polycrystalline panel* to a *monocrystalline panel*:
+For example, you can reduce *10 cm²* of space to *6.5 cm²* by switching from a *polycrystalline panel* to a *monocrystalline panel*. A *polycrystalline panel* has a *15%* efficiency (yielding *0.015 W/cm²*), while a *monocrystalline panel* boasts a *23%* efficiency (yielding *0.023 W/cm²*). 
 
-\[
-10 \, \text{cm}^2 \times \frac{0.015 \, \text{W/cm}^2}{0.023 \, \text{W/cm}^2} = 6.5 \, \text{cm}^2
-\]
-
-Here, a *polycrystalline panel* has a *15%* efficiency (yielding *0.015 W/cm²*), while a *monocrystalline panel* boasts a *23%* efficiency (yielding *0.023 W/cm²*). 
-
-Let's calculate the *cost per watt* for both types of panels:
+Now let's calculate the *cost per watt* for both types of panels:
 
 <img src="images/solar_panel_mono_6v_3w_front_t.png" width="50%" height="50%" />
 
-* **Small, cheap, less efficient:** These panels were purchased in a *10-pack* for a total of *EUR 2.38*. Each panel cost *EUR 0.24* and yielded *0.15 W*, resulting in a cost of:
-\[
-\frac{EUR \, 0.24}{0.15 \, \text{W}} = EUR \, 1.60/\text{W}
-\]
-
-* **Larger, more expensive, more efficient:** These panels were bought in a *5-pack* for a total of *EUR 14.99*. Each panel cost *EUR 3.00* and produced *3 W*, resulting in a cost of:
-\[
-\frac{EUR \, 3.00}{3 \, \text{W}} = EUR \, 1.00/\text{W}
-\]
+* **Small, cheap, less efficient:** These panels were purchased in a *10-pack* for a total of *EUR 2.38*. Each panel cost *EUR 0.24* and yielded *0.15 W*, resulting in a cost of *EUR 0.24 divided by 0.15 W = EUR 1.60/W*.
+* **Larger, more expensive, more efficient:** These panels were bought in a *5-pack* for a total of *EUR 14.99*. Each panel cost *EUR 3.00* and produced *3 W*, resulting in a cost of *EUR 3.00 divided by 3 W = EUR 1.00/W*.
 
 <img src="images/solar_poly_small_wrapped_t.png" width="50%" height="50%" />
 
-When choosing between the two panel types, the *cost per watt* calculation favors the larger, more expensive *monocrystalline* panel, which provides the same energy at a *37.5% lower cost*:
-
-\[
-100\% - \left( \frac{EUR \, 1.00 \times 100}{EUR \, 1.60} \right) = 37.5\%
-\]
+When choosing between the two panel types, the *cost per watt* calculation favors the larger, more expensive *monocrystalline* panel, which provides the same energy at a *37.5% lower cost*.
 
 ### Final Thoughts
 
@@ -222,8 +214,6 @@ Interestingly, solar panels can perform surprisingly well outdoors, even on clou
 
 > [!NOTE]
 > This highlights how efficient artificial light sources have become: they emit light primarily in the *visible* spectrum, filtering out *infrared* and *ultraviolet* ranges that, while invisible to the human eye, carry the most energy for solar panels. Consequently, it is always *dark* for solar panels indoors.
-
-
 
 
 
