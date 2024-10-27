@@ -6,40 +6,37 @@
 
 The *HC-12* can send *and* receive at *433.4-473.0 MHz* with an exceptionally *high maximum transmission (RF) power of **100mW** (20dB)*. It supports *multiple channels* and different *modes* to optimize for different use cases, i.e. *low power consumption*, *transmission speed*, or *maximum range*. The module is based on the [Silicon Labs SI4463](materials/si44xx_datasheet.pdf) and supports both simple *OSK* and all flavors of *FSK modulation*.
 
-The *SI4463* is still in production at the time of this writing and readily available at different sources, however *Silicon Labs* has marked the [SI4463 Data Sheet](materials/si44xx_datasheet.pdf) with "Not Recommended For New Designs". So what does this mean? 
+The SI4463 remains in production as of this writing and is readily available from various sources. However, Silicon Labs has labeled the [SI4463 Data Sheet](materials/si44xx_datasheet.pdf) with a "Not Recommended For New Designs" (NRND) designation. What does this imply?
 
-*SI4463* is an *excellent and **very affordable** transceiver chip*. Boards like *HC-12* are likely to fade away over the next years and be replaced with successor chips that may further *optimize power consumption* or might be more tightly integrated with microcontrollers. So what this note really means is this: if you are satisfied with the *HC-12* feature set and price point, you may want to stock a number of extra boards while supply lasts.
+The SI4463 is an outstanding and affordable transceiver chip. Boards like the HC-12, which utilize this chip, may gradually be phased out over the coming years, likely replaced by successor chips that further optimize power consumption or offer tighter integration with microcontrollers. In practical terms, this note suggests that if you're content with the HC-12’s features and price, it might be wise to stock up on a few extra boards while they're still readily available.
+
 
 <img src="images/433_Extension_HC-12_angle_t.png" width="40%" height="40%" />
 
 
 
 > [!NOTE]
-> This module *can* control *garage doors* and remote-control devices via simple *OOK*, however such simple tasks should be left to much simpler modules. *HC-12* is **much more capable** and serves as a fully programmable data transceiver with relatively **high RF power** - in fact, its strongest transmission modes **exceed the legal limits** in most countries, and you would have to be a **licensed radio amateur (HAM)** to operate this module at its maximum settings..
+> This module *can* control *garage doors* and remote-controlled devices via simple *OOK* modulation. However, such straightforward tasks are better suited to simpler modules. The *HC-12* is **far more capable**, functioning as a fully programmable data transceiver with relatively **high RF output power**. In fact, its strongest transmission modes **exceed legal limits** in most countries, requiring a **licensed radio amateur (HAM)** to operate at maximum settings.
 
 ## Overview
-This board uses its own microprocessor that takes care of all *receiving* and *sending* tasks. Controlling the board is very easy and does not add any overhead to your own microprocessor.
+This board has an onboard microprocessor that manages all *receiving* and *sending* tasks, making control straightforward and adding no processing overhead to your own microcontroller.
 
-### Frequency Range And Channels
-The board can *send and receive* in a frequency range of *433.4-473.0MHz* which is organized in *channels* with a step size of *400kHz*. 
+### Frequency Range and Channels
+The board operates in a frequency range of *433.4–473.0 MHz*, organized into *channels* with a step size of *400 kHz*. 
 
-Its maximum transmitting power is +20dBm/100mW, and the receiver sensitivity is excellent with *-116dBm*. In free *line of sight*, and with a decent antenna, transmission distances of over *1km* and much more should be no problem.
+It has a maximum transmission power of +20 dBm/100 mW, and excellent receiver sensitivity at *-116 dBm*. In clear *line of sight* and with a suitable antenna, transmission distances of *over 1 km* or more are easily achievable.
 
 > [!CAUTION]
-> Both its **wide frequency range** and its **high RF transmission power** are **not covered by license-free bands** and thus this board is **illegal to use** in *Europe* unless you have an appropriate **license** (i.e. you are a *ham radio amateur*).   
-
-
+> Due to its **broad frequency range** and **high RF transmission power**, this board operates outside license-free bands and is therefore **illegal to use** in *Europe* without an appropriate **license** (such as a *HAM radio amateur license*).
 
 ### Specs
-
-This breakout board by default emits *100mW* which is well above the legal limit of *10mW* in *Europe*. The RF power can be reduced by software.
 
 | Item | Value |
 | --- | --- |
 | Voltage | 3.2-5.5V |
 | Frequency | 433.4-473.0 MHz |
 | Antenna  | external Antenna (SMA) or spring antenna via solder connection |
-| Output Power | 20dBm max (100mW max) |
+| Output Power | 20dBm max (100mW max, can be set to lower RD power) |
 | Sending Modes | FU1, FU2, FU3, FU4 |
 | Default Mode | FU3: 9600bps, Channel 1 (433.4MHz) |
 | Standby Current (per mode) | 3.6mA, 80uA, 16mA, 16mA |
@@ -58,21 +55,16 @@ This breakout board by default emits *100mW* which is well above the legal limit
 ## Connectors
 
 ### Antenna
-On the one side, the board features a through-hole connector and an *IPEX* connector, both to connect the *antenna*. The *antenna* solder pin is flanked by two *GND* pins on either side.
-
-
+One side of the board features a through-hole connector and an *IPEX* connector, both for attaching the *antenna*. The *antenna* solder pin is flanked by two *GND* pins on either side.
 
 <img src="images/433_Extension_HC-12_top_t.png" width="60%" height="60%">
 
-
-
 > [!TIP]
-> Always operate this device *with an antenna*. If no designated antenna is at hand, use a plain *17.3cm* wire. Operating this device without antenna can irreversibly damage the RF unit.
-
+> Always operate this device *with an antenna*. If you don’t have a designated antenna, a simple *17.3 cm* wire will work. Operating without an antenna can irreversibly damage the RF unit.
 
 ### Interface
 
-On the other end, five through-holes provide the connectivity. They are clearly marked on the back side:
+On the opposite end, five through-holes provide connectivity, clearly marked on the backside:
 
 
 <img src="images/433_Extension_HC-12_back_t.png" width="60%" height="60%" />
@@ -86,12 +78,12 @@ On the other end, five through-holes provide the connectivity. They are clearly 
 | 4 | GND | negative voltage |
 | 5 | VCC | +3.2-5.5V |
 
-
 > [!CAUTION]
-> If the *sender* needs to transmit data for a lengthy time, and the power supply is *>4.5V*, then **VCC** should be reduced to no more than *4.5V*, i.e. by connecting a *1N4007* diode in series to prevent over-heating. The limiting factor seems to be the *LDO voltage regulator* on the board which heats up considerably when the input voltage is (much) higher than the required internal voltage **and** current consumption is high (i.e. using high RF transmission power).
+> If the *transmitter* needs to send data for an extended period and the power supply exceeds *4.5V*, it is recommended to reduce **VCC** to *4.5V* or lower. This can be achieved by placing a *1N4007* diode in series to prevent overheating. The limiting factor is the *LDO voltage regulator* on the board, which can heat up significantly when the input voltage is much higher than the required internal voltage and current consumption is high (such as when using high RF transmission power).
 
 ## Working Modes
 The board supports the following transmission modes:
+
 
 | Mode | Description | Idle Current | Serial Baud | Air Baud Rate |
 | --- | --- | --- | --- | --- |
