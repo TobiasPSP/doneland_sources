@@ -2,7 +2,6 @@
 
 # Solar Panels
 
-# Turning Sunlight Into Electricity
 
 *Solar panels* (also known as *photovoltaic modules*, which convert light into electrical power) consist of thin layers of either *polycrystalline* or *monocrystalline* silicon.
 
