@@ -24,7 +24,7 @@ The board can *send and receive* in a frequency range of *433.4-473.0MHz* which 
 Its maximum transmitting power is +20dBm/100mW, and the receiver sensitivity is excellent with *-116dBm*. In free *line of sight*, and with a decent antenna, transmission distances of over *1km* and much more should be no problem.
 
 > [!CAUTION]
-> Both its **wide frequency range** and its **high RF transmission power** are **not covered by license-free bands** and  **illegal to use** in *Europe* unless you are appropriately **licensed** (i.e. radio amateur).   
+> Both its **wide frequency range** and its **high RF transmission power** are **not covered by license-free bands** and thus this board is **illegal to use** in *Europe* unless you have an appropriate **license** (i.e. you are a *ham radio amateur*).   
 
 
 
