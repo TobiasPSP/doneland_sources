@@ -54,13 +54,13 @@ If a vendor claims *300W* for this panel, you can be fairly certain that’s an 
 <details>
   <summary>Example Check</summary>
 
-# Small DIY Panels: Testing Vendor Claims
+### Small DIY Panels: Testing Vendor Claims
 
 The same approach applies to small DIY panels. For example, let's examine these *polycrystalline* mini solar panels with a size of *53x30mm*:
 
 <img src="images/solar_poly_small_front_t.png" width="50%" height="50%" />
 
-### Test 1: Polycrystalline Panels
+#### Test 1: Polycrystalline Panels
 
 The vendor claims these cells produce a current of *30mA* at *5V* (*0.03A x 5V = 0.15W*). With a surface area of *5.3cm x 3cm = 16cm²*, and an assumed *polycrystalline* efficiency of about *15%*, we can do a plausibility check to see if this makes sense:
 
@@ -84,7 +84,7 @@ With the corrected active area, let’s redo the calculation:
 
 Now, we get *0.15W*, matching the vendor’s specification.
 
-### Test 2: Monocrystalline Panels
+#### Test 2: Monocrystalline Panels
 
 *Monocrystalline* panels, known for higher efficiency (up to *23%*), typically cost more. Let’s apply the same check to a larger *monocrystalline* panel:
 
