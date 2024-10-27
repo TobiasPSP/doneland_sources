@@ -1,8 +1,8 @@
 <img src="/assets/images/sun.png" width="100%" height="100%" />
 
-# Solar 
+# Solar Energy
 
-# All About Solar Panels and How to Power DIY Projects with Them
+> All About Solar Panels and How to Power DIY Projects with Them
 
 *Solar energy* is a convenient way to power devices and can provide an endless energy source, perfect for remotely located sensors. It can also charge power banks or smartphones during outdoor adventures, like mountain trips. In this guide, we’ll explore all the components needed to harness energy from sunlight, whether your goal is small-scale power (e.g., for sensors or microcontrollers) or large-scale power (e.g., to supply your entire household from a rooftop array).
 
