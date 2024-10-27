@@ -2,54 +2,28 @@
 
 # Solar 
 
-> All About Solar Panels And How To Power DIY Projects With Them
+# All About Solar Panels and How to Power DIY Projects with Them
 
-*Solar energy* can conveniently power devices and supply endless energy, i.e. for remotely located sensors. It can also charge a powerbank or your smartphone while on a mountain trip.
+*Solar energy* is a convenient way to power devices and can provide an endless energy source, perfect for remotely located sensors. It can also charge power banks or smartphones during outdoor adventures, like mountain trips. In this guide, we’ll explore all the components needed to harness energy from sunlight, whether your goal is small-scale power (e.g., for sensors or microcontrollers) or large-scale power (e.g., to supply your entire household from a rooftop array).
 
-In this section, I am discussing components required to harvest energy from sunshine, how to store harvested energy, and how to re-supply it in a usable form.
+## Overview
+To capture and utilize energy from sunlight, you'll need the following components:
 
-Three fundamental parts are required for a *DIY solar power supply*:
+### Harvesting Power
 
+* **Solar Panel:** A solar panel (or an array) captures *photons* from sunlight and converts them into electrical current. Power output is directly tied to light intensity, meaning that by itself, a *solar panel* is not a stable power source; *current* and *voltage* fluctuate significantly.
+* **Solar Charge Controller:** This device stabilizes the fluctuating current from your solar panels, converting it into a consistent voltage suitable for battery charging. *Charge controllers* also include *safety mechanisms* to prevent battery *overcharging* and *undervoltage*.
+* **Rechargeable Battery:** Acting as an energy reservoir, a battery accumulates incoming solar power and stores it until needed. Since solar input is variable, the battery serves as a *buffer*—storing energy during sunshine hours and releasing it when demand arises.
 
+### Using Power
 
+To power devices from stored solar energy, these components are essential:
 
-## Solar Panel
-
-*Solar panels* convert *light* into *electrical power*. The generated power is in direct correlation to the light intensity. *Solar panels* by themselves cannot be used as reliable power source as *current* and *voltage* may vary greatly.
-
-## Charger
-
-*Chargers* are common place and not restricted to *solar applications*: they take a wide range of input voltage and deliver a fixed output voltage, plus they incorporate *security mechanisms* to protect batteries from *overcharging* and *under-voltage*.
-
-A ***solar** charger* is a slightly misleading term that can represent different things:
-
-* **Charger module with MPPT functionality:** a regular charger with an additional optimization to take advantage of the *sweet spot* where solar panels provide the highest efficiency. This is achieved by controlling the *current* that the charger draws from the *solar panel*.
-* **Ready-to-use Solar Charger:** a *solar panel* with integrated circuitry to convert the fluctuating voltage from a *solar panel* to a useful *fixed voltage*, i.e. *5V* for *USB charging*.
-
-> [!NOTE]
-> To power simple *DIY projects*, a *regular charger* with an appropriate *input voltage range* is sufficient. Specialized *MPPT* charger modules can be benefitial but extra cost is often much better invested into a larger *solar panel*.
-
-* **Rechargeable Battery:** Since *solar panels* deliver power only when the sun shines, a rechargeable battery acts like a *buffer*: it stores *solar energy* during sunshine and returns the stored energy at other times.
-
-> [!NOTE]
-> *Lithium*-based batteries are commonly used in *DIY projects* because of their *energy density*, and because most makers are familiar with them. In commercial devices such as *solar-powered garden lamps* etc., *NiMH* batteries are used. They are cheaper, more forgiving, less dangerous (no risk of fire and explosion), and most importantly have a higher *temperature tolerance*.
+* **Battery Management System (BMS):** The BMS ensures safe battery usage, preventing excessive discharge and protecting against *deep-discharge*, both of which can damage batteries.
+* **Converter:** If the battery voltage differs from what your device requires, a *converter* adjusts it to the necessary level. For household appliances, you’ll need an *AC converter*—it not only adjusts the voltage (e.g., from battery level to *220V* household standard) but also converts *DC* from the battery to *AC* for home use.
 
 
 
-* **DC-DC Converter:** Typically, the battery voltage does not match the intended application: it is either too low or too high. *DC-DC converters* change the voltage to the required level. *Boost converter* raise the single-cell voltage to *5V* for *USB Charging*. A *buck converter* lowers the voltage to *3.3V* to power a microcontroller.
+> Tags: Solar Panel, Solar Controller, Charger, Solar Charger, Converter, MPPT, Battery
 
-
-> [!NOTE]
-> LiFePo4 batteries are perfect for powering *3.3V* microcontrollers: their voltage range matches the voltage range needed. This saves a *DC-DC converter*, and more importantly, it considerably improves *energy efficiency*.
-
-
-## Voltage and Current
-
-All starts with *voltage* and *current* - and the many ways to *[measure](Measuring%20Current)* and *monitor* both. 
-
-This is the foundation on which tools like *multimeters*, *oscilloscopes* but also devices like *voltage regulators*, *chargers* and *battery protection systems* (BMS) operate.
-
-
-> Tags: Solar Panel, Charger, DC-DC Converter, Solar Charger, MPPT, Battery
-
-[Visit Page on Website](https://done.land/components/power/solar?132550051702244054) - created 2024-05-01 - last edited 2024-05-01
+[Visit Page on Website](https://done.land/components/power/solar?132550051702244054) - created 2024-05-01 - last edited 2024-10-26
