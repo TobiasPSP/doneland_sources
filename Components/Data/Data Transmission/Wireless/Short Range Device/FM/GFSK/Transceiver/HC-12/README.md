@@ -3,7 +3,7 @@
 # HC-12
 > A Very Powerful 433–473 MHz Transmitter and Receiver with Built-in Microprocessor
 
-The *HC-12* module is capable of both *transmitting* and *receiving* within the *433.4–473.0 MHz* range, offering an exceptionally *high maximum RF transmission power of **100 mW** (20 dBm)*. It supports *multiple channels* and various *modes* tailored for different applications, including *low power consumption*, *transmission speed*, and *maximum range*. The module is built on the [Silicon Labs SI4463](materials/si44xx_datasheet.pdf) and supports both simple *OSK* and various forms of *FSK modulation*.
+The *HC-12* module is capable of both transmitting and receiving within the *433.4–473.0 MHz* range, offering an exceptionally high maximum RF transmission power of **100 mW** (20 dBm). It supports multiple channels and various modes tailored for different applications, including *low power consumption*, *transmission speed*, and *maximum range*. The module is built on the [Silicon Labs SI4463](materials/si44xx_datasheet.pdf) and supports both simple *OSK* and various forms of *FSK modulation*.
 
 
 The SI4463 remains in production as of this writing and is readily available from various sources. However, Silicon Labs has labeled the [SI4463 Data Sheet](materials/si44xx_datasheet.pdf) with a "Not Recommended For New Designs" (NRND) designation. What does this imply?
