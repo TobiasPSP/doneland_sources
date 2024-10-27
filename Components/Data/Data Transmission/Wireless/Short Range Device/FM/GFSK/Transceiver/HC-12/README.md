@@ -115,4 +115,4 @@ The faster the data transfer rate is, the lower is the *receiver* sensitivity:
 
 > Tags: HC-12, Sender, Receiver, Transceiver, RF, 433MHz, 3.3V, 5V, IPEX, OOK, ASK, FSK, GFSK
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/transceiver/hc-12?649483042001242432) - created 2024-04-01 - last edited 2024-10-26
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/fm/gfsk/transceiver/hc-12?649483042001242432) - created 2024-04-01 - last edited 2024-10-26
