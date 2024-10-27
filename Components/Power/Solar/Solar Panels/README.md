@@ -149,23 +149,14 @@ By linking solar panels in series and/or in parallel, you can optimize your syst
 
 Ideally, the voltage of a solar panel should be only slightly higher than the voltage you need (or the voltage required for charging a battery). For a *12V system* using *12V batteries*, *18V* solar panels may seem like a suitable choice.
 
-However, this assumption relies on the solar panels always being in bright sunlight, which is not always the case. On cloudy days, an *18V solar panel* may output only *7V*—too low for effective battery charging.
+However, this assumption relies on the solar panels being in bright sunlight, which is not always the case. On cloudy days, an *18V solar panel* may output only *7V*—too low for effective battery charging.
 
 To maintain flexibility and maximize energy capture even on cloudy days, consider using solar panels with higher voltages or, more commonly, connect standard solar panels in series. Connecting three *18V panels* provides *54V in bright sunlight* and still yields *21V on very cloudy days*, both of which are sufficiently above the required charging voltage.
 
 
-# Solar Controller
+### Solar Controller
 
-In the section on the *solar controller*, we will explore how using solar panels in series with a higher voltage can be advantageous **if you choose an appropriate solar charge controller**:
-
-* **Cheap PWM Charge Controller:** These devices function similarly to *LDO voltage regulators*, converting excess voltage into *heat*. They work best when the incoming voltage from your solar panels is close to the battery charging voltage. Therefore, in budget-friendly *12V systems* with *PWM controllers*, **do not connect panels in series**.
-* **Professional MPPT Charge Controller:** These controllers are **significantly more expensive** and operate like *efficient buck converters*. When the incoming voltage is excessively high, they convert it to lower voltages without wasting energy. Additionally, *MPPT* (Maximum Power Point Tracking) technology allows the controller to adjust the duty cycle, ensuring that the solar panel voltage remains at its most efficient point, maximizing energy extraction. When using an *MPPT controller*, connect multiple panels in series to feed higher voltages, such as *36V* (2S) or *54V* (3S). This configuration allows solar panels to deliver adequate voltages for battery charging, even on cloudy days.
-
-## Budget Recommendation
-
-# Solar Controller
-
-In the section on the *solar controller*, we will explore how using solar panels in series with a higher voltage can be advantageous **if you choose an appropriate solar charge controller**:
+In the dedicated section on the *solar controller*, we will explore how using solar panels in series with a higher voltage can be advantageous **if you choose an appropriate solar charge controller**:
 
 * **Cheap PWM Charge Controller:** These devices function similarly to *LDO voltage regulators*, converting excess voltage into *heat*. They work best when the incoming voltage from your solar panels is close to the battery charging voltage. Therefore, in budget-friendly *12V systems* with *PWM controllers*, **do not connect panels in series**.
 * **Professional MPPT Charge Controller:** These controllers are **significantly more expensive** and operate like *efficient buck converters*. When the incoming voltage is excessively high, they convert it to lower voltages without wasting energy. Additionally, *MPPT* (Maximum Power Point Tracking) technology allows the controller to adjust the duty cycle, ensuring that the solar panel voltage remains at its most efficient point, maximizing energy extraction. When using an *MPPT controller*, connect multiple panels in series to feed higher voltages, such as *36V* (2S) or *54V* (3S). This configuration allows solar panels to deliver adequate voltages for battery charging, even on cloudy days.
