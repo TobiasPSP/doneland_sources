@@ -9,38 +9,50 @@
 
 <img src="images/solar_poly_small_overview_t.png" width="50%" height="50%" />
 
-## How They Work
+## Overview
+Solar panels can come in almost any size and shape, and each solar panel has a specific *voltage* that it can deliver in full sunshine. On the market, a rich variety of *solar panels* exist with  *different maximum voltages*, catering your needs. For *DIY projects*, *solar panels* with *3V*, *6V*, *9V*, *12V*, and *24V* are common. Larger systems designed to power an entire household often use *18V panels*.
 
-*Silicon* is a semiconductor. When photons hit its surface, this dislodges electrons which in turn create a flow in electric charge. 
+In reality, solar panels can deliver *any voltage* as long as it is a multipiler of *0.5*. That's because *any solar panel* regardless of size, shape, or voltage, uses the *same basic solar cells*. These units always have a voltage of around *0.5V*, and in direct sunlight, these units can deliver only a tiny current. When you look closely at a solar panel, you may be able to identify these units as a uniform "pattern*.
 
-Normally, these dislodged electrons would move in random directions and not produce a usable current. By special treatment, *solar panels* make sure the dislodged electrons move in the *same* direction, producing an electrical *current*.
+### Material and Efficiency
+Solar cells are made from silicon, a semiconductor. There are two common ways of producing it:
 
+* **Polycrystalline:** cheaper to produce, less efficient
+* **Monocrystalline:** more expensive to produce, better efficiency
 
-### Small Cells Form Large Panels
+Here is a comparison:
 
-*Solar panels* are made of individual small *cells*: *Monocrystalline silicon cells* typically produce *0.5-0.6V* each. *Polycrystalline cells* can produce *0.5-0.55V*.
+| Temperature (°C) | Polycrystalline Efficiency | Monocrystalline Efficiency |
+|------------------|---------------------------|----------------------------|
+| -10              | ~17.5% - 20.5%            | ~20% - 23%                 |
+| 0                | ~16.5% - 19.5%            | ~19% - 22%                 |
+| 10               | ~15.5% - 18.5%            | ~18% - 21%                 |
+| 20               | ~14.5% - 17.5%            | ~17% - 20%                 |
+| 30               | ~13.5% - 16.5%            | ~16% - 19%                 |
+| 40               | ~12.5% - 15.5%            | ~15% - 18%                 |
 
-By connecting these cells *in series*, the overall panel *voltage* can be set. By connecting cells *in parallel*, the maximum panel *current* can be set.
+>  [!TIP]
+> When planning a solar system, *available space* is an important parameter: if space is not an issue, then *cheaper but less efficient polycrystalline panels* may be the better choice, because although they are less efficient than more expensive monocrystalline panels, you may compensate this easily by adding one or more panels at the same cost.
 
+### Identifying Fake Offers
+Solar panels have become very affordable, yet it is often very hard to compare offers and find the best deal: the technical specifications claimed by sellers are often outright phantasy, and without knowing the true specs, it is impossible to compare products. Frequently, you'll come across **300W** solar panels at suspiciously low prices (or small sizes). Rogue vendors cannot bend *physics* though. Before purchasing, do the *physics plausibility check*:
 
-<img src="images/solar_panel_mono_6v_3w_back_t.png" width="50%" height="50%" />
+* **Same Material:** although there may be subtle differences, overall all solar panels use roughly the same silicon material. This material has a defined yield of *0.015-0.023W/cm2* (harvested energy per area)
+* **Same Sunlight:** sunlight delivers roughly 1kW of energy per square meter (*1000W/m2*) on a clear day at solar noon in the summer. That's *0.1W/cm2*. 
+* **Efficiency:** even though sellers would like you to believe their panels were substantially more efficient than panels from other sources, these sellers are not known for having won the *Nobel Prize* lately. Chances are the conversion efficiency of their panels is anywhere between *15-23%*. So these panels produce *0.015W-0.023W/cm2*.
 
-On the market, a rich variety of *solar panels* exist with  *different maximum voltages*, catering your needs. For *DIY projects*, *solar panels* with *3V*, *5-6V*, *9V*, *12V*, and *24V* are common.
+So when you know the *size of the active solar panel area* (*height x width* less aluminum frames), you can estimate the wattage with this formula: *Area* x *Solar Input* x *Efficiency* = *Watts*.
 
+Let's assume the vendor sells a *monocrystalline panel* with a size of *90x50cm*. According to the table above, you can assume a conversion efficiency of around *20%* at *20C*. The area is *90x50cm=4500cm2": 
 
+***4500**cm2* x *0.1W/cm2* x ***20**%* = ***90**W*
 
-## Evaluating Panels
-Do not naively trust vendors or technical specifications. While *most vendors* provide accurate information, you can commonly find *astonishing offers* for *solar panels* supposingly capable of producing *hundreds of watts* for little money.
+Should the vendor claim his panels deliver *300W*, then you now know that's out of the question.
 
-Rogue vendors cannot bend *physics* though, so before you purchase a particular panel, do the *physics plausibility check*:
+<details>
+  <summary>Example Check</summary>
 
-### 0.015-0.023W/cm2 Yield
-
-Physically, the *area* of a *solar panel* matters most: sunlight delivers roughly 1kW of energy per square meter (*1000W/m2*) on a clear day at solar noon in the summer. That is *0.1W/cm2*. 
-
-*Solar panels* have a conversion efficiency anywhere between *15-23%* and produce *0.015W-0.023W/cm2*. This is the formula to roughly check solar panel specs.
-
-Let's take a look at these *polycrystalline* mini solar panels. They have a size of *53x30mm*:
+The same goes for small DIY panels. Let's take a look at these *polycrystalline* mini solar panels. They have a size of *53x30mm*:
 
 
 <img src="images/solar_poly_small_front_t.png" width="50%" height="50%" />
@@ -98,7 +110,31 @@ This panel (and this vendor) passed the plausibility check.
 
 
 
+</details>
 
+
+
+### Solar Panel Construction
+Large solar panels consist of any number of these basic solar cells. The bigger the solar panel is, the more fundamental solar cells are combined. The way how these cells are internally connected determines the voltage of the panel:
+
+* **Parallel:** voltage does not change, current doubles
+* **Series:** current does not change, voltage doubles
+
+That explains why Solar Panel voltages are typically multiples of *0.5V*:
+
+* **DIY Solar Cells:** in small DIY projects, very small solar panels with a voltage of *6V* are used. Internally, such cells must consist of at least *12 solar cells*, connected in series. If it is a larger solar panel with more power output, multiple *strings* of 12 cells each are connected in parallel to each other, increasing the current.
+* **Household Systems:** on larger scale, solar panels often have a voltage of *18V*, so these panels use strings of 36 solar cells to achieve this voltage.
+
+## How Sunshine Turns Into Electricity
+*Solar cells* are typically made of *silicon* which is a semiconductor. When photons hit its surface, this dislodges electrons which in turn create a flow in electric charge. 
+
+Normally, these dislodged electrons would move in random directions and not produce a usable current. By special treatment, *solar panels* make sure the dislodged electrons move in the *same* direction, producing an electrical *current*.
+
+
+<img src="images/solar_panel_mono_6v_3w_back_t.png" width="50%" height="50%" />
+
+## Serial and Parallel Connections
+You do not necessarily
 
 ## Choosing A Good Panel
 
