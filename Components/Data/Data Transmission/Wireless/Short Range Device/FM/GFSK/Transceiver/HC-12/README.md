@@ -13,7 +13,7 @@ The *HC-12* can send *and* receive in the frequency range *433.4-473.0 MHz* with
 
 
 > [!NOTE]
-> This module *can* control *garage doors* and remote-control devices via simple *OOK*, however such simple tasks can be delegated to much simpler modules. *HC-12* is **much more capable** and serves as a fully programmable data transceiver with relatively **high RF power** - in fact, its strongest transmission modes **exceed the legal limits** in most countries, and you would have to be a **licensed radio amateur (HAM)** to operate this module at its maximum settings..
+> This module *can* control *garage doors* and remote-control devices via simple *OOK*, however such simple tasks should be left to much simpler modules. *HC-12* is **much more capable** and serves as a fully programmable data transceiver with relatively **high RF power** - in fact, its strongest transmission modes **exceed the legal limits** in most countries, and you would have to be a **licensed radio amateur (HAM)** to operate this module at its maximum settings..
 
 ## Overview
 This board uses its own microprocessor that takes care of all *receiving* and *sending* tasks. Controlling the board is very easy and does not add any overhead to your own microprocessor.
