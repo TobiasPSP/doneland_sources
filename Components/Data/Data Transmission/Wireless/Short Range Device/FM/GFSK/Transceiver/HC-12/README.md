@@ -6,9 +6,9 @@
 
 The *HC-12* can send *and* receive at *433.4-473.0 MHz* with an exceptionally *high maximum transmission (RF) power of **100mW** (20dB)*. It supports *multiple channels* and different *modes* to optimize for different use cases, i.e. *low power consumption*, *transmission speed*, or *maximum range*. The module is based on the [Silicon Labs SI4463](materials/si44xx_datasheet.pdf) and supports both simple *OSK* and all flavors of *FSK modulation*.
 
-The *SI4463* is still in production at the time of this writing, however *Silicon Labs* has marked the [SI4463 Data Sheet](materials/si44xx_datasheet.pdf) with "Not Recommended For New Designs". So what does this mean *to you*: 
+The *SI4463* is still in production at the time of this writing and readily available at different sources, however *Silicon Labs* has marked the [SI4463 Data Sheet](materials/si44xx_datasheet.pdf) with "Not Recommended For New Designs". So what does this mean? 
 
-If you like what *HC-12* does, this vendor note shouldn't irritate you: *SI4463* is an *excellent and very affordable transceiver chip*. Boards like *HC-12* are likely to fade away over the next years and be replaced with successor chips that may further *optimize power consumption* or might be more tightly integrated with microcontrollers. So what this note really means is this: if you are satisfied with the *HC-12* feature set and price point, you may want to stock a number of extra boards while supply lasts.
+*SI4463* is an *excellent and **very affordable** transceiver chip*. Boards like *HC-12* are likely to fade away over the next years and be replaced with successor chips that may further *optimize power consumption* or might be more tightly integrated with microcontrollers. So what this note really means is this: if you are satisfied with the *HC-12* feature set and price point, you may want to stock a number of extra boards while supply lasts.
 
 <img src="images/433_Extension_HC-12_angle_t.png" width="40%" height="40%" />
 
