@@ -2,6 +2,7 @@
 
 # Solar Panels
 
+> Turning Sunlight Into Electric Current
 
 *Solar panels* (also known as *photovoltaic modules*, which convert light into electrical power) consist of thin layers of either *polycrystalline* or *monocrystalline* silicon.
 
@@ -29,7 +30,7 @@ Solar cells are made from silicon, a semiconductor material, and are manufacture
 | 30               | ~13.5% - 16.5%            | ~16% - 19%                 |
 | 40               | ~12.5% - 15.5%            | ~15% - 18%                 |
 
->  [!TIP]
+> [!TIP]
 > When planning a solar system, consider your *available space*: if space isn’t a limiting factor, *cheaper but less efficient polycrystalline panels* might be preferable. Though they are less efficient than monocrystalline panels, you can offset this by adding additional polycrystalline panels at the same cost.
 
 ### Identifying Fake Offers

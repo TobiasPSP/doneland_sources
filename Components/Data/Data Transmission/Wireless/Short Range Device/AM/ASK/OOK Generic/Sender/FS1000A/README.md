@@ -4,7 +4,7 @@
 
 > Small RF ASK Sender Available in 433MHz (Europe) and 315MHz (US) 
 
-This *sender* breakout board enables you to send data on the designated frequency. It typically comes as a kit together with the ASK receiver board *MX-RM-5V*.
+This *sender* breakout board enables you to send data on the designated frequency. It typically comes as a kit together with the ASK receiver board [MX-RM-5V](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/mx-rm-5v).
 
 
 <img src="images/433_fs1000a_tx_angle_t.png" width="40%" height="40%" />

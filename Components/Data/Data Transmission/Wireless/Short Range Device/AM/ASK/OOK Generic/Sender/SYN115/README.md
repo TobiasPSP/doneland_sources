@@ -27,6 +27,8 @@ This breakout board by default emits *10mW* or less and is *legal to use* in *Eu
 | Transmission Rate | <10 Kbps |
 | Size | 15x11.8mm |
 
+The chip [SYN115](materials/syn115_datasheet.pdf) that is used on the breakout board can both *send* and *receive*, however the board implements a pure *sender*. Typically, this sender is sold n packs of two, together with a dedicated *receiver* breakout board ([SYN480R](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/syn480r/)=, implementing a *unidirectional data transmission* as is commonly needed in *remote control* scenarios like *garage door openers* and alike.
+
 ## Pins
 The board comes with *three* pins plus a solder pad tp connect an *antenna*.
 
@@ -47,8 +49,10 @@ The board comes with *three* pins plus a solder pad tp connect an *antenna*.
 
 <img src="images/433_syn115_tx_top_t.png" width="30%" height="30%" />
 
+## Materials
 
+[SYN115 Datasheet](materials/syn115_datasheet.pdf)
 
 > Tags: SYN115, Sender, RF, 315MHz, 433MHz, 3.3V
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender/syn115?432113041301241609) - created 2024-04-01 - last edited 2024-04-01
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender/syn115?432113041301241609) - created 2024-04-01 - last edited 2024-10-26

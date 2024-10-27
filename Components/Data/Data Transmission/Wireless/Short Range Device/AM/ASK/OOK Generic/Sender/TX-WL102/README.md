@@ -11,7 +11,7 @@ This *sender* breakout board enables you to send data on the designated frequenc
 
 
 > [!NOTE]
-> This *sender* is often sold as a kit together with the *receiver* *RX470-4* or *WL101-341*.
+> This *sender* is often sold as a kit together with the *receiver* [RX470-4](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/receiver/rx470-4) or *WL101-341*.
 
 
 
