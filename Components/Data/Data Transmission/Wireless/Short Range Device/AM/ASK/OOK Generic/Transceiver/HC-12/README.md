@@ -2,9 +2,9 @@
  
 # HC-12
 
-> A Full-Fledged 433-473MHz Sender And Receiver With Its Own Microprocessor
+> A Very Powerful 433-473MHz Sender And Receiver With Its Own Microprocessor
 
-The *HC-12* goes far beyond the typical *garage-door opener* *RF sender* and *receiver* boards: it is acting more like a professional transceiver, can send *and* receive (allowing two-way communications), and supports a wide frequency range with channels.
+The *HC-12* can send *and* receive in the frequency range *433.4-473.0 MHz* with an exceptionally *high maximum transmission of **100mW** (20dB)*. It supports *multiple channels* and different *modes* to optimize for different use cases, i.e. *low power consumption*, *transmission speed*, or *maximum range*. The module is based on the *Semtech SI4463* and supports *(G)FSK) modulation*.
 
 
 
@@ -13,7 +13,7 @@ The *HC-12* goes far beyond the typical *garage-door opener* *RF sender* and *re
 
 
 > [!NOTE]
-> This module can control *garage doors* and remote-control devices just like the other *RF modules* described here. It is much more capable, though, and can serve as a programmable data transceiver.
+> This module *can* control *garage doors* and remote-control devices via simple *OOK*. It is much more capable, though, and can serve as a programmable data transceiver.
 
 ## Microprocessor-Controlled
 This board uses its own microprocessor that takes care of all *receiving* and *sending* tasks. Controlling the board is very easy and does not add any overhead to your own microprocessor.
@@ -35,16 +35,19 @@ This breakout board by default emits *100mW* which is well above the legal limit
 | Item | Value |
 | --- | --- |
 | Voltage | 3.2-5.5V |
-| Frequency | 433MHz *or* 315MHz |
-| Output Power | 11dBm / 12.5mW |
+| Frequency | 433.4-473.0 MHz |
+| Antenna  | external Antenna (SMA) or spring antenna via solder connection |
+| Output Power | 20dBm max (100mW max) |
 | Sending Modes | FU1, FU2, FU3, FU4 |
-| Standby Current | 3.6mA, 80uA, 16mA, 16mA |
+| Default Mode | FU3: 9600bps, Channel 1 (433.4MHz) |
+| Standby Current (per mode) | 3.6mA, 80uA, 16mA, 16mA |
 | Sleep Current | 22uA |
 | Operating Current | 100mA |
 | Default Mode | FU3 at 9600bps, Channel 01 (433.4MHz) |
-| Modulation Mode | AM (OOK) |
+| Modulation Mode | ASK (OOK), FSK, GFSK |
 | Transmission Rate | <10 Kbps |
 | Interface | UART 3.3V/5V TTL level |
+| Chip | SI4438 |
 | Size | 27.4x13.2x4mm |
 
 > [!NOTE]
@@ -83,7 +86,7 @@ On the other end, five through-holes provide the connectivity. They are clearly 
 
 
 > [!CAUTION]
-> If the *sender* needs to transmit data for a lengthy time, and the power supply is *>4.5V*, then **VCC** should be reduced to no more than *4.5V*, i.e. by connecting a *1N4007* diode in series to prevent over-heating.
+> If the *sender* needs to transmit data for a lengthy time, and the power supply is *>4.5V*, then **VCC** should be reduced to no more than *4.5V*, i.e. by connecting a *1N4007* diode in series to prevent over-heating. The limiting factor seems to be the *LDO voltage regulator* on the board which heats up considerably when the input voltage is (much) higher than the required internal voltage **and** current consumption is high (i.e. using high RF transmission power).
 
 ## Working Modes
 The board supports the following transmission modes:
