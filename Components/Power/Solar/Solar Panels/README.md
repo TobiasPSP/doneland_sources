@@ -134,94 +134,46 @@ Normally, these dislodged electrons would move in random directions and not prod
 <img src="images/solar_panel_mono_6v_3w_back_t.png" width="50%" height="50%" />
 
 ## Serial and Parallel Connections
-You do not necessarily
 
-## Choosing A Good Panel
+You do not necessarily need to buy solar panels that deliver exactly the voltage you need: by combining multiple solar panels, you can design your own systems and tailor voltage and current to your needs. You are essentially *continuing* to do what the solar panel did internally anyway. Remember? Each solar panel internally consists of many fundamental solar cells that are, too, connected in series and in parallel to produce the desired panel voltage.
 
-There is a huge variety of *solar panels* to choose from. With the following quick guide you can effectively *compare* different panels and identify the one that works best for you at the lowest price.
+By connecting solar panels in series and/or in parallel, you can continue this design process, and optimize the system for your needs.
 
-It's a two-step process:
+> [!IMPORTANT]
+> Solar panels consist of multiple fundamental solar cells that are **all the same**: same voltage, same current. These can be easily connected in series and/or in parallel, and the same applies to your larger panels: as long as they are all the same size and type (same voltage, same current), you can freely combine them in series and/or in parallel. Once you start combining *different* panels, you must pay much closer attention to physics, or else you may damage your panels.
 
-* **What Is Needed?** First, make up your mind *what you actually need*: what should be the *solar panel voltage*, and what are your *power requirements* and *space constraints*.
-* **Choose Model:** Once you know the *solar panel voltage* and the *maximum area* you have available, compare different models in an educated manner to find the best and most cost effective solution.
+
+
+* **Serial Connection:** do this with solar panels that have **the same wattage**. You can connect a *12V 100W* and a *18V 100W* panel. The voltages add up, so your overall system would deliver *30V 100W*. If the panels do not have the same **wattage**, the current is limited to the current *of the weakest panel*, and the excess wattage is wasted and may even damage the more powerful panel where it leads to heat and hot spots. Serial strings of solar panels are affected by *shading*: if one of the panels is in the shade, the entire string behaves as if you had connected a panel with lower wattage in series, and *all panels* in this string are reduced to the low current of the shaded panel.
+* **Parallel Connection:** do this with solar panels that have **the same voltage**. You can connect a 18V 100W* and a *18V 300W* panel. The currents add up, so your overall system would deliver *18V 400W*. If the panels do not have the same **voltage**, the voltage is limited to the voltage *of the weakest panel*, and current may flow in reverse through other panels, severely reducing efficiency and even damaging your panels over time. Parallel strings of solar panels are not affected by shading: if one panel is in the shade, this does not influence the other panels.
+
+### Ideal Solar Panel Voltage
+Ideally, a solar panel voltage should be only marginally higher than the voltage that you actually need (or use for charging a battery). So when you design a *12V system* with *12V batteries*, *18V* solar panels sound like a good idea.
+
+This assumes though that the solar panels are always exposed to bright sunshine - which they obviously are not. On cloudy days, the actual voltage of a *18V solar panel* may just be *7V* - too low to operate your battery charger.
+
+To be more flexible and harvest sunlight on cloudy days as well as in bright sunshine, you can use solar panels with higher voltages - or more commonly, connect standard solar panels in series. When you connect three *18V panels*, you get *54V in bright sunshine*, and still *21V on very cloudy days*, both voltages being sufficiently higher than the required charging voltage.
+
+### Solar Controller
+
+As you will see in the detailed part about the *solar controller*, using solar panels in series with a higher voltage makes a lot of sense **as long as you use an appropriate solar charge controller**:
+
+* **Cheap PWM Charge Controller:** these work similar to *LDO voltage regulators* in that they convert excess voltage to *heat*. Such controllers can work well as long as the incoming voltage from your solar panels is close to the voltage you need to charge your battery. So in cheap *12V systems* with *PWM controllers*, **do not connect panels in series**.
+* **Professional MPPT Charge Controller:** such controllers are **much more expensive** and work similar to *efficient buck converters*: when the incoming voltage is much too high, they can convert it to lower voltages without wasting the excess energy. In addition, *MPPT* can adjust the duty cycle of the converter so that the solar panel voltage is always kept at the most efficient sweet spot of the panel, maximizing efficiency. When you use an *MPPT controller*, you should connect multiple panels in series and feed in higher voltages of i.e. *36V* (2S) or *54V* (3S). This way, even on cloudy days the solar panels deliver sufficiently high voltages for charging the battery.
+
+## Budget Recommendation
+Your available *space* determines what the best bang for the buck is.
+
+* **Space is King:** What matters most is the *overall surface area* you can use to harvest sunlight. Investing your budget into solar panels (when you have the space) is always the best option.
+* **Expensive Tech is Auxiliary:** Increasing the efficiency of your panels (by purchasing more efficient but *way more expensive* modules) and your charge controller (by purchasing more efficient but *way more expensive* MPPT controllers) is a consideration only when space is restrained, and you cannot set up enough solar panels.
+
 
 
 <img src="images/solar_poly_small_back_t.png" width="50%" height="50%" />
 
+Here are a few calculations illustrating the importance of space, and the cost attached to *reducing space requirements*:
 
-### Panel Voltage
-
-*Solar panels* can come with a variety of maximum output voltages. This solely depends on how the vendor has connected the internal basic solar cells.
-
-The first decision for you should always be: what is the *solar panel voltage* that you need. As a rule of thumb, the voltage should be as close as possible to the voltage you actually require. *DC-DC voltage conversion* is most efficient when the raw input voltage and the fixed output voltage are close to each other.
-
-So if you plan to power a *microcontroller*, a *5-6V* panel is best. If you'd rather like to charge your car battery or a power bank, then a *24V* panel might be best (as it can easily power the high performance *20V USB charging standard*).
-
-> [!CAUTION]
-> In any case, *never* use the *solar panel output voltage* **directly** to power devices. Solar panels deliver an inconsistent, raw and strongly *fluctuating* voltage that can be dangerous and destroy electronics if applied directly. Always use a *charger module* to convert the raw solar voltage to the desired fixed output voltage!
-
-
-### Solar Panel Size
-There is an easy rule of thumb for solar panels: *size (area) rules*. 
-
-As you have seen, the active area of a panel is the most important factor determining the power you can get.
-
-> [!TIP]
-> You can *connect multiple smaller panels* to *one large active area* yourself, too: just connect the panels *in parallel* to not change their total voltage. By connecting multiple smaller panels **in parallel** (using panels with **identical nominal voltage** each!), you may be more flexible in where to place the panels, and at which angle. What matters is the *total active panel size*, regardless of whether it's one piece or a bunch of smaller ones.
-
-
-
-
-
-#### Oversizing: Cost Effective
-
-*Oversizing* a panel can compensate many other flaws, such as *less efficient panel technology*, *less efficient charger technology*, *less that ideal location for the panel* in respect to sun intensity.
-
-> [!TIP]
-> Rather than spending extra money on high efficiency components such as *super-efficient panels* or *super-efficient MPPT solar chargers*, this money is often spent more effectively in purchasing a larger solar panel.
-
-
-
-#### Space Constraints
-If *space constraints* or *design issues* impose a hard limit on the maximum solar panel size you can use, then tweaking *panel efficiency* and/or *charger efficiency* can compensate this.
-
-> [!TIP]
-> Compensating space constraints has its price: more efficient panels and more efficient DC-DC converters in total are more expensive than a larger cheap panel.
-
-
-
-
-
-#### Compensating Via Panel Efficiency
-
-*10cm2* space can be reduced to *6.5cm2* by switching a *polycrystalline panel* with a *monocrystalline panel*:
-
-*10cm2* * *0.015W/cm2* / *0.023W/cm2* = *6.5cm2*
-
-A *polycrystalline panel* has a *15%* efficiency (yielding *0.015W/cm2*) whereas a *monocrystalline panel* has a *23%* efficiency, yielding *0.023W/cm2*. 
-
-
-#### Compensating Via Charger Efficiency
-Post-processing the raw *solar panel voltage* consumes energy. The *efficiency* of *DC-DC converters* vary greatly and can *eat up all your other efforts* or - when done correctly - provide great optimization potential.
-
-
-The raw *solar panel voltage* needs to go through a *DC-DC converter* to turn it into a stable fixed output voltage. This is often combined with *charger technology* and a *buffer battery*.
-
-All of this can be performed with efficiencies in the range of *50-90%*, depending on technology used:
-
-* **Solar panel voltage:** Choosing a solar panel with a maximum output voltage close to the intended fixed voltage improves the efficiency of *DC-DC converters*. Converting a *24V solar panel* to *5V USB power* is far less efficient than using a *12V* or *9V* panel.
-* **MPPT:** Specialized *MPPT converters* (*Maximum Power Point Tracking*) take into account that solar panels have a *sweet spot* (a *current*) at which they deliver the most energy. *MPPT* converters control the *current* they draw from the panel to optimize and improve *solar panel efficiency*.
-* **Linear vs. Switched Regulators:** *Linear* converters (regulators) are much less efficient: they dissipate extra energy as heat. *Linear converters* exist just because they are cheaper, and in many scenarios *efficiency* is not important. Slightly more expensive *switched* converters utilize *significantly more* of the input energy and are much more efficient.
-
-### Cost Optimization
-
-Once you know the *solar panel voltage* and roughly the *size* of the *solar panels*, you can now search for deals and compare models.
-
-To identify the best buy, rate the panels by *cost per watt*.
-
-
-#### Cost per Watt
-
+*10cm2* space can be reduced to *6.5cm2* by switching a *polycrystalline panel* with a *monocrystalline panel*: *10cm2* * *0.015W/cm2* / *0.023W/cm2* = *6.5cm2* (a *polycrystalline panel* has a *15%* efficiency (yielding *0.015W/cm2*) whereas a *monocrystalline panel* has a *23%* efficiency, yielding *0.023W/cm2*). 
 
 Let's calculate *cost per watt* fro the two quite different panels from above. 
 
@@ -243,11 +195,11 @@ If you had to choose between the two panel models above, the *cost per watt* cal
 *100%* - (*EUR 1.00* x 100 / *EUR 1.60*) = *37.5%*
 
 
-## Final Thoughts
+### Final Thoughts
 
 A few practical facts:
 
-### No Covers Please
+#### No Covers Please
 
 Often, small *DIY solar panels* are protected by a thin plastic cover. Make sure you remove this before use, and make sure you do not place anything else inbetween the solar panel surface and the sunlight (i.e. a plexiglas cover, etc).
 
@@ -256,7 +208,7 @@ Often, small *DIY solar panels* are protected by a thin plastic cover. Make sure
 
 *Solar energy* can be *very powerful* when it can reach the *solar panel*. Most materials - even when they appear *transparent* to the human eye - *filter out* a great portion of the energetic light spectrum, severely impacting the solar panel efficiency.
 
-### Solar Panels Inside The House
+#### Solar Panels Inside The House
 
 It makes no sense whatsoever to use *solar panels* inside the house. Only *natural sunshine* provides the raw energy needed to produce significant currents.
 
@@ -270,4 +222,4 @@ Even on a cloudy day, *solar panels* work surprisingly well outside. Inside, and
 
 > Tags: Solar Panel, Silicon, Monocrystalline, Polycrystalline, MPPT,
 
-[Visit Page on Website](https://done.land/components/power/solar/solarpanels?150501051702244054) - created 2024-05-01 - last edited 2024-05-01
+[Visit Page on Website](https://done.land/components/power/solar/solarpanels?150501051702244054) - created 2024-05-01 - last edited 2024-10-26
