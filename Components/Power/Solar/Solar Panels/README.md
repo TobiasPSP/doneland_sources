@@ -104,8 +104,11 @@ Using a *23%* efficiency (as expected for *monocrystalline* panels), we calculat
 
 This calculation aligns with the vendor's claim, meaning this panel passes the plausibility check.
 
+
 > [!NOTE]
 > Achieving the full calculated energy output in practice depends on many factors, including sunlight conditions and panel quality. However, this plausibility check helps flag impossible specifications, such as a "200W panel" sold for under EUR 10.00 with a 20x20cm size. Only practical testing can confirm if a panel meets its claimed *efficiency*.
+
+
 
 
 </details>
