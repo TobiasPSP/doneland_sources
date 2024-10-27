@@ -52,7 +52,7 @@ If a vendor claims *300W* for this panel, you can be fairly certain that’s an 
 
 
 <details>
-  <summary>Example Check</summary>
+  <summary>Some More Example Calculations For Small DIY Solar Panels</summary>
 
 ### Small DIY Panels: Testing Vendor Claims
 
