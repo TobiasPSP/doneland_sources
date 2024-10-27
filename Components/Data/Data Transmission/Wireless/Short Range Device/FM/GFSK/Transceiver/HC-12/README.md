@@ -60,7 +60,7 @@ One side of the board features a through-hole connector and an *IPEX* connector,
 <img src="images/433_Extension_HC-12_top_t.png" width="60%" height="60%">
 
 > [!TIP]
-> Always operate this device *with an antenna*. If you don’t have a designated antenna, a simple *17.3 cm* wire will work. Operating without an antenna can irreversibly damage the RF unit.
+> Always operate this device *with an antenna*. If you don’t have a designated antenna, a simple *17.3 cm* wire will do. Operating without an antenna can irreversibly damage the RF unit.
 
 ### Interface
 
