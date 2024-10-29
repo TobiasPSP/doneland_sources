@@ -185,12 +185,19 @@ As the battery nears full charge, both *LEDs* may alternate between red and blue
 ## Conclusion
 This very affordable tester is a great pick: it reliably tests individual battery cells and is optimized for *18650*, but not limited to this battery type. You can also test *USB-C power banks* provided the power bank is not supplying more than *5V*.
 
-On the downside, this test device can only test *one battery at a time* because its left battery bay is reserved for supplying power to the test circuit. If you need to test only occasionally, this is perfectly fine. If you need to test batteries regularly and in greater quantity, get a beefed up version of this device that has four or even more test bays that all can run simultaneously.
 
-The left battery bay can serve as an internal power supply, making this device portable (which is convenient). However, the device is lacking a battery gauge for this left battery (so you never know its state of charge). Worse, the device apparently has no *under-voltage protection* for this battery: if you leave the battery in the device for prolonged times, and if you do not regularly connect the device to USB power to recharge the battery, the quiescent current in this device will eventually deep-discharge this battery and damage it.
+### Problematic Power Supply Battery
+On the downside, this test device can only test *one battery at a time* because its left battery bay is exclusively reserved for supplying power to the test circuitry. If you need to test batteries only occasionally, this is perfectly fine. However, if you test batteries regularly and in greater quantity, get a beefed up version of this device that has four or even more test bays that all can run simultaneously.
+
+The left battery bay can serve as an internal power supply, making this device portable (which appears convenient at first). However, running this device from an internal battery turns out to be a severe design flaw that can damage your battery:
+
+* **Unreliable:** the device is lacking a battery gauge for its left battery (so you never know its state of charge).
+* **Damaging:** worse, the device has no *under-voltage protection* for this battery: if you leave the battery in the device for prolonged times, and if you do not regularly connect the device to USB power to recharge it, the quiescent current will eventually deep-discharge this battery and permanently damage it.
+* **Limited Use:** while the internal battery in the left bay allows for battery discharge tests without the need for an external USB power supply, when running on battery power the test device is severely limited: it can no longer charge the battery under test, removing much of its brilliance. Accurate battery capacity tests require the ability to first fully charge the battery under test, or better yet, discharge it first to a defined safe voltage level, and then log the charge current until it is fully charged. Neither of this is possible when running on the internal battery.
+* **Waste of Space:** because of all of the above, the left battery bay is wasting space without adding significant benefit, and this device would be better without it.
 
 > [!IMPORTANT]
-> Always remove the left battery if you do not use the device for some time. Better yet, skip this internal battery supply altogether, and never insert a battery into the left battery bay. Its use is limited anyway: while it allows for portable battery discharge tests without the need for an external USB power supply, on battery power the device cannot charge the battery under test, removing much of the usefulness. Accurate battery capacity tests require the test device to first fully charge it, or better yet, discharge it first and then log the charge current during charge. Neither of this works when running on an internal battery.     
+> Always remove the battery from the left bay if you do not intend to use the device for some time. Better yet, skip this internal battery supply nonsense altogether, ignore the left battery bay and never insert a battery into it. Use an external USB-C power source only.     
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance
 
