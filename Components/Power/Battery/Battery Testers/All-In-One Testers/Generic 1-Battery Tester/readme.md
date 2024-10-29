@@ -6,7 +6,7 @@
 
 This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality.
 
-<img src="images/generic_1cell_tester_18650_overview_t.png" width="100%" height="100%" />
+<img src="images/generic_1cell_tester_18650_overview_t.png" width="40%" height="40%" />
 
 The two load resistors on top (8 Ohms each, connected in parallel) can reach high temperatures during testing (up to 80°C). Adding a heat sink is recommended to avoid accidental burns.
 
