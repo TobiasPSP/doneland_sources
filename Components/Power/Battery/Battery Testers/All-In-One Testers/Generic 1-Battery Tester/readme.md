@@ -2,7 +2,7 @@
 
 # Generic 1-Battery Tester
 
-> Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Any Other Battery Cell Below 5V
+> Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Other Battery Cell Below 5V
 
 This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality.
 
@@ -102,9 +102,9 @@ The *charging test* in *CHG* mode is faster and reduces battery wear: since the 
 > [!TIP]
 > For a more efficient manual testing setup, first run a *DSG* mode test to discharge the battery to a specified stop voltage, then follow up with a *CHG* cycle. This way, the battery charges from a defined "empty" state without unnecessary wear. However, the built-in *AUTO* mode runs the opposite sequence, consuming an extra charge cycle.
 
-### Prerequisites
+### 1. Select Test Parameters
 
-Before testing, follow these steps:
+Before testing, follow these steps to select the test mode and its parameters:
 
 1. **Stop Voltage:** Set a safe stop voltage for your battery. **3.0V** is generally safe for *LiIon/LiPo* batteries.
     1. Turn the device on with a short press of the left button.
@@ -116,18 +116,27 @@ Before testing, follow these steps:
     2. Short-press the middle button until the desired test mode is displayed.
     
 3. **Loops:** Set the **LOOP** option. Generally, set this to **1** for a single loop test.
-   
-4. **Connect Battery:** Connect a battery or power source with a maximum voltage of **5V**:
-    - **18650:** Insert an *18650* cell in the **right battery bay**, **or**
-    - **Power Bank:** Connect a *USB-C cable* to the **right connector** for testing a power bank (not exceeding **5V**), **or**
-    - **Alternate Battery Bay:** Attach wires to the two solder pads next to the **right battery bay** for a different battery type.
+
 
 All settings are permanently stored and will stay active until manually updated.
 
 > [!NOTE]
 > If the display dims due to power-save mode, pressing any button will wake the display to full brightness. Additional button presses will function normally after wake-up.
 
-### Testing
+### 2. Connect Battery Under Test
+
+Once you have set the test paramaters, connect the battery you want to test. Make sure that the battery voltage does not exceed **5V**, especially when testing power banks. 
+
+> [!IMPORTANT]
+> When inserting a *18650 cell* into the battery bay, be **extremely careful not to reverse polarity**, or else you **may destroy the device**. The polarity is printed into the battery bay: the positive pole is facing you when looking from the side with the push buttons.
+
+Here are your choices:
+
+* **18650:** Insert an *18650* cell in the **right battery bay**, **or**    
+* **Power Bank:** Connect a *USB-C cable* to the **right connector** for testing a power bank (not exceeding **5V**), **or**    
+* **Alternate Battery Bay:** Attach wires to the two solder pads next to the **right battery bay** for a different battery type.
+
+### 3. Start the Test
 
 Press the right button to start the test. The display’s **STA** field shows the test status.
 
