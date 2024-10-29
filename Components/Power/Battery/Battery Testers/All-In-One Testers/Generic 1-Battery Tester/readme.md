@@ -182,6 +182,16 @@ As the battery nears full charge, both *LEDs* may alternate between red and blue
 > [!IMPORTANT]
 > **Remove the left battery** if the unit will be unused for an extended period. The unit draws a small quiescent current and lacks *under-voltage protection* for the left battery, which may lead to deep discharge and potential **battery damage**.
 
+## Conclusion
+This very affordable tester is a great pick: it reliably tests individual battery cells and is optimized for *18650*, but not limited to this battery type. You can also test *USB-C power banks* provided the power bank is not supplying more than *5V*.
+
+On the downside, this test device can only test *one battery at a time* because its left battery bay is reserved for supplying power to the test circuit. If you need to test only occasionally, this is perfectly fine. If you need to test batteries regularly and in greater quantity, get a beefed up version of this device that has four or even more test bays that all can run simultaneously.
+
+The left battery bay can serve as an internal power supply, making this device portable (which is convenient). However, the device is lacking a battery gauge for this left battery (so you never know its state of charge). Worse, the device apparently has no *under-voltage protection* for this battery: if you leave the battery in the device for prolonged times, and if you do not regularly connect the device to USB power to recharge the battery, the quiescent current in this device will eventually deep-discharge this battery and damage it.
+
+> [!IMPORTANT]
+> Always remove the left battery if you do not use the device for some time. Better yet, skip this internal battery supply altogether, and never insert a battery into the left battery bay. Its use is limited anyway: while it allows for portable battery discharge tests without the need for an external USB power supply, on battery power the device cannot charge the battery under test, removing much of the usefulness. Accurate battery capacity tests require the test device to first fully charge it, or better yet, discharge it first and then log the charge current during charge. Neither of this works when running on an internal battery.     
+
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance
 
 [Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters/generic1-batterytester?426647102019242309) - created 2024-10-18 - last edited 2024-10-28
