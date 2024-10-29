@@ -124,4 +124,4 @@ As the battery nears full charge, both *LEDs* may alternate between red and blue
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters?426647102019242309) - created 2024-10-18 - last edited 2024-10-28
+[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters/generic1-batterytester?426647102019242309) - created 2024-10-18 - last edited 2024-10-28
