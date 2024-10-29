@@ -2,9 +2,9 @@
 
 # Generic 1-Battery Tester
 
-> Simple Yet Efficient Single-Battery Tester For 18650 Cells (And Other Types)
+> Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Any Other Battery Cell Below 5V
 
-Affordable *all-in-one* tester providing essential measurements for reliably distinguishing *counterfeit* batteries from *genuine* ones and assessing overall battery health.
+This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality.
 
 <img src="images/generic_1cell_tester_18650_overview_t.png" width="100%" height="100%" />
 
@@ -55,7 +55,7 @@ The unit supports *English* and *Chinese*. To switch between languages, follow t
 2. Press and hold the *Menu* button while turning the unit *on*. Release all buttons once the display content appears.
 3. Turn the unit off, then on again to confirm the new language setting.
 
-## Test Modes
+## Test Modes and Settings
 
 The unit offers three test modes: *AUTO*, *CHG*, and *DSG*:
 
@@ -65,11 +65,11 @@ The unit offers three test modes: *AUTO*, *CHG*, and *DSG*:
 
    To select AUTO mode, press the `Power` button until the **Mode** menu is highlighted, then press `Menu` until **AUTO** appears.
    
-* **Discharge Test** (*all battery types*): In **DSG** mode, the unit immediately starts *discharging* the battery to assess capacity. Afterward, it leaves the battery discharged, making this mode ideal for non-LiIon/LiPo batteries like *LiFePO4* or *NiMH*.
+* **Discharge Test** (*all battery types*): In **DSG** mode, the unit starts *discharging* and logs the discharged energy. It then leaves the battery discharged, so this mode is suitable for non-LiIon/LiPo batteries like *LiFePO4* or *NiMH* that cannot be safely charged with this device.
 
    To select DSG mode, press the `Power` button until the **Mode** menu is highlighted, then press `Menu` until **DSG** appears.
    
-* **LiIon Charger** (*LiIon/LiPo only*): In **CHG** mode, the unit serves as a charger specifically for *LiIon/LiPo* batteries.
+* **Charge Test** (*LiIon/LiPo only*): In **CHG** mode, the unit serves as a charger specifically for *LiIon/LiPo* batteries, and logs the charge process.
 
    To select CHG mode, press the `Power` button until the **Mode** menu is highlighted, then press `Menu` until **CHG** appears.
 
@@ -86,7 +86,56 @@ Additional test settings can be adjusted for further customization:
 
 The device uses a fixed resistive load that can reach *60–80°C* during tests. The load produces a maximum discharge current of *1A*.
 
-<img src="images/akku test heatmap1.jpeg" width="50%" height="50%" />
+<img src="images/akku test heatmap1.jpeg" width="50%" height="50%" />    
+
+## Performing Battery Capacity Test
+
+You can reliably measure the total battery capacity by either *discharging a fully charged* battery or *charging a fully discharged* one:
+
+* **Charge Test:** This approach is efficient if you use the battery until it’s “empty” by your standards, then perform a *CHG* test. The tester logs the *charging energy transferred back* into the battery as it recharges.
+* **Discharge Test:** For higher precision, use the *AUTO* test. Here, the tester first *fully charges* the battery to a specified level, then *fully discharges* it to a safe stop voltage. In this test, the device logs the *total energy drawn from the battery*. 
+
+The *discharge test* using *AUTO* mode starts the battery from a defined level, producing consistent results. However, this test takes longer as it includes three phases—charging, discharging, and charging again—and slightly increases battery wear.
+
+The *charging test* in *CHG* mode is faster and reduces battery wear: since the battery would need recharging anyway, the tester simply functions as a smart charger, logging the energy input. The drawback is that there’s no set start level, making the “empty” state subject to user interpretation.
+
+> [!TIP]
+> For a more efficient manual testing setup, first run a *DSG* mode test to discharge the battery to a specified stop voltage, then follow up with a *CHG* cycle. This way, the battery charges from a defined "empty" state without unnecessary wear. However, the built-in *AUTO* mode runs the opposite sequence, consuming an extra charge cycle.
+
+### Prerequisites
+
+Before testing, follow these steps:
+
+1. **Stop Voltage:** Set a safe stop voltage for your battery. **3.0V** is generally safe for *LiIon/LiPo* batteries.
+    1. Turn the device on with a short press of the left button.
+    2. Short-press the left button until the **STOP** setting is highlighted in blue.
+    3. Short-press the middle button until the display shows the desired stop voltage.
+   
+2. **Test Mode:** Select the test mode: *DSG*, *CHG*, or *AUTO*.
+    1. Short-press the left button until the **MODE** setting is highlighted in blue.
+    2. Short-press the middle button until the desired test mode is displayed.
+    
+3. **Loops:** Set the **LOOP** option. Generally, set this to **1** for a single loop test.
+   
+4. **Connect Battery:** Connect a battery or power source with a maximum voltage of **5V**:
+    - **18650:** Insert an *18650* cell in the **right battery bay**, **or**
+    - **Power Bank:** Connect a *USB-C cable* to the **right connector** for testing a power bank (not exceeding **5V**), **or**
+    - **Alternate Battery Bay:** Attach wires to the two solder pads next to the **right battery bay** for a different battery type.
+
+All settings are permanently stored and will stay active until manually updated.
+
+> [!NOTE]
+> If the display dims due to power-save mode, pressing any button will wake the display to full brightness. Additional button presses will function normally after wake-up.
+
+### Testing
+
+Press the right button to start the test. The display’s **STA** field shows the test status.
+
+The test stops automatically upon completion. Pressing the right button again will pause or abort an ongoing test.
+
+> [!IMPORTANT]
+> When switching batteries, *turn off* the device by long-pressing the left button or disconnecting power. Failing to do so may result in cumulative capacity logging, where the new battery adds to the previous battery’s data.
+
 
 ## Test Results
 
@@ -94,10 +143,12 @@ Test results are shown in the lower portion of the display and are continually u
 
 <img src="images/all-in-one_battery_tester_1ch_display.png" width="40%" height="40%" />
 
-* **mAh:** Capacity discharged so far in *mAh*.
-* **mWh:** Capacity discharged in *mWh*, accounting for battery *voltage* and *voltage drops* for an accurate energy measure.
+* **mAh:** Capacity in *mAh*.
+* **mWh:** Capacity in *mWh*, accounting for battery *voltage* and *voltage drops* for an accurate energy measure.
 * **mR:** Calculated *internal resistance* of the battery in *milliOhms*. Lower values indicate better quality; for *18650* cells, typical values should be below *80mOhm*, and for high-drain cells, they should be well below *20mOhm*.
 * **Time:** The elapsed time for the current test, displayed in hours, minutes, and seconds.
+
+Test results are constantly updated while a test is in progress. In the modes *DSG* and *AUTO*, the **discharge capacity** is measured. In the mode *CHG*, the **charge capacity** is measured.
 
 
 ## Power Supply
