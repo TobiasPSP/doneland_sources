@@ -1,6 +1,6 @@
 <img src="/assets/images/lightning.png" width="100%" height="100%" />
 
-# Generic 1-Battery Tester
+# Single-Battery Tester
 
 > Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Other Battery Cell Below 5V
 
@@ -20,7 +20,7 @@ The two load resistors on top (8 Ohms each, connected in parallel) can reach hig
 | Auto-Test | Yes, charge-discharge-charge cycle with total discharge energy reported |
 | Off-Button | Yes, long-press left push button |
 | Language | *English* and *Chinese*, configurable |
-| Software | - Version 4.2<br/>- User cannot upgrade firmware |
+| Firmware | - Version 4.2<br/>- User cannot upgrade firmware |
 | LED  | - *Red:* power-supply battery charging (left battery bay)<br/>- *Blue:* power-supply battery fully charged (left battery bay) |
 | Display | - Color-TFT<br/>- Backlight |
 
