@@ -4,7 +4,7 @@
 
 > Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Other Battery Cell Below 5V
 
-This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality.
+This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality. It can test *only one battery at a time*.
 
 <img src="images/generic_1cell_tester_18650_overview_t.png" width="40%" height="40%" />
 
