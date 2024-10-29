@@ -30,7 +30,7 @@ The two load resistors on top (8 Ohms each, connected in parallel) can reach hig
 
 This tester can be powered via *USB-C* (using the **left** *USB-C* connector) or by a *18650* cell in the **left** battery bay.
 
-<img src="images/battery_test_back_t.png" width="70%" height="70%" />
+<img src="images/battery_test_back_t.png" width="40%" height="40%" />
 
 > [!TIP]
 > When powering the device through the left *USB-C connector*, the *left battery bay* can remain empty, as it does not participate in testing. If a *18650* cell is inserted into the *left* battery bay, it acts as an internal power supply, making the device portable. In portable mode, the battery under test cannot be charged. When the device is connected to *USB power* while a *18650* cell is present in the *left* battery bay, the cell will be kept charged: a *red* LED indicates charging, and a *blue* LED indicates the battery is fully charged.
