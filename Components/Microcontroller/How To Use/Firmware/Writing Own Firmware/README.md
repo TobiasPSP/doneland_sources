@@ -56,7 +56,7 @@ Thanks to Frameworks, code is simple to understand and *hardware neutral*. This 
 
 
 ## Arduino Framework
-*Arduino Framework* is the most popular Framework for *hobbyists*:
+[Arduino Framework](https://docs.platformio.org/en/latest/frameworks/arduino.html#framework-arduino) is the most popular Framework for *hobbyists*:
 
 * **Examples:** Since it has been around the longest time, there are the most *examples* available.
 * **Hardware Neutral:** It targets a wide variety of microcontrollers and is not limited to a particular vendor
@@ -130,7 +130,7 @@ All *Platform Packages* that you add through *Arduinos Board Manager* are stored
 </details>
 
 ## ESP-IDF (Espressif IoT Development Framework)
-*ESP-IDF* is a framework created by the Chinese company *Espressif* to specifically target its line of *ESP32* microcontrollers. 
+[ESP-IDF](https://docs.platformio.org/en/latest/frameworks/espidf.html#framework-espidf) is a framework created by the Chinese company *Espressif* to specifically target its line of *ESP32* microcontrollers. 
 
 ### Why Different Frameworks?
 The more you *abstract* things, the *easier* they get, and *ease of use* is one of the highest priorities in the *Arduino ecosystem*. On the downside, the more you *abstract*, the more *control* you give up. 
