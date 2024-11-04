@@ -79,7 +79,7 @@ These 10 GPIO can be freely used:
 
 ### Additional Three GPIOs
 
-If you require more *GPIOs*, then these three GPIOs can be used with certain restrictions:
+If you require more *GPIOs*, then these three GPIOs can be used with some restrictions:
 
 | Pin | Remark | Default |
 | --- | --- | --- |
