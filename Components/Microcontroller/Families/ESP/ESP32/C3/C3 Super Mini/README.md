@@ -84,7 +84,9 @@ These 10 GPIO can be freely used:
 
 ### Additional Three GPIOs
 
-If you require more *GPIOs*, then these three GPIOs can be used with some restrictions: make sure your circuitry isn't pulling any of these up or down by hardware. Since these strapping pins are only used during boot (when your firmware isn't yet active), you can use them freely as long as you make sure your wiring doesn't tamper with their state. Else, your board may not boot properly anymore.
+If you require more *GPIOs*, then these three GPIOs can be used with some restrictions: make sure your circuitry isn't pulling any of these up or down by hardware. 
+
+Since these strapping pins are only used during boot (when your firmware isn't yet active), you can use them freely in your softwaee (firmware). Justu make sure your wiring doesn't tamper with their state. Else, your board may not boot properly.
 
 | Pin | Remark | Default |
 | --- | --- | --- |
