@@ -55,9 +55,9 @@ The ESP32-C3 has 22 GPIOs of which the *C3 Super Mini* exposes 13 due to its com
 
 | Pin | Description | Remark |
 | --- | --- | --- |
-| 5V | External or USB power | passes the internal voltage regulator |
+| 5V | External or USB power | activates the internal voltage regulator and turns on the red power LED |
 | G | *GND* | |
-| 3.3 | 3.3V directly (3.0-3.6V) | bypasses the voltage regulator. Does not turn on the red power LED. When supplying more than *3.3V* at this pin, you may destroy the microcontroller. When supplying *5V*, this is the *3.3V* outputted by the voltage regulator |
+| 3.3 | 3.3V directly (3.0-3.6V) | **bypasses the voltage regulator** and does not turn on the red power LED. If you input more than *3.6V*, you irreversibly damage the microcontroller. When supplying power to the *5V* pin, this pin exposes the *3.3V* produced by the voltage regulator |
 | 0-10 | *GPIO0* - *GPIO10* | 2 and 9 are strapping pins that are reserved during boot. 8 controls the blue LED on the board (inverted) |
 | 20-21 | *GPIO20*-*GPIO21* |
 
