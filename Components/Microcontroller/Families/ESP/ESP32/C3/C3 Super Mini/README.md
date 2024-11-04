@@ -186,4 +186,4 @@ light:
 
 > Tags: ESP32-C3, C3
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2024-08-28
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2024-11-03
