@@ -4,12 +4,16 @@
 
 > Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
 
-The *ESP32-C3 Super Mini* is a widely available and very affordable board. It is easy to use, widely supported, and provides ten freely usable *GPIOs*. It typically comes with *4MB* flash memory.
+This is my new favorite whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. It is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
+
+When more than 10 GPIOs are needed, or when a *dual core* is required for computational intense tasks, I typically choose the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/). I tend to use classic *ESP32S* only when I need full backwards compatibility, i.e. when using third party firmware that isn't yet available for the newer *ESP32* family members. 
+
+
 
 
 <img src="images/c3_anglefront_overview_t.png" width="50%" height="50%" />
 
-
+Here are the *ESP32 C2 SuperMini* benefits:
 
 * **Compact:** very small (*22.5x18mm*)
 * **Easy To Use:** works out of the box with many environments like *platform.io* or *ESPHome*. There are no issues with entering *firmware upload mode*, and no fiddling with pressing "boot" buttons to select the right mode.
@@ -17,28 +21,27 @@ The *ESP32-C3 Super Mini* is a widely available and very affordable board. It is
 * **Shields:** battery shields are available that add battery charging and portable power supply to the *C3 Super Mini* 
 * **Affordable:** typically available for under €1.50 
 
-The board has a *USB-C* connector and ten freely usable *GPIOs*. Four *GPIOs* can also be used as *analog input*:
+The board has a *USB-C* connector and ten freely usable *GPIOs*. Four *GPIOs* can be used as *analog input*:
 
 
 
 <img src="images/c3_supermini_gpio_pins.png" width="50%" height="50%" />
 
-A programmable *blue LED* is connected to *GPIO 8* (inverted: *low* active), and a *red power LED* is *on* when the board is connected to *5V* (using its internal voltage regulator), else *off* (to conserve energy).
+A programmable *blue LED* is connected to *GPIO 8* (inverted: *low* active), and a *red power LED* is *on* when the board is connected to *5V* (using its internal voltage regulator). This red LED is *off* when you power the board directly via the *3.3V* pin, i.e. from a battery. This makes sense to conserve energy when power is limited.
 
-Limitations are:
+While it is more than twice as fast as a *ESP8266*, it is a *single core* controller running at *160MHz* clock speed. Classic *ESP32S* are *dual-core* running at *240MHz* and are roughly three times as fast. That said, most DIY projects do not require such speeds, and speed comes at cost: power consumption. If your project does involve very computing-intense tasks or needs to respond in real-time to more than one task, you may want to use a classic *ESP32S* or its successor *ESP32-S3*.
 
-* **Performance:** while its performance is more than sufficient for most *DIY projects* and much better than i.e. *ESP8266*, it uses a *single core* microcontroller at *160MHz* clock speed. The classic *ESP32s* in comparison is a dual-core microcontroller running at *240MHz*. If your project involves computing-intense tasks or needs to respond in real-time to more than one task, you may want to use a different microcontroller.
-* **GPIOs:** due to its small form factor, the *ESP32-C3 Super Mini* only exposes 10 out of the available 22 *GPIOs*.
+Its very small form factor limits the number of exposed GPIOs. If 10 GPIOs are not enough, you may have to look into larger boards that provide the room for exposing up to 22 GPIOs.
 
 
 <img src="images/c3_angle_overview_t.png" width="50%" height="50%" />
 
 ## Performance
-Key in your decision should be your performance requirements. Here is a comparison to give a good sense how the *C3* compares:
+*ESP32 C3 SuperMini* is a great replacement for *ESP8266* and more than doubles the processing speed. It also comes with a solid voltage regulator (most ESP8266 ship with under-rated voltage regulators that easily brown out once you connect power-hungry external sensors). Here is a quick performance comparison:
 
 | Microcontroller | Performance | SRAM | PSRAM |
 | --- | --- | --- | --- |
-| ESP32-C3 | 16ß0-200MIPS | 400KB | n/a |
+| ESP32-C3 | 160-200MIPS | 400KB | n/a |
 | ESP8266 | 80MIPS | 160KB + 64KB Instruction RAM + 96KB Data RAM | n/a |
 | ESP32S | 600MIPS | 520KB | optional, up to 4MB |
 
@@ -79,11 +82,11 @@ These 10 GPIO can be freely used:
 
 ### Additional Three GPIOs
 
-If you require more *GPIOs*, then these three GPIOs can be used with some restrictions:
+If you require more *GPIOs*, then these three GPIOs can be used with some restrictions: make sure your circuitry isn't pulling any of these up or down by hardware. Since these strapping pins are only used during boot (when your firmware isn't yet active), you can use them freely as long as you make sure your wiring doesn't tamper with their state. Else, your board may not boot properly anymore.
 
 | Pin | Remark | Default |
 | --- | --- | --- |
-| 8 | connected to blue LED (*low* turns LED on). Also used as strapping pin for ROM message printing but using this GPIO during boot does not interfere with the boot process in general | floating |
+| 8 | connected to blue LED (*low* turns LED on). Controls ROM message printing (not critical) | floating |
 | 2 | strapping pin, do not use during boot (selects boot mode) | floating |
 | 9 | strapping pin, do not use during boot (boot button) | pulled up |
 
@@ -118,7 +121,7 @@ The strapping pins control the boot behavior during the boot process:
 <img src="images/esp32-c3-supermini-schematic_t.png" width="100%" height="100%" />
 
 ### Programmable LED
-The board has a *blue LED* connected to *GPIO8*. This *LED* is *inverted*: *low* turns the LED **on**, and *high* turns it **off**.
+The board has a *blue LED* connected to *GPIO8*. This *LED* is *inverted* because it is sinked, not sourced: *low* turns the LED **on**, and *high* turns it **off**.
 
 ## Programming
 
