@@ -37,7 +37,7 @@ Its very small form factor limits the number of exposed GPIOs. If 10 GPIOs are n
 <img src="images/c3_angle_overview_t.png" width="50%" height="50%" />
 
 ## Performance
-*ESP32 C3 SuperMini* is a great replacement for *ESP8266* and more than doubles the processing speed. It also comes with a solid voltage regulator (most ESP8266 ship with under-rated voltage regulators that easily brown out once you connect power-hungry external sensors). Here is a quick performance comparison:
+*ESP32 C3 SuperMini* is a great replacement for *ESP8266* and more than doubles its processing speed. It also comes with a solid voltage regulator (most ESP8266 ship with under-rated voltage regulators that easily brown out once you connect power-hungry external sensors). Here is a quick performance comparison:
 
 | Microcontroller | Performance | SRAM | PSRAM |
 | --- | --- | --- | --- |
