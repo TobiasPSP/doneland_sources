@@ -4,7 +4,7 @@
 
 > Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
 
-The *ESP32-C3 Super Mini* is a widely available and very affordable microcontroller board. It is easy to use, widely supported, and provides ten freely usable *GPIOs*. It typically comes with *4MB* flash memory.
+The *ESP32-C3 Super Mini* is a widely available and very affordable board. It is easy to use, widely supported, and provides ten freely usable *GPIOs*. It typically comes with *4MB* flash memory.
 
 
 <img src="images/c3_anglefront_overview_t.png" width="50%" height="50%" />
