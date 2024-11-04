@@ -140,7 +140,7 @@ platform = espressif32
 board = esp32-c3-devkitm-1
 ````
 
-Other IDs may work equally well:
+More specialited IDs like [lolin_c3_mini](https://docs.platformio.org/en/latest/boards/espressif32/lolin_c3_mini.html) may work even better:
 
 ````
 [env:lolin_c3_mini]
