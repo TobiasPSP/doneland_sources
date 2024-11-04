@@ -4,7 +4,7 @@
 
 > Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
 
-This is my new favorite whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. It is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
+This is my new favorite microcontroller board whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. It is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
 
 When more than 10 GPIOs are needed, or when a *dual core* is required for computational intense tasks, I typically choose the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/). I tend to use classic *ESP32S* only when I need full backwards compatibility, i.e. when using third party firmware that isn't yet available for the newer *ESP32* family members. 
 
