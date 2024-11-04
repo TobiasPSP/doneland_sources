@@ -2,9 +2,9 @@
  
 # ESP32-C3 Super Mini
 
-> Extremely Compact Microcontroller Board With Great Functionality For Very Low Prices
+> Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
 
-The *ESP32-C3 Super Mini* is a widely available and very cheap (€1.50 at *AliExpress*) microcontroller board that is easy to use, has good support in many platforms, and provides ten freely usable *GPIOs*.
+The *ESP32-C3 Super Mini* is a widely available and very affordable microcontroller board that is easy to use, is widely supported, and provides ten freely usable *GPIOs*. It typically comes with *4MB* flash memory.
 
 
 <img src="images/c3_anglefront_overview_t.png" width="50%" height="50%" />
@@ -12,10 +12,10 @@ The *ESP32-C3 Super Mini* is a widely available and very cheap (€1.50 at *AliE
 
 
 * **Compact:** extremely small board (*22.5x18mm*)
-* **Easy To Use:** works out of the box with many environments like *platform.io* or *ESPHome*. There are no issues with entering *firmware upload mode*, and no fiddling with pressing buttons to select the right mode
-* **Ultra Low Power:** comes with low power consumption and *ultra low power* modes and supports *Bluetooth BLE*, making it ideal for battery-operated devices
+* **Easy To Use:** works out of the box with many environments like *platform.io* or *ESPHome*. There are no issues with entering *firmware upload mode*, and no fiddling with pressing "boot" buttons to select the right mode.
+* **Low Power:** low power consumption, supports *Bluetooth BLE*, making it ideal for battery-operated devices
 * **Shields:** battery shields are available that add battery charging and portable power supply to the *C3 Super Mini* 
-* **Cheap:** available for under €1.50 per piece
+* **Affordable:** typically available for under €1.50 
 
 The board has a *USB-C* connector and ten freely usable *GPIOs*. Four *GPIOs* can also be used as *analog input*:
 
