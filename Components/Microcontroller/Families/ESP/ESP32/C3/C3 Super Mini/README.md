@@ -11,7 +11,7 @@ The *ESP32-C3 Super Mini* is a widely available and very affordable board. It is
 
 
 
-* **Compact:** extremely small board (*22.5x18mm*)
+* **Compact:** very small (*22.5x18mm*)
 * **Easy To Use:** works out of the box with many environments like *platform.io* or *ESPHome*. There are no issues with entering *firmware upload mode*, and no fiddling with pressing "boot" buttons to select the right mode.
 * **Low Power:** low power consumption, supports *Bluetooth BLE*, making it ideal for battery-operated devices
 * **Shields:** battery shields are available that add battery charging and portable power supply to the *C3 Super Mini* 
