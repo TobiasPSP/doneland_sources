@@ -2,9 +2,13 @@
  
 # Microcontrollers
 
-> They Manage Sensors, LEDs And Other Components Much Cheaper Than Implementations With Discrete Elements Only.
+> Controlling Your DIY Electronics Much More Flexible And Affordable Than Using Discrete Components.
 
-What started in *PCs* and carried over to devices like *Smartphones* is now common-place even for *DIY projects*: instead of trying to implement features exclusively with *discrete elements* like transistors and some *ICs*, it is much easier and more *cost-effective* to add a **microcontroller**.
+Of course you can implement a flashing emergency light, a temperature sensor maybe, a remote control for the garden pump, or whatever else comes up to  mind, using *discrete* components (like resistors, transistors, capacitors, etc). This approach requires considerable electronic engineering knowledge, but it is entirely doable. 
+
+A much simpler way is to use a microcontroller: they work like *mini computers* and can be programmed using simple programming languages or even easier script languages. Microcontrollers come with *GPIOs* (*general purpose input output* ports) that work like switches that can also measure voltages. That's really all you need to implement any of the things on the list above, and almost everything else that could come to your mind.
+
+Using *microcontrollers* in your electronic projects is more cost effective, too: very powerful microcontroller boards with built-in *WiFi* and *Bluetooth* plus huge *4MB flash memory* are available today for under €2 these days. If you ordered discret components to build what the microcontroller can easily do for you, your cost would be much higher, plus your circuitry would probably a lot harder to design, and larger. That's why in fact the very same microcontrollers today can be found in many smart plugs and other commercial electronic gadgets that you already use.
 
 
 <details><summary>Microcontrollers used in Computers and Smartphones</summary><br/>
