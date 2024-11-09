@@ -4,20 +4,19 @@
 
 > Semi-Professional Battery Tester Simultaneously Testing Up To 4 Batteries
 
-This battery tester is an upgraded version of the simple *one battery*-tester. It uses all four battery bays for testing and can test up to four batteries simultaneously and reliably identifies *counterfeit* batteries and true battery capacity and health. 
+This battery tester is an upgraded version of the [simple *one battery*-tester](https://done.land/components/power/battery/batterytesters/all-in-onetesters/single-batterytester) reviewed earlier. It uses all four battery bays for testing and can test up to four batteries simultaneously. It reliably identifies *counterfeit* batteries and true battery capacity and health. 
 
 <img src="images/4bay_18650_battery_tester_small_t.png" width="100%" height="100%" />
 
 
 ## Overview
 
-While this tester is optimized for *18650 cell* analysis, it can easily be used with many other battery types: thanks to its *screw terminals*, simply attach alternate battery bays suiting the battery types you want to test. Just make sure the batteries under test do not exceed the maximal voltage of **5V**. 
+While this tester is optimized for *18650 cell* analysis, it can be used with many other battery types: thanks to its *screw terminals*, you can easily attach alternate battery bays that suit the battery types you want to test. Just ensure that the batteries under test do not exceed the maximum voltage of **5V**. 
 
-The *USB-C **test** connector* that was found on its single-battery predecessor has been removed. It was used for testing *USB C battery banks* but since modern battery banks can easily exceed the *5V limit*, this option could easily turn into a risk. 
+The *USB-C **test** connector* that was present on the single-battery predecessor has been removed. This connector was initially used for testing *USB-C battery banks*, but with modern battery banks often exceeding the *5V limit*, keeping this option could have posed a risk. 
 
+Although you can still test battery banks, you would now need to design your own *USB adapter* to fit the screw terminals. Be sure to implement appropriate measures to ensure that the adapter does not trigger higher voltage protocols.
 
-
-So while you still can test battery banks, you would have to design your own *USB adapter* and fit it to the screw terminals, and while at it, you would take appropriate measures to ensure that the adapter would not trigger higher voltage protocols.
 
 
 | Feature  | Description  |
@@ -34,21 +33,21 @@ So while you still can test battery banks, you would have to design your own *US
 | LED  | one *red* LED per battery bay:<br/>- *off:* no test<br/>- *blinking:* test running<br/>- *on:* test completed |
 | Display | - Color-TFT<br/>- Backlight |
 
-
 ### Power Supply
 
 Unlike its single-battery predecessor, this device no longer uses an internal battery for power supply and always requires *external USB power*. 
 
-**Both** *USB-C* connectors serve as *power input*, and you can connect *either one*. However, during charging, each *USB-C connector* supplies power to only *two battery bays*, and you would need to connect external power to both *USB C* connectors if you want to use all four battery bays at the same time:
+**Both** *USB-C* connectors serve as *power input*, and you can connect *either one*. However, during charging, each *USB-C connector* supplies power to only *two battery bays*, and you would need to connect external power to both *USB-C* connectors if you want to use all four battery bays at the same time:
 
 * **Left USB-C:** supplies charging power to the left two battery bays
 * **Right USB-C:** supplies charging power to the right two battery bays
 
+> [!IMPORTANT]
+> Since this tester can work with *four* batteries at the same time, it may **draw considerable power**: when all four battery bays are *charging* at the same time, this may cause currents of up to *4A*. Make sure your *5V power supply* is capable of delivering this much power, or do not use all four channels simultaneously to charge the batteries under test.   
+
 ### Fan
 
 This tester has a fan that is mounted on top of the four load resistors (4 Ohms each). Thanks to the fan covering (and cooling) the load resistors, there is no risk anymore for accidental burns, and the resistors stay at moderate temperatures.
-
-
 
 <img src="images/four_bay_18650_battery_tester_buttons_t.png" width="80%" height="80%" />
 
@@ -115,40 +114,46 @@ The *charging test* in *CHG* mode is faster and reduces battery wear: since the 
 
 > [!TIP]
 > For a more efficient manual testing setup, first run a *DSG* mode test to discharge the battery to a specified stop voltage, then follow up with a *CHG* cycle. This way, the battery charges from a defined "empty" state without unnecessary wear. However, the built-in *AUTO* mode runs the opposite sequence, consuming an extra charge cycle.
-
 ### 1. Select Test Parameters
 
 Before testing, follow these steps to select the test mode and its parameters:
 
-1. **Channel:** Short-press the *right* button (marked `CHN`) to select the channel you want to use. The battery bays are marked `CHN1` to `CHN4`, and this also applies to the *screw terminals* on their back side. Make sure the correct channel number is shown in the top right corner of the display. 
-1. **Stop Voltage:** Now set a safe stop voltage for your battery. **3.0V** is generally safe for *LiIon/LiPo* batteries.
+1. **Channel:**  
+   Short-press the *right* button (marked `CHN`) to select the channel you want to use. The battery bays are labeled `CHN1` to `CHN4`, which also corresponds to the *screw terminals* on the backside. Ensure that the correct channel number appears in the top-right corner of the display. 
+
+2. **Stop Voltage:**  
+   Set a safe stop voltage for your battery. **3.0V** is generally safe for *LiIon/LiPo* batteries.
     1. Turn the device on by connecting it to power.
     2. Short-press the left button (`M`) until the **STOP** setting is highlighted in red.
     3. Short-press the second button (`S`) until the display shows the desired stop voltage.
-   
-2. **Test Mode:** Select the test mode: *DSG*, *CHG*, or *AUTO*.
+
+3. **Test Mode:**  
+   Select the test mode: *DSG*, *CHG*, or *AUTO*.
     1. Short-press the left button (`M`) until the **MODE** setting is highlighted in red.
     2. Short-press the left button (`S`) until the desired test mode is displayed.
-    
-3. **Loops:** Set the **LOOP** option. Generally, set this to **1** for a single loop test.
 
+4. **Loops:**  
+   Set the **LOOP** option. Generally, set this to **1** for a single loop test.
 
 All settings are permanently stored and will stay active until manually updated.
 
+---
 
 ### 2. Connect Battery Under Test
 
-Once you have set the test paramaters, connect the battery **to the channel you have just configured**. All four channels can be configured independently, so it is important to connect the battery to the appropriate channel. Each battery bay is clearly marked as `CHN1` through `CHN4`, and the same applies to the *screw terminals* on their back side.
+Once you have set the test parameters, connect the battery **to the channel you have just configured**. All four channels can be configured independently, so ensure the correct battery is connected to the corresponding channel. The battery bays are clearly marked as `CHN1` through `CHN4`, which also applies to the *screw terminals* on the back side.
 
-Make sure that the battery voltage does not exceed **5V**, especially when testing power banks. 
+Ensure the battery voltage does not exceed **5V**, especially when testing power banks.
 
-> [!IMPORTANT]
-> When inserting a *18650 cell* into the battery bay, be **extremely careful not to reverse polarity**, or else you **may destroy the device**. The polarity is printed into the battery bay: the positive pole is facing you when looking from the side with the push buttons.
+> [!IMPORTANT]  
+> When inserting a *18650 cell* into the battery bay, **be extremely careful not to reverse polarity**, as this **may destroy the device**. The polarity is marked inside the battery bay: the positive pole is facing you when looking from the side with the push buttons.
 
 These are your choices for connecting the battery under test:
 
 * **18650:** Insert an *18650* cell in the **right battery bay**, **or**    
 * **Alternate Battery/Power Bank:** Attach wires to the screw terminal on the back of the appropriate **battery bay**, and attach a suitable connector or alternate battery bay.
+
+---
 
 ### 3. Start the Test
 
@@ -158,16 +163,15 @@ To start a test, these are your options:
 * **Start/Reset current channel:** long-press the third button (`R/S`)
 * **Start/Reset ALL channels:** long-press the first button (`M`)
 
-
 The display’s **STA** field shows the test status. The test stops automatically upon completion. Pressing the right button again will pause or abort an ongoing test.
 
-#### USB-C Power Supply Requirements For Charging
+#### USB-C Power Supply Requirements For Charging  
 Keep in mind that tests involving *charging* (`CHG` and `AUTO`) need a *specific USB-C port* to be connected to external USB power once charging is activated. If the required *USB-C port* is not connected to external USB power, charging current for this channel remains at **0A**.
 
-> [!NOTE]
-> This may be have been confusing, so let's elaborate: if you connect **just one** *USB-C* connector to external USB power, then all four channels seem to work just fine, report test results, and can be confugured alright. However, once any of your tests invokes charging, then the *charging current* will always stay at **0A** for those channels that are served by the disconnected *USB C* port. To play simple and safe, make sure you connect *both USB-C connectors* to external USB power.
+> [!NOTE]  
+> This may be have been confusing, so let's elaborate: if you connect **just one** *USB-C* connector to external USB power, then all four channels seem to work just fine, report test results, and can be configured alright. However, once any of your tests invokes charging, then the *charging current* will always stay at **0A** for those channels that are served by the disconnected *USB C* port. To play simple and safe, make sure you connect *both USB-C connectors* to external USB power.
 
-
+---
 
 ## Test Results
 
@@ -178,30 +182,37 @@ Test results are shown in the lower portion of the display and are continually u
 * **mR:** Calculated *internal resistance* of the battery in *milliOhms*. Lower values indicate better quality; for *18650* cells, typical values should be below *80mOhm*, and for high-drain cells, they should be well below *20mOhm*.
 * **Time:** The elapsed time for the current test, displayed in hours, minutes, and seconds.
 
-
-<img src="images/4bay_18650_battery_tester_displaylabels.png" width="80%" height="80%" />" 
+![Test Results Display](images/4bay_18650_battery_tester_displaylabels.png)
 
 Test results are constantly updated while a test is in progress. In the modes *DSG* and *AUTO*, the **discharge capacity** is measured. In the mode *CHG*, the **charge capacity** is measured.
 
+---
 
-## Conclusion
-This affordable tester has matured considerably from its one-battery predecessor and is an excellent choice: it reliably tests up to *four* batteries. While it is optimized for *18650*, its four screw terminals can easily be connected to alternate battery bays and cater all needs.
+## Conclusion  
+This affordable tester has matured considerably from its [one-battery predecessor](https://done.land/components/power/battery/batterytesters/all-in-onetesters/single-batterytester/), both in hardware and in firmware, and is an excellent choice: it reliably tests up to *four* batteries. While it is optimized for *18650*, its four screw terminals can easily be connected to alternate battery bays and cater all needs.
 
-The design flaws of the original single battery tester have all been fixed:
+The design flaws of the original single-battery tester have all been fixed:
 
 * **Hardware:** no longer is a battery bay wasted as internal power supply, and all four bays can be used for testing. The load resistor got active cooling through a fan, and the fan covers the resistors so you can't accidentally touch them and get burned.
 * **Software:** the firmware version *5.6* indicates the improvements made. The original single-battery tester uses version *4.2*. The new firmware has clever button shortcuts and new features required for multi-channel operation.
 
-> [!TIP]
-> If you don't need *four* channels but would like to benefit from all these improvements, then a smaller *two channel* version is also available that runs the same firmware version *5.6*.   
+> [!TIP]  
+> If you don't need *four* channels but would like to benefit from all these improvements, then a smaller [*two channel* version](https://done.land/components/power/battery/batterytesters/all-in-onetesters/two-baybatterytester) is also available that runs the same firmware version *5.6*.
 
 
 ### Ideas for Improvement
-Although this device works almost perfectly, there is still room for improvement, either for the vendor or for you (if you are willing to optimize your device):
 
-* **Smarter Fan:** Although the fan isn't very noisy, it is unpleasantly noticeable. Adding temperature control - or at least a manual switch - and enhancing the firmware to turn off the fan whenever there is no *discharge* test happening would be simple fixes.
-* **Dedicated Power Switch:** the device can no longer be turned off. Long-pressing the `M` button now invokes tests on all four channels. The only way to turn off the device is by removing the external USB power. Since *two USB power connections* are required for full functionality on all four channels, this means pulling out two USB plugs. Adding a dedicated power switch sounds like a reasonable improvement.
-* **Stop All Tests:** While it is great to be able to start tests *on all channels simultaneously* by long-pressing `M`, I haven't found a trick to do the opposite, and **stop** all running tests at once. Adding this to the firmware would complete the otherwise good usability of this device.
+Although this device works nearly flawlessly, there is still room for improvement, either by the vendor or by users willing to optimize their setup:
+
+* **Smarter Fan:** While the fan isn't excessively loud, it can be noticeably distracting. Implementing temperature control—or at least adding a manual switch—would make it more efficient. Additionally, enhancing the firmware to automatically turn off the fan when no *discharge* test is taking place would help reduce unnecessary noise and improve overall device efficiency.
+
+* **Dedicated Power Switch:** Currently, the device cannot be turned off conventionally. A long press of the `M` button starts tests on all four channels, but the only way to power off the device is by disconnecting the external USB power supply. Since two USB power connections are required for full functionality, this means pulling out two plugs. Adding a dedicated power switch would greatly enhance usability and make the device more user-friendly.
+
+* **Stop All Tests:** While it’s convenient to start tests on all channels simultaneously by long-pressing `M`, there is no option to stop all running tests at once. Implementing a feature that allows the user to stop all tests in one action would complete the otherwise good usability and improve control over the testing process.
+
+* **Better Power Supply:** The device is an evolution of the original single-battery tester. While a 5V power supply worked well for a single-channel tester, a four-channel setup draws considerably more current, which typical USB power supplies may struggle to provide. A redesign of the power supply to support a higher voltage, such as *12V*, would be beneficial. When charging four batteries simultaneously, the device can require up to *4A at 5V* (20W). With a *12V* power supply, the current draw would be reduced to *1.6A* (20W), and 12V power supplies are more readily available and efficient.
+
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, 4-Channel
 
+[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters/four-baybatterytester?410850101729244935) - created 2024-10-28 - last edited 2024-11-08
