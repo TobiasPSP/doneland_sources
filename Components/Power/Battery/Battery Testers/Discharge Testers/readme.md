@@ -17,3 +17,4 @@ This has advantages and disadvantages:
 
 > Tags: Battery Tester, Discharge-Only, Capacity, Internal Resistance
 
+[Visit Page on Website](https://done.land/components/power/battery/batterytesters/dischargetesters?643318111410241653) - created 2024-11-09 - last edited 2024-11-09

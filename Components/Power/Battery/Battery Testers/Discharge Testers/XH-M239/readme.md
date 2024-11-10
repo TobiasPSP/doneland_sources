@@ -43,7 +43,7 @@ The device operates in **Chinese** only, with no known option to switch to *Engl
 
 ![Button Label Image](images/one_channel_discharge_tester_18650_buttonlabel.png)
 
-If you provide external power via the RCA connector on the left side, you may leave the *left* battery bay empty. The device supports a wide range of input voltage (*5-12V*).
+If you provide external power via the barrel jack connector on the left side, you may leave the *left* battery bay empty. The device supports a wide range of input voltage (*5-12V*).
 
 For portable use, insert a *18650* cell into the *left* bay to make the device independent of external power supplies.
 
@@ -51,7 +51,9 @@ For portable use, insert a *18650* cell into the *left* bay to make the device i
 
 The device has a large *LCD display* without a *backlight*. In bright daylight, the display is very readable, but in dim environments, visibility is poor.
 
-![Display Label Image](images/one_channel_discharge_tester_18650_displaylabel.png)
+<img src="images/one_channel_discharge_tester_18650_displaylabel.png" width="50%" height="50%" />
+
+The display is in *Chinese* only.
 
 ### Discharge Load
 
@@ -63,7 +65,7 @@ The tester includes a dedicated *power switch* on the right side and a power sup
 
 ### Power Supply
 
-Either insert a *18650* cell into the *left* battery bay or connect an external *5-12V* power supply to the RCA connector on the left side.
+Either insert a *18650* cell into the *left* battery bay or connect an external *5-12V* power supply to the barrel jack connector on the left side.
 
 ## Buttons and Operation
 
@@ -118,3 +120,4 @@ While functional, this device has some notable limitations:
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, 2-Channel
 
+[Visit Page on Website](https://done.land/components/power/battery/batterytesters/dischargetesters/xh-m239?665265111410241653) - created 2024-11-09 - last edited 2024-11-09
