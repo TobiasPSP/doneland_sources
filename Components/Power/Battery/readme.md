@@ -2,7 +2,7 @@
 
 # Batteries
 
-> Batteries Are Portable Power Sources. Discardable And Rechargeable Battery Types Both Have Their Specific Use Cases
+> Portable Power Sources That Can Be Discardable Or Rechargeable
 
 A battery cell stores energy chemically, and can supply this energy as electrical current. That's the common denominator of all battery cells. From here, it can get more complex:
 
