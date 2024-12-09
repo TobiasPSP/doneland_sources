@@ -24,4 +24,6 @@ In this section, you find basic information helping you to better understand var
 * What are [fake batteries](https://done.land/components/power/battery/fakebatteries/), and how can I identify them?
 
 
-> Tags: Battery, Charge, BMS, 
+> Tags: Battery, Charge, BMS,
+
+[Visit Page on Website](https://done.land/components/power/battery?697203121809244455) - created 2024-12-08 - last edited 2024-12-08
