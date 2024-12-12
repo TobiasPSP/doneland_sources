@@ -4,7 +4,11 @@
 
 > Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
 
-This is my new favorite microcontroller board whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. It is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
+This is my new favorite microcontroller board whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. 
+
+## Overview
+
+The *ESP32 C3 SuperMini* is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
 
 When more than 10 GPIOs are needed, or when a *dual core* is required for computational intense tasks, I typically choose the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/). I tend to use classic *ESP32S* only when I need full backwards compatibility, i.e. when using third party firmware that isn't yet available for the newer *ESP32* family members. 
 
@@ -21,13 +25,22 @@ Here are the *ESP32 C2 SuperMini* benefits:
 * **Shields:** battery shields are available that add battery charging and portable power supply to the *C3 Super Mini* 
 * **Affordable:** typically available for under €1.50 
 
-The board has a *USB-C* connector and ten freely usable *GPIOs*. Four *GPIOs* can be used as *analog input*:
+### GPIOs
+
+The board has a *USB-C* connector and 10 freely usable *GPIOs*. Four *GPIOs* can be used as *analog input*:
 
 
 
 <img src="images/c3_supermini_gpio_pins.png" width="50%" height="50%" />
 
+
+### Programmable Blue LED
+
 A programmable *blue LED* is connected to *GPIO 8* (inverted: *low* active), and a *red power LED* is *on* when the board is connected to *5V* (using its internal voltage regulator). This red LED is *off* when you power the board directly via the *3.3V* pin, i.e. from a battery. This makes sense to conserve energy when power is limited.
+
+
+
+### Conclusion
 
 While it is more than twice as fast as a *ESP8266*, it is a *single core* controller running at *160MHz* clock speed. Classic *ESP32S* are *dual-core* running at *240MHz* and are roughly three times as fast. That said, most DIY projects do not require such speeds, and speed comes at cost: power consumption. If your project does involve very computing-intense tasks or needs to respond in real-time to more than one task, you may want to use a classic *ESP32S* or its successor *ESP32-S3*.
 
@@ -35,6 +48,33 @@ Its very small form factor limits the number of exposed GPIOs. If 10 GPIOs are n
 
 
 <img src="images/c3_angle_overview_t.png" width="50%" height="50%" />
+
+
+## Caveat: Defective Board Designs
+
+While this board is readily available from many sellers, there are subtle differences in board layout. In 2024, board designs started to occasionally surface that may cause issues with *WiFi connectivity*:
+
+<img src="images/esp32-c3-supermini-defective_design.png" width="100%" height="100%" />
+
+On the left, you see the "normal" board design, and on the right the "revised" layout. In the new layout, the crystal clearly has moved closer to the ceramic *WiFi antenna*.
+
+### WiFi Sending Impaired
+Users of the new board report that while they can *receive* WiFi networks, **connecting** to WiFi networks was impossible or took very long. Other users reported that connection required [physically touching the antenna](https://esp32.com/viewtopic.php?f=19&t=41895#p137745). Others experienced [connectivity issues when female pin headers were added](http://esp32.io/viewtopic.php?f=19&t=42069), especially when *pin 21* was wired.
+
+All observations indicate interference during *WiFi transmission*, most probably caused by the relocation of the crystal closer to the antenna: once transmission power is reduced (i.e. by touching the antenna), the problem went away. Likewise, once pin headers were installed, and once wires were connected to pin 21 (closest to antenna), this increased field strengths and aggrevated the interference.
+
+### Remedy
+While you can safely use the defective boards for many taks not involving *WiFi*, a workaround to make the board transmit correctly is to *reduce the transmission power* by code, i.e. via `WiFi.setTxPower(WIFI_POWER_8_5dBm);`. Reducing the transmission power prevents the interference from reaching critical levels.
+
+By reducing the WiFi transmission power, you coincidentally reduce the overall power consumption, and since the lower transmission power is still sufficient for most home environments with decent WiFi coverage, this does not need to be a bad thing.
+
+This workaround may be impractical when your *C3 SuperMini* needs to operate in weak WiFi environments or far away from your access points (i.e. in the garden) in which case you should return defective boards. 
+
+> [!NOTE]
+>NThe vast majority of *C3 SuperMini* use a flawless board design. Apparently, only selected charges of this board were affected by a "redesign". If in doubt, you can measure the distance between the crystal and the ceramic antenna (see image above). There should be a gap of at least *1mm*. Affected boards show a gap of just *0.3mm*.
+
+
+
 
 ## Performance
 *ESP32 C3 SuperMini* is a great replacement for *ESP8266* and more than doubles its processing speed. It also comes with a solid voltage regulator (most ESP8266 ship with under-rated voltage regulators that easily brown out once you connect power-hungry external sensors). 
