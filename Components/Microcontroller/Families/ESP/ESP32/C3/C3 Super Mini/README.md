@@ -71,7 +71,7 @@ By reducing the WiFi transmission power, you coincidentally reduce the overall p
 This workaround may be impractical when your *C3 SuperMini* needs to operate in weak WiFi environments or far away from your access points (i.e. in the garden) in which case you should return defective boards. 
 
 > [!NOTE]
->NThe vast majority of *C3 SuperMini* use a flawless board design. Apparently, only selected charges of this board were affected by a "redesign". If in doubt, you can measure the distance between the crystal and the ceramic antenna (see image above). There should be a gap of at least *1mm*. Affected boards show a gap of just *0.3mm*.
+> The vast majority of *C3 SuperMini* use a flawless board design. Apparently, only selected charges of this board were affected by a "redesign". If in doubt, you can measure the distance between the crystal and the ceramic antenna (see image above). There should be a gap of at least *1mm*. Affected boards show a gap of just *0.3mm*. [Here](https://roryhay.es/blog/esp32-c3-super-mini-flaw) is a more in-depth article describing the hardware differences.
 
 
 
@@ -226,4 +226,4 @@ light:
 
 > Tags: ESP32-C3, C3
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2024-11-03
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2024-12-11
