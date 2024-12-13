@@ -2,13 +2,51 @@
  
 # Microcontrollers
 
-> Controlling Your DIY Electronics Much More Flexible And Affordable Than Using Discrete Components.
+> Controlling Your DIY Electronics With Microcontrollers
 
-Of course you can implement a flashing emergency light, a temperature sensor maybe, a remote control for the garden pump, or whatever else comes up to  mind, using *discrete* components (like resistors, transistors, capacitors, etc). This approach requires considerable electronic engineering knowledge, but it is entirely doable. 
+Microcontrollers have become so affordable that in many cases, it is easier to design circuits using flexible microcontroller programming than relying solely on discrete components.
 
-A much simpler way is to use a microcontroller: they work like *mini computers* and can be programmed using simple programming languages or even easier script languages. Microcontrollers come with *GPIOs* (*general purpose input output* ports) that work like switches that can also measure voltages. That's really all you need to implement any of the things on the list above, and almost everything else that could come to your mind.
+For example, while you can design LED effects or emergency lights using *flip-flops*, timer ICs, or other discrete components like resistors, transistors, and capacitors, replacing all of these with a single microcontroller is often much more flexible, easier, and more affordable.
 
-Using *microcontrollers* in your electronic projects is more cost effective, too: very powerful microcontroller boards with built-in *WiFi* and *Bluetooth* plus huge *4MB flash memory* are available today for under €2 these days. If you ordered discret components to build what the microcontroller can easily do for you, your cost would be much higher, plus your circuitry would probably a lot harder to design, and larger. That's why in fact the very same microcontrollers today can be found in many smart plugs and other commercial electronic gadgets that you already use.
+> [!TIP]  
+> Powerful microcontroller boards with built-in *WiFi* and *Bluetooth*, along with substantial *4MB flash memory*, are available today for under €2. This makes microcontroller projects much more cost-effective compared to implementing the same functionality with discrete components or specialized ICs. As a result, microcontrollers are ubiquitous in low-cost consumer devices like smart plugs, thermometers, and other gadgets.
+
+## Overview
+
+Microcontrollers function like *mini computers* and can be programmed using simple programming or scripting languages. This creates the software that instructs the microcontroller which is called *firmware*.
+
+Creating *firmware* does not necessarily require programming skills. Tools like [ESPHome](https://esphome.io/) allow you to auto-generate firmware based on high-level *configurations* that describe the microcontroller's behavior in abstract terms.
+
+Often, you do not even need to create new firmware at all. Flexible, pre-made *firmwares* already exist for many use cases. For instance, if you want to control *programmable LED strips* (*WS2812*), [WLED](https://kno.wled.ge/) is a powerful and free firmware that can be [uploaded to your microcontroller directly from a browser](https://install.wled.me/) without requiring any tools or prior knowledge.
+
+### GPIOs
+
+At the heart of each microcontroller are its *GPIOs* (*general-purpose input/output*): versatile pins that can act as either inputs or outputs:
+
+- **Output:** Functions like a switch, toggling between *on* and *off*. This allows you to control devices, lights, or other components. Since *GPIOs* are *signal pins* and typically handle only *10-40mA* (depending on the microcontroller), external components like *MOSFETs* or *relays* are often needed to drive higher loads.  
+
+- **Input:**  
+  - **Digital inputs** detect *high* (positive voltage) or *low* (ground) states, enabling connection to switches, sensors, or other components.  
+  - **Analog inputs** (available on some GPIOs) measure *voltage levels*, useful for components like potentiometers or voltage sensors.  
+
+### Communication
+*Input* and *output GPIOs* can also be used for **communication**. This is how microcontrollers connect to external devices like sensors and displays. Communication protocols like [Serial](https://done.land/components/microcontroller/families/esp/espfeatures/serial/), [I2C](https://done.land/fundamentals/interface/i2c/), and [SPI](https://done.land/fundamentals/interface/spi/) function like high-speed "morse code," transferring data back and forth.  
+
+- For **unidirectional communication** (e.g., microcontroller to display), one side serves as the *sender* (using an *output GPIO*), and the other as the *receiver* (using an *input GPIO*).  
+- **Bidirectional communication** generally requires at least two GPIOs per device—one for sending (output) and another for receiving (input).  
+
+> [!TIP]  
+> A critical factor when selecting a microcontroller board is the number of available *GPIOs*. Ensure the board you choose has enough GPIOs for your project. If you need additional GPIOs, you can use *port extenders*—external modules that add more GPIOs.  
+### Wireless
+
+Another form of communication involves wireless protocols like *WiFi* and *Bluetooth*. Modern microcontrollers, such as those in the *ESP32 family*, come equipped with integrated transmitters and receivers, making it easy to connect devices wirelessly. For example, you can control your device via a web interface on your smartphone or integrate it into home automation platforms like [Home Assistant](https://done.land/tools/software/homeassistant/).
+
+Wireless capabilities also enable the upload of new firmware *wirelessly*. This feature, called *OTA* (*over-the-air updates*), is particularly useful when your microcontroller is built into a device. With OTA, you can update the firmware remotely—fixing bugs or adding new features—without needing physical access to the microcontroller board.
+
+
+
+
+
 
 
 <details><summary>Microcontrollers used in Computers and Smartphones</summary><br/>
@@ -32,60 +70,125 @@ In *DIY* projects and to control hardware, *simpler microcontrollers* are used t
 
 </details>
 
-
 ## DIY Microcontrollers
 
-In *DIY projects* and *hardware projects*, these are the typical microcontrollers used:
+There are thousands of different microcontroller types available, yet in *DIY projects*, only a few microcontroller families are typically used. Sticking to popular microcontroller families for your own DIY projects is wise because they offer a rich community base of sample code, tips, and support.
+
+### Popular Microcontroller Families
+
+- **[Arduino](families/Arduino)**:  
+  "Arduino" is an Italian open-source hardware and software company, not a specific microcontroller family. Arduino board designs use a variety of microprocessors and controllers. When this project began in 2005, it was state-of-the-art and made microcontrollers feasible for hobbyists. Today, however, many users still rely on *Arduino boards*, despite their technical obsolescence, higher cost, and lack of crucial features like wireless communications.
+
+- **[ESP](families/ESP)**:  
+  Originally, the Chinese manufacturer *Espressif* produced *cheap but powerful* microcontrollers for industrial use with built-in *WiFi communications*. The community adopted the *ESP-01* module with the *ESP8266* microcontroller in 2014, integrating it into the *Arduino* ecosystem. The release of the dual-core *ESP32* in 2015 established it as the de-facto standard for affordable and powerful microcontrollers, outperforming *Arduino boards* in features and price. Subsequent *Espressif* releases have maintained compatibility while adding functionality. *ESP* microcontrollers can use *Arduino* code and libraries, along with thousands of additional libraries and projects designed exclusively for *ESP*, such as [ESPHome](https://esphome.io/) and [WLED](https://kno.wled.ge/).
+
+- **[ATtiny](families/ATtiny)**:  
+  These microcontrollers focus on small size (*DIP packages*) and extremely low energy consumption, making them ideal for battery-operated sensors. While functionally limited (e.g., slower speed, fewer GPIOs), their capabilities often suffice for simple automation tasks. However, when evaluated purely on computational power, *ATtiny* microcontrollers are relatively expensive, costing as much as an entry-level *ESP32 C3* (*€1-2*). Their exceptionally low power consumption still makes them a solid choice for specialized, low-computation projects.
 
 
-* [ATMega/Arduino](families/Arduino): *Arduino breakout boards* started to make *microcontrollers* popular among hobbyist and makers because they are *exceptionally easy to use* and come with a proven toolset. Until recently, *Arduinos* exclusively used the *ATMega* family of microcontrollers. Meanwhile, some *Arduino* breakout boards also use *ESP* and other microcontrollers. 
-* [ESP/Espressif](families/ESP): Originally, the Chinese manufacturer *Espressif* produced *cheap but powerful* microcontrollers for the industry, and you find them in many *smart devices*. When *Espressif* released its **ESP8266** in 2015, it soon was integrated into the *Arduino* tool chain and became an instant success, primarily because of its *built-in WiFi* and its very low price. Meanwhile, the family of (much more powerful but equally cheap) *ESP32* has become the best *DIY microcontrollers*: they are much *cheaper* yet in almost all aspects *more powerful* than *Arduino* yet run the same code and can be programmed with the same tools.
-* [ATtiny](families/ATtiny): for *less* computing intensive use cases, and when *small size* matters, *ATTiny* microcontrollers are are great alternative due to their very small size.
-* [Raspberry Pi](families/Raspberry): for *more* computing intensive use cases, *Raspberry Pi* microcontrollers can run a *full-fledged operating system* (and behave like a "real" computer), typically *Raspberry Pi OS* (based on Demian), Ubuntu, and others. *Raspberry Pi* is used for for projects that require a lot of computational power and a full operating system, and can act as a *server* in the backend. *HomeAssistant* is an example: it runs on a *Raspberry Pi* which acts as the *HomeAssistant Server* and lets you control *IoT* devices that in turn each base on one of the other mentioned microcontrollers. The latest evolution is *Raspberry Pi 5*
+
+### Raspberry Pi
+
+[Raspberry Pi](families/Raspberry) computers also play an important role in DIY projects, though they are not microcontrollers. Instead, *Raspberry Pi* boards are mini-computers comparable to PCs. The latest *Raspberry Pi 5* is fast enough to run a Linux operating system with a graphical user interface.
+
+Compared to traditional PCs, *Raspberry Pis* are more affordable, compact, and energy-efficient, making them a popular choice for running servers, such as [Home Assistant](https://www.home-assistant.io/).
+
+
+### Mini-PC and Proxmox
+
+For projects requiring more server power than a *Raspberry Pi* can provide, users often turn to *Intel-based Mini-PCs* paired with the free virtualization software [Proxmox](https://www.proxmox.com/en/). This setup enables the running of multiple server instances in parallel, but it comes with added complexity and significantly higher energy consumption, especially when running *24/7*.
+
+> [!TIP]  
+> If you **really need to run multiple server instances** or handle high-computation tasks, a *Mini-PC* with virtualization software like *Proxmox* can be a cost-effective solution. However, for simpler use cases like running [Home Assistant](https://done.land/tools/software/homeassistant/), a *Mini-PC* would mostly idle, wasting energy. Given today’s high energy costs and environmental concerns, a *Raspberry Pi 5* is often the most economical choice for many scenarios.
+
+
+
+### Conclusions
+
+- **Microcontroller Selection**: Choosing a microcontroller family with a strong community (e.g., *ESP* or *Arduino*) ensures access to extensive resources, making troubleshooting and development much easier.
+- **Cost-Effectiveness**: While *Arduino* remains popular, modern microcontrollers like the *ESP32* often provide better performance and features at a fraction of the cost.
+- **Energy Efficiency**: For low-power or battery-powered projects, consider microcontrollers like *ATtiny*. For servers or always-on devices, weigh the energy usage of solutions like *Raspberry Pi* versus Mini-PCs carefully.
+- **Scalability**: If you anticipate needing advanced features like virtualization, start with a *Raspberry Pi* but plan for potential migration to a *Mini-PC* or *Proxmox* solution.
+
+
+
 
 ## Development Boards
-While you could use a *naked microcontroller* in your projects and wire it up *manually*, typically *development boards* are preferred: *ready-to-go* PCBs that combine a *microcontroller* with its most essential components such as a *voltage regulator* and a *Serial-to-USB* bridge.
+Development boards are *ready-to-use* PCBs that integrate a *microcontroller* with essential components such as a *voltage regulator* and a *Serial-to-USB bridge*. They simplify the process of working with microcontrollers by providing an accessible platform for programming and development.
+
+---
 
 ### Originals and Clones
 
-While the *microcontroller* itself is always produced by a given manufacturer, the *development boards* are produced by a variety of sources. You can get *original* development boards from renown vendors such as *Arduino*, *Adafruit*, or *Espressif*, and you can get *clones* from lesser-known companies.
+While the *microcontroller* itself is manufactured by specific companies (e.g., Espressif or Atmel), *development boards* are produced by various vendors. These include well-known brands like *Arduino*, *Adafruit*, or *Espressif*, as well as less-known manufacturers who create *clones*. 
+
+#### Key Differences Between Originals and Clones
+
+- **Originals**: Designed and built by reputable companies, offering high-quality components and support.
+- **Clones**: Functionally equivalent to originals but manufactured by third parties, often at a much lower price.
 
 
 <img src="images/clones2_t.png" width="80%" height="80%" />
 
-
-*Clones* are typically *much cheaper* than the originals, especially with *Arduinos*. 
-
-
-
-> [!NOTE]
-> *Clones* discussed here have nothing to do with *product piracy* or *trying to deceive*. They *clone functionality only*, not *appearance*. You can always clearly identify whether a board was produced by a company like *Arduino*, or whether it is just *functionality-wise* the same but looks clearly different. Legal *Clones* *Clones* are possible because the *hardware design* is *open-source*, and it is neither *rocket science* nor a *copyright infringement* to add standard components like *voltage regulators* and *UART chips* to a *PCB*.
+*Clones* are usually *much cheaper* than originals, especially for *Arduino* boards.
 
 
 
-*Clones* are *per se* technically no better or worse than *originals*. They are different. Some vendors produce *Clones* with added benefit (like displays) at exceptional built quality. These can be *more expensive* than *Originals*. Other manufacturers use only the cheapest parts that barely meet the specifications. They still often work just fine yet cost only a fraction.
 
-Here are the typical issues to be aware of (which coincidental are the very reasons for huge price differences):
-
-
-| Issue | Symptom | Remark
-| --- | --- | --- |
-| Cheap voltage regulator | Once a few sensors/components are connected, the board starts to reboots or stops working | was an issue with ESP8266, fixed for most other boards meanwhile |
-| Soldering issues | solder drops can cause short-circuits | Related to the level of *quality control*. Occurs only with mass products under great pricing pressure. Even then rare (1 out of 100). Can often be fixed, if present will show from the start (no reliablity issue) |
-| PCB Quality | Labels hard to read | Directly related to the price point, does not affect functionality |
-
-You decide what your focus is. Just keep in mind that *one* microcontroller won't get you far. When comparing prices, compare the price differences for *ten units*.
+> [!NOTE]  
+> *Clones* in this context are not about *piracy* or *deception*. These boards replicate functionality but not *appearance*. You can easily differentiate between an *original* board and a *clone*. Since the hardware designs are *open source*, creating clones is neither *copyright infringement* nor unethical.
 
 
-#### Is Buying Clones Evil?
-While *technically ok*, may it be a *morally reprehensible* to use *Clones*?`Are you possibly *stealing intellectual property* when you buy from *obscure Asian profit makers*? Are these taking advantage of other peoples' development efforts to undercut prices?
+### Quality of Clones
 
-No. Regardless of source, the *microcontroller* is always original and always legitimately purchased. The PCB *circuit designs* are *open source*. The tool chain is maintained by the *community*.
+The quality of *clones* varies significantly depending on the manufacturer. While some are well-built and even offer added features (e.g., integrated displays), others use cost-saving measures that may affect reliability. Here are some common issues:
 
-Cheap prices are more likely a result of *lean production*, *less middlemen* and *less distributors*. In fact, when you buy at a *local store* or at *Amazon*, you come across the *very same* boards that are also *directly available at sources like AliExpress* - just for a five- to tenfold price.
+| **Issue**               | **Symptom**                                      | **Remarks**                                                                                      |
+|--------------------------|--------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| Cheap voltage regulator  | Board reboots or stops working with multiple connected components | A known issue with early *ESP8266* boards; most newer boards have improved.                     |
+| Soldering issues         | Short circuits due to solder drops              | Rare (1 in 100), related to low-quality control in mass production. Usually evident at first use. |
+| PCB quality              | Hard-to-read labels                              | Does not affect functionality but may indicate lower-cost production.                           |
+
+> **Tip**: Consider the cost of *ten units* when comparing prices between originals and clones. For large-scale DIY projects, clones may offer significant savings.
+
+---
+
+### Ethical Considerations
+
+#### Is Buying Clones Morally Reprehensible?
+
+Some wonder if purchasing *clones* undermines intellectual property or takes advantage of others' efforts. However:
+
+- The *microcontroller chip* itself is always original and purchased legitimately.
+- Circuit designs for development boards are typically *open source*.
+- Tools and firmware are community-supported, making the ecosystem robust.
+
+**Why are clones cheaper?**  
+The cost savings often come from:
+
+- **Lean production processes**.
+- **Fewer middlemen** and distributors.
+- Direct purchasing from platforms like *AliExpress* at wholesale prices.
+
+In many cases, the same boards are sold on *Amazon* or local stores for significantly higher prices, even though they are identical to those found on global e-commerce platforms.
+
+
+
+#### Conclusion
+
+When deciding between originals and clones:
+
+- **Originals**: Offer reliability and support, ideal for beginners or critical projects.  
+- **Clones**: Provide cost-effective alternatives, especially for bulk purchases or non-critical projects.
+
+Both have their place in the DIY ecosystem, and choosing between them depends on your priorities: cost, quality, or brand trust.
+
+
+
+
 
 
 
 > Tags: Microcontroller, Arduino, ESP32, ESP8266, ATtiny, Raspberry Pi
 
-[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-05-22
+[Visit Page on Website](https://done.land/components/microcontroller?237357031823244200) - created 2024-02-15 - last edited 2024-12-11
