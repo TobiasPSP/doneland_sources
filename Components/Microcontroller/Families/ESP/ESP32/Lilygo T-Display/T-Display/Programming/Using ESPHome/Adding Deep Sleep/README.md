@@ -51,7 +51,7 @@ esp32:
 If your device is being used in a stable *WiFi*, and not switching back and forth between different *SSIDs*, do this:
 
 * **Save RAM:** Remove `captive_portal:` as well as the `ap:` access point. Removing the internal web server saves a significant amount of RAM.
-* **Save Battery Power:** Add `fast_connect: true` to `wifi:`. This skips scanning available *WiFi networks* (which doesn't make sense when you always connect to the same *SSID* anyway). This speeds up *WiFi connect*, and saves valuable battery power, especially if you later use *deep sleep* and wake up your board only occasionally, i.e. to take sensor readings.
+* **Save Battery Power:** Add `fast_connect: true` to `wifi:`. This skips scanning available *WiFi networks* (which doesn't make sense when you always connect to the same *SSID* anyway). This also speeds up *WiFi connect*, and saves valuable battery power, especially if you later use *deep sleep* and wake up your board only occasionally, i.e. to take sensor readings.
 
 > [!TIP]
 > You may want to remove `logger:` along with all log messages once you have debugged your device. This again saves battery power and minimizes *WiFi transmissions*.   
@@ -99,19 +99,18 @@ deep_sleep:
   wakeup_pin: 35
 ````
 
-If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume horrendous *9mA* though instead of the *370uA* that it *should* take on this board, and here is why:
+If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume horrendous *9mA* though instead of the *290uA* that it *should* take on this board, and here is why:
 
 * **Display Driver:** once you add a *display* component to your configuration, the display controller gets initialized. Even when you send the *ESP32* to *deep sleep* will this driver consume around *6.5mA*.
 * **RTC IO Mode:** when you use `wakeup_pin:`, you are automatically keeping the *RTC IO* subsystem active. This mode is called `ext0`, and it costs you another *2mA*. The better approach is to use `esp32_ext1_wakeup:`: this mode can use *multiple wakeup pins*, however it only supports waking up the processor when *all specified pins turn **low** together*, or any *one* of them turns **high**. If that works for you, it saves another *2mA*.  
-* **LDO:** the *low dropout voltage regulator* is consuming around *80uA* power even though this component is not needed when powered by a battery.
+* **LDO:** the *low dropout voltage regulator* is consuming around *80uA* power even though this component is not needed when powered by a battery. Fortunately, this component can also be sent to sleep using *GPIO14*.
 
 When using a more efficient deep sleep mode and disabling both display driver and LDO, the power consumption in deep sleep mode can be reduced from *9mA* (*9.000uA*) to just *290uA* - reducing power consumption by factor *31*.
 
-Here is how you do it:
 
 
 ### Using Most Efficient Deep Sleep Mode
-Invoke *deep sleep* using `esp32_ext1_wakeup:` is used to enable the power efficient `ext1` deep sleep mode:
+Invoke *deep sleep* using `esp32_ext1_wakeup:` to enable the power efficient `ext1` deep sleep mode:
 
 ````
 # enable deep sleep capabilities and set wakeup-pin in energy-efficient ext1 mode
@@ -131,7 +130,7 @@ The pin mode is `ALL_LOW` since the *T-Display buttons* are *low active*. Note t
 ### Disabling Display Driver And LDO
 Right before sending the board to *deep sleep*, you need to send the display driver to its own sleep mode, and disable the built-in LDO. Else, both components will continue to draw significant current.
 
-That's why a *script* is used to invoke the deep sleep mode. The script can first take care of sending the components to sleep, then send the *ESP32* to sleep:
+That's why a *script* is used to invoke the deep sleep mode. This script can first take care of sending the components to sleep, and only then send the *ESP32* to sleep:
 
 ````
 # perform all necessary actions to send peripherals to deep sleep
@@ -172,7 +171,7 @@ switch:
 ````
 
 > [!TIP]
-> When the LDO is disabled, this also disables battery voltage monitoring. For deep sleep, this doesn't matter: the voltage is not monitored anyway, and when the device wakes up, the original GPIO state is restored. However, should you want to also optimize battery consumption during normal operations, you could measure the battery voltage, and when it is below *4.3V* (indicating battery operations), you could disable the LDO. Just make sure you temporarily enable it whenever you want to measure the battery voltage again.
+> When the LDO is disabled, this also disables battery voltage monitoring. For deep sleep, this doesn't matter: voltage isn't monitored anyway in deep sleep, and when the device wakes up, the original GPIO state is restored automatically. However, should you want to optimize battery consumption **during normal operations**, too, you could measure the battery voltage, and when it is below *4.3V* (indicating battery operations), you could disable the LDO. Just make sure you temporarily enable it whenever you want to measure the battery voltage again.
 
 
 
@@ -193,7 +192,7 @@ Then [Laurent](https://github.com/lhac5vet) pointed me to the LDO issue, and thi
 
 <img src="images/liligo_tdisplay_optimized.png" width="100%" height="100%" />
 
-*295uA* admittedly still isn't awesome: *DFRobots* [FireBeetles](https://www.dfrobot.com/product-1590.html) just take *20uA*, for example. However, given the affordable price and the overall package, *<300uA* deep sleep power consumption is working very well for most battery-operated projects, and just a few lines of code extended deep sleep battery capacity from a month to almost three years.
+*295uA* admittedly still isn't awesome: *DFRobots* [FireBeetles](https://www.dfrobot.com/product-1590.html) just take *20uA*, for example. However, given the affordable price and the overall package, *<300uA* deep sleep power consumption is working very well for most battery-operated projects, and just a few lines of code extended deep sleep battery capacity from days to months.
 
 
 ## Invoking Deep Sleep
@@ -209,7 +208,7 @@ Deep sleep can now be invoked manually, automatically, and even remotely. The *r
     device_class: ""
 ````
 
-This is important because *Home Assistant* shows the last known parameters, and if the board was sent to *deep sleep*, none of its user controls respond anymore. That's expected since a system in *deep sleep* is essentially *turned off*, but *Home Assistant* should report the fact that the system is currently *sleeping* - which is what this sensor does. It also reports *why* the system is *sleeping*.
+This is important because *Home Assistant* shows the last known sensor values, and if the board was sent to *deep sleep*, even though the system seems to still be online in the *Home Assistant* dashboard, none of its user controls respond. That's of course expected since a system in *deep sleep* is essentially *turned off*, but *Home Assistant* should at least report the fact that the system is currently *sleeping* - which is what this sensor does. It also reports *why* the system is *sleeping*.
 
 
 <img src="images/lilygo_t_display_deep_ha2-t.png" width="30%" height="30%" />
