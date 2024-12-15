@@ -5,23 +5,26 @@
 > Turning Off Battery-Driven T-Displays By Using Deep Sleep And Wakeup
 
 
-Once the [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) gets connected to an external *LiIon* or *LiPo* battery, it can run independently and requires no USB cable. At an average power consumption of *130mA*, it can theoretically run short of 8 hours from a *1.000 mAh* battery. 
+[T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) is optimized for portable battery operations: at an average power consumption of *130mA*, it can  run short of 8 hours at full power from a *1.000 mAh* battery. 
 
 
 <img src="images/lilygo_t-display_deepsleep_esphome_display_overview2_t.png" width="40%" height="40%" />
 
+Typically, though, a portable device does not need to continuously run at full power. At minimum, you will want to add a *power switch* so you can manually turn it on and off.
 
-Battery-driven boards introduce new challenges:
+Or, use the *deep sleep* mode: this way, when you don't need the device, it can idle in a very low power mode until you wake it up again. This is also a great solution for sensors or other use cases where you want the microcontroller to perform work in intervals or on input signals.
 
-* **Power Switch:** you want to be able to turn the device off when you don't need it
-* **Power Management:** you may want to switch the board to low-power modes when it isn't busy doing things for you
-* **Low Voltage Protection:** you want to turn off the device when battery voltage drops below a voltage threshold that won't allow the peripherals (like the display) to work correctly anymore
+One challenge with *deep sleep* is though that the actual power consumption drops from *130mA* to *9mA* which is still a very significant power consumption. That's why in this article you learn *why* the board consumes so much power in *deep sleep*, and how you can disable a few components *solely by code* to bring down *deep sleep* power consumption to less than *300uA* (*uA*, not *mA*). 
 
-One solution not discussed here is to add a physical power switch to the positive lead of your battery - very advisable. Physically turning off the device is the most efficient power savings mode and allows you to store the device for months without losing significant charge capacity.
+At *300uA*, with a *1000mAh* battery, the device can stay in *deep sleep* mode for more than 4 months.
+
+> [!TIP]
+> Implementing *deep sleep* has a number of additional benefits. For example, you can now add a *low voltage protection*, making sure the device automatically enters deep sleep once the battery is close to depletion, protecting battery health. The [ESPHome configuration](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep/#configuration) below includes *low voltage battery protection*.
+
 
 ## Overview
 
-This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it careless, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected. The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
+This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it carelessly, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected. The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome). 
 
 <img src="images/lilygo_tdisplay_deepsleep_overview_ui.png" width="70%" height="70%" />
 
@@ -96,14 +99,19 @@ deep_sleep:
   wakeup_pin: 35
 ````
 
-If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume an astonishing *9mA* though instead of the *370uA* that it *should* take on this board, and here is why:
+If you do it like this, the board would indeed switch to *deep sleep* once you invoke `- deep_sleep.enter: deep_sleep_control` (i.e. via button press). It would now consume horrendous *9mA* though instead of the *370uA* that it *should* take on this board, and here is why:
 
 * **Display Driver:** once you add a *display* component to your configuration, the display controller gets initialized. Even when you send the *ESP32* to *deep sleep* will this driver consume around *6.5mA*.
 * **RTC IO Mode:** when you use `wakeup_pin:`, you are automatically keeping the *RTC IO* subsystem active. This mode is called `ext0`, and it costs you another *2mA*. The better approach is to use `esp32_ext1_wakeup:`: this mode can use *multiple wakeup pins*, however it only supports waking up the processor when *all specified pins turn **low** together*, or any *one* of them turns **high**. If that works for you, it saves another *2mA*.  
+* **LDO:** the *low dropout voltage regulator* is consuming around *80uA* power even though this component is not needed when powered by a battery.
+
+When using a more efficient deep sleep mode and disabling both display driver and LDO, the power consumption in deep sleep mode can be reduced from *9mA* (*9.000uA*) to just *290uA* - reducing power consumption by factor *31*.
+
+Here is how you do it:
 
 
-### Correctly Adding Deep Sleep
-Here is the most energy-efficient implementation for *deep sleep* and manual wake-up:
+### Using Most Efficient Deep Sleep Mode
+Invoke *deep sleep* using `esp32_ext1_wakeup:` is used to enable the power efficient `ext1` deep sleep mode:
 
 ````
 # enable deep sleep capabilities and set wakeup-pin in energy-efficient ext1 mode
@@ -116,12 +124,14 @@ deep_sleep:
     mode: ALL_LOW 
 ````
 
-Note how `esp32_ext1_wakeup:` is used to enable the power efficient `ext1` deep sleep mode: *GPIO35* (one of the push buttons) is used to wake up the system. Since this push button is also used as a *regular* button elsewhere in the configuration, it is marked `allow_other_uses: true`. Else, since *ESPHome 2023* you would get errors, keeping you from assigning the same *GPIO* to two different components.
+*GPIO35* (one of the built-in push buttons) is used to wake up the system. Since this push button is also used as a *regular* button elsewhere in the configuration, it is marked `allow_other_uses: true`. Else, since *ESPHome 2023* you would get errors, keeping you from assigning the same *GPIO* to two different components.
 
 The pin mode is `ALL_LOW` since the *T-Display buttons* are *low active*. Note that `esp32_ext1_wakeup:` does not honor `inverted: true` or any other sophisticated pin declarations (which is the primary difference to the more power-hungry `wakeup_pin:`).
 
-#### Invoking Deep Sleep
-To invoke *deep sleep*, a script is used, because sending *T-Display* to *deep sleep* requires a few steps, not just one:
+### Disabling Display Driver And LDO
+Right before sending the board to *deep sleep*, you need to send the display driver to its own sleep mode, and disable the built-in LDO. Else, both components will continue to draw significant current.
+
+That's why a *script* is used to invoke the deep sleep mode. The script can first take care of sending the components to sleep, then send the *ESP32* to sleep:
 
 ````
 # perform all necessary actions to send peripherals to deep sleep
@@ -133,17 +143,41 @@ script:
           // Send display to sleep before deep sleep
           uint8_t command = 0x10;  // Your command
           id(display1).command(command);
+          // Turn off LDO for another 80uA savings 
+          id(vbat_ldo_pwren).turn_off();
       - delay: 120ms    
       # send esp32 to deep sleep:
       - deep_sleep.enter: deep_sleep_control
 ````
 
-It is crucial to send the command *SLEEPIN* (`0x10`) to the display to disable it before entering deep sleep. If you omit this, deep sleep will consume an extra *6.5mA*.
+#### Sending Display To Sleep
+It is crucial to send the command *SLEEPIN* (`0x10`) to the display to disable it before entering deep sleep mode. If you omit this, deep sleep will consume an extra *6.5mA*.
 
 > [!NOTE]
-> I [raised this issue](https://github.com/esphome/issues/issues/6307) with *ESPHome*, and hopefully we will see the display disabling itself automatically on deep sleep in the future.    
+> I [raised this issue](https://github.com/esphome/issues/issues/6307) with *ESPHome*, and hopefully we will see the display disabling itself automatically on deep sleep in the future.  
 
-The script can then be tied to any action you like: `- script.execute: prepare_for_sleep`. You can for example use *one* button to send the board to *deep sleep*, and another one to *wake it up again*:
+#### Sending LDO To Sleep
+The LDO used on this board has an [enable pin](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/issues/6) that is tied to *GPIO14* (as can be seen in the [schematics](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/files/4416932/ESP32-TFT.6-26.pdf)). To control this GPIO from above script, another `switch:` is used:
+
+````
+switch:
+  # GPOI14 set as output to control the PWR_EN of the LDO chip
+  # GPIO14 = 0 : LDO Off
+  # GPIO14 = 1 : LDO On (used to measure the current battery voltage)
+  - platform: gpio
+    pin: GPIO14
+    name: "VBAT LDO Power Enable"
+    id: vbat_ldo_pwren
+    inverted: true
+````
+
+> [!TIP]
+> When the LDO is disabled, this also disables battery voltage monitoring. For deep sleep, this doesn't matter: the voltage is not monitored anyway, and when the device wakes up, the original GPIO state is restored. However, should you want to also optimize battery consumption during normal operations, you could measure the battery voltage, and when it is below *4.3V* (indicating battery operations), you could disable the LDO. Just make sure you temporarily enable it whenever you want to measure the battery voltage again.
+
+
+
+#### Triggering Deep Sleep
+The script *prepare_for_sleep* from above can now be tied to any action you like: `- script.execute: prepare_for_sleep`. You can for example use *one* button to send the board to *deep sleep*, and another one to *wake it up again*:
 
 * **Deep Sleep Button:** invoke the script `prepare_for_sleep` when the button is pressed.
 * **Wake Up Button:** define the button pin in `esp32_ext1_wakeup:`.
@@ -151,15 +185,16 @@ The script can then be tied to any action you like: `- script.execute: prepare_f
 > [!IMPORTANT]
 > **Never** use the same button for *invoking deep sleep* and *wake up*, or else the board will immediately wake up again as the button is *still pressed* when *deep sleep* takes over. Also, never use *GPIO0* to send the board to *deep sleep* on a simple button press. *GPIO0* is the *boot* button, and you don't want the board to start *deep sleeping* when you really just wanted to boot into *ROM bootloader* mode. If you do use *GPIO0* (like in this example), make sure *deep sleep* is invoked only on a *long press*.
 
-When *deep sleep* is configured this way, it optimizes power efficiency:
-
+When *deep sleep* is configured this way, it optimizes power efficiency. In my first attempts, I just disabled the display driver and did not care about the LDO. This lowered consumption from *9mA* to *373uA*:
 
 <img src="images/lilygo_t_display_deep_sleep_consumption_cycle_platformio.png" width="100%" height="100%" />
 
-The graph shows that the board consumes only *373uA* in *deep sleep*. This is the best you can get with *T-Display* - even directly programmed c++ code on *platformio* does not perform better:
+Then [Laurent](https://github.com/lhac5vet) pointed me to the LDO issue, and this saved another *80uA*, bringing down the deep sleep consumption to *295uA*:
 
+<img src="images/liligo_tdisplay_optimized.png" width="100%" height="100%" />
 
-<img src="images/lilygo_t_display_deep_sleep_consumption_platformio.png" width="100%" height="100%" />
+*295uA* admittedly still isn't awesome: *DFRobots* [FireBeetles](https://www.dfrobot.com/product-1590.html) just take *20uA*, for example. However, given the affordable price and the overall package, *<300uA* deep sleep power consumption is working very well for most battery-operated projects, and just a few lines of code extended deep sleep battery capacity from a month to almost three years.
+
 
 ## Invoking Deep Sleep
 Deep sleep can now be invoked manually, automatically, and even remotely. The *reason* why the board entered *deep sleep* is published via a `text_sensor:`:
@@ -924,6 +959,8 @@ script:
           // Send display to sleep before deep sleep
           uint8_t command = 0x10;  // Your command
           id(display1).command(command);
+          // Turn off LDO for another 80uA savings 
+          id(vbat_ldo_pwren).turn_off();
       - delay: 120ms    
       # send esp32 to deep sleep:
       - deep_sleep.enter: deep_sleep_control
@@ -1007,6 +1044,15 @@ switch:
     id: button2_switch
     icon: "mdi:toggle-switch-outline"
     optimistic: true
+
+  # GPOI14 set as output to control the PWR_EN of the LDO chip
+  # GPIO14 = 0 : LDO Off
+  # GPIO14 = 1 : LDO On (used to measure the current battery voltage)
+  - platform: gpio
+    pin: GPIO14
+    name: "VBAT LDO Power Enable"
+    id: vbat_ldo_pwren
+    inverted: true
 
 binary_sensor:
   # Home Assistant API connectivity

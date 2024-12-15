@@ -48,3 +48,5 @@ Here is a quick orientation:
 
 
 > Tags: FDM, Filament, PLA, PETG, PVA, PVB, ABS, PP, HIPS, ASA, TPU
+
+[Visit Page on Website](https://done.land/tools/devices/3dprinter/filament?994179121914241744) - created 2024-12-13 - last edited 2024-12-13
