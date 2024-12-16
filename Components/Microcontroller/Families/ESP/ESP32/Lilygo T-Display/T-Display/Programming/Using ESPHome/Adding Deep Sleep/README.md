@@ -2,7 +2,7 @@
  
 # Adding Deep Sleep To T-Display
 
-> Turning Off Battery-Driven T-Displays By Using Deep Sleep And Wakeup
+> Using Efficient Deep Sleep With Battery-Driven T-Display Boards
 
 
 [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) is optimized for portable battery operations: at an average power consumption of *130mA*, it can  run short of 8 hours at full power from a *1.000 mAh* battery. 

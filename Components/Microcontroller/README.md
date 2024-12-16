@@ -116,7 +116,7 @@ For projects requiring more server power than a *Raspberry Pi* can provide, user
 ## Development Boards
 Development boards are *ready-to-use* PCBs that integrate a *microcontroller* with essential components such as a *voltage regulator* and a *Serial-to-USB bridge*. They simplify the process of working with microcontrollers by providing an accessible platform for programming and development.
 
----
+
 
 ### Originals and Clones
 
@@ -151,7 +151,7 @@ The quality of *clones* varies significantly depending on the manufacturer. Whil
 
 > **Tip**: Consider the cost of *ten units* when comparing prices between originals and clones. For large-scale DIY projects, clones may offer significant savings.
 
----
+
 
 ### Ethical Considerations
 
