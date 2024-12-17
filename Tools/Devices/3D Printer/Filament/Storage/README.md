@@ -1,4 +1,4 @@
-<img src="/assets/images/devices_happy.png" width="80%" height="80%" />
+ <img src="/assets/images/devices_happy.png" width="80%" height="80%" />
  
 # Filament Storage
 
@@ -6,11 +6,11 @@
 
 Most filament spools come in airtight bags to protect them from moisture. When you open such packaging—or if the filament wasn’t delivered in a sealed, airtight bag in the first place—follow these simple guidelines to prevent your filament from degrading.
 
-
+<img src="images/filament_original_pack_t.png" width="40%" height="40%" />
 
 ## Overview
 
-Most filament materials are, to some degree, *hygroscopic*—they absorb moisture from the surrounding air over time. Wet filament can lead to degraded print quality, including stringing, bubbling, or weak layers.
+Most filament materials are, to some degree, *hygroscopic*—they absorb moisture from the surrounding air over time. Wet filament can lead to degraded print quality, including stringing, bubbling, or weak layers which is why you should make sure your filament is kept in low humidity.
 
 There are varying approaches to managing filament storage:
 
@@ -69,11 +69,73 @@ Passive drying prevents moisture absorption using desiccants, like silica gel, w
 
 **Ideal Conditions**: Maintain relative humidity (RH) below 30% and temperature between 15–25°C.
 
+Quality sellers ship their spools in airtight plastic bags and include small silica gel packs. **Do not throw these away.** They are designed to attach to your print spools and help keep humidity levels low, particularly when you store the spools in an enclosed container:
+
+<img src="images/silica_bag_small_t.png" width="30%" height="30%" />
+
+### Bulk Silica Gel
+
+You can also purchase silica gel in bulk for larger-scale humidity control:
+
+<img src="images/silica_bag_t.png" width="50%" height="50%" />
+
+Silica gel is often **color-coded** to indicate its moisture level. It starts **orange** when dry and turns **blueish** once saturated. To regenerate it, heat the silica gel to *100-120°C* in an oven until it dries out.
+
+### DIY Silica Containers
+
+Many electronic components, such as displays and boards, come in small plastic containers that can be repurposed as **silica gel holders**. To make one:
+
+1. Ensure the container is large enough to hold **20g to 50g** of silica gel.
+2. Drill a large number of **ventilation holes** into the container. The holes should be smaller than the silica gel pieces to prevent spillage.
+
+<img src="images/silica_case_selfmade_t.png" width="50%" height="50%" />
+
+These DIY containers can be placed into the **AMS (Automatic Material System)** of your printer or any storage solution you use. Alternatively, consider **plastic filament storage boxes**. Generic plastic cereal boxes work well too:
+
+<img src="images/filament_store_placement_top_t.png" width="80%" height="80%" />
+
+### Monitoring Storage Conditions
+
+To monitor humidity effectively, add a **cheap electronic hygrometer** to your storage box. This allows you to keep an eye on the humidity level and ensure optimal conditions for your filament.
+
+For added convenience, you can install a **ball-bearing filament support** and create a small hole with a tube in the box's cover. This setup allows you to feed filament directly to the printer while keeping the spools in low-humidity storage conditions:
+
+<img src="images/filament_store_hygrometer_t.png" width="80%" height="80%" />
+
+## Active Drying
+
+If filament has absorbed moisture, **active drying** uses **heat** to remove it.
+
+> [!IMPORTANT]
+> Once filament has absorbed significant moisture, you can no longer rely on **passive drying** with silica gel. At normal room temperatures, the diffusion process is not strong enough to effectively remove the moisture trapped in the filament. You now need to *add heat* to remove the moisture.
 
 
-### Active Drying
 
-When filament has absorbed moisture, *active drying* uses heat to remove it. Ensure the drying temperature stays below the filament’s glass transition temperature (Tg) to prevent softening or deformation.
+You can dry filament in any controlled hot environment as long as the air temperature stays below the filament's **glass transition temperature (Tg)** to prevent softening or deformation which would permanently damage your filament and render it unusable.
+
+Common methods include:
+
+- **Ovens**
+- **Food dehydrators**
+- even **Saunas** are sometimes used
+
+However, these methods often have limitations. Most ovens and food dehydrators **lack precise temperature control**, which can lead to uneven or ineffective drying. Additionally, such setups can be inconvenient for regular use and often are highly energy inefficient.
+
+### Dedicated Filament Dryers
+
+To address these challenges, **dedicated filament dryers** are available. These devices come in various shapes and sizes and heat just as much room as is required to store the filament spool(s) you want to dry: some models can dry just **one spool** at a time, while others can handle **two or even four spools** simultaneously:
+
+<img src="images/filament_dryer2_t.png" width="70%" height="70%" />
+
+### Advantages of Filament Dryers
+
+1. **Precision:** Filament dryers often include pre-programmed temperature settings for different filament types, eliminating the need to remember drying temperatures, and can maintain this temperature very precisely.
+2. **Convenience:** Many models come with a built-in **timer**, allowing for automated drying cycles.
+3. **Continuous Protection:** Most filament dryers allow you to **feed filament directly** from the dryer to the printer. This ensures the filament remains dry throughout the printing process.
+4. **Improved Print Quality:** Printing with pre-heated filament can enhance print quality, particularly at **faster print speeds**: pre-heated filament reduces the print head's workload, minimizes friction in the tubes, and ensures smoother extrusion.
+
+
+By combining proper storage, monitoring, and drying techniques, you can significantly extend the life of your filament and improve the quality of your 3D prints.
 
 #### Drying Temperature Recommendations
 

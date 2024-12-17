@@ -6,13 +6,28 @@
 
 The most popular and simplest-to-use 3D Printers use *FDM* technology: *Fused Deposition Modeling*. In FDM, a spool feeds thermoplastic **filament** through an extruder that heats, melts, and extrudes the plastic through a thin nozzle. So for a FDM 3D printer, *filament* is equivalent to *toner* in laser printers.
 
+<img src="images/filament_spool_used_open2_t.png" width="30%" height="30%" />
+
 ## Overview
 
-Filament is typically sold in spools of *1kg* and with a filament diameter of *1.75mm*. It is available in many different colors, can be shiny, transparent, or matte.
+Filament is typically sold in spools of *1kg* and with a filament diameter of *1.75mm*. It is available in many different colors, can be shiny, transparent, or matte. Quality sellers shrink-wrap spools in air-tight plastic bags to protect them from moisture.
 
-What's more important is the actual filament *material*: the most popular being *PLA* (polylactic acid) because it is affordable, requires relatively low temperatures to melt, and even beginners can produce great-looking results without the need of tweaking and optimizing settings. 
+<img src="images/filament_original_pack_t.png" width="50%" height="50%" />
 
-*PETG* (polyethylene terephthalate glycol, the same material that is used in one-way plastic bottles) is another very popular filament type which requires only slightly higher temperatures. It is even more affordable and has a better UV resistance (important for prints that are intended to be used out-doors). On the downside, *PETG* prints do not look as good as *PLA* prints: they are typically very shiny and often layer lines are clearly visible.
+Once you open the bag, you need to make sure you keep your filament dry. Most materials are *hygroscopic*, so they absorb humidity over time which can severely degrade print results. That's why it is crucial to [store your filament appropriately](https://done.land/tools/devices/3dprinter/filament/storage/).
+
+
+### Materials
+Filament can be made out of different plastic materials which influences the looks (shiny, matte, transparent), the strength, and the UV resistance. Each material has its own *melting point*, and it is important to print a material at the correct temperature. If the temperature is too low, the filament does not melt in the print head, causing clogging and interrupted prints. If the temperature is too high, the filament gets too soft, causing stringing and bad print results.
+
+#### PLA
+
+The most popular material is *PLA* (polylactic acid) because it is affordable, requires relatively low temperatures to melt (so it works in cheap printers, too), and beginners can produce great-looking results right away without the need of tweaking and optimizing a lot of print settings. 
+
+
+#### PETG
+
+*PETG* (polyethylene terephthalate glycol is the same material that is used in one-way plastic bottles. It is another very popular filament type which requires only slightly higher temperatures. It is even more affordable and has a better UV resistance (important for prints that are intended to be used out-doors). On the downside, *PETG* prints do not look as good as *PLA* prints: they are typically very shiny and often layer lines are clearly visible.
 
 
 ## Filament Materials
