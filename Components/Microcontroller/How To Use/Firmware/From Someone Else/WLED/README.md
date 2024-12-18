@@ -16,7 +16,7 @@ You do not need to have any programming experience or specialized tools. A web-b
 
 In this project, I demonstrate the power of cheap **ESP32** microcontroller boards and guide you through all the steps to convert an **ESP32 C3 SuperMini** and an **8x8 WS2812 RGB Matrix Panel** into a fun light-effect cube.
 
-<img src="images/wled_battery_cube_overview_t.png" width="60%" height="60%" />
+<img src="images/wled_proj_simple_colors6_t.png" width="60%" height="60%" />
 
 > [!TIP]
 > You can use any other **ESP32** development board and hook up any programmable RGB light source, including **LED strips**. Just follow the same steps, and swap in the components you want to use instead.
@@ -40,7 +40,7 @@ Here is a quick overview of what to expect in this project:
 1. **Install WLED Firmware:** Learn how to upload the **WLED** firmware easily using a USB cable and your browser.
 2. **Configure WLED:** Connect to the **WLED access point** with a smartphone and adjust the most important settings. This includes how to adapt for different **ESP boards**, **LED light sources**, or **LED strips**.
 3. **Soldering:** Learn how to connect programmable LEDs to your microcontroller board using just three wires.
-4. **Final Product:** Use the provided **STL files** to 3D-print a housing and assemble the components. If you don’t have a 3D printer, you can mount the setup on any surface.
+4. **Assembly:** Use the provided **STL files** to 3D-print a housing and assemble the components. If you don’t have a 3D printer, you can mount the setup on any surface.
 
 ---
 
@@ -93,7 +93,7 @@ Next:
 
     <img src="images/wled_install7.png" width="40%" height="40%" />
 
-## 2. Connecting Wirelessly to the Microcontroller
+## 2. Connecting to Microcontroller
 
 Now that the *WLED firmware* is running on your microcontroller, you can connect to it wirelessly to review and edit all of its settings.
 
@@ -120,7 +120,7 @@ Alternatively, you can manually navigate to **http://4.3.2.1** using your smartp
 > [!TIP]
 > If the *Captive WLAN* window appears, you can close it and manually navigate to **4.3.2.1** in your browser for a better interface. Note that the website will be marked as "not secure" because it uses *http* instead of *https*. This is intentional since encryption would unnecessarily burden the microcontroller, and the data transferred is not sensitive.
 
-## 3. Configure WLED
+## 3. Configuring WLED
 
 Now that you're connected to the microcontroller, let's review the key settings. You can access these settings in two ways:
 
@@ -168,13 +168,18 @@ Under *Strip or panel*, select *2D Matrix*, then click *Save*.
 Finally, navigate to the *Security & Update* section. Ensure you enable *Lock wireless (OTA) software updates* to prevent unauthorized firmware uploads. When this option is unchecked, others could potentially upload new firmware to your device:
 
 <img src="images/wled_app_config_13.png" width="40%" height="40%" />
-## 4. Connecting the Microcontroller and LEDs
+
+
+## 4. Assembly
 
 Let’s connect the microcontroller to the LEDs. This process is straightforward and requires only three wires:
+
 
 <img src="images/wled_proj_simple_schematics.png" width="100%" height="100%" />
 
 In this setup, the microcontroller’s USB connection powers the entire device. The *data output* from the microcontroller’s **GPIO2** is connected to the **IN** pin on the LED panel (**do not confuse** this with the **OUT** pin, which serves a different purpose).
+
+
 
 ### Caveats
 
@@ -203,10 +208,84 @@ Always connect the microcontroller’s *GPIO2* (or the GPIO configured in your *
 
 > [!TIP]
 > The **OUT** pin is useful for daisy-chaining multiple matrix panels. Essentially, a *2D LED panel* functions as a long *LED strip* folded into slopes. Connect the **OUT** pin of the first panel to the **IN** pin of the second. Update your *WLED settings* to increase the total LED count (e.g., from 64 to 128 for two panels) and adjust the *2D Configuration* for the desired geometry (e.g., stacked horizontally or vertically).
+### Wiring
+
+Start by soldering three wires to the three pins of the programmable *LED Matrix* or *LED Strip*. Make sure you solder them *to the beginning* of the strip, not the end. In the case of a matrix, make sure you use the pins with the *IN* connection, not the *OUT* connection.
+
+<img src="images/wled_proj_simple_cable_t.png" width="100%" height="100%" />
+
+> [!TIP]
+> Adjust the lengths of the cables to match the location where you want to mount the microcontroller board. You can glue the board directly to the LED panel. Just make sure you use some kind of insulation so that no contacts from the microcontroller board can connect to the many contact holes on the LED panel's backside. Plan ahead and consider the type of housing you intend to use. If you plan to use the *3D printed housing below*, the microcontroller needs to be placed halfway between the solder pads.
+
+Next, connect the other ends of the wires to your microcontroller board according to the table and schematics above.
+
+<img src="images/wled_proj_simple_solder1_t.png" width="100%" height="100%" />
+
+
+
+### Test Run
+
+Once you connect the microcontroller to power by plugging in a USB cable, the LED matrix should start to glow orange. This is the default behavior. If the LED matrix stays dark, something is amiss.
+
+> [!TIP]
+> If the LED panel does not light up, measure the voltage at pins **5V** and **G**, and verify that you can measure **5V**. Ensure the data cable is connecting pin **2** on the microcontroller to the **IN** pin on the LED panel. Double-check that you did not accidentally connect to **OUT** instead. Finally, connect to the device and access the WLED configuration (see the initial section). Ensure you did not change the *GPIO assignment*, and if you did intentionally, confirm your assigned GPIO matches the GPIO connected to the data cable. Keep in mind that pin labels like **D2** on some microcontrollers are not identical to **GPIO 2**.
+
+In the *WLED control panel*, you can now use the color wheel to change the color:
+
+<img src="images/wled_app_config_7.png" width="40%" height="60%" />
+
+When you click *Effects* in the bottom icon bar, you’ll see a long list of predefined animated effects to choose from.
+
+> [!TIP]
+> After selecting an effect, return to the *Colors* page. You can now set the color(s) of the effect. If the effect has just one adjustable color, you’ll see the round icon "Fx" only. If the effect supports a secondary color, you’ll also see an icon labeled "Bg" (for *Background*). Click either one to assign a color.
+
+Once you turn off the device (by unplugging the USB cable), it "forgets" all settings and starts with a solid orange color again the next time. To have it start with a specific effect, save your effect settings by clicking *Presets* and adding a new preset.
+
+Each preset gets a number, and the first preset you define has ID *1*. By default, this preset is launched after boot. In the settings, you can adjust this behavior.
+
+### Housing
+
+For increased ruggedness and safety, mount your components in a housing. If you have a *3D printer*, you can [print the housing I used](materials/led_matrix_mount_for_wled.stl):
+
+<img src="images/wled_proj_mount_simple2_t.png" width="40%" height="60%" />
+
+Place the microcontroller board into the designated recess in the mount. Use insulation tape to cover the flat backside of the microcontroller board, ensuring none of its exposed areas can contact the LED panel's backside. Then, carefully place the LED panel on top of it. The panel serves as a protective cover and secures the microcontroller board in place.
+
+The LED panels I’ve used have six mounting holes, and the 3D-printed mount has corresponding screw holes. Use six *M2* screws to secure the LED panel to the mount.
+
+<img src="images/wled_proj_mount_simple_withmatrix1_t.png" width="40%" height="60%" />
+
+Once the LED panel is securely fastened, you’ll have a solid and rugged device. Plug in a USB-C cable to test it.
+
+<img src="images/wled_proj_simple_colors5_t.png" width="40%" height="60%" />
+
+### Transparent Cover
+
+The *WS2812* LEDs look best uncovered, but tastes vary, and you may prefer extra protection. That’s why I designed an optional [clickable cover plate](materials/led_matrix_mount_for_wled_cover.stl).
+
+<img src="images/wled_proj_simple_transparent_cover.png" width="60%" height="60%" />
+
+When you print this cover with transparent *PETG* filament, it will snap into place easily and ensure nothing can accidentally spill into or grab the device.
+
+Since typical *FDM 3D Printers* cannot produce fully transparent prints, the cover will have a "milky" appearance. Photos don’t fully capture the effect, so try it yourself to see which version you prefer.
+
+> [!TIP]
+> If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. I experimented with *PVB* filament, which can be smoothed with alcohol, but this led to my P1S printer becoming clogged. I had to disassemble the entire print head, remove hardened PVB residue from the nozzle, and clean the extruder gearbox, which had glued-down gears. This cost me 3 hours, but the good thing is that I now know in detail how a print head and extruder works.
+
+
+
+
+
+
+
+
+<img src="images/wled_proj_simple_colors10_t.png" width="60%" height="60%" />
+
 
 ## Materials
 
 [STL file for WLED Matrix Mount](materials/led_matrix_mount_for_wled.stl)
+[STL file for WLED Matrix Mount Clickable Cover](materials/led_matrix_mount_for_wled_cover.stl)
 
 > Tags: WLED, WS2812, C3 SuperMini, Matrix, LED Matrix
 

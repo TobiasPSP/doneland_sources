@@ -57,24 +57,6 @@ There are different *firmware versions*, targeting *ESP32* microcontrollers with
 > [!CAUTION]
 > *Source code* is *hardware neutral*. Once it gets *compiled into a binary* by an *IDE*, it is converted into a *hardware-specific* firmware. This *firmware* can now only be used on the particular hardware (microcontroller board) that was specified during compile time. When you take the shortcut and directly upload *pre-fabricated firmware*, you must be certain that it was indeed made for *your particular microcontroller and board*. Else, the firmware will not run (correctly).
 
-## Special Purpose Firmware
-
-*Special Purpose Firmware* targets a *highly specific use case*. Within this use case, the firmware allows you to *customize and tailor* the solution *to your needs* using various *web interfaces* and/or *smartphone apps*. The already mentioned [WLED](https://kno.wled.ge/) firmware is an example, and there are many more.
-
-### CO2 Sensor
-
-[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) turns a *CO2 sensor* into a *smartphone app*. It runs on any *ESP32* microcontroller and comes with a web browser-based *firmware flashing tool*.
-
-The most challenging part is often locating the correct links: the [authors' web page](https://emariete.com/en/co2-meter-gadget/) is vast and not very well-structured. Links to the browser-based firmware uploads are somewhere in the middle of it.
-
-<img src="images/co2meter.png" width="100%" height="100%" />
-
-There are different *firmware versions* targeting *ESP32* microcontrollers with different *displays* attached to them.
-
-> [!CAUTION]
-> *Source code* is *hardware neutral*. Once it gets *compiled into a binary* by an *IDE*, it is converted into a *hardware-specific* firmware. This *firmware* can only be used on the particular hardware (microcontroller board) that was specified during compile time. If you directly upload *pre-fabricated firmware*, ensure it was made for *your particular microcontroller and board*. Otherwise, the firmware may not run correctly or at all.
-
-
 
 ## Programmable Firmware
 
@@ -92,13 +74,13 @@ Unlike interpreters, *ESPHome* produces firmware that runs as efficiently and qu
 
 ### Interpreters
 
-Most script languages designed for microcontrollers are primarily used in educational environments or to play with microcontrollers. 
+Most interpreters designed for microcontrollers are primarily used in educational environments or to play with microcontrollers. 
 
-Script languages powerful enough to be of interest to the industry typically require full-blown computers (e.g., *Python*, which needs a *PC* or *Raspberry Pi*).
+Interpreters powerful enough to be of interest to the industry typically require full-blown computers (e.g., *Python*, which needs a *PC* or *Raspberry Pi*).
 
 Efforts have been made to create optimized script languages like *MicroPython* that run on small microcontrollers. However, the trend today is toward frameworks like [ESPHome](https://done.land/tools/software/esphome/introduction/), which is just as simple to use as a script language, but much more powerful, producing clean binary firmware files.
 
-For completeness, here's an overview of interpreters commonly used with microcontrollers.
+For completeness, here's an overview of interpreters that can be used with small microcontrollers.
 
 #### LUA
 
