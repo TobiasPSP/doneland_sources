@@ -6,19 +6,19 @@
 
 You don't necessarily need to be a *programmer* to play with *microcontrollers*. Simply grab some *pre-made* firmware from someone else, and use it on your microcontroller - done!
 
-For example, grab an affordable *ESP32 microcontroller board* and a cheap *8x8 WS2812 LED matrix panel*, and upload the awesome *WLED firmware* to your microcontroller - right from within your browser.
+For example, get an affordable *ESP32 microcontroller board* and a cheap *8x8 WS2812 LED matrix panel*, and upload the awesome *WLED firmware* to your microcontroller - right from within your browser.
 
 With just three wires and very limited soldering expertise, you can create this color cube with a rich list of selectable light effects:
 
 <img src="images/wled_battery_cube_overview_t.png" width="60%" height="60%" />
 
-All required parts cost less than €10 in total, and the project takes just a few minutes:
+All required parts cost less than €10 in total, and the project takes just half an hour:
 
 [Here is everything you need to build your own color cube](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled).
 
 ## Overview
 
-Using *firmware* that was made by someone else obviously puts *someone else* in full *control*: the *firmware* you choose does whatever its author *programmed it to do*.
+Using *firmware* that was made by someone else puts *someone else* in full *control*: the *firmware* you choose does whatever its author *programmed it to do*.
 
 That's not as limiting as it might initially seem:
 
@@ -62,13 +62,9 @@ There are different *firmware versions*, targeting *ESP32* microcontrollers with
 
 The classic type of *programmable* firmware is *interpreters*. Interpreters can understand *script languages*, allowing users to avoid low-level programming and instead focus on the actions the microcontroller should perform.
 
-An interpreter translates the script instructions submitted by the user into actual machine code executed by the microcontroller.
+An interpreter translates the script instructions submitted by the user into actual machine code executed by the microcontroller. While interpreters simplify programming, scripts are generally limited, and interpreters introduce overhead that can increase energy consumption and execution time.
 
-While interpreters simplify programming, scripts are generally limited, and interpreters introduce overhead that can increase energy consumption and execution time.
-
-To address these limitations, frameworks like [ESPHome](https://done.land/tools/software/esphome/introduction/) have emerged. These frameworks use *configurations* to describe desired states or behaviors. These configurations are then compiled into a binary firmware file.
-
-Unlike interpreters, *ESPHome* produces firmware that runs as efficiently and quickly as if it had been manually programmed in *C++*.
+To address these limitations, frameworks like [ESPHome](https://done.land/tools/software/esphome/introduction/) have emerged. These frameworks use *configurations* to describe desired states or behaviors. These configurations are then compiled into a binary firmware file. Unlike interpreters, *ESPHome* produces firmware that runs as efficiently and quickly as if it had been manually programmed in *C++*.
 
 
 

@@ -249,9 +249,12 @@ For increased ruggedness and safety, mount your components in a housing. If you 
 
 <img src="images/wled_proj_mount_simple2_t.png" width="40%" height="60%" />
 
+> [!TIP]
+> I used *Sunlu PLA* in *black matte* which produced a beautiful housing. *PETG* turned out to be too shiny. It generally has an inferior print quality when compared to *PLA*, with much more visible layer lines.
+
 Place the microcontroller board into the designated recess in the mount. Use insulation tape to cover the flat backside of the microcontroller board, ensuring none of its exposed areas can contact the LED panel's backside. Then, carefully place the LED panel on top of it. The panel serves as a protective cover and secures the microcontroller board in place.
 
-The LED panels I’ve used have six mounting holes, and the 3D-printed mount has corresponding screw holes. Use six *M2* screws to secure the LED panel to the mount.
+The LED panels I’ve used have six mounting holes, and the 3D-printed mount has corresponding screw holes. Use six *M2* screws to secure the LED panel to the mount (probably two screws will also work).
 
 <img src="images/wled_proj_mount_simple_withmatrix1_t.png" width="40%" height="60%" />
 
@@ -265,21 +268,32 @@ The *WS2812* LEDs look best uncovered, but tastes vary, and you may prefer extra
 
 <img src="images/wled_proj_simple_transparent_cover.png" width="60%" height="60%" />
 
-When you print this cover with transparent *PETG* filament, it will snap into place easily and ensure nothing can accidentally spill into or grab the device.
-
-Since typical *FDM 3D Printers* cannot produce fully transparent prints, the cover will have a "milky" appearance. Photos don’t fully capture the effect, so try it yourself to see which version you prefer.
-
-> [!TIP]
-> If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. I experimented with *PVB* filament, which can be smoothed with alcohol, but this led to my P1S printer becoming clogged. I had to disassemble the entire print head, remove hardened PVB residue from the nozzle, and clean the extruder gearbox, which had glued-down gears. This cost me 3 hours, but the good thing is that I now know in detail how a print head and extruder works.
-
-
-
-
+When you print this cover with transparent *PETG* or *PLA* filament, it will snap into place easily and ensure nothing can accidentally spill into or grab the device.
 
 
 
 
 <img src="images/wled_proj_simple_colors10_t.png" width="60%" height="60%" />
+
+
+Since typical *FDM 3D Printers* cannot produce fully transparent prints, the cover has a "milky" appearance. Photos don’t fully capture the effect, try it yourself and see which version you prefer. 
+
+The results with transparent *PLA* were marginally smoother than those with *PETG* but not significant enough to justify the higher cost. Given the higher temperature and UV resistance, *PETG* seems the better choice for the cover.
+
+> [!TIP]
+> If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. I experimented with *PVB* filament, which can be smoothed with alcohol, but this led to my P1S printer becoming clogged in almost every possible place. I had to disassemble the entire print head, remove hardened PVB residue from the nozzle, and clean the extruder gearbox, which had glued-down gears. This cost me 3 hours, but I now know by heart how the Bambu print head and extruder work.
+
+
+#### Thoughts
+
+Since you can't easily produce a fully transparent cover anyway, I experimented with other materials and colors. 
+
+A misprint turned out to be revealing: I accidentally printed one cover in *PETG Gray*. As it turns out, even normal *PETG* is fairly transparent. This gray cover seems solid when the panel is off, but then miraculously shows bright light effects when the panel is turned on. Obviously, such a cover requires you to set the LEDs to full brightness. White covers may also look great (will try as soon as I start a new white spool).
+
+> [!NOTE]
+> To spare you the time: *PLA Black Matte* is absolutely non-transparent. *PETG* seems to be the way to go for covers.
+
+
 
 
 ## Materials
