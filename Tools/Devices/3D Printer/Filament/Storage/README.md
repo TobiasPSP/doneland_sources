@@ -1,4 +1,4 @@
- <img src="/assets/images/devices_happy.png" width="80%" height="80%" />
+<img src="/assets/images/devices_happy.png" width="80%" height="80%" />
  
 # Filament Storage
 
