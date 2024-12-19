@@ -6,6 +6,17 @@
 
 This is my new favorite microcontroller board whenever space is restricted. This tiny board fits even into the smallest devices and still provides ten fully usable GPIOs. 
 
+
+
+<img src="images/c3_anglefront_overview_t.png" width="30%" height="30%" />
+
+It is compatible with all *ESP32* development environments, [ESPHome](https://done.land/tools/software/esphome/introduction/), and you can directly upload open-source firmware made for *ESP32*, like [WLED](https://kno.wled.ge/). 
+
+[Here is an example](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/) that shows how you can use the *ESP32 C3 SuperMini* and a *8x8 WS2812 LED Panel* to create an awesome colorful light cube - without any programming and just three short wires:
+
+
+<img src="images/wled_proj_simple_gray6_t.png" width="50%" height="50%" />
+
 ## Overview
 
 The *ESP32 C3 SuperMini* is energy efficient, widely available and very affordable, and both its computational power and its 4MB flash size are more than sufficient for most DIY projects. I have replaced *Arduinos* and *ESP8266* with this board in most of my new projects. 
@@ -14,8 +25,6 @@ When more than 10 GPIOs are needed, or when a *dual core* is required for comput
 
 
 
-
-<img src="images/c3_anglefront_overview_t.png" width="50%" height="50%" />
 
 Here are the *ESP32 C2 SuperMini* benefits:
 

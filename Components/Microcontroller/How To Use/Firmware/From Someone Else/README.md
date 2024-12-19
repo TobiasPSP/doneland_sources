@@ -10,19 +10,19 @@ For example, get an affordable *ESP32 microcontroller board* and a cheap *8x8 WS
 
 With just three wires and very limited soldering expertise, you can create this color cube with a rich list of selectable light effects:
 
-<img src="images/wled_battery_cube_overview_t.png" width="60%" height="60%" />
+<img src="images/wled_proj_simple_gray6_t.png" width="50%" height="50%" />
 
-All required parts cost less than €10 in total, and the project takes just half an hour:
+All required parts cost less than €10 in total, the project takes just half an hour to build, and no fancy knowledge, special tools or expert soldering skills are required:
 
 [Here is everything you need to build your own color cube](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled).
 
 ## Overview
 
-Using *firmware* that was made by someone else puts *someone else* in full *control*: the *firmware* you choose does whatever its author *programmed it to do*.
+Using *firmware* that was made by someone else puts *someone else* in full *control* of your device: the *firmware* you choose does whatever its author *programmed it to do*.
 
 That's not as limiting as it might initially seem:
 
-- **Special Purpose Firmware:** Firmware like *WLED* is *highly specific* and controls *LED strips*. The author added a wireless interface accessible from your smartphone, plus so many options and features that you can tailor the firmware completely to your needs. Whether you want ambient lighting, a flashing emergency light, or intricate LED strip control, pre-defined firmware allows your microcontroller to handle these tasks without requiring you to write any code.
+- **Special Purpose Firmware:** Firmware like [WLED](https://kno.wled.ge/) is *highly specific* and controls *LED strips* and [matrix panels](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/). The author added a wireless interface accessible from your smartphone, plus so many options and features that you can tailor the firmware completely to your needs. Whether you want ambient lighting, a flashing emergency light, or intricate LED strip control, pre-defined firmware allows your microcontroller to handle these tasks without requiring you to write any code.
 
 - **Adjustable Firmware:** Firmware like *ESPEasy* and [EspHome](https://done.land/tools/software/esphome/introduction/) takes care of all the complex aspects, such as implementing a *web interface* or enabling *over-the-air updates* (*OTA*). This type of firmware isn't tailored to a single purpose. Instead, it offers customizable options through graphical interfaces or configuration files (e.g., YAML). This flexibility enables you to create *specific solutions* without directly writing *C++* code.
 

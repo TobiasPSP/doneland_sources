@@ -16,7 +16,9 @@ You do not need to have any programming experience or specialized tools. A web-b
 
 In this project, I demonstrate the power of cheap **ESP32** microcontroller boards and guide you through all the steps to convert an **ESP32 C3 SuperMini** and an **8x8 WS2812 RGB Matrix Panel** into a fun light-effect cube.
 
-<img src="images/wled_proj_simple_colors6_t.png" width="60%" height="60%" />
+
+<img src="images/wled_proj_simple_gray6_t.png" width="60%" height="60%" />
+
 
 > [!TIP]
 > You can use any other **ESP32** development board and hook up any programmable RGB light source, including **LED strips**. Just follow the same steps, and swap in the components you want to use instead.
@@ -142,11 +144,23 @@ In this section, you can rename the *WLAN access point* from **WLED-AP** to a cu
 > [!IMPORTANT]
 > Since communications are unencrypted, avoid using sensitive passwords that you also use for other purposes.
 
+If you do not connect your device to your home *WiFi*, it automatically opens its own *WiFi Hotspot*. This works best for me: when I really need to contact the device, I temporarily connect to this hotspot. This works great.
+
+Should you want to connect more frequently, switching *WiFi networks* may be cumbersome, in which case you can join the device to your home *WiFi* network (go to *WiFi Settings*).
+
+Now you need to know either the *IP address* or the *device DNS name* to reach it, though. By default, *WLED* uses *mDNS* device names and assigns a random name like *wled-dXXXXX.local* ("X" being numbers). You can change the device name in the devices' *WiFi Settings*. That's a good thing because in most *WiFi networks*, *IP addresses* are dynamically assigned via *DHCP* and can change.
+
+However ingenious the idea of *mDNS* is, the sad fact is that *mDNS* often does not work. Most problems arise once your *WiFi* network is connected to a wired network in which case *mDNS* name resolution simply fails. 
+
+If this occurs, assign a *fixed IP address* to your device so it won't randomly change and you always know its address when you want to connect to it.
+
 ### LED Preferences
 
-Here, you define the type of *LEDs* connected to your microcontroller. For this project, we’re using a *8x8 LED Matrix Panel* with 64 programmable *WS2812* LEDs.
+Define the type of *LEDs* connected to your microcontroller. 
 
-Although a matrix is laid out in 2D, it functions like a wrapped *LED strip*. Therefore, the total number of LEDs (64) should be entered in the *Length* field.
+For this project, we’re using a *8x8 LED Matrix Panel* with 64 programmable *WS2812* LEDs. Although a matrix is laid out in 2D, it functions like a wrapped *LED strip*. Therefore, the total number of LEDs (64) should be entered in the *Length* field.
+
+If you want to control a classic LED strip instead, enter the number of LEDs on that strip.
 
 > [!TIP]
 > If the LED colors don’t match the expected output, experiment with the *LED Type* and *Color Order* settings. For different ESP32 boards, adjust *Data GPIO* to match the pin controlling the LEDs. By default, this is set to *GPIO2*, which remains unchanged here.
@@ -157,22 +171,27 @@ Click *Save* at the top or bottom of the page to store your settings. You’ll t
 
 ### 2D Configuration
 
-When using a matrix instead of a simple LED strip, configure the *2D Configuration* settings:
+When using a matrix instead of a simple LED strip, change the *2D Configuration* settings:
 
 <img src="images/wled_app_config_10.png" width="40%" height="40%" />
 
 Under *Strip or panel*, select *2D Matrix*, then click *Save*.
 
+> [!TIP]
+> If you daisy-chain more than one matrix panel, in the lower part of the page you can define the physical arrangement of these panels (i.e. horizontally or vertically). With just one panel, you don't need to bother.
+
+
+
 ### Security & Update
 
-Finally, navigate to the *Security & Update* section. Ensure you enable *Lock wireless (OTA) software updates* to prevent unauthorized firmware uploads. When this option is unchecked, others could potentially upload new firmware to your device:
+Ensure you enable *Lock wireless (OTA) software updates* to prevent unauthorized firmware uploads. When this option is unchecked, others could potentially upload new firmware to your device:
 
 <img src="images/wled_app_config_13.png" width="40%" height="40%" />
 
 
 ## 4. Assembly
 
-Let’s connect the microcontroller to the LEDs. This process is straightforward and requires only three wires:
+Let’s now connect the microcontroller to the LEDs. This process is straightforward and requires only three wires:
 
 
 <img src="images/wled_proj_simple_schematics.png" width="100%" height="100%" />
@@ -264,41 +283,28 @@ Once the LED panel is securely fastened, you’ll have a solid and rugged device
 
 ### Transparent Cover
 
-The *WS2812* LEDs look best uncovered, but tastes vary, and you may prefer extra protection. That’s why I designed an optional [clickable cover plate](materials/led_matrix_mount_for_wled_cover.stl).
+The *WS2812* LEDs look best uncovered, but tastes vary, and you may prefer extra protection. That’s why I have designed an optional [clickable cover plate](materials/led_matrix_mount_for_wled_cover.stl).
 
 <img src="images/wled_proj_simple_transparent_cover.png" width="60%" height="60%" />
 
-When you print this cover with transparent *PETG* or *PLA* filament, it will snap into place easily and ensure nothing can accidentally spill into or grab the device.
+Depending on which material you use to print it, you can achieve different effects:
 
+* **Transparent:** Transparent *PETG* or *PLA* produces a semi-transparent "milky" cover. With simple FDM 3D Printers, it is nearly impossible to print fully transparent objects. You may be able to improve transparency by tweaking settings and polishing. Note that *PLA* looked marginally better than *PETG*.
 
+    <img src="images/wled_proj_simple_colors10_t.png" width="50%" height="50%" />
 
+* **PVB:** This relatively new material can be smoothened with alcohol, and users report that this can create almost transparent objects. I experimented with *PVB* filament which led to my P1S printer becoming clogged in almost every possible place: I had to disassemble the entire print head, remove hardened PVB residue from the nozzle, and clean the extruder gearbox, which had glued-down gears. The printed result was more transparent than *PETG* but far from any "acrylic effect".
+* **Resin Printers:** If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. 
+* **Gray:** By accident, I printed one cover with *gray PETG*. To my surprise, this material was highly translucent even though it looks solid when the LEDs are off. You need to experiment as translucent effects are highly material-dependent. When I tried the same with *black PETG* from the same vendor, almost no light passed the cover. The *gray PETG* cover turned out to be my favorite choice: the device looks elegant when turned off, and once the LEDs are on, there is an awesome smoothing effect.
 
-<img src="images/wled_proj_simple_colors10_t.png" width="60%" height="60%" />
-
-
-Since typical *FDM 3D Printers* cannot produce fully transparent prints, the cover has a "milky" appearance. Photos don’t fully capture the effect, try it yourself and see which version you prefer. 
-
-The results with transparent *PLA* were marginally smoother than those with *PETG* but not significant enough to justify the higher cost. Given the higher temperature and UV resistance, *PETG* seems the better choice for the cover.
-
-> [!TIP]
-> If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. I experimented with *PVB* filament, which can be smoothed with alcohol, but this led to my P1S printer becoming clogged in almost every possible place. I had to disassemble the entire print head, remove hardened PVB residue from the nozzle, and clean the extruder gearbox, which had glued-down gears. This cost me 3 hours, but I now know by heart how the Bambu print head and extruder work.
-
-
-#### Thoughts
-
-Since you can't easily produce a fully transparent cover anyway, I experimented with other materials and colors. 
-
-A misprint turned out to be revealing: I accidentally printed one cover in *PETG Gray*. As it turns out, even normal *PETG* is fairly transparent. This gray cover seems solid when the panel is off, but then miraculously shows bright light effects when the panel is turned on. Obviously, such a cover requires you to set the LEDs to full brightness. White covers may also look great (will try as soon as I start a new white spool).
-
-> [!NOTE]
-> To spare you the time: *PLA Black Matte* is absolutely non-transparent. *PETG* seems to be the way to go for covers.
+    <img src="images/wled_proj_simple_gray1_t.png" width="45%" height="45%" />
 
 
 
 
 ## Materials
 
-[STL file for WLED Matrix Mount](materials/led_matrix_mount_for_wled.stl)
+[STL file for WLED Matrix Mount](materials/led_matrix_mount_for_wled.stl)     
 [STL file for WLED Matrix Mount Clickable Cover](materials/led_matrix_mount_for_wled_cover.stl)
 
 > Tags: WLED, WS2812, C3 SuperMini, Matrix, LED Matrix
