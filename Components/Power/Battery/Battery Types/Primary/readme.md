@@ -14,16 +14,32 @@ For low-power applications, such as sensors or microcontroller projects that spe
 
 Primary batteries are available in various standardized shapes and sizes to suit a wide range of devices.  
 
+The battery form factor is often classified as **LRXX**, where *XX* denotes a numeric value:
+
+* **L:** stands for *alkaline chemistry*
+* **R:** stands for *round (cylindrical) shape*
+
+Here is a list of common battery form factors and use cases:
+
 | **Form Factor** | **Description**                          | **Typical Uses**                        |  
 |------------------|------------------------------------------|-----------------------------------------|  
-| **AA (LR6)**    | Cylindrical, 50mm x 14mm                | Remote controls, toys, clocks          |  
-| **AAA (LR03)**   | Smaller cylindrical, 44mm x 10.5mm      | Compact devices like remotes, LED lights |  
-| **C (LR14)**     | Cylindrical, 50mm x 26mm                | Flashlights, larger toys               |  
-| **D (LR20)**     | Cylindrical, 61mm x 34mm                | High-power devices like lanterns       |  
+| **N (LR1)**   | Smaller cylindrical, 30.2mm x 12mm      | Small electronics, medical devices |  
+| **AAA (LR03)**   | Smaller cylindrical, 44mm x 10.5mm      | Compact devices like remotes, toys, clocks, LED lights |  
+| **AA (LR6)**    | Cylindrical, 50mm x 14mm                | Flashlights, cameras, toys          |  
+| **C (LR14)**     | Cylindrical, 50mm x 26mm                | Flashlights, radios, larger toys               |  
+| **D (LR20)**     | Cylindrical, 61mm x 34mm                | High-power devices like lanterns and flashlights      | 
+| **Button Cell (LR44)**     | Cylindrical, 11.6mm x 5.4mm                | Humidity sensors, electronic calipers      |  
 | **9V (PP3)**     | Rectangular, six 1.5V cells in series   | Smoke detectors, walkie-talkies        |  
 | **Coin Cells**   | Flat, small round batteries (e.g., CR2032) | Watches, key fobs, calculators         |  
 
+The larger a battery is, the more capacity it typically has, and the more energy it can supply. That's why the larger *AA* batteries are typically reserved for power-hungry applications whereas the smaller *AAA* batteries are used in less power consuming devices.
 
+Even within a given form factor, there can be tremendous differences in battery capacity, depending on the chemistry the battery uses, and individual quality factors. 
+
+Generally, when comparing battery quality, *weight* is a simple indicator of quality: the heavier a battery is, the more energy it can typically supply. Precise results can only be acquired with a [capacity tester](https://done.land/components/power/battery/batterytesters/) which would drain the battery and render it useless, so capacity testing non-rechargeable batteries makes only sense for testing (and wasting) one specimen to evaluate a battery type from a particular vendor.
+
+> [!IMPORTANT]
+> [Capacity Testers](https://done.land/components/power/battery/batterytesters/all-in-onetesters/single-batterytester/) are typically designed for testing *rechargeable* batteries, and often they come with a build-in charger. Make sure you understand the particular tester and disable its charging features before you test primary batteries.
 
 ## Chemistries  
 

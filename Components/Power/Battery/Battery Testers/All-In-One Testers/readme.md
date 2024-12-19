@@ -10,13 +10,18 @@ With a variety of models available, this section explores their capabilities and
 
 ![Battery Tester Overview](images/battery_tester_overview_t.png)
 
+> [!NOTE]
+> You can use these testers with non-rechargeable batteries as well, for example if you are curious about the overall quality of a particular vendor or battery series. Just be aware that a *discharge test* deplets the battery, so the specimen under test will be rendered useless after the test. Also **you must disable charging mode** with primary batteries so the tester won't try and re-charge a non-rechargeable battery.
+
+
+
 ## Overview
 
 Most test devices provide the following core features:
 
 * **Discharge Test:** Discharges a battery to a predefined (configurable) stop-voltage and logs the *mAh* (milliampere-hour) and *mW* (milliwatt-hour) capacity, making it easy to see how much usable energy a battery can deliver. While most batteries specify their total capacity in *mAh*, the true *energy capacity* is more accurately expressed in *mWh*, as this unit accounts for the voltage drop that occurs during discharge and is helpful when comparing different batteries.
-* **Charging and Test:** Fully charges a battery while logging the *mAh* and *mW* transferred to the battery. Charging is typically limited to *LiIon/LiPo* battery types due to the charger ICs used; *LiFePO₄* and other battery chemistries cannot be charged. 
-* **Auto-Testing:** Performs a complete test cycle, starting with fully charging the battery, then discharging it to determine capacity, and finally recharging it to prepare for use.
+* **Charging and Test:** Fully charges a battery while logging the *mAh* and *mW* transferred to the battery. Charging is typically limited to *LiIon/LiPo* battery types due to the charger ICs used; *LiFePO₄* and other battery chemistries cannot be charged. **Never use this mode with non-rechargeable batteries!**
+* **Auto-Testing:** Performs a complete test cycle, starting with fully charging the battery, then discharging it to determine capacity, and finally recharging it to prepare for use. **Never use this mode with non-rechargeable batteries!**
 * **Internal Resistance:** Measures the battery's *internal resistance* using a straightforward "multimeter method" (*DC Test*). Although this is not as precise as lab-grade methods, it’s useful for a quick estimate of battery health.
 * **External Connectors:** While many devices are tailored for specific battery types (e.g., *18650* cells) and include compatible holders, most also feature screw terminals or other connectors to support various battery types. This flexibility allows for testing multiple battery formats without additional equipment.
 
@@ -26,6 +31,7 @@ Most test devices provide the following core features:
 ### Additional Tips for Using Battery Testers
 * **For Accurate Readings**: Ensure the battery is correctly inserted, and allow a brief warm-up period for the tester.
 * **Testing Different Battery Chemistries**: Stick to the chemistries specified for the device to avoid inaccurate readings or potential damage. Lithium-based chemistries (LiIon, LiPo, LiFePO₄) tend to work best with these testers.
+* **Non-Rechargeable Batteries:** With non-rechargeable batteries, you may want to set the stop voltage to the lowest possible value to measure the total battery capacity. Make sure you are using a test mode that **does not involve automatic charging!**
 * **Interpreting Results**: High internal resistance or low capacity often indicates a battery near the end of its lifespan. Frequent full charge-discharge cycles may reduce battery life for certain chemistries.
 
 With these features and tips, you can make the most of your battery tester to gauge battery performance, identify counterfeit units, and extend the lifespan of quality batteries.

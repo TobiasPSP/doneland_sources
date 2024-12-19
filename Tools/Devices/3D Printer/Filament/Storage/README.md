@@ -90,13 +90,27 @@ Many electronic components, such as displays and boards, come in small plastic c
 
 <img src="images/silica_case_selfmade_t.png" width="50%" height="50%" />
 
-These DIY containers can be placed into the **AMS (Automatic Material System)** of your printer or any storage solution you use. Alternatively, consider **plastic filament storage boxes**. Generic plastic cereal boxes work well too:
+> [!TIP]
+> If you decide to place silica gel in an extra container, it is crucial to drill enough holes so that there is sufficient ventilation. The container in the picture managed to drop humidity in a plastic container at a rate of 5%/day, and even after 3 days, humidity in the container was still above 30% (so more holes are required). Pouring silica gel directly into the plastic container dropped humidity to around 10% in hours.
+
+These DIY containers can be placed into the **AMS (Automatic Material System)** of your printer or any storage solution you use. 
+
+
+#### Plastic Boxes
+
+Alternatively, consider **plastic filament storage boxes**. Generic plastic cereal boxes work well too:
 
 <img src="images/filament_store_placement_top_t.png" width="80%" height="80%" />
+
+> [!TIP]
+> With plastic boxes, you may want to fill silica gel right into it so it covers the ground, without bothering to place it into separate boxes. This works excellently, and due to the large surface area, humidity quickly drops to around 10%. Once the gel is eventually saturated (which is when it changes color and turns blueish), you can easily pour the silica into a container to regenerate it in an oven. 
 
 ### Monitoring Storage Conditions
 
 To monitor humidity effectively, add a **cheap electronic hygrometer** to your storage box. This allows you to keep an eye on the humidity level and ensure optimal conditions for your filament.
+
+> [!TIP]
+> Most cheap electronic humidity meters require one or two *LR44* button cells. They are not always included.
 
 For added convenience, you can install a **ball-bearing filament support** and create a small hole with a tube in the box's cover. This setup allows you to feed filament directly to the printer while keeping the spools in low-humidity storage conditions:
 
