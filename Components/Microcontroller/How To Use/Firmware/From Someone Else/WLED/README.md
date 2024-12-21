@@ -313,7 +313,7 @@ Depending on which material you use to print it, you can achieve different effec
 
     <img src="images/wled_proj_simple_colors1_t.png" width="45%" height="45%" />
 
-I provide you with two *STL* files for the cover: a [solid cover](materials/led_matrix_mount_for_wled_cover.stl), and a [cover with 8x8 3.5mm holes](materials/led_matrix_mount_for_wled_cover_hole.stl.stl).
+I provide you with two *STL* files for the cover: a [solid cover](materials/led_matrix_mount_for_wled_cover.stl), and a [cover with 8x8 3.5mm holes](materials/led_matrix_mount_for_wled_cover_hole.stl).
 
 
 <img src="images/wled_proj_simple_cover_hole_t.png" width="45%" height="45%" />
@@ -325,7 +325,7 @@ I provide you with two *STL* files for the cover: a [solid cover](materials/led_
 
 [STL file for WLED Matrix Mount](materials/led_matrix_mount_for_wled.stl)     
 [STL file for WLED Matrix Mount Clickable Cover (Solid)](materials/led_matrix_mount_for_wled_cover.stl)    
-[STL file for WLED Matrix Mount Clickable Cover (8x8 Holes)](materials/led_matrix_mount_for_wled_cover_hole.stl.stl)    
+[STL file for WLED Matrix Mount Clickable Cover (8x8 Holes)](materials/led_matrix_mount_for_wled_cover_hole.stl)    
 
 
 > Tags: WLED, WS2812, C3 SuperMini, Matrix, LED Matrix
