@@ -17,7 +17,7 @@ You do not need to have any programming experience or specialized tools. A web-b
 In this project, I demonstrate the power of cheap **ESP32** microcontroller boards and guide you through all the steps to convert an **ESP32 C3 SuperMini** and an **8x8 WS2812 RGB Matrix Panel** into a fun light-effect cube.
 
 
-<img src="images/wled_proj_simple_gray6_t.png" width="60%" height="60%" />
+<img src="images/wled_proj_simple_cover_compare3_t.png" width="80%" height="80%" />
 
 
 > [!TIP]
@@ -163,9 +163,18 @@ For this project, we’re using a *8x8 LED Matrix Panel* with 64 programmable *W
 If you want to control a classic LED strip instead, enter the number of LEDs on that strip.
 
 > [!TIP]
-> If the LED colors don’t match the expected output, experiment with the *LED Type* and *Color Order* settings. For different ESP32 boards, adjust *Data GPIO* to match the pin controlling the LEDs. By default, this is set to *GPIO2*, which remains unchanged here.
+> If the LED colors don’t match the expected output, experiment with the *LED Type* and *Color Order* settings. 
+
+
 
 <img src="images/wled_app_config_9.png" width="40%" height="40%" />
+
+For different ESP32 boards, adjust *Data GPIO* to match the pin controlling the LEDs. By default, this is set to *GPIO2*, which remains unchanged here.
+
+You may want to change the *GPIO* to optimize later assembly: with the *ESP32 C3 SuperMini*, for example, using GPIO **4** instead of the default **2** ensures that all three cables can be soldered close to each other to the microcontroller board. The picture below illustrates how the yellow data cable is soldered to pin **4** which is located much closer to the power supply pins. 
+
+
+<img src="images/wled_proj_simple_c3_mounted_t.png" width="70%" height="70%" />
 
 Click *Save* at the top or bottom of the page to store your settings. You’ll then return to the main settings menu.
 
@@ -198,7 +207,8 @@ Let’s now connect the microcontroller to the LEDs. This process is straightfor
 
 In this setup, the microcontroller’s USB connection powers the entire device. The *data output* from the microcontroller’s **GPIO2** is connected to the **IN** pin on the LED panel (**do not confuse** this with the **OUT** pin, which serves a different purpose).
 
-
+> [!TIP]
+> Changing the data pin from GPIO **2** to **4** in the device settings (see above) eases the assembly as pin **4** is located much closer to the power supply pins.
 
 ### Caveats
 
@@ -212,11 +222,10 @@ This simple setup works well for the current configuration due to some helpful s
 
 Most LED panels have **two contact ports**, each exposing **three pins**:
 
-<img src="images/wled_proj_rgbmatrix_backside_t.png" width="60%" height="60%" />
 
 Although the two ports look identical at first glance, one is the **input** port (**IN**) while the other is the **output** port (**OUT**) for daisy-chaining additional panels:
 
-<img src="images/wled_proj_rgbmatrix_pin_closeup_t.png" width="100%" height="100%" />
+<img src="images/wled_matrix_8x8_connectors_small.png" width="100%" height="100%" />
 
 | Pin Label | Description                          | Connect to ESP32 C3 SuperMini Pin |
 |-----------|--------------------------------------|------------------------------------|
@@ -297,15 +306,27 @@ Depending on which material you use to print it, you can achieve different effec
 * **Resin Printers:** If you have access to a *3D Resin Printer*, you may be able to print acrylic-like fully transparent covers. I don’t have such a printer. 
 * **Gray:** By accident, I printed one cover with *gray PETG*. To my surprise, this material was highly translucent even though it looks solid when the LEDs are off. You need to experiment as translucent effects are highly material-dependent. When I tried the same with *black PETG* from the same vendor, almost no light passed the cover. The *gray PETG* cover turned out to be my favorite choice: the device looks elegant when turned off, and once the LEDs are on, there is an awesome smoothing effect.
 
+
     <img src="images/wled_proj_simple_gray1_t.png" width="45%" height="45%" />
 
+* **Holes:** By aligning circular holes in the cover with the LEDs, you get a cover that preserves full brightness.
+
+    <img src="images/wled_proj_simple_colors1_t.png" width="45%" height="45%" />
+
+I provide you with two *STL* files for the cover: a [solid cover](materials/led_matrix_mount_for_wled_cover.stl), and a [cover with 8x8 3.5mm holes](materials/led_matrix_mount_for_wled_cover_hole.stl.stl).
 
 
+<img src="images/wled_proj_simple_cover_hole_t.png" width="45%" height="45%" />
+
+> [!NOTE]
+> The cover with holes is hand-tailored to the particular 8x8 LED matrix PCB I used, and aligns perfectly with the LEDs. Since the placement of the LEDs on that PCP isn't perfectly concentric, make sure you snap on the cover in the right orientation: check to see that the LEDs and holes align. If your LED matrix has a different layout, you may want to use the solid cover.
 
 ## Materials
 
 [STL file for WLED Matrix Mount](materials/led_matrix_mount_for_wled.stl)     
-[STL file for WLED Matrix Mount Clickable Cover](materials/led_matrix_mount_for_wled_cover.stl)
+[STL file for WLED Matrix Mount Clickable Cover (Solid)](materials/led_matrix_mount_for_wled_cover.stl)    
+[STL file for WLED Matrix Mount Clickable Cover (8x8 Holes)](materials/led_matrix_mount_for_wled_cover_hole.stl.stl)    
+
 
 > Tags: WLED, WS2812, C3 SuperMini, Matrix, LED Matrix
 
