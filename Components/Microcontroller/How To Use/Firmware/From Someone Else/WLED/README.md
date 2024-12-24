@@ -219,3 +219,4 @@ You now [may need *fuses*, *capacitors*, *level-shifters*, and sophisticated wir
 
 > Tags: WLED, WS2812, Provision, Firmware, Configuration
 
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled?103448121723241333) - created 2024-12-22 - last edited 2024-12-22

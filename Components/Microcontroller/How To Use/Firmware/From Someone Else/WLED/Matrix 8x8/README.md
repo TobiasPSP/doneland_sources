@@ -4,7 +4,7 @@
 
 > Remote-Controllable 8x8 LED Cube
 
-This project is putting the free [WLED](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/) firmware to use: your are going to create a neat 8x8 LED matrix cube.
+This project is putting the free [WLED](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/) firmware to work: your are going to create a neat 8x8 LED matrix cube.
 
 
 <img src="images/wled_proj_simple_cover_compare3_t.png" width="80%" height="80%" />
@@ -32,6 +32,8 @@ The parts for this project cost less than €5 in total:
     These PCB are currently available for cheap (<€1.50) at *AliExpress*, but any other matrix made of programmable LED will work.
 
 * **3 Wires:** In addition, you'll just need three simple wires.
+
+    <img src="images/three_cables3.png" width="70%" height="70%" />
 
 ## 1. Configuration
 
@@ -213,4 +215,4 @@ I provide you with two *STL* files for the cover: a [solid cover](materials/led_
 
 > Tags: WLED, WS2812, C3 SuperMini, Matrix, LED Matrix
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled?081850121218241152) - created 2024-12-17 - last edited 2024-12-20
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x8?081850121218241152) - created 2024-12-17 - last edited 2024-12-20
