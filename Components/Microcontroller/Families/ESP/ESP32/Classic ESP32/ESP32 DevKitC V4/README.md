@@ -4,56 +4,33 @@
 
 > Original DevKit From Espressif Providing Access To Almost All ESP32 Pins - For Experienced Users 
 
-This is a true engineering **development board**, targeted towards *expert prototyping*, *debugging*, *education*, and *experimenting*. 
+This is a classic engineering **development board**, targeted towards *expert prototyping*, *debugging*, *education*, and *experimenting*. It is basically just a hosting platform for a *ESP32 module*, providing access to almost all of its pins. 
 
-It is not an ideal choice for beginners and is particularly unsuited for DIY devices, especially those that are battery-operated.
+This board is not an ideal choice for beginners and is particularly unsuited for DIY devices, especially those that are battery-operated.
 
 > [!TIP]
-> This *is* a reliable board for experienced users. Be aware of its strengths and weaknesses. If you are a beginner or planning to use the board in your own DIY devices, you can find better-suited boards for the same price. If you still prefer a "classic" development board, consider the smaller *30-pin* version, as most of the additional pins on this board are practically unusable.
+> If you are a beginner or planning to use the board in your own DIY devices, [there are much better-suited boards](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/#what-is-your-use-case) for the same price. If you want a "classic" development board, consider the smaller *30-pin* version, as most of the additional pins exposed on this *38-pin* board are unusable anyway, and you are wasting space. The picture below shows the size difference (left: *30pin*, right: *38pin*):
+
+<img src="images/esp32devkitcv4_variants1_t.png" width="60%" height="60%" />
 
 ## Overview
 
-First, the good news: this is a solid piece of hardware with a decent voltage regulator. The board comes with a variety of *ESP32 modules*, typically *WROOM 32D* (featuring a PCB antenna) and *WROOM 32U* (with an IPX connector for an external antenna).
-
-### Not Beginner-Friendly
-
-This board *is not beginner-friendly*, and here is why:
-
-* **Micro-USB:** The board often features an outdated *Micro-USB* connector, though some newer revisions come with *USB-C*. Micro-USB is increasingly uncommon.
-* **Drivers:** Even if you find a *Micro-USB cable*, connecting the board to your PC might not be straightforward. The board doesn't use a standard UART controller (like the *CP2102*), so you may need to [manually install the appropriate driver](#manual-driver-installation).
-* **Size:** The board's size makes it incompatible with standard breadboards. You'll need to either use two breadboards side-by-side,  connect wires directly to the pins or use a dedicated [expansion development board](https://done.land/components/microcontroller/expansionboards/devkitcv4/) for easier prototyping.
-
-    <img src="images/expansionboard_esp32_38_side_t.png" width="60%" height="60%" />
-
-* **Pins:** While it seems advantageous to have access to nearly all ESP32 pins, many of the additional pins exposed by this board are unusable for DIY projects. For example, *GPIO 6-11* are reserved for communication with flash memory. Using these pins can make the board unstable or prevent it from booting entirely.
-* **Pin Labeling:** Pin labels on the board are inconsistent and difficult to read. Some pins are labeled with *GPIO numbers*, while others use *D* notation (e.g., *D2*, which is *GPIO9*). This inconsistency can easily confuse beginners.
-* **No LED:** Unlike many other development boards, this one lacks a built-in programmable LED, which is a handy feature for testing and learning.
-* **Firmware Upload:** Uploading firmware requires *manual* intervention. You need to hold down the *Boot* button and then press the *Reset* button to enable bootloader mode for uploading. Most other boards do this automatically.
-* **Hardware Flaws:** Early board revisions had hardware issues preventing sketches from running when powered via the *5V* pin.
-
-### Always Use Antenna
-This board is available with the full variety of *ESP32 modules*, including ones with *IPEX connectors* for external antennas. Here is a picture of two boards, one with an *IPEX* connector for an external antenna, and the other one with a built-in antenna:
-
-<img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
 
 
-While it is great to have the option for an external antenna when you need to bridge larger distances or operate in weak *WiFi* networks, at the same time **it is your responsibility** to actually connect an antenna. 
+First, the good news: this is a solid piece of hardware with a decent voltage regulator that is used in many community projects. 
 
-If your board has an *IPEX* connector and **no built-in antenna**, **never power it up without first connecting an antenna!** 
+The board comes with a variety of *ESP32 modules* installed, typically *WROOM 32D* (featuring a PCB antenna) and *WROOM 32U* (with an IPX connector for an external antenna).
 
-Running an *ESP32* without antenna can quickly destroy its *WiFi power amplifier*.
+The table below lists information specific to the original *DevKitC V4*. Please note that clones may utilize different components, other USB connectors, and can vary in PCB dimensions.
 
-### Conclusion 
-
-
-This board is best suited for prototyping and experimenting. It offers a wide variety of options, yet these options come with responsibilities, too: with almost all pins exposed, you need to identify the ones that are safe to use. With an optional external antenna, you need to make sure a suitable antenna is connected.  
-
-So this board is for engineering and education. It is not ideal for production devices, especially battery-operated ones. Aside from its large size, it is not power-efficient. For example, *deep sleep* on this board consumes around *19mA*, whereas average *ESP32* boards consume around *500μA*, and optimized boards like the *FireBeetle* draw just *20μA*.
 
 | Item | Description |
 | --- | --- |
 | USB Connector | Micro-USB |
 | Microcontroller | ESP32-WROOM-DA/32E/32UE/32D/32U, ESP32-WROVER-E/IE, ESP32-SOLO1 |
+| Voltage Regulator | [IRU1117-33](https://done.land/assets/files/iru1117_datasheet.pdf) | 
+| UART | [CP2102](https://done.land/assets/files/cp2102_datasheet.pdf) |
+| UART Driver | [Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) |
 | Input Voltage at **5V pin** | *4.75-7.0V* |
 | Input Voltage at **3.3V pin** | *3.0-3.6V* |
 | Power Consumption | WiFi: *130-160mA*<br/>Deep Sleep: *19mA* |
@@ -61,6 +38,74 @@ So this board is for engineering and education. It is not ideal for production d
 | I2C Pins | SDA 21, SCL 22 |
 | SPI Pins | MOSI 23, MISO 19, SCLK 18 |
 | Size | 48.2x27.9mm (without PCB antenna), 54.4x27.9mm (with PCB antenna) |
+
+### Not Beginner-Friendly
+
+The not-so-good news is that this board *is not beginner-friendly*. Its design is nearly a decade old and has been superseded by many [newer boards and ESP32 variants](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/#what-is-your-use-case) that are more powerful, compact, and user-friendly.
+
+Here’s why this board isn’t beginner-friendly:
+
+
+* **Micro-USB:** The board features an old *Micro-USB* connector (newer revisions come with *USB-C*). 
+* **Drivers:** your PC might not recognize the board out-of-the-box. It uses a *CP2102* UART controller, and its drivers aren't typically included in your PC operating system. You may need to [manually install the appropriate driver](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/#manual-driver-installation) first.
+* **Size:** The board's size makes it incompatible with standard breadboards. You'll need to either use two breadboards side-by-side,  connect wires directly to the pins or use a dedicated [expansion development board](https://done.land/components/microcontroller/expansionboards/devkitcv4/) for easier prototyping.
+
+    <img src="images/expansionboard_esp32_38_side_t.png" width="60%" height="60%" />
+
+* **Pins:** While it seems advantageous to have access to nearly all ESP32 pins, many of the additional pins exposed by this board are unusable for DIY projects. For example, *GPIO 6-11* are reserved for communication with flash memory. Using these pins can make the board unstable or prevent it from booting entirely.
+* **Pin Labeling:** Pin labels on the board are inconsistent, confusing, and difficult to read. Some pins are labeled with *GPIO numbers*, while others use *D* notation (e.g., *D2*, which is *GPIO9*). The *Dxxx* pins are typically used in custom sketches, however with this board they are used for the **unsafe** pins and should never be used. This inconsistency can easily confuse beginners.
+* **No LED:** Unlike many other development boards, this one lacks a built-in programmable LED, which is a handy feature for testing and learning.
+* **Firmware Upload:** Uploading firmware requires *manual* intervention. You need to hold down the *Boot* button and then press the *Reset* button to enable bootloader mode for uploading. Most other boards do this automatically.
+* **Hardware Flaws:** Early board revisions had hardware issues preventing sketches from running when powered via the *5V* pin.
+Generally, this board design is outdated. It was introduced when *ESP32S* microcontrollers were first released in 2016. Despite its age, the *DevKitC V4* board remains extremely popular and is readily available from numerous sources.
+
+> [!TIP]
+> You can find many variants of this board design. They all function essentially the same, as vendors typically use the open-source hardware design provided by the manufacturer, and adjust it only slightly while keeping boards pin-compatible. H**Price differences can be significant**, though: while the board is available for under €2 on *AliExpress*, local vendors often sell essentially the same product for €12 or more, sometimes even marketing this as a "sale."
+
+### Clones
+
+This article focuses on the [original DevKitC V4 board designed by the manufacturer](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/hw-reference/esp32/get-started-devkitc.html). Since this design is open-source, a wide range of products from different manufacturers exists, only slightly varying in PCB quality. A board labeled *DevKitC V4* typically adheres to the original components and circuitry. Therefore, it doesn’t matter *which* variant you purchase—shop wisely and compare prices.
+
+Some manufacturers have adapted the original design over time, modernizing or streamlining components such as the voltage regulator (*AMS1117* instead of *IRU1117-33*), UART chip (*CH340* instead of *CP2102*), or USB connector (*USB-C* instead of *Micro-USB*). Most of these changes are practical improvements; for example, the *CH340* chip typically doesn’t require manual driver installation, and *USB-C* is a clear upgrade over the older *Micro-USB* connector. 
+
+Below is an example of a clone featuring an *AMS1117* voltage regulator and pin labels on the backside:
+
+<img src="images/esp32devkitcv4_clone2_t.png" width="60%" height="60%" />
+
+The picture also illustrates that vendors may change the pin labeling. The variant shown uses pin labels on the backside (instead of the front).
+
+The general pin design, however, always follows the original specification, ensuring these clones are *pin-compatible*. All variants of the board work essentially the same, providing a reliable platform to test and experiment with a standard *ESP32 module*.
+
+
+### Always Use Antenna
+Some boards come with *IPEX connectors* for external antennas which can be a good choice when you need maximum *WiFi strength* or must operate in weak WiFi networks. 
+
+
+<img src="images/esp32_devkitc_v4_antenna_t.png" width="60%" height="60%" />
+
+
+If the board expects an external antenna to be connected, you can clearly see the *IPEX* connector (left board) that is replacing the *PCB antenna* (right board):
+
+<img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
+
+Again, this flexibility is great, but it comes with added responsibilities and caveats on your part: **it is your responsibility** now to actually connect an antenna. 
+
+If your power up the board without an antenna connected, you quickly destroy its *WiFi power amplifier*.
+
+### Conclusion 
+
+
+This board is best suited for prototyping, education, and experimenting, and target experienced users that know what they are doing. For them, it offers a wide variety of options. However, these options come with responsibilities: 
+
+* With almost all *ESP32* pins exposed, you must identify the ones that are safe to use, or else the board will become unstable or refuses to boot at all.     
+* Likewise, with an external antenna jack, you must ensure a suitable antenna is connected, or else you will be damaging the *WiFi power amplifier*.  
+This board is also not ideal for production devices, especially battery-operated ones:
+
+In addition to its large size, it is highly inefficient in terms of power consumption. Even in *deep sleep*, the board draws around *19mA*, while modern *ESP32* boards typically consume just *500μA*. As a result, this board might only last a single day on a battery, whereas modern boards could operate for over a month. Optimized board designs like the *FireBeetle* series can draw as little as *20μA*, extending the potential deep sleep runtime to up to three years.
+
+The key reason for this inefficiency is that a true *development board* is designed for testing and experimenting with the *ESP32* in a lab setting. It is not intended for production use, leaving power optimization to dedicated board designers.
+
+
 
 ## Hardware Overview
 
@@ -202,8 +247,8 @@ If, however, your module uses the more sophisticated *ESP32-WROVER*, these two p
 
 ---
 
-### Issue On External Power
-On the initial versions of this board, there was an odd behavior: when powered externally (via *5V* pin), you need to manually press the *EN* button to run your sketch. By default, the board runs the bootloader and enters firmware upload mode. The issue does not occur when the board is powered via *USB*.
+### Hardware Flaw
+On the **initial** versions of this board, there was an odd behavior: when powered externally (via *5V* pin), you need to manually press the *EN* button to run your sketch. By default, the board runs the bootloader and enters firmware upload mode. The issue does not occur when the board is powered via *USB*.
 
 The reason for this unwanted behavior is a *capacitor* (C15) connected in parallel to the *Boot* button. On newer versions of this breakout board, the *capacitor* has been removed. If it is still in place on your board, and you experience this problem, then you should remove it.
 
@@ -233,7 +278,7 @@ Most breadboards are modular and can be combined and rearranged. When you take *
 > [!CAUTION]
 > Make sure you *ground yourself* before fiddling too much with the board trying to place it. Almost all microcontroller breakout boards are sensitive towards static electricity and can be accidentally destroyed by a single static spark.
 
----
+
 
 ### No Built-in LED
 This board has no built-in user-controllable *LED*: simple *blink* sketches will not work.
@@ -241,9 +286,9 @@ This board has no built-in user-controllable *LED*: simple *blink* sketches will
 > [!NOTE]
 > There *is* a *LED* on the board; however, this is the *power LED* that is not user-controllable.
 
----
 
-### No Dedicated Board Definition
+
+### Missing Board Definition
 Neither *Arduino IDE* nor *platformio* provide a dedicated board *DevKitC V4*, so you need to find a similar board. That's no rocket science but not self-explanatory either, especially for novice users:
 
 - **Arduino IDE**: choose *ESP-WROOM-32*.
@@ -263,6 +308,9 @@ framework = arduino
 This board may not initially be recognized by your computer when you connect it via *USB cable*. This is due to its *USB to UART bridge*: 
 
 The *CP2102* from *Silicon Labs* is fast, but it is not as ubiquitous as i.e. the *CH340*. It may require a manual *driver installation* before the board is recognized.
+
+> [!NOTE]
+> Some clones employ more commonly used UART chips such as the *CH340* in which case your board will be recognized out of the box, and no additional drivers are required.   
 
 #### Is Board Recognized?
 If a *new device discovered* chime plays when you connect the board to your PC, that's a very good sign. 
