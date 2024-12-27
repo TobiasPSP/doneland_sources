@@ -122,17 +122,21 @@ On one side, a *Micro-USB* connector allows you to connect the board to a comput
 
 <img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
 
-Next to the *USB connector*, a *Silicon Labs CP2102* chip provides a *USB-to-UART* bridge, capable of speeds up to 3 Mbps. This chip may require [manual driver installation](#manual-driver-installation) for your computer to recognize it.
+Next to the *USB connector*, a *Silicon Labs CP2102* chip provides a *USB-to-UART* bridge, capable of speeds up to 3 Mbps. This chip may require [manual driver installation](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/#manual-driver-installation) for your computer to recognize it.
 
 <img src="images/esp32_devkitc_v4_regulator_t.png" width="50%" height="50%" />
+
+> [!NOTE]
+> Some vendors have replaced the *CP2102* by a more common *CH340* which typically does not require additional drivers to be installed.    
+
 
 ### Power Supply
 
 The board offers three *mutually exclusive* ways to power it:
 
 1. **USB:** Use *5V USB*, which is internally converted to *3.3V*.
-2. **5V/GND Pins:** Connect an external power supply to the *5V* and *GND* pins. This input also passes through the onboard voltage regulator, similar to the USB method.
-3. **3.3V/GND Pins:** Supply *3.3V* directly to the *3.3V* and *GND* pins. This method bypasses the voltage regulator and powers the microcontroller directly. It is the most energy-efficient method but also the riskiest. If your external supply does not consistently deliver regulated voltage between *3.0V* and *3.6V*, it may damage the board and/or microcontroller.
+2. **5V/GND Pins:** Connect an external power supply to the *5V* and *GND* pins. This input also passes through the onboard voltage regulator, similar to the USB method. You can supply voltage in the range of *4.75-7.0V* (unless your board uses a different voltage regulator).
+3. **3.3V/GND Pins:** Supply *3.3V* directly to the *3.3V* and *GND* pins. This method bypasses the voltage regulator and powers the microcontroller directly. When you power the board this way, the power LED will not turn on. This is the most energy-efficient method but also the riskiest: if your external supply does not consistently deliver regulated voltage between *3.0V* and *3.6V*, it can easily damage the board and/or microcontroller.
 
 > [!CAUTION]
 > Always use **only one** of the three power methods listed above. Never power the board through both an external supply and *USB* simultaneously. The most common mistake is supplying power through the *5V* or *3.3V* pins while connecting the board to a computer via *USB cable* for firmware uploads. To avoid damage: disconnect the external power supply during firmware uploads **-or-** use a *USB connector* that can disable its power lines like in the picture below.
@@ -141,7 +145,10 @@ The board offers three *mutually exclusive* ways to power it:
 
 ### Voltage Regulator
 
-Behind the *CP2102* lies an *IRU1117-33* 3.3V *voltage regulator*, capable of supplying up to *800mA*. This regulator is used when the board is powered via *USB* or the *5V pin*. It accepts a maximum input voltage of *7V*.
+Behind the *CP2102* lies an *IRU1117-33* 3.3V *voltage regulator*, capable of supplying up to *800mA*. This regulator is used when the board is powered via *USB* or the *5V pin*. It accepts a maximum input voltage of *7V*. 
+
+> [!TIP]
+> Some clones use other voltage regulators, for example the *AMS1117* which is interchangeable. *AMS1117* is widely cloned, though, and quality may vary depending on the source.  The original *IRU1117-33* is less commonly cloned and might ensure more consistent quality.     
 
 To the right, there are two *JY3/S8050* epitaxial planar transistors, each with a high collector current of *500mA* and high total power dissipation.
 
@@ -149,8 +156,6 @@ To the right, there are two *JY3/S8050* epitaxial planar transistors, each with 
 
 A *surface-mount power LED* is located on the opposite side of the board. It illuminates whenever input power passes through the voltage regulator. However, it **does not turn on** when you power the board via the *3.3V pin* to conserve energy in battery-operated scenarios.
 
-> [!CAUTION]
-> The *power LED* only lights up when the internal *voltage regulator* is active (when *5V* is supplied). It remains off when powering the board via the *3.3V pin*.
 
 ### Firmware Download Mode
 
@@ -163,7 +168,23 @@ To enter *Firmware Download Mode*:
 
 This puts the board into *Firmware Download Mode*, allowing you to upload new firmware via the *USB connector*. Timing is crucial—this must be done exactly when your IDE attempts to connect to the board.
 
-After the firmware transfer is complete, press the *EN* button to exit *Firmware Download Mode* and run your sketch.
+After the firmware transfer is complete, press the *EN* button again (without pressing *Boot*) to exit *Firmware Download Mode* and run your sketch normally.
+
+
+
+#### Hardware Flaw
+On the **initial** versions of this board, there was an odd behavior: when powered externally (not via *USB*), you need to manually press the *EN* button to reset the board and run your sketch. It won't start automatically. The issue does not occur when the board is powered via *USB*.
+
+The reason for this unwanted behavior is a *capacitor* (C15) connected in parallel to the *Boot* button that causes the board to launch the boot loader by default. On newer versions of this breakout board, the *capacitor* has been removed. If it is still in place on your board, and you experience this problem, then you know what to do: remove it.
+
+> [!CAUTION]
+> The SMD capacitor is very small, and there are delicate tracks behind it that can easily be damaged by brute force or an over-sized and over-heated soldering iron. Desoldering this component requires proper tools (i.e., a heat gun).
+
+The picture shows a newer version with the solder pads for *C15* (but with no capacitor present):
+
+<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="80%" height="80%" />
+
+
 
 ## Pinouts
 
@@ -248,21 +269,7 @@ If, however, your module uses the more sophisticated *ESP32-WROVER*, these two p
 
 <img src="images/esp32_devkitc_v4_side_t.png" width="60%" height="60%" />
 
----
 
-### Hardware Flaw
-On the **initial** versions of this board, there was an odd behavior: when powered externally (via *5V* pin), you need to manually press the *EN* button to run your sketch. By default, the board runs the bootloader and enters firmware upload mode. The issue does not occur when the board is powered via *USB*.
-
-The reason for this unwanted behavior is a *capacitor* (C15) connected in parallel to the *Boot* button. On newer versions of this breakout board, the *capacitor* has been removed. If it is still in place on your board, and you experience this problem, then you should remove it.
-
-> [!CAUTION]
-> The SMD capacitor is very small, and there are delicate tracks behind it that can easily be damaged by brute force or an over-sized and over-heated soldering iron. Desoldering this component requires proper tools (i.e., a heat gun).
-
-The picture shows a newer version with the solder pads for *C15* (but with no capacitor present):
-
-<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="80%" height="80%" />
-
----
 
 ### Practical Considerations
 This board is a *development board* in its best sense: it exposes almost all *ESP32* pins and invites anyone to fully test-drive the *ESP32*.
@@ -382,4 +389,4 @@ That said, I am routinely using the [ESP32 C3 SuperMini](https://done.land/compo
 
 > Tags: Microcontroller, ESP32, CP2102
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4?604445051417245543) - created 2024-05-16 - last edited 2024-05-16
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4?604445051417245543) - created 2024-05-16 - last edited 2024-12-26
