@@ -1,6 +1,5 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- 
-# ESP32
+ # ESP32
 
 > The Classic ESP32 Microcontroller Sets New Standards and Comes in WROOM and WROVER Variants
 
@@ -39,46 +38,45 @@ Also make sure the GPIO you pick is capable of what you intend to do. Not all GP
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 0    | Yes | after boot | **critical during boot:** *low*: enters bootloader; *high*: runs user code (sketch) | Yes | Yes | - | - | strapping pin |
-| 1    | Yes | serial communication is not required (UART1) | debug output at boot | Yes | Yes | - | - | TX for serial communication |
-| 2    | Yes | after boot | **critical during boot:** floating/low to enter bootloader | Yes | Yes | Yes | - | Controls onboard LED (if present); strapping pin |
-| 3    | Yes | serial communication is not required (UART1) | high at boot | Yes | Yes | - | - | RX for serial communication |
-| 4    | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 5    | Yes | after boot, primary SPI is not used | Outputs PWM at boot. Controls timing for SDIO slave in some configurations, irrelevant when using SPI flash. | Yes | Yes | - | - | (V)SPI CS |
-| 6    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash MISO (Master In Slave Out) - Used for reading data from external SPI flash |
-| 7    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash MOSI (Master Out Slave In) - Used for sending data to external SPI flash |
-| 8    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication with the flash |
-| 9    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash CS (Chip Select) - Used to select the SPI flash for communication |
-| 10   | No | never | - | Yes | Yes | Yes | - | internal SPI Flash WP (Write Protect) - Used to prevent writing to the flash when high |
-| 11   | No | never | - | Yes | Yes | Yes | - | internal SPI Flash HD (Hold) - Used to hold the SPI flash communication (pauses SPI operations) |
-| 12   | Yes | after boot, if secondary SPI is not used | **critical during boot:** sets flash voltage (3.3V by default). If set to high during boot, 3.3V flash receives 1.8V and browns out | Yes | Yes | Yes | - | (H)SPI MISO |
-| 13   | **Yes** | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI MOSI |
-| 14   | **Yes** | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI CLK |
-| 15   | **Yes** | not using secondary SPI | Low disables boot messages | Yes | Yes | Yes | - | (H)SPI CS |
-| 16   | **Yes** | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 RX, used by WROVER for PSRAM |
-| 17   | **Yes** | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 TX, used by WROVER for PSRAM |
-| 18   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI CLK |
-| 19   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MISO |
-| 20   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 21   | Yes | not using I2C | - | Yes | Yes | - | - | I2C SDA |
-| 22   | Yes | not using I2C | - | Yes | Yes | - | - | I2C SCL |
-| 23   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MOSI |
-| 24   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 25   | **Yes** | not using DAC1 | - | Yes | Yes | Yes | Yes | Used for DAC1 output when not configured for other purposes. |
-| 26   | **Yes** | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
-| 27   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 28   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 29   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 30   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 32   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 33   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 34   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
+| 0    | Yes       | after boot   | **critical during boot:** *low*: enters bootloader; *high*: runs user code (sketch) | Yes | Yes | - | - | strapping pin |
+| 1    | Yes       | serial communication is not required (UART1) | debug output at boot | Yes | Yes | - | - | TX for serial communication |
+| 2    | Yes       | after boot   | **critical during boot:** floating/low to enter bootloader | Yes | Yes | Yes | - | Controls onboard LED (if present); strapping pin |
+| 3    | Yes       | serial communication is not required (UART1) | high at boot | Yes | Yes | - | - | RX for serial communication |
+| 4    | **Yes**   | Always       | - | Yes | Yes | Yes | - | General-purpose input/output |
+| 5    | Yes       | after boot, primary SPI is not used | Outputs PWM at boot. Controls timing for SDIO slave in some configurations, irrelevant when using SPI flash. | Yes | Yes | - | - | (V)SPI CS |
+| 6    | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash MISO (Master In Slave Out) - Used for reading data from external SPI flash |
+| 7    | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash MOSI (Master Out Slave In) - Used for sending data to external SPI flash |
+| 8    | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication with the flash |
+| 9    | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash CS (Chip Select) - Used to select the SPI flash for communication |
+| 10   | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash WP (Write Protect) - Used to prevent writing to the flash when high |
+| 11   | No        | never        | - | Yes | Yes | Yes | - | internal SPI Flash HD (Hold) - Used to hold the SPI flash communication (pauses SPI operations) |
+| 12   | Yes       | after boot, if secondary SPI is not used | **critical during boot:** sets flash voltage (3.3V by default). If set to high during boot, 3.3V flash receives 1.8V and browns out | Yes | Yes | Yes | - | (H)SPI MISO |
+| 13   | **Yes**   | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI MOSI |
+| 14   | **Yes**   | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI CLK |
+| 15   | **Yes**   | not using secondary SPI | Low disables boot messages | Yes | Yes | Yes | - | (H)SPI CS |
+| 16   | **Yes**   | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 RX, used by WROVER for PSRAM |
+| 17   | **Yes**   | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 TX, used by WROVER for PSRAM |
+| 18   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI CLK |
+| 19   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MISO |
+| 20   | No        | never        | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
+| 21   | Yes       | not using I2C | - | Yes | Yes | - | - | I2C SDA |
+| 22   | Yes       | not using I2C | - | Yes | Yes | - | - | I2C SCL |
+| 23   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MOSI |
+| 24   | No        | never        | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
+| 25   | **Yes**   | not using DAC1 | - | Yes | Yes | Yes | Yes | Used for DAC1 output when not configured for other purposes. |
+| 26   | **Yes**   | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
+| 27   | **Yes**   | Always       | - | Yes | Yes | Yes | - | General-purpose input/output |
+| 28   | No        | never        | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
+| 29   | No        | never        | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
+| 30   | No        | never        | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
+| 32   | **Yes**   | Always       | - | Yes | Yes | Yes | - | General-purpose input/output |
+| 33   | **Yes**   | Always       | - | Yes | Yes | Yes | - | General-purpose input/output |
+| 34   | **Yes**   | Always       | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
 | 35   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
 | 36   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
 | 37   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
 | 38   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
 | 39   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
-
 
 The information above applies to *ESP32S* microcontrollers only. It is not applicable to any of the newer *ESP32 microcontrollers* (e.g., *ESP32-S2*, *ESP32-S3*, or *ESP32-C3*), as their GPIO layouts, while similar, are not identical.
 
@@ -93,114 +91,98 @@ These are your **primary GPIOs**, and many projects do not need more than that. 
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 4    | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 27   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 32   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 33   | **Yes** | Always | - | Yes | Yes | Yes | - | General-purpose input/output |
-| 34   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
-| 35   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
-| 36   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down, typically used for analog inputs |
-| 37   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
-| 38   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
-| 39   | **Yes** | Always | - | Yes | - | Yes | - | Input only, no pull-up/pull-down |
-
-
+| 4    | **Yes**   | Always       | -             | Yes        | Yes         | Yes       | -          | General-purpose input/output |
+| 27   | **Yes**   | Always       | -             | Yes        | Yes         | Yes       | -          | General-purpose input/output |
+| 32   | **Yes**   | Always       | -             | Yes        | Yes         | Yes       | -          | General-purpose input/output |
+| 33   | **Yes**   | Always       | -             | Yes        | Yes         | Yes       | -          | General-purpose input/output |
+| 34   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down, typically used for analog inputs |
+| 35   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down, typically used for analog inputs |
+| 36   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down, typically used for analog inputs |
+| 37   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
+| 38   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
+| 39   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
 ### Second-Choice GPIOs
 If you require more GPIOs, then there are fortunately many more that can also be perfectly safe to use. Since these GPIOs serve other roles, too, you cannot use them blindly. In order to safely use them, you must check the column *When usable?*, and make your project does not need the functionality that a GPIO is assigned to.
 
-For example, in most projects you do not need a secondary *SPI* interface, secondary serial port, and *DAC* access. In this case, you can  safely use seven more GPIOs: 13-17 and 25-26. 
+For example, in most projects you do not need a secondary *SPI* interface, secondary serial port, and *DAC* access. In this case, you can safely use seven more GPIOs: 13-17 and 25-26.
 
 Here are the second-choice GPIOs that are most commonly used:
 
-
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 5    | Yes | after boot, primary SPI is not used | Outputs PWM at boot. Controls timing for SDIO slave in some configurations, irrelevant when using SPI flash. | Yes | Yes | - | - | (V)SPI CS |
-| 13   | **Yes** | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI MOSI |
-| 14   | **Yes** | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI CLK |
-| 15   | **Yes** | not using secondary SPI | Low disables boot messages | Yes | Yes | Yes | - | (H)SPI CS |
-| 16   | **Yes** | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 RX, used by WROVER for PSRAM |
-| 17   | **Yes** | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 TX, used by WROVER for PSRAM |
-| 25   | **Yes** | not using DAC1 | - | Yes | Yes | Yes | Yes | Used for DAC1 output when not configured for other purposes. |
-| 26   | **Yes** | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
-
-
+| 5    | Yes       | after boot, primary SPI is not used | Outputs PWM at boot. Controls timing for SDIO slave in some configurations, irrelevant when using SPI flash. | Yes | Yes | - | - | (V)SPI CS |
+| 13   | **Yes**   | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI MOSI |
+| 14   | **Yes**   | not using secondary SPI | - | Yes | Yes | Yes | - | (H)SPI CLK |
+| 15   | **Yes**   | not using secondary SPI | Low disables boot messages | Yes | Yes | Yes | - | (H)SPI CS |
+| 16   | **Yes**   | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 RX, used by WROVER for PSRAM |
+| 17   | **Yes**   | UART2 is not used; not using WROVER | - | Yes | Yes | - | - | UART2 TX, used by WROVER for PSRAM |
+| 25   | **Yes**   | not using DAC1 | - | Yes | Yes | Yes | Yes | Used for DAC1 output when not configured for other purposes. |
+| 26   | **Yes**   | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
 
 ### Interface Pins (UART, I2C and SPI)
 Peripherals like sensors or displays need a way to communicate with the *ESP32*, and typically this is done using one of three interfaces: *UART* (primitive serial interface), *I2C* (bus interface), or *SPI* (point-to-point high-speed bus interface).
 
-
 > [!IMPORTANT]
 > Be aware that *UART* is also used to connect the microcontroller to your PC and upload new firmware or output information to the terminal. Better avoid messing with the UART1 GPIOs unless you understand all consequences.
 
-
-Only rarely do projects require *all* these interfaces. Frequently, none of these interfaces is used, and so you can potentially repurpose a maxiumum of additional seven GPIOs:
+Only rarely do projects require *all* these interfaces. Frequently, none of these interfaces is used, and so you can potentially repurpose a maximum of additional seven GPIOs:
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 1    | Yes | serial communication is not required (UART1) | debug output at boot | Yes | Yes | - | - | TX for serial communication |
-| 3    | Yes | serial communication is not required (UART1) | high at boot | Yes | Yes | - | - | RX for serial communication |
-| 18   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI CLK |
-| 19   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MISO |
-| 21   | Yes | not using I2C | - | Yes | Yes | - | - | I2C SDA |
-| 22   | Yes | not using I2C | - | Yes | Yes | - | - | I2C SCL |
-| 23   | Yes | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MOSI |
-
-
+| 1    | Yes       | serial communication is not required (UART1) | debug output at boot | Yes | Yes | - | - | TX for serial communication |
+| 3    | Yes       | serial communication is not required (UART1) | high at boot | Yes | Yes | - | - | RX for serial communication |
+| 18   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI CLK |
+| 19   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MISO |
+| 21   | Yes       | not using I2C | - | Yes | Yes | - | - | I2C SDA |
+| 22   | Yes       | not using I2C | - | Yes | Yes | - | - | I2C SCL |
+| 23   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MOSI |
 
 
 ### Unsafe Pins
-Some GPIOs can be unsafe to use because they are tied to essential internal functionalities. That's why many development boards do not expose them in the first place. Other boards do expose them because you *may be able to safely use many of them* provided you know their limitations.
+
+Some GPIOs are unsafe to use because they are tied to critical internal functions. Many development boards do not expose these pins, but some do, as certain GPIOs may still be usable if you fully understand their limitations.
 
 #### Strapping Pins
-*Strapping pins* are GPIOs that play a crucial role during the *boot process*: they determine whether the microcontroller runs the bootloader code from its ROM, or the user code that you uploaded. Strapping pins also control important configuration parameters such as the voltage for the flash memory. 
 
-You can safely use strapping pins only **after the boot process has completed** and your user code starts executing, and other restrictions may apply (strapping pins may be pulled up or low).
+*Strapping pins* play a vital role during the *boot process*. They determine whether the microcontroller runs the bootloader code from its ROM or the user code you’ve uploaded. Strapping pins also control critical configurations, such as the flash memory voltage.
 
-Since your own user code starts executing *after the microcontroller has booted* anyway, shouldn't you be able to safely use all strapping pins at this time? Unfortunately, it is not that simple: while you can indeed safely use these pins in your code, you are *not free to connect these pins to sensors or buttons*. And here is why:
+You can safely use strapping pins only **after the boot process has completed** and your user code starts executing. However, certain limitations apply because these pins may be pulled high or low during boot:
 
-* **Boot Fails:** when you connect buttons or sensors to strapping pins, they can alter their state *at any time*, including the vulnerable boot phase: if a user happens to press such a button when your device resets, or if a sensor is pulling a strapping pin low while you turn on the device, it may no longer boot.
+- **Boot Failures:** If a sensor or button connected to a strapping pin alters its state during boot (e.g., a button is pressed), it can prevent the microcontroller from booting properly.
+- **Erratic Behavior:** Strapping pins may behave unpredictably during boot, potentially causing unintended activation of attached components (e.g., LEDs or relays).
 
-* **Erratic Behavior:** viewed from the opposite angle, strapping pins can change their state outside your control during boot. If you connect i.e. a relais or LED to one of them, you may experience unexpected and potentially dangerous behavior during boot.
+Strapping pins should only be used as a last resort, and only if their roles and restrictions are fully understood:
 
-That's why strapping pins should be only your last resort, and only be used when you fully understand their role and requirements:
+| GPIO | Usability | When Usable?       | Boot Behavior                                                                                   | Digital In | Digital Out | Analog In | Analog Out | Remarks                                                                                          |
+|------|-----------|--------------------|-------------------------------------------------------------------------------------------------|------------|-------------|-----------|------------|--------------------------------------------------------------------------------------------------|
+| 0    | Yes       | After boot         | **Critical during boot:** Low enters bootloader; High runs user code                            | Yes        | Yes         | -         | -          | Strapping pin                                                                                   |
+| 2    | Yes       | After boot         | **Critical during boot:** Floating or low enters bootloader                                     | Yes        | Yes         | Yes       | -          | Controls onboard LED (if present); strapping pin                                                |
+| 12   | Yes       | After boot, if secondary SPI is not used | **Critical during boot:** Sets flash voltage (3.3V by default). High during boot causes 1.8V flash brownout | Yes        | Yes         | Yes       | -          | (H)SPI MISO                                                                                     |
 
+#### Flash Memory SPI Pins
 
-| GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
-|------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 0    | Yes | after boot | **critical during boot:** *low*: enters bootloader; *high*: runs user code (sketch) | Yes | Yes | - | - | strapping pin |
-| 2    | Yes | after boot | **critical during boot:** floating/low to enter bootloader | Yes | Yes | Yes | - | Controls onboard LED (if present); strapping pin |
-| 12   | Yes | after boot, if secondary SPI is not used | **critical during boot:** sets flash voltage (3.3V by default). If set to high during boot, 3.3V flash receives 1.8V and browns out | Yes | Yes | Yes | - | (H)SPI MISO |
+GPIOs 6 through 11 are reserved for internal flash memory communication and must not be used for other purposes. Interfering with these pins will likely crash the microcontroller or cause severe malfunctions. Most boards do not expose these pins.
 
+| GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks                                                                                   |
+|------|-----------|--------------|---------------|------------|-------------|-----------|------------|-------------------------------------------------------------------------------------------|
+| 6    | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash MISO (Master In Slave Out) - Reads data from external SPI flash        |
+| 7    | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash MOSI (Master Out Slave In) - Sends data to external SPI flash          |
+| 8    | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication      |
+| 9    | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash CS (Chip Select) - Selects the SPI flash for communication             |
+| 10   | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash WP (Write Protect) - Prevents writing to the flash when high           |
+| 11   | No        | Never        | -             | Yes        | Yes         | Yes       | -          | Internal SPI Flash HD (Hold) - Pauses SPI operations                                      |
 
-#### Flash Memory SPI
+#### Ghost Pins
 
-GPIOs 6 to 11 are used for the internal flash interface and are off limits at all times. If you mess with these, you will almost certainly crash the microcontroller or cause severe malfunctions. 
+Some pin numbers *appear* valid but are not implemented in the *ESP32S* microcontroller. These *ghost pins* cannot be used under any circumstances.
 
-That's why most boards do not expose these GPIOs in the first place. 
-
-| GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
-|------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 6    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash MISO (Master In Slave Out) - Used for reading data from external SPI flash |
-| 7    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash MOSI (Master Out Slave In) - Used for sending data to external SPI flash |
-| 8    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication with the flash |
-| 9    | No | never | - | Yes | Yes | Yes | - | internal SPI Flash CS (Chip Select) - Used to select the SPI flash for communication |
-| 10   | No | never | - | Yes | Yes | Yes | - | internal SPI Flash WP (Write Protect) - Used to prevent writing to the flash when high |
-| 11   | No | never | - | Yes | Yes | Yes | - | internal SPI Flash HD (Hold) - Used to hold the SPI flash communication (pauses SPI operations) |
-
-
-### Ghost Pins
-
-Some pins *should* theoretically exist but the *ESP32S* does not implement them. Such pin numbers are marked as *Ghost pin*.
-
-| GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
-|------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
-| 20   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 24   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 28   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 29   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-| 30   | No | never | - | - | - | - | - | Ghost pin, not exposed on ESP32S models |
-
+| GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks                           |
+|------|-----------|--------------|---------------|------------|-------------|-----------|------------|-----------------------------------|
+| 20   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
+| 24   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
+| 28   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
+| 29   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
+| 30   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
 
 
 > Tags: ESP32, WROOM, WROVER, 32D, 32E, WROOM-32D, WROOM-32E, WROVER-B, WROVER-IB, PSRAM, GPIO, Pins
