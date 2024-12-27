@@ -186,11 +186,13 @@ The picture shows a newer version with the solder pads for *C15* (but with no ca
 
 
 
-## Pinouts
+## Pinout and GPIO
 
 This breakout board exposes most of the *ESP32* pins:
 
 <img src="images/esp32-devkitC_V4_pinout_t.png" width="100%" height="100%" />
+
+That is why you can use all of the [safe-to-use ESP32S GPIOs](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/#gpios) that are available.
 
 The tables below provide detailed information for each header pin. The *Pin Type* resolves as follows:
 - **P**: Power supply
