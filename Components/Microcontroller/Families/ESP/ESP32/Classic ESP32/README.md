@@ -3,15 +3,17 @@
 
 > The Classic ESP32 Microcontroller Sets New Standards and Comes in WROOM and WROVER Variants
 
-The *classic ESP32* is known as the *ESP32S*. Since its debut in 2016, many additional *ESP32 variants* have been introduced, such as the *ESP32-S3* and *ESP32-C6*. However, the *ESP32S* remains highly popular among *DIY makers* because it is particularly straightforward to use:
+The *classic ESP32* is known as the *ESP32S*. Since its debut in 2016, many additional *ESP32 variants* have been introduced, such as the [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/), [ESP32-S3](https://done.land/components/microcontroller/families/esp/esp32/s3/) and [ESP32-C6](https://done.land/components/microcontroller/families/esp/esp32/c6/). However, the *ESP32S* remains highly popular among *DIY makers* because it is particularly straightforward to use:
 
 * **Well-Known:** Most *ESP32 examples* available online or on platforms like YouTube are for either the *ESP8266* or the *ESP32S*. There is an abundance of documentation.
 * **Well-Supported:** Regardless of your project, chances are the *ESP32S* is fully supported. After nearly a decade, almost all editors, development environments, home automation systems, and other tools incorporate support for this microcontroller.
 * **Well-Balanced:** The *ESP32S* features an exceptionally balanced set of capabilities, including motor control, a *DAC* (*digital-to-analog converter*), *touch input support*, and more—perfect for *DIY makers*.
 
-That said, if you’re looking for a *miniature footprint*, cutting-edge *low power consumption*, or compatibility with the latest *wireless standards* like *Matter* or *Thread*, you may want to explore the successors to the *ESP32S*.
 
 <img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
+
+
+That said, if you’re looking for a *miniature footprint*, cutting-edge *low power consumption*, or compatibility with the latest *wireless standards* like *Matter* or *Thread*, you may want to explore the successors to the *ESP32S* like the [ESP32-C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/)
 
 ## ESP32 Types
 
@@ -24,17 +26,19 @@ The most popular and widely available *ESP32S* variant is the *WROOM-32D*. Howev
 * **WROVER-B:** A version of the *WROOM-32D* with 8 MB *pSRAM*.
 * **WROVER-IB:** Same as the *WROVER-B* but includes an IPX antenna jack instead of a built-in PCB antenna.
 
-Additionally, check the memory size when choosing a module. The price difference between *4 MB* and *8 MB* versions is typically minimal, and the extra memory could prove invaluable for future projects.
+Additionally, check the memory size when choosing a module. The price difference between *4 MB* and *16 MB* versions is typically minimal, and the extra memory could prove invaluable for future projects.
+
+> [!TIP]
+> Be aware of fishy vendors that specify the on-board memory in the unit *MBit*: *32MBit* turn out to be just the minimum *4MB* (*32MBit / 8bit = 4MB*).
 
 When planning to use an *ESP32S* in your project, one of the first things to determine is which *GPIO pins* are safe to use. This is covered in the next section below.
 
 ## GPIOs
 
-The GPIO information in this section applies specifically to the *classic ESP32* (ESP32S) and all development boards that use it.
+The GPIO information in this section applies specifically to the *classic ESP32* (ESP32S) and all development boards that use it. In column "Usability" you can quickly identify which *GPIOs* are free to be used. GPIOs **typically** safe-to-use are marked with a bold **Yes**. Also consult the column *When Usable?* to understand under which conditions a given GPIO is safe to use. GPIOs marked with *Always* can always be used and do not interfere with any of the other *ESP32* features.
 
-In column "Usability" you can quickly see which *GPIOs* can be used. GPIOs **typically** safe-to-use are marked with a bold **Yes**. Always review the column *When Usable?* to understand under which conditions a given GPIO is safe to use.
-
-Also make sure the GPIO you pick is capable of what you intend to do. Not all GPIOs can be used as output, and only some GPIOs accept *analog* input.
+> [!TIP]
+> Verify that the GPIO plan to use is actually capable of what you intend to do. Not all GPIOs can be used as output, and only some accept *analog* input.
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
@@ -81,7 +85,7 @@ Also make sure the GPIO you pick is capable of what you intend to do. Not all GP
 The information above applies to *ESP32S* microcontrollers only. It is not applicable to any of the newer *ESP32 microcontrollers* (e.g., *ESP32-S2*, *ESP32-S3*, or *ESP32-C3*), as their GPIO layouts, while similar, are not identical.
 
 > [!NOTE]
-> The table above lists all *ESP32* pins, but your development board most likely does not expose them all. The fewer pins a board exposes, the more *ESP32S* functionality becomes unavailable. This trade-off can be acceptable if your project prioritizes compactness over functionality, and quite a significant number of the pins listed above are not useable anyway.    
+> The table lists all ESP32 pins, but a development board will likely only expose a subset of these. The number of exposed pins doesn't necessarily indicate better quality; rather, it's a balance between ESP32S functionality and compactness/ease-of-use. Many of the pins listed above are not helpful or outright unsafe to use, so even though a [38-pin ESP32 development board](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) may expose all pins, this isn’t the most efficient or sophisticated approach. A well-designed board makes a smart trade-off, exposing only the safe-to-use pins while optimizing the footprint by omitting those that have no impact on the user experience.
 
 ## Safe GPIOs 
 
@@ -101,6 +105,9 @@ These are your **primary GPIOs**, and many projects do not need more than that. 
 | 37   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
 | 38   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
 | 39   | **Yes**   | Always       | -             | Yes        | -           | Yes       | -          | Input only, no pull-up/pull-down |
+
+
+
 ### Second-Choice GPIOs
 If you require more GPIOs, then there are fortunately many more that can also be perfectly safe to use. Since these GPIOs serve other roles, too, you cannot use them blindly. In order to safely use them, you must check the column *When usable?*, and make your project does not need the functionality that a GPIO is assigned to.
 

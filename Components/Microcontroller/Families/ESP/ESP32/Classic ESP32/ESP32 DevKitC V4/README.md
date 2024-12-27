@@ -192,85 +192,10 @@ This breakout board exposes most of the *ESP32* pins:
 
 <img src="images/esp32-devkitC_V4_pinout_t.png" width="100%" height="100%" />
 
-That is why you can use all of the [safe-to-use ESP32S GPIOs](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/#gpios) that are available.
-
-The tables below provide detailed information for each header pin. The *Pin Type* resolves as follows:
-- **P**: Power supply
-- **G**: Ground
-- **I**: Input
-- **O**: Output
-
-### Header Pin Row 1
-
-| Pin | Label | Pin Type | Description |
-|  --- |  --- |  --- |  --- |  
-| 1 | 3V3 | P | 3.3V power supply |
-| 2 | EN | I | CHIP_PU, Reset |
-| 3 | VP | I | GPIO36, ADC1_CH0, S_VP |
-| 4 | VN | I | GPIO39, ADC1_CH3, S_VN |
-| 5 | IO34 | I | GPIO34, ADC1_CH6, VDET_1 |
-| 6 | IO35 | I | GPIO35, ADC1_CH7, VDET_2 |
-| 7 | IO32 | IO | GPIO32, ADC1_CH4, TOUCH_CH9, XTAL_32K_P |
-| 8 | IO33 | IO | GPIO33, ADC1_CH5, TOUCH_CH8, XTAL_32K_N |
-| 9 | IO25 | IO | GPIO25, ADC1_CH8, DAC_1 |
-| 10 | IO26 | IO | GPIO26, ADC2_CH9, DAC_2 |
-| 11 | IO27 | IO | GPIO27, ADC2_CH7, TOUCH_CH7 |
-| 12 | IO14 | IO | GPIO14, ADC2_CH6, TOUCH_CH6, MTMS |
-| 13 | IO12 | IO | GPIO12, ADC2_CH5, TOUCH_CH5, MTDI |
-| 14 | GND | G | Ground |
-| 15 | IO13 | IO | GPIO13, ADC2_CH4, TOUCH_CH4, MTCK |
-| 16 | D2 | IO | GPIO9, D2, **avoid, used by SPI flash** |
-| 17 | D3 | IO | GPIO10, D3, **avoid, used by SPI flash** |
-| 18 | CMD | IO | GPIO11, CMD, **avoid, used by SPI flash** |
-| 19 | 5V | P | 5V power supply |
+For a detailed description, [consult the ESP32S GPIO listing](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/#gpios). If you just need to figure out which GPIOs can be used for your next project, take a look at the [safe-to-use ESP32 GPIOs](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/#safe-gpios).
 
 
 <img src="images/esp32_devkitc_v4_back_t.png" width="50%" height="50%" />
-
-### Header Pin Row 2
-
-| Pin | Label | Pin Type | Description |
-|  --- |  --- |  --- |  --- | 
-| 1 | GND | G | Ground |
-| 2 | IO23 | IO | GPIO23, **MOSI** |
-| 3 | IO22 | IO | GPIO22, **SCL** |
-| 4 | TX | IO | GPIO1, U0TXD |
-| 5 | RX | IO | GPIO3, U0RXD |
-| 6 | IO21 | IO | GPIO21, **SDA** |
-| 7 | GND | G | Ground |
-| 8 | IO19 | IO | GPIO19, **MISO** |
-| 9 | IO18 | IO | GPIO18, **SCLK** |
-| 10 | IO5 | IO | GPIO5 |
-| 11 | IO17 | IO | GPIO17, **WROVER: used internally** |
-| 12 | IO16 | IO | GPIO16, **WROVER: used internally** |
-| 13 | IO4 | IO | GPIO4, ADC2_CH0, TOUCH_CH0 |
-| 14 | IO0 | IO | GPIO0, ADC2_CH1, TOUCH_CH1, Boot |
-| 15 | IO2 | IO | GPIO2, ADC2_CH2, TOUCH_CH2 |
-| 16 | IO15 | IO | GPIO15, ADC2_CH3, TOUCH_CH3, MTDO |
-| 17 | D1 | IO | GPIO8, D1, **avoid, used by SPI flash** |
-| 18 | D0 | IO | GPIO7, D0, **avoid, used by SPI flash** |
-| 19 | CLK | IO | GPIO6, CLK, **avoid, used by SPI flash** |
-
-
-<img src="images/esp32_devkitc_v4_side2_t.png" width="60%" height="60%" />
-
-### Pins To Avoid
-The large number of exposed pins can be confusing: some of the exposed pins are **not safe to use**.
-
-#### SPI Flash
-A few pins (GPIO 6–11) are used internally for communication between the ESP32 and *SPI flash memory*. They are grouped on both sides near the USB connector. Using these GPIOs may disrupt access to the SPI flash memory/SPI RAM.
-
-Some of these pins are labeled as **D0** to **D3**, which is highly confusing for beginners: in many sketches, these labels are used for regular GPIOs. 
-
-The pins to avoid are labeled **D0**–**D3**, **CMD**, and **CLK**.
-
-#### WROVER
-Typically, this board comes with the *ESP32-WROOM* module. In this case, you are free to use **GPIO16** and **GPIO17**.
-
-If, however, your module uses the more sophisticated *ESP32-WROVER*, these two pins are needed internally and may not be used.
-
-<img src="images/esp32_devkitc_v4_side_t.png" width="60%" height="60%" />
-
 
 
 ### Practical Considerations
@@ -287,9 +212,10 @@ Most breadboards are modular and can be combined and rearranged. When you take *
 
 <img src="images/esp32_devkitc_v4_breadboard2_t.png" width="80%" height="80%" />
 
-> [!CAUTION]
-> Make sure you *ground yourself* before fiddling too much with the board trying to place it. Almost all microcontroller breakout boards are sensitive towards static electricity and can be accidentally destroyed by a single static spark.
+Better yet, use one of the [dedicated expansion boards](https://done.land/components/microcontroller/expansionboards/devkitcv4/).
 
+
+<img src="images/expansionboard_esp32_38_side_t.png" width="80%" height="80%" />
 
 
 ### No Built-in LED
@@ -297,6 +223,8 @@ This board has no built-in user-controllable *LED*: simple *blink* sketches will
 
 > [!NOTE]
 > There *is* a *LED* on the board; however, this is the *power LED* that is not user-controllable.
+
+<img src="images/esp32_devkitc_v4_side_t.png" width="60%" height="60%" />
 
 
 
@@ -329,7 +257,7 @@ If a *new device discovered* chime plays when you connect the board to your PC, 
 
 If no sound plays, or if you would like to verify, open *device manager* (*Windows* PC) and check that a new *COM Port* has appeared (and vanishes when you unplug the board from your PC).
 
-<img src="images/devmgr_usb_com_disc.png" width="80%" height="80%" />
+<img src="images/devmgr_usb_com_disc.png" width="60%" height="60%" />
 
 ### Manual Driver Installation
 If *no COM Port* appears in *device manager* once you have connected the board to your PC, then most likely the *CP210x drivers* are missing.
@@ -348,6 +276,9 @@ Once drivers are installed, restart the computer. When you now connect the board
 If you managed to successfully connect the board to your computer, then there is a final challenge to master when you are ready to upload new firmware to it: 
 
 The board needs to be **manually** set to *firmware download mode* at *just the right moment*. Other microcontroller boards switch *automatically* to this mode when it is needed.
+
+
+<img src="images/esp32_devkitc_v4_side2_t.png" width="60%" height="60%" />
 
 1. **Initiate Firmware Upload:** in your *IDE* (*platformio* or *ArduinoIDE*), compile your sketch and ask the IDE to upload it to your microcontroller.
 2. **Connection:** your *IDE* tries to connect to the board. As soon as this happens and you see it trying to connect, hold the *Boot* button and press *EN* shortly. This procedure enables the firmware download mode. *Only now* will the board respond to the connection requests.
