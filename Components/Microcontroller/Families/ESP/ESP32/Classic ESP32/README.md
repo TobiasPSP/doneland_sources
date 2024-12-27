@@ -86,46 +86,44 @@ The GPIOs available to you depend on the specific development board you purchase
 The following GPIOs are always safe to use for general purposes. They have no boot-time restrictions or specific roles that might interfere with typical use:
 
 
-
-
 | GPIO | Usable            | Analog In | Modes               | Remarks                                                                     |
 |------|--------------------|-----------|---------------------|----------------------------------------------------------------------------|
-| 0    | After boot completed: strapping pin      | No        | Ain, Din, Dout      | *low* enters bootloader, *high* runs user code (sketch).  |
-| 1    | Not when using serial communication        | No        | Din, Dout                | TX for serial communication; debug output at boot                           |
-| 2    | After boot completed: strapping pin      | Yes        | Ain, Din, Dout      | often connected to onboard LED (when present); floating/low to enter boot loader.               |
-| 3    | No if serial communication is required      | No        | Din, Dout                 | RX for serial communication; high at boot                                  |
+| 0    | After boot completed: strapping pin      | No        | Ain, Din, Dout      | *low* enters bootloader, *high* runs user code (sketch).                    |
+| 1    | Not when using serial communication        | No        | Din, Dout           | TX for serial communication; debug output at boot                           |
+| 2    | After boot completed: strapping pin      | Yes       | Ain, Din, Dout      | Often connected to onboard LED (when present); floating/low to enter bootloader. |
+| 3    | No if serial communication is required      | No        | Din, Dout           | RX for serial communication; high at boot                                  |
 | 4    | Yes        | Yes       | Ain, Din, Dout      | General-purpose input/output                                                |
 | 5    | After boot completed: strapping pin      | No        | Din, Dout           | Outputs PWM at boot. Controls timing for SDIO slave in some configurations, irrelevant when using SPI flash. (V)SPI CS |
-| 6    | No, always required for internal flash memory communication | No        | Ain, Din, Dout    | SPI Flash MISO (Master In Slave Out) - Used for reading data from external SPI flash |
-| 7    | No | No, always required for internal flash memory communication       | Ain, Din, Dout    | SPI Flash MOSI (Master Out Slave In) - Used for sending data to external SPI flash |
-| 8    | No | No, always required for internal flash memory communication       | Ain, Din, Dout    | SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication with the flash |
-| 9    |  No | No, always required for internal flash memory communication        | Ain, Din, Dout    | SPI Flash CS (Chip Select) - Used to select the SPI flash for communication |
-| 10   | No | No, always required for internal flash memory communication       | Ain, Din, Dout    | SPI Flash WP (Write Protect) - Used to prevent writing to the flash when high |
-| 11   | No | No, always required for internal flash memory communication        | Ain, Din, Dout    | SPI Flash HD (Hold) - Used to hold the SPI flash communication (pauses SPI operations) |
-| 12   | After boot completed, strapping pin       | Yes       | Ain, Din, Dout      | strapping pin: sets flash voltage (3.3V by default). If set to high on accident during boot, 3.3V flash receives 1.8V and browns out; (H)SPI MISO |
+| 6    | No, always required for internal flash memory communication | No        | Ain, Din, Dout      | SPI Flash MISO (Master In Slave Out) - Used for reading data from external SPI flash |
+| 7    | No        | No, always required for internal flash memory communication | Ain, Din, Dout      | SPI Flash MOSI (Master Out Slave In) - Used for sending data to external SPI flash |
+| 8    | No        | No, always required for internal flash memory communication | Ain, Din, Dout      | SPI Flash SCLK (Serial Clock) - Provides clock signal for SPI communication with the flash |
+| 9    | No        | No, always required for internal flash memory communication | Ain, Din, Dout      | SPI Flash CS (Chip Select) - Used to select the SPI flash for communication |
+| 10   | No        | No, always required for internal flash memory communication | Ain, Din, Dout      | SPI Flash WP (Write Protect) - Used to prevent writing to the flash when high |
+| 11   | No        | No, always required for internal flash memory communication | Ain, Din, Dout      | SPI Flash HD (Hold) - Used to hold the SPI flash communication (pauses SPI operations) |
+| 12   | After boot completed, strapping pin       | Yes       | Ain, Din, Dout      | Strapping pin: sets flash voltage (3.3V by default). If set to high on accident during boot, 3.3V flash receives 1.8V and browns out. (H)SPI MISO |
 | 13   | Yes, when not using secondary SPI        | Yes       | Ain, Din, Dout      | (H)SPI MOSI                                                                 |
 | 14   | Yes, when not using secondary SPI        | Yes       | Ain, Din, Dout      | (H)SPI CLK                                                                 |
-| 15   | Yes, when not using secondary SPI        | No        | Ain, Din, Dout      | low silences boot messages; (H)SPI CS                                       |
-| 16   | Yes, when UART2 is not in use or when not using WROVER.        | No        | Din, Dout           | UART2 RX, never available when using WROVER                           |
-| 17   | Yes, when UART2 is not in use or when not using WROVER.        | No        | Din, Dout           | UART2 TX, never available when using WROVER                           |
+| 15   | Yes, when not using secondary SPI        | No        | Ain, Din, Dout      | Low silences boot messages; (H)SPI CS                                       |
+| 16   | Yes, when UART2 is not in use or when not using WROVER. | No        | Din, Dout           | UART2 RX, never available when using WROVER                                 |
+| 17   | Yes, when UART2 is not in use or when not using WROVER. | No        | Din, Dout           | UART2 TX, never available when using WROVER                                 |
 | 18   | Yes, when not using primary SPI        | No        | Din, Dout           | (V)SPI CLK                                                                 |
 | 19   | Yes, when not using primary SPI         | No        | Din, Dout           | (V)SPI MISO                                                                 |
-| 20   | No, ghost              | No        | - | Not exposed on ESP32S models |
+| 20   | No, ghost              | No        | -                   | Not exposed on ESP32S models                                                |
 | 21   | Yes, when not using I2C        | No        | SDA                 | I2C                                                                          |
 | 22   | Yes, when not using I2C        | No        | SCL                 | I2C                                                                          |
 | 23   | Yes, when not using primary SPI        | No        | Din, Dout           | (V)SPI MOSI                                                                 |
-| 24   | No, ghost              | No        | - | Not exposed on ESP32S models   |
-| 25   | Yes, when not using DAC1        | Yes       | Ain, Aout, Din, Dout| Used for DAC1 output when not configured for other purposes. |
-| 26   | Yes, when not using DAC2        | Yes       | Ain, Aout, Din, Dout| Used for DAC2 output when not configured for other purposes.  |
+| 24   | No, ghost              | No        | -                   | Not exposed on ESP32S models                                                |
+| 25   | Yes, when not using DAC1        | Yes       | Ain, Aout, Din, Dout| Used for DAC1 output when not configured for other purposes.               |
+| 26   | Yes, when not using DAC2        | Yes       | Ain, Aout, Din, Dout| Used for DAC2 output when not configured for other purposes.               |
 | 27   | Yes        | Yes       | Ain, Din, Dout      | General-purpose input/output                                                |
-| 28   | No, ghost              | No        | - | Not exposed on ESP32S models  |
-| 29   | No, ghost              | No        | - | Not exposed on ESP32S models |
-| 30   | No, ghost              | No        | - | Not exposed on ESP32S models  |
+| 28   | No, ghost              | No        | -                   | Not exposed on ESP32S models                                                |
+| 29   | No, ghost              | No        | -                   | Not exposed on ESP32S models                                                |
+| 30   | No, ghost              | No        | -                   | Not exposed on ESP32S models                                                |
 | 32   | Yes        | Yes       | Ain, Din, Dout      | General-purpose input/output                                                |
 | 33   | Yes        | Yes       | Ain, Din, Dout      | General-purpose input/output                                                |
-| 34   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs |
-| 35   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs |
-| 36   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs |
+| 34   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs          |
+| 35   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs          |
+| 36   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down, typically used for analog inputs          |
 | 37   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down                                            |
 | 38   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down                                            |
 | 39   | Yes, input only    | Yes       | Ain, Din            | Input only, no pull-up/pull-down                                            |
