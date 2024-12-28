@@ -7,7 +7,9 @@ The *classic ESP32* is known as the *ESP32S*. Since its debut in 2016, many addi
 
 * **Well-Known:** Most *ESP32 examples* available online or on platforms like YouTube are for either the *ESP8266* or the *ESP32S*. There is an abundance of documentation.
 * **Well-Supported:** Regardless of your project, chances are the *ESP32S* is fully supported. After nearly a decade, almost all editors, development environments, home automation systems, and other tools incorporate support for this microcontroller.
-* **Well-Balanced:** The *ESP32S* features an exceptionally balanced set of capabilities, including motor control, a *DAC* (*digital-to-analog converter*), *touch input support*, and more—perfect for *DIY makers*. It also has a wide support for DIY-friendly technologies: i.e., only the original ESP32S supports both *Bluetooth Classic* and *BLE* (Bluetooth Low Energy). all of its successors no longer support classic Bluetooth modes.
+* **Well-Balanced:** The *ESP32S* features an exceptionally balanced set of capabilities, including motor control, a *DAC* (*digital-to-analog converter*), *touch input support*, and more—perfect for *DIY makers*.
+
+    It also has a wide support for DIY-friendly technologies: i.e., only the original ESP32S supports both *Bluetooth Classic* and *BLE* (Bluetooth Low Energy). All of its successors no longer support classic Bluetooth modes.
 
 
 <img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
