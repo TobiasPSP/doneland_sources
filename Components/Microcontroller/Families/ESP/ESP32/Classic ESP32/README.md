@@ -1,13 +1,13 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- # ESP32
+# ESP32
 
-> The Classic ESP32 Microcontroller Sets New Standards and Comes in WROOM and WROVER Variants
+> ESP32S Microcontrollers - Capable And Affordable For General-Purpose Applications
 
 The *classic ESP32* is known as the *ESP32S*. Since its debut in 2016, many additional *ESP32 variants* have been introduced, such as the [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/), [ESP32-S3](https://done.land/components/microcontroller/families/esp/esp32/s3/) and [ESP32-C6](https://done.land/components/microcontroller/families/esp/esp32/c6/). However, the *ESP32S* remains highly popular among *DIY makers* because it is particularly straightforward to use:
 
 * **Well-Known:** Most *ESP32 examples* available online or on platforms like YouTube are for either the *ESP8266* or the *ESP32S*. There is an abundance of documentation.
 * **Well-Supported:** Regardless of your project, chances are the *ESP32S* is fully supported. After nearly a decade, almost all editors, development environments, home automation systems, and other tools incorporate support for this microcontroller.
-* **Well-Balanced:** The *ESP32S* features an exceptionally balanced set of capabilities, including motor control, a *DAC* (*digital-to-analog converter*), *touch input support*, and more—perfect for *DIY makers*.
+* **Well-Balanced:** The *ESP32S* features an exceptionally balanced set of capabilities, including motor control, a *DAC* (*digital-to-analog converter*), *touch input support*, and more—perfect for *DIY makers*. It also has a wide support for DIY-friendly technologies: i.e., only the original ESP32S supports both *Bluetooth Classic* and *BLE* (Bluetooth Low Energy). all of its successors no longer support classic Bluetooth modes.
 
 
 <img src="images/esp_wroom_top_front2_t.png" width="60%" height="60%" />
@@ -192,6 +192,6 @@ Some pin numbers *appear* valid but are not implemented in the *ESP32S* microcon
 | 30   | No        | Never        | -             | -          | -           | -         | -          | Ghost pin, not implemented       |
 
 
-> Tags: ESP32, WROOM, WROVER, 32D, 32E, WROOM-32D, WROOM-32E, WROVER-B, WROVER-IB, PSRAM, GPIO, Pins
+> Tags: ESP32, WROOM, WROVER, 32D, 32E, WROOM-32D, WROOM-32E, WROVER-B, WROVER-IB, PSRAM, GPIO, Pins, Bluetooth Classic, BLE
 
 [Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32?486134031823244200) - created 2024-03-23 - last edited 2024-12-26
