@@ -37,10 +37,14 @@ When planning to use an *ESP32S* in your project, one of the first things to det
 
 ## GPIOs
 
-The GPIO information in this section applies specifically to the *classic ESP32* (ESP32S) and all development boards that use it. In column "Usability" you can quickly identify which *GPIOs* are free to be used. GPIOs **typically** safe-to-use are marked with a bold **Yes**. Also consult the column *When Usable?* to understand under which conditions a given GPIO is safe to use. GPIOs marked with *Always* can always be used and do not interfere with any of the other *ESP32* features.
+The GPIO information in this section applies specifically to the *classic ESP32* (ESP32S) and all development boards that use it. 
+
+In column "Usability" you can quickly identify which *GPIOs* are free to be used. GPIOs **typically** safe-to-use are marked with a bold **Yes**. Also consult the column *When Usable?* to understand under which conditions a given GPIO is safe to use. 
+
+GPIOs marked with *Always* can always be used and do not interfere with any of the other *ESP32* features.
 
 > [!TIP]
-> Verify that the GPIO plan to use is actually capable of what you intend to do. Not all GPIOs can be used as output, and only some accept *analog* input.
+> Verify that the GPIO you plan to use is actually capable of what you intend to do. Not all GPIOs can be used as output, and only some accept *analog* input.
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
