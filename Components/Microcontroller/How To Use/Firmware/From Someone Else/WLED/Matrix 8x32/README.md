@@ -8,6 +8,12 @@ This project demonstrates how to create a flexible **8x32 LED matrix panel** pow
 
 <img src="images/wled_matrix_8x32_final1_t.png" width="100%" height="80%" />
 
+This panel has more real-estate than a [simple 8x8 panel]() so in addition to colorful LED animations, it is also suited for displaying scrolling or static text.
+
+
+<img src="images/wled_8x32_text8_t.png" width="90%" height="90%" />
+
+
 ## The Project
 
 Before starting, ensure your ESP microcontroller is [provisioned](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/):
@@ -23,7 +29,7 @@ The total cost of this project is under €15:
 
     <img src="images/wled_proj_esp32_c3_t.png" width="20%" height="20%" />
 
-- **8x32 RGB Matrix:** This project uses a [WS2812](https://done.land/components/light/led/programmable/ws2812/) **8x32 Matrix PCB**. A custom 3D-printable mount was designed to accommodate the panel’s dimensions.
+- **8x32 Flexible RGB Matrix Panel:** This project uses a [WS2812](https://done.land/components/light/led/programmable/ws2812/) **8x32 Matrix** on a flexible (bendable) PCB. 
 
     <img src="images/wled_8x32_matrix_top_t.png" width="90%" height="90%" />
 
@@ -41,20 +47,32 @@ The total cost of this project is under €15:
 
     <img src="images/wled_matrix_8x32_cables2_t.png" width="70%" height="70%" />
 
+- **Housing:** if you have access to a *3D printer*, I also provide you with ready-to-use *STL files* to print a neat housing and cover.
+
+    <img src="images/wled_8x32_done1_t.png" width="90%" height="90%" />
+
+
 ### Wiring
 
 Below is the schematic for wiring the components:
 
 <img src="images/wled_8x32_matrix_schematics_t.png" width="100%" height="100%" />
 
+You can vary this simple schematic and connect microcontroller and USB-C connector to the power rail at any place. Just make sure:
+
+* **DIN, not DOUT:** connect the control wire (yellow) to **DIN** on the panel, not **DOUT**! 
+* **Configure GPIO:** connect the other end of the control wire to the *GPIO* you designated in *WLED settings*. By default, this is *GPIO2* (as seen in the schematics). Frequently, *GPIO4* is used instead (I did this in this project, too) since *GPIO4* is located closer to the power pins which I liked. If you want to use *GPIO4* (or any other GPIO other than *GPIO2*), you **must** [change the GPIO number](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x8/#led-preferences) in *WLED settings*.
+
 ### Next Steps
 
 Follow these detailed steps to assemble the LED Matrix Panel:
 
-1. **Firmware Configuration:** Fine-tune the *WLED firmware settings* to match your microcontroller and LED panel.  
+1. **Firmware Configuration:** Fine-tune the *WLED firmware settings* to match your microcontroller GPIO, and your LED panel.  
 2. **LED Matrix Panel Preparation:** Remove any existing wiring from the panel and solder new wires according to the schematic above.  
 3. **Assembly:** Connect the microcontroller and external USB plug to the matrix.  
 4. **Housing:** Mount all components into a 3D-printed housing for a clean and sturdy build.
+
+
 ## 1. Firmware Configuration
 
 First, let's *finalize* the [basic microcontroller configuration](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled) to account for the microcontroller you are using, and the kind of LEDs you are going to control with it:
@@ -174,25 +192,25 @@ Once you connect the microcontroller to power by plugging in a USB cable, the LE
 
 Refer to the [WLED](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/) article for more information on how to change colors, effects, etc.
 
-
 ## 4. Housing
 
 For increased ruggedness and safety, mount your components in a housing. 
 
-If you have a *3D printer*, you can print the housing I used below. Since the matrix dimensions are too large to print with most 3D printers, I split the housing in two parts that later snap together (you may want to use some glue to secure the parts):
+If you have a *3D printer*, you can print the housing I used below. Since the matrix dimensions are too large to print with most 3D printers, I split the housing into two parts that later snap together. You may want to use some glue to secure the parts for extra stability:
 
 <img src="images/wled_matrix_8x32_final6_t.png" width="100%" height="100%" />
 
-Here are the STL files:
+### STL Files
 
-- Housing: [Part 1](materials/mount1.stl) and [Part 2](materials/mount2.stl)
-- Cover: [Part 1](materials/cover1.stl) and [Part 2](materials/cover2.stl)
+Here are the STL files for the housing and its cover:
 
-For the cover, make sure you print with a transparent material, either fully transparent, or a translucent white or gray. 
+- **Housing**: [Part 1](materials/mount1.stl) and [Part 2](materials/mount2.stl)
+- **Cover**: [Part 1](materials/cover1.stl) and [Part 2](materials/cover2.stl)
 
+For the cover, print it with a transparent material—either fully transparent or a translucent white or gray. This ensures the LEDs shine through effectively. 
 
 > [!TIP]
-> It turned out that *PLA* works best for the body, while *PETG* is generally more translucent. Gray PETG worked best for me as a cover, and for the body I used black matte PLA.
+> *PLA* works best for the housing body, while *PETG* is generally more translucent for covers. Gray PETG worked best as a cover material, while black matte PLA provided an excellent finish for the body.
 
 
 ### Combining Both Parts
@@ -205,85 +223,96 @@ One part can be inserted into the other:
 
 <img src="images/wled_8x32_housing3_t.png" width="40%" height="40%" />
 
-Place the right part on top of the left part, and apply pressure from the top so both parts unite firmly. Use a *M3* screw to secure both parts permanently:
+To assemble, place the right part on top of the left part, and apply pressure from the top to snap them together. Secure both parts permanently with an *M3* screw:
 
 <img src="images/wled_8x32_housing6_t.png" width="70%" height="70%" />
 
-When screwed together, the housing is rock solid, and the screw head sinks into the wall part:
+When screwed together, the housing becomes rock solid. The screw head will sink neatly into the wall of the part:
 
 <img src="images/wled_8x32_housing7_t.png" width="70%" height="70%" />
 
+
+
 ### Adding Components
 
-Insert the USB adapter PCB into the recess, and secure it with two *M2* screws. Then slide the [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/) into its compartment, and secure it with glue or tape.
+Insert the USB adapter PCB into the designated recess and secure it with two *M2* screws. Then slide the [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/) into its compartment. Secure it with glue or tape:
 
 <img src="images/wled_8x32_wiring14_t.png" width="70%" height="70%" />
 
 > [!NOTE]
-> If you decide to use different components, there is a lot of room inside the housing to fit them elsewhere. Just glue or fasten your components in some way.
+> If you decide to use different components, the housing offers plenty of room for customization. Secure your components with glue, tape, or other fasteners as needed.
+
 
 
 ### Securing LED Panel
 
-Use double-sided tape on the designated areas of the housing. Then carefully place the LED panel and align it with the housing, then firmly press the panel onto the tape:
+Apply double-sided tape to the designated areas inside the housing. Carefully place the LED panel, align it with the housing, and press it firmly onto the tape:
 
 <img src="images/wled_8x32_wiring15_t.png" width="70%" height="70%" />
 
-The panel now serves as a cover for the components beneath it.
+The panel also acts as a cover for the components beneath it, keeping everything secure and protected.
+
+
 
 ### Adding Covers
 
-The cover is separated into two parts, just like the housing. Make sure you print it with transparent material:
+The cover, like the housing, is split into two parts. Ensure you print it using a transparent material:
 
 <img src="images/wled_8x32_cover1_t.png" width="70%" height="70%" />
 
-You can then fit it onto the housing. It should easily snap in. Do a test-drive to ensure your cover aligns with the LEDs, and is transparent enough. Then secure it with some glue:
+Fit the cover onto the housing. It should snap into place easily. Before securing it, perform a test to ensure the cover aligns with the LEDs and provides sufficient transparency. Once satisfied, secure it with glue:
 
 <img src="images/wled_8x32_done3_t.png" width="70%" height="70%" />
 
 > [!TIP]
-> If you look closely, you'll see the cover in the picture has a neat carbon-like pattern. You can easily improve the finish of your 3D printed parts by using an appropriate *print plate*. On *AliExpress*, you can find affordable print plates for almost any 3D printer with great patterns.
-
+> The cover in the picture has a neat carbon-like pattern. You can achieve similar finishes on your 3D-printed parts by using a textured *print plate*. Affordable print plates with great patterns can be found on *AliExpress* or similar online stores, compatible with most 3D printers.
 ## Scrolling Text
-Large LED panels like the one in this example are perfect not just for light effects but also for displaying text. *WLED* provides the effect *Scrolling Text*, and when you choose it, the panel displays the current date and time (you may want to review the time zone settings in your WLED settings):
 
+Large LED panels like the one in this example are perfect not just for light effects but also for displaying text. *WLED* includes the *Scrolling Text* effect, which displays the current date and time when selected. (You may want to review the time zone settings in your WLED configuration to ensure accuracy):
 
 <img src="images/wled_8x32_text2_t.png" width="70%" height="70%" />
 
+The *Scrolling Text* effect is an excellent test to verify whether your *2D Layout Settings* in the *WLED settings* are configured correctly. If the text does not scroll horizontally or appears distorted, return to the [2D Configuration](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x32/#2d-configuration) and double-check your settings. Pay close attention to the schematic display of your panel below the settings, and compare it to the physical wiring layout of your panel.
 
-The *Scrolling Text* effect is the ultimate test whether your *2D Layout Settings* in the *WLED settings* are correct. If the text does not scroll horizontally, or looks deranged, then return to the [2D Configuration](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x32/#2d-configuration), and make sure the settings are correct: take a look at the schematic display of your panel below the settings, and compare it to the wiring layout of the panel you use.
 
-### Custom Text Static Text
 
-*WLED* is awesome and provides many options accessible through sliders at the bottom of the effect settings. You can for example control scroll speed and font size.
+### Customizing Text with Static and Scrolling Options
 
+*WLED* offers a variety of options for customizing text, accessible through sliders at the bottom of the effect settings. For example, you can adjust scroll speed and font size to suit your display needs:
 
 <img src="images/wled_8x32_text8_t.png" width="90%" height="90%" />
 
-You can even display *custom text*, however the settings for this aren't intuitive:
+#### Displaying Custom Text
 
-1. At the bottom of the *WLED settings*, click *Segments*. Click the pencil icon, and rename the segment to the text you want to display. 
-2. Do not forget to click the save icon at the bottom-right of the box. 
+You can also display *custom text*, but the process to set this up is not immediately intuitive. Follow these steps:
+
+1. At the bottom of the *WLED settings*, click *Segments*. Then, click the pencil icon and rename the segment to the text you want to display. 
+2. Remember to click the save icon at the bottom-right of the box to save your changes:
 
     <img src="images/wled_scroll_text_customtext1.png" width="40%" height="40%" />
 
-3. *WLED* resets, and you need to select the effect *Scrolling Text* again. Now your custom text is displayed.
+3. After saving, *WLED* will reset. You'll need to reselect the *Scrolling Text* effect, and your custom text will now be displayed.
+
+
 
 ### Static Text
-If your text fits entirely on the LED panel you use, then it is automatically shown as *static text*, and no scrolling occurs. Once the text is too large to fit, *WLED* scrolls it. 
 
-There is no separate option to switch between static and scrolling display. So the only way to control this is through the length of your text.
+If your text fits entirely on the LED panel, it will be shown as *static text*, and no scrolling will occur. However, when the text exceeds the display area, *WLED* automatically scrolls it. 
+
+There is no separate setting to toggle between static and scrolling text—the length of your text determines the behavior.
+
+
 
 ### Limitations
-Unfortunately, *WLED* does not support variable-width fonts which is unfortunate because numbers and narrow letters create a lot of space that wastes space and does not always look good. 
 
-That's why a *8x32* display like the one in this project is not ideal to display *static* text: the text would have to be very small to fit completely and prevent scrolling.
+Unfortunately, *WLED* does not support variable-width fonts. This limitation leads to wasted space and inconsistent appearance, particularly when displaying numbers or narrow letters. 
 
-Most typical static texts for professional use, like *DOCTOR*, *EMERGENCY*, *POLICE*, etc. would require just a tiny bit of additional space (or a better font). So if this is what you are after, here are your options:
+As a result, an *8x32* display like the one in this project is not ideal for displaying *static text*. The text would need to be very small to fit completely and avoid scrolling. 
 
-* **More Panels:** Programmable LED panels can be easily daisy-chained and are available in many sizes and shapes. The flexible panel used in this project is also available as a *8x8* matrix. Just connect its *DIN* pin of the additional panel to the *DOUT* pin of the first panel to extend your matrix to *8x40* or any other size you need. Or you can start with the *8x8 panels on solid PCBs* that I used in [this project](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x8/), and daisy-chain these panels to the desired size.
-* **Better Firmware:** *WLED* is a great multi-purpose firmware that can do tons of things, however displaying static text isn't its specialty. If all you want is display static text in a crisp and space-efficient font, you may want to write your own firmware: the [Adafruit NeoMatrix](https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library) library does all the heavy lifting to render your own text and take over full control. You can use this exact same hardware that I presented here. Just upload your own firmware to the microcontroller.
+For professional or practical use cases requiring static text, such as "DOCTOR," "EMERGENCY," or "POLICE," an *8x32* display often falls just short of the required space or lacks an efficient font. If this is your goal, consider the following options:
 
+- **Expand Your Display:** Programmable LED panels can be easily daisy-chained to increase size. The flexible panel used in this project is also available as an *8x8* matrix. To extend your display, connect the *DIN* pin of an additional panel to the *DOUT* pin of the first panel. This allows you to create configurations like *8x40* or larger. Alternatively, you can start with *8x8 panels on solid PCBs*, as seen in [this project](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x8/), and daisy-chain them to achieve your desired dimensions.
+- **Use Better Firmware:** While *WLED* is an excellent multi-purpose firmware, it is not optimized for displaying static text. If static text in a crisp and space-efficient font is your priority, consider writing your own firmware. The [Adafruit NeoMatrix](https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library) library simplifies rendering custom text and offers complete control over your display. You can use the same hardware presented here and simply upload your custom firmware to the microcontroller.
 
 ## Materials
 
