@@ -88,16 +88,18 @@ Click *Save* at the top or bottom of the page to store your settings. You’ll t
 
     <img src="images/wled_settings_2d_settings.png" width="40%" height="40%" />
 
-2. Scroll down to the section *LED panel layout*. Since the matrix we are using is **not symmetrical** (width and height are different), in *Orientation* choose *Horizontal*. Check **Serpentine**. In the section below, you now see how the LEDs are expected to be connected. The serpentine style matches most commercially available LED matrix panels.
+2. Scroll down to the section *LED panel layout*. Since the matrix we are using is **not symmetrical** (width and height are different), in *Orientation* choose *Vertical*. Check **Serpentine**. In the section below, you now see how the LEDs are expected to be connected. The serpentine style matches most commercially available LED matrix panels.
 
-    <img src="images/wled_settings_2d_settings_layout.png" width="40%" height="40%" />
 
-3. In *Dimensions*, specify the size of your panel: *8x32*. Then click *Save*.
+3. In *Dimensions*, specify the size of your panel: *32x8*. Then click *Save*.
+
+
+    <img src="images/wled_8x32_2dlayout1.png" width="40%" height="40%" />
 
 > [!TIP]
-> If you specify *32x8* instead, or if you do not check *Serpentine* when your panel LEDs are connected in *serpentine style*, you'll notice later when you test-drive effects: they will appear scrambled and incoherent. You can always come back here later and adjust the settings if something seems amiss.
+> Make sure the panel layout in the picture below the settings matches your panel. On the backside of your panel, you can typically see the traces and how they are oriented. Each panel really is just a LED strip placed on the PCB, and WLED needs to know how the strip is layed out to correctly show light effects, especially *Scrolling Text*.
 
----
+
 
 ## LED Matrix Panel Preparation
 
@@ -134,11 +136,15 @@ Do not forget to add the cables to connect the microcontroller and external USB 
 
 <img src="images/wled_matrix_8x32_wiring1_t.png" width="100%" height="100%" />
 
+If you have a cutter knive, you can also use just one long cable and remove the insulation mid-span:
+
+<img src="images/wled_8x32_wiring3_t.png" width="100%" height="100%" />
+
+
 ### Data Cable
 
 Solder one data cable to **DIN** (do not confuse it with **DOUT**). This is the control wire that later controls the LED (color, brightness).
 
----
 
 ## 3. Assembly
 
@@ -153,6 +159,12 @@ Now add the microcontroller and external USB plug:
 
     <img src="images/wled_matrix_8x32_usb2_t.png" width="50%" height="50%" />
 
+
+Here is a picture of the complete wiring:
+
+<img src="images/wled_8x32_wiring9_t.png" width="90%" height="90%" />
+
+
 ### Test Run
 
 Once you connect the microcontroller to power by plugging in a USB cable, the LED matrix should start to glow orange. This is the default behavior. If the LED matrix stays dark, something is amiss.
@@ -162,7 +174,6 @@ Once you connect the microcontroller to power by plugging in a USB cable, the LE
 
 Refer to the [WLED](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/) article for more information on how to change colors, effects, etc.
 
----
 
 ## 4. Housing
 
@@ -179,40 +190,100 @@ Here are the STL files:
 
 For the cover, make sure you print with a transparent material, either fully transparent, or a translucent white or gray. 
 
+
 > [!TIP]
 > It turned out that *PLA* works best for the body, while *PETG* is generally more translucent. Gray PETG worked best for me as a cover, and for the body I used black matte PLA.
 
-### Notes
 
-The housing was designed for the components I used, i.e., the particular external USB plug PCB, and an [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/) microcontroller. 
+### Combining Both Parts
 
-If you use other components, you may have to adjust the housing a bit (or design your own). The housing reserves a lot of space for the cabling underneath the panel, so you can easily fit other microcontroller types here instead.
+Since the housing is too large for most 3D printers, it consists of two parts that snap together:
 
-### Mounting USB Connector
+<img src="images/wled_8x32_housing1_t.png" width="100%" height="100%" />
 
-Place the external USB connector into the reserved space so that you can access its *USB C* connector from the outside. If you managed to get the same PCB I used, it should snap into place with a firm press.
+One part can be inserted into the other:
 
-Make sure you secure the USB plug with two screws, and/or use glue: this component will be under physical stress when users plug in USB cables and should be secured extra well.
+<img src="images/wled_8x32_housing3_t.png" width="40%" height="40%" />
 
-### Mounting Microcontroller
+Place the right part on top of the left part, and apply pressure from the top so both parts unite firmly. Use a *M3* screw to secure both parts permanently:
 
-Place the microcontroller board into the designated recess in the mount. It is designed for an [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/).  
+<img src="images/wled_8x32_housing6_t.png" width="70%" height="70%" />
 
-### Mounting LED Panel
+When screwed together, the housing is rock solid, and the screw head sinks into the wall part:
 
-The *8x32 LED matrix panel* serves as a cover and secures the microcontroller. Place some double-sided tape on the surfaces where the panel is going to rest, then press the panel on the tape to secure it.
+<img src="images/wled_8x32_housing7_t.png" width="70%" height="70%" />
 
-### Mounting Covers
+### Adding Components
 
-Place the two cover parts onto the body without securing it yet. Then, test drive the LED matrix, and double-check that your cover is translucent enough.
+Insert the USB adapter PCB into the recess, and secure it with two *M2* screws. Then slide the [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini/) into its compartment, and secure it with glue or tape.
 
-If all works for you, press the cover into place. Depending on the type of 3D printer and materials you use, you may have to use some force, or the covers may be a bit too loose. In the latter case, use glue to fix the cover. This is what the display should look like when mounted:
+<img src="images/wled_8x32_wiring14_t.png" width="70%" height="70%" />
 
-<img src="images/wled_matrix_8x32_final4_t.png" width="80%" height="80%" />
+> [!NOTE]
+> If you decide to use different components, there is a lot of room inside the housing to fit them elsewhere. Just glue or fasten your components in some way.
 
-Once the LED panel is securely fastened, you’ll have a solid and rugged device. Plug in a USB-C cable to test it.
 
-<img src="images/wled_matrix_8x32_final2_t.png" width="100%" height="100%" />
+### Securing LED Panel
+
+Use double-sided tape on the designated areas of the housing. Then carefully place the LED panel and align it with the housing, then firmly press the panel onto the tape:
+
+<img src="images/wled_8x32_wiring15_t.png" width="70%" height="70%" />
+
+The panel now serves as a cover for the components beneath it.
+
+### Adding Covers
+
+The cover is separated into two parts, just like the housing. Make sure you print it with transparent material:
+
+<img src="images/wled_8x32_cover1_t.png" width="70%" height="70%" />
+
+You can then fit it onto the housing. It should easily snap in. Do a test-drive to ensure your cover aligns with the LEDs, and is transparent enough. Then secure it with some glue:
+
+<img src="images/wled_8x32_done3_t.png" width="70%" height="70%" />
+
+> [!TIP]
+> If you look closely, you'll see the cover in the picture has a neat carbon-like pattern. You can easily improve the finish of your 3D printed parts by using an appropriate *print plate*. On *AliExpress*, you can find affordable print plates for almost any 3D printer with great patterns.
+
+## Scrolling Text
+Large LED panels like the one in this example are perfect not just for light effects but also for displaying text. *WLED* provides the effect *Scrolling Text*, and when you choose it, the panel displays the current date and time (you may want to review the time zone settings in your WLED settings):
+
+
+<img src="images/wled_8x32_text2_t.png" width="70%" height="70%" />
+
+
+The *Scrolling Text* effect is the ultimate test whether your *2D Layout Settings* in the *WLED settings* are correct. If the text does not scroll horizontally, or looks deranged, then return to the [2D Configuration](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x32/#2d-configuration), and make sure the settings are correct: take a look at the schematic display of your panel below the settings, and compare it to the wiring layout of the panel you use.
+
+### Custom Text Static Text
+
+*WLED* is awesome and provides many options accessible through sliders at the bottom of the effect settings. You can for example control scroll speed and font size.
+
+
+<img src="images/wled_8x32_text8_t.png" width="90%" height="90%" />
+
+You can even display *custom text*, however the settings for this aren't intuitive:
+
+1. At the bottom of the *WLED settings*, click *Segments*. Click the pencil icon, and rename the segment to the text you want to display. 
+2. Do not forget to click the save icon at the bottom-right of the box. 
+
+    <img src="images/wled_scroll_text_customtext1.png" width="40%" height="40%" />
+
+3. *WLED* resets, and you need to select the effect *Scrolling Text* again. Now your custom text is displayed.
+
+### Static Text
+If your text fits entirely on the LED panel you use, then it is automatically shown as *static text*, and no scrolling occurs. Once the text is too large to fit, *WLED* scrolls it. 
+
+There is no separate option to switch between static and scrolling display. So the only way to control this is through the length of your text.
+
+### Limitations
+Unfortunately, *WLED* does not support variable-width fonts which is unfortunate because numbers and narrow letters create a lot of space that wastes space and does not always look good. 
+
+That's why a *8x32* display like the one in this project is not ideal to display *static* text: the text would have to be very small to fit completely and prevent scrolling.
+
+Most typical static texts for professional use, like *DOCTOR*, *EMERGENCY*, *POLICE*, etc. would require just a tiny bit of additional space (or a better font). So if this is what you are after, here are your options:
+
+* **More Panels:** Programmable LED panels can be easily daisy-chained and are available in many sizes and shapes. The flexible panel used in this project is also available as a *8x8* matrix. Just connect its *DIN* pin of the additional panel to the *DOUT* pin of the first panel to extend your matrix to *8x40* or any other size you need. Or you can start with the *8x8 panels on solid PCBs* that I used in [this project](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/wled/matrix8x8/), and daisy-chain these panels to the desired size.
+* **Better Firmware:** *WLED* is a great multi-purpose firmware that can do tons of things, however displaying static text isn't its specialty. If all you want is display static text in a crisp and space-efficient font, you may want to write your own firmware: the [Adafruit NeoMatrix](https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library) library does all the heavy lifting to render your own text and take over full control. You can use this exact same hardware that I presented here. Just upload your own firmware to the microcontroller.
+
 
 ## Materials
 
