@@ -321,3 +321,5 @@ Sensors are supported through the [CanAirIO](https://canair.io/) library. Check 
 
 
 > Tags: CO2 Gadget, Sensirion SCD30, Air Quality, Firmware, CanAirIO, Sensor
+
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget?641318011502254120) - created 2025-01-01 - last edited 2025-01-01
