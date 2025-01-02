@@ -2,26 +2,29 @@
  
 # CO2 Gadget
 
-> Controlling LED Strips and Matrices Using WLED and an ESP32
+> Building A High-Quality Ait Quality Monitoring Device
 
-[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a free, [open-source firmware](https://github.com/melkati/CO2-Gadget) that you can upload to an *ESP32* microcontroller in under two minutes. This transforms your microcontroller into a sophisticated CO2 sensor capable of monitoring air quality.
+[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a free [open-source firmware](https://github.com/melkati/CO2-Gadget) that you can upload to an *ESP32S* or *ESP32-S3* microcontroller right from inside your browser. This transforms your microcontroller into a sophisticated CO2 sensor capable of monitoring air quality.
 
-The firmware supports a variety of popular CO2 sensor boards and can interface with additional sensors for *temperature*, *humidity*, *atmospheric pressure*, and more.
+The firmware supports a [variety of CO2 sensors](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget/#supported-sensors) and can interface with additional sensors for *particles*, *temperature*, *humidity*, *atmospheric pressure*, and more.
 
-With minimal effort, this firmware enables you to build your own high-quality, affordable air monitor.
+So with minimal effort, this firmware enables you to build your own high-quality, affordable air monitor.
 
 > [!NOTE]
-> Quite a number of commercially available *air quality monitors*  rely on [cheap, relatively inaccurate MOS sensors](https://done.land/components/data/sensor/airquality/#cheap-mos-sensors). By using the *CO2 Gadget* firmware, you can invest in a high-quality [dedicated CO2 NDIR sensor](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors). With parts costing only €20-30, you can create a highly accurate air quality monitoring device that rivals professional-grade equipment.
+> Affordable commercial *air quality monitors* typically rely on [cheap, relatively inaccurate MOS sensors](https://done.land/components/data/sensor/airquality/#cheap-mos-sensors). Devices based on professional [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) often cost a fortune. With parts in the range of just €20-30, you can now create a highly accurate air quality monitoring device that rivals professional-grade equipment.
 
 ## Overview
 
-[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a long-standing community project with a mature, feature-rich firmware for *ESP32* microcontrollers. It supports a wide range of sensors and offers great versatility.
+[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a long-standing community project with a mature, feature-rich firmware for *ESP32* microcontrollers. It supports a [wide range of sensors](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget/#supported-sensors) and offers great versatility.
 
 The [project website](https://emariete.com/en/co2-meter-gadget/) provides essential resources, though its organization can be challenging to navigate.
 
+> [!NOTE]
+> The firmware does not natively support [Home Assistant](https://powershell.one/doneland_test/tools/software/homeassistant/). You can  [use MQTT](https://www.home-assistant.io/integrations/mqtt/) to import sensor data into *Home Assistant*, though.
+
 ### What You Need
 
-Here’s the list of parts required to build your own CO2 monitor:
+These are the parts required to build your own CO2 monitor:
 
 1. **ESP32 Development Board:** Choose a board **with a built-in display**, such as the [LilyGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/). If you opt for a board without a display, you’ll need to add an external one or rely on alternative outputs like LEDs or buzzers. While the firmware supports these options, having a display significantly enhances usability.
 
@@ -31,12 +34,8 @@ Here’s the list of parts required to build your own CO2 monitor:
 
     <img src="images/co2_gadget_project4_t.png" width="40%" height="40%" />
 
-3. **Optional Add-ons:** The firmware supports [programmable WS2812 RGB LEDs](https://done.land/components/light/led/programmable/ws2812/) and buzzers. These can complement or even replace a display, providing alternative ways to convey air quality information.
-
-
-
-> [!IMPORTANT]
-> The firmware expects components (like sensors or displays) to be connected to well-known GPIOs. All *ESP32S* (classic ESP32) use the same GPIOs. Newer members of the *ESP32* family (such as *ESP32-C3* or *S3*) use *different* pins. You may have to adjust the source code and compile the firmware yourself for these microcontrollers.     
+3. **Optional Add-ons:** The firmware supports normal and [programmable WS2812 RGB LEDs](https://done.land/components/light/led/programmable/ws2812/) as well as buzzers. These can complement or even replace a display, providing alternative ways to convey air quality information.
+ 
 
 
 ### Power Supply Considerations
@@ -51,18 +50,17 @@ Since *air quality monitoring devices* are designed to operate continuously, run
 Here are the steps to build your own CO2 Gadget:
 
 1. **Upload Firmware:** Get an *ESP32 development board* and upload the *CO2 Gadget* firmware. No special tools are required—just a *Chromium-based browser* (e.g., Chrome, Edge, Opera, or Brave).
-2. **Configure Firmware:** Once your microcontroller runs the firmware, connect to it wirelessly (e.g., via your smartphone) and use its web interface to configure your options.
-3. **Add Sensor(s):** Connect your chosen CO2 sensor to the microcontroller. Optionally, add additional sensors for *temperature*, *humidity*, or other air quality measurements. Many sophisticated CO2 sensors include these additional features.
+2. **Connect:** Wirelessly connect to your microcontroller and access its web interface.
+3. **Configure Firmware:** Use its web interface to configure your options.
+4. **Add Sensor(s):** Connect your chosen CO2 sensor to the microcontroller. Optionally, add additional sensors for *temperature*, *humidity*, or other air quality measurements. You can also add optional hardware like LEDs, a buzzer, and buttons.
 
-The first two steps require only an *ESP32 board*, so you can start immediately. This guide will walk you through each step, helping you configure the firmware and connect the sensors. Once your microcontroller successfully runs the *CO2 Gadget firmware* and you can access its web interface, you’ll move on to connecting sensors and fitting the components into a housing.
+The first three steps require only an *ESP32 board*, so you can start immediately. This guide will walk you through each step, helping you configure the firmware and connect the sensors. Once your microcontroller successfully runs the *CO2 Gadget firmware* and you can access its web interface, you’ll move on to connecting sensors and fitting the components into a housing.
 
 
 
 ## 1. Uploading Firmware
 
-You can upload [pre-made firmware](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced) through your *Chrome* browser - without the need for any special tools or programming.
-
-Alternatively, the source code is freely [available on github.com](https://github.com/melkati/CO2-Gadget) in case you want to review it, make adjustments, and/or compile and upload your own firmware version.
+You can upload [pre-made firmware](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced) through your *Chrome* browser - without the need for any special tools or programming - or you can [download the source code](https://github.com/melkati/CO2-Gadget), make adjustments, and compile and upload your own firmware version to your microcontroller.
 
 ### Connect Microcontroller To PC
 
@@ -77,6 +75,9 @@ Either way, the first step is to ensure your microcontroller connects properly t
 Once your microcontroller is recognized by your PC, follow these steps to upload the *CO2 Gadget firmware*:
 
 1. Open a **Chromium-based browser** and navigate to the [CO2 Gadget homepage](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced). Look for the **Installation of CO2 Gadget Advanced** section. Scroll down to find a table listing various *ESP32 development boards*. 
+
+
+    <img src="images/co2_sensor_install_1.png" width="100%" height="70%" />
 
 2. Identify the board you are using in the table:
 
@@ -101,10 +102,8 @@ Once your microcontroller is recognized by your PC, follow these steps to upload
 
 3. Click the **INSTALL** button for your chosen board. A dialog will appear to select your connected microcontroller. Click *Install CO2-Gadget*. 
 
-    <img src="images/co2_sensor_install_1.png" width="100%" height="70%" />
 
-> [!NOTE]
-> If no devices are listed, ensure your microcontroller is connected via USB. Close and reopen your browser, or reboot your PC if necessary. Verify [your microcontroller’s connection](https://done.land/components/microcontroller/howtouse/connecttopc/) and check that drivers are installed.
+    > If no devices are listed, ensure your microcontroller is connected via USB. Close and reopen your browser, or reboot your PC if necessary. Verify [your microcontroller’s connection](https://done.land/components/microcontroller/howtouse/connecttopc/) and check that drivers are installed.
 
 4. Check the option to erase the flash memory, then click *Next*. 
 
@@ -112,53 +111,56 @@ Once your microcontroller is recognized by your PC, follow these steps to upload
 
 5. Confirm your selection by clicking *Install*. 
 
-    <img src="images/co2_sensor_install_3.png" width="60%" height="60%" />
+    <img src="images/co2_sensor_install_3.png" width="50%" height="50%" />
 
 6. The installation process begins: first, the flash memory is erased, and then the new firmware is uploaded.
 
-    <img src="images/co2_sensor_install_4.png" width="60%" height="60%" />
+    <img src="images/co2_sensor_install_4.png" width="30%" height="30%" />
 
 7. After 1–2 minutes, the installation completes. Click *Next*. 
 
-    <img src="images/co2_sensor_install_6.png" width="60%" height="60%" />
+    <img src="images/co2_sensor_install_6.png" width="30%" height="30%" />
 
 8. Configure your device for WiFi. Select your WiFi SSID, enter the password, and click *Connect*. 
 
-    <img src="images/co2_sensor_install_7.png" width="60%" height="60%" />
+    <img src="images/co2_sensor_install_7.png" width="40%" height="40%" />
 
 9. Once connected, click *Visit Device* to access its web interface. 
 
-    <img src="images/co2_sensor_install_8.png" width="60%" height="60%" />
+    <img src="images/co2_sensor_install_8.png" width="35%" height="35%" />
 
-At this stage, the gauges in the web interface will display zero values since no sensors are connected yet. You’re now ready to move on to configuring your device.
+Now, two things should happen:
+
+* **Display:** the firmware now runs on your microcontroller. If your device is using a display, it should come to life and show some icons and values.
+* **Web Interface:** on your PC, in your browser, the web interface should open. The gauges will display zero values since no sensors are connected yet. 
 
 <img src="images/co2_sensor_install_9.png" width="100%" height="60%" />
 
+You’re now ready to move on to configuring your device which you should do immediately: you may not (easily) be able to return to the web interface later.
+
+
 > [!TIP]
-> When you remove power from your microcontroller, the screen may remain blank when you re-power the board later. If this happens to you, press the *Reset* button on the board. This looks like a flaw with the energy savings feature.         
+> Before we proceed with the configuration, here is a note about some peculiar behavior: When you remove power from the microcontroller, the screen may remain blank when you re-power the board later. If this happens to you, press the *Reset* button on the board. It looks like there is a minor glitch with some energy saving features.         
 
 
 ## 2. Connecting To Microcontroller
-In order to configure *CO2 Gadget*, you need access to its web interface. If you followed the steps above, this web interface has just opened in your browser. If so, proceed with the configuration immediately (see below).
+In order to configure *CO2 Gadget*, you need access to its web interface. If you followed the steps above, this web interface has just opened in your browser. 
 
-If you closed the browser, or revisited the device after some time, accessing its web interface may be challenging: you need to know the  current *device IP address*: *http://[IP Address]*.
+If you closed the browser though, or want to revisit the device after some time, accessing its web interface may become challenging: you need to know the current *device IP address* in order to navigate to it: *http://[IP Address]*.
 
-*CO2 Gadget* does support *mDNS*, and the default device name is *CO2-Gadget*. So you *should* be able to use this name in your browser: [CO2-Gadget](http://co2-gadget/). Unfortunately, *mDNS* often does not work reliably, and if your browser cannot resolve this name, you are in good company.   
-
-
-
-> [!TIP]
-> If you cannot seem to connect to the IP address, then try temporarily disabling any *VPN* (like *Nord VPN*) you may be using.
-
+### mDNS And Caveats
+Since *CO2 Gadget* supports *mDNS*, you can try to reach the device via its default host name: [CO2-Gadget](http://co2-gadget/). More likely than not, this may fail though. *mDNS* is notorious for being unreliable, and if your browser cannot resolve the device name, you are in good company.   
 
 
 
 ### Random IP Address Assignment
-By default, the device receives a random IP address from *DHCP* which can change over time. This is why you might want to assign a permanent *static IP address* to your device while you still have a chance and know its IP address. 
+Even if you remembered the initially assigned IP address, this won't get you too far: by default, devices receive a random IP address from *DHCP* (which can change from time to time). 
 
-Assigning a static IP address is ideally part of the initial device configuration.
+So to actually access your device settings, you either need a working *mDNS* (see above), or you might want to assign a permanent *static IP address*. To do this, you *still* need to be able to access the web interface at least once. So if you locked yourself out, here is how you can find out the currently assigned IP address:
 
-<details><summary>What can I do if I don't know the IP address and cannot access the device anymore?</summary><br/>
+
+
+<details><summary>Recovering the Device IP Address</summary><br/>
 
 
 ### Recovering IP Address
@@ -199,31 +201,33 @@ This shows the devices' web interface:
 ## 3. Configuring CO2 Gadget
 
 
-With the devices' web interface open (see above), click the menu *Preferences* to see its settings:
+With the web interface open, click the menu *Preferences* to see all available settings:
 
 <img src="images/esphome_co2gadget_log7.png" width="100%" height="100%" />
 
 Here are the settings that you should review:
 
-* **Connectivity:** Check the technologies you want the device to use for wireless connections. If you do not need *Bluetooth*, for example, uncheck *BLE*.
-    > Better not deactivate *BLE* though, or else you miss out on the built-in *app support*: free apps exist both for [Android](https://play.google.com/store/apps/details?id=com.sensirion.myam&hl=es) and [iPhone](https://apps.apple.com/us/app/sensirion-myambience/id1529131572). With these apps, you can conveniently view the sensor information via *Bluetooth* and your smartphone, and even configure the firmware.
-* **Networking:** In the text box *Host Name*, set the *mDNS host name* that the device should use. By default, the *mDNS* host name is **CO2-Gadget**. If *mDNS* does not work for you, then you can check *Use Static IP*, and assign a static IP address to your device.
-    > In order to use a static IP address, you need to know your valid IP address range and the range of IP addresses assigned by *DHCP* automatically. You must ensure that the IP address you pick is *reachable* (within your subnet mask), and that no other device can ever receive this IP address.     
-* **Sensors:** You can define offset values for your sensors (if they are always off by a fixed value), and when you are using a WS2812 LED, you can define the CO2 levels for *orange* and *red* levels. The predefined values typically do not need to be changed.
-* **Outputs:** if you use optional components such as a *WS2812 LED* or a buzzer, then you can customize their behavior, i.e. control *LED brightness* and *buzzer tones*.
+* **Connectivity:** Check the wireless technologies you want the device to use. If you do not need *Bluetooth*, for example, uncheck *BLE*.
+    > Better not deactivate *BLE* though, or else you miss out on the built-in *app support*: a *Sensirion* app exist both for [Android](https://play.google.com/store/apps/details?id=com.sensirion.myam&hl=es) and [iPhone](https://apps.apple.com/us/app/sensirion-myambience/id1529131572). With this app, you can conveniently view the sensor information via *Bluetooth* on your smartphone - provided you use a *Sensirion* sensor.
+* **Networking:** In the text box *Host Name*, set the *mDNS host name* that the device should use. By default, the *mDNS* host name is **CO2-Gadget**. If *mDNS* does not work for you, then you may want to check *Use Static IP*, and assign a static IP address to your device.
+    > In order to use a static IP address, you need to know your valid IP address range and the range of IP addresses assigned by *DHCP*. You must ensure that the IP address you pick is *reachable* (within your subnet mask), but not assigned to other devices (outside the DHCP range).     
+* **Sensors:** You can define offset values for your sensors (if they are always off by a given value), and you can define the CO2 levels that should be reached for the *orange* and *red* LEDs to light up (if you decided to connect such LEDs to your microcontroller). The predefined values work well in most cases.
+* **Outputs:** if you use optional components such as normal or programmable *WS2812 LEDs*, or a buzzer, then you can customize their behavior, i.e. control *LED brightness* and *buzzer tones*.
 * **Battery:** even though CO2 sensors are not running well on battery power due to their relatively high current consumption, you can add a battery to your setup and define the battery capacity.
-* **Display Preferences:** control which sensor readings should appear on the display. You can also turn off the display after a grace period, and limit such power saving features for when the device is battery powered only.
+* **Display Preferences:** control which sensor readings should appear on the display. You can also turn off the display after a grace period, and limit power saving features for when the device is battery powered only.
 
 Once you have adjusted your settings, click *Save*.
-## Connecting Peripherals
 
-With your microcontroller configured, you can now move forward. Power off your board and connect a suitable CO2 sensor, such as the [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/). When you power the board back on, you should see actual sensor readings on your display.
 
-Below is an overview of the GPIOs used to connect peripherals like sensors, displays, LEDs, buttons, and buzzers.
+## 4. Connecting Peripherals
+
+With your microcontroller configured, you can now move forward: power off your board and connect a suitable CO2 sensor, such as the [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/). When you power the board back on, you should see actual sensor readings on your display.
+
+To actually connect peripherals, you need to know the *GPIOs* at which the firmware expects to find them:
 
 ### I2C Interface
 
-Currently, *CO2 Gadget* offers precompiled firmware for *ESP32S* and *ESP32-S3* microcontrollers. The required GPIOs for connecting external *I2C* components (e.g., sensors and displays) depend on your microcontroller:
+Most sensors, and many other peripherals such as external displays, use the two-wire *I2C interface*. The required GPIOs for connecting external *I2C* components (e.g., sensors and displays) depend on your microcontroller type:
 
 | Microcontroller | SDA | SCL |
 | --- | --- | --- |
@@ -231,13 +235,14 @@ Currently, *CO2 Gadget* offers precompiled firmware for *ESP32S* and *ESP32-S3* 
 | **ESP32-S3** | 43 | 44 |
 
 > [!NOTE]  
-> The firmware **TTGO_TDISPLAY_SANDWICH** reverses the GPIOs for *SDA* and *SCL*. It is tailored specifically for mounting the *Sensirion SCD30 PCB* piggyback-style onto the *ESP32S PCB*.
+> The firmware **TTGO_TDISPLAY_SANDWICH** reverses the GPIOs for *SDA* and *SCL*. It is a specifically-tailored firmware enabling you to mount the *Sensirion SCD30 PCB* piggyback-style onto a *ESP32S PCB*.
 
 ### Buttons
 
-GPIOs for buttons vary depending on the board, as some come with built-in buttons on specific GPIOs:
+You can optionally add *up* and *down* buttons to enable user interaction and navigation. The GPIOs for these two buttons vary considerably in the different firmware versions. That's because some development boards come with built-in buttons connected to specific GPIOs, while other development boards have no built-in buttons at all.
 
-| **Firmware**               | **UP/DWN** |
+
+| **Firmware Version**               | **UP/DWN** |
 |----------------------------|------------|
 | **TTGO_TDISPLAY**          | 35 / 0     |
 | **TTGO_TDISPLAY_SANDWICH** | 35 / 0     |
@@ -248,7 +253,9 @@ GPIOs for buttons vary depending on the board, as some come with built-in button
 
 ### LEDs & Buzzer
 
-The firmware supports both *regular* LEDs and *programmable* LEDs (WS2812, aka *"NeoPixel"*). The optional buzzer is always wired to *GPIO2*. The LED GPIOs vary by microcontroller:
+The optional buzzer is always wired to *GPIO2*.
+
+The firmware supports both *regular* and *programmable* (WS2812, aka *"NeoPixel"*) LEDs.  The LED GPIOs vary by microcontroller type:
 
 | **Microcontroller Type**   | **GPIO Orange** | **GPIO Red** | **GPIO WS2812 LED** | 
 |----------------------------|------------------|--------------|----------------------|
@@ -257,14 +264,21 @@ The firmware supports both *regular* LEDs and *programmable* LEDs (WS2812, aka *
 
 ### Battery
 
-To monitor the state of charge (voltage) of an external battery, use the following GPIOs based on your microcontroller:
+To monitor the state of charge (voltage) of an external battery, the voltage sensing GPIO is based on your microcontroller type:
 
 | **Microcontroller Type**   | **Battery Voltage GPIO** |
 |----------------------------|--------------------------|
 | **ESP32S**                 | 34                       |
 | **ESP32-S3**               | 04                       |
 
-If the GPIO assignments in the precompiled firmware do not meet your requirements, or if you want to use a different *ESP32 type* (e.g., *ESP32-C3* or *ESP32-S2*), you can [download and adjust the source code](https://github.com/melkati/CO2-Gadget), then compile and upload your custom firmware.
+This obviously only works when the development board comes with battery support and has actually wired the GPIO to the appropriate battery input pin. Else, it is up to you to expose your external battery voltage at this pin.
+
+> [!IMPORTANT]
+> If you add battery support yourself, make sure you understand the allowable voltage range for analog input pins. *ESP32* analog inputs have a *3.3V* maximum input voltage. Some development boards include voltage dividers that allow for higher input voltages. Else, you may have to add such a voltage divider yourself. 
+
+
+### Adjustments
+Should none of the premade firmware versions match the GPIOs required for your development board, you can always [download and adjust the source code](https://github.com/melkati/CO2-Gadget), then compile and upload your own customized firmware.
 
 > [!TIP]  
 > Sensor support is based on the [CanAirIO](https://github.com/kike-canaries/canairio_sensorlib) library, which supports *ESP32S*, *ESP32-C3*, *ESP32-S3*, *ESP8266*, and *Atmel*. Note that *ESP32-S2* is not explicitly supported.
