@@ -2,16 +2,14 @@
  
 # CO2 Gadget
 
-> Building A High-Quality Ait Quality Monitoring Device
+> Building A High-Quality Air Quality Monitoring Device
 
-[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a free [open-source firmware](https://github.com/melkati/CO2-Gadget) that you can upload to an *ESP32S* or *ESP32-S3* microcontroller right from inside your browser. This transforms your microcontroller into a sophisticated CO2 sensor capable of monitoring air quality.
+[CO2 Gadget](https://emariete.com/en/co2-meter-gadget/) is a free [open-source firmware](https://github.com/melkati/CO2-Gadget) that you can upload to an *ESP32S* or *ESP32-S3* microcontroller right from inside your browser - no special tools required. This transforms your microcontroller into a sophisticated CO2 sensor capable of monitoring air quality.
 
-The firmware supports a [variety of CO2 sensors](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget/#supported-sensors) and can interface with additional sensors for *particles*, *temperature*, *humidity*, *atmospheric pressure*, and more.
-
-So with minimal effort, this firmware enables you to build your own high-quality, affordable air monitor.
+The firmware supports a [variety of CO2 sensors](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget/#supported-sensors) and can interface with additional sensors for *particles*, *temperature*, *humidity*, *atmospheric pressure*, and more. With minimal effort, this firmware enables you to build your own high-quality, affordable air monitor.
 
 > [!NOTE]
-> Affordable commercial *air quality monitors* typically rely on [cheap, relatively inaccurate MOS sensors](https://done.land/components/data/sensor/airquality/#cheap-mos-sensors). Devices based on professional [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) often cost a fortune. With parts in the range of just €20-30, you can now create a highly accurate air quality monitoring device that rivals professional-grade equipment.
+> When you buy commercial *air quality monitors*, be aware that the affordable ones typically rely on [cheap, relatively inaccurate MOS sensors](https://done.land/components/data/sensor/airquality/#cheap-mos-sensors). Devices based on professional [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) often cost a fortune. With parts in the range of just €20-30, your DIY air quality monitor rivals professional-grade equipment.
 
 ## Overview
 
@@ -35,15 +33,8 @@ These are the parts required to build your own CO2 monitor:
     <img src="images/co2_gadget_project4_t.png" width="40%" height="40%" />
 
 3. **Optional Add-ons:** The firmware supports normal and [programmable WS2812 RGB LEDs](https://done.land/components/light/led/programmable/ws2812/) as well as buzzers. These can complement or even replace a display, providing alternative ways to convey air quality information.
- 
-
-
-### Power Supply Considerations
-
-High-quality [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) can be relatively power-hungry. For example, the popular [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/) consumes *75mA* during measurements and averages *19mA*.
-
-Since *air quality monitoring devices* are designed to operate continuously, running them on battery power for extended periods is impractical. While the firmware supports battery operation, the most realistic power source is stationary *USB power* through the USB connector on your microcontroller board.
-
+ > [!IMPORTANT]  
+> [NDIR CO2 sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) can be expensive, but prices vary significantly. For instance, a [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/) may cost anywhere from €15 to €80, depending on the retailer. Be cautious with very low prices, as they may indicate [counterfeit sensors](https://emariete.com/en/sensors-co2-mh-z19b-false/). Ultimately, you’ll need to assess the risk yourself. I opted to purchase mine on *AliExpress* at the best price available, and the sensors I received worked flawlessly.
 
 ### Next Steps
 
@@ -52,19 +43,26 @@ Here are the steps to build your own CO2 Gadget:
 1. **Upload Firmware:** Get an *ESP32 development board* and upload the *CO2 Gadget* firmware. No special tools are required—just a *Chromium-based browser* (e.g., Chrome, Edge, Opera, or Brave).
 2. **Connect:** Wirelessly connect to your microcontroller and access its web interface.
 3. **Configure Firmware:** Use its web interface to configure your options.
-4. **Add Sensor(s):** Connect your chosen CO2 sensor to the microcontroller. Optionally, add additional sensors for *temperature*, *humidity*, or other air quality measurements. You can also add optional hardware like LEDs, a buzzer, and buttons.
+4. **Add Sensor(s):** Connect your chosen CO2 sensor to the microcontroller. Optionally, add additional sensors for *temperature*, *humidity*, or other air quality parameters, and add optional hardware like LEDs, a buzzer, or buttons.
 
-The first three steps require only an *ESP32 board*, so you can start immediately. This guide will walk you through each step, helping you configure the firmware and connect the sensors. Once your microcontroller successfully runs the *CO2 Gadget firmware* and you can access its web interface, you’ll move on to connecting sensors and fitting the components into a housing.
+The first three steps require only an *ESP32 board*, so you can start immediately with any *ESP32 development board* you may have at hand. 
+
+This guide will walk you through each step, helping you configure the firmware and connect the sensors. Once your microcontroller successfully runs the *CO2 Gadget firmware* and you can access its web interface, you’ll move on to connecting sensors and fitting the components into a housing.
 
 
 
 ## 1. Uploading Firmware
 
-You can upload [pre-made firmware](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced) through your *Chrome* browser - without the need for any special tools or programming - or you can [download the source code](https://github.com/melkati/CO2-Gadget), make adjustments, and compile and upload your own firmware version to your microcontroller.
+The first step is to *program* your microcontroller by uploading the *CO2 Gadget firmware*. There are options both for beginners and experienced users:
+
+* **No Experience Needed:** Upload [pre-made firmware](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced) through your *Chrome* browser directly onto your microcontroller board - no special tools or programming required. 
+* **Know-How Required:** [Download the source code](https://github.com/melkati/CO2-Gadget), make any adjustments you may need, then compile and upload your own firmware version to your microcontroller, using tools like [ArduinoIDE](https://www.arduino.cc/en/software) or [platformio](https://platformio.org/).
 
 ### Connect Microcontroller To PC
 
-Either way, the first step is to ensure your microcontroller connects properly to your PC. When connected via USB, the microcontroller board should power up, and your PC should emit a chime indicating a new USB device has been recognized.
+Either way, start by ensuring that your microcontroller connects properly to your PC: 
+
+When connected via USB, the microcontroller board should power up, and your PC should emit a chime indicating a new USB device has been recognized.
 
 > [!IMPORTANT]
 > If the device is not detected, check for issues such as a faulty USB cable or missing drivers. Resolve these problems first by following [this guide](https://done.land/components/microcontroller/howtouse/connecttopc/).
@@ -72,7 +70,7 @@ Either way, the first step is to ensure your microcontroller connects properly t
 
 ### Browser-Based Firmware Upload
 
-Once your microcontroller is recognized by your PC, follow these steps to upload the *CO2 Gadget firmware*:
+This is the easiest way to program your microcontroller: upload pre-made firmware to your microcontroller using a *Chrome* browser. Just make sure you have successfully connected your microcontroller board to your PC via a USB cable.
 
 1. Open a **Chromium-based browser** and navigate to the [CO2 Gadget homepage](https://emariete.com/en/co2-meter-gadget/#Instalacion_de_CO2_Gadget_Advanced). Look for the **Installation of CO2 Gadget Advanced** section. Scroll down to find a table listing various *ESP32 development boards*. 
 
@@ -82,22 +80,23 @@ Once your microcontroller is recognized by your PC, follow these steps to upload
 2. Identify the board you are using in the table:
 
 
-    | Variant | Display | Controller | SDA | SCL | Remark |
-    | --- | ---  | --- | --- | --- | --- |
-    | **TTGO_TDISPLAY** | TFT 1.14" 240x135 | built-in | 21 | 22 | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) |
-    | **TTGO_TDISPLAY_SANDWICH** | TFT 1.14" 240x135 | built-in | 22 | 21 | same, however GPIO21 and GPIO22 (I2C) are **reversed** to that the sensor PCB can be easily piggy-backed onto the microcontroller board for compactness |
-    | **TDISPLAY_S3** | TFT 1.9" 320x170 | built-in | 42 | 43 | uses *ESP32-S3* |
-    | **esp32dev_OLED** | OLED 0.96/1.3" 128x64 | SH1106 | 21 | 22 | generic 0.96" and 1.3" I2C OLED displays and [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) |
-    | **esp32dev** | none | none | 21 | 22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) |
-    | **esp32dev_ST7789_240×320** | TFT 240x320 | [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 21 | 22 | supports [320x240 TFT display](https://done.land/components/humaninterface/display/tft/st7789/1.9inch320x240/) and [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) |
-    | **ttgo-t5-EINKBOARDGDEM0213B74** | e-Ink 2.13" 104x212 | GDEM0213B74 | 21| 22| *Lilygo TTGO T5* board |
-    | **ttgo-t5-EINKBOARDDEPG0213BN** | e-Ink 2.13" 104x212 | DEPG0213BN | 21 | 22 | *Lilygo TTGO T5* board |
-    | **ttgo-t5-EINKBOARDGDEW0213M21** | e-Ink 2.13" 104x212 | GDEW0213M21 | 21 | 22 | *Lilygo TTGO T5* board |
-    | **ttgo-t7-EINKBOARDGDEM029T94** | e-Ink  2.9" 128x296 | GDEM029T94 | 21 | 22 | *Lilygo TTGO T7* board |
-    | **ttgo-t7-WEACT_GDEH0154D67** | e-Ink  1.54"  200x200| GDEH0154D67 | 21 | 22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) and external *WeAct Studio e-Ink display GDEH0154D67*  |
-    | **ttgo-t7-WEACT_DEPG0213BN** | external 2.13" e-Ink 104x212 | DEPG0213BN | 21 | 22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) and external *WeAct Studio e-Ink display DEPG0213BN*  |
-    | **ttgo-t7-WEACT_GxEPD2_290_BS** | e-Ink 2.9" 128x296 | GDEM029T94 | 21 |22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) and external *WeAct Studio e-Ink display GDEM029T94BS*  |
     
+    | **Variant** | **Microcontroller** | **Display** | **Controller** | **SDA** | **SCL** | **Remark** |
+    |-------------|----------------------|-------------|----------------|---------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **esp32dev_OLED** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | OLED 0.96/1.3" 128x64 | [SH1106](https://done.land/components/humaninterface/display/oled/sh1106/) | 21 | 22 | uses 0.96"/1.3" I2C OLED displays |
+    | **esp32dev_ST7789_240×320** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | TFT 240x320 | [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 21 | 22 | [320x240 TFT display](https://done.land/components/humaninterface/display/tft/st7789/1.9inch320x240/) |
+    | **ttgo-t7-WEACT_GDEH0154D67** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | e-Ink 1.54" 200x200 | GDEH0154D67 | 21 | 22 | uses *WeAct Studio e-Ink display GDEH0154D67* |
+    | **ttgo-t7-WEACT_DEPG0213BN** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | e-Ink 2.13" 104x212 | DEPG0213BN | 21 | 22 | uses *WeAct Studio e-Ink display DEPG0213BN* |
+    | **ttgo-t7-WEACT_GxEPD2_290_BS** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | e-Ink 2.9" 128x296 | GDEM029T94 | 21 | 22 | uses *WeAct Studio e-Ink display GDEM029T94BS* |
+    | **esp32dev** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | none | none | 21 | 22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) |
+    | **TTGO_TDISPLAY** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 21 | 22 | specifically designed for *TTGO T-Display* development board |
+    | **TTGO_TDISPLAY_SANDWICH** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 22 | 21 | **special build:** GPIO21 and GPIO22 (I2C) are **reversed** for compactness with a piggy-backed sensor PCB |
+    | **TDISPLAY_S3** | **Lilygo T-Display S3** (using *ESP32-S3*) | TFT 1.9" 320x170 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 42 | 43 | do not confuse with *Lilygo T-Display AMOLED*. This firmware may target other boards using the *ESP32-S3*. |
+    | **ttgo-t5-EINKBOARDGDEM0213B74** | **Lilygo TTGO T5** (using *ESP32S*) | e-Ink 2.13" 104x212 | GDEM0213B74 | 21 | 22 | specifically designed for *TTGO T5* development boards using a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/). |
+    | **ttgo-t5-EINKBOARDDEPG0213BN** | **Lilygo TTGO T5** (using *ESP32S*) | e-Ink 2.13" 104x212 | DEPG0213BN | 21 | 22 | similar to the previous entry but with a different e-Ink driver |
+    | **ttgo-t5-EINKBOARDGDEW0213M21** | **Lilygo TTGO T5** (using *ESP32S*) | e-Ink 2.13" 104x212 | GDEW0213M21 | 21 | 22 | similar to the previous entry but with a different e-Ink driver |
+    | **ttgo-t7-EINKBOARDGDEM029T94** | **Lilygo TTGO T7** (using *ESP32S*) | e-Ink 2.9" 128x296 | GDEM029T94 | 21 | 22 | specifically designed for *TTGO T7* development boards using a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/). |
+
     
 
 3. Click the **INSTALL** button for your chosen board. A dialog will appear to select your connected microcontroller. Click *Install CO2-Gadget*. 
@@ -146,21 +145,27 @@ You’re now ready to move on to configuring your device which you should do imm
 ## 2. Connecting To Microcontroller
 In order to configure *CO2 Gadget*, you need access to its web interface. If you followed the steps above, this web interface has just opened in your browser. 
 
-If you closed the browser though, or want to revisit the device after some time, accessing its web interface may become challenging: you need to know the current *device IP address* in order to navigate to it: *http://[IP Address]*.
+If you closed the browser though, or want to revisit the device after some time, accessing its web interface may become challenging because you now need to know the current *device IP address* in order to navigate to it: *http://[IP Address]*.
 
-### mDNS And Caveats
-Since *CO2 Gadget* supports *mDNS*, you can try to reach the device via its default host name: [CO2-Gadget](http://co2-gadget/). More likely than not, this may fail though. *mDNS* is notorious for being unreliable, and if your browser cannot resolve the device name, you are in good company.   
+Since *IP addresses* are typically dynamically assigned via *DHCP*, after a while the device will receive random IP addresses.
+
+### mDNS (and Caveats)
+
+One workaround is using *mDNS host names*: *CO2 Gadget* uses the default host name [CO2-Gadget](http://co2-gadget/), and if *mDNS* works for you, [this link](http://co2-gadget/) should open the devices' web interface in your browser.
+
+> [!NOTE]
+> *mDNS* is notorious for not being very robust. If *mDNS* does not work in your network, your browser will complain that the host name could not be resolved.    
+
+### Static IP Address
+
+If *mDNS* does not work for you, your other option is to assign a *static IP address* manually. Since this IP address won't change, you can bookmark it, or make a note of it.
+
+Assigning a static IP address is part of the other configuration options covered in the next section. So you *still* need to be able to access the web interface and will **need to know the currently assigned IP address**. 
+
+Here is a way to recover the IP address for your device:
 
 
-
-### Random IP Address Assignment
-Even if you remembered the initially assigned IP address, this won't get you too far: by default, devices receive a random IP address from *DHCP* (which can change from time to time). 
-
-So to actually access your device settings, you either need a working *mDNS* (see above), or you might want to assign a permanent *static IP address*. To do this, you *still* need to be able to access the web interface at least once. So if you locked yourself out, here is how you can find out the currently assigned IP address:
-
-
-
-<details><summary>Recovering the Device IP Address</summary><br/>
+<details><summary>How can I find out the currently assigned IP address?</summary><br/>
 
 
 ### Recovering IP Address
@@ -221,7 +226,9 @@ Once you have adjusted your settings, click *Save*.
 
 ## 4. Connecting Peripherals
 
-With your microcontroller configured, you can now move forward: power off your board and connect a suitable CO2 sensor, such as the [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/). When you power the board back on, you should see actual sensor readings on your display.
+With your microcontroller configured, you can now add peripherals: power off your board and connect a suitable CO2 sensor, such as the [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/). 
+
+Once you power the board back on, you now see actual sensor readings on your display.
 
 To actually connect peripherals, you need to know the *GPIOs* at which the firmware expects to find them:
 
@@ -235,53 +242,68 @@ Most sensors, and many other peripherals such as external displays, use the two-
 | **ESP32-S3** | 43 | 44 |
 
 > [!NOTE]  
-> The firmware **TTGO_TDISPLAY_SANDWICH** reverses the GPIOs for *SDA* and *SCL*. It is a specifically-tailored firmware enabling you to mount the *Sensirion SCD30 PCB* piggyback-style onto a *ESP32S PCB*.
+> The firmware **TTGO_TDISPLAY_SANDWICH** swaps the GPIOs for *SDA* and *SCL*. It is a specifically-tailored firmware enabling you to mount the *Sensirion SCD30 PCB* piggyback-style onto a *ESP32S PCB*.
 
 ### Buttons
 
-You can optionally add *up* and *down* buttons to enable user interaction and navigation. The GPIOs for these two buttons vary considerably in the different firmware versions. That's because some development boards come with built-in buttons connected to specific GPIOs, while other development boards have no built-in buttons at all.
+You can optionally add *up* and *down* buttons to enable user interaction and navigation. The GPIOs for these two buttons vary considerably in the different firmware versions. That's because some of the specifically supported development boards come with built-in buttons connected to specific GPIOs, while generic development boards have no designated buttons.
 
 
-| **Firmware Version**               | **UP/DWN** |
-|----------------------------|------------|
-| **TTGO_TDISPLAY**          | 35 / 0     |
-| **TTGO_TDISPLAY_SANDWICH** | 35 / 0     |
-| **TDISPLAY_S3**            | 14 / 0     |
-| **esp32dev_OLED SSH1106**  | 15 / 0     |
-| **esp32dev**               | 15 / 0     |
-| **esp32dev-ST7789_240x320** | 19 / 0     |
+| **Firmware Version**       | **UP/DWN** | **Development Board** |
+|----------------------------|------------|----|
+| **esp32dev_OLED SSH1106**  | 15 / 0     | generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
+| **esp32dev**               | 15 / 0     |generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
+| **esp32dev-ST7789_240x320** | 19 / 0     |generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
+| **TTGO_TDISPLAY**          | 35 / 0     | [TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) |
+| **TTGO_TDISPLAY_SANDWICH** | 35 / 0     |[TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) |
+| **TDISPLAY_S3**            | 14 / 0     | **TTGO T-Display S3** |
+
 
 ### LEDs & Buzzer
 
 The optional buzzer is always wired to *GPIO2*.
 
-The firmware supports both *regular* and *programmable* (WS2812, aka *"NeoPixel"*) LEDs.  The LED GPIOs vary by microcontroller type:
+The firmware supports both *regular* and *programmable* ([WS2812](https://done.land/components/light/led/programmable/ws2812/), aka *"NeoPixel"*) LEDs. The LED GPIOs vary by microcontroller type:
 
 | **Microcontroller Type**   | **GPIO Orange** | **GPIO Red** | **GPIO WS2812 LED** | 
 |----------------------------|------------------|--------------|----------------------|
 | **ESP32S**                 | 32              | 33           | 26                   |
 | **ESP32-S3**               | 03              | 01           | 16                   |
-
 ### Battery
 
-To monitor the state of charge (voltage) of an external battery, the voltage sensing GPIO is based on your microcontroller type:
+To monitor the state of charge (voltage) of an external battery, the voltage sensing GPIO depends on your microcontroller type:
 
 | **Microcontroller Type**   | **Battery Voltage GPIO** |
 |----------------------------|--------------------------|
 | **ESP32S**                 | 34                       |
 | **ESP32-S3**               | 04                       |
 
-This obviously only works when the development board comes with battery support and has actually wired the GPIO to the appropriate battery input pin. Else, it is up to you to expose your external battery voltage at this pin.
+This functionality is only available if the development board includes battery support and has the GPIO properly connected to the battery input pin. Otherwise, it’s up to you to route your external battery voltage to the specified GPIO.
 
-> [!IMPORTANT]
-> If you add battery support yourself, make sure you understand the allowable voltage range for analog input pins. *ESP32* analog inputs have a *3.3V* maximum input voltage. Some development boards include voltage dividers that allow for higher input voltages. Else, you may have to add such a voltage divider yourself. 
+> [!IMPORTANT]  
+> If you add battery support yourself, ensure you understand the allowable voltage range for analog input pins. *ESP32* analog inputs have a maximum input voltage of *3.3V*. Some development boards include voltage dividers to handle higher input voltages; if not, you’ll need to add a voltage divider circuit yourself.
+### NDIR Sensor Power Consumption  
+
+Many [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) require substantial power to operate. For instance, the widely used [Sensirion SCD30](https://done.land/components/data/sensor/airquality/scd30/) consumes *75mA* during measurements and averages *19mA*.  
+
+These sensors are designed for continuous operation, meaning you cannot easily power off your device to save energy and take CO2 samples intermittently. Turning the sensor off and on at regular intervals can interfere with its functionality. As a result, most CO2 measurement devices depend on stationary power supplies.  
+
+### Sensirion SCD41  
+
+Power-optimized CO2 sensors, such as the *Sensirion SCD41*, are specifically designed for battery-operated devices. (*Note:* The similar-looking *SCD40* is **not** power-optimized.)  
+
+The *SCD41* supports *snapshot measurements* and requires just *0.5mA* on average when measuring at 5-minute intervals, making it ideal for battery-operated devices.  
+
+> [!NOTE]  
+> The *SCD41* is more affordable and significantly smaller than the *SCD30*, making it better suited for consumer applications. The relevant CO2 range for typical consumer use (*400–2,500 ppm*) is well within the range of both sensors (*SCD41*: up to *5,000 ppm*, *SCD30*: up to *10,000 ppm*).
 
 
 ### Adjustments
-Should none of the premade firmware versions match the GPIOs required for your development board, you can always [download and adjust the source code](https://github.com/melkati/CO2-Gadget), then compile and upload your own customized firmware.
+
+If none of the premade firmware versions match the GPIO configuration of your development board, you can [download and modify the source code](https://github.com/melkati/CO2-Gadget) to compile and upload a custom firmware tailored to your setup.
 
 > [!TIP]  
-> Sensor support is based on the [CanAirIO](https://github.com/kike-canaries/canairio_sensorlib) library, which supports *ESP32S*, *ESP32-C3*, *ESP32-S3*, *ESP8266*, and *Atmel*. Note that *ESP32-S2* is not explicitly supported.
+> Sensor support is based on the [CanAirIO](https://github.com/kike-canaries/canairio_sensorlib) library, which supports *ESP32S*, *ESP32-C3*, *ESP32-S3*, *ESP8266*, and *Atmel*. Note that the *ESP32-S2* is not explicitly supported.
 
 
 
@@ -289,19 +311,6 @@ Should none of the premade firmware versions match the GPIOs required for your d
 
 Sensors are supported through the [CanAirIO](https://canair.io/) library. Check their [GitHub repository](https://github.com/kike-canaries/canairio_sensorlib) for the latest list of supported sensors.
 
-### PM Sensors
-
-| Sensor Model          | UART | I2C | Detection Mode | Status       |
-|-----------------------|:----:|:---:|:--------------:|:------------:|
-| Honeywell HPMA115S0   | Yes  | --- | Auto           | DEPRECATED   |
-| Panasonic SN-GCJA5L   | Yes  | Yes | Auto           | STABLE       |
-| Plantower Models      | Yes  | --- | Auto           | STABLE       |
-| Nova SDS011           | Yes  | --- | Auto           | STABLE       |
-| IKEA Vindriktning     | Yes  | --- | Select         | STABLE       |
-| Sensirion SPS30       | Yes  | Yes | Select / Auto  | STABLE       |
-
-> [!NOTE] 
-> Panasonic via UART on ESP8266 may require manual selection in detection.    
 
 ### CO2 Sensors
 
@@ -334,6 +343,20 @@ Sensors are supported through the [CanAirIO](https://canair.io/) library. Check 
 > *DHT22* is supported but is not recommended.     
 
 
-> Tags: CO2 Gadget, Sensirion SCD30, Air Quality, Firmware, CanAirIO, Sensor
+### PM Sensors
 
-[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget?641318011502254120) - created 2025-01-01 - last edited 2025-01-01
+| Sensor Model          | UART | I2C | Detection Mode | Status       |
+|-----------------------|:----:|:---:|:--------------:|:------------:|
+| Honeywell HPMA115S0   | Yes  | --- | Auto           | DEPRECATED   |
+| Panasonic SN-GCJA5L   | Yes  | Yes | Auto           | STABLE       |
+| Plantower Models      | Yes  | --- | Auto           | STABLE       |
+| Nova SDS011           | Yes  | --- | Auto           | STABLE       |
+| IKEA Vindriktning     | Yes  | --- | Select         | STABLE       |
+| Sensirion SPS30       | Yes  | Yes | Select / Auto  | STABLE       |
+
+> [!NOTE]    
+> Panasonic via UART on ESP8266 may require manual selection in detection.    
+
+> Tags: Sensirion SCD30, SCD40, SCD41, NDIS, Air Quality, Firmware, CanAirIO, Sensor, ESP32
+
+[Visit Page on Website](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget?641318011502254120) - created 2025-01-01 - last edited 2025-01-02
