@@ -143,29 +143,30 @@ You’re now ready to move on to configuring your device which you should do imm
 
 
 ## 2. Connecting To Microcontroller
-In order to configure *CO2 Gadget*, you need access to its web interface. If you followed the steps above, this web interface has just opened in your browser. 
+In order to configure *CO2 Gadget*, you need access to its web interface. If you followed the steps above, this web interface has just opened in your browser. Else, you can open it using its *mDNS host name*: [**http://co2-gadget.local/**](http://co2-gadget).
 
-If you closed the browser though, or want to revisit the device after some time, accessing its web interface may become challenging because you now need to know the current *device IP address* in order to navigate to it: *http://[IP Address]*.
+> [!IMPORTANT]
+> The default *mDNS host name* is set to *CO2-Gadget*. You can change the host name in the device settings. In any case, you must add the extension **.local** to this name. The default url to your device is [http://**co2-gadget**.local/](http://co2-gadget.local/)    
 
-Since *IP addresses* are typically dynamically assigned via *DHCP*, after a while the device will receive random IP addresses.
+### mDNS Caveats
 
-### mDNS (and Caveats)
+If you cannot open the device web interface, first make sure:
 
-One workaround is using *mDNS host names*: *CO2 Gadget* uses the default host name [CO2-Gadget](http://co2-gadget/), and if *mDNS* works for you, [this link](http://co2-gadget/) should open the devices' web interface in your browser.
+* you powered the device on
+* you added *.local* to the host name
+* you used the prefix *http://*, not *http**s**://*
 
-> [!NOTE]
-> *mDNS* is notorious for not being very robust. If *mDNS* does not work in your network, your browser will complain that the host name could not be resolved.    
+Here is the default link that should work for your device (unless you changed its host name):     
 
-### Static IP Address
+[**http://co2-gadget.local/**](http://co2-gadget)
 
-If *mDNS* does not work for you, your other option is to assign a *static IP address* manually. Since this IP address won't change, you can bookmark it, or make a note of it.
+If you *still* cannot reach the web interface, then *mDNS* may not work for you. *mDNS* is relatively sensitive and cannot communicate across different networks. Especially when you have combined a wired and a wireless network, *mDNS* may become unavailable.
 
-Assigning a static IP address is part of the other configuration options covered in the next section. So you *still* need to be able to access the web interface and will **need to know the currently assigned IP address**. 
-
-Here is a way to recover the IP address for your device:
+In this case, you can still access the device via its currently assigned IP address. Here is how you find out its currently assigned IP address:
 
 
-<details><summary>How can I find out the currently assigned IP address?</summary><br/>
+<details><summary>How do I know the currently assigned IP address of my device?</summary><br/>
+
 
 
 ### Recovering IP Address
@@ -200,7 +201,16 @@ This shows the devices' web interface:
 <img src="images/esphome_co2gadget_log6.png" width="100%" height="100%" />
 
 
-</details>     
+
+
+       
+       
+</details>       
+
+
+
+
+Once you have access to the device settings, you may want to assign a *static IP address*.
 
 
 ## 3. Configuring CO2 Gadget
