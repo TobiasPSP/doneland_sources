@@ -14,9 +14,10 @@ Most filament materials are, to some degree, *hygroscopic*—they absorb moistur
 
 There are varying approaches to managing filament storage:
 
-1. **Filament Dryers**: Actively remove moisture from filament.  
-2. **Airtight Containers**: Store filament with silica gel for passive drying.  
-3. **Unprotected Storage**: Leaving filament exposed to room air—often leading to issues.
+1. **Unprotected Storage**: Leaving filament exposed to room air—often leading to issues.
+2. **Airtight Containers**: Store filament with silica gel for passive drying. This is something you should always do. 
+3. **Filament Dryers**: Actively remove moisture from filament. This is necessary only when your filament already absorbed moisture, i.e. due to improper storage or highly hygroscopic materials (i.e. Nylon). 
+
 
 The impact of moisture depends on:  
 - **Relative Humidity (RH)** in the environment.  
@@ -60,13 +61,13 @@ Highly hygroscopic materials (e.g., *PVA*, *Nylon*) require strict moisture cont
 
 ## Passive Drying
 
-Passive drying prevents moisture absorption using desiccants, like silica gel, without applying heat.
+Passive drying prevents moisture absorption in the first place by using desiccants, like silica gel, without applying heat.
 
 - **Use Color-Changing Silica Gel**: Monitors saturation levels (e.g., orange → green or blue → pink).  
 - **Silica Gel Requirements**: 20–30g per spool for optimal effectiveness.  
-- **Regeneration**: Heat silica gel in an oven at 100–120°C for 2–3 hours.  
+- **Regeneration**: Heat standard (non-indicating) silica gel in an oven at 120°C to 150°C (248°F to 302°F) for 1–2 hours. For indicating silica gel, use a slightly lower temperature, around 105°C to 120°C (221°F to 248°F), to prevent discoloration or damage to the indicator dye.
 
-**Ideal Conditions**: Maintain relative humidity (RH) below 30% and temperature between 15–25°C.
+**Ideal Storage Conditions**: Maintain relative humidity (RH) below 30% and temperature between 15–25°C.
 
 Quality sellers ship their spools in airtight plastic bags and include small silica gel packs. **Do not throw these away.** They are designed to attach to your print spools and help keep humidity levels low, particularly when you store the spools in an enclosed container:
 
@@ -81,7 +82,7 @@ Silica gel is available both in small bags and in bulk packs. Buying a *1kg sili
 
 <img src="images/silica_bag_t.png" width="50%" height="50%" />
 
-Silica gel is often **color-coded** to indicate its moisture level. It starts **orange** when dry and turns **greenish/blueish** once saturated. Here is a picture of some silica gel that was used for a month in a *Bambu Lab AMS*:
+Silica gel is often **color-coded** (*indicating*) to indicate its moisture level. It starts **orange** when dry and turns **greenish/blueish** once saturated. Here is a picture of some silica gel that was used for a month in a *Bambu Lab AMS*:
 
 <img src="images/silica_regenerate_before_t.png" width="40%" height="40%" />
 
@@ -95,11 +96,13 @@ Do not throw saturated (greenish/blueish) silica gel away—it can be easily reg
 
      <img src="images/silica_regenerate_oven5_t.png" width="100%" height="100%" />
 
-2. Set the oven temperature to *110-150°C* (*230-300°F*), and use hot air (do not use grills or barbecue mode).
+2. Set an appropriate oven temperature, and use hot air (do not use grills or barbecue mode).
+    * Indicating silica gel: 105°C to 120°C (221°F to 248°F)
+    * Standard silica gel: 120°C to 150°C (248°F to 302°F)
 
-     <img src="images/silica_regenerate_after.png" width="50%" height="50%" />
+         <img src="images/silica_regenerate_after.png" width="50%" height="50%" />
 
-3. Leave it in the oven for approximately an hour. If you use color-coded silica gel, regeneration is complete when the silica turns orange again.
+3. Leave it in the oven for approximately 1-2 hours. If you use color-coded silica gel, regeneration is complete when the silica turns orange again.
 
 > [!NOTE]
 > Ensure that the silica gel is placed in a heat-safe dish and kept away from direct contact with heating elements. Ventilate the area if any odor is noticed during regeneration. Always monitor the process to prevent overheating or damage to the silica gel.
@@ -143,7 +146,7 @@ To create one:
 
     <img src="images/silica_case_selfmade_t.png" width="30%" height="30%" />
 
-Drilling holes is essential. For example, the container in the image was placed in a sealed filament box, but it took more than a week to drop the humidity to *10%*. For optimal results, you want humidity levels to drop within hours, not days.
+Drilling holes is essential. For example, the container in the image was placed in a sealed filament box, but it took more than a week to drop the humidity to *10%*. For optimal results, you want humidity levels to drop within hours, not days. So drill more holes than I did.   
 
 > [!IMPORTANT]    
 > **Surface area is critical**. Pouring silica gel directly into the box (when feasible) maximizes the surface area and allows humidity to drop much more quickly—often within just a few hours.
@@ -152,7 +155,7 @@ Drilling holes is essential. For example, the container in the image was placed 
 
 Drilling numerous holes can be tedious, and in some cases, you may need containers with a specific shape. For instance, the *Bambu Lab AMS* has sufficient space for silica containers, but they need to be shaped to fit the available areas.
 
-With access to a 3D printer, creating custom silica containers is simple. [Here is one](materials/silica%20container%20bambu%20ams.stl) I use with my *Bambu Lab AMS*:
+With access to a 3D printer, creating custom silica containers is simple: [here is one](materials/silica%20container%20bambu%20ams.stl) I use with my *Bambu Lab AMS*:
 
 <img src="images/silica_container_bambu_ams.png" width="30%" height="30%" />
 
@@ -166,7 +169,7 @@ This container fits perfectly in the space between the filament nozzles, and you
 
 For storing filament spools, use air-tight plastic boxes. Here are your options in the order of cost and affordability (most economic first):
 
-* **Cereal Boxes:** Generic plastic cereal boxes of the right size work just as well and are much cheaper. The ones I found on [Amazon](https://www.amazon.de/gp/product/B0CPNYJ44R) came in sets of six and are sized *24.5 x 20.0 x 35.5 cm*. These dimensions are perfect for storing regular *1kg spools*
+* **Cereal Boxes:** Generic plastic cereal boxes of the right size work well and are the most affordable option. The boxes I found on [Amazon](https://www.amazon.de/gp/product/B0CPNYJ44R) came in sets of six and are sized *24.5 x 20.0 x 35.5 cm*. These dimensions are perfect for storing regular *1kg spools*
 
     <img src="images/silica_cereal_box_t.png" width="40%" height="40%" />
 
@@ -182,11 +185,14 @@ For storing filament spools, use air-tight plastic boxes. Here are your options 
 ### Turning Cereal Boxes Into Filament Containers
 If you just want to keep your filament spools in a low-humidity environment, cereal boxes work fine as-is. Just add a cheap electronic hygrometer so you can monitor humidity.
 
+
+<img src="images/filament_store_hygrometer_t.png" width="30%" height="30%" />
+
+
 > [!TIP]
 > Most inexpensive electronic hygrometers require one or two *LR44* button cells, which are not always included.
 
 
-<img src="images/filament_store_hygrometer_t.png" width="30%" height="30%" />
 
 To also *feed* the filament directly from your container box to your printer, simply add the parts that dedicated filament boxes use: 
 
@@ -228,7 +234,7 @@ The top priority should always be proper filament storage: keep your spools in a
   If you frequently use *PETG* or other moderately hygroscopic materials, having a basic dryer on hand can help refresh spools that have been in use for a long time. Such occasional drying may be handled with a generic oven or food dehydrator as well if you don't want to invest in a dedicated dryer.  
 
 - **Edge Cases:**  
-  Multi-spool dryers or containers with (attachable) dryers - designed to be routinely used on every spool - make one fundamental assumption: **each and every spool** has already absorbed moisture. If that is true, i.e. because you are using highly hygroscopic materials like Nylon, PVA, PVB, or Polycarbonate, or because you do not care about properly storinf your filament spools, then these dryers are great. Else, they are not needed.
+  Multi-spool dryers or containers with (attachable) dryers—designed to be routinely used on every spool—make one fundamental assumption: **each and every spool** has already absorbed moisture. If that is true, i.e. because you are using highly hygroscopic materials like Nylon, PVA, PVB, or Polycarbonate, or because you do not care about properly storing your filament spools, then these dryers are great. Else, they are not needed.
 
 > [!TIP]
 > With all of the above said, a dryer won't hurt either. Warming up filament before printing may be an added benefit, and when you routinely use dryers while you print, you can skip caring about passive dessicants like silica gel.              
@@ -252,7 +258,7 @@ Be aware that most ovens and food dehydrators **lack precise temperature control
 
 **Dedicated filament dryers** come in various shapes and sizes. They heat just as much room as is required to store the filament spool(s) you want to dry: some models can dry just **one spool** at a time, while others can handle **two or even four spools** simultaneously:
 
-<img src="images/filament_dryer2_t.png" width="70%" height="70%" />
+<img src="images/filament_dryer2_t.png" width="40%" height="40%" />
 
 ### Advantages of Filament Dryers
 
@@ -301,7 +307,7 @@ To help you understand how sensitive your filament materials are towards humidit
 
 For best print quality:
 
-1. **Store Filament Airtight**: Use containers with silica gel to maintain RH below 30%.  
+1. **Store Filament Airtight**: Use containers with silica gel to maintain RH below 30%. 10% is ideal.    
 2. **Dry Wet Filament**: If moisture absorption cannot be excluded, or has already happend, use a filament dryer at safe temperatures.  
 3. **Monitor Your Environment**: Avoid high humidity or temperature fluctuations.  
 
