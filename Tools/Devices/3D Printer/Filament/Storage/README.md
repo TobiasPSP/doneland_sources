@@ -201,17 +201,15 @@ To also *feed* the filament directly from your container box to your printer, si
 > Whether you use a cereal box or a dedicated filament storage box: always use dessicants like *silica gel* to keep humidity low inside your container. The only purpose of these containers is to *shield* your filament spools from environmental humidity. This makes sense only when you place silica gel inside the container that *lowers* the humidity. Else, humidity inside and outside your container would be the same, and you could as well leave the filament out in the open.    
 
 
-### Do I Need Active Drying?  
+### Active Drying Needed?  
 
-The market for filament dryers has grown significantly, and they are often a considerable investment. But is active drying truly necessary? While some swear by it, the key consideration is this:  
+In addition to *passive* drying through silica gel, there are also *active* dryers and even storage boxes with built-in (or attachable) dryer. This market has grown significantly. Dryers are expensive devices, so is it truly necessary? While some swear by it, the key consideration is this:  
 
 **Has your filament already absorbed moisture?**  
 
-If filament has absorbed moisture, you **must use** active drying. Passive desiccants like silica gel cannot *remove* existing moisture—they only *prevent* further absorption of *new* moisture.  
+If filament has absorbed moisture, you **must use** active drying. Passive desiccants like silica gel cannot *remove* existing moisture—they only *prevent* further absorption of *new* moisture.   
 
-### Deciding If You Need a Filament Dryer  
-
-Whether you should invest in a filament dryer depends on two main factors:  
+Whether **you** should invest in a filament dryer depends on two main factors:  
 
 - **Material:**  
   Materials like *PLA* are less hygroscopic and don't absorb much moisture, even if not stored perfectly. On the other hand, highly hygroscopic materials like *PVA* can absorb enough moisture to spoil them within hours if left exposed.  
@@ -221,16 +219,20 @@ Whether you should invest in a filament dryer depends on two main factors:
 
 ### Recommendations  
 
-The top priority should always be proper filament storage: keep your spools in airtight containers with silica gel to prevent moisture absorption and degradation.  
+The top priority should always be proper filament storage: keep your spools in airtight containers with silica gel to **prevent** moisture absorption and degradation.  
 
 - **No Dryer Needed:**  
   Hobbyists using *PLA* typically do not need a dryer. *PLA* absorbs very little humidity and can be managed effectively with passive drying and proper storage.  
 
 - **A Simple Dryer May Be Beneficial:**  
-  If you frequently use *PETG* or other moderately hygroscopic materials, having a basic dryer on hand can help refresh spools that have been in use for a long time. Such occasional drying needs can also be handled with a generic oven or food dehydrator.  
+  If you frequently use *PETG* or other moderately hygroscopic materials, having a basic dryer on hand can help refresh spools that have been in use for a long time. Such occasional drying may be handled with a generic oven or food dehydrator as well if you don't want to invest in a dedicated dryer.  
 
 - **Edge Cases:**  
-  Multi-spool dryers or containers with attachable dryers are best suited for highly hygroscopic materials like Nylon, PVA, PVB, or Polycarbonate as they assume that **each and every spool** has already absorbed moisture. This assumption has no basis though for less hygroscopic materials, especially when properly stored.          
+  Multi-spool dryers or containers with (attachable) dryers - designed to be routinely used on every spool - make one fundamental assumption: **each and every spool** has already absorbed moisture. If that is true, i.e. because you are using highly hygroscopic materials like Nylon, PVA, PVB, or Polycarbonate, or because you do not care about properly storinf your filament spools, then these dryers are great. Else, they are not needed.
+
+> [!TIP]
+> With all of the above said, a dryer won't hurt either. Warming up filament before printing may be an added benefit, and when you routinely use dryers while you print, you can skip caring about passive dessicants like silica gel.              
+
 
 ## Active Drying  
 
