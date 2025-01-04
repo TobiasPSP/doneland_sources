@@ -8,6 +8,8 @@
 
 The firmware supports a [variety of CO2 sensors](https://done.land/components/microcontroller/howtouse/firmware/fromsomeoneelse/co2gadget/#supported-sensors) and can interface with additional sensors for *particles*, *temperature*, *humidity*, *atmospheric pressure*, and more. With minimal effort, this firmware enables you to build your own high-quality, affordable air monitor.
 
+<img src="images/co2-gadget-scd30-1_t.png" width="80%" height="80%" />
+
 > [!NOTE]
 > When you buy commercial *air quality monitors*, be aware that the affordable ones typically rely on [cheap, relatively inaccurate MOS sensors](https://done.land/components/data/sensor/airquality/#cheap-mos-sensors). Devices based on professional [CO2 NDIR sensors](https://done.land/components/data/sensor/airquality/#expensive-ndir-sensors) often cost a fortune. With parts in the range of just €20-30, your DIY air quality monitor rivals professional-grade equipment.
 
