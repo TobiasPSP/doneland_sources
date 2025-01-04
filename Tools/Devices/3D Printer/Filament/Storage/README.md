@@ -82,7 +82,7 @@ You can also purchase silica gel in bulk for larger-scale humidity control:
 
 Silica gel is often **color-coded** to indicate its moisture level. It starts **orange** when dry and turns **greenish/blueish** once saturated. Here is a picture of some silica gel that was used for a month in a *Bambu Lab AMS*:
 
-<img src="images/silica_regenerate_before_t.png" width="50%" height="50%" />
+<img src="images/silica_regenerate_before_t.png" width="40%" height="40%" />
 
 > [!TIP]     
 > The time it takes for silica gel to become saturated depends on where you use it: in a well-sealed filament container, it can last many months. In a less sealed environment (like the *Bambu Lab AMS*), you may have to replace or regenerate it after a few weeks. Coincidentally, the more often you need to replace it, the more important it is that you use silica gel in the first place, as this is an indicator of how much moisture the gel absorbed (which would have otherwise damaged your filament).     
@@ -92,7 +92,7 @@ Do not throw saturated (greenish/blueish) silica gel away—it can be easily reg
 
 1. Place the silica gel on a plate, spread it out in a thin layer, and place it into an oven.
 
-     <img src="images/silica_regenerate_oven5_t.png" width="50%" height="50%" />
+     <img src="images/silica_regenerate_oven5_t.png" width="100%" height="100%" />
 
 2. Set the oven temperature to *110-150°C* (*230-300°F*), and use hot air (do not use grills or barbecue mode).
 
@@ -121,40 +121,68 @@ Microwave ovens can also be used but are much harder to control due to the way t
 > Never leave silica gel unattended during regeneration, especially when using a microwave. Uneven heating or excessive temperatures can lead to overheating, damage to the gel, or even a fire hazard.
 
 
-### DIY Silica Containers
+## Storage Boxes
 
-Many electronic components, such as displays and boards, come in small plastic containers that can be repurposed as **silica gel holders**. To make one:
+For storing filament spools, you can purchase dedicated **plastic filament storage boxes** with features like ball-bearing supports, airtight seals, and filament openings, so you don't need to remove the spool when printing.
 
-1. Ensure the container is large enough to hold **20g to 50g** of silica gel.
-2. Drill a large number of **ventilation holes** into the container. The holes should be smaller than the silica gel pieces to prevent spillage.
+<img src="images/filament_store_placement_top_t.png" width="60%" height="60%" />
 
-<img src="images/silica_case_selfmade_t.png" width="50%" height="50%" />
+Alternatively, **generic plastic cereal boxes** of the right size work just as well and are much cheaper. The ones I found on [Amazon](https://www.amazon.de/gp/product/B0CPNYJ44R) came in sets of six and are sized *24.5 x 20.0 x 35.5 cm*. These dimensions are perfect for storing regular *1kg spools*:
 
-> [!TIP]
-> If you decide to place silica gel in an extra container, it is crucial to drill enough holes so that there is sufficient ventilation. The container in the picture managed to drop humidity in a plastic container at a rate of 5%/day, and even after 3 days, humidity in the container was still above 30% (so more holes are required). Pouring silica gel directly into the plastic container dropped humidity to around 10% in hours.
+<img src="images/silica_cereal_box_t.png" width="80%" height="80%" />
 
-These DIY containers can be placed into the **AMS (Automatic Material System)** of your printer or any storage solution you use. 
+If you want to feed filament directly to your printer, you can modify the boxes by adding separate ball-bearing supports, drilling a hole, and inserting a small *PTFE* (polytetrafluoroethylene) tube to frictionlessly guide the filament from the box to your printer.
 
-
-#### Plastic Boxes
-
-Alternatively, consider **plastic filament storage boxes**. Generic plastic cereal boxes work well too:
-
-<img src="images/filament_store_placement_top_t.png" width="80%" height="80%" />
-
-> [!TIP]
-> With plastic boxes, you may want to fill silica gel right into it so it covers the ground, without bothering to place it into separate boxes. This works excellently, and due to the large surface area, humidity quickly drops to around 10%. Once the gel is eventually saturated (which is when it changes color and turns blueish), you can easily pour the silica into a container to regenerate it in an oven. 
+<img src="images/filament_ball_bearing_t.png" width="40%" height="40%" />
 
 ### Monitoring Storage Conditions
 
-To monitor humidity effectively, add a **cheap electronic hygrometer** to your storage box. This allows you to keep an eye on the humidity level and ensure optimal conditions for your filament.
+To ensure optimal conditions, add a **cheap electronic hygrometer** to your storage box to monitor the humidity level effectively.
 
 > [!TIP]
-> Most cheap electronic humidity meters require one or two *LR44* button cells. They are not always included.
+> Most inexpensive electronic hygrometers require one or two *LR44* button cells, which are not always included.
 
-For added convenience, you can install a **ball-bearing filament support** and create a small hole with a tube in the box's cover. This setup allows you to feed filament directly to the printer while keeping the spools in low-humidity storage conditions:
 
 <img src="images/filament_store_hygrometer_t.png" width="80%" height="80%" />
+
+
+## Silica Containers
+
+While small silica bags are convenient, they can become expensive if replaced frequently. A more cost-effective solution is to buy color-coded silica gel in *1kg bags*.
+
+Often, you don’t even need a special container for the silica gel at all: when using plastic boxes to store filament spools, simply spread a thin layer of silica gel on the bottom of the box. This increases the surface area and helps humidity drop much faster—down to around 10%—compared to using separate containers or bags. 
+
+When the silica gel becomes saturated and changes color, pour it onto a plate and regenerate it in an oven.
+
+### Self-Made Containers
+
+Sometimes, pouring silica gel directly into a box isn't practical, such as when it might interfere with moving parts or when it's difficult to remove later. For instance, you wouldn’t want to pour silica gel directly into your *Bambu Lab AMS*. In such cases, creating silica containers is a good idea.
+
+#### Repurposing Plastic Cases
+
+Small plastic cases, like those used for shipping electronic components, can be easily repurposed as silica containers. Just make sure they allow for air circulation.
+
+To create one:
+1. Choose a container large enough to hold **20g to 50g** of silica gel.
+2. Drill numerous **ventilation holes** into the container. Ensure the holes are smaller than the silica gel pieces to prevent spillage.
+
+    <img src="images/silica_case_selfmade_t.png" width="30%" height="30%" />
+
+Drilling holes is essential. For example, the container in the image was placed in a sealed filament box, but it took more than a week to drop the humidity to *10%*. For optimal results, you want humidity levels to drop within hours, not days.
+
+> [!IMPORTANT]    
+> **Surface area is critical**. Pouring silica gel directly into the box (when feasible) maximizes the surface area and allows humidity to drop much more quickly—often within just a few hours.
+
+#### 3D-Printed Containers
+
+Drilling numerous holes can be tedious, and in some cases, you may need containers with a specific shape. For instance, the *Bambu Lab AMS* has sufficient space for silica containers, but they need to be shaped to fit the available areas.
+
+With access to a 3D printer, creating custom silica containers is simple. [Here is one](materials/silica%20container%20bambu%20ams.stl) I use with my *Bambu Lab AMS*:
+
+<img src="images/silica_container_bambu_ams.png" width="30%" height="30%" />
+
+This container fits perfectly in the space between the filament nozzles, and you can use up to three if needed. I printed it using transparent *PETG*, which allows me to easily monitor the silica gel's color change and know exactly when it’s time to regenerate it.
+
 
 ## Active Drying
 
