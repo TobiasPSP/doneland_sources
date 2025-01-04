@@ -79,7 +79,47 @@ You can also purchase silica gel in bulk for larger-scale humidity control:
 
 <img src="images/silica_bag_t.png" width="50%" height="50%" />
 
-Silica gel is often **color-coded** to indicate its moisture level. It starts **orange** when dry and turns **blueish** once saturated. To regenerate it, heat the silica gel to *100-120°C* in an oven until it dries out.
+
+Silica gel is often **color-coded** to indicate its moisture level. It starts **orange** when dry and turns **greenish/blueish** once saturated. Here is a picture of some silica gel that was used for a month in a *Bambu Lab AMS*:
+
+<img src="images/silica_regenerate_before_t.png" width="50%" height="50%" />
+
+> [!TIP]     
+> The time it takes for silica gel to become saturated depends on where you use it: in a well-sealed filament container, it can last many months. In a less sealed environment (like the *Bambu Lab AMS*), you may have to replace or regenerate it after a few weeks. Coincidentally, the more often you need to replace it, the more important it is that you use silica gel in the first place, as this is an indicator of how much moisture the gel absorbed (which would have otherwise damaged your filament).     
+
+### Regenerating Silica Gel
+Do not throw saturated (greenish/blueish) silica gel away—it can be easily regenerated:
+
+1. Place the silica gel on a plate, spread it out in a thin layer, and place it into an oven.
+
+     <img src="images/silica_regenerate_oven5_t.png" width="50%" height="50%" />
+
+2. Set the oven temperature to *110-150°C* (*230-300°F*), and use hot air (do not use grills or barbecue mode).
+
+     <img src="images/silica_regenerate_after.png" width="50%" height="50%" />
+
+3. Leave it in the oven for approximately an hour. If you use color-coded silica gel, regeneration is complete when the silica turns orange again.
+
+> [!NOTE]
+> Ensure that the silica gel is placed in a heat-safe dish and kept away from direct contact with heating elements. Ventilate the area if any odor is noticed during regeneration. Always monitor the process to prevent overheating or damage to the silica gel.
+
+
+#### Caveats
+Regenerating silica gel is straightforward with a reliable oven, but it is crucial to control the temperature accurately and ensure even heat distribution to prevent any fire hazard.
+
+Household ovens may struggle to maintain low, precise temperatures since they are primarily designed for much higher cooking temperatures. If you are unsure about your oven's accuracy, start with a lower temperature and measure it with a reliable thermometer.
+
+Always use an appropriate heating mode, such as hot air. Avoid modes that generate intense heat, like barbecue or grilling modes, as they can overheat the silica gel and pose risks.
+
+Microwave ovens can also be used but are much harder to control due to the way they generate and apply heat. Typically, microwaves create hot spots, which can result in uneven heating. If you must use a microwave:
+
+1. Set it to a low energy setting.  
+2. Heat the silica gel in short intervals.  
+3. Stir the gel frequently to distribute the heat evenly.  
+
+> [!WARNING]
+> Never leave silica gel unattended during regeneration, especially when using a microwave. Uneven heating or excessive temperatures can lead to overheating, damage to the gel, or even a fire hazard.
+
 
 ### DIY Silica Containers
 
@@ -198,4 +238,4 @@ For best print quality:
 
 > Tags: Filament, Storage, Drying, Silica Gel, Filament Dryer, Hygroscopy, Moisture Control
 
-[Visit Page on Website](https://done.land/tools/devices/3dprinter/filament/storage?020138121914241844) - created 2024-12-13 - last edited 2024-12-13
+[Visit Page on Website](https://done.land/tools/devices/3dprinter/filament/storage?020138121914241844) - created 2024-12-13 - last edited 2025-01-02
