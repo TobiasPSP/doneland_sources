@@ -196,7 +196,7 @@ You now see in real-time the current consumption in a graph on the right side. A
 
 ### Dynamic Range
 
-The graph below is taken from a *deep sleep* test using a [TTGO T-Display development board](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep). You clearly see the current consumption during *wake time* and *deep sleep* in a highly dynamic range from as low as *373uA* to as high as *240mA*.
+The graph below is taken from a *deep sleep* test using a [TTGO T-Display development board](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/programming/usingesphome/addingdeepsleep/). You clearly see the current consumption during *wake time* and *deep sleep* in a highly dynamic range from as low as *373uA* to as high as *240mA*.
 
 
 <img src="images/lilygo_t_display_deep_sleep_consumption_cycle_platformio.png" width="100%" height="100%" />

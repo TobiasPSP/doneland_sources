@@ -37,7 +37,7 @@ One of the best beginner boards is the [ESP32 C3 SuperMini](https://done.land/co
 
 <img src="images/lilygo_t-display_esphome6_t.png" width="80%" height="80%" />
 
-Another excellent beginner option is the [T-Display LilyGO](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/) board, often available for under €5 on *AliExpress*. It features a classic *dual-core ESP32*, capable of handling compute-intensive tasks and compatible with the vast *ESP32* ecosystem. It includes a color display, two programmable buttons, and a *LiIon battery* connector, making it ideal for portable and wireless battery-powered projects. While its *deep sleep* power consumption is not the lowest, [you can reduce it to below 300uA](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/programming/usingesphome/addingdeepsleep/), which is excellent for general use.
+Another excellent beginner option is the [T-Display LilyGO](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/) board, often available for under €5 on *AliExpress*. It features a classic *dual-core ESP32*, capable of handling compute-intensive tasks and compatible with the vast *ESP32* ecosystem. It includes a color display, two programmable buttons, and a *LiIon battery* connector, making it ideal for portable and wireless battery-powered projects. Its *deep sleep* power consumption is better than average, and you can [reduce it to below 300uA](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/programming/usingesphome/addingdeepsleep/), which is excellent for general use.
 
 ### Where To Buy
 

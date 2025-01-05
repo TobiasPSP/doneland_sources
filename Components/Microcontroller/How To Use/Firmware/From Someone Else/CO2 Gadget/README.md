@@ -26,7 +26,7 @@ The [project website](https://emariete.com/en/co2-meter-gadget/) provides essent
 
 These are the parts required to build your own CO2 monitor:
 
-1. **ESP32 Development Board:** Choose a board **with a built-in display**, such as the [LilyGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/). If you opt for a board without a display, you’ll need to add an external one or rely on alternative outputs like LEDs or buzzers. While the firmware supports these options, having a display significantly enhances usability.
+1. **ESP32 Development Board:** Choose a board **with a built-in display**, such as the [LilyGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/). If you opt for a board without a display, you’ll need to add an external one or rely on alternative outputs like LEDs or buzzers. While the firmware supports these options, having a display significantly enhances usability.
 
     <img src="images/co2_gadget_project3_t.png" width="40%" height="40%" />
 
@@ -93,8 +93,8 @@ This is the simplest way to program your microcontroller: upload pre-made firmwa
     | **ttgo-t7-WEACT_DEPG0213BN** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | e-Ink 2.13" 104x212 | DEPG0213BN | 21 | 22 | *WeAct Studio e-Ink display DEPG0213BN* |
     | **ttgo-t7-WEACT_GxEPD2_290_BS** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | e-Ink 2.9" 128x296 | GDEM029T94 | 21 | 22 | *WeAct Studio e-Ink display GDEM029T94BS* |
     | **esp32dev** | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) | none | none | 21 | 22 | [classic ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) |
-    | **TTGO_TDISPLAY** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 21 | 22 | specifically designed for *TTGO T-Display* development board |
-    | **TTGO_TDISPLAY_SANDWICH** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 22 | 21 | **special build:** GPIO21 and GPIO22 (I2C) are **reversed** for compactness with a piggy-backed sensor PCB |
+    | **TTGO_TDISPLAY** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 21 | 22 | specifically designed for *TTGO T-Display* development board |
+    | **TTGO_TDISPLAY_SANDWICH** | [TTGO Display](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/) (using *ESP32S*) | TFT 1.14" 240x135 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 22 | 21 | **special build:** GPIO21 and GPIO22 (I2C) are **reversed** for compactness with a piggy-backed sensor PCB |
     | **TDISPLAY_S3** | **Lilygo T-Display S3** (using *ESP32-S3*) | TFT 1.9" 320x170 |  [ST7789](https://done.land/components/humaninterface/display/tft/st7789/) | 42 | 43 | do not confuse with *Lilygo T-Display AMOLED*. May be used to target development boards with *ESP32-S3*. |
     | **ttgo-t5-EINKBOARDGDEM0213B74** | **Lilygo TTGO T5** (using *ESP32S*) | e-Ink 2.13" 104x212 | GDEM0213B74 | 21 | 22 | specifically designed for *TTGO T5* development boards using a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/). |
     | **ttgo-t5-EINKBOARDDEPG0213BN** | **Lilygo TTGO T5** (using *ESP32S*) | e-Ink 2.13" 104x212 | DEPG0213BN | 21 | 22 | similar to the previous entry but with a different e-Ink driver |
@@ -284,8 +284,8 @@ You can optionally add *up* and *down* buttons to enable user interaction and na
 | **esp32dev_OLED SSH1106**  | 15 / 0     | generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
 | **esp32dev**               | 15 / 0     |generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
 | **esp32dev-ST7789_240x320** | 19 / 0     |generic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/) board |
-| **TTGO_TDISPLAY**          | 35 / 0     | [TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) |
-| **TTGO_TDISPLAY_SANDWICH** | 35 / 0     |[TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display/) |
+| **TTGO_TDISPLAY**          | 35 / 0     | [TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/) |
+| **TTGO_TDISPLAY_SANDWICH** | 35 / 0     |[TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/t-display/) |
 | **TDISPLAY_S3**            | 14 / 0     | **TTGO T-Display S3** |
 
 
