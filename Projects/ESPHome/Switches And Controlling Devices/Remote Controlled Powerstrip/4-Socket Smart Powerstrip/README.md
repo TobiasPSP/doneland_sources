@@ -26,7 +26,7 @@ Open and disassemble the powerstrip you want to use. Make sure it is a powerstri
 
 
 ## Adding Microcontroller
-For this project, I am using a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini) because of its tiny footprint and low cost.
+For this project, I am using a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) because of its tiny footprint and low cost.
 
 
 <img src="images/esp32-c3-super-mini-custom-prototypeboard3_t.png" width="30%" height="30%" />

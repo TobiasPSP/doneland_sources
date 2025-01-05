@@ -156,7 +156,7 @@ Most modern browsers come with advanced debugging tools. In *Chrome*, press `F12
 To ensure you're measuring real download times (and not cached elements from your browser memory), clear your browser cache before testing. In *Chrome*, click the *three-dot* menu, then choose *Delete browsing data...*. It’s enough to delete the last *24 hours* of cached data.
 
 #### Navigate to the Webpage Under Test
-Now, enter the *URL* of the website you want to test. I chose a random [*done.land* article](https://done.land/components/microcontroller/families/esp/esp32/lilygot-display/t-display) containing multiple images and other resources. You can now watch the browser download all the webpage data, with each resource showing its URL, size, and the time it took to download:
+Now, enter the *URL* of the website you want to test. I chose a random [*done.land* article](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/) containing multiple images and other resources. You can now watch the browser download all the webpage data, with each resource showing its URL, size, and the time it took to download:
 
 <img src="images/routing_slow_website_chrome_debug_error.png" width="100%" height="100%" />
 

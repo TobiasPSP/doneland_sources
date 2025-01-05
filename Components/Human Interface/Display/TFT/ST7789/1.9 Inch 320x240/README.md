@@ -42,7 +42,7 @@ Both the [Chinese Board](https://www.google.com/search?q=estardyn+tft+1.9) and t
 
 <img src="images/tft_st7789_1.9inch_pin_top_t.png" width="40%" height="40%" />
 
-| Pin (Display Board) | Description | Pin ([Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite)) |
+| Pin (Display Board) | Description | Pin ([Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/)) |
 | --- | --- | --- | 
 | GND | Ground | G |
 | VCC | positive supply voltage | 3V |
@@ -86,7 +86,7 @@ The display boards use the [ST7789](https://done.land/components/humaninterface/
 
 Here is a [good walkthrough](https://github.com/mboehmerm/IPS-Display-ST7789-170x320) using this display plus these:
 
-* [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/lolin32lite) development board
+* [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/) development board
 * [ArduinoIDE](https://www.arduino.cc/en/software) 
 * [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library
 

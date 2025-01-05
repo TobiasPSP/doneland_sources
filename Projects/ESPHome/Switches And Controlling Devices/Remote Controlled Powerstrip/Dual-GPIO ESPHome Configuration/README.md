@@ -19,7 +19,7 @@ The *new configuration* below uses *two GPIOs* per switch that work *complementa
 
 ## Picking Microcontroller
 
-I picked a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini) microcontroller for this project. I chose this microcontroller because...
+I picked a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) microcontroller for this project. I chose this microcontroller because...
 
 <img src="images/c3_anglefront_overview_t.png" width="40%" height="40%" />
 
@@ -36,7 +36,7 @@ If you do use a different microcontroller, make sure you change the microcontrol
 If your microcontroller has less than ten available GPIOs, simply reduce the number of switches, and if it has more, you can add more switches.
 
 ### ESP32-C3 Super Mini
-Here is the initial part of the *ESPHome configuration* for a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/c3/c3supermini):
+Here is the initial part of the *ESPHome configuration* for a [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/):
 
 
 ````
