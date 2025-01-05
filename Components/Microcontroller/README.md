@@ -23,8 +23,9 @@ Often, you do not even need to create new firmware at all. Flexible, pre-made *f
 
 At the heart of each microcontroller are its *GPIOs* (*general-purpose input/output*): versatile pins that can act as either inputs or outputs:
 
-- **Output:** Functions like a switch, toggling between *on* and *off*. This allows you to control devices, lights, or other components. Since *GPIOs* are *signal pins* and typically handle only *10-40mA* (depending on the microcontroller), external components like *MOSFETs* or *relays* are often needed to drive higher loads.  
-
+- **Output:** 
+  - **Digital outputs** Function like a switch, toggling between *on* and *off*. This allows you to control devices, lights, or other components. Since *GPIOs* are *signal pins* and typically handle only *10-40mA* (depending on the microcontroller), external components like *MOSFETs* or *relays* are often needed to drive higher loads.   
+  - **Analog outputs** require a *DAC* (*Digital-to-analog* converter) and can then supply a voltage between *0V* and *VDD* (the voltage the microcontroller uses). This can be very useful, i.e. to create *signal generators* or adjustable power supplies. [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) have such a DAC built-in, and you can do [amazing things](https://done.land/components/microcontroller/families/esp/espfeatures/dac/) with it. Many other microcontrollers have no DAC (including all of the *ESP32S* successors).
 - **Input:**  
   - **Digital inputs** detect *high* (positive voltage) or *low* (ground) states, enabling connection to switches, sensors, or other components.  
   - **Analog inputs** (available on some GPIOs) measure *voltage levels*, useful for components like potentiometers or voltage sensors.  
@@ -114,11 +115,15 @@ For projects requiring more server power than a *Raspberry Pi* can provide, user
 
 
 ## Development Boards
+When you have [chosen a suitable microcontroller](https://done.land/components/microcontroller/firststeps/), you then look for a *development board* that uses this microcontroller. For example, if you came to the conclusion that you wanted to try out a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) due to its popularity, low price, and readily available community resources, you'd next do a review of available [development boards](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/).
+
 Development boards are *ready-to-use* PCBs that integrate a *microcontroller* with essential components such as a *voltage regulator* and a *Serial-to-USB bridge*. They simplify the process of working with microcontrollers by providing an accessible platform for programming and development.
 
-
+They come in many different forms and shapes, may include a display or battery charger, and feature different form factors.
 
 ### Originals and Clones
+
+*Price* is an important factor in choosing a development board, especially for hobbyists. 
 
 While the *microcontroller* itself is manufactured by specific companies (e.g., Espressif or Atmel), *development boards* are produced by various vendors. These include well-known brands like *Arduino*, *Adafruit*, or *Espressif*, as well as less-known manufacturers who create *clones*. 
 
