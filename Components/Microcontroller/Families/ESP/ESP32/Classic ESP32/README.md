@@ -1,7 +1,7 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
 # ESP32
 
-> ESP32S Microcontrollers - Capable And Affordable For General-Purpose Applications
+> ESP32S Microcontrollers - Affordable Workhorse For General-Purpose Applications
 
 The *classic ESP32* is known as the *ESP32S*. Since its debut in 2016, many additional *ESP32 variants* have been introduced, such as the [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/s2/s2mini/), [ESP32-S3](https://done.land/components/microcontroller/families/esp/esp32/s3/) and [ESP32-C6](https://done.land/components/microcontroller/families/esp/esp32/c6/). However, the *ESP32S* remains highly popular among *DIY makers* because it is particularly straightforward to use:
 
@@ -93,7 +93,7 @@ The information above applies to *ESP32S* microcontrollers only. It is not appli
 > [!NOTE]
 > The table lists all ESP32 pins, but a development board will likely only expose a subset of these. The number of exposed pins doesn't necessarily indicate better quality; rather, it's a balance between ESP32S functionality and compactness/ease-of-use. Many of the pins listed above are not helpful or outright unsafe to use, so even though a [38-pin ESP32 development board](https://done.land/components/microcontroller/families/esp/esp32/classicesp32/esp32devkitcv4/) may expose all pins, this isn’t the most efficient or sophisticated approach. A well-designed board makes a smart trade-off, exposing only the safe-to-use pins while optimizing the footprint by omitting those that have no impact on the user experience.
 
-## Safe GPIOs 
+### Safe GPIOs 
 
 Ten GPIOs are *always safe to use*: in the column *When Usable?*, they are marked *Always*: GPIO4, GPIO27, GPIO32-39.
 
@@ -151,7 +151,7 @@ Only rarely do projects require *all* these interfaces. Frequently, none of thes
 | 23   | Yes       | not using primary SPI | - | Yes | Yes | - | - | (V)SPI MOSI |
 
 
-### Unsafe Pins
+### Unsafe GPIOs
 
 Some GPIOs are unsafe to use because they are tied to critical internal functions. Many development boards do not expose these pins, but some do, as certain GPIOs may still be usable if you fully understand their limitations.
 
@@ -200,4 +200,4 @@ Some pin numbers *appear* valid but are not implemented in the *ESP32S* microcon
 
 > Tags: ESP32, WROOM, WROVER, 32D, 32E, WROOM-32D, WROOM-32E, WROVER-B, WROVER-IB, PSRAM, GPIO, Pins, Bluetooth Classic, BLE
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32?486134031823244200) - created 2024-03-23 - last edited 2024-12-26
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/classicesp32?486134031823244200) - created 2024-03-23 - last edited 2025-01-04
