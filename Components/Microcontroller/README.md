@@ -8,6 +8,8 @@ Microcontrollers have become so affordable that in many cases, it is easier to d
 
 For example, while you can design LED effects or emergency lights using *flip-flops*, timer ICs, or other discrete components like resistors, transistors, and capacitors, replacing all of these with a single microcontroller is often much more flexible, easier, and more affordable.
 
+There are many [microcontroller families and models](https://done.land/components/microcontroller/families/) to choose from, and [picking the right microcontroller model](https://done.land/components/microcontroller/firststeps/) is the first step to success.
+
 > [!TIP]  
 > Powerful microcontroller boards with built-in *WiFi* and *Bluetooth*, along with substantial *4MB flash memory*, are available today for under €2. This makes microcontroller projects much more cost-effective compared to implementing the same functionality with discrete components or specialized ICs. As a result, microcontrollers are ubiquitous in low-cost consumer devices like smart plugs, thermometers, and other gadgets.
 
@@ -104,7 +106,7 @@ For projects requiring more server power than a *Raspberry Pi* can provide, user
 
 
 
-### Conclusions
+### Conclusion
 
 - **Microcontroller Selection**: Choosing a microcontroller family with a strong community (e.g., *ESP* or *Arduino*) ensures access to extensive resources, making troubleshooting and development much easier.
 - **Cost-Effectiveness**: While *Arduino* remains popular, modern microcontrollers like the *ESP32* often provide better performance and features at a fraction of the cost.
@@ -188,8 +190,11 @@ When deciding between originals and clones:
 
 Both have their place in the DIY ecosystem, and choosing between them depends on your priorities: cost, quality, or brand trust.
 
+## What's Next?
 
+If you're looking for more information about the different types and models of microcontrollers, check out [this comprehensive list](https://done.land/components/microcontroller/families/). It covers a wide range of microcontroller families to help you find the one that best suits your needs.
 
+Ready to begin your microcontroller journey? Dive in and get started with [these simple steps](https://done.land/components/microcontroller/firststeps/). This guide will walk you through the basics and help you kick off your first project with confidence.
 
 
 

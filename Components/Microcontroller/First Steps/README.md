@@ -7,13 +7,13 @@
 Starting with microcontrollers is easy when you follow these simple steps:
 
 1. **Choose a Microcontroller:**  
-   Review the available [microcontroller models](https://done.land/components/microcontroller/families/) and choose the one that best fits your needs.
+   Review the available [microcontroller models](https://done.land/components/microcontroller/families/) and [choose the one that best fits your needs](https://done.land/components/microcontroller/firststeps/#1-choose-a-microcontroller).
 
 2. **Pick a Development Board:**  
-   Select a user-friendly development board that includes your chosen microcontroller. Development boards are *ready-to-use PCBs* with the microcontroller and essential peripherals (e.g., USB connectors, UART, crystal, and voltage regulators). You might also consider a matching [expansion board](https://done.land/components/microcontroller/expansionboards/), which acts like a [breadboard](https://done.land/tools/breadboard/) but is tailored to specific development boards. Expansion boards simplify prototyping by managing power supply, wiring, sensors, and peripherals.
+   [Select a user-friendly development](https://done.land/components/microcontroller/firststeps/#2-choose-a-development-board) board that includes your chosen microcontroller. Development boards are *ready-to-use PCBs* with the microcontroller and essential peripherals (e.g., USB connectors, UART, crystal, and voltage regulators). You might also consider a matching [expansion board](https://done.land/components/microcontroller/expansionboards/), which acts like a [breadboard](https://done.land/tools/breadboard/) but is tailored to specific development boards. Expansion boards simplify prototyping by managing power supply, wiring, sensors, and peripherals.
 
 3. **Buy the Necessary Hardware:**  
-   Once you’ve chosen your microcontroller and development board, acquire the necessary hardware. Start with a simple project, like building a [WLED LED Controller](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/#what-you-need). These projects list all required components and guide you through initial steps.
+   Once you’ve chosen your microcontroller and development board, [acquire the necessary hardware](https://done.land/components/microcontroller/firststeps/#3-where-to-buy). Start with a simple project, like building a [WLED LED Controller](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/#what-you-need). These projects list all required components, so you can order them at your favorite electronics shop or AliExpress. Once you got the parts, the projects guide you through all steps, simple and easy.
 
 4. **Program Your Microcontroller:**  
    Write instructions for your microcontroller using *firmware*. Begin with *pre-made firmware*, such as the [WLED LED Controller](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/#what-you-need). This lets you focus on connecting your development board to your PC. Once comfortable with uploading firmware, you can explore creating your own programs.
@@ -64,10 +64,13 @@ Avoid getting an *Arduino*. Instead, start with an *ESP32* board. Here's why:
 - **Modern Features:**  
   The *ESP32* ecosystem is well-supported with tools like [ESPHome](https://esphome.io/) for firmware and [Home Assistant](https://www.home-assistant.io/) for smart home integration. Projects like [WLED](https://kno.wled.ge/) allow advanced control of LED strips. These features are often missing in the *Arduino* ecosystem.
 
-> **Note:**  
+> [!NOTE]    
 > The *ESP32* has roots in the *smart device industry*, which explains its superior design. Originally created for professional hardware producers, it’s affordable and frequently updated. By contrast, Arduino, a private company, has struggled to stay modern after its initial success.
 
-> **Tip:**  
+
+
+
+> [!TIP]       
 > Avoid the [ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/), the predecessor of the *ESP32*. While it was once popular, the *ESP32* offers better performance, more memory, and improved peripherals for the same price. The *ESP8266* also suffered from unstable voltage regulators, causing issues when peripherals were connected.
 
 ## 2. Choose a Development Board
@@ -93,7 +96,7 @@ The [T-Display LilyGO](https://done.land/components/microcontroller/families/esp
 
 This board is widely supported in the community and includes a TFT color display, two programmable buttons, and a *LiIon battery* connector, making it ideal for portable, battery-powered projects. Its *deep sleep* power consumption is also outstanding and can be [reduced to below 300µA](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep/), making it perfect for general use.
 
-> **Important:**  
+> [!TIP]      
 > Shop wisely: this board is sometimes sold for over €20. I recently purchased ten for just €4.55 each on AliExpress.
 
 #### ESP32-C3 SuperMini
@@ -115,7 +118,7 @@ When purchasing microcontroller boards, *AliExpress* is a great option due to it
 
 If you shop on *Amazon*, *eBay*, or with local dealers, you may end up paying **substantially higher prices** for essentially the same boards.
 
-> **Tip:**  
+> [!TIP]
 > *AliExpress* prices are low due to minimal middlemen and less stringent quality control. Based on my experience, about 1 in 300 boards may have defects or poor soldering. To mitigate this, order in bulk (packs of 5 or 10). Even with the occasional defective board, you’ll still save money compared to purchasing individual boards locally.
 
 
@@ -144,12 +147,22 @@ Here are two popular options for *ESP32* boards that can be installed directly f
 
 For additional options, check out [more pre-made firmware](https://done.land/components/microcontroller/firmware/fromsomeoneelse/).
 
-> **Important:**  
+> [!IMPORTANT]     
 > Pre-made firmware **must match your microcontroller type**. The examples above work for *ESP32* boards but cannot be used on *Arduino*.
 
 #### Programming Your Own Firmware 
 
 If you’re comfortable with programming or have sample code to work with, you can use a [development environment](https://done.land/components/microcontroller/firmware/writingownfirmware/) to write and compile source code into firmware. Once compiled, it can be uploaded to your microcontroller.
+
+
+## What's Next?
+
+You're ready to take the next step now! Next, learn about *firmware* and how to program your microcontroller.
+
+I recommend starting with [pre-made firmware](https://done.land/components/microcontroller/firmware/fromsomeoneelse/) created by others. This approach allows you to focus on the essentials: connecting your development board to a PC, uploading firmware, and wiring up your microcontroller to accomplish practical tasks in small projects.
+
+Once you're comfortable with these basics, you'll be ready to tackle more advanced challenges, including writing your own custom firmware.
+
 
 
 > Tags: Microcontroller, First Steps, Beginner, Board, Recommendation
