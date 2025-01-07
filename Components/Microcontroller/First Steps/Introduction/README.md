@@ -4,15 +4,29 @@
 
 > Understanding Microcontrollers, Terminology, And Common Components
 
-Before I show you step by step how to *actually use* microcontrollers in your projects, let's start with a quick *overview* and clarify some basic *terminology* and shed light on fundamental *components* so we all are on the same page.
+Let's start by clarifying some basic *terminology* and shedding light on fundamental *components*. This way, we will all be on the same page.
 
 ## Microcontroller
 
-A *microcontroller* is essentially just another *chip*. From the outside, it doesn't look much different than other chips. Depending on the *complexity* of the microcontroller, the chip may come in a regular *DIP8* case, or it may be a large, flat, sophisticated *SMD* case.
+A *microcontroller* is essentially just another *chip*. From the outside, it doesn't look much different from other chips. Depending on the *complexity* of the microcontroller, the chip might come in various forms: a regular *DIP8* package, a large, flat, sophisticated *SMD* package, a shielded PCB, or it could be embedded on a PCB alongside a variety of related components. This latter setup is referred to as a *development board*.
+
+<img src="images/microcontroller_overview_various1_t.png" width="50%" height="50%" />
+
+On the left, the picture shows an *ESP32* [microcontroller module](https://done.land/components/microcontroller/firststeps/introduction/#microcontroller-modules), which is part of the [development board](https://done.land/components/microcontroller/firststeps/introduction/#development-board) to its right.
+
+In the middle, you can see an [ATTiny](https://done.land/components/microcontroller/families/attiny/) microcontroller in a *DIP* package. It resembles other simple ICs, like operational amplifiers or logic gates. The remaining items are various other *development boards*, each with a large, flat black chip at their core: their microcontroller.
+
+> [!NOTE]
+> The largest development board with the largest microcontroller (at the back of the picture) is also the slowest, most power-hungry, the oldest design, and the most expensive of all: an *[Arduino](https://done.land/components/microcontroller/families/arduino/) Mega* with an *Atmel* microcontroller. So size doesn't always matter.
+
 
 ### External Components
 
 For a *microcontroller* to function, it requires a few *external components*:
+
+<img src="images/devboard_components_description.png" width="90%" height="90%" />
+
+Only *some* boards come with battery support and include a *LiPo* charger, like the [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/) in the picture. Most of the other components can be found on every development board: 
 
 - **Crystal:** A *crystal* provides a stable *clock signal* unless it is a *very simple microcontroller* running at low clock speeds, such as an *ATtiny* that uses an *internal oscillator* instead.
 - **Voltage Regulator:** Since microcontrollers are sensitive to *voltage* and can be damaged if too high a voltage is supplied, a *voltage regulator* ensures that the required voltage is delivered.
