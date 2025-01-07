@@ -1,5 +1,6 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- # Connect Development Board To Computer
+ 
+# Connect Development Board To Computer
 
 > Successfully Connect A Development Board To Your Computer
 

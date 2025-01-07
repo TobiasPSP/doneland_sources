@@ -1,5 +1,6 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- # Bootloader
+
+# Bootloader
 
 > Builtin Service Interface Available In Every Microcontroller
 
@@ -120,6 +121,7 @@ To access additional commands (i.e. query hardware details), you need to run *Es
     Detected flash size: 4MB
     Hard resetting via RTS pin...
     ````
+
 ### Manual Invocation of Boot Loader Required
 Let's repeat the steps for a [classic ESP32](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) board. As you will see, the overall behavior is the same, but there are *subtle differences*.
 
@@ -170,6 +172,7 @@ Device: 4016
 Detected flash size: 4MB
 Hard resetting via RTS pin...
 ````
+
 ### ESP8266
 Now let's try and test an old *ESP8266*. When connecting it to *USB*, *Device Manager* assigns *COM6*, and the *USB-to-Serial* chip used by this board is a *CH340*.
 
@@ -212,6 +215,7 @@ Device: 4016
 Detected flash size: 4MB
 Hard resetting via RTS pin...
 ````
+
 ### Modern Microcontrollers With Built-In USB Support
 Modern *ESP boards* do not need a dedicated *USB-to-Serial* chip anymore. They can *understand USB directly*, however there are different standards they support.
 
