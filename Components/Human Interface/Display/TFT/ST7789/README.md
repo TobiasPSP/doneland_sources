@@ -1,18 +1,16 @@
 <img src="/assets/images/screenwire.png" width="100%" height="100%" />
-
 # ST7789
 
 > Drives TFT Displays Up To 240x320 Pixels At 262K Colors (18bit)
 
 The *ST7789* is a versatile *TFT display driver IC* commonly used for small to medium-sized displays with resolutions of up to *240x320* pixels at full *18bit color* (262 thousand different colors). Many *TFT display boards* and *ESP32 development boards with integrated display* use this device driver.
 
-The driver supports [SPI](https://done.land/fundamentals/interface/spi) and the *Parallel* interface, plus some lesser used ones. 
-
+The driver supports [SPI](https://done.land/fundamentals/interface/spi) and the *Parallel* interface, as well as some lesser-used options.
 
 ## Versions
-Although *ST7789* exists in a number of variants, there seem to be *no substantial differences* between the *2012 version* [ST7789S](materials/st7789v_datasheet.pdf) and the *2021 version* [ST7789P3](materials/st7789p3_datasheet.pdf). Apparently, the different versions are mere *maintenance releases* with minor hardware adjustments to chip size, pad locations, and supported voltage ranges.
+Although *ST7789* exists in a number of variants, there seem to be *no substantial differences* between the *2012 version* [ST7789S](materials/st7789v_datasheet.pdf) and the *2021 version* [ST7789P3](materials/st7789p3_datasheet.pdf). These variants appear to be *maintenance releases* with minor hardware adjustments, such as chip size, pad locations, and supported voltage ranges.
 
-The key display features remain identical:
+The key display features remain consistent across versions:
 
 | Item | Description |
 | --- | --- |
@@ -24,50 +22,47 @@ The key display features remain identical:
 | Backlight Power Consumption | *20-40mA* |
 | Interface | [SPI](https://done.land/fundamentals/interface/spi) and *Parallel* |
 
-The power consumption also remains identical.
+The following table summarizes the observed changes between versions:
 
-| Version | Spotted Changes |  Chip Size | Year |
-|---|---|---|---|
-| [ST7789S](materials/st7789v_datasheet.pdf)   |  |300um  | 2012  | 
-| [ST7789V](materials/st7789v_datasheet.pdf)   | gate-driver supply voltage range extended  | 300um | 2013   | 
-| [ST7789H2](materials/st7789h2_datasheet.pdf)      | | 300um   | 2014   |
-| [ST7789VI](materials/st7789vi_datasheet.pdf)      | power consumption in *normal mode* changed from *7.5mA* to *8mA*   | 300um   | 2016   | 
-| [ST7789V2](materials/st7789v2_datasheet.pdf)      | power consumption back to normal (possibly documentation bug) | 300um   | 2016   | 
-| [ST7789VW](materials/st7789vw_datasheet.pdf)      | | 300um   | 2017   |
-| [ST7789V3](materials/st7789v3_datasheet.pdf)      |  | 200um   | 2020   |
-| [ST7789P3](materials/st7789p3_datasheet.pdf)     | | 200um   | 2021   | 
+| Version | Spotted Changes | Chip Size | Year |
+| --- | --- | --- | --- |
+| [ST7789S](materials/st7789v_datasheet.pdf) | None documented | 300μm | 2012 |
+| [ST7789V](materials/st7789v_datasheet.pdf) | Gate-driver supply voltage range extended | 300μm | 2013 |
+| [ST7789H2](materials/st7789h2_datasheet.pdf) | None documented | 300μm | 2014 |
+| [ST7789VI](materials/st7789vi_datasheet.pdf) | Power consumption in *normal mode* increased from *7.5mA* to *8mA* | 300μm | 2016 |
+| [ST7789V2](materials/st7789v2_datasheet.pdf) | Power consumption reverted to *7.5mA* (documentation correction) | 300μm | 2016 |
+| [ST7789VW](materials/st7789vw_datasheet.pdf) | None documented | 300μm | 2017 |
+| [ST7789V3](materials/st7789v3_datasheet.pdf) | None documented | 200μm | 2020 |
+| [ST7789P3](materials/st7789p3_datasheet.pdf) | None documented | 200μm | 2021 |
 
-That said, the data sheets are *300 pages+*, filled with technical glibber and timing protocols. If **you** spot significant differences or know of compatibility issues, please leave a comment below.
-
+If **you** identify any significant differences or compatibility issues, please share your findings in the comments below.
 
 > [!NOTE]
-> Regardless of which *ST7789* variant your display uses, they are all supported by the same libraries. If your display does not work, it is most likely due to incorrect *GPIO* assignments on your side, or due to incompatibilities between the display breakout board and your microcontroller (i.e. incompatible operating voltage, incompatible interface (*Parallel* instead of *SPI*), no exposed *CS pin*, etc.). It may help to test with different libraries (*Adafruit*, *TFT_eSPI*) as they use different default behaviors.
-
+> All *ST7789* variants are supported by the same libraries. If your display does not work, check for issues such as incorrect *GPIO* assignments, incompatible interface settings (*Parallel* vs. *SPI*), or mismatched operating voltages. Testing with multiple libraries (*Adafruit*, *TFT_eSPI*) may help identify the problem, as each has different default behaviors.
 
 ## Programming
 
 ### ESPHome Support
-[ESPHome](https://done.land/tools/software/esphome/introduction) started to support *ST7789* with a dedicated component called [ST7789V TFT LCD](https://esphome.io/components/display/st7789v.html). This component has been made redundant since the *ST7789* is now supported by the more generic [ILI9XXX](https://esphome.io/components/display/ili9xxx#ili9xxx) component.
+[ESPHome](https://done.land/tools/software/esphome/introduction) has dedicated support for *ST7789* through the [ILI9XXX](https://esphome.io/components/display/ili9xxx#ili9xxx) component, which supersedes the older [ST7789V TFT LCD](https://esphome.io/components/display/st7789v.html) component.
 
-### platformio/Arduino Support
-[Adafruit](https://www.adafruit.com/) provides a free [Adafruit library for ST77* drivers](https://github.com/adafruit/Adafruit-ST7735-Library) (including the *ST7789*). It is also supported by [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI).
-
+### PlatformIO/Arduino Support
+[Adafruit](https://www.adafruit.com/) offers a free [Adafruit library for ST77* drivers](https://github.com/adafruit/Adafruit-ST7735-Library) (including *ST7789*), and it is also supported by the [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library.
 
 ## Low Energy Modes
-The *ST7789* supports a *low power sleep mode* (**SLEEP IN**) in which *power consumption* drops from *6mA* to *30uA*. It is important to note that the **display keeps working** (although you cannot change its content in *sleep mode*).
+The *ST7789* supports a *low power sleep mode* (**SLEEP IN**) in which *power consumption* drops from *6mA* to *30μA*. Notably, the **display content remains visible** in sleep mode, although no updates can be made.
 
 | Command | Value |
 | --- | --- |
 | **SLEEP IN** | *0x10* |
-| **SLEEP_OUT** | *0x11* |
+| **SLEEP OUT** | *0x11* |
 
-This opens up exciting opportunities for low-power devices.
+This feature makes the *ST7789* particularly useful for low-power devices.
 
 ### Deep Sleep
-It is critical to send the *ST7789* to its own **SLEEP IN** mode *before* you are sending your microcontroller to *deep sleep*. Else, the *ST7789* would stay awake and continue to consume *4-6mA* even though the microcontroller has switched to *deep sleep*.
+It is crucial to send the *ST7789* into **SLEEP IN** mode *before* putting your microcontroller into deep sleep. If omitted, the *ST7789* will continue drawing *4-6mA*, even when the microcontroller is in deep sleep.
 
-#### Arduino & platformio
-Here is the core of the code to *effectively* send an *ESP32* **and** its display to sleep:
+#### Arduino & PlatformIO
+Here is an example of code to effectively send both an *ESP32* **and** its display into deep sleep:
 
 ````
 // define wakeup pin
@@ -84,16 +79,15 @@ delay(120);             // Wait for the display to enter sleep mode
 // Enter deep sleep
 esp_deep_sleep_start();
 ````
-
 #### ESPHome
-Likewise, to send an *ESP32* **and** its display to power-efficient *deep sleep* in *ESPHome*, just a few lines of *ESPHome code* are needed. 
+To send an *ESP32* **and** its display into power-efficient *deep sleep* in *ESPHome*, only a few lines of *ESPHome code* are required.
 
-Here is the example behavior to add to your *ESPHome device:**
+Here is an example of the behavior to add to your *ESPHome device*:
 
-* **Deep Sleep Button:** when you press the *deep sleep button* (in this example, *GPIO0* is used to utilize the existing *boot* button) for *more than 3 seconds*, the system enters the most power-efficient *deep sleep mode* (and sends the display to sleep as well).
-* **Wake-Up Button:** when you press the *wake-up button* (assigned to *GPIO35 low active* in this example), both microcontroller and display wake up.
+- **Deep Sleep Button:** When you press the *deep sleep button* (in this example, *GPIO0* is used to leverage the existing *boot* button) for *more than 3 seconds*, the system enters the most power-efficient *deep sleep mode* (and sends the display to sleep as well).
+- **Wake-Up Button:** When you press the *wake-up button* (assigned to *GPIO35 low active* in this example), both the microcontroller and display will wake up.
 
-And this is the *ESPHome code* to add to your *configuration* to add the behavior to your *ESPHome device:*
+Here is the *ESPHome code* to add to your *configuration* for this functionality:
 
 ````
 # enable deep sleep capabilities and set wakeup-pin (GPIO35) in energy-efficient ext1 mode
@@ -144,7 +138,6 @@ binary_sensor:
             # invoke deep sleep
             - script.execute: prepare_for_sleep
 ````
-
 ### Low Power Display Operations
 When your device needs to display *static content*, you can send the *ST7789* to its **SLEEP IN** mode. The display continues to show its content.
 
@@ -156,13 +149,12 @@ You can even keep the display on during *deep sleep*. In fact, the display *rema
 
 When you power the display backlight via a *GPIO pin*, in the most efficient deep sleep modes, all *GPIOs go low*, so the display backlight is turned off.
 
-While you could choose a *less efficient deep sleep* mode for your *ESP32* and keep the backlight GPIO active, this is not the most power efficient approach. Instead, you should power the backlight pin independently from the microcontroller, either by directly connecting it to a positive voltage (depending on the display breakout board you are using), or via a current limiting resistor (or potentiometer to manually adjust brightness).
+While you could choose a *less efficient deep sleep* mode for your *ESP32* and keep the backlight GPIO active, this is not the most power-efficient approach. Instead, you should power the backlight pin independently from the microcontroller, either by directly connecting it to a positive voltage (depending on the display breakout board you are using), or via a current-limiting resistor (or potentiometer to manually adjust brightness).
 
-This way, when you send your device to full deep sleep, the display would still display its last content. The total power consumption would just be the backlight current (which can be as low as *20mA*), and the *deep sleep current* (with a highly efficient *FireBeetle ESP32 breakout board*, this would be *12uA*, whereas a *Lolin32 Lite* would require *350uA*).
+This way, when you send your device to full deep sleep, the display would still show its last content. The total power consumption would just be the backlight current (which can be as low as *20mA*), and the *deep sleep current* (with a highly efficient *FireBeetle ESP32 breakout board*, this would be *12uA*, whereas a *Lolin32 Lite* would require *350uA*).
 
 ### ESP32 With Active Display At 20mA
-
-In any respect, your *deep sleeping* device would have a running display with static content at just about *20mA* power consumption (with basically only the backlight LEDs consuming power).
+In any case, your *deep sleeping* device would have a running display with static content at just about *20mA* power consumption (with basically only the backlight LEDs consuming power).
 
 > Tags: Display Driver, Resolution, ST7789V, ST7789S, ST7789P, ST7789H
 

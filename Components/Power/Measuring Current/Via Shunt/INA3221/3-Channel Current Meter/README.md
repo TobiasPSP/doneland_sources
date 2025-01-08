@@ -68,3 +68,5 @@ As an additional benefit, integrating your device with [Home Assistant](https://
 
 
 > Tags: Measure, Current, Voltage, INA3221, INA169, Shunt, Channel, 3 Channel, Efficiency, Solar Controller
+
+[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina3221/3-channelcurrentmeter?863976010908253506) - created 2025-01-07 - last edited 2025-01-07
