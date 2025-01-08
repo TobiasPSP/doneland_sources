@@ -63,3 +63,5 @@ Another relatively unknown memory type is *FRAM*. This memory **does not wear**,
 There are external FRAM breakout boards available. However, FRAM memory is much more expensive than flash memory. An external FRAM board with *8KB* of storage capacity costs around €5.00. A *SD Card* with *8GB* of storage (that's a million times more) costs less.
 
 > Tags: Data, Flash Memory, EEPROM, EPROM, FRAM, SD Card, Permanent Storage
+
+[Visit Page on Website](https://done.land/components/data/storage/permanent?168118011508251418) - created 2025-01-07 - last edited 2025-01-07

@@ -84,6 +84,22 @@ The *red* board comes with a built-in [SD Card reader](https://done.land/compone
 
 Wiring up the SD card reader is no different from a regular separate SD card reader breakout board. [Here](https://done.land/components/data/storage/permanent/onsdcards/#connecting-sd-card-readers) is a description.
 
+## Wiring
+
+Here is how you wire the display to a microcontroller, with example pins for [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) and [ESP32-C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/):
+
+| Display | Microcontroller | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) | [ESP32-C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) |
+| --- | --- |--- | --- |
+| VCC | 3.3V (5V if display has a voltage regulator) | *3V3* | *3.3* |
+| GND | Ground | *GND* | *G* |
+| SCL/SCK/SCK | SPI Clock | *18* | *4* |
+| SDA/DIN | SPI MOSI | *23* | *6* |
+| CS | Chip Select | *22* | *7* |
+| DC/A0 | Data/Command | *16* | *9* |
+| BL/BLK/LED | Backlight | *3V3* | *3.3* |
+| RES | Display Reset | *4* | *10*
+
+
 ## Programming
 
 For programming, you have two options:

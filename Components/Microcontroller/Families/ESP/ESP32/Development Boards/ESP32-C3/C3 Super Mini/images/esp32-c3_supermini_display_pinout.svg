@@ -40,9 +40,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.8826967"
-     inkscape:cx="-65.104091"
-     inkscape:cy="318.59374"
+     inkscape:zoom="4.9932866"
+     inkscape:cx="147.51411"
+     inkscape:cy="406.55213"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -334,7 +334,7 @@
        inkscape:export-ydpi="339.56" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#800000;fill-opacity:1;stroke:none;stroke-width:0.264583;"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;"
        x="43.147743"
        y="100.09268"
        id="text1067-9-7-7-1"
@@ -344,7 +344,7 @@
          id="tspan1065-8-7-3-1"
          x="43.147743"
          y="100.09268"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#800000;stroke-width:0.264583;">SCK</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583;">SCK</tspan></text>
     <rect
        style="font-variation-settings:'wght' 400;fill:#ffcc00;fill-opacity:1;stroke:#ffcc00;stroke-width:2.11667;stroke-linejoin:round;stroke-opacity:1"
        id="rect24-7-1-5-9-7"
@@ -5673,7 +5673,7 @@ GVsuS8ASsAQsAUugBwSsEOgBZHsKS8ASsAQsAUugXwn8N+fS45QgH9U6AAAAAElFTkSuQmCC
        width="8.7850409"
        height="4.3149462"
        x="43.519325"
-       y="111.10217"
+       y="103.69386"
        inkscape:transform-center-x="0.76024169"
        inkscape:transform-center-y="-0.63145975"
        inkscape:export-xdpi="339.56"
@@ -5682,14 +5682,14 @@ GVsuS8ASsAQsAUugBwSsEOgBZHsKS8ASsAQsAUugXwn8N+fS45QgH9U6AAAAAElFTkSuQmCC
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="43.484207"
-       y="114.97669"
+       y="107.56838"
        id="text1067-9-7-7-1-4-2-3"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56"><tspan
          sodipodi:role="line"
          id="tspan1065-8-7-3-1-9-1-6"
          x="43.484207"
-         y="114.97669"
+         y="107.56838"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583">SCL</tspan></text>
     <circle
        style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.96193;stroke-linejoin:round;stroke-opacity:1"

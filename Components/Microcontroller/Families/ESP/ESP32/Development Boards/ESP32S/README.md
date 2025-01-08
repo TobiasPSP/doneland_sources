@@ -134,12 +134,36 @@ Here are the second-choice GPIOs that are most commonly used:
 | 26   | **Yes**   | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
 
 ### Interface Pins (UART, I2C and SPI)
-Peripherals like sensors or displays need a way to communicate with the *ESP32*, and typically this is done using one of three interfaces: *UART* (primitive serial interface), *I2C* (bus interface), or *SPI* (point-to-point high-speed bus interface).
+Here are the defaukt GPIOs used for interfaces:
 
-> [!IMPORTANT]
-> Be aware that *UART* is also used to connect the microcontroller to your PC and upload new firmware or output information to the terminal. Better avoid messing with the UART1 GPIOs unless you understand all consequences.
+#### SPI
 
-Only rarely do projects require *all* these interfaces. Frequently, none of these interfaces is used, and so you can potentially repurpose a maximum of additional seven GPIOs:
+| SPI | MOSI | MISO | SCLK | CS |
+| --- | --- | --- | --- |--- |
+| VSPI (default) | 23 | 19 | 18 | 5 |
+| HSPI (secondary) | 13 | 12 | 14 | 15 |
+
+#### I2C
+
+| Label | GPIO |
+| --- | --- |
+| SDA | 21 |
+| SCL | 22 |
+
+#### Serial Interface (UART)
+
+| UART Port | TX | RX |
+| --- | --- | --- |
+| UART 0 (default) | 1 | 3 |
+| UART1 | custom | custom |
+| UART2 | 17 or custom | 16 or custom |
+
+> [!NOTE]
+> *UART0* is the default serial interface. It is used when you communicate with a PC terminal window, or when you upload firmware.
+
+### Repurposing GPIOs
+
+Only rarely do projects require *all* these interfaces. Frequently, none of these interfaces is used. You might be able to repurpose quite a few GPIOs if the always-safe *GPIOs* aren't enouugh:
 
 | GPIO | Usability | When Usable? | Boot Behavior | Digital In | Digital Out | Analog In | Analog Out | Remarks |
 |------|-----------|--------------|---------------|------------|-------------|-----------|------------|---------|
