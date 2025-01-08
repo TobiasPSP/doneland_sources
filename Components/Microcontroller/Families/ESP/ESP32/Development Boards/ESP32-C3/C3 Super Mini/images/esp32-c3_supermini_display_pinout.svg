@@ -40,9 +40,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.9932866"
-     inkscape:cx="147.51411"
-     inkscape:cy="406.55213"
+     inkscape:zoom="2.4966433"
+     inkscape:cx="559.60522"
+     inkscape:cy="403.2339"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -68,6 +68,30 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="font-variation-settings:'wght' 400;fill:#d40000;fill-opacity:1;stroke:#d40000;stroke-width:2.38475;stroke-linejoin:round;stroke-opacity:1"
+       id="rect24-7-1-5-9-7-9-5-9"
+       width="11.330885"
+       height="4.2465439"
+       x="146.42639"
+       y="96.482162"
+       inkscape:transform-center-x="0.98055773"
+       inkscape:transform-center-y="-0.62144814"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="147.54362"
+       y="100.45847"
+       id="text1067-9-7-7-1-4-8-1-74"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56"><tspan
+         sodipodi:role="line"
+         id="tspan1065-8-7-3-1-9-6-0-0"
+         x="147.54362"
+         y="100.45847"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff;stroke-width:0.264583">LED</tspan></text>
     <rect
        style="font-variation-settings:'wght' 400;fill:#ffff00;fill-opacity:1;stroke:#ffff00;stroke-width:2.38475;stroke-linejoin:round;stroke-opacity:1"
        id="rect24-7-1-5-9-7-9-5-2"
@@ -98,7 +122,7 @@
        width="11.330885"
        height="4.2465439"
        x="146.29527"
-       y="96.538292"
+       y="103.8905"
        inkscape:transform-center-x="0.98056189"
        inkscape:transform-center-y="-0.62144814"
        inkscape:export-xdpi="339.56"
@@ -109,7 +133,7 @@
        width="11.330885"
        height="4.2465439"
        x="146.29527"
-       y="103.99033"
+       y="111.34253"
        inkscape:transform-center-x="0.98056189"
        inkscape:transform-center-y="-0.62144814"
        inkscape:export-xdpi="339.56"
@@ -722,27 +746,27 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="148.77625"
-       y="100.41477"
+       y="107.82312"
        id="text1067-9-7-7-1-4-8-1-7"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56"><tspan
          sodipodi:role="line"
          id="tspan1065-8-7-3-1-9-6-0-9"
          x="148.77625"
-         y="100.41477"
+         y="107.82312"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583">DC</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        x="147.44867"
-       y="107.86681"
+       y="115.30077"
        id="text1067-9-7-7-1-4-8-1-5"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56"><tspan
          sodipodi:role="line"
          id="tspan1065-8-7-3-1-9-6-0-8"
          x="147.44867"
-         y="107.86681"
+         y="115.30077"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583">RST</tspan></text>
     <text
        xml:space="preserve"
@@ -805,30 +829,6 @@
        r="1.343574"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56" />
-    <rect
-       style="font-variation-settings:'wght' 400;fill:#d40000;fill-opacity:1;stroke:#d40000;stroke-width:2.38475;stroke-linejoin:round;stroke-opacity:1"
-       id="rect24-7-1-5-9-7-9-5-9"
-       width="11.330885"
-       height="4.2465439"
-       x="160.18454"
-       y="96.538292"
-       inkscape:transform-center-x="0.98055773"
-       inkscape:transform-center-y="-0.62144814"
-       inkscape:export-xdpi="339.56"
-       inkscape:export-ydpi="339.56" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="161.30177"
-       y="100.45094"
-       id="text1067-9-7-7-1-4-8-1-74"
-       inkscape:export-xdpi="339.56"
-       inkscape:export-ydpi="339.56"><tspan
-         sodipodi:role="line"
-         id="tspan1065-8-7-3-1-9-6-0-0"
-         x="161.30177"
-         y="100.45094"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff;stroke-width:0.264583">LED</tspan></text>
     <image
        width="78.849342"
        height="61.668171"

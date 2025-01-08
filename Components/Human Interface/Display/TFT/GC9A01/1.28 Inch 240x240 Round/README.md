@@ -10,10 +10,15 @@ It is available in a variety of breakout board shapes:
 
 <img src="images/tft_round_1.26_overview_t.png" width="70%" height="70%" />
 
-> [!IMPORTANT]
-> The *red* board exposes an additional pin to control the backlight and comes with a *SDCard Slot* on its back side.
+There are subtile but important differences among the many available breakout boards that feature this display:
+
+* **Voltage:** some boards have a voltage regulator and can be supplied with *3.3V* and *5V*. If the board has no voltage regulator, you must supply *3.3V* (and cannot use *5V*).
+* **SD Card Reader:** some boards feature an SD card reader on the backside.
+* **Dimmable Backlight:** most boards expose a separate backlight pin that you can either connect to *VCC* (always full brightness), or a *GPIO* that then can control backlight brightness via *PWM*. If the board does not expose a backlight pin, then the backlight is internally connected to *VCC* and not dimmable.
+
 
 <img src="images/tft_round_1.26_red_back.png" width="30%" height="30%" />
+
 
 
 
@@ -73,12 +78,7 @@ The [SPI](https://done.land/fundamentals/interface/spi/) interface typically use
 Instead, most displays use a special additional pin called *DC*: this pin tells the display whether the sent data is supposed to be screen content, or a specific *command* to control the display.
 
 
-### Backlight
-Some breakout boards provide access to the backlight power supply (so you can dim it using *PWM*): they expose a pin labeled *BL*, *BLK*, or *LED*.
-
-Other boards expose only seven instead of eight pins and provide no control over the backlight power supply.
-
-### SD Card Reader
+### Optional SD Card Reader
 
 The *red* board comes with a built-in [SD Card reader](https://done.land/components/data/storage/permanent/onsdcards/#connecting-sd-card-readers). The breakout board exposes the pins for the SD card reader on the opposite site of the main pin header. 
 
@@ -92,13 +92,19 @@ Here is how you wire the display to a microcontroller, with example pins for [ES
 | --- | --- |--- | --- |
 | VCC | 3.3V (5V if display has a voltage regulator) | *3V3* | *3.3* |
 | GND | Ground | *GND* | *G* |
-| SCL/SCK/SCK | SPI Clock | *18* | *4* |
-| SDA/DIN | SPI MOSI | *23* | *6* |
-| CS | Chip Select | *22* | *7* |
-| DC/A0 | Data/Command | *16* | *9* |
-| BL/BLK/LED | Backlight | *3V3* | *3.3* |
-| RES | Display Reset | *4* | *10*
+| SCL/SCK/SCK | SPI Clock | *18*/*P18* | *4* |
+| SDA/DIN | SPI MOSI | *23*/*P23* | *6* |
+| CS | Chip Select | *22*/*P22* | *7* |
+| DC/A0 | Data/Command | *16*/*P16* | *9* |
+| RES | Display Reset | *4*/*P4* | *10*
+| BL/BLK/LED (if present) | Backlight | *3V3* | *3.3* |
 
+### Backlight Pin
+If the display breakout board has no pin for the backlight, then the backlight power supply is hard-wired to *VCC*.
+
+When you supply *VCC* to the backlight pin (or when there is no backlight pin), then the backlight always runs in full brightness.
+
+Dimming the backlight is only possible with display breakout boards that expose a backlight pin. If so, to enable dimming connect this pin to any available *GPIO* (instead of *VCC*). In your code, use a *PWM* signal on this *GPIO* to control the brightness.
 
 ## Programming
 
@@ -107,10 +113,14 @@ For programming, you have two options:
 ### 1. C++ Libraries
 You can use *C++* with one of the following libraries for full control over your display:
 
-- [Adafruit library for GC9A01 drivers](https://github.com/adafruit/Adafruit_GC9A01A)
-- [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI)
+- [Adafruit library for GC9A01 drivers:](https://github.com/adafruit/Adafruit_GC9A01A) this library may only work in *ArduinoIDE* and fail in *platformio*
+- [TFT_eSPI:](https://github.com/Bodmer/TFT_eSPI) requires manual adjustment of the file *User_Setup.h*.
 
-This gives you full flexibility but requires programming expertise, as you'll need to implement everything yourself.
+Using *C++ code* gives you full flexibility but requires programming expertise, as you'll need to implement everything yourself.
+
+
+<img src="images/gc9a01_sample_wiring_esp32_t.png" width="80%" height="80%" />
+
 
 > [!NOTE]
 > Both mentioned libraries are designed for the *Arduino framework* so they work for *Arduino* and *ESP32* microcontrollers and any others that are compatible with the framework. For other ecosystems, different libraries exist.    
