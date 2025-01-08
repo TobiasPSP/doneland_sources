@@ -66,5 +66,6 @@ This is particularly beneficial, as it makes *ESPHome configurations* compatible
 [Adafruit](https://www.adafruit.com/) offers a free [Adafruit library for GC9A01 drivers](https://github.com/adafruit/Adafruit_GC9A01A), and the *GC9A01* driver is also supported by the [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library.
 
 
-> Tags: Display Driver, Resolution, 
+> Tags: Display Driver, Resolution,
 
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/gc9a01?893460011108251313) - created 2025-01-07 - last edited 2025-01-07
