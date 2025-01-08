@@ -15,6 +15,8 @@ This driver is used by many square and round *TFT display boards* up to a resolu
 <img src="images/tft_round_1.26_overview_t.png" width="70%" height="70%" />
 
 The driver supports [SPI](https://done.land/fundamentals/interface/spi) and the *Parallel* interface, as well as some lesser-used options. In typical applications, it is controlled via *SPI*.
+
+
 | Item | Description |
 | --- | --- |
 | Maximum Resolution | *240(H)x240(V)* pixels |
@@ -28,6 +30,8 @@ The driver supports [SPI](https://done.land/fundamentals/interface/spi) and the 
 | Sleep-In Power Consumption | In the range of *uA* (no exact value in datasheet) |
 | Sleep Command | *0x10* (enter), *0x11* (exit) |
 | Interface | [SPI](https://done.land/fundamentals/interface/spi) and *Parallel* |
+
+
 
 ## Power Saving
 In battery-operated devices or other environments where low power consumption is a priority, the *GC9A01* driver supports multiple power-saving modes. These modes reduce power consumption in five stages:
