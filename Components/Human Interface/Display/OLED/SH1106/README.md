@@ -82,19 +82,16 @@ To compile and upload the sample configuration, simply [follow these simple step
 
 
 You can now use all the graphics commands supported by the [ESPHome Display Component](https://esphome.io/components/display/index.html) to draw images, shapes, lines, arcs, etc.
-
 ### C++
 
 For direct programming (using the *Arduino Framework*), two popular libraries support the *SH1106*:
-
 
 - **U8G2 Library**
 - **Adafruit GFX Library**
 
 ### U8G2 Library
 
-The *U8G2 library* is a versatile and very robust choice that works for a variety of **monochrome** display drivers. 
-
+The *U8G2 library* is a versatile and robust option that supports a wide range of **monochrome** display drivers.
 
 #### Selecting the OLED Driver
 
@@ -104,45 +101,24 @@ The example code typically includes a large block of commented lines describing 
 
 ### Example Code
 
-The following code is adapted from the *U8G2* examples. I removed the full comment block at the start and kept only the relevant lines for the *SH1106 I2C driver*. Since I tested with a *132x64* pixel display, I uncommented the line for the *128x64* display.
+Compared to *ESPHome* (see above), running *C++ code* can be more challenging. Even though external libraries like *U8G2* handle much of the complexity, there is no universal standard for configuring settings. Determining where to set options such as *I2C GPIOs*, *I2C device address*, and *display resolution* often requires trial and error.
 
-No further configuration was required. The code compiled flawlessly in *PlatformIO* and ran perfectly on an *ESP32-S2 Mini*.
+This is where *ESPHome* excels: all settings are centralized in a well-documented configuration file, making the process more streamlined.
+
+In the *U8G2* C++ example, the display interface and resolution are selected through the *class*. For a *128x64 SH1106 OLED display* connected via *I2C*, you can use one of the following classes:
+
+- **`U8X8_SH1106_128X64_NONAME_HW_I2C`**: For hardware *I2C*.
+- **`U8X8_SH1106_128X64_NONAME_SW_I2C`**: For software *I2C* (allows custom *I2C GPIOs*).
+
+Once you’ve configured the appropriate class, the rest of the code is straightforward. I successfully tested this approach on *ESP32*, *ESP32-S2*, and *ESP32-C3*. 
+
+> **Tip:** Ensure the *I2C GPIOs* in your code match your hardware setup; otherwise, the display will remain dark.
 
 
+<details><summary>C++ Source Code</summary><br/>
 
 
 ````c++
-/*
-  Universal 8bit Graphics Library (https://github.com/olikraus/u8g2/)
-
-  Copyright (c) 2016, olikraus@gmail.com
-  All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification, 
-  are permitted provided that the following conditions are met:
-
-  * Redistributions of source code must retain the above copyright notice, this list 
-    of conditions and the following disclaimer.
-    
-  * Redistributions in binary form must reproduce the above copyright notice, this 
-    list of conditions and the following disclaimer in the documentation and/or other 
-    materials provided with the distribution.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
-  CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
-  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
-  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
-  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
-  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
-  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
-  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
-
-*/
 #include <Arduino.h>
 #include <U8x8lib.h>
 
@@ -153,13 +129,20 @@ No further configuration was required. The code compiled flawlessly in *Platform
 #include <Wire.h>
 #endif
 
-U8X8_SH1106_128X64_NONAME_HW_I2C u8x8(/* reset=*/ U8X8_PIN_NONE);
-//U8X8_SH1106_128X32_VISIONOX_HW_I2C u8x8(/* reset=*/ U8X8_PIN_NONE); 
+// use hardware I2C (if you know the hardware i2c GPIOs for your board):
+//U8X8_SH1106_128X64_NONAME_HW_I2C u8x8(U8X8_PIN_NONE);
+
+// use software I2C (and define GPIOs yourself)
+// pins below are for ESP32S, adjust as needed for other mc models:
+#define SDA 21
+#define SCL 22
+
+U8X8_SH1106_128X64_NONAME_SW_I2C u8x8(SCL, SDA);
 
 void setup(void)
 {
   u8x8.begin();
-  //u8x8.setFlipMode(1);
+  u8x8.setFlipMode(1);
 }
 
 void pre(void)
@@ -305,30 +288,30 @@ void loop(void)
     delay(100);
   }
   delay(1000);
-
 }
 ````
 
-This is the *platformio.ini* I used to compile the sketch in *platformio* and run it on a *ESP32 S2 Mini*:
 
-````
-[env:lolin_s2_mini]
-platform = espressif32
-board = lolin_s2_mini
-framework = arduino
-lib_deps = 
-	olikraus/U8g2@^2.35.19
-````
+</details>
+
 ### Adafruit Library
 
-The *SH1106* initially lacked the same level of driver support as the *SSD1306*, which led users to adapt existing *SSD1306* libraries for the *SH1106*. 
+The *SH1106* initially lacked the same level of driver support as the *SSD1306*, leading users to adapt existing *SSD1306* libraries for compatibility with the *SH1106*. 
 
-Unfortunately, these adaptations were not always done according to standards. For example, there is an *Adafruit* library ported from their original *SSD1306* library, but the tweaks were applied somewhat crudely. As a result, errors in the header file can produce linker errors when using the code in *PlatformIO*. These issues might have been resolved by the time you read this, so it is still worth trying.
+Unfortunately, these adaptations were not always done according to standards. For instance, an *Adafruit* library ported from their original *SSD1306* library contains crude tweaks, which can cause header file errors and linker issues when used in *PlatformIO*. These problems might have been resolved by the time you read this, so it’s still worth giving the library a try.
 
 <img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
 
 > [!NOTE]  
-> Libraries targeting specific drivers can sometimes behave inconsistently depending on the *IDE* used. If a library fails to work in *PlatformIO*, consider testing it in *ArduinoIDE* to verify compatibility. Well-engineered libraries, however, should not exhibit such peculiarities.
+> Libraries for specific drivers may behave inconsistently depending on the *IDE*. If a library fails in *PlatformIO*, try running it in *ArduinoIDE* to verify its compatibility. A well-designed library should not display such peculiar behavior.
+
+### Thoughts
+
+Getting started with *ESPHome* was incredibly fast—it took me about five minutes to put together and run an example code. In contrast, it took over an hour (including a fair bit of cursing) to figure out the specifics for the *U8G2* library. *ESPHome* is far more efficient, at least for developers.
+
+However, the firmware generated by *ESPHome* is significantly larger than manually compiled C++ code. This is expected because *ESPHome* firmware includes standard features like *OTA updates* and encrypted wireless communication. 
+
+As a result, *C++ programming* is generally best suited for highly proficient developers or cases where memory space is at a premium. For most users—especially those working with microcontrollers like the *ESP32* with 4+ MB of flash memory—*ESPHome* provides a much more streamlined and user-friendly approach to firmware development.
 
 
 ## Data Sheets
