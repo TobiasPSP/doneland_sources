@@ -40,6 +40,8 @@ Here are the basic steps for building the 3-Channel Current Meter:
 2. **Firmware:** Develop the firmware for your microcontroller. You can either:
    - Write custom firmware using *C++* libraries.
    - Use *ESPHome*, which natively supports the *INA3221* sensor ([documentation here](https://esphome.io/components/sensor/ina3221.html)).
+
+
 ## 1. Hardware
 
 Let's first assemble the hardware, regardless of how you plan to handle the firmware later.
@@ -103,4 +105,4 @@ Additionally, ESPHome seamlessly integrates with [Home Assistant](https://done.l
 
 > Tags: Measure, Current, Voltage, INA3221, INA169, Shunt, Channel, 3 Channel, Efficiency, Solar Controller
 
-[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina3221/3-channelcurrentmeter?863976010908253506) - created 2025-01-07 - last edited 2025-01-07
+[Visit Page on Website](https://done.land/components/power/measuringcurrent/viashunt/ina3221/3-channelcurrentmeter?863976010908253506) - created 2025-01-07 - last edited 2025-01-09

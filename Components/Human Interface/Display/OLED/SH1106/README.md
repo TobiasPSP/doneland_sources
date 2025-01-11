@@ -2,84 +2,117 @@
 
 # SH1106-Based OLED Display
 
-> 1.3 Inch Monochrome OLED Displays For Little Money
+> 128x64 Monochrome OLED Displays For Little Money
 
-*SH1106* is a *OLED display driver* very similar to the popular *SSD1306*. It supports monochrome displays with a maximum resolution of *132x64* pixels and typically uses *I2C*.
-
-
-<img src="images/oled_sh1106_white_text_t.png" width="30%" height="30%" />
-
-
-This driver is frequently used in *1.3inch 128x64* display breakout boards. The *SH1106* is rather used in the *0.9inch 128x64* display breakout boards.
-
-> [!CAUTION]
-> *SH1106* boards use the pins *GND* and *VDD* in  opposite order compared to *SSD1306* (may be coincidental).
-
-
+The *SH1106* is a *OLED display driver* very similar to the popular *SSD1306*. It supports monochrome displays with a maximum resolution of *132x64* pixels and typically uses *I2C*.
 
 <img src="images/oled_sh1106_white_alpha_t.png" width="30%" height="30%" />
 
-The same applies to breakout boards with *integrated OLED displays* like the *keyboard-display-combo* below:
+
+## Overview
+The *SH1106* is an economical driver for monochrome OLED displays up to a resolution of *132x64* pixels. It is sufficient for displaying text and static images which are the primary use cases.
+
+If you need *animations* like *scrolling*, the *SSD1306* would be a better option as the *SH1106* lacks hardware animation or scrolling support.
+
+
+## Breakout Boards and Colors
+
+Typically, you purchase ready-to-use breakout boards that come with the driver and a OLED display. 
+
+<img src="images/oled_sh1106_white_text_t.png" width="60%" height="60%" />
+
+Common display sizes include *0.96"* and *1.3"*, either stand-alone or integrated into *keyboard-display-combos* like the ones below:
 
 <img src="images/oled_sh1106_keyboard_t.png" width="60%" height="60%" />
+ 
+These displays come in various colors but they are **always monochrome**. The most common colors are *white*, *blue*, and *yellow/blue* (the first 8 lines are yellow, the rest is blue). Lately, fully *yellow* displays have become available as well. 
 
-These boards are available with *0.96inch* and *1.3inch* displays. Like with the standalone boards, *SH1106* is typically used in the *1.3inch* version.
-
-
-
-> [!TIP]
-> The *SH1106* is a great and economical *OLED driver* to display *text* and *static images*. Once you require *animations* like *scrolling*, the *SSD1306* is much better suited (and even more so the many other any more advanced/expensive driver models): *SH1106* does not come with any hardware animation or scrolling support.
+### I2C Interface
 
 
+The vast majority of use cases uses the *I2C* interface since small monochrome displays need to handle only limited amounts of data, and *I2C* is simpler to use than *SPI* . However, *SPI* can be an option, too, and there are a few breakout boards that implement *SPI* instead of *I2C*.
+
+The I2C address typically is either *0x3c* or *0x3d*.
+
+## Programming
+
+The by far easiest way of using the *SH1106* OLED display is via [ESPHome](https://done.land/tools/software/esphome/introduction/), however this platform is targeting primarily *ESP32* microcontrollers.
+
+Alternately, you can use *C++ libraries* to program the firmware manually.
+
+### ESPHome
+
+Using *ESPHome* is the simplest approach, as *ESPHome* includes a native [SSD1306 OLED Display](https://esphome.io/components/display/ssd1306.html) component that supports most monochrome OLED drivers, including the *SH1106*. Here are the supported OLED drivers:
+
+* **SSD1306:** 128x32, 128x64, 96x16, 72x40, 64x48
+* **SSD1305:** 128x32, 128x64
+* **SH1107:** 128x64, 128x128
+* **SH1106:** 128x32, 128x64, 96x16, 64x48
+
+Here is an example configuration:
+
+````
+# define the I2C pins that you use 
+# to connect the display to your microcontroller
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+
+display:
+  - platform: ssd1306_i2c
+    model: "SH1106 128x64"  # 0.96/1.3" 128x64 OLED display
+    address: 0x3C           # default address, use 0x3D if default fails
+    rotation: 180           # rotate content if needed
+    update_interval: 3000ms # 1s is default (1000ms)
+    lambda: |-
+      it.print(0, 0, id(lato400), "Hello World!");
+
+# you need at least one font to output text
+font:
+  - file:
+      type: gfonts
+      family: Lato
+      weight: 400
+    id: lato400
+    size: 20
+````
 
 
+To compile and upload the sample configuration, simply [follow these simple steps](https://done.land/tools/software/esphome/compileconfiguration/).
 
 
+You can now use all the graphics commands supported by the [ESPHome Display Component](https://esphome.io/components/display/index.html) to draw images, shapes, lines, arcs, etc.
+
+### C++
+
+For direct programming (using the *Arduino Framework*), two popular libraries support the *SH1106*:
 
 
-## Colors
-The *display* comes in different colors: *white*, *blue*, *yellow*.
+- **U8G2 Library**
+- **Adafruit GFX Library**
+
+### U8G2 Library
+
+The *U8G2 library* is a versatile and very robust choice that works for a variety of **monochrome** display drivers. 
 
 
-## Libraries
-The *SH1106* does not have the same level of driver support that the *SSD1306* enjoys. 
+#### Selecting the OLED Driver
 
-That's why users have started to tweak and adapt *SSD1306* libraries to use them with *SH1106*. Unfortunately, adaptions were not always done according to standard.
+Since *U8G2* supports many different drivers, you need to specify your driver at the beginning of the code. 
 
-
-<img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
-
-
-There is one *Adafruit* library for example that was ported from their original *SSD1306* but apparently tweaking was done rather rude so that errors in the header file produce linker errors now when using the code in *platform.io*.
-
-### U8G2 Library To The Rescue
-If you cannot find a dedicated library for a particular *monochrome* display driver, then the library *u8g2* is your best shot. 
-
-This library aims to be compatible to *as many different drivers and different boards as possible*. It runs fine in *platformio*, and I used it with a *ESO32 S2 Mini*.
-
-### Selecting OLED Driver
-Since the library *u8g2* is not targeting a *specific driver*, you can select the *driver* at the beginning of the code:
-
-All examples start with a huge section of commented lines. Each line describes a particular driver and OLED hardware. 
-
-To select a particular driver (like the *SH1106*),  uncomment the line for this driver in the resolution you require.
+The example code typically includes a large block of commented lines describing supported drivers and hardware. To select the *SH1106*, uncomment the line corresponding to your required resolution (e.g., *128x64*).
 
 ### Example Code
-The example code below is taken directly from the *u8g2* examples. 
 
-I just removed the entire comment block at the beginning, and just kept the lines for the *SH1106 I2C driver*. Since I tested with a *132x64* pixel display, I uncommented the line for the *128x64* display.
+The following code is adapted from the *U8G2* examples. I removed the full comment block at the start and kept only the relevant lines for the *SH1106 I2C driver*. Since I tested with a *132x64* pixel display, I uncommented the line for the *128x64* display.
 
-There was nothing else to configure. The code compiled flawlessly in *platform.io* and ran perfectly on a *ESP32 S2 Mini*.
+No further configuration was required. The code compiled flawlessly in *PlatformIO* and ran perfectly on an *ESP32-S2 Mini*.
+
 
 
 
 ````c++
 /*
-
-  GraphicsTest.ino
-  
-  Some graphics/text output for U8x8 API
-
   Universal 8bit Graphics Library (https://github.com/olikraus/u8g2/)
 
   Copyright (c) 2016, olikraus@gmail.com
@@ -286,6 +319,16 @@ framework = arduino
 lib_deps = 
 	olikraus/U8g2@^2.35.19
 ````
+### Adafruit Library
+
+The *SH1106* initially lacked the same level of driver support as the *SSD1306*, which led users to adapt existing *SSD1306* libraries for the *SH1106*. 
+
+Unfortunately, these adaptations were not always done according to standards. For example, there is an *Adafruit* library ported from their original *SSD1306* library, but the tweaks were applied somewhat crudely. As a result, errors in the header file can produce linker errors when using the code in *PlatformIO*. These issues might have been resolved by the time you read this, so it is still worth trying.
+
+<img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
+
+> [!NOTE]  
+> Libraries targeting specific drivers can sometimes behave inconsistently depending on the *IDE* used. If a library fails to work in *PlatformIO*, consider testing it in *ArduinoIDE* to verify compatibility. Well-engineered libraries, however, should not exhibit such peculiarities.
 
 
 ## Data Sheets
@@ -298,4 +341,4 @@ lib_deps =
 
 > Tags: HID, Display, OLED, I2C, Driver, SH1106, Monochrome, 132x64, 128x64, 128x32
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1106?448322050807243142) - created 2024-04-28 - last edited 2024-04-28
+[Visit Page on Website](https://done.land/components/humaninterface/display/oled/sh1106?448322050807243142) - created 2024-04-28 - last edited 2025-01-10
