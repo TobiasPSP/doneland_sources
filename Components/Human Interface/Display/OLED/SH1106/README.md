@@ -97,6 +97,7 @@ To compile and upload the sample configuration, simply [follow these simple step
 
 
 You can now use all the graphics commands supported by the [ESPHome Display Component](https://esphome.io/components/display/index.html) to draw images, shapes, lines, arcs, etc.
+
 ### C++
 
 For direct programming (using the *Arduino Framework*), two popular libraries support the *SH1106*:

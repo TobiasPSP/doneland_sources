@@ -4,42 +4,32 @@
 
 > Small Full-Color OLED Displays 
 
-Most *OLED displays* are *monochrome*. *OLED displays* using the *SSD1331 driver* can display 65K colors.
+Most *OLED displays* are *monochrome*. *OLED displays* using the *SSD1331 driver* can display up to 65K colors.
 
 <img src="images/oled_ssh1331_text2_t.png" width="60%" height="60%" />
 
-## Resolution
+## Overview
 
 Since *full color OLED displays* are still quite expensive, most displays are *very small* with *limited resolution*: for example *0.95inch* at a resolution of *96x64*. 
 
-Regardless, the added color capabilities help these small *displays* carry over *a lot more content* than *monochrome alternatives*.
+Regardless, the added color capabilities help these small *displays* carry over *a lot more information* than *monochrome* ones. However, color displays are significantly more expensive.
 
 <img src="images/oled_ssh1331_circles_t.png" width="60%" height="60%" />
 
-## Interface
 
-Due to the higher data volume that is required for color displays, these *OLED displays* use the faster *SPI interface*.
-
-
-## Libraries
-
-There is a number of libraries to select from, for example *Adafruit SSD1331 OLED Driver Library for Arduino*. 
-
-<img src="images/oled_ssh1331_stripes_t.png" width="60%" height="60%" />
 
 ## Wiring
-*Pin labels* on this *OLED display breakout board* are *confusing* as they often do not use the commonly used *SPI pin names*. 
 
-Some pins are labeled *SCL* and *SDA* and suggest an *I2C* interface.
+Due to the higher data volume that is required for color displays, such *OLED displays* use the faster *SPI interface* which requires more *GPIOs* and wires than the simple *I2C* interface, adding slightly more complexity.
+
+In addition, *pin labels* on *OLED display breakout board* are often *confusing* as they frequently do not stick to the commonly used *SPI pin labels*: frequently, pins are labeled *SCL* and *SDA* suggesting an *I2C* interface.
 
 
 <img src="images/oled_ssh1331_pins_t.png" width="100%" height="100%" />
 
-That is *not the case*. The display supports *SPI* only. Here is what the pins do:
+That's however not the case, and *SCL* really refers to the *SPI Clock pin* (*SCK*) whereas *SDA* refers to the *SPI MOSI pin*.
 
-
-
-The display has seven pins:
+The display in this example has seven pins:
 
 | Pin | Label | Description |
 | --- | --- | --- |
@@ -55,13 +45,13 @@ The *SPI* interface is implemented as a typical *three-wire design* using the pi
 
 
 > [!TIP]
-> Pin *DC* is not common and used with components that can receive large amounts of data (such as *displays*): when this pin is pulled *low*, it indicates that the data received is a *command*, else *display data*.
+> Pin *DC* is used with components that can receive large amounts of data (such as *displays*): when this pin is pulled *low*, it indicates that the data received is a *command*, else *display data*.
 
 
 <img src="images/oled_ssh1331_text_t.png" width="60%" height="60%" />
 
 ### Connecting To ESP32 S2 Mini
-In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
+In this test case, I am connecting the display to a *ESP32 S2 Mini* like so:
 
 | Pin Display | Pin Wemos/Lolin S2 Mini | Description |
 | --- | --- | --- |
@@ -80,24 +70,119 @@ In my tests, I am connecting the display to a *ESP32 S2 Mini* like so:
 <img src="images/oled_ssh1331_back_t.png" width="60%" height="60%" />
 
 
-
-
-### Example #1
-Here is example code taken from the *Adafruit SSD1306 library* that I used to create the pictures on this page. The code is already adjusted and runs fine in *platformio*:
-
-
-<img src="images/oled_ssh1331_overview_t.png" width="100%" height="100%" />
-
-> [!CAUTION]
-> I was unable to run this code with *hardware SPI* on a *S2 Mini* (despite using the hardware SPI pins). Only the (much slower) software SPI constructor was able to control the display. See the following examples for more.
-
-
+### Wrong Wiring
 When the display is connected in the wrong manner or when *hardware SPI* was chosen in code but the connected pins do not provide *hardware SPI*, the display typically shows random pixels:
 
 
 <img src="images/oled_ssh1331_noop2_t.png" width="100%" height="100%" />
 
 
+
+
+## Programming
+
+The by far easiest way of using *SSD1331* color OLED displays is via *ESPHome*, however this platform is targeting primarily ESP32 microcontrollers.
+
+Alternately, you can use *C++ libraries* to program the firmware manually.
+
+### ESPHome
+
+
+
+Using *ESPHome* is the simplest approach, as *ESPHome* includes a native [SSD1331 OLED Display](https://esphome.io/components/display/ssd1331.html). 
+
+> [!IMPORTANT]
+> This platform specifically supports the *SSD1331* driver and will not work with OLED color displays using different drivers.
+
+Here is an example configuration:
+
+````
+# pins are for ESP32S, adjust for other microcontroller models
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+
+display:
+  - platform: ssd1331_spi
+    reset_pin: GPIO4
+    cs_pin: GPIO5
+    dc_pin: GPIO27
+    lambda: |-
+      it.print(0, 0, id(lato400), "Hello World!");
+
+
+# you need at least one font to output text
+font:
+  - file:
+      type: gfonts
+      family: Lato
+      weight: 400
+    id: lato400
+    size: 20
+````
+
+
+To compile and upload the sample configuration, simply [follow these simple steps](https://done.land/tools/software/esphome/compileconfiguration/). Simply replace the configuration used in this example with your own.
+
+You can now use all the graphics commands supported by the [ESPHome Display Component](https://esphome.io/components/display/index.html) to draw images, shapes, lines, arcs, etc.
+
+
+
+### C++
+
+For direct programming (using the *Arduino Framework*), two popular libraries support the *SSD1331*:
+
+- [ucglib](https://github.com/olikraus/ucglib)
+- [Adafruit SSD1331 OLED Driver Library for Arduino](https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino)
+
+
+> [!NOTE]
+> Oli Kraus, the author of the infamous universal display library for *monochrome* displays ([U8glib]()), has also created an universal library for *color* displays: [Ucglib](). Library support includes color OLED drivers like *SSD1335*. [Here is what the author said](https://forum.arduino.cc/t/ucglib-color-oled-and-tft-library/209302) about this library.
+
+
+
+<img src="images/oled_ssh1331_stripes_t.png" width="60%" height="60%" />
+
+
+#### PlatformIO
+I edited and compiled all source codes in [platformio](https://platformio.org/) and used a [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). This is the *platformio.ini* I used:
+
+````
+[env:lolin_s2_mini]
+platform = espressif32
+board = lolin_s2_mini
+framework = arduino
+````
+
+
+## Adafruit SSD1331 Library
+Here is an example using the *Adafruit SSD1306 library* with *platformio*, and my findings.  
+
+<img src="images/oled_ssh1331_overview_t.png" width="100%" height="100%" />
+
+This is the *platformio.ini* I used with the *Arduino library* and [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/):
+
+
+````
+[env:lolin_s2_mini]
+platform = espressif32
+board = lolin_s2_mini
+framework = arduino
+lib_deps = adafruit/Adafruit SSD1331 OLED Driver Library for Arduino@^1.2.0
+````
+
+### Caveats
+
+There were two show stoppers I encountered:
+
+* **Hardware SPI:** I was unable to run this code with *hardware SPI* on an *S2 Mini* (despite using the hardware SPI pins). Only the (much slower) software SPI constructor was able to control the display. Apparently, hardware SPI uses fixed GPIO numbers and might work correctly only for standard *ESP32S* microcontrollers.
+* **Order of methods:** Sample code written for *ArduinoIDE* does not fully adhere to *C++* standards and may not compile in *platformio*. The reason typically is that *methods* are called before they are defined in the source code. You can fix this by moving *method definitions* up so they are defined *before* your code actually calls them.
+
+### Source Code
+
+Here is the source code I used:
+
+<details><summary>Example Source Code (using Adafruit Library)</summary><br/>
 
 
 ````c++
@@ -434,21 +519,23 @@ void loop() {
 }
 ````
 
-This is the *platformio.ini* I used to compile the sketch in *platform.io* and run it on a *ESP32 S2 Mini*:
+</details>
 
-````
-[env:lolin_s2_mini]
-platform = espressif32
-board = lolin_s2_mini
-framework = arduino
-lib_deps = adafruit/Adafruit SSD1331 OLED Driver Library for Arduino@^1.2.0
-````
 
-## Example #2
 
-Due to the issues with *hardware SPI*, I decided to use one of the other popular *SSD1331 libraries:* namely *usglib*. This library is similar to *u8g2* in that it supports a multitude of hardware. While *u8g2* targets *monochrome* displays, *usglib* does the same for *color displays*.
+## usclib Library
 
-Like usual with these libraries, the connected device is chosen by *commenting in* the appropriate constructor line. Here are the two constructors I used for the *96x64 color OLED display:
+I wasn't fully satisfied with the *Adafruit library* because of these shortcomings:
+
+* **Hardware SPI:** I could not get *hardware SPI* to work, so frame rates were low. While this is not an issue with static text displays, it can severely impact animations.
+* **Flicker:** While the display produced a crisp and flicker-free image for the human eye, it  turned out that the display had a high-frequency flicker that became evident when taking pictures. 
+
+This is why I wanted to give [ucglib](https://github.com/olikraus/ucglib) a try. This library is similar to [u8g2](https://github.com/olikraus/u8g2) in that it universally  supports a multitude of display drivers. While *u8g2* targets *monochrome* displays, *usglib* does the same for *color displays*.
+
+### Configuration
+Since [ucglib](https://github.com/olikraus/ucglib) targets various drivers, the driver is chosen via a *class*. The *SSD1331* uses the class `Ucglib_SSD1331_18x96x64_UNIVISION_SWSPI` (for software SPI with self-defined GPIO) and `Ucglib_SSD1331_18x96x64_UNIVISION_HWSPI` (for hardware SPI).
+
+Here are the two constructors I used for the *96x64 color OLED display (make sure you use only one of them and connect the display to the appropriate GPIOs):
 
 ````c++
 // Software-defined SPI pins:    
@@ -458,9 +545,14 @@ Ucglib_SSD1331_18x96x64_UNIVISION_SWSPI ucg(/*sclk=*/ 7, /*data=*/ 11, /*cd=*/ 3
 //Ucglib_SSD1331_18x96x64_UNIVISION_HWSPI ucg(/*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
 ````
 
-The library comes with many great example sketches. I picked the *FPS* example which performs *speed tests*, figuring this would be a nice added value when comparing the performance of *software SPI* versus *hardware SPI*.
+### Example Code
+The library comes with many examples. I picked the *FPS* example which performs *speed tests*. The goal was to get the display running with *hardware SPI*, and while at it, compare the performance to *software SPI*.
 
-Just make sure you pick one of the two constructors, and comment out the other one. The code below starts by using the *software SPI* pins:
+To compare, first use one constructor, and perform the tests. Then, use the other constructor, and repeat the tests.
+
+I started by using software SPI:
+
+<details><summary>Example Code: Speed test with ucglib and Software SPI</summary><br/>
 
 ````
 #include <SPI.h>
@@ -621,13 +713,39 @@ void loop(void)
 }
 ````
 
+</details>
+
+
+Once you got this example to run, comment-out the software SPI constructor, and comment-in the hardware SPI constructor, then repeat.
+
+````c++
+// Software-defined SPI pins:    
+// Ucglib_SSD1331_18x96x64_UNIVISION_SWSPI ucg(/*sclk=*/ 7, /*data=*/ 11, /*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+
+// Hardware SPI pins:
+Ucglib_SSD1331_18x96x64_UNIVISION_HWSPI ucg(/*cd=*/ 35, /*cs=*/ 12, /*reset=*/ 33);
+````
+
 ### Hardware SPI 70x Faster
-The code ran flawlessly both with *software SPI* and with *hardware SPI* . It runs three *speed drawing tests*: *Text*, *Boxes*, and *Gradients*. At the end of each test, it reports back the achieved *frame rate*. When all three tests are completed, the code starts over again.
+The code ran flawlessly both with *software SPI* and *hardware SPI*: 
 
-Obviously, the speed of *software SPI* depends on many factors including the microcontroller. Generally, though, *software SPI* is always dramatically slower than the optimized *hardware SPI*. This may not become evident when you just output a few lines of text. When doing animations or displaying video, the speed differences are dramatically.
+The firmware runs three *speed drawing tests*: *Text*, *Boxes*, and *Gradients*. At the end of each test, it reports back the achieved *frame rate*. When all three tests are completed, the code starts over again.
 
-The test above exposed that with *software SPI*, the *average framerate* was around *1-2fps*. With *hardware SPI*, it was typically around *70fps* and better.
+Obviously, the speed of *software SPI* depends on many factors including the microcontroller itself. Generally, though, *software SPI* is always dramatically slower than the optimized *hardware SPI*. This may not become evident when you just output a few lines of text. When doing animations or displaying video, the speed differences are dramatically.
 
+The test above exposed that with *software SPI*, the *average framerate* was around *1-2fps*. With *hardware SPI*, it was typically around *70fps* and better. That's a dramatic difference if you plan to use animations.
+
+### Identifying Hardware SPI
+Although modern microcontrollers can use *any GPIO* for interfaces like *I2C* and *SPI*, there are certain *designated GPIOs* that provide *hardware acceleration* for these interfaces. 
+
+
+Using *Hardware SPI* for displays is always recommended, even if you do not need super fast frame rates, because it saves resources and lets your microcontroller focus on other things. However, the *Arduino library* has illustrated that it may be challenging to actually *use* hardware SPI, and here is why:
+
+* **Development board:** the design of your development board determines which GPIOs need to be used for hardware SPI
+* **Library:** the library you use **must know** which GPIOs your particular development board uses for hardware SPI.
+
+> [TIP]
+> If in doubt, the first thing should be to safely identify the GPIOs that *your particular development board* uses for hardware SPI. If these do not work with a particular library, then dig into the library code to find out which GPIOs the library "thinks" it should use, and make sure the correct GPIOs are in fact used. 
 
 ## Data Sheets
 
@@ -639,4 +757,4 @@ The test above exposed that with *software SPI*, the *average framerate* was aro
 
 > Tags: HID, Display, OLED, Color, 16K, SPI, Driver, SSD1331, 96x64
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/oled/ssd1331?508490051108240758) - created 2024-05-07 - last edited 2024-05-07
+[Visit Page on Website](https://done.land/components/humaninterface/display/oled/ssd1331?508490051108240758) - created 2024-05-07 - last edited 2025-01-10
