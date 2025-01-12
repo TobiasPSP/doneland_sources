@@ -27,7 +27,7 @@ There are two key challenges with *OLED displays*:
 - **Limited Life-Span:** The *organic* materials in OLEDs degrade over time, leading to reduced brightness, particularly with *blue* OLEDs. This degradation typically becomes noticeable after more than 10,000 hours of use. For most *DIY projects*, this is not a concern unless the device is designed to remain always on without implementing screen saver logic.
 - **Burn-In/Ghosting:** *OLED displays* are susceptible to image retention (burn-in, also known as *ghosting*) when static images are displayed for long periods. This can be a realistic problem in *DIY projects* where displays often show static layouts.
 
-#### Workarounds
+### Workarounds
 
 Both of these shortcomings can be mitigated by turning *OLED displays* off when not in use. This approach is similar to how many *OLED*-based smartwatches and smartphones operate. It also conserves power.
 
@@ -57,7 +57,9 @@ Let's compare key facts of OLED and TFT displays:
 | **Color Accuracy**    | Vivid and vibrant colors.                               | Accurate but less vibrant compared to OLED.   |
 | **Use Cases**         | Ideal for low-power, compact projects with sharp visuals. | Best for larger displays or applications requiring high brightness. |
 | **Drawbacks**         | Risk of burn-in for static images, shorter lifespan for some colors. | Bulkier due to backlight, slightly less contrast. |
-### Recommendation
+
+
+### When to use?
 Typical *0.96"* and *1.3"* monochrome OLED displays are an excellent and affordable choice for many DIY projects: they are easy to integrate, have good support, and offer sharp, crisp display quality.
 
 If you require multi-color displays, larger sizes, or need a display to operate continuously for extended periods (days or months), *TFT* displays may be a better and more economical choice.
@@ -65,15 +67,20 @@ If you require multi-color displays, larger sizes, or need a display to operate 
 ## OLED Driver Chips
 *OLED displays* require a *driver chip* to interpret display information and draw it to the screen. Understanding the *driver chip* used on a particular *OLED breakout board* is crucial, as the chip determines which *software library* you need for your project.
 
-Drivers support both *I2C* and *SPI* interfaces. Monochrome displays often use the simpler two-wire *I2C* interface due to the lower data transfer requirements. Grayscale and color displays, which need to handle more data, typically rely on the faster *SPI* interface. The interface type is usually fixed by the breakout board design.
+Drivers support both *I2C* and *SPI* interfaces, but only one of these can be used. Which one is determined by the breakout board, and how it wires the driver chip:
+
+* Monochrome displays often use the simpler two-wire *I2C* interface due to the lower data transfer requirements.
+* Grayscale and color displays, which need to handle more data, typically rely on the faster *SPI* interface. 
+
+Let's take a closer look at some of the more commonly used drivers, and how they compare.
 
 > [!NOTE]
 > The driver lists below highlight only the most commonly used drivers; many more exist. If unsure, consult the specific driver's data sheet.
 
 ### Monochrome Displays
-Small monochrome OLED displays have recently become very affordable, thanks in part to cost-effective drivers like the *SH1106* and *SH1107*. These drivers are excellent for basic use cases, such as displaying text and static images.
+Cost-effective new drivers like the *SH1106* and *SH1107* are in part responsible for the price drop in monochrome OLED displays. These drivers are very affordable and sufficient for basic use cases such as displaying text and static images.
 
-However, certain drivers, like the *SH1106*, lack built-in hardware features for scrolling and animations. While such features may not be critical for typical DIY projects, if your project requires them, you may prefer the older but more capable *SSD1306* or *SSD1307*.
+They lack sophisticated built-in hardware features though for scrolling and animations. While such features may not be critical for typical DIY projects involving OLED displays, if your project requires them, you may prefer the older but more capable *SSD1306* or *SSD1307*.
 
 The *SSD1315* is a refined version of the *SSD1306*, offering improved brightness and contrast, making it a great choice for projects where enhanced visibility is essential.
 
@@ -89,11 +96,11 @@ The *SSD1315* is a refined version of the *SSD1306*, offering improved brightnes
 |SSD1603|Up to 128x64|Monochrome|I2C|Highly power-efficient for basic applications.|Lacks advanced features like grayscale or color.|Simple text or icon-based displays.|
 
 ### Grayscale Displays
-These drivers support 16 levels of grayscale, enabling more detailed images and modern UI designs. However, grayscale OLED displays come with certain trade-offs compared to their monochrome counterparts:
+Grayscale OLED displays support 16 levels of grayscale, enabling more detailed images and modern UI designs. There are certain trade-offs compared to their monochrome counterparts, too:
 
-- **Price:** Grayscale displays are considerably more expensive.
-- **Efficiency:** They consume more power due to the additional data handling and active pixels.
-- **Refresh Rate:** Grayscale displays often have slower refresh rates, though this is typically not an issue when displaying static text.
+- **Price:** considerably more expensive.
+- **Efficiency:** consume more power due to the additional data handling and active pixels.
+- **Refresh Rate:** often have slower refresh rates, though this is typically not an issue when displaying static text.
 
 
 
@@ -117,6 +124,8 @@ OLED color displays are significantly more expensive than their monochrome count
 |SSD1351|Up to 128x128|RGB (65k colors)|SPI|supports typical DIY display resolutions|Higher power consumption, more expensive.|Wearables, premium graphical UIs.|
 |SEPS525|Up to 160x128|RGB (262k colors)|SPI|18-bit colors|less common, lacking support |Portable devices, gaming consoles.|
 |RA8875|Large resolutions (e.g., 800x480)|RGB (65k colors)|SPI,Parallel|includes built-in touch controller and advanced graphical functions.|Expensive; less common for small DIY projects.|Advanced graphical interfaces.|
+
+
 ## Programming
 Most *monochrome OLED drivers* have universal support, meaning you can use the same libraries across various drivers. The [u8g2 C++ library](https://github.com/olikraus/u8g2/wiki/gallery) and the *ESPHome* [SSD1306 platform](https://esphome.io/components/display/ssd1306.html) provide support for *all* monochrome OLED drivers.
 

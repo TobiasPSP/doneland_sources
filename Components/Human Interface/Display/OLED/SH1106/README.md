@@ -4,39 +4,54 @@
 
 > 128x64 Monochrome OLED Displays For Little Money
 
-The *SH1106* is a *OLED display driver* very similar to the popular *SSD1306*. It supports monochrome displays with a maximum resolution of *132x64* pixels and typically uses *I2C*.
+The *SH1106* is a modern, cost-optimized *OLED display driver*, often considered a successor to the highly popular *SSD1306*.
+
+
+## Overview
+The *SSD1306* (released *2007*) has been the dominant OLED driver for many years, but the *SH1106* (released *2013*) has become more popular in recent years due to its affordability. 
+
+The trade-off is the lack of hardware acceleration for scrolling and animations in the cheaper *SH1106*. However, such features are often unnecessary for typical OLED use cases where only static text is displayed.
+
+
+*SH1106* supports monochrome OLED displays with a maximum resolution of *132x64* pixels, and breakout boards typically use the *I2C* interface.
 
 <img src="images/oled_sh1106_white_alpha_t.png" width="30%" height="30%" />
 
 
-## Overview
-The *SH1106* is an economical driver for monochrome OLED displays up to a resolution of *132x64* pixels. It is sufficient for displaying text and static images which are the primary use cases.
-
-If you need *animations* like *scrolling*, the *SSD1306* would be a better option as the *SH1106* lacks hardware animation or scrolling support.
 
 
-## Breakout Boards and Colors
+### Breakout Boards 
 
-Typically, you purchase ready-to-use breakout boards that come with the driver and a OLED display. 
+Typically, you purchase ready-to-use breakout boards that come with the driver and an OLED display (*0.96"* and *1.3"* are most common).
 
 <img src="images/oled_sh1106_white_text_t.png" width="60%" height="60%" />
 
-Common display sizes include *0.96"* and *1.3"*, either stand-alone or integrated into *keyboard-display-combos* like the ones below:
+Occasionally, such displays are integrated in *keyboard-display-combos* like the one below:
 
 <img src="images/oled_sh1106_keyboard_t.png" width="60%" height="60%" />
- 
-These displays come in various colors but they are **always monochrome**. The most common colors are *white*, *blue*, and *yellow/blue* (the first 8 lines are yellow, the rest is blue). Lately, fully *yellow* displays have become available as well. 
+
+### Display Colors
+*SH1106*-based OLED displays are **always monochrome**, however the display color may vary.
+
+Typically, they are offered in *white* and *blue*. There are also displays with a combination of *yellow* and *blue*: a small stripe of the display is *yellow*, and the rest is *blue*.
+
+Recently, *fully yellow* displays emerged at slightly higher cost.
+
+> [!NOTE]
+> All OLED displays are susceptible to wear: after extended use of *10.000 hours* or more, their brightness may fade. *Blue* displays are more susceptible than other colors.     
+
 
 ### I2C Interface
+Almost all breakout boards utilize the simpler *I2C* interface, although occasionally you see breakout boards with *SPI* interface, too.
 
+The I2C address is typically fixed and cannot be changed. It is either *0x3c* or *0x3d*. As a rule of thumb, *128x64* displays use *0x3c*, and *128x32* displays use *0x3d*, however exceptions exist.
 
-The vast majority of use cases uses the *I2C* interface since small monochrome displays need to handle only limited amounts of data, and *I2C* is simpler to use than *SPI* . However, *SPI* can be an option, too, and there are a few breakout boards that implement *SPI* instead of *I2C*.
-
-The I2C address typically is either *0x3c* or *0x3d*.
+> [!TIP]
+> If you need to operate multiple OLED displays, use a *I2C Multiplexer* such as the *PCF8575*, or use a *SPI* version: with *SPI*, you can select the active device via the *CS* pin.    
 
 ## Programming
 
-The by far easiest way of using the *SH1106* OLED display is via [ESPHome](https://done.land/tools/software/esphome/introduction/), however this platform is targeting primarily *ESP32* microcontrollers.
+The by far easiest way of using *SH1106* OLED displays is via [ESPHome](https://done.land/tools/software/esphome/introduction/), however this platform is targeting primarily *ESP32* microcontrollers.
 
 Alternately, you can use *C++ libraries* to program the firmware manually.
 
@@ -99,7 +114,7 @@ Since *U8G2* supports many different drivers, you need to specify your driver at
 
 The example code typically includes a large block of commented lines describing supported drivers and hardware. To select the *SH1106*, uncomment the line corresponding to your required resolution (e.g., *128x64*).
 
-### Example Code
+#### Example Code
 
 Compared to *ESPHome* (see above), running *C++ code* can be more challenging. Even though external libraries like *U8G2* handle much of the complexity, there is no universal standard for configuring settings. Determining where to set options such as *I2C GPIOs*, *I2C device address*, and *display resolution* often requires trial and error.
 
