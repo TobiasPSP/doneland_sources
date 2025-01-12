@@ -5,72 +5,38 @@
 
 > Chargers Control Voltage and Current To Safely Charge Batteries
 
-*Rechargeable batteries* are everywhere today and provide powerful portable and cost-effective energy. 
+*Rechargeable batteries* play an ever more important aspect in our lifes, whether they power portable devices or sensors, harvest solar energy, or provide the energy for electric cars.
 
-Which makes *chargers* ever more interesting. In this section we take a look at *what exactly* a charger does and how it differs from normal *power supplies*.
+In this section, you learn about how chargers (and charging) work, and we'll be looking at a number of chargers that you can use in DIY projects.
 
-## Understanding Charging
+## Overview
 
-Batteries work both ways: you can *draw* energy (in which case the battery voltage slowly sinks), and you can *feed* energy (in which case the battery voltage slowly raises).
+### Dedicated Chargers
+*Dedicated chargers* are limited to charging batteries and act similar to a *one-way-street*: on one side, you supply power, and on the other side, you connect a battery that receives a safe charging current.
 
-The art of *feeding energy* to a battery in an appropriate way is what makes *Chargers* unique.
+Internally, such chargers are *constant voltage constant current* DC-DC converters with some enhanced logic for automatic shutoff, under-voltage-protection, and temperature control.
 
-### Voltage Drives, Current Matters 
+### Combined Chargers and Dischargers
+This type of charger acts like a *two-way-street*, and energy can flow in both directions:
 
-To charge a battery, you cannot simply connect a power supply to it and hope for the best. Instead, there are two prerequisites:
+* **Charging:** works like a regular charger. For example, you supply USB power, and the charger converts it to the voltage and current required by the battery for safe charging.
+* **Discharging:** converts the battery voltage to a consumable output voltage. For example, you use a *1S LiIon battery cell* and would like to operate USB devices. The *combined* charger contains a *boost converter* that takes the variable battery voltage (*LiIon* voltage range *3.0-4.2V*), and converts it to a constant voltage of *5V* that can be consumed by *USB devices*.
 
-* **High enough voltage:** the *charging voltage* must be above a certain threshold. If the voltage is too low, the energy won't flow into the battery, and nothing happens.
-* **Low enough current:** you *must* limit the *current* so that the battery can accept and store the new energy. If you feed *too much* energy into the battery, it will heat up and eventually explode.
+One use case of such combined chargers are *power banks* that can be charged via *USB* and also drive *USB devices*.
 
-<details><summary>What happens when I connect a regular bench power supply to a battery?</summary><br/>
+> [!NOTE]
+> Combined chargers really are just two separate DC-DC converters, one for charging, and another one for discharging. There are modules with both DC-DC-converters conveniently on one PCB, and you can also combine two regular DC-DC converters yourself for such a functionality.
 
-Three things can happen:
+### Solar Chargers
+Charging batteries from solar panels is fundamentally no different from charging via another power source, so you can use the same battery chargers for solar panels as well.
 
-* **Voltage lower than battery voltage:** if the power supply voltage is significantly below the full charge battery voltage, no energy would flow from the supply to the battery. Possibly the battery would start to feed power to the power supply instead.
-* **Small power supply:** if the voltage is high enough, and it is a small power supply with only a limited output current of maybe *1A*, it could in fact work as a charger at first. Once the battery is fully loaded, though, the power supply would continue to feed energy to the battery. The battery, unable to store any more energy, would heat up and eventually explode.
-* **Big power supply:** should you connect a huge and powerful bench power supply to a battery, large currents flow into the battery. The battery would not be able to store so much energy so quickly, and the excess energy would heat up the battery and eventually cause it to catch fire or explode.
+However, there are a few specifics to watch out for when using solar cells:
 
-
-</details>
-
-### What a Charger Does
-
-A *charger* controls *voltage* and *current* to provide just the right amount of energy to the battery.
-
-For lithium-based batteries, here is what that means:
-
-* Phase 1 - **Constant Current (CC):** the charger first supplies a constant current to the battery: it automatically *raises the voltage* until the desired *current* flows. The battery now accepts and stores this current, and while it does so, its *voltage* slowly raises.
-* Phase 2 - **Constant Voltage (CV):** while charging, the charger *monitors* the voltage, and when the voltage reaches a threshold that indicates that the battery is almost fully charged, it switches to *constant voltage*: the *voltage* gets fixed and no longer raises. Now, this fixed voltage can drive lesser and lesser energy into the battery. The *current* falls.
-* Phase 3 - **Turning Off:** When the *current* that flows into the battery falls below a threshold, the battery is considered *fully charged*, and the charger stops charging the battery. 
-
-This is the general recipe. The *actual* constant current in *Phase 1*, and the *actual* constant voltage in *Phase 2* depend on the battery chemistry and battery voltage you are charging.
-
-
-### Technical Requirements
-
-Here is what *any* charger must be capable of:
-
-* **Energy source:** it needs to *receive* energy that it can pass on to the battery. The energy source can be *AC* or *USB* or a regular *bench power supply*
-* **Power Regulator:** it needs to contain a *power regulator* that can control *voltage* and *current*
-
-<details><summary>Is a **Buck** converter a charger?</summary><br/>
-
-A **Buck** converter takes a range of input voltage and converts it to a lower *specific* output voltage. Many **Buck** converters can also control *constant current*, and if that's the case they can be used to charge batteries.
-
-Let's assume you want to charge a single *18650 LiIon battery*, and let's assume this battery can accept a *5A* maximum charging current. Since it is a *LiIon* battery, its maximum voltage is *4.2V*.
-
-When you set the **Buck** converter to a maximum voltage of *4.2V* and also set its *constant current* to *5A*, it will automatically follow much of the above mentioned *charging recipe*:
-
-When you connect an empty *18650 LiIon cell* to it, first the *constant current* would kick in and limit the *current* to *5A* by lowering the *voltage* appropriately.
-
-Once the battery gets charged, the voltage rises until at one point it reaches the maximum voltage of *4.2* that the **Buck** converter was set to. Now *constant voltage* limits the voltage to *4.2V*, and the current would slowly decrease.
-
-The *Buck* regulator would still not be a safe charger because what's missing is step 3: cutting off the power when the battery is full. 
-
-</details>
+* **Voltage Range:** Solar panels can emit a huge voltage range, and your charger must be capable of accepting this range. For best efficiency, such a charger should be a boost-buck-converter to utilize both voltages *under* and *above* the desired output voltage.
+* **MPPT (maximum power point tracker):** the efficiency of power transfer from the solar cell depends on various factors such as sunlight, shading, solar panel temperature and the load's electrical characteristics. MPPT DC-DC converters can adjust the duty cycle to match the best (most efficient) impedance. While you do not have to use dedicated MPPT chargers, they might be able to increase your solar harvest.  
 
 
 
 > Tags: Charger, CC, CV, Battery
 
-[Visit Page on Website](https://done.land/components/power/chargers?247473031903243238) - created 2024-03-03 - last edited 2024-03-03
+[Visit Page on Website](https://done.land/components/power/chargers?247473031903243238) - created 2024-03-03 - last edited 2025-01-11
