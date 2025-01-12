@@ -2,7 +2,7 @@
 
 # 2A 5V From 1S Li-Ion Battery
 
-## 2A 5V Power Supply Driven By A Single Li-Ion Cell
+> 2A 5V Power Supply Driven By A Single Li-Ion Cell
 
 This is a compact module designed for single (1S) Li-Ion or Li-Po cells (or multiple cells connected in parallel). The module is built around the [IP5306](materials/ip5306_datasheet.pdf) power management chip (or one of its Chinese clones, like the [FM5324GA](materials/fm5324ga_datasheet.pdf)).
 
