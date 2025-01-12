@@ -1,60 +1,116 @@
 <img src="/assets/images/charging.png" width="100%" height="100%" />
+
 # 2A 5V From 1S Li-Ion Battery
 
-> 2A 5V Power Supply Driven By A Single Li-Ion Cell
+## 2A 5V Power Supply Driven By A Single Li-Ion Cell
 
-This is a compact module designed to work with a single (1S) Li-Ion cell. 
-
-It features a *USB-C* connector that functions as both a power input and output, with the option to install an additional *USB-A* connector.
-
-The module charges the battery at a maximum rate of *2.4A* and can supply *5V* at up to *2A* (10W) to USB devices or any other 5V-powered loads, such as microcontroller development boards.
-
-With minimal effort, you can use this module to create a simple power bank or add battery support to portable microcontroller projects.
-
-> [!IMPORTANT]
-> Keep in mind the relatively high charging current (*2.4A*). This typically requires batteries with a minimum capacity of *2500mAh*. Using smaller batteries may lead to overcharging and potential damage.
+This is a compact module designed for single (1S) Li-Ion or Li-Po cells (or multiple cells connected in parallel). The module is built around the [IP5306](materials/ip5306_datasheet.pdf) power management chip.
 
 ## Overview
-This module includes everything needed to charge a *1S Li-Ion Cell* via *USB-C*, and to supply up to *2A* of battery power to devices connected to the *USB-C* port or the *5V* solder pads. It also supports discharging while the battery is charging.
 
-A *USB-C* connector is pre-soldered to the PCB, and there is an option to install a *USB-A* connector on the opposite side.
+This *20x25mm* module integrates all necessary components for building power banks, portable chargers, or adding battery support to USB/5V devices. Some versions are labeled *X-150*.
 
-Four SMD LEDs indicate the charging status and state of charge.
+### Separate Input and Output Connectors
 
-| Item | Description |
-| --- | --- |
-| Input Voltage | *5-5.5V* (USB) |
-| Output Voltage | *5-5.15V* |
-| Output Voltage Ripple | *100mV* |
-| Charging Current (Input) | *2.4A* |
-| Supply Current (Output) | *2A* |
-| Charging Cut-Off Voltage | *4.2-4.35V* |
-| Conversion Efficiency | *92.5%* |
-| Standby Current (Battery) | <30uA |
+The module features **separate connectors** for input and output:
 
-The PCB also supports an external push button, which can be used to turn the device on or off.
+- **USB-C Input:** A pre-soldered *USB-C* connector functions exclusively as the **input**. It cannot supply power to USB devices.
+- **USB-A Output:** An optional *USB-A* connector serves exclusively as the **output**, supplying power to USB devices. Alternatively, dedicated *5V solder pads* allow direct power output to a board or microcontroller.
 
-## Output Mode
-In output mode, the module provides *5V* at up to *2A*. Power is automatically cut off when the battery voltage drops below *2.95V* (over-discharge protection). 
+Both connectors operate independently, allowing simultaneous power supply and charging. This is particularly useful for adding battery support to a microcontroller or portable device, as the module can charge the battery while the device remains powered.
 
-There are two ways to trigger output mode: *automatic* and *manual*.
+> [!IMPORTANT]
+> Plugging in or unplugging the *USB-C* cable may cause a brief power interruption, potentially rebooting connected microcontroller boards. Adding a sufficiently large capacitor to the power input can mitigate this issue.
 
-### Automatic Mode
-In automatic mode, power is supplied when a load is connected to the *USB-C* connector or the *5V* solder pads. If the load current drops below *50mA*, the module will automatically enter standby mode.
+### Supported Batteries
+
+The module is designed for *1S* battery configurations (single cell or parallel cells). It supports both Li-Ion and Li-Po batteries, with a default charging cut-off voltage of *4.2V*. This can be adjusted to *4.35V* by bridging specific PCB contacts.
+
+> [!IMPORTANT]
+> The battery is charged at up to *2.4A*. Small batteries may not handle this current. Batteries should have a capacity of at least *2500mAh*. The charging current is fixed and cannot be adjusted.
+
+### Optional Push Button
+
+An optional push button can be connected to the *K* and *GND* solder pads, with a *10kΩ* resistor in series. The button allows manual control of the power supply:
+
+- **Short press (>30ms but <2s):** Turns on indicator LEDs and enables power output.
+- **Double short press or long press (>2s):** Turns off indicator LEDs and disables power output.
+
+> [!NOTE]
+> A *torch LED* can be connected in parallel to the push button using a *20Ω* series resistor. The push button can then control the LED with two short presses.
+
+## Supplying Power
+
+The module provides *5V* at up to *2A* via the *USB-A connector* or *5V solder pads*. The *USB-C connector* is for charging only.
+
+Four SMD LEDs display charging status and battery state of charge in 25% increments.
+
+### Over-Discharge Protection
+
+If the battery charge drops below *3%*, one LED blinks at *1.5Hz*. When the voltage falls below *2.95V*, the module disables the power output to prevent over-discharge.
+
+The module includes additional protections:
+- If the output voltage drops below *4.4V* for more than *30ms*, the chip shuts off, assuming over-current.
+- If the output current exceeds *4A*, the chip cuts power within *200µs*, protecting against short circuits.
+
+### Automatic Power Output
+
+By default, the module remains in *Off* mode, consuming *<50µA*. 
+
+| Item                  | Description                    |
+|-----------------------|--------------------------------|
+| Output Voltage        | *5-5.15V* (USB-A, 5V pads)    |
+| Output Voltage Ripple | *50mV*                        |
+| Output Current        | max. *2.1A*                   |
+| Indicator LED Current | *4mA* each                    |
+| Off Current           | *<50µA*                       |
+| Standby Current       | *<100µA*                      |
+| Load Removal Detection| *<45mA* for *32s*             |
+| Boost Switching Freq. | *500kHz*                      |
+| Boost Efficiency      | *92.5%*                       |
+| Short Circuit Prot.   | Yes                           |
+| Other Protections     | Over-Current, Over-Voltage    |
+
+In *Off* mode, neither the boost converter nor the LEDs are active. The module monitors the output and enters *Standby* mode when it detects a load exceeding *50mA*. If the load drops below *45mA* for *32 seconds*, it reverts to *Off* mode.
 
 ### Manual Mode
-In manual mode, a push button connected to the solder pad labeled *K* (and the other end to *GND*) controls power:
 
-* **Short Press:** Turns on power supply continuously.
-* **Two Short Presses:** Turns off power supply.
+Manual mode allows direct control of power supply via the optional push button:
+
+- **Short press:** Manually enters *Standby* mode.
+- **Double short press or long press:** Exits *Standby* mode and stops power output.
 
 ## Charging Mode
-The charger automatically activates when a power supply is connected to the *USB-C* port. It charges the battery with a maximum current of *2.4A*.
 
-* **Low Voltage Protection:** When the battery voltage is below *2.8V*, the battery is pre-charged at *180mA* until it reaches a safe voltage.
-* **Charge Completed:** Charging stops once the current drops to *100mA* at floating voltage.
-* **Automatic Recharge:** A new charging cycle starts when the battery voltage drops below *4.1V*.
+The charger activates automatically when a power supply is connected to the *USB-C* port, charging the battery at up to *2.4A*.
+
+| Item                         | Description                    |
+|------------------------------|--------------------------------|
+| Input Voltage                | *5-5.5V* (USB-C)              |
+| Charging Current (Input)     | *2.4A*                        |
+| Charge Switching Freq.       | *750kHz*                      |
+| Charging Cut-Off Voltage     | *4.2V* or *4.35V* (config.)   |
+| Charging Efficiency          | *91%*                         |
+| Battery Reverse Polarity Prot.| No                           |
+| Charging While Discharging   | Yes                           |
+
+### Additional Protections
+
+- **Low Voltage Protection:** Pre-charges the battery at *180mA* if voltage falls below *2.8V*.
+- **Charge Complete:** Stops charging when current drops to *100mA* at floating voltage.
+- **Automatic Recharge:** Restarts charging if battery voltage drops below *4.1V*.
+- **Safety Timer:** Stops charging if the process exceeds *24 hours*.
+
+> [!TIP]
+> If charging stops prematurely, the charging current may be too high for the battery, causing a temporary voltage increase that triggers an early cut-off.
 
 
-> Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S
 
+## Materials
+
+[IP5306 Power Management SoC Datasheet](materials/ip5306_datasheet.pdf)     
+
+
+> Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, X-150
+
+[Visit Page on Website](https://done.land/components/power/chargers/charge-discharge/2a5v1sli-ion?160929011912250937) - created 2025-01-11 - last edited 2025-01-11
