@@ -20,7 +20,7 @@ The job of a charger is to control the supply of energy and keep it within the t
 ## Voltage Limiting
 The first job of a charger is to *limit the voltage* to the maximum battery voltage. This prevents excess energy from going into a fully charged battery. Here is how this works:
 
-During charging, the battery voltage rises. When the battery is fully charged, the battery voltage reaches a specific voltage that depends on the battery chemistry:
+During charging, the battery voltage rises to keep the current constant. When the battery is fully charged, the battery voltage reaches a specific voltage that depends on the battery chemistry:
 
 | Battery Chemistry | Empty Voltage | Nominal Voltage | Fully Charged Voltage |
 |-------------------|---------------|-----------------|-----------------------|
@@ -71,10 +71,12 @@ However, it would still not be a safe charger. Here are the missing features:
 
 * **Automatic Turn-Off:** When the charging current drops below a certain threshold (indicating the battery is full), the charger turns off completely whereas a regular CC CV power supply would not.
 * **Temperature Control:** The charger might monitor the battery temperature, as unexpected temperature rises indicate failure (i.e. damaged battery), and charging must stop immediately. Some chemistries, like *LiFePO₄*, are damaged if charged below *0°C*. Good chargers account for this and stop charging when temperatures are too low.
-* **Low Voltage Control:** Batteries in long-term storage may self-discharge below safe voltage levels. When a charger detects such conditions, it either refuses to charge or uses very low currents to "revive" the battery until safe voltage levels are reached.
+* **Low Voltage Control:** Batteries in long-term storage may self-discharge below safe voltage levels. When a charger detects such conditions, it either refuses to charge or uses very low currents to "revive" the battery until safe voltage levels are reached. 
 * **Automatic Recharge:** Some chargers restart the charging process if the battery voltage drops below a certain threshold due to self-discharge. This ensures the battery remains charged.
 
 </details>
 
 
 > Tags: Charger, CC, CV, Battery
+
+[Visit Page on Website](https://done.land/components/power/chargers/fundamentals?742219011712254827) - created 2025-01-11 - last edited 2025-01-11
