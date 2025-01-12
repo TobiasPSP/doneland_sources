@@ -4,7 +4,7 @@
 
 ## 2A 5V Power Supply Driven By A Single Li-Ion Cell
 
-This is a compact module designed for single (1S) Li-Ion or Li-Po cells (or multiple cells connected in parallel). The module is built around the [IP5306](materials/ip5306_datasheet.pdf) power management chip.
+This is a compact module designed for single (1S) Li-Ion or Li-Po cells (or multiple cells connected in parallel). The module is built around the [IP5306](materials/ip5306_datasheet.pdf) power management chip (or one of its Chinese clones, like the [FM5324GA](materials/fm5324ga_datasheet.pdf)).
 
 ## Overview
 
@@ -28,7 +28,6 @@ The module is designed for *1S* battery configurations (single cell or parallel 
 
 > [!IMPORTANT]
 > The battery is charged at up to *2.4A*. Small batteries may not handle this current. Batteries should have a capacity of at least *2500mAh*. The charging current is fixed and cannot be adjusted.
-
 ### Optional Push Button
 
 An optional push button can be connected to the *K* and *GND* solder pads, with a *10kΩ* resistor in series. The button allows manual control of the power supply:
@@ -36,8 +35,22 @@ An optional push button can be connected to the *K* and *GND* solder pads, with 
 - **Short press (>30ms but <2s):** Turns on indicator LEDs and enables power output.
 - **Double short press or long press (>2s):** Turns off indicator LEDs and disables power output.
 
-> [!NOTE]
-> A *torch LED* can be connected in parallel to the push button using a *20Ω* series resistor. The push button can then control the LED with two short presses.
+#### Torch LED and Caveat
+
+A *torch LED* can be connected in parallel to the push button,  using a *100Ω* series resistor. The push button can then turn the LED on and off with a double-short press. The torch LED is designed to use *25mA*.
+
+> [!IMPORTANT]
+> The *torch LED* feature explains why it is important to use a *10kΩ* resistor in series with the push button: if you just short circuit the *K* solder pad with *GND*, then the maximum torch LED current (north of *25mA*) would pass through the push button. While this won't hurt the board, it may damage simple logic-level push buttons that can handle only a few *mA*, and might produce some smoke and smells.
+
+
+### Limitations
+
+The module does not support temperature sensors that could be used to monitor the battery and detect malfunctions. 
+
+It also does not support any *quick charge protocols*: the *USB-C* connector accepts *5V input* only and requires *2A*.
+
+> [!TIP]
+> Not supporting *quick charge protocols* is not really a significant limitation considering that this charger stay within the *5V 2A* limits of regular USB.
 
 ## Supplying Power
 
@@ -109,8 +122,8 @@ The charger activates automatically when a power supply is connected to the *USB
 ## Materials
 
 [IP5306 Power Management SoC Datasheet](materials/ip5306_datasheet.pdf)     
+[FM5324GA Power Management SoC (Chinese Clone) Datasheet](materials/fm5324ga_datasheet.pdf) (*in Chinese*)  
 
-
-> Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, X-150
+> Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, X-150, IP5306, FM5324GA
 
 [Visit Page on Website](https://done.land/components/power/chargers/charge-discharge/2a5v1sli-ion?160929011912250937) - created 2025-01-11 - last edited 2025-01-11
