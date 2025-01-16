@@ -24,7 +24,7 @@ The trade-off is the lack of hardware acceleration for scrolling and animations 
 
 Typically, you purchase ready-to-use breakout boards that come with the driver and an OLED display (*0.96"* and *1.3"* are most common).
 
-<img src="images/oled_sh1106_white_text_t.png" width="60%" height="60%" />
+<img src="images/oled_sh1106_white_text_t.png" width="30%" height="30%" />
 
 Occasionally, such displays are integrated in *keyboard-display-combos* like the one below:
 
@@ -55,7 +55,7 @@ The by far easiest way of using *SH1106* OLED displays is via [ESPHome](https://
 
 Alternately, you can use *C++ libraries* to program the firmware manually.
 
-### ESPHome
+## ESPHome
 
 Using *ESPHome* is the simplest approach, as *ESPHome* includes a native [SSD1306 OLED Display](https://esphome.io/components/display/ssd1306.html) component that supports most monochrome OLED drivers, including the *SH1106*. Here are the supported OLED drivers:
 
@@ -96,30 +96,67 @@ font:
 To compile and upload the sample configuration, simply [follow these simple steps](https://done.land/tools/software/esphome/compileconfiguration/).
 
 
+<img src="images/sh1106_esphome_example_t.png" width="50%" height="50%" />
+
+> [!NOTE]
+> OLED displays are crisp and clear. If texts appear unsharp like in the picture, you may have used a font that was scaled up or down. You get the best results with pixel fonts specifically designed for a given size.   
+
 You can now use all the graphics commands supported by the [ESPHome Display Component](https://esphome.io/components/display/index.html) to draw images, shapes, lines, arcs, etc.
 
-### C++
+## C++
 
 For direct programming (using the *Arduino Framework*), two popular libraries support the *SH1106*:
 
-- **U8G2 Library**
-- **Adafruit GFX Library**
+- [U8G2 Library](https://github.com/olikraus/u8g2)
+- [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) + [Adafruit_SH110x](https://github.com/adafruit/Adafruit_SH110x)
 
-### U8G2 Library
+#### Why Adafruit Library?
+The US company *Adafruit* produces and sells electronic components and provides extensive support for it, including state-of-the-art *C++ libraries*. 
 
-The *U8G2 library* is a versatile and robust option that supports a wide range of **monochrome** display drivers.
+Their libraries are popular because of good quality, documentation, and especially modular design: they consist of a *hardware specific* library for the particular display driver you need, and a *hardware neutral* core graphics library that provides the drawing commands:
+
+* [Specific Driver Library:](https://github.com/adafruit/Adafruit_SH110x) targets a specific family of display drivers, i.e. *SH110x* drivers
+* [Adafruit GFX:](https://github.com/adafruit/Adafruit-GFX-Library) core grafics library which is hardware independent and provides the drawing commands.
+
+This way, source code remains compatible to most displays. All you need to do is change the hardware neutral library to target your display.
+
+#### Why u8g2 Library
+The [u8g2](https://github.com/olikraus/u8g2) library is another de-facto standard: it targets *all **monochrome** displays*, including OLED display drivers like *SH1106*.
+
+With this library, your source code remains compatible to a variety of *monochrome displays*: all you need to do is use the appropriate display class in your code to initialize your display.
+
+> [!TIP]
+> *Oli Kraus* has created a universal library for **color displays**, too: [ucglib](https://github.com/olikraus/ucglib).
+
+
+
+<details><summary>Caveats: Using ArduinoIDE Code In platformio</summary><br/>
+
+You simply do not know most of the time *which IDE* was used to program a given library or example code that you want to use. A lot of the code you find in the Internet is many years old. Often, it was created using *ArduinoIDE*.
+
+*ArduinoIDE* is a beginners-friendly (but rather limited) *C++ editor*. In order to simplify its user experience, it lets the user get away with many bad programming habits that a more professional IDE (like *platformio*) would flag down.
+
+If examples do not compile right in *platformio*, you have two options:
+
+* **Try with ArduinoIDE:** the code may compile just fine in *ArduinoIDE*. If so, it was probably created in *ArduinoIDE* in the first place, and requires some of the *ArduinoIDE* leniency.
+* **Fix it:** check the code for signs of *ArduinoIDE specifics*, and turn the code into clean and solid *C++* source code that works fine in other IDEs such as *platformio*.
+
+These are the most common issues with code that was created in *ArduinoIDE* and fails to compile in *platformio*:
+
+* **`.ino` is `.cpp`:** *ArduinoIDE* uses the file extension `.ino` (as in *Ardu**ino***) for *C++ source code* files. The official extension is `.cpp` (as in *C++*). You can simply rename the file extension.
+* **Add `#include <Arduino.h>`:** while not always necessary, it enables *ArduinoIDE-specific* features
+* **Use `setup()` and `loop()`:** define both `setup()` and `loop()`. If you don't need `loop()`, define it anyway, and leave it empty.
+* **Method Order:** make sure you define every method in your code **before you call the method**. Code written in *ArduinoIDE* typically moves method definitions to the *bottom* of the source code. This is only allowed in *ArduinoIDE*. For use in *platformio* and other professional IDEs, move the method definitions *up* so that they are defined when code wants to call them.
+
+</details>
+
+
+### Using u8g2 Library
+
+The [U8G2 library](https://github.com/olikraus/u8g2) is a versatile and robust option that supports a wide range of **monochrome** display drivers.
 
 #### Selecting the OLED Driver
 
-Since *U8G2* supports many different drivers, you need to specify your driver at the beginning of the code. 
-
-The example code typically includes a large block of commented lines describing supported drivers and hardware. To select the *SH1106*, uncomment the line corresponding to your required resolution (e.g., *128x64*).
-
-#### Example Code
-
-Compared to *ESPHome* (see above), running *C++ code* can be more challenging. Even though external libraries like *U8G2* handle much of the complexity, there is no universal standard for configuring settings. Determining where to set options such as *I2C GPIOs*, *I2C device address*, and *display resolution* often requires trial and error.
-
-This is where *ESPHome* excels: all settings are centralized in a well-documented configuration file, making the process more streamlined.
 
 In the *U8G2* C++ example, the display interface and resolution are selected through the *class*. For a *128x64 SH1106 OLED display* connected via *I2C*, you can use one of the following classes:
 
@@ -128,10 +165,12 @@ In the *U8G2* C++ example, the display interface and resolution are selected thr
 
 Once you’ve configured the appropriate class, the rest of the code is straightforward. I successfully tested this approach on *ESP32*, *ESP32-S2*, and *ESP32-C3*. 
 
-> **Tip:** Ensure the *I2C GPIOs* in your code match your hardware setup; otherwise, the display will remain dark.
+> [!TIP:] 
+> Ensure the *I2C GPIOs* in your code match your hardware setup; otherwise, the display will remain dark.
 
 
-<details><summary>C++ Source Code</summary><br/>
+
+<details><summary>C++ Example Code using u8g2</summary><br/>
 
 
 ````c++
@@ -310,18 +349,34 @@ void loop(void)
 
 </details>
 
-### Adafruit Library
+### Adafruit SH110x
+Adafruit display libraries are quite popular because of their modular design. They consist of two separate libraries:
 
-The *SH1106* initially lacked the same level of driver support as the *SSD1306*, leading users to adapt existing *SSD1306* libraries for compatibility with the *SH1106*. 
+* [Specific Driver Library:](https://github.com/adafruit/Adafruit_SH110x) targets a specific family of display drivers, i.e. *SH110x* drivers
+* [Adafruit GFX:](https://github.com/adafruit/Adafruit-GFX-Library) core grafics library which is hardware independent and provides the drawing commands.
 
-Unfortunately, these adaptations were not always done according to standards. For instance, an *Adafruit* library ported from their original *SSD1306* library contains crude tweaks, which can cause header file errors and linker issues when used in *PlatformIO*. These problems might have been resolved by the time you read this, so it’s still worth giving the library a try.
+This way, source code can be compatible with a variety of displays. You just adjust the specific driver library.
+
+
+<details><summary>Better not use "hacked" libraries!</summary><br/>
+
+The *SSD1306* was the dominant driver for monochrome OLED displays for a long time. When *SH1106* surfaced a few years later, it initially lacked driver support. 
+
+This is why users *adjusted* the original [Adafruit SSD1306 library](https://github.com/adafruit/Adafruit_SSD1306) to work with *SH1106* as well. Here is one such [edited Adafruit library that is compatible with SH1106](https://github.com/wonho-maker/Adafruit_SH1106), and many others exist.
+
+Unfortunately, these adaptations were not always done according to standards. They may have worked for the original author, and they may also work for you, but there can be header file errors and linker issues when your environment doesn't match the library authors' environment, i.e. because you might be using *platformio* instead of *ArduinoIDE*.
+
+In addition, these adapted libraries aren't updated anymore by the original author and may have become seriously outdated.
+
+By now, Adafruit has released an official library targeting all *SH111x* monochrome OLED displays: [Adafruit_SH110x](https://github.com/adafruit/Adafruit_SH110x). That's the library you should pick if you want to use [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library). 
+
+
+</details>
 
 <img src="images/oled_sh1106_white_numbers2_t.png" width="30%" height="30%" />
 
-> [!NOTE]  
-> Libraries for specific drivers may behave inconsistently depending on the *IDE*. If a library fails in *PlatformIO*, try running it in *ArduinoIDE* to verify its compatibility. A well-designed library should not display such peculiar behavior.
 
-### Thoughts
+## Conclusions
 
 Getting started with *ESPHome* was incredibly fast—it took me about five minutes to put together and run an example code. In contrast, it took over an hour (including a fair bit of cursing) to figure out the specifics for the *U8G2* library. *ESPHome* is far more efficient, at least for developers.
 
