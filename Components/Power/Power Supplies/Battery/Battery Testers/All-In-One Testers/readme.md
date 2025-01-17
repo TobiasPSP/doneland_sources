@@ -66,4 +66,4 @@ Many devices can be enhanced with small upgrades:
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters?264218101229240252) - created 2024-10-28 - last edited 2024-10-28
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/all-in-onetesters?264218101229240252) - created 2024-10-28 - last edited 2024-10-28

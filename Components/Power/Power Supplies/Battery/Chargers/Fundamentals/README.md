@@ -79,4 +79,4 @@ However, it would still not be a safe charger. Here are the missing features:
 
 > Tags: Charger, CC, CV, Battery
 
-[Visit Page on Website](https://done.land/components/power/chargers/fundamentals?742219011712254827) - created 2025-01-11 - last edited 2025-01-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/fundamentals?742219011712254827) - created 2025-01-11 - last edited 2025-01-11

@@ -65,4 +65,4 @@ By understanding the principles of battery pack design, you can select or constr
 
 > Tags: Battery Pack
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes/rechargeable/batterypacks?326572121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes/rechargeable/batterypacks?326572121809244816) - created 2024-12-08 - last edited 2024-12-08

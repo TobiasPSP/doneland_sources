@@ -120,4 +120,4 @@ While functional, this device has some notable limitations:
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, 2-Channel
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/dischargetesters/xh-m239?665265111410241653) - created 2024-11-09 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/dischargetesters/xh-m239?665265111410241653) - created 2024-11-09 - last edited 2025-01-15

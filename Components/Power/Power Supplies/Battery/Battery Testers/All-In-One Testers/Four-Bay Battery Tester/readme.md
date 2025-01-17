@@ -215,4 +215,4 @@ Although this device works nearly flawlessly, there is still room for improvemen
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, 4-Channel
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters/four-baybatterytester?410850101729244935) - created 2024-10-28 - last edited 2025-01-10
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/all-in-onetesters/four-baybatterytester?410850101729244935) - created 2024-10-28 - last edited 2025-01-10

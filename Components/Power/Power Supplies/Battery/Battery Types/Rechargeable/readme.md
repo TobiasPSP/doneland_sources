@@ -108,4 +108,4 @@ Rechargeable batteries are a cornerstone of modern technology. Selecting the rig
 
 > Tags: Battery, Charge, BMS, Lead, NiCd, NiCad, LiIon, LiPo, LiFePo4, LFP, CR2025, CR2035, CR123A, Charging Cycle
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes/rechargeable?305628121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes/rechargeable?305628121809244816) - created 2024-12-08 - last edited 2024-12-08

@@ -125,4 +125,4 @@ When the module is charging, the buttons have no effect, and the load remains po
 
 > Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, X-150, IP5306, FM5324GA
 
-[Visit Page on Website](https://done.land/components/power/chargers/charge-discharge/ip5306/x-150?160929011912250937) - created 2025-01-11 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150?160929011912250937) - created 2025-01-11 - last edited 2025-01-15

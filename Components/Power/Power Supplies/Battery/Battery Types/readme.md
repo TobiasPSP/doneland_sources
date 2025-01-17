@@ -81,4 +81,4 @@ For this reason, it's important to follow a few guidelines when storing recharge
 
 > Tags: Battery, Rechargeable, Disposable
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes?261774121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes?261774121809244816) - created 2024-12-08 - last edited 2024-12-08

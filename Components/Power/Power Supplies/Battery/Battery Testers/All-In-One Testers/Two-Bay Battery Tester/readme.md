@@ -192,4 +192,4 @@ This device performs well, but a few upgrades could enhance its usability:
 
 > Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, 2-Channel
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/all-in-onetesters/two-baybatterytester?474929111909245010) - created 2024-11-08 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/all-in-onetesters/two-baybatterytester?474929111909245010) - created 2024-11-08 - last edited 2025-01-15

@@ -79,4 +79,4 @@ The output voltage is available at **P+** and **P-**.
 
 > Tags: Battery, BMS, 2S, 8A
 
-[Visit Page on Website](https://done.land/components/power/bms/2s/8a?927886031416241946) - created 2024-03-22 - last edited 2024-03-22
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/bms/2s/8a?927886031416241946) - created 2024-03-22 - last edited 2024-03-22

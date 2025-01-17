@@ -55,4 +55,4 @@ The downside is that these devices *exclusively* measure *internal resistance*. 
 
 > Tags: Battery, Test, Capacity, Internal Resistance, FNIRSI HRM-10, RC3562, HW-586
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters?089440101519243644) - created 2024-10-18 - last edited 2024-10-18
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters?089440101519243644) - created 2024-10-18 - last edited 2024-10-18

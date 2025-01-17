@@ -183,4 +183,4 @@ Repeat the steps until you either exceed the current you require, or until the b
 
 > Tags: Battery, Fake, 18650, Internal Resistance, Capacity, Weight, BMS, C-Rate, Discharge Test
 
-[Visit Page on Website](https://done.land/components/power/battery/fakebatteries?749978101219241946) - created 2024-10-18 - last edited 2024-10-18
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/fakebatteries?749978101219241946) - created 2024-10-18 - last edited 2024-10-18

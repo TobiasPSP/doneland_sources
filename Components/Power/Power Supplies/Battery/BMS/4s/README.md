@@ -25,4 +25,4 @@ A **4S BMS** is needed to protect *four* batteries (or groups of batteries conne
 
 > Tags: Battery, BMS, 4S
 
-[Visit Page on Website](https://done.land/components/power/bms/4s?998282020426240854) - created 2024-02-27 - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/bms/4s?998282020426240854) - created 2024-02-27 - last edited 2024-02-27

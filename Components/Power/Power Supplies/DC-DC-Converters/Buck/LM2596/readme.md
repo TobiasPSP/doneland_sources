@@ -35,4 +35,4 @@ It can also be used for *under-voltage* protection scenarios where the output sh
 
 > Tags: Buck, CC, CV, 3A, 40V, LM2596
 
-[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/lm2596?489125041911245144) - created 2024-04-11 - last edited 2024-04-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/dc-dc-converters/buck/lm2596?489125041911245144) - created 2024-04-11 - last edited 2024-04-11

@@ -59,4 +59,4 @@ Constructing *battery packs* from more than one battery can be dangerous when do
 
 > Tags: Powerbank, Battery, BMS, Charger
 
-[Visit Page on Website](https://done.land/components/power/powerbank/modules?362038051703244602) - created 2024-05-02 - last edited 2024-05-02
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/powerbank/modules?362038051703244602) - created 2024-05-02 - last edited 2024-05-02

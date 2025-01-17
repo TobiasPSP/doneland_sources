@@ -38,4 +38,4 @@ Typically, *powerbanks* also include the following *optional* components:
 
 > Tags: Powerbank, Battery, BMS, Charger
 
-[Visit Page on Website](https://done.land/components/power/powerbank?340059051703244602) - created 2024-05-02 - last edited 2024-05-02
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/powerbank?340059051703244602) - created 2024-05-02 - last edited 2024-05-02

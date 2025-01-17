@@ -26,4 +26,4 @@ To power devices from stored solar energy, these components are essential:
 
 > Tags: Solar Panel, Solar Controller, Charger, Solar Charger, Converter, MPPT, Battery
 
-[Visit Page on Website](https://done.land/components/power/solar?132550051702244054) - created 2024-05-01 - last edited 2024-10-26
+[Visit Page on Website](https://done.land/components/power/powersupplies/solar?132550051702244054) - created 2024-05-01 - last edited 2024-10-26

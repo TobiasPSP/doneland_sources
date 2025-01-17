@@ -347,4 +347,4 @@ Connect *input power* and *load* as you would with any other board. The display 
 
 > Tags: Buck, CC, CV, XL4015, XL4005, EMI
 
-[Visit Page on Website](https://done.land/components/power/dc-dc-converters/xl4015?344080020426249954) - created 2024-03-09 - last edited 2024-03-09
+[Visit Page on Website](https://done.land/components/power/powersupplies/dc-dc-converters/xl4015?344080020426249954) - created 2024-03-09 - last edited 2024-03-09

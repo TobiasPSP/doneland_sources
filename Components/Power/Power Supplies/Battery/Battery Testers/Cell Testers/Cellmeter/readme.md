@@ -172,4 +172,4 @@ In *Cellmeter 8*, long-pressing `TYPE` opens the settings where you can configur
 
 > Tags: Battery Tester, Balancing, State of Charge, Battery Chemistry, Chemistry, Battery Voltage, RC Modelling
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/celltesters/cellmeter?102228121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/celltesters/cellmeter?102228121809244816) - created 2024-12-08 - last edited 2024-12-08

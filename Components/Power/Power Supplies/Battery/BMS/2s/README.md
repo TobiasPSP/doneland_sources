@@ -23,4 +23,4 @@ A **2S BMS** is needed to protect *two* batteries (or groups of batteries connec
 
 > Tags: Battery, BMS, 2S
 
-[Visit Page on Website](https://done.land/components/power/bms/2s?268282029926240854) - created 2024-02-27 - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/bms/2s?268282029926240854) - created 2024-02-27 - last edited 2024-02-27

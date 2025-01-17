@@ -352,4 +352,4 @@ By keeping the boards' boost converter active all the time, this will increase q
 
 > Tags: Charger, Li-Ion, Li-Po, Boost Converter, 2A, USB, 1S, IP5306, FM5324GA, Torch Mode, Push Button
 
-[Visit Page on Website](https://done.land/components/power/chargers/charge-discharge/ip5306?313487011513254524) - created 2025-01-12 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306?313487011513254524) - created 2025-01-12 - last edited 2025-01-15

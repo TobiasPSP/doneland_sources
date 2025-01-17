@@ -59,4 +59,4 @@ For output voltages below *10V*, the increment and decrement is *0.02V* per key 
 
 > Tags: Buck, HW-816, Programmable, Display
 
-[Visit Page on Website](https://done.land/components/power/dc-dc-converters/buck/lm2596/hw-816?499126041911245144) - created 2024-04-11 - last edited 2024-04-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/dc-dc-converters/buck/lm2596/hw-816?499126041911245144) - created 2024-04-11 - last edited 2024-04-11

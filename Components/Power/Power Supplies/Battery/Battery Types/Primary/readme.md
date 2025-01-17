@@ -81,4 +81,4 @@ Choosing the right chemistry and form factor ensures optimal performance and cos
 
 > Tags: Battery, Primary, Non-Rechargeable
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes/primary?280698121809244816) - created 2024-12-08 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes/primary?280698121809244816) - created 2024-12-08 - last edited 2025-01-15

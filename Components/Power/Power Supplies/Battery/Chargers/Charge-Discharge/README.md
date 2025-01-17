@@ -36,4 +36,4 @@ Modules outputting *3.3V* from a *1S Li-Ion* battery use a *buck-boost circuit* 
 
 > Tags: Charger, Boost, Buck, Microcontroller, Power Supply, Battery
 
-[Visit Page on Website](https://done.land/components/power/chargers/charge-discharge?136993011912250937) - created 2025-01-11 - last edited 2025-01-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge?136993011912250937) - created 2025-01-11 - last edited 2025-01-11

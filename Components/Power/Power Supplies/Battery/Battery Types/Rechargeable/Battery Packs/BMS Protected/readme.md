@@ -51,4 +51,4 @@ By taking these precautions, you can mitigate the risks associated with unprotec
 
 > Tags: BMS, Battery
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes/rechargeable/batterypacks/bmsprotected?348514121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes/rechargeable/batterypacks/bmsprotected?348514121809244816) - created 2024-12-08 - last edited 2024-12-08

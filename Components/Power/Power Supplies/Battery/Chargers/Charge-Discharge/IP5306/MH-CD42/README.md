@@ -106,4 +106,4 @@ When the module is charging, the buttons have no effect, and *OUT 5V* is always 
 
 > Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, IP5306, FM5324GA
 
-[Visit Page on Website](https://done.land/components/power/chargers/charge-discharge/ip5306/mh-cd42?192546011815254411) - created 2025-01-14 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42?192546011815254411) - created 2025-01-14 - last edited 2025-01-15

@@ -243,4 +243,4 @@ In all other cases, the **BMS** should have *balancing capabilities*. The extra 
 
 > Tags: BMS, Battery, Balancer, Charging, Protection, 1S, 2S, 3S, 4S, Strings
 
-[Visit Page on Website](https://done.land/components/power/bms?260305020426240854) - created 2024-02-27 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/bms?260305020426240854) - created 2024-02-27 - last edited 2025-01-15

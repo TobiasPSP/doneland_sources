@@ -37,4 +37,4 @@ A *cell tester* is essentially a voltmeter with multiple inputs. It connects to 
 
 > Tags: Battery Tester, Balancing, State of Charge, Battery Voltage, RC Modelling
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytesters/celltesters?949990121909245904) - created 2024-12-08 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/celltesters?949990121909245904) - created 2024-12-08 - last edited 2025-01-15

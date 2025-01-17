@@ -23,4 +23,4 @@ A **3S BMS** is needed to protect *three* batteries (or groups of batteries conn
 
 > Tags: Battery, BMS, 3S
 
-[Visit Page on Website](https://done.land/components/power/bms/3s?268282020426240994) - created 2024-02-27 - last edited 2024-02-27
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/bms/3s?268282020426240994) - created 2024-02-27 - last edited 2024-02-27

@@ -213,4 +213,4 @@ Interestingly, solar panels can perform surprisingly well outdoors, even on clou
 
 > Tags: Solar Panel, Silicon, Monocrystalline, Polycrystalline, MPPT,
 
-[Visit Page on Website](https://done.land/components/power/solar/solarpanels?150501051702244054) - created 2024-05-01 - last edited 2024-10-26
+[Visit Page on Website](https://done.land/components/power/powersupplies/solar/solarpanels?150501051702244054) - created 2024-05-01 - last edited 2024-10-26

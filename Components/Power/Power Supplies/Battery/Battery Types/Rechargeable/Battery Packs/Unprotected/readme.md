@@ -45,4 +45,4 @@ If you decide to use a battery without a built-in BMS, it is *your responsibilit
 
 > Tags: RC Battery, Balancer Cable
 
-[Visit Page on Website](https://done.land/components/power/battery/batterytypes/rechargeable/batterypacks/unprotected?371453121809244816) - created 2024-12-08 - last edited 2024-12-08
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytypes/rechargeable/batterypacks/unprotected?371453121809244816) - created 2024-12-08 - last edited 2024-12-08

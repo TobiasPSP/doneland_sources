@@ -26,4 +26,4 @@ In this section, you find basic information helping you to better understand var
 
 > Tags: Battery, Charge, BMS,
 
-[Visit Page on Website](https://done.land/components/power/battery?697203121809244455) - created 2024-12-08 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery?697203121809244455) - created 2024-12-08 - last edited 2025-01-15

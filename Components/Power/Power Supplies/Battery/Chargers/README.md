@@ -32,4 +32,4 @@ Charging batteries using solar panels follows the same basic principles as other
 
 > Tags: Charger, CC, CV, Battery
 
-[Visit Page on Website](https://done.land/components/power/chargers?247473031903243238) - created 2024-03-03 - last edited 2025-01-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers?247473031903243238) - created 2024-03-03 - last edited 2025-01-11
