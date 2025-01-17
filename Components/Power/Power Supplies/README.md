@@ -42,8 +42,6 @@ For *lower loads*, *linear voltage regulators* can be used. These are essentiall
 Linear voltage regulators can only *lower* a voltage, and excess energy is converted to heat and wasted. The greater the input and output voltage difference, the less efficient they become. However, they are very affordable and do not produce artifacts like *voltage ripple*, which is why they are typically used for microcontroller development boards and other microelectronics that consume only a few hundred *mA*.
 
 
-<img src="images/ldo_example.png" width="40%" height="40%" />
-
 
 The same basic principle is used with *current-limiting* resistors, such as when powering small *LEDs*. These are even less precise, as they cannot compensate for load fluctuations. For low-current indicator LEDs, they work fine. However, as the current demand increases (e.g., with high-power LEDs or LED strips), *switching power supplies* are used instead.
 
@@ -139,48 +137,63 @@ Generally, the *switching frequency* of a DC-DC converter is an indicator for it
 
 A higher switching frequency lowers the requirements for external components: since less energy needs to be stored per cycle, higher-frequency DC-DC converters can be either *smaller* or *more efficient*.
 
-
 <details>
 <summary>Should I Care About Switching Frequency?</summary><br/>
 
-In hobby projects, you typically do not care much about the switching frequency of *DC-DC Converters*, and whether they are *fixed* or *variable*. What matters is that they are affordable and produce the desired voltages and currents.
+In hobby projects, most people typically do not focus much on the switching frequency of *DC-DC converters* or whether they are *fixed* or *variable*. Their primary concern is often affordability and whether the converter provides the desired voltages and currents.
 
-However, it does pay off to look at switching frequencies after all because higher switching frequencies may enable you to *significantly* reduce the size, which may be especially important for portable devices where space is an issue.
+However, understanding switching frequency can be beneficial, especially when designing portable devices where space is limited. Higher switching frequencies can enable significantly smaller designs.
 
+### Why Switching Frequency Matters
+Higher switching frequencies allow smaller inductors and capacitors because energy transfer happens more frequently. This reduces the size of energy storage components needed, making it possible to create compact circuits. However, higher frequencies also introduce challenges, such as increased switching losses and the potential for electromagnetic interference (EMI).
 
 ### Typical Hobbyist Modules
-Most cheap hobbyist *DC-DC Converters* are *fixed frequency PWM* converters.
+Most inexpensive hobbyist *DC-DC converters* are *fixed-frequency PWM* converters.
 
-*DC-DC Converters* with *fixed* frequency typically use the same **PWM** (pulse width modulation) that you may have used in your electronics projects to dim LEDs. Since the frequency is fixed and well above audible frequencies, converters will never emit annoying hissing sounds (*coil whine*). Their weak spot are *light loads*: due to the *fixed* frequency and **PWM**, the pulse width can only be shortened so much. With light loads, energy is lost and turned into heat, and efficiency decreases.
+*DC-DC converters* with *fixed-frequency* typically use **PWM** (pulse-width modulation), which you may have encountered in electronics projects for dimming LEDs. Since the frequency is fixed and set well above audible ranges, these converters do not produce annoying hissing sounds (*coil whine*). However, their efficiency drops with *light loads* because the pulse width can only be reduced to a certain extent. The excess energy is dissipated as heat, reducing overall efficiency.
 
 ### Variable Switching Frequency
-In *DC-DC Converters* with *variable* frequency, typically **PFM** (pulse frequency modulation) is used: the pulse width stays the same but the frequency of pulses changes. They are more efficient with light loads as the frequency can be easily lowered in a wide range. This can lead to a different problem: when the frequency is lowered so much that it enters audible ranges, these converters can produce an audible annoying high pitched hissing sound. This is also known as **Coil Whine** and can be produced by other parts of circuits as well when frequency drops into audible ranges.
+In *DC-DC converters* with *variable-frequency*, **PFM** (pulse-frequency modulation) is commonly used. Here, the pulse width remains constant while the frequency of pulses varies. These converters are more efficient under *light loads* because the frequency can be reduced as needed.
+
+This can be beneficial for scenarios where loads vary considerably or where frequent *idle* states occur. Otherwise, generally *downsizing* the DC-DC converter to support only the maximum load you actually require can improve efficiency, even with fixed-frequency designs.
+
+A potential downside of variable-frequency converters is that when the frequency drops into the audible range, the device may produce a high-pitched hissing sound, also known as **coil whine**. This noise can originate from the circuit's inductors or other components operating at audible frequencies. That's why *variable-frequency* designs are less commonly used in DIY projects.
 
 ### High Switching Frequency
-Most *DC-DC converter* breakout boards targeting *hobbyists* use decades-old concepts and chip designs like the *XL4015* and similar. 
+Most *DC-DC converter* breakout boards for hobbyists use older, proven chip designs like the *XL4015* or similar.
 
+These designs are cost-effective and reliable but operate at relatively low switching frequencies, typically below *500 kHz*, occasionally at just slightly above *100 kHz*.
 
-These are proven to work and can be produced with cheap components. The typical switching frequencies are below *500kHz*.
+<img src="images/xl4015_buck_5a_top_angle_t.png" width="45%" height="45%" />
 
-<img src="images/xl4015_buck_5a_top_angle_t.png" width="25%" height="25%" />
+As a result, such boards are big and require bulky components, such as large inductors and electrolytic capacitors.
 
-That's why the breakout boards are fairly large and require huge coils and electrolytic capacitors.
+Modern switching regulator technology uses much higher switching frequencies and more advanced chip designs. For example, integrated chips like the *TPS61088* from *Texas Instruments* operate at *1 MHz*, offering much improved efficiency and performance.
 
-Modern *switching regulator technology* is using much higher frequencies, and better technology. Highly integrated chips like the *TPS61088* from *Texas Instruments* use a *1MHz* switching frequency and can work with much higher efficiency.
+Next-generation *DC-DC converter* boards using such chips are significantly smaller while maintaining or exceeding the performance of older designs.
 
-So the new generation of *DC-DC converter* boards is using such next-gen chips. As a result, the boards are much smaller while providing the same or even better performance. 
+For example, this board is a *30W boost converter* capable of raising a *2.7-10V* input voltage to *12V*:
 
 <img src="images/tps61088_overview_t.png" width="25%" height="25%" />
 
-For example, the board depicted implements a *30W boost converter* that can raise a *2.7-10V* input voltage up to *12V*.
 
-### EMI and Shielding
-At high frequencies, a carefully engineered design is essential though, or the circuit may emit radio waves that can cause interference and potentially violate legal regulations. 
-  
-For DIY projects with limited EMI diagnostic tools and no space constraints, it makes sense to use DC-DC converters operating in the *100-500 kHz* range. For higher frequencies, use ready-made breakout boards from trusted sources with proper EMI shielding. 
+
+### Electromagnetic Interference (EMI) and Shielding
+Electromagnetic interference (EMI) occurs when high-frequency circuits emit unwanted radio waves, which can interfere with nearby electronics like radios, Wi-Fi, or Bluetooth devices. Poorly designed *high-frequency* converters can even affect sensitive equipment in your home or lab, making EMI shielding essential.
+
+For DIY projects with limited EMI diagnostic tools and no space constraints, it is often best to use bulkier *DC-DC converters* operating in the *100-500 kHz* range. If higher frequencies are needed, consider using professionally designed breakout boards from reputable sources that include proper EMI shielding.
+
+### Choosing the Right Module
+Here are some simple guidelines for selecting *DC-DC converters*:
+- Select fixed-frequency converters for simplicity and silence.
+- Use variable-frequency converters for efficiency with light loads.
+- Opt for modern designs if size or efficiency is a priority.
+- Check for EMI shielding if operating near sensitive devices.
+
+### Learn More
+For detailed technical insights, refer to datasheets or application notes for specific chips, such as the *XL4015* or *TPSxxx* series of chips (or their clones). These documents often include design tips and performance graphs to help you understand the capabilities of the converter.
 
 </details>
-
 
 
 ## Types of Power Supplies
@@ -243,6 +256,6 @@ While traditional transformers (*linear power supplies*) are still useful in spe
 For *DC input*, voltage regulators can dynamically transform a variable input voltage to a stable output voltage using *Buck*, *Boost*, or *Buck-Boost* technology, depending on the requirements. Due to their high switching frequency, if there is a need for *AC-to-DC* conversion, they require much smaller and more affordable transformers.
 
 
-> Tags: Voltage, Current, Voltage Regulator, Buck, Boost, DC-DC Converter, Switching Power Supply, AC, Transformer, Rectifier, Step-Up, Step-Down, EMI, Frequency, Ripple, Artifacts, AC Adapter
+> Tags: Voltage, Current, Voltage Regulator, Buck, Boost, DC-DC Converter, Switching Power Supply, AC, Transformer, Rectifier, Step-Up, Step-Down, EMI, Switching Frequency, Ripple, Artifacts, AC Adapter, TPS61088
 
 [Visit Page on Website](https://done.land/components/power/powersupplies?431681011016251907) - created 2025-01-15 - last edited 2025-01-15
