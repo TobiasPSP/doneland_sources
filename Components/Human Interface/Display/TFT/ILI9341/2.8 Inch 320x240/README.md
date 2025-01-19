@@ -1,6 +1,6 @@
 <img src="/assets/images/screenwire.png" width="100%" height="100%" />
 
-# 2.8" 320x240 IPS TFT Display
+# 2.8" 320x240 TFT Display
 
 > Rectangular 320x240 TFT Display With SPI, 262K Colors (18bit), SD-Card REader, And Optional Touch Support
 
@@ -148,5 +148,5 @@ The display boards use the [ILI9341](https://done.land/components/humaninterface
 [TFT Datasheet](materials/qd-tft2803_datasheet.pdf)    
 
 
-> Tags: Display Driver, ILI9341, TFT Display, Full Color, 18bit, 262K, SPI, 2.8 Inch
+> Tags: Display Driver, ILI9341, TFT Display, Full Color, 18bit, 262K, SPI, 2.8 Inch, MSP2806, MSP2807
 
