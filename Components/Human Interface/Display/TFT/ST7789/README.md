@@ -3,7 +3,9 @@
 
 > Drives TFT Displays Up To 240x320 Pixels At 262K Colors (18bit)
 
-The *ST7789* is a versatile *TFT display driver IC* commonly used for small to medium-sized displays with resolutions of up to *240x320* pixels at full *18bit color* (262 thousand different colors). Many *TFT display boards* and *ESP32 development boards with integrated display* use this device driver.
+The *ST7789* is a versatile *TFT display driver IC* commonly used for small to medium-sized displays with resolutions of up to *240x320* pixels at full *18bit color* (262 thousand different colors). It is in some respect a more modern successor of the popular *ILI9341* which shares the same fundamental features but consumes slightly more power at slightly slower refresh rates. 
+
+Many modern *TFT display boards* and *ESP32 development boards with integrated display* use the *ST7789* device driver.
 
 The driver supports [SPI](https://done.land/fundamentals/interface/spi) and the *Parallel* interface, as well as some lesser-used options.
 
@@ -17,8 +19,9 @@ The key display features remain consistent across versions:
 | Maximum Resolution | *240(H)x320(V)* pixels |
 | Maximum Color Depth | *18bit* (262K) |
 | Source and Gate Lines | 720/320 |
-| Power Consumption | *7mA* |
-| Sleep-In Power Consumption | *30uA* |
+| Power Consumption | *4mA* |
+| Idle Mode | *0.4mA* |
+| Sleep-In Power Consumption | *5uA* |
 | Backlight Power Consumption | *20-40mA* |
 | Interface | [SPI](https://done.land/fundamentals/interface/spi) and *Parallel* |
 
