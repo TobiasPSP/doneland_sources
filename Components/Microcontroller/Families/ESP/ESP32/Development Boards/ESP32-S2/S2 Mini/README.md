@@ -1,77 +1,174 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- 
-# S2 Mini
+ # S2 Mini
 
 > Powerful ESP32-S2 Board That Works With ESP8266 Shields
 
+The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (also known as *LOLIN S2 Mini* or *Wemos S2 Mini*) is an affordable and powerful option when you need *many GPIOs* and have space constraints.
 
-The pink [S2 Mini microcontroller board](https://www.wemos.cc/en/latest/s2/s2_mini.html) (aka *LOLIN S2 Mini* or *Wemos S2 Mini*) uses the **single-core** *ESP32-S2 microcontroller*. It is a *cheap* but extremely powerful board that is very small and *extremely flat* and features *30* freely available *GPIOs* that can be used for *input* and *output*.
+In fact, here is my personal decision matrix for *budget ESP microcontrollers*:
 
-## Pin-Compatible To Wemos D1 Mini (ESP8266)
+| What I need | What I use |
+| --- | --- |
+| massive number of GPIOs | *ESP32-S2 Mini* |
+| extremely small form factor | [ESP32-C3 Super Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) |
+| battery support | [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/) |
+| small display and battery support | [Lilygo T-Display](https://done.land/components/microcontroller/families/esp/vendorsandseries/lilygot-display/) |
+| 100% ESP32 Compatibility | [ESP32S DevKitC V4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) |
+| anything beyond that | [ESP32-S3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s3/)
 
-This board is preserving pin compatibility with the *ESP8266 D1 Mini*. Its additional capabilities are exposed via two additional pin header rows. 
+## Overview
 
-It can serve as an ideal replacement for *ESP8266*-based projects. Like the *ESP8266*, the *ESP32-S2* does not support *bluetooth*, and you can continue to use *shields* originally designed for the *D1 Mini* (i.e. *battery shields*).
+The *ESP32-S2 Mini* is powered by the **single-core** *ESP32-S2 microcontroller*. Unlike most other *ESP32* variants, this microcontroller lacks **Bluetooth support**.
 
+Despite these limitations, the *ESP32-S2* is an exceptional microcontroller for several reasons: 
+
+* **DACs:** It retains some features from the original *ESP32*, such as the two built-in *DACs* (*Digital-to-Analog Converters*)—a useful capability removed in all other *ESP32* successors.
+* **Full USB-Stack Support:** Additionally, it is the first *ESP32* variant to offer full USB stack support, enabling it to emulate a wide range of USB device types, not just *human input devices*.
+
+    For example, the *ESP32-S2* is the first *ESP32* family member that can natively [emulate mass storage devices](https://github.com/hathach/tinyusb/discussions/583), such as USB sticks. Older microcontrollers could only emulate *human input devices* like keyboards and mice. To dive deeper into these capabilities, check out the [TinyUSB library](https://github.com/adafruit/Adafruit_TinyUSB_Arduino).
+
+While the *ESP32-S2 Mini* comes with a modest *4MB flash memory*, it includes an additional *2MB high speed PSRAM*. This extra memory can be particularly useful for applications that involve connecting displays to the board.
+
+
+### The New ESP8266
+
+In some respect, the *ESP32-S2 Mini* can be seen as the successor to the widely popular *ESP8266*:
+
+- very affordable (comparable to *ESP8266* boards)
+- many GPIOs
+- same small, flat form factor of the *Wemos D1 Mini*
+- supports shields designed for the *D1 Mini* (e.g., battery shields)
+
+It blends these features with some of the best features of the *ESP32* world: 
+
+* high speed memory
+* fast CPU core
+* much more efficient deep sleep
+* two built-in DACs
+* hardware support for cryptography
+* full native USB stack support and no need for UARTs anymore.
+
+| Use Case                                | Suitability |
+|-----------------------------------------|-------------|
+| Controlling devices via many GPIOs      | +++         |
+| Migrating from *ESP8266*                | +++         |
+| Integrating into small devices          | +++         |
+| Beginner-friendly / ease-of-use         | o           |
+| Bluetooth                               | -           |
+| Demanding calculations                  | -           |
+| Multi-tasking                           | -           |
+### Caveats
+
+The *ESP32-S2 Mini* offers **exceptional value for its price**, but it may not always be *beginner-friendly*.  
+
+For example, a common issue with this board is its unreliable switching between the default *user firmware mode* and *firmware upload mode*. 
+
+You may need to manually hold button *0* (Boot) while pressing the *Reset* button to have your PC recognize the board. Simply plugging it in may not result in your PC detecting a new USB device.  
+
+Given the *ESP32-S2 Mini's* unique traits, here are the top three common problems and how you can elegantly work around them:
+
+
+<details><summary>3 Most Common Issues - And Workarounds</summary><br/>
+
+---
+
+
+### Issue #1: Expansion Board
+
+The *ESP32-S2 Mini* cannot be used directly on standard breadboards due to its dual header rows. A dedicated *development board* is necessary for prototyping, but commercial options are currently unavailable.
+
+#### Workaround
+
+Use two rows of 8-pin female *headers* (2.54mm pitch). These headers allow for reliable connections using standard *DuPont wires*.
+
+<img src="images/esp32-s2_mini_devboard-removebg-preview.png" width="100%" height="100%" />
+
+---
+
+### Issue #2: Wacky Native USB
+
+The *ESP32-S2* is the first microcontroller in its family to feature full native USB support, eliminating the need for an external *UART* component. However, this innovation was implemented with some quirks: the board exposes **two different COM ports**:
+
+- One for *normal operation*.
+- Another for *firmware upload mode*.
+
+In contrast, newer *ESP32* family members like the [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) also have full native USB support and use no UART anymore. However, their USB support has matured and is implemented in a completely transparent, reliable and intuitive way.
+
+Fortunately, by now most development environments like *Arduino IDE*, *PlatformIO*, and *ESPHome* work flawlessly. Except for one remaining issue:
+
+You may have to *manually* switch to the appropriate USB interface:
+
+* **Normal user code:** by default, the *ESP32-S2* executes the firmware you uploaded. Press the *Reset* button if you are uncertain and would like to force the microcontroller to normal user code mode.
+* **Firmware Upload Mode:** hold button **0**, then press *Reset* to enter the special *firmware upload mode*. This mode remains active until you either press *Reset* (*without* holding button **0**), or remove power.
+
+Here are the real-world situations in which you need to apply this knowledge:
+
+* **IDE like ArduinoIDE/platformio:** right before your IDE wants to upload new firmware, you need to manually switch the board to *firmware upload mode*. Once the firmware has been uploaded, you need to manually press *Reset* to return back to normal mode.
+* **ESPHome:** when trying to provision a new *ESP32-S2* with the [ESPHome Web Tools](https://web.esphome.io/), you must manually switch the board to *firmware upload mode*. Once the microcontroller has been provisioned, and the *ESPHome* firmware has been uploaded, you need to manually press *Reset* to return to normal mode. Only then will you be able to visit the device or open its log (as all of this is handled by the custom firmware and not the bootloader). 
+
+> Even before *ESPHome* officially adopted *ESP32-S2* support, there was a [manual workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning).
+
+#### Workaround
+
+Understand the purpose of the buttons *0* and *Reset*, and make sure you switch the board to the appropriate mode manually when uploading new firmware.
+
+
+
+### Inherent Limitations
+
+The *ESP32-S2* has certain limitations compared to other members of the *ESP32* family:
+
+- **Bluetooth:** The *ESP32-S2* lacks Bluetooth support. While this saves energy for projects that don’t require Bluetooth, it can be a dealbreaker for those that do. Note that projects requiring Bluetooth may fail to compile for this board.
+- **Single Core:** Most applications won’t notice a single-core limitation. However, projects with extensive *WiFi* usage might experience occasional slowdowns. For instance, some [WLED](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/) users have reported minor lags in LED animations while editing settings via WiFi—a limitation specific to single-core boards.
+
+#### Workaround
+
+Do not select this board if your project requires *Bluetooth*. For WiFi-intensive applications, test your use case thoroughly to ensure acceptable performance.
+
+---
+
+### Issue #3: Incomplete IDE Support
+
+Despite its affordability and unique features, the *ESP32-S2 Mini* has yet to gain widespread popularity. As a result, support for the board in community-driven open-source projects can be incomplete. For example, the *pins_arduino.h* file included in the *Espressif ESP32 Arduino Core* may require manual updates to enable intuitive pin labels like *D0* and *D1*.
+
+#### Workarounds
+
+1. **Edit the *pins_arduino.h* file**: Modify it in your development environment to add the missing pin definitions.  
+2. **Define constants in your code**: Assign intuitive labels like *D0* to specific *GPIO* numbers.  
+3. **Use raw GPIO numbers**: Refer to the actual GPIO numbers directly in your code.
+
+</details>
+
+
+
+## Pin Compatibility With Wemos D1 Mini (ESP8266)
+
+The *ESP32-S2 Mini* preserves pin compatibility with the *ESP8266 D1 Mini*. Additional features are exposed via two extra pin header rows. This compatibility makes it an excellent replacement for *ESP8266*-based projects while allowing continued use of shields originally designed for the *D1 Mini*, such as battery shields.
 
 <img src="images/esp32_s2_shield_esp8266_compare_t.png" width="80%" height="80%" />
 
 ## 27 Safely Usable GPIOs
 
-*ESP32-S2* comes with *43 GPIOs* of which typically a maximum of [30 GPIOs are safely usable as input and output](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/#30-recommended-general-purpose-gpios). Since *ESP32-S2 Mini* uses the ESP32-S2FN4R2 chip with integrated flash memory, it does not require to communicate with external flash memory, freeing additional GPIOs. Due to the form factor restraints (aiming to be pin-compatible to *D1 Mini*), the *S2 Mini* does not provide access to all *GPIOs*: 27 *GPIOs* are more than enough for most projects, though:
+The *ESP32-S2* microcontroller provides **43 GPIOs**, of which a maximum of [30 GPIOs are safely usable as input and output](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/#30-recommended-general-purpose-gpios). Since the *ESP32-S2 Mini* uses the ESP32-S2FN4R2 chip with integrated flash memory, it doesn't require external flash memory, freeing up more GPIOs.
 
+The *S2 Mini* exposes **27 GPIOs**, which is sufficient for most projects.
 
+| GPIO  | Remark                                |
+|-------|---------------------------------------|
+| 1–18  | *Input and output, pullup and pulldown resistors* |
+| 21    | *Input and output, pullup and pulldown resistors* |
+| 33–40 | *Input and output, pullup and pulldown resistors* |
 
-
-| GPIO | Remark |
-| --- | --- |
-| 1-18 | *input and output, pullup and pulldown resistors* |
-| 21 | *input and output, pullup and pulldown resistors* |
-| 33-40 | *input and output, pullup and pulldown resistors* |
-
-
-All *GPIOs* support internal *pullup* and *pulldown resistors*.
+All GPIOs support internal pullup and pulldown resistors.
 
 <img src="images/s2_mini_top_overview_t.png" width="40%" height="40%" />
 
 ### Built-In LED
-The built-in *blue LED* is connected to *GPIO15* and *high-active*.
 
-## Caveats
-
-The *ESP32-S2* is **exceptional value for the money**, but there are a few strings attached. They are all workable, but you need to know about them:
-
-### Breadboard / Prototyping
-
-The *pin-compatibility* with the *D1 Mini* made it necessary to add dual header rows. Because of this, not only can you reuse *shields* made for *ESP8266 D1 Mini*. The board also has an excellently flat and very space-efficient form factor. 
-
-At the same time, the dual-row headers make it impossible to use it on a standard breadboard.
-
-### Strange USB Design
-The most limiting caveat is the way how the *S2 Mini* implemented its *USB interface*: it exposes ***two** different COM ports*: one in *normal mode*, and *another* one in *firmware upload mode*. 
-
-#### ESPHome Incompatibility (And Workaround)
-Many tools like [ESPHome Web Tool](https://web.esphome.io/) cannot handle this and are **incompatible** with this board (as of this writing). Using *ESP32-S2 Mini* with *ESPHome* is impossible unless you know a simple but largely unknown [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning).  
-
-*Classic IDEs* work flawlessly. You may have to manually press and hold the *Boot* button while trying to flash the chip via *USB cable* in *ArduinoIDE* or *platformio*.
-
-### Bluetooth
-*ESP32-S2* comes with *WiFi* support but has **no bluetooth support**. This is completely ok as the majority of DIY microcontroller projects do not need *bluetooth*, and you also save some energy this way.
-
-### Incomplete Support
-The *ESP32-S2 microcontroller* in general does not seem to be as *mainstream* as other microcontrollers, resulting in incomplete documentation. 
-
-The *pins_arduino.h* file shipped with the *Espressif ESP32 Kit* for example needs manual tweaking to be able to use common pin labels like *D0* or *D1* in your code. 
-
-If this hits you, either edit the *pins_arduino.h* file for your *IDE*, define the missing constants directly in your code and assign them free *GPIO* numbers, or use *GPIO numbers* in the first place.
-
-
-
-
+The built-in *blue LED* is connected to *GPIO15* and is *high-active*.
 
 
 ## S2 Mini Technical Data
-
 
 | Item | Value |
 | --- | --- |
@@ -80,16 +177,9 @@ If this hits you, either edit the *pins_arduino.h* file for your *IDE*, define t
 | Coprocessor | RISC-V ULP Coprocessor |
 
 > [!TIP]
-> The relatively new ESP32-S2FN4R2 chip integrates flash and psram into the S2 silicon.
+> The relatively new *ESP32-S2FN4R2* chip integrates flash and PSRAM directly into the *ESP32-S2 silicon*, saving space and reducing design complexity.
 
-
-
-
-
-Due to its form factor, the *S2 Mini* does not expose *all available hardware pins*. With *27 GPIOs*, this board is most sufficient for most *DIY projects*.
-
-
-
+Due to its compact form factor, the *S2 Mini* does not expose all available hardware pins. However, the *27 GPIOs* provided are sufficient for most DIY projects.
 
 | Item | Value |
 | --- | --- |
@@ -99,177 +189,137 @@ Due to its form factor, the *S2 Mini* does not expose *all available hardware pi
 | PSRAM | 2MB |
 | SRAM | 320KB |
 | SRAM in RTC | 16KB (8KB accessible by ULP coprocessor) |
-| Temperature Sensor | -20-+110C |
-| eFuse | 1792bit for user data |
-| SAR ADC | 2x13bit, up to 20 channels, best for voltages <2.45V |
-| DAC | 2x8bit, second DAC [has fixable issues](https://vuknikolic.rs/en/posts/esp32/dac_fix/) |
-| Touch | 12xtouch sensing IOs |
-| SPI | 4x, SPI2 and SPI3 usable: HSPI and VSPI |
-| I2S | 1x |
-| I2C | 2x |
-| UART | 2x |
-| DVP 8/16 camera interface | 1x |
-| LCD interface | 1x8bit serial, 1x8/16/24bit parallel |
-| TWAI (CAN-Bus) | 1x, ISO11898-1 (CAN Specification 2.0) |
-| PWM controller | 8x |
-| USB OTG 1.1/PHY | host and device support |
-| Cryptographic | Hardware accelerators for AES, ECB/CBC/OFB/CFB/CTR, GCM, SHA, RSA, ECC (Digital Signature) |
-| Size | 34.4x25.4mm |
+| Temperature Sensor | -20°C to +110°C |
+| eFuse | 1792-bit for user data |
+| SAR ADC | 2×13-bit, up to 20 channels, optimized for voltages <2.45V |
+| DAC | 2×8-bit (Note: Second DAC has [fixable issues](https://vuknikolic.rs/en/posts/esp32/dac_fix/)) |
+| Touch | 12× touch sensing IOs |
+| SPI | 4×, SPI2 and SPI3 usable: HSPI and VSPI |
+| I2S | 1× |
+| I2C | 2× |
+| UART | 2× |
+| DVP 8/16 Camera Interface | 1× |
+| LCD Interface | 1× 8-bit serial, 1× 8/16/24-bit parallel |
+| TWAI (CAN-Bus) | 1×, ISO11898-1 (CAN Specification 2.0) |
+| PWM Controller | 8× |
+| USB OTG 1.1/PHY | Host and device support |
+| Cryptographic | Hardware accelerators for AES (ECB/CBC/OFB/CFB/CTR, GCM), SHA, RSA, ECC (Digital Signature) |
+| Size | 34.4×25.4mm |
 | Weight | 2.4g |
 
-Power consumption in its sleep modes is lower compared to classic *ESP32*:
+The *ESP32-S2* offers improved power consumption in its sleep modes compared to the classic *ESP32*:
 
 | Operation | Current |
 | --- | --- |
 | Normal (WiFi) | 310mA peak |
 | Modem-Sleep | 12-19mA |
-| Light-Sleep | 450uA |
-| Deep-Sleep | 20-190uA |
+| Light-Sleep | 450µA |
+| Deep-Sleep | 20-190µA |
 
-Power regulation is done by a *ME6211C33* regulator:
+Power regulation is managed by the *ME6211C33* voltage regulator:
 
 | Item | Value |
 | --- | --- |
-| Input voltage | 4.7-6.5V |
+| Input Voltage | 4.7-6.5V |
 | Operating Voltage | 2-6V |
-| Max current | 500mA@4.3Vin/3.3Vout |
-
-
+| Max Current | 500mA @ 4.3V input / 3.3V output |
 ## Hardware I2C Interface
-Any pin can *emulate* a *I2C* interface (or define additional ones). Only the *hardware I2C interface* uses optimized hardware that does not put load on the microcontroller and is faster. 
+Any pin can *emulate* an *I2C* interface (or define additional ones). However, only the *hardware I2C interface* uses optimized hardware that reduces load on the microcontroller and operates at higher speeds.
 
 | Pin | Label | Description |
 | --- | --- | --- |
-| 33 | SCA | Data |
-| 35 | SDL | Clock |
+| 33 | SDA | Data line |
+| 35 | SCL | Clock line |
 
 ## Hardware SPI Interface
-Any pin can *emulate* a *SPI* interface (or define additional ones). Only the *hardware SPI interface* uses optimized hardware that does not put load on the microcontroller. When connecting components with high data rates (i.e. *displays*), try and use *hardware SPI* for much higher frame rates.
-
+Any pin can *emulate* an *SPI* interface (or define additional ones). However, only the *hardware SPI interface* uses optimized hardware that reduces load on the microcontroller. For components requiring high data rates (such as *displays*), using *hardware SPI* is recommended for much better performance and higher frame rates.
 
 | Pin | Label | Alternate Labels | Description |
 | --- | --- | --- | --- |
-| 11 | MOSI | SDO, SDA | Master Out SLave In |
-| 9 | MISO | SDI | Master In Slave Out |
-| 7 | CLK | SCL, SCLK |Clock |
-| 12 | SS | Chip Select |
-
+| 11 | MOSI | SDO, SDA | Master Out Slave In – Data sent from the master to the slave. |
+| 9 | MISO | SDI | Master In Slave Out – Data sent from the slave to the master. |
+| 7 | CLK | SCL, SCLK | Clock – Synchronizes communication between the master and the slave. |
+| 12 | SS | Chip Select | Used by the master to select the active slave. |
 
 > [!TIP]
-> Since the *S2 Mini* is pin-compatible to *D1 Mini*, you can simply look up pins for the *D1 Mini* if you can't find documentation for *ESP32-S2*. Documentation for *D1 Mini* is much more readily available.
+> Since the *S2 Mini* is pin-compatible with the *D1 Mini*, you can refer to *D1 Mini* documentation when specific details for the *ESP32-S2* are unavailable. Documentation for the *D1 Mini* is more widely available.
 
+### Pins and Compatible Shields
 
-
-
-
-
-### Pins And Compatible Shields
-
-The board comes with 32 pins in 2x2 rows of 8. The *outer* pins are *compatible with ESP8266 D1 Mini* pins. *D1 Mini-compatible shields* can therefore be used with the *S2 Mini* as well:
+The *S2 Mini* board has 32 pins organized in two rows of 16 pins each. The *outer* row of pins is compatible with the *ESP8266 D1 Mini*. This allows the *S2 Mini* to use existing *D1 Mini-compatible shields* seamlessly.
 
 <img src="images/s2_pins.png" width="100%" height="100%" />
 
-In an effort to maintain *maximum backwards compatibility*, the *S2 Mini* board designers changed the order of some *pin pairs*: pins *2-11* are always located on the board in *pairs*, i.e. *2/3*, *4/5*, *6/7*, *8/9*, *10/11*. For some pins, this scheme is reversed: pins *12* and *13* are located as *13/12* instead of *12/13* to preserve pin compatibility to the *D1 Mini*:
+To ensure maximum backwards compatibility, the *S2 Mini* designers rearranged certain pin pairs. Pins *2-11* are organized in *pairs* (e.g., *2/3*, *4/5*, *6/7*, *8/9*, *10/11*). However, some pairs are reversed; for example, *12* and *13* are placed as *13/12* instead of *12/13*. This adjustment ensures that both *11* and *12* (which are used for the *hardware SPI interface*) remain accessible when using *D1 Mini-compatible shields*.
 
-Only the *outer* pins match the *D1 Mini* pins (as the two inner lines of pins were added). Both pin *11* and *12* are used for the *hardware SPI interface* though. If the board designers would not have switched pins *12* and *13* around, then pin *12* would have been located on the *inner* lines of pins and thus become inaccessible for *D1 Mini*-compatible shields.
-
+Without this reversal, pin *12* would have been located on the *inner* rows and become inaccessible for *D1 Mini* shields.
 
 <img src="images/esp32_s2_shield_pns_top_t.png" width="80%" height="80%" />
 
-
-This allows users to continue to use i.e. *battery shields* to add *charging* and battery power supply via existing *D1 Mini Shields* for *portable projects*:
-
+This compatibility enables the use of *battery shields* for adding charging functionality and battery power supply, making it easier to create portable projects.
 
 <img src="images/esp32_s2_shield_side_t.png" width="40%" height="40%" />
 
-
 > [!CAUTION]
-> *Software-configurable* pins (such as *GPIOs* and the pin for the built-in *LED*) are **not compatible** with *ESP8266 D1 Mini*. Since these pins can be adjusted freely in software in the *S2*, converting software from *ESP8266 D1 Mini* to *S2 Mini* is a matter of checking and potentially reassigning pin numbers.
+> Some *software-configurable* pins (like the GPIO pins and the built-in LED pin) are **not compatible** with the *ESP8266 D1 Mini*. When converting software from the *ESP8266 D1 Mini* to the *S2 Mini*, ensure that pin numbers are reviewed and reassigned as necessary.
 
 ### S2 Mini Pinout
 
+The pin numbers printed on the backside of the *S2 Mini* breakout board correspond to the exposed *GPIO* numbers. For instance, the pin marked *1* represents *GPIO1*.
 
-The pin numbers printed on the backside of the breakout board represent the exposed *GPIO* numbers. I.e., pin marked *1* represents *GPIO1*.
-
-
-
-| Pin |  Remark | Description |
-| --- |  --- | --- |
+| Pin | Remark | Description |
+| --- | --- | --- |
 | EN | | Reset button |
-| 3V3 | | direct power supply to CPU |
-| VBUS | | connected to ME6211C33 voltage regulator |
-| 0 | not exposed | Boot button pulls it low |
-| 1-6 |  | general purpose: analog input (ADC1) and digital in/output |
-| 7 | SPI SCK | general purpose: analog input (ADC1) and digital in/output |
-| 8 | | general purpose: analog input (ADC1) and digital in/output |
-| 9 | SPI MISO | general purpose: analog input (ADC1) and digital in/output |
-| 10 | | general purpose: analog input (ADC1) and digital in/output |
-| 11 | SPI MOSI | general purpose: analog input (ADC2) and digital in/output |
-| 12 | SPI SS | general purpose: analog input (ADC2) and digital in/output |
-| 13-14 | | general purpose: analog input (ADC2) and digital in/output |
-| 15 | internal LED | general purpose: analog input (ADC2) and digital in/output |
-| 16 | | general purpose: analog input (ADC2) and digital in/output |
-| 17 | DAC1 | general purpose: analog input (ADC2) and digital in/output |
-| 18 | DAC2 | general purpose: analog input (ADC2) and digital in/output |
-| 19, 20 | not exposed | *USB D1/D2*, connected to the *USB C* connector | 
-| 21 | | general purpose digital in/output |
-| 33 | I2C SDA | general purpose digital in/output |
-| 34 | | general purpose digital in/output |
-| 35 | I2C SCL | general purpose digital in/output|
-| 36-40 | | general purpose digital in/output |
-
-
+| 3V3 | | Direct power supply to the CPU |
+| VBUS | | Connected to the ME6211C33 voltage regulator |
+| 0 | Not exposed | Boot button pulls this pin low |
+| 1-6 | | General-purpose: Analog input (ADC1) and digital input/output |
+| 7 | SPI SCK | General-purpose: Analog input (ADC1) and digital input/output |
+| 8 | | General-purpose: Analog input (ADC1) and digital input/output |
+| 9 | SPI MISO | General-purpose: Analog input (ADC1) and digital input/output |
+| 10 | | General-purpose: Analog input (ADC1) and digital input/output |
+| 11 | SPI MOSI | General-purpose: Analog input (ADC2) and digital input/output |
+| 12 | SPI SS | General-purpose: Analog input (ADC2) and digital input/output |
+| 13-14 | | General-purpose: Analog input (ADC2) and digital input/output |
+| 15 | Internal LED | General-purpose: Analog input (ADC2) and digital input/output |
+| 16 | | General-purpose: Analog input (ADC2) and digital input/output |
+| 17 | DAC1 | General-purpose: Analog input (ADC2) and digital input/output |
+| 18 | DAC2 | General-purpose: Analog input (ADC2) and digital input/output |
+| 19, 20 | Not exposed | *USB D1/D2*, connected to the *USB-C* connector | 
+| 21 | | General-purpose digital input/output |
+| 33 | I2C SDA | General-purpose digital input/output |
+| 34 | | General-purpose digital input/output |
+| 35 | I2C SCL | General-purpose digital input/output |
+| 36-40 | | General-purpose digital input/output |
 
 > [!CAUTION]
-> The *ADC2* (and thus *analog inputs* at *GPIO11-GPIO18*) can only be used when *WiFi* is *disabled*.
-
-
-
+> The *ADC2* (used for analog inputs on *GPIO11-GPIO18*) is only available when *WiFi* is disabled. This limitation is due to shared hardware resources.
 
 <img src="images/esp32_s2_shield_pins_angle_t.png" width="80%" height="80%" />
 
-## Prototyping
 
-The *S2 Mini* uses *dual line header pins* (2x8 pins on both sides for a total of 32 pins).
-
-
-<img src="images/s2_mini_dual_header_t.png" width="40%" height="40%" />
-
-
-This design was necessary to keep the *hardware compatibility* to the predecessor *ESP8266 D1 Mini* board: the *outer* 8-pin headers match the header pins in a *ESP8266 D1 Mini* (for power and *GND* pins at least).
-
-You cannot of course use *dual line header pins* with a prototyping bread board as this would *short circuiting* both header pin lines.
-
-### Soldering Header Pins
-
-For prototyping, it makes most sense to solder the *outer* header pins normally for a *ESP8266 D1 Mini*-compatible foot print. 
-
-
-<img src="images/esp32_s2_prototyping_t.png" width="40%" height="40%" />
-
-
-The *inner* header pins should *not be connected* to the bread board. Instead, solder the header pins *on top*: this way, the additional pins can be connected using *female DuPont cables*.
-
-
-
-
-<img src="images/esp32_s2_prototyping2_t.png" width="40%" height="40%" />
 
 
 ## Fixing Missing Pins
 
-When programming the *S2 Mini* in *platform.io*, the translation between true *hardware pins* and *common pin labels* is performed automatically: the *IDE* looks up the appropriate version of the file *pins_arduino.h* in the folder *%USERPROFILE%\\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini*.
+## Fixing Missing Pins
+
+When programming the *S2 Mini* in *PlatformIO*, the translation between the true *hardware pins* and the *common pin labels* is handled automatically. The *IDE* refers to the appropriate version of the file `pins_arduino.h` in the folder: `%USERPROFILE%\\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini`.
 
 ### Pin Declarations Missing
 
-At the time of this writing, the appropriate file *pins_arduino.h* does exit but is incomplete. It does not define the *common pin labels* for all *digital pins*. 
+At the time of this writing, the `pins_arduino.h` file exists but is incomplete. It does not define the *common pin labels* for all *digital pins*.
 
-Whenever you try and compile source code that refers to a **D*x*** pin, compilation files with an exception.
+If your source code refers to a **D*x*** pin (e.g., `D2`) and you try to compile it, the compilation will fail with an exception because these labels are undefined.
 
-There does not seem to exist an *officially updated version* of this file. To fix, you have two choices:
+Currently, no *officially updated version* of this file is available. To resolve this issue, you have two options:
 
-* **Quick Fix:** Replace the *common pin labels* in the code with the actual *hardware pin* numbers. Since with *S2 Mini* the numbers are identical, you would i.e. change *D2* by *2*. If you do this, the code will compile but is now *specific* for *S2 Mini* and will no longer work on different microcontroller boards.
-* **Permanent Fix:** Open the file *%USERPROFILE%\.platformio\packages\framework-arduinoespressif32\variants\lolin_s2_mini\pins_arduino.h* in a text editor, and add the missing declarations. You find an example below. When you do this, you might lose your changes with the next update of the *espressif32 arduino framework*, though.
+1. **Quick Fix:**  
+   Replace the *common pin labels* in your source code with the actual *hardware pin* numbers. For example, change `D2` to `2`. Since the *S2 Mini* uses hardware pin numbers directly, this approach works. However, it makes your code specific to the *S2 Mini*, meaning it will no longer work on other microcontroller boards.
+
+2. **Permanent Fix:**  
+   Open the file `pins_arduino.h` in a text editor and manually add the missing declarations. Below is an example of the declarations you can add. Be aware that your changes may be overwritten during future updates to the *Espressif32 Arduino framework*.
+
 
 ````c++
 #ifndef Pins_Arduino_h
@@ -382,26 +432,53 @@ static const uint8_t DAC2 = 18;
 
 #endif /* Pins_Arduino_h */
 ````
-
 ## Uploading Firmware
-These are the steps to upload new firmware to *S2 Mini* using *platformio*:
 
-1. Connect *S2 Mini* to computer using USB-C cable. Make sure to use a *data cable* and not just a *power cable*.
-2. Hold button *0*, then short-press button *RST*. Once you release button *RST*, the computer should play the sound for *new USB device discovery*.
-3. Upload the firmware in *platformio* by clicking *Upload*. *Platformio* will search for a port, then force the *S2 Mini* in reset, and then find a port and upload the sketch.
-4. Once the upload is done, short-press *RST* again. Now, the sketch should execute.
+Follow these steps to upload new firmware to the *S2 Mini* using *PlatformIO*:
 
-If the *S2 Mini* is *not recognized* by your computer (no "new USB device" sound plays after you pressed the keys as described above), make sure the *USB cable* is fully plugged in, try and reverse the plugs, and use a different cable. Apparently, the *USB connectors* on this board do not always have proper contact. Trying with a different *USB cable* often solve the issue.
+1. **Connect the Board**:  
+   Use a USB-C cable to connect the *S2 Mini* to your computer. Ensure the cable is a *data cable* and not a *power-only cable*.
+
+2. **Enter Flash Mode**:  
+   - Hold down the *0* button.
+   - While holding *0*, short-press the *RST* button.
+   - Release the *RST* button. Your computer should play the sound indicating *new USB device discovery*.
+
+3. **Upload the Firmware**:  
+   - In *PlatformIO*, click the *Upload* button.  
+   - *PlatformIO* will automatically:
+     - Search for a port.
+     - Reset the *S2 Mini*.
+     - Find the port again and upload the firmware.
+
+4. **Execute the Sketch**:  
+   Once the upload completes, short-press the *RST* button again. The uploaded sketch should now execute.
+
+
+
+### Troubleshooting USB Recognition Issues
+
+If the *S2 Mini* is not recognized by your computer (e.g., no "new USB device" sound plays after following the above steps), try the following:
+
+- Ensure the *USB cable* is fully plugged in at both ends.
+- Reverse the plugs (try flipping the cable's orientation if possible).
+- Use a different USB-C cable. Some cables may not make proper contact due to low-quality connectors.
 
 > [!TIP]
-> If changing the *USB cable* does not help, *reboot* your *PC*. It is *frequently* the case that *USB communications* fail over time, or that other running software blocks *USB discovery*. *Rebooting* the *PC* can then solve the issue which is not at all related to this particular board. It is related to *USB* and can occur with (any) microcontroller board/type that is using *USB*.
+> If changing the USB cable does not resolve the issue, try rebooting your computer. USB communication can sometimes fail over time, or other running software may interfere with USB device discovery. A reboot often resolves these unrelated USB issues, which can occur with any microcontroller board.
 
-If the issue still persists, check to see whether the board gets warmer as usual. The build quality of these boards is not always great, and there have been instances where solder residue was short-circuiting CPU contacts. Closely inspect the board and all solderings.
+If the problem persists, check if the board is unusually warm. Poor build quality in some *S2 Mini* units may cause issues such as solder residue short-circuiting the CPU contacts. Inspect the board closely, paying attention to solder joints and potential defects.
+
 
 ### ESPHome
-For flashing *S2 Mini* in [ESPHome](https://done.land/tools/software/esphome), the [ESPHome Web Tool](https://web.esphome.io/) is **incompatible** with this board and does not work (as of this writing). Use this [workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning) instead to upload *ESPHome firmware* or to provision the board with the generic *ESPHome firmware*. 
 
-Once you have successfully uploaded *ESPHome firmware* at least **once** via *USB cable*, you can then use *OTA* to wirelessly upload any future firmware updates, effectively bypassing the *S2 Mini USB incompatibilities*.
+To flash the *S2 Mini* with [ESPHome](https://esphome.io/), note the following:
+
+- The [ESPHome Web Tool](https://web.esphome.io/) is **incompatible** with this board (as of this writing).
+- Use the [manual provisioning workaround](https://esphome.io/guides/manual-provisioning.html) to upload the ESPHome firmware or to provision the board with the generic ESPHome firmware.
+
+Once the ESPHome firmware has been successfully uploaded via USB at least **once**, you can use *Over-The-Air (OTA)* updates for future firmware uploads. This approach bypasses the *S2 Mini USB incompatibilities* entirely for subsequent updates.
+
 
 ## Materials
 

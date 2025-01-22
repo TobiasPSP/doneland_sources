@@ -5,8 +5,15 @@
 > Rectangular 320x240 TFT Display With SPI, 262K Colors (18bit), SD-Card REader, And Optional Touch Support
 
 
-This popular breakout board uses a [2.8" 320x240 TFT display](materials/qd-tft2803_datasheet.pdf) with a large display area (*43.2mm x 57.6mm*) at good pixel density. It comes with voltage regulators to support both *3.3V* and *5V*. 
+This popular breakout board uses a [2.8" 320x240 TFT display](materials/qd-tft2803_datasheet.pdf) with a large display area (*43.2mm x 57.6mm*) at good pixel density. It comes with voltage regulators to support both *3.3V* and *5V*.
 
+
+
+<img src="images/msp2807_display_jumper.png" width="100%" height="100%" />
+
+
+> [!IMPORTANT]
+> The board has a jumper marked **J1** on the backside. When this jumper is *open*, the board runs *VCC* through a voltage regulator, and *VCC* is expected to be *5V*. When the jumper is *closed*, the voltage regulator is bypassed, and *VCC* should be *3.3V*. SPI Logic Levels should always be *3.3V*, so with *5V* microcontrollers, use *1K* resistors or a logic level shifter.
 
 <img src="images/msp2807_display_comparison_t.png" width="70%" height="70%" />
 
@@ -51,6 +58,22 @@ This board uses [SPI](https://done.land/fundamentals/interface/spi/) to control 
 
 <img src="images/msp2807_display_overview2_t.png" width="70%" height="70%" />
 
+## Power Supply
+The board can be operated with *either 5V or 3.3V*. The input voltage is controlled via jumper **J1** on the backside of the board.
+
+By default, **J1** is open. The input voltage is sent to a voltage regulator which then lowers the voltage internally to *3.3V*.
+
+
+<img src="images/msp2807_display_jumper.png" width="100%" height="100%" />
+
+
+When you operate the board with *3.3V*, **close the jumper** to bypass the voltage regulator. If you leave the jumper open, the voltage regulator further reduces the voltage to below *3V*. This may still be enough to operate the board. However, the backlight might be considerably darker.
+
+
+> [!IMPORTANT]
+> The jumper **J1** just controls the *VCC* pin, not the *SPI* pins. When you use this board with a *5V* microcontroller, make sure you use a *logic level shifter* or at least *1K* resistors for the *SPI* lines.    
+
+
 ## Pins
 
 Since the breakout board optionally supports *touch*, there are 14 interface pins. Only nine of them are used for the board and display. The remainder are used by the *touch controller* (if present).
@@ -67,7 +90,7 @@ On the other side of the board, there are four additional through-holes that can
 
 | Pin | Description | 
 | --- | --- | 
-| VCC | *3.3V*/*5V* | 
+| VCC | *3.3V* (jumper *J1* is **closed**) / *5V* (jumper *J1* is **open**) | 
 | GND | *ground* | 
 | CS | Chip select (*low active*) | 
 | RESET | Reset | 
@@ -81,7 +104,14 @@ On the other side of the board, there are four additional through-holes that can
 
 
 ### Touch Pins
-These pins can be used for boards that have a *touch controller chip* (**U2**). On boards where **U2** is not equipped with a chip, they are without function.
+These pins can be used for boards that have a *touch controller chip* (**U2** has a chip). 
+
+
+
+<img src="images/msp2807_display_touch.png" width="100%" height="100%" />
+
+
+On boards where **U2** is not equipped with a chip, they are without function.
 
 | Pin | Description | 
 | --- | --- | 
@@ -150,4 +180,4 @@ The display boards use the [ILI9341](https://done.land/components/humaninterface
 
 > Tags: Display Driver, ILI9341, TFT Display, Full Color, 18bit, 262K, SPI, 2.8 Inch, MSP2806, MSP2807
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/tft/ili9341/2.8inch320x240?176165011419254712) - created 2025-01-18 - last edited 2025-01-18
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/ili9341/2.8inch320x240?176165011419254712) - created 2025-01-18 - last edited 2025-01-21
