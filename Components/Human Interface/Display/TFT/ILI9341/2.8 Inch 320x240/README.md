@@ -150,3 +150,4 @@ The display boards use the [ILI9341](https://done.land/components/humaninterface
 
 > Tags: Display Driver, ILI9341, TFT Display, Full Color, 18bit, 262K, SPI, 2.8 Inch, MSP2806, MSP2807
 
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/ili9341/2.8inch320x240?176165011419254712) - created 2025-01-18 - last edited 2025-01-18

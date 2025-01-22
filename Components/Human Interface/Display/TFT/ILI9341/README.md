@@ -147,3 +147,5 @@ This way, when you send your device to full deep sleep, the display would still 
 In any case, your *deep sleeping* device would have a running display with static content at just about *20mA* power consumption (with basically only the backlight LEDs consuming power).
 
 > Tags: Display Driver, Resolution, ST7789
+
+[Visit Page on Website](https://done.land/components/humaninterface/display/tft/ili9341?159211011419254712) - created 2025-01-18 - last edited 2025-01-18
