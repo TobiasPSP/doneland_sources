@@ -80,4 +80,4 @@ Modern microcontrollers like the *ESP32* family run on *3.3V* and do not require
 
 > Tags: Display, I2C
 
-[Visit Page on Website](https://done.land/components/humaninterface/display/usage/i2c?124774011323251131) - created 2025-01-22 - last edited 2025-01-22
+[Visit Page on Website](https://done.land/components/humaninterface/display/usage/connecting/i2c?124774011323251131) - created 2025-01-22 - last edited 2025-01-22
