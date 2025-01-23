@@ -1,5 +1,7 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- # S2 Mini
+
+
+# S2 Mini
 
 > Powerful ESP32-S2 Board That Works With ESP8266 Shields
 
@@ -57,6 +59,8 @@ It blends these features with some of the best features of the *ESP32* world:
 | Bluetooth                               | -           |
 | Demanding calculations                  | -           |
 | Multi-tasking                           | -           |
+
+
 ### Caveats
 
 The *ESP32-S2 Mini* offers **exceptional value for its price**, but it may not always be *beginner-friendly*.  
@@ -65,12 +69,10 @@ For example, a common issue with this board is its unreliable switching between 
 
 You may need to manually hold button *0* (Boot) while pressing the *Reset* button to have your PC recognize the board. Simply plugging it in may not result in your PC detecting a new USB device.  
 
-Given the *ESP32-S2 Mini's* unique traits, here are the top three common problems and how you can elegantly work around them:
+Given the *ESP32-S2 Mini's* unique traits, here are the top four common problems and how you can elegantly work around them:
 
 
-<details><summary>3 Most Common Issues - And Workarounds</summary><br/>
-
----
+<details><summary>4 Most Common Issues - And Workarounds</summary><br/>
 
 
 ### Issue #1: Expansion Board
@@ -83,7 +85,6 @@ Use two rows of 8-pin female *headers* (2.54mm pitch). These headers allow for r
 
 <img src="images/esp32-s2_mini_devboard-removebg-preview.png" width="100%" height="100%" />
 
----
 
 ### Issue #2: Wacky Native USB
 
@@ -106,15 +107,17 @@ Here are the real-world situations in which you need to apply this knowledge:
 * **IDE like ArduinoIDE/platformio:** right before your IDE wants to upload new firmware, you need to manually switch the board to *firmware upload mode*. Once the firmware has been uploaded, you need to manually press *Reset* to return back to normal mode.
 * **ESPHome:** when trying to provision a new *ESP32-S2* with the [ESPHome Web Tools](https://web.esphome.io/), you must manually switch the board to *firmware upload mode*. Once the microcontroller has been provisioned, and the *ESPHome* firmware has been uploaded, you need to manually press *Reset* to return to normal mode. Only then will you be able to visit the device or open its log (as all of this is handled by the custom firmware and not the bootloader). 
 
-> Even before *ESPHome* officially adopted *ESP32-S2* support, there was a [manual workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning).
 
 #### Workaround
 
 Understand the purpose of the buttons *0* and *Reset*, and make sure you switch the board to the appropriate mode manually when uploading new firmware.
 
+If you cannot upload a binary firmware from another source, check out this  [manual workaround](https://done.land/tools/software/esphome/introduction/manualprovisioning) that was used before *ESPHome* natively supported *ESP32-S2*. It shows the general tools and steps you can use to upload any compatible binary firmware file.    
 
 
-### Inherent Limitations
+
+
+### Issue #3: Inherent Limitations
 
 The *ESP32-S2* has certain limitations compared to other members of the *ESP32* family:
 
@@ -125,9 +128,9 @@ The *ESP32-S2* has certain limitations compared to other members of the *ESP32* 
 
 Do not select this board if your project requires *Bluetooth*. For WiFi-intensive applications, test your use case thoroughly to ensure acceptable performance.
 
----
 
-### Issue #3: Incomplete IDE Support
+
+### Issue #4: Incomplete IDE Support
 
 Despite its affordability and unique features, the *ESP32-S2 Mini* has yet to gain widespread popularity. As a result, support for the board in community-driven open-source projects can be incomplete. For example, the *pins_arduino.h* file included in the *Espressif ESP32 Arduino Core* may require manual updates to enable intuitive pin labels like *D0* and *D1*.
 
@@ -138,6 +141,19 @@ Despite its affordability and unique features, the *ESP32-S2 Mini* has yet to ga
 3. **Use raw GPIO numbers**: Refer to the actual GPIO numbers directly in your code.
 
 </details>
+
+## Expansion Board
+
+Due to its two header rows on each side, the *ESP32-S2 Mini* cannot be plugged into a normal breakout board.
+
+The easiest workaround is to get two double-row 8-pin female *header sockets* (2.54mm pitch), and solder them onto the front side of the PCB.
+
+<img src="images/esp32-s2_mini_devboard-removebg-preview.png" width="100%" height="100%" />
+
+This way, you can use regular *DuPont* wires for prototyping, essentially turning your *ESP32-S2 Mini* into a miniature breakout board. 
+
+> [!IMPORTANT]
+> Make sure to use decent solder temperatures: there are a lot of pins to solder, so the PCB can heat up easily. When the PCB gets too hot, sensitive components may be damaged. ALso, make sure no solder is dripping through the through-holes, potentially causing short circuits underneath the *header socket*.   
 
 
 
@@ -223,6 +239,8 @@ Power regulation is managed by the *ME6211C33* voltage regulator:
 | Input Voltage | 4.7-6.5V |
 | Operating Voltage | 2-6V |
 | Max Current | 500mA @ 4.3V input / 3.3V output |
+
+
 ## Hardware I2C Interface
 Any pin can *emulate* an *I2C* interface (or define additional ones). However, only the *hardware I2C interface* uses optimized hardware that reduces load on the microcontroller and operates at higher speeds.
 
@@ -298,9 +316,6 @@ The pin numbers printed on the backside of the *S2 Mini* breakout board correspo
 <img src="images/esp32_s2_shield_pins_angle_t.png" width="80%" height="80%" />
 
 
-
-
-## Fixing Missing Pins
 
 ## Fixing Missing Pins
 
