@@ -1,45 +1,68 @@
 <img src="/assets/images/screenwire.png" width="100%" height="100%" />
-
 # Connecting Displays
 
-> Successfully Connecting Displays To Microcontroller Boards
+> Successfully Connecting Displays to Microcontroller Boards
 
-Getting a new *display* is exciting, but not always purely in a positive sense: each display board may use differently ordered pins, voltages, variations in pin names, different driver chips, and interfaces.
+Getting a new *display* is exciting, but it can also feel daunting. Display boards often have variations in pin order, voltage requirements, pin naming, driver chips, and communication interfaces. 
 
-If you did *everything* right, your display works beautifully, however if you do *just one thing* wrong, nothing works. Since connecting a display involves multiple caveats, it is easy to fail without proper documentation and experience.
+If you connect everything correctly, the display works beautifully. However, a single misstep can result in nothing working. Given the multiple caveats involved, successful connection requires proper documentation and some experience.
 
-In this section you learn how to successfully connect your display to a microcontroller board.
+This section will guide you through the process of connecting a display to a microcontroller board.
 
 ## Overview
 
-Most displays use either the two-wire [I2C](https://done.land/fundamentals/interface/i2c/) interface, or the three- or four-wire [SPI](https://done.land/fundamentals/interface/spi/) interface. Other connection types exist, i.e. *parallel interfaces*, but are less common due to their high number of required *GPIOs*.
+Most displays use one of two common communication interfaces:
 
-### Interface
+- **[I2C](https://done.land/fundamentals/interface/i2c/):** A two-wire interface.
+- **[SPI](https://done.land/fundamentals/interface/spi/):** A three- or four-wire interface.
 
-The *interface* is used to control the display content. Typically, a *display board* exposes *one* of these *two* interfaces:
+Less common options include parallel interfaces, which require a large number of GPIO pins, making them less practical for many applications.
 
-* **I2C:** very simple to use, typically used with small monochrome displays. If you are new to displays, start with affordable and simple monochrome *OLED displays* that use *I2C*.
-* **SPI:** used by color displays. Almost all *TFT displays* use *SPI*. *SPI* is faster and can handle the large amounts of data required for large and/or color displays.
+### Interface Types
+
+The *interface* controls how the microcontroller communicates with the display. Typically, display boards use one of these two interfaces:
+
+- **I2C:** 
+  - Simple to use and ideal for beginners.
+  - Often used with small monochrome displays.
+  - If you’re new to displays, starting with an affordable monochrome *OLED display* that uses *I2C* is a good choice.
+  
+- **SPI:**
+  - Faster and capable of handling larger amounts of data.
+  - Used by most *TFT displays*, which are often color displays.
+  - Essential for projects involving large or color-intensive displays.
 
 ### Support Pins
 
-In addition to the basic interface pins, additional pins may be needed, especially with *TFT displays* that almost always use the *SPI* interface:
+In addition to interface pins, many displays require additional support pins, especially *TFT displays* that commonly use the *SPI* interface:
 
-* **Data/Command:** Often present with displays that use the *SPI* interface. This pin tells the display when the microcontroller is sending control instructions (rather than display content): *data* or *command*.
+- **Data/Command (D/C):**  
+  - Found on most *SPI* displays.  
+  - Used to distinguish between control instructions (commands) and display content (data).  
 
-* **Backlight:** *TFT displays* need an active backlight. It can either be connected directly to an appropriate voltage, or connected to a *GPIO* capable of output. The latter is needed if you want to control the brightness of the backlight. 
+- **Backlight:**  
+  - *TFT displays* require an active backlight.  
+  - This pin can be connected directly to a voltage source or a GPIO pin if brightness control is desired.
 
-* **Reset:** some displays expose a *reset* pin that can be used to *reset* the display controller. This pin needs to be *high* during normal operation.
+- **Reset:**  
+  - Some displays include a reset pin for reinitializing the display controller.  
+  - This pin must remain *high* during normal operation.
 
-When adding these pins, it becomes clear that the type of display and interface determines the number of valuable output *GPIOs* that you need to invest.
+The type of display and interface determines how many GPIO pins you need to allocate.
 
-| Interface | Required GPIOs (output) |
-| --- | --- |
-| I2C | 2 |
-| SPI | 6-7 |
+| Interface | Required GPIOs (Output) |
+|-----------|--------------------------|
+| I2C       | 2                        |
+| SPI       | 6-7                      |
 
-Adding the power cables, a 4-wire SPI display requires 9 wires and 7 *GPIOs*, whereas a simple *I2C* display just requires 4 wires and 2 *GPIOs*.
+### Wiring Summary
 
+Including power connections:
+
+- A 4-wire SPI display requires **9 wires** and **7 GPIO pins**.
+- A simple *I2C* display requires just **4 wires** and **2 GPIO pins**.
+
+Choosing the right display and understanding its requirements is key to a successful connection.
 
 > Tags: Display, Interface, Connect, I2C, SPI, TFT, OLED
 

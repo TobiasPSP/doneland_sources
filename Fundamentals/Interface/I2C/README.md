@@ -15,8 +15,7 @@ Components requiring higher data rates (such as color displays) typically use [S
 
 ### I2C GPIOs
 
-Most microcontrollers support *I2C* through designated *hardware GPIOs* as well as freely assignable *software GPIOs*.
-
+With *I2C*, there are two pins that need to be connected to your microcontroller:
 
 | Pin Label   | Alternate Labels    |Description |
 |---------|-----------------------------------------------------------------------------|----|
@@ -59,6 +58,184 @@ Here are the GPIOs **typically** used for hardware *I2C* across some of the popu
 
 
 When you are using a microcontroller that supports *I2C pin reassignments*, make sure you use a freely available *GPIO* that can *read* and *write* and has a built-in pull-up resistor.
+
+
+### Well-Known I2C Addresses
+Before you can access a *I2C* device, you need to know its specific *I2C address*. *I2C* devices typically use a fixed address. Some devices allow you to select an address, i.e. via a series of solder bridges.
+
+If you do not know your devices' *I2C* address, start with a *well-known standard address* for the particular device class. If it is for example a monochrome *OLED display*, use `0x3c`, and if this does not work, try `0x3d`.
+
+If that does not work, or you do not know the well-known *I2C* address for your device class, look up the address in a list:
+
+
+<details><summary>List of well-known I2C addresses</summary><br/>
+
+
+| I2C Address | Device Type |
+| --- | --- |
+| 0x0c | AK8975 |
+| 0x0d | AK8975 |
+| 0x0e | AK8975, IST-8310, MAG3110 |
+| 0x0f | AK8975 |
+| 0x10 | LM25066, VEML6075, VEML7700, VML6075 |
+| 0x11 | LC709203F, LM25066, SAA5243P/E, SAA5243P/H, SAA5243P/K, SAA5243P/L, SAA5246, Si4713 |
+| 0x12 | LM25066, PMSA003I, SEN-17374 |
+| 0x13 | LM25066, SEN-17374, VCNL40x0 |
+| 0x14 | LM25066 |
+| 0x15 | LM25066 |
+| 0x16 | LM25066 |
+| 0x17 | LM25066 |
+| 0x18 | 47L04/47C04/47L16/47C16, COM-15093, LIS3DH, LSM303, MCP9808 |
+| 0x19 | COM-15093, LIS3DH, LSM303, MCP9808 |
+| 0x1a | 47L04/47C04/47L16/47C16, MCP9808 |
+| 0x1b | MCP9808 |
+| 0x1c | 47L04/47C04/47L16/47C16, FXOS8700, MCP9808, MMA845x, SAA7706H |
+| 0x1d | ADXL345, FXOS8700, MCP9808, MMA845x |
+| 0x1e | 47L04/47C04/47L16/47C16, FXOS8700, HMC5883, LSM303, LSM303, MCP9808 |
+| 0x1f | FXOS8700, MCP9808 |
+| 0x20 | Chirp!, FXAS21002, HW-061, MA12070P, MCP23008, MCP23017, PCA6408A, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x21 | FXAS21002, HW-061, MA12070P, MCP23008, MCP23017, PCA6408A, PCF8574, PCF8575, SAA4700, TCA9554, XD8574A |
+| 0x22 | HW-061, MA12070P, MCP23008, MCP23017, PCA1070, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x23 | BH1750FVI, HW-061, MA12070P, MCP23008, MCP23017, PCF8574, PCF8575, SAA4700, TCA9554, XD8574A |
+| 0x24 | HW-061, MCP23008, MCP23017, PCD3311C, PCD3312C, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x25 | HW-061, MCP23008, MCP23017, PCD3311C, PCD3312C, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x26 | HW-061, MCP23008, MCP23017, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x27 | HIH6130, HW-061, MCP23008, MCP23017, PCF8574, PCF8575, TCA9554, XD8574A |
+| 0x28 | BNO055, CAP1188, DS1841, DS1881, DS3502, FS3000, MCP4532, PM2008 |
+| 0x29 | BNO055, CAP1188, DS1841, DS1881, DS3502, MCP4532, TCS34725, TSL2591, VL53L0x, VL6180X |
+| 0x2a | CAP1188, DS1841, DS1881, DS3502, MCP4532 |
+| 0x2b | CAP1188, DS1841, DS1881, DS3502, MCP4532 |
+| 0x2c | AD5248, AD5251, AD5252, CAP1188, CAT5171, DS1881, MCP4532 |
+| 0x2d | AD5248, AD5251, AD5252, CAP1188, CAT5171, DS1881, MCP4532, ST25DV16K |
+| 0x2e | AD5248, AD5251, AD5252, DS1881, LPS22HB, MCP4532 |
+| 0x2f | AD5243, AD5248, AD5251, AD5252, DS1881, MCP4532 |
+| 0x30 | SAA2502 |
+| 0x31 | SAA2502 |
+| 0x32 | ZMOD4410, ZMOD4450 |
+| 0x33 | MLX90640, ZMOD4510 |
+| 0x36 | MAX17048, MAX17048 |
+| 0x38 | AHT10, AHT20, BMA150, FT6x06, PCF8574AP, RRH46410, SAA1064, SEN-15892, VEML6070 |
+| 0x39 | APDS-9960, PCF8574AP, SAA1064, TSL2561, VEML6070 |
+| 0x3a | MLX90632, PCF8574AP, PCF8577C, SAA1064 |
+| 0x3b | PCF8569, PCF8574AP, SAA1064 |
+| 0x3c | PCF8569, PCF8574AP, PCF8578, SH1106, SSD1305, SSD1306 |
+| 0x3d | PCF8574AP, PCF8578, SH1106, SSD1305, SSD1306 |
+| 0x3e | BU9796, PCF8574AP |
+| 0x3f | PCF8574AP |
+| 0x40 | HDC1080, HTU21D-F, HTU31D, INA219, INA260, LM25066, NE5751, PCA9685, PCF8574, Si7021, TDA8421, TDA9860, TEA6300, TEA6320, TEA6330, TMP006, TMP007 |
+| 0x41 | HTU31D, INA219, INA260, LM25066, NE5751, PCA9536, PCA9685, PCF8574, STMPE610, STMPE811, TDA8421, TDA8424, TDA8425, TDA8426, TDA9860, TMP006, TMP007 |
+| 0x42 | HDC1008, INA219, INA260, LM25066, PCA9685, PCF8574, TDA8415, TDA8417, TMP006, TMP007 |
+| 0x43 | HDC1008, INA219, INA260, LM25066, PCA9685, PCF8574, TMP006, TMP007 |
+| 0x44 | HS30xx, INA219, INA260, ISL29125, LM25066, PCA9685, PCF8574, SHT31, STMPE610, STMPE811, TDA4670, TDA4671, TDA4672, TDA4680, TDA4687, TDA4688, TDA4780, TDA8442, TMP006, TMP007 |
+| 0x45 | INA219, INA260, LM25066, PCA9685, PCF8574, SHT31, TDA7433, TDA8376, TMP006, TMP007 |
+| 0x46 | INA219, INA260, LM25066, PCA9685, PCF8574, TDA8370, TDA9150, TMP006, TMP007 |
+| 0x47 | INA219, INA260, LM25066, PCA9685, PCF8574, TMP006, TMP007 |
+| 0x48 | ADS1015, ADS1115, ADS7828, INA219, INA260, LM75b, PCA9685, PCF8574, PN532, STDS75, TMP102 |
+| 0x49 | ADS1015, ADS1115, ADS7828, AS7262, INA219, INA260, LM75b, PCA9685, PCF8574, STDS75, TMP102, TSL2561 |
+| 0x4a | ADS1015, ADS1115, ADS7828, CS43L22, INA219, INA260, LM75b, MAX44009, PCA9685, PCF8574, STDS75, TMP102 |
+| 0x4b | ADS1015, ADS1115, ADS7828, INA219, INA260, LM75b, MAX44009, PCA9685, PCF8574, STDS75, TMP102 |
+| 0x4c | EMC2101, INA219, INA260, LM75b, PCA9685, PCF8574, STDS75 |
+| 0x4d | INA219, INA260, LM75b, PCA9685, PCF8574, STDS75 |
+| 0x4e | INA219, INA260, LM75b, PCA9685, PCF8574, STDS75 |
+| 0x4f | INA219, INA260, LM75b, PCA9685, PCF8574, STDS75 |
+| 0x50 | 47L04/47C04/47L16/47C16, AT24C02N, AT24C64, CAT24C512, FS1015, LM25066, MB85RC, PCA9685 |
+| 0x51 | AT24C02N, AT24C64, CAT24C512, LM25066, MB85RC, PCA9685, PCF8563, VCNL4200 |
+| 0x52 | 47L04/47C04/47L16/47C16, APDS-9250, AT24C02N, AT24C64, CAT24C512, controller, LM25066, MB85RC, Nunchuck, PCA9685, SI1133 |
+| 0x53 | ADXL345, AT24C02N, AT24C64, CAT24C512, LM25066, MB85RC, PCA9685, ST25DV16K |
+| 0x54 | 47L04/47C04/47L16/47C16, AT24C02N, AT24C64, CAT24C512, HS40xx, LM25066, MB85RC, PCA9685 |
+| 0x55 | AT24C02N, AT24C64, CAT24C512, D7S, LM25066, MAX30101, MB85RC, PCA9685, SI1133 |
+| 0x56 | 47L04/47C04/47L16/47C16, AT24C02N, AT24C64, CAT24C512, LM25066, MB85RC, PCA9685 |
+| 0x57 | AT24C02N, AT24C64, CAT24C512, LM25066, MAX3010x, MB85RC, PCA9685, ST25DV16K |
+| 0x58 | LM25066, PCA9685, SGP30, TPA2016 |
+| 0x59 | LM25066, PCA9685, SGP40 |
+| 0x5a | CCS811, CCS811, DRV2605, LM25066, MLX90614, MPR121, PCA9685 |
+| 0x5b | CCS811, CCS811, MPR121, PCA9685 |
+| 0x5c | AM2315, AM2320, BH1750FVI, MPR121, PCA9685 |
+| 0x5d | MPR121, PCA9685, SFA30 |
+| 0x5e | PCA9685 |
+| 0x5f | HTS221, PCA9685 |
+| 0x60 | ATECC508A, ATECC608A, MCP4725A0, MCP4725A1, MCP4728, MPL115A2, MPL3115A2, PCA9685, SAB3035, SAB3037, SI1132, Si1145, Si5351A, TEA5767, TSA5511 |
+| 0x61 | MCP4725A0, MCP4725A1, MCP4728, PCA9685, SAB3035, SAB3037, SCD30, Si5351A, TEA6100, TSA5511 |
+| 0x62 | MCP4725A1, MCP4728, PCA9685, SAB3035, SAB3037, SCD40, SCD40-D-R2, SCD41, TSA5511, UMA1014T |
+| 0x63 | MCP4725A1, MCP4728, PCA9685, SAB3035, SAB3037, Si4713, TSA5511, UMA1014T |
+| 0x64 | MCP4725A1, MCP4725A2, MCP4728, PCA9685 |
+| 0x65 | MCP4725A1, MCP4725A2, MCP4728, PCA9685 |
+| 0x66 | IS31FL3731, LTC4151, MCP4725A1, MCP4725A3, MCP4728, PCA9685 |
+| 0x67 | LTC4151, MCP4725A1, MCP4725A3, MCP4728, PCA9685 |
+| 0x68 | AMG8833, BQ32000, DS1307, DS1371, DS3231, ICM-20948, ITG3200, LTC4151, MCP3422, MPU6050, MPU-9250, MPU-9250, PCA9685, PCF8523, PCF8573, WITTY-PI-3 |
+| 0x69 | 3, AMG8833, ICM-20948, ITG3200, LTC4151, MAX31341, MPU6050, MPU-9250, PCA9685, PCF8573, PI, RRH62000, SPS30, WITTY |
+| 0x6a | L3GD20H, LTC4151, PCA9685, PCF8573 |
+| 0x6b | L3GD20H, LTC4151, PCA9685, PCF8573 |
+| 0x6c | LTC4151, PCA9685 |
+| 0x6d | LTC4151, PCA9685 |
+| 0x6e | LTC4151, PCA9685 |
+| 0x6f | LTC4151, MCP7940N, PCA9685 |
+| 0x70 | HT16K33, PCA9541, PCA9685, SHTC3, TCA9548, TCA9548A, XD8574 |
+| 0x71 | HT16K33, PCA9541, PCA9685, TCA9548, TCA9548A, XD8574 |
+| 0x72 | HT16K33, PCA9541, PCA9685, TCA9548, TCA9548A, XD8574 |
+| 0x73 | HT16K33, PCA9541, PCA9685, TCA9548, TCA9548A, XD8574 |
+| 0x74 | HT16K33, PCA9539, PCA9541, PCA9685, TCA9548, TCA9548A, XD8574 |
+| 0x75 | HT16K33, PCA9539, PCA9541, PCA9685, TCA9548, TCA9548A, XD8574 |
+| 0x76 | BME280, BME680, BME688, BMP280, HT16K33, MS5607, MS5611, PCA9539, PCA9541, PCA9685, SPL06-007, TCA9548, TCA9548A, XD8574 |
+| 0x77 | BMA180, BME280, BME680, BME688, BMP085, BMP180, BMP280, HT16K33, IS31FL3731, MS5607, MS5611, PCA9539, PCA9541, PCA9685, SPL06-007, TCA9548, TCA9548A, XD8574 |
+| 0x78 | PCA9685 |
+| 0x79 | PCA9685 |
+| 0x7a | PCA9685 |
+| 0x7b | PCA9685 |
+| 0x7c | PCA9685 |
+| 0x7d | PCA9685 |
+| 0x7e | PCA9685 |
+| 0x7f | PCA9685 |
+
+
+Here is a [detailed list](https://i2cdevices.org/addresses) with clickable device types for more device information.
+
+</details>
+
+### I2C Scanner
+You can also create yourself a simple *I2C Address Scanner*: upload the following code to a microcontroller, then connect the unknown device to its designated *I2C pins*. The scanner then scans all devices connected to *I2C*, and lists the addresses it found:
+
+````c++
+#include <Wire.h>
+
+// change to the GPIOs you want to use for I2C
+#define SDA_PIN 21
+#define SCL_PIN 22
+
+void setup() {
+  Serial.begin(9600);
+  
+  // Initialize I2C with custom pins
+  Wire.begin(SDA_PIN, SCL_PIN);
+
+  Serial.println("\nI2C Scanner");
+  for (byte address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    byte error = Wire.endTransmission();
+    if (error == 0) {
+      Serial.print("I2C device found at address 0x");
+      if (address < 16) {
+        Serial.print("0");
+      }
+      Serial.println(address, HEX);
+    }
+  }
+}
+
+void loop() {
+  // Nothing to do here
+}
+````
+
+If you are using [ESPHome](https://done.land/tools/software/esphome/), you can use this configuration to achieve the same:
+
+````
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: True
+````
+
 
 
 ### The Roots: Serial
@@ -190,56 +367,8 @@ Each *I2C* peripheral is identified by a unique address:
 If you need to use multiple peripherals that share the same *I2C* address, consider using an *I2C Multiplexer*, such as the *TCA9548A*. A multiplexer can switch between devices, allowing communication with each one individually.
 
 
-### Issue #2: Unknown Device Address
-Some peripherals are not well documented, and you may not know its *I2C* address.
 
-#### Workaround
-Try with a *well-known standard address* for the particular device class. If it is for example a monochrome *OLED display*, use `0x3c`, and if this does not work, try `0x3d`.
-
-Or create yourself a *I2C Address Scanner*: upload the following code to a microcontroller, then connect the unknown device to its designated *I2C pins*. The scanner then scans all devices connected to *I2C*, and lists the addresses it found:
-
-````c++
-#include <Wire.h>
-
-// change to the GPIOs you want to use for I2C
-#define SDA_PIN 21
-#define SCL_PIN 22
-
-void setup() {
-  Serial.begin(9600);
-  
-  // Initialize I2C with custom pins
-  Wire.begin(SDA_PIN, SCL_PIN);
-
-  Serial.println("\nI2C Scanner");
-  for (byte address = 1; address < 127; address++) {
-    Wire.beginTransmission(address);
-    byte error = Wire.endTransmission();
-    if (error == 0) {
-      Serial.print("I2C device found at address 0x");
-      if (address < 16) {
-        Serial.print("0");
-      }
-      Serial.println(address, HEX);
-    }
-  }
-}
-
-void loop() {
-  // Nothing to do here
-}
-````
-
-If you are using [ESPHome](https://done.land/tools/software/esphome/), you can use this configuration to achieve the same:
-
-````
-i2c:
-  sda: GPIO21
-  scl: GPIO22
-  scan: True
-````
-
-### Issue #3: Unreliable Communication
+### Issue #2: Unreliable Communication
 
 *I2C* communication is usually very reliable unless there are hardware issues:
 

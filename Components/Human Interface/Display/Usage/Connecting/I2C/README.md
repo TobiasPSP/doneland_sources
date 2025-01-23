@@ -77,7 +77,32 @@ Most displays internally use *3.3V logic levels* for *SDA* and *SCL*. When your 
 
 Modern microcontrollers like the *ESP32* family run on *3.3V* and do not require level shifter.
 
+## I2C Device Address
+For the programming part, you will also need to know the unique *I2C device address* for your display. It is assigned in hardware by the manufacturer.
 
-> Tags: Display, I2C
+Here is a list of typically used *I2C* addresses for displays. Some display types can use more than one address, so you either need to trial-and-error, or use a *I2C Scanner* to identify the device address.
+
+| I2C Address | Display Type                                         | Description                                         |
+|-------------|------------------------------------------------------|-----------------------------------------------------|
+| `0x20`      | Character LCD                               | Common for 16x2 or 20x4 character LCDs.             |
+| `0x21`      | Character LCD                               | Another common address for 16x2 or 20x4 character LCDs. |
+| `0x27`      | Character LCD                               | 16x2 or 20x4 character LCDs with an I2C backpack.  |
+| `0x38`      | Character LCD                               | Often used for larger HD44780-based displays (e.g., 40x4). |
+| `0x39`      | Character LCD                               | Used for some LCDs with different configuration setups. |
+| `0x3C`      | OLED Display                                | Common for OLED displays using the SSD1306 driver. |
+| `0x3D`      | OLED Display                                | Alternate address for SSD1306 OLED displays.       |
+| `0x3E`      | OLED Display                                | Used for some OLED displays with the SH1106 driver.|
+| `0x1D`      | Color Display                   | Address for some color displays with touch control.|
+| `0x62`      | Character LCD                               | Common address for LCDs with the PCF8576 chip.     |
+| `0x6A`      | TFT Display                     | Address used by some I2C-connected TFT displays.   |
+| `0x73`      | Character LCD                              | Used for LCD displays with the PCF8574T I2C expander. |
+| `0x7A`      | TFT Display                     | Common for some TFT displays with I2C interface.   |
+| `0x7C`      | TFT Display                                  | Often used for TFT displays with I2C interfaces.   |
+| `0x5C`      | TFT Display                                 | Used for TFT displays with certain controllers.    |
+
+
+
+
+> Tags: Display, I2C Address, Pins, GPIO
 
 [Visit Page on Website](https://done.land/components/humaninterface/display/usage/connecting/i2c?124774011323251131) - created 2025-01-22 - last edited 2025-01-22
