@@ -48,7 +48,7 @@ Here is a table with some suggestions:
 | **Arduino Giga R1**        | 20   | 21   | No                       |
 | **Arduino Due**        | 20   | 21   | No                       |
 | **Arduino Mega 2560**  | 20  | 21                      | No                       |
-| **ESP8266**            | 4/D2    | 5/D1    | Yes                      |
+| **ESP8266 Wemos D1 Mini**  | 4/D2    | 5/D1    | Yes                      |
 | **ESP8266-01**            | 0/D5   | GPIO2/D3   | Yes                      |
 | **ESP32**              | 21  | 22  | Yes                      |
 | **ESP32-S2**           | 8   | 9   | Yes                      |
