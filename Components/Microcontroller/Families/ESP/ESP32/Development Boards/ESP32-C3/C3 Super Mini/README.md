@@ -1,13 +1,14 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
+
 # ESP32-C3 Super Mini
 
-> Extremely Compact And Very Affordable Microcontroller Board With Great Functionality
+> Compact And Affordable Microcontroller Board With Great Functionality
 
-The **ESP32-C3 Super Mini** is my go-to microcontroller board whenever space is at a premium. Its tiny size allows it to fit into the smallest devices while still offering ten fully usable GPIOs. 
+The **ESP32-C3 Super Mini** is my new go-to microcontroller board whenever space is top priority. Its tiny size allows it to fit into the smallest devices while still offering ten fully usable GPIOs. 
 
 <img src="images/c3_anglefront_overview_t.png" width="30%" height="30%" />
 
-It is fully compatible with all **ESP32** development environments, including [ESPHome](https://done.land/tools/software/esphome/introduction/). Additionally, you can directly upload open-source firmware made for the **ESP32**, such as [WLED](https://kno.wled.ge/). 
+It is compatible with all **ESP32** development environments, including [ESPHome](https://done.land/tools/software/esphome/introduction/). Additionally, you can directly upload open-source firmware made for the **ESP32**, such as [WLED](https://kno.wled.ge/). 
 
 [Here’s an example project](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/) using the **ESP32-C3 Super Mini** and an **8x8 WS2812 LED Panel** to create an awesome colorful light cube—no programming required and just three short wires:
 
@@ -15,13 +16,36 @@ It is fully compatible with all **ESP32** development environments, including [E
 
 ## Overview
 
-The **ESP32-C3 Super Mini** is energy-efficient, widely available, and highly affordable. Its computational power and 4MB flash storage are more than adequate for most DIY projects. 
+The **ESP32-C3 Super Mini** is an energy-efficient, widely available, and affordable microcontroller. With its computational power and *4MB* flash storage, it is more than sufficient for most DIY projects.
 
+I’ve replaced **Arduino** and **ESP8266** boards with the ESP32-C3 Super Mini in most of my new projects. However, there are a few exceptions where other boards are better suited:
 
-I’ve replaced **Arduinos** and **ESP8266** boards with this board in most of my new projects. When I need more than 10 GPIOs or require a dual-core processor for computationally intensive tasks, I generally choose the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). For full backward compatibility with older firmware, I stick with the classic **ESP32S**.
+* **Many GPIOs:** If a project requires more than *10 GPIOs*, I opt for the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). It is cost-effective and has a slightly larger footprint compared to the ESP32-C3 Super Mini. Its extremely flat design makes it easy to integrate into portable devices.
+
+* **Battery Power:** For portable projects, I use the [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/). This board features a built-in battery charger and boost converter, making it ideal for single-cell *Li-Ion* battery operation. While other boards offer similar functionality, the Lolin32 Lite stands out for its affordability.
+
+* **Display:** When a small color display is needed, I choose the [Lolin TTGO T-Display](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/). It includes a *1.14"* TFT display with a *135x240* resolution, which is well-suited for simple visual output in projects.
+
+* **Compatibility:** For testing or ensuring maximum compatibility, I rely on the [ESP32 DevKitC V4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/). While larger and less visually appealing, it is the default *ESP32* development board and an excellent starting point for experimenting with new components. Its compatibility minimizes unexpected microcontroller-related issues, allowing focus on integrating and exploring components. Additionally, there are robust [expansion boards](https://done.land/components/microcontroller/expansionboards/devkitcv4/) available, making prototyping with *DuPont* wires easier.
+
+* **Computations:** For projects involving advanced computations, I prefer one of the latest *ESP32-S3* boards, which offer enhanced processing power.
+
+* **WiFi Range:** When extended *WiFi range* is critical, I select boards with external antennas. While the *ESP32-C3 Super Mini* connects reliably to strong home *WiFi networks*, its small size and built-in antenna limit its range.
+
 ### Arduino Framework
 
-The *Arduino Framework* - as of the time writing - does not yet support this board. Users work around by using similar boards like `esp32c3`. This board definition defines these constants:
+It can be a major challenge at first to get this board to fully work in *ArdinoIDE* and *platformio* because there is not yet a specific board definiton for it.
+
+While you can use pretty much any board definition targeting *ESP32-C3*, this assigns the wrong GPIOs to important pin constants that are used for *SPI* and *I2C*.
+
+You *can* work around this by specifying the *correct* GPIO numbers directly, however in the case of *SPI* and *I2C*, this is often only an option for the much slower *software-emulated* interfaces. If you want to use the *fast hardware* interfaces, most libraries use the pre-defined GPIO constants. Naturally, if these are wrong, then *hardware SPI* and *hardware I2C* won't work.
+
+So in a nutshell, while selecting *any ESP32-C3* board in your development environment will get you started, it most likely bites you eventually.
+
+#### Finding Appropriate Board Definition
+Since there is not yet a dedicated board definition, you need to use one that is similar enough. 
+
+There is a board variant called  `esp32c3` that correctly defines the interface pins and only misses `LED_BUILTIN`:
 
 | Pin Constant             | Value   | Remark |
 | ------------------------ | :-----: | --- |
@@ -41,11 +65,168 @@ The *Arduino Framework* - as of the time writing - does not yet support this boa
 | **A4** *(analog input)* | 4       | 
 | **A5** *(analog input)* | 5       | 
 
-Other than the missing/wrong constant `LED_BUILTIN`, this definition works fine. 
+To use this board variant, you *must* select the board `esp32-c3-devkitm-1` and specify the board variant `esp32c3`. When you select a different board, you may not be able to target the board variant.
 
-In the latest [arduino-esp32](https://github.com/espressif/arduino-esp32) release from *Espressif*, the board has meanwhile dedicated supported under the name `nologo_esp32c3_super_mini`:
+Here is the `platformio.ini` I use:
+
+````
+[env:esp32-c3-devkitm-1]
+platform = espressif32
+board = esp32-c3-devkitm-1
+board_build.mcu = esp32c3
+framework = arduino
+build_flags =
+    -D ARDUINO_USB_MODE=1
+    -D ARDUINO_USB_CDC_ON_BOOT=1
+````
 
 
+When you use the suggested `platformio.ini`, all pins should be correctly defined, and you are ready for *hardware SPI* and *hardware I2C*. Only the constant `LED_BUILTIN` is wrong.
+
+
+
+<details><summary>Verifying Correct Pin Definitions</summary><br/>
+
+If you'd like to double-check whether the pin lables were correctly defined in your development environment, try this code:
+
+````c++
+#include <Arduino.h>
+
+// (re)define BUILTIN_LED as most board definitions get this pin wrong:
+// (remove this line if you'd like to see what the original definition is)
+#define LED_BUILTIN 8
+
+
+void showPins() {
+  // prints currently valid pin assignments to terminal:
+  Serial.println("Pin Definitions for the Board:");
+
+  // SPI Pins
+  Serial.println("\nSPI Pins:");
+  Serial.printf("MISO: %d\n", MISO);
+  Serial.printf("MOSI: %d\n", MOSI);
+  Serial.printf("SCK: %d\n", SCK);
+  Serial.printf("SS (CS): %d\n", SS);
+
+  // I2C Pins
+  Serial.println("\nI2C Pins:");
+  Serial.printf("SDA: %d\n", SDA);
+  Serial.printf("SCL: %d\n", SCL);
+
+  // LED Pin
+  Serial.println("\nLED Pin:");
+#ifdef LED_BUILTIN
+  Serial.printf("LED_BUILTIN: %d\n", LED_BUILTIN);
+#else
+  Serial.println("No LED_BUILTIN defined for this board.");
+#endif
+
+  // DAC Pins
+  Serial.println("\nDAC Pins (if available):");
+#if defined(DAC1) && defined(DAC2)
+  Serial.printf("DAC1: %d\n", DAC1); // Often GPIO25
+  Serial.printf("DAC2: %d\n", DAC2); // Often GPIO26
+#else
+  Serial.println("DAC not available on this board.");
+#endif
+
+  // UART/Serial Pins
+  Serial.println("\nSerial Pins:");
+#if defined(TX) && defined(RX)
+  Serial.printf("TX: %d\n", TX);
+  Serial.printf("RX: %d\n", RX);
+#else
+  Serial.println("Default UART TX and RX not defined for this board.");
+#endif
+}
+
+
+void setup() {
+  // start serial output (baud rate does not matter with USB CDC)
+  Serial.begin();
+  // set built-in LED on GPIO8 for output
+  pinMode(LED_BUILTIN, OUTPUT);
+  // wait for the serial output to be ready
+  delay(1000);
+  // output pin assignments
+  showPins();
+}
+
+void loop() {
+  // blinks built-in LED at 1Hz to check that firmware is running:
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+}
+````
+
+When you run this code, the output should look like this:
+
+````
+Pin Definitions for the Board:
+
+SPI Pins:
+MISO: 5
+MOSI: 6
+SCK: 4
+SS (CS): 7
+
+I2C Pins:
+SDA: 8
+SCL: 9
+
+LED Pin:
+LED_BUILTIN: 8
+
+DAC Pins (if available):
+DAC not available on this board.
+
+Serial Pins:
+Default UART TX and RX not defined for this board.
+````
+
+Testing the actual pin definitions can be crucial due to the convoluted and sometimes strange way how the development environment picks the appropriate `pins_arduino.h` file for you. 
+
+For example, if you selected the board `seeed_xiao_esp32c3` instead of `esp32-c3-devkitm-1` as suggested above, the otherwise identical `platformio.ini` would use wrong pin assignments.
+
+With this board, *platformio* uses the variant `XIAO_ESP32C3` instead of the explicitly stated variant `esp32c3`. Unfortunately, that variant uses different pin assignments that do not match the *ESP32-C3 SuperMini*.
+
+</details>
+
+To make `LED_BUILTIN` work as well, simply re-define this constant in your code:
+
+````
+// (re)define BUILTIN_LED as most board definitions get this pin wrong:
+#define LED_BUILTIN 8
+````
+
+Since *constants* are meant to be **constant**, your change will trigger a (benign) compiler warning that you can ignore:
+
+````
+src/main.cpp:5: warning: "LED_BUILTIN" redefined
+ #define LED_BUILTIN 8
+
+In file included from D:/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-gpio.h:29,
+                 from D:/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h:83,
+                 from D:/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h:36,
+                 from src/main.cpp:1:
+D:/.platformio/packages/framework-arduinoespressif32/variants/esp32c3/pins_arduino.h:11: note: this is the location of the previous definition
+ #define LED_BUILTIN LED_BUILTIN  // allow testing #ifdef LED_BUILTIN
+````
+
+A "cleaner" approach is to use the GPIO number `8` instead of `LED_BUILTIN` in your code.
+
+Or, you can add a new board definition to *Arduino Core* that correctly and completely describes this board. This work has in fact be [done already](https://github.com/espressif/arduino-esp32/blob/master/variants/nologo_esp32c3_super_mini/pins_arduino.h), and there is now a new board variant called `nologo_esp32c3_super_mini`. It apparently just takes forever for this new board definition to show up in the *Arduino Core* production build.
+
+If you don't want to wait, copy the file content and add it manually to your *Arduino Core*.
+
+
+<details><summary>New and updated board definitions are in the pipeline</summary><br/>
+
+
+
+In the latest [arduino-esp32](https://github.com/espressif/arduino-esp32) release from *Espressif*, the ESP32-C3 Super Mini now has dedicated support under the name `nologo_esp32c3_super_mini`:
 
 | Pin Constant             | Value   |
 | ------------------------ | :-----: |
@@ -65,59 +246,59 @@ In the latest [arduino-esp32](https://github.com/espressif/arduino-esp32) releas
 | **A4** *(analog input)* | 4       | 
 | **A5** *(analog input)* | 5       | 
 
-Apparently, only the constant `LED_BUILTIN` was updated.
-
-So here are your options:
-
-* define the constant `LED_BUILTIN` manually in your source code
-* use the pin number `8` directly in your code when you want to access the built-in LED
-* permanently add the board [definition file](https://github.com/espressif/arduino-esp32/blob/master/variants/nologo_esp32c3_super_mini/pins_arduino.h)  to your *Arduino Core* `variants` subfolder, and use the new board definition `nologo_esp32c3_super_mini`.
+</details>
 
 
 ### Key Benefits of the ESP32-C3 Super Mini
 
-- **Compact:** Extremely small size (*22.5x18mm*).
-- **User-Friendly:** Works seamlessly with environments like *platform.io* and *ESPHome*. No need to manually enter firmware upload mode or press "boot" buttons.
-- **Low Power:** Energy-efficient with support for *Bluetooth BLE*, ideal for battery-powered devices.
-- **Expandable:** Optional battery shields add charging functionality and portable power supply.
-- **Affordable:** Often priced under €1.50.
+- **Compact:** The board is extremely small (*22.5x18mm*), making it ideal for space-constrained projects.  
+- **User-Friendly:** Compatible with platforms like *PlatformIO* and *ESPHome*. It eliminates the need for manual firmware upload mode or pressing "boot" buttons.  
+- **Low Power:** Highly energy-efficient with *Bluetooth BLE* support, making it suitable for battery-powered devices.  
+- **Expandable:** Optional battery shields add charging functionality and portable power supply options.  
+- **Affordable:** Widely available, often priced under €1.50.  
 
 ### GPIOs
 
-The board features a **USB-C** connector and 10 fully usable **GPIOs**. Additionally, four GPIOs support **analog input**:
+The board includes a **USB-C** connector and provides **10 fully usable GPIOs**. Additionally, four GPIOs support **analog input**:
 
 <img src="images/esp32-c3-supermini-pins.png" width="100%" height="100%" />
 
-> [!IMPORTANT]
-> In the pin schematic, **D** denotes a **digital-only** GPIO. Always refer to the actual GPIO number shown in the schematic to avoid confusion with legacy labeling.
+> [!IMPORTANT]  
+> In the pin schematic, **D** denotes a **digital-only** GPIO. Always use the actual GPIO number shown in the schematic to avoid confusion with legacy labeling.
 
 ### Programmable Blue LED
 
-A programmable **blue LED** is connected to **GPIO 8** (inverted: *low* active). There is also a **red power LED** that lights up when the board is connected to **5V** via its internal voltage regulator. This red LED automatically turns off if the board is powered through the **3.3V** pin (e.g., from a battery), which helps conserve energy in low-power scenarios.
+A programmable **blue LED** is connected to **GPIO 8** and is inverted (*low* active).  
 
+Additionally, the board has a **red power LED**, which lights up when the board is connected to **5V** via its internal voltage regulator. If the board is powered through the **3.3V** pin (e.g., via a battery), the red LED automatically turns off, conserving energy in low-power scenarios.
 ### Performance Comparison
 
-While the **ESP32-C3** is more than twice as fast as an **ESP8266**, it is a single-core processor running at **160MHz**. In contrast, classic **ESP32S** boards are dual-core and run at **240MHz**, offering roughly three times the performance. However, most DIY projects don’t require such speeds, and the higher performance comes at the cost of increased power consumption. 
+The **ESP32-C3** is over twice as fast as an **ESP8266**, thanks to its *single-core* processor running at **160MHz**. However, it is outperformed by classic **ESP32S** boards, which feature dual-core processors running at **240MHz**, offering roughly three times the computational power. This increased performance comes with higher power consumption, which may not be ideal for energy-sensitive projects.
 
-If your project involves computationally intensive tasks or requires real-time responsiveness to multiple tasks, you might consider the classic **ESP32S** or the newer **ESP32-S3**.
+For most DIY applications, the ESP32-C3's performance is more than sufficient. If your project involves computationally intensive tasks or demands real-time responsiveness for multiple tasks, consider using a classic **ESP32S** or the newer **ESP32-S3**.
 
-The compact form factor of the **ESP32-C3 Super Mini** limits the number of exposed GPIOs. If you need more than 10 GPIOs, consider larger boards that expose up to 22 GPIOs.
+The compact design of the **ESP32-C3 Super Mini** inherently limits the number of exposed GPIOs. If your project requires more than 10 GPIOs, larger boards exposing up to 22 GPIOs may be a better fit.
 
 <img src="images/c3_angle_overview_t.png" width="50%" height="50%" />
 
 ## Interfaces
 
-Depending on the peripherals you wish to connect, you can use the *two-wire serial interface* (*UART*), [I2C](https://done.land/fundamentals/interface/i2c/), and [SPI](https://done.land/fundamentals/interface/spi/).
+The **ESP32-C3** supports multiple communication interfaces, making it versatile for various peripherals. You can use the following:
 
-With the *ESP32-C3*, you can map *any GPIO* to *any interface*. This flexibility explains why you might come across different pin schematics for this chip.
+- **Two-Wire Serial Interface (UART)**  
+- **[I2C](https://done.land/fundamentals/interface/i2c/):** Ideal for connecting sensors and displays.  
+- **[SPI](https://done.land/fundamentals/interface/spi/):** Suitable for high-speed communication, such as with flash storage or displays.  
 
-However, it’s recommended to use the *default pins* for a given interface for several reasons:
+One of the ESP32-C3's standout features is the ability to map *any GPIO* to *any interface*. This flexibility is why different pin schematics for the chip exist. However, it is recommended to use the *default pins* for a given interface for the following reasons:
 
-* **Compatibility:** Example code often assumes the default GPIOs. If you use different GPIOs, you will need to adjust the source code.
-* **Default Initialization:** Many libraries provide default initializers, and using them ensures the default GPIOs are automatically chosen.
+* **Compatibility:**  
+  Many example codes assume the use of default GPIOs. If you choose custom GPIOs, you will need to modify the source code accordingly.  
 
-> [!IMPORTANT]
-> Using non-default GPIOs for an interface is technically fine, but you **must ensure** that your code and libraries are instructed to use those GPIOs for the specific interface.
+* **Default Initialization:**  
+  Libraries often provide default initializers, which automatically select the default GPIOs for a specific interface. Using these defaults simplifies development and ensures reliable performance.  
+
+> [!IMPORTANT]  
+> While using non-default GPIOs for an interface is technically feasible, you must ensure that your code and libraries are explicitly configured to use the chosen GPIOs for the desired interface.
 
 ### Serial Interface
 
@@ -137,62 +318,106 @@ However, it’s recommended to use the *default pins* for a given interface for 
 
 ### I2C
 
-The *I2C* interface poses a challenge with this board. The board definition uses *GPIO8* (SDA) and *GPIO9* (SCL). *GPIO8* is hard-wired to the programmable *LED*, too, though.
+The *I2C* interface can be challenging to use with the **ESP32-C3 Super Mini** due to its default GPIO assignments. The board definition sets *GPIO8* as **SDA** and *GPIO9* as **SCL*. However, *GPIO8* is also hard-wired to the programmable **LED**, which can cause conflicts.
 
-If you want to avoid conflicts with the built-in *LED*, use software *I2C* with pins of your choice, for example:
+#### Avoiding LED Conflicts
+If you want to avoid interference with the built-in **LED**, consider using software I2C with custom pins. For instance:
 
-| I2C Pin | ESP32-C3 SuperMini Pin |
-| --- | --- |
-| SDA | 1 |
-| SCL | 3 |
+| I2C Pin | ESP32-C3 Super Mini Pin |
+|---------|--------------------------|
+| SDA     | 1                        |
+| SCL     | 3                        |
 
-If however you do not need to control the built-in LED and don't care about it, sticking to the hardware *I2C* pins ensures a higher performance.
+
+If you do not need to control the built-in LED and can ignore its state, you can stick to the default hardware *I2C* pins for optimal performance. This avoids the slight overhead associated with software I2C implementations.
+
+
+## Serial And USB CDC
+
+Note the use of `build_flags` in the suggested `platformio.ini` from earlier: 
+
+Microcontrollers like the *ESP32-C3* include full *native* USB support. They no longer use *UART* components. The built-in *USB controller* can act as any USB device and i.e. simulate a keyboard or mouse. 
+
+When you want to use *serial output* - since there is no dedicated *UART* anymore - you need to ask the *USB controller* to act as a *HWCDC* (*Hardware USB Communications Device Class*). This is what the *build flags* do.
+
+In this case, the *USB controller* simulates a *COM interface*, and you can continue to use code like `Serial.println("Hello");` just as if you were using an older microcontroller with external *UART*. If you *do not* include the build flags, then *Serial* would not work, and your code would be unable to send text to a terminal.
+
+There are a few caveats you should know:
+
+* `Serial.begin();` some sources claim that *USB CDC* does not require this statement anymore. That's not true. You still need to *initialize* your serial connection. However, you no longer need to care about *baud rates* any longer. *USB CDC* always uses the maximum USB speed which is much higher than even the highest *baud rates* would allow. That's also the reason why you no longer need a `monitor_speed = ...` in your `platformio.ini`.
+* `while (!Serial) {}` often, a loop is used to wait for the *Serial* interface to be fully initialized and ready to use. This may not work anymore with *USB CDC*. You will have to work around this with a fixed `delay(1000);'.
+
+
+Apparently, only the constant `LED_BUILTIN` was updated in the new board definition. Here are your options:
+
+* **Define the constant `LED_BUILTIN` manually** in your source code.  
+* **Use pin number `8` directly** in your code when accessing the built-in LED.  
+* **Permanently add the board definition file** from [pins_arduino.h](https://github.com/espressif/arduino-esp32/blob/master/variants/nologo_esp32c3_super_mini/pins_arduino.h) to your *Arduino Core* `variants` subfolder, and use the new board definition `nologo_esp32c3_super_mini`.  
+
 
 ## Caveat: Defective Board Designs
 
-While the **ESP32-C3 SuperMini** is readily available from many sellers, subtle differences in board layouts have surfaced. In 2024, some board designs began to appear that may cause issues with *WiFi connectivity*:
+Although the **ESP32-C3 Super Mini** is widely available, subtle differences in board designs have emerged. In 2024, a revised board layout began appearing, which may negatively affect *WiFi connectivity*.
 
 <img src="images/esp32-c3-supermini-defective_design.png" width="100%" height="100%" />
 
-The image shows the "normal" board design on the left and the "revised" layout on the right. In the new layout, the crystal has been moved closer to the ceramic *WiFi antenna*.
+The image compares the original board design (left) with the revised layout (right). In the updated version, the crystal has been moved closer to the ceramic *WiFi antenna*.
 
 ### WiFi Sending Impaired
 
-Users with the new board design report that while they can *receive* WiFi networks, **connecting** to WiFi networks is either impossible or very slow. Some users also reported that connecting to WiFi was only possible after physically touching the antenna. Others experienced connectivity issues when female pin headers were added, especially when *pin 21* was wired.
+Users with the new board design have reported the following issues:
 
-All observations point to interference during *WiFi transmission*, most likely caused by the crystal's relocation closer to the antenna. Once transmission power was reduced (e.g., by touching the antenna), the problem seemed to resolve. Similarly, the issue worsened when pin headers were installed, especially when wires were connected to pin 21, which is near the antenna.
+- While scanning for WiFi networks works, **connecting** to networks is either impossible or very slow.
+- Connecting to WiFi sometimes requires **physically touching the antenna** to reduce transmission power.
+- Connectivity issues worsen when female pin headers are added, particularly when wires are connected to **pin 21** (near the antenna).
 
+#### Likely Cause: Antenna Interference
+All reports point to interference during *WiFi transmission*, likely caused by the crystal's relocation closer to the antenna. This interference appears to disrupt the signal, especially during transmission. 
+
+#### Workarounds
+- Reducing transmission power (e.g., by touching the antenna) seems to alleviate the problem temporarily.
+- Avoiding connections to **pin 21** or minimizing nearby wiring may help reduce interference.
 
 ### Remedy
-You can still use the defective boards for many tasks that don’t involve *WiFi*, but if you need the board to transmit WiFi correctly, you can reduce the transmission power through code:
+
+
+Defective boards can still be used for many tasks that do not involve *WiFi*. However, if you need the board to transmit WiFi correctly, you can reduce the transmission power through code. This adjustment helps minimize interference caused by the crystal's proximity to the antenna.
+
+To reduce transmission power, include the following code snippet in your project:
 
 ````c++ 
 WiFi.setTxPower(WIFI_POWER_8_5dBm);
 ````
 Reducing the transmission power prevents the interference from reaching critical levels.
 
-By reducing the WiFi transmission power, you also reduce the overall power consumption. Since lower transmission power is still sufficient for most home environments with decent WiFi coverage, this may not be a bad thing.
+By reducing the WiFi transmission power, you also lower overall power consumption. Since lower transmission power is often sufficient for most home environments with decent WiFi coverage, this can be seen as a positive side effect. 
 
-However, this workaround may be impractical when your *C3 SuperMini* needs to operate in weak WiFi environments or far away from access points (e.g., in a garden). In such cases, you should consider returning defective boards.
+However, this workaround may be impractical if your *C3 SuperMini* needs to operate in weak WiFi environments or far away from access points (e.g., in a garden). In such cases, returning the defective boards may be your best option.
 
 > [!NOTE]
-> The vast majority of **C3 SuperMini** boards use a flawless design. Only selected batches have been affected by a "redesign." If you're unsure, you can measure the distance between the crystal and the ceramic antenna (see image above). A gap of at least *1mm* is normal, while affected boards show a gap of just *0.3mm*. For more details, check out this article: [ESP32-C3 SuperMini Flaw](https://roryhay.es/blog/esp32-c3-super-mini-flaw).
+> The vast majority of **C3 SuperMini** boards use a flawless design. Only selected batches have been affected by a "redesign." If you're unsure about your board, measure the distance between the crystal and the ceramic antenna (see image above). A gap of at least *1mm* is normal, while affected boards have a gap of just *0.3mm*. For more details, check out this article: [ESP32-C3 SuperMini Flaw](https://roryhay.es/blog/esp32-c3-super-mini-flaw).
 
 ## Performance
 
-The **ESP32-C3 SuperMini** is a great replacement for the **ESP8266**, offering more than double its processing speed. It also features a robust voltage regulator (unlike the under-rated ones often found in ESP8266 boards, which can brown out when connecting power-hungry sensors).
+The **ESP32-C3 SuperMini** is an excellent replacement for the **ESP8266**, offering more than double its processing speed. Additionally, it features a robust voltage regulator, which is an improvement over the under-rated regulators often found in ESP8266 boards that can brown out when powering power-hungry sensors.
 
 Here’s a quick performance comparison:
 
 | Microcontroller | Performance | SRAM | PSRAM |
 | --- | --- | --- | --- |
-| ESP32-C3 | 160-200MIPS | 400KB | n/a |
-| ESP8266 | 80MIPS | 160KB + 64KB Instruction RAM + 96KB Data RAM | n/a |
-| ESP32S | 600MIPS | 520KB | optional, up to 4MB |
+| ESP32-C3 | 160-200 MIPS | 400 KB | n/a |
+| ESP8266 | 80 MIPS | 160 KB + 64 KB Instruction RAM + 96 KB Data RAM | n/a |
+| ESP32S | 600 MIPS | 520 KB | Optional, up to 4 MB |
+
+### Key Notes on Performance
+- **ESP32-C3:** While slower than the dual-core **ESP32S**, the **C3** is energy-efficient and well-suited for most IoT projects. Its processing speed is more than sufficient for tasks like sensor data handling, simple automation, and communication.
+- **ESP8266:** Limited memory and lower processing power make it less ideal for modern projects but still suitable for simple use cases.
+- **ESP32S:** A dual-core powerhouse for applications requiring heavy computation, real-time responsiveness, or support for memory-intensive tasks.
 
 ## GPIO
 
-The **ESP32-C3** has 22 GPIOs, but the **C3 SuperMini** exposes only 13 due to its compact size. Of these 13 GPIOs, 10 are freely usable, while the remaining 3 are strapping pins and cannot be used during boot.
+The **ESP32-C3** features 22 GPIOs, but the **C3 SuperMini** exposes only 13 due to its compact size. Of these 13 GPIOs, 10 are freely usable, while the remaining 3 are strapping pins and cannot be used during boot.
+
 
 <img src="images/c3_bottom_overview_t.png" width="50%" height="50%" />
 
@@ -269,13 +494,6 @@ platform = espressif32
 board = esp32-c3-devkitm-1
 ````
 
-More specialited IDs like [lolin_c3_mini](https://docs.platformio.org/en/latest/boards/espressif32/lolin_c3_mini.html) may work even better:
-
-````
-[env:lolin_c3_mini]
-platform = espressif32
-board = seeed_xiao_esp32c3
-````
 
 ### ESPHome
 In *ESPHome configurations*, use the board id `esp32-c3-devkitm-1`:
@@ -283,6 +501,7 @@ In *ESPHome configurations*, use the board id `esp32-c3-devkitm-1`:
 ````
 esp32:
   board: esp32-c3-devkitm-1
+  variant: esp32c3
 ````
 
 You can adjust and override specs if needed:
@@ -315,4 +534,4 @@ light:
 
 > Tags: ESP32-C3, C3
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2025-01-07
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini?845657081329241300) - created 2024-08-28 - last edited 2025-01-23
