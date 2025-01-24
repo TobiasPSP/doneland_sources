@@ -17,7 +17,62 @@ It is fully compatible with all **ESP32** development environments, including [E
 
 The **ESP32-C3 Super Mini** is energy-efficient, widely available, and highly affordable. Its computational power and 4MB flash storage are more than adequate for most DIY projects. 
 
+
 I’ve replaced **Arduinos** and **ESP8266** boards with this board in most of my new projects. When I need more than 10 GPIOs or require a dual-core processor for computationally intensive tasks, I generally choose the [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). For full backward compatibility with older firmware, I stick with the classic **ESP32S**.
+### Arduino Framework
+
+The *Arduino Framework* - as of the time writing - does not yet support this board. Users work around by using similar boards like `esp32c3`. This board definition defines these constants:
+
+| Pin Constant             | Value   | Remark |
+| ------------------------ | :-----: | --- |
+| **LED_BUILTIN**        | n/a     | **wrong:** should be *8* |
+| **SDA** *(I2C)*        | 8       | 
+| **SCL** *(I2C)*        | 9       | 
+| **MOSI**/COPI *(SPI)*  | 6       | 
+| **MISO**/CIPO *(SPI)*  | 5       | 
+| **SCK**/SCL/SCLK *(SPI)* | 4       | 
+| **SS**/CS *(SPI)*      | 7       | 
+| **RX** *(Serial)*      | 20      | 
+| **TX** *(Serial)*      | 21      | 
+| **A0** *(analog input)* | 0       | 
+| **A1** *(analog input)* | 1       | 
+| **A2** *(analog input)* | 2       | 
+| **A3** *(analog input)* | 3       | 
+| **A4** *(analog input)* | 4       | 
+| **A5** *(analog input)* | 5       | 
+
+Other than the missing/wrong constant `LED_BUILTIN`, this definition works fine. 
+
+In the latest [arduino-esp32](https://github.com/espressif/arduino-esp32) release from *Espressif*, the board has meanwhile dedicated supported under the name `nologo_esp32c3_super_mini`:
+
+
+
+| Pin Constant             | Value   |
+| ------------------------ | :-----: |
+| **LED_BUILTIN**        | 8       | 
+| **SDA** *(I2C)*        | 8       | 
+| **SCL** *(I2C)*        | 9       | 
+| **MOSI**/COPI *(SPI)*  | 6       | 
+| **MISO**/CIPO *(SPI)*  | 5       | 
+| **SCK**/SCL/SCLK *(SPI)* | 4       | 
+| **SS**/CS *(SPI)*      | 7       | 
+| **RX** *(Serial)*      | 20      | 
+| **TX** *(Serial)*      | 21      | 
+| **A0** *(analog input)* | 0       | 
+| **A1** *(analog input)* | 1       | 
+| **A2** *(analog input)* | 2       | 
+| **A3** *(analog input)* | 3       | 
+| **A4** *(analog input)* | 4       | 
+| **A5** *(analog input)* | 5       | 
+
+Apparently, only the constant `LED_BUILTIN` was updated.
+
+So here are your options:
+
+* define the constant `LED_BUILTIN` manually in your source code
+* use the pin number `8` directly in your code when you want to access the built-in LED
+* permanently add the board [definition file](https://github.com/espressif/arduino-esp32/blob/master/variants/nologo_esp32c3_super_mini/pins_arduino.h)  to your *Arduino Core* `variants` subfolder, and use the new board definition `nologo_esp32c3_super_mini`.
+
 
 ### Key Benefits of the ESP32-C3 Super Mini
 
@@ -75,27 +130,23 @@ However, it’s recommended to use the *default pins* for a given interface for 
 
 | SPI Pin | ESP32-C3 SuperMini Pin |
 | --- | --- |
-| SCK | 4 |
-| MISO | 5 |
 | MOSI | 6 |
+| MISO | 5 |
+| SCK | 4 |
 | CS | 7 |
 
 ### I2C
 
-The *I2C* interface poses a challenge with this board. According to the documentation, *I2C* should either use *GPIO8* (SDA) and *GPIO9* (SCL), or *GPIO4* (SDA) and *GPIO5* (SCL). However, there are some issues with these recommendations:
+The *I2C* interface poses a challenge with this board. The board definition uses *GPIO8* (SDA) and *GPIO9* (SCL). *GPIO8* is hard-wired to the programmable *LED*, too, though.
 
-* **GPIO 8:** This pin is hard-wired to the programmable *LED*.
-* **GPIO4/5:** These pins conflict with *SPI*, so using both interfaces simultaneously is not possible.
-
-Since there is no clear default for *I2C* and the recommendations conflict with other interfaces or features, I recommend **not sticking to the defaults** and instead choosing the most suitable *GPIOs* for I2C:
+If you want to avoid conflicts with the built-in *LED*, use software *I2C* with pins of your choice, for example:
 
 | I2C Pin | ESP32-C3 SuperMini Pin |
 | --- | --- |
 | SDA | 1 |
 | SCL | 3 |
 
-> [!IMPORTANT]
-> Since you’re using custom GPIOs for I2C, make sure your code is configured to use these specific GPIOs for I2C. For example, when using display drivers, ensure that these GPIOs are initialized correctly in your setup.
+If however you do not need to control the built-in LED and don't care about it, sticking to the hardware *I2C* pins ensures a higher performance.
 
 ## Caveat: Defective Board Designs
 
