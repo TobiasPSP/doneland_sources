@@ -40,7 +40,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2057319"
+     inkscape:zoom="1.1645952"
      inkscape:cx="227.98169"
      inkscape:cy="531.32024"
      inkscape:document-units="mm"
@@ -165,7 +165,7 @@
        id="rect4113"
        width="76.501213"
        height="14.299314"
-       x="60.546402"
+       x="72.18808"
        y="143.15404"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56" />
@@ -369,30 +369,6 @@
          x="43.147743"
          y="100.09268"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583;">SCK</tspan></text>
-    <rect
-       style="font-variation-settings:'wght' 400;fill:#ffcc00;fill-opacity:1;stroke:#ffcc00;stroke-width:2.11667;stroke-linejoin:round;stroke-opacity:1"
-       id="rect24-7-1-5-9-7"
-       width="8.7850409"
-       height="4.3149462"
-       x="43.424339"
-       y="126.2025"
-       inkscape:transform-center-x="0.76024169"
-       inkscape:transform-center-y="-0.63145975"
-       inkscape:export-xdpi="339.56"
-       inkscape:export-ydpi="339.56" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="43.154095"
-       y="130.11317"
-       id="text1067-9-7-7-1-4"
-       inkscape:export-xdpi="339.56"
-       inkscape:export-ydpi="339.56"><tspan
-         sodipodi:role="line"
-         id="tspan1065-8-7-3-1-9"
-         x="43.154095"
-         y="130.11317"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff;stroke-width:0.264583">DAC</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -608,7 +584,7 @@
     <ellipse
        style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2.17716;stroke-linejoin:round;stroke-opacity:1"
        id="path3710-1-5-7"
-       cx="114.69757"
+       cx="126.33922"
        cy="147.60701"
        inkscape:export-xdpi="339.56"
        inkscape:export-ydpi="339.56"
@@ -617,7 +593,7 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.38961px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15974"
-       x="120.92405"
+       x="132.79854"
        y="145.58846"
        id="text1067-3-7"
        inkscape:export-xdpi="339.56"
@@ -625,7 +601,7 @@
        transform="scale(0.98039831,1.0199936)"><tspan
          sodipodi:role="line"
          id="tspan1065-3-8"
-         x="120.92405"
+         x="132.79854"
          y="145.58846"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.98183px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.15974">RTC Wakeup</tspan></text>
     <rect
@@ -633,7 +609,7 @@
        id="rect24-7-1-87"
        width="2.8515856"
        height="2.9445677"
-       x="63.399963"
+       x="75.041641"
        y="145.68512"
        inkscape:transform-center-x="0.24677142"
        inkscape:transform-center-y="-0.43092726"
@@ -642,7 +618,7 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.38961px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15974"
-       x="70.45266"
+       x="82.327141"
        y="145.58846"
        id="text1067-3-7-6"
        inkscape:export-xdpi="339.56"
@@ -650,7 +626,7 @@
        transform="scale(0.98039831,1.0199936)"><tspan
          sodipodi:role="line"
          id="tspan1065-3-8-8"
-         x="70.45266"
+         x="82.327141"
          y="145.58846"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.98183px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.15974">Input/Output</tspan></text>
     <rect
@@ -658,7 +634,7 @@
        id="rect24-7-1-87-7-0"
        width="2.8515856"
        height="2.9445677"
-       x="89.236732"
+       x="100.87841"
        y="145.68512"
        inkscape:transform-center-x="0.24676835"
        inkscape:transform-center-y="-0.43092726"
@@ -667,7 +643,7 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.38961px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15974"
-       x="95.938454"
+       x="107.81295"
        y="145.58846"
        id="text1067-3-7-6-7-7"
        inkscape:export-xdpi="339.56"
@@ -675,13 +651,13 @@
        transform="scale(0.98039831,1.0199936)"><tspan
          sodipodi:role="line"
          id="tspan1065-3-8-8-6-1"
-         x="95.938454"
+         x="107.81295"
          y="145.58846"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.98183px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.15974">Strapping Pin</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.38961px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15974"
-       x="82.467094"
+       x="94.341576"
        y="151.00398"
        id="text1067-3-7-0"
        inkscape:export-xdpi="339.56"
@@ -689,7 +665,7 @@
        transform="scale(0.98039831,1.0199936)"><tspan
          sodipodi:role="line"
          id="tspan1065-3-8-0"
-         x="82.467094"
+         x="94.341576"
          y="151.00398"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.98183px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.15974">Dxxx: no analog input</tspan></text>
     <rect

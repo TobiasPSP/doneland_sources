@@ -31,6 +31,7 @@ However, there are a few exceptions where other boards are better suited:
 * **Computations:** For projects involving advanced computations, I prefer one of the latest *ESP32-S3* boards, which offer enhanced processing power.
 
 * **WiFi Range:** When extended *WiFi range* is critical, I select boards with external antennas. While the *ESP32-C3 Super Mini* connects reliably to strong home *WiFi networks*, its small size and built-in antenna limit its range.
+
 ### Arduino Framework
 
 Getting the ESP32-C3 to work fully in *Arduino IDE* and *PlatformIO* can be a challenge since there is not yet a specific board definition available for it.
