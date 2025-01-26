@@ -58,7 +58,7 @@ Here is a *simple example* written in *C++* that blinks the built-in LED on your
   }
 ````
 
-Essentially, the code is using *generic commands* to program a *GPIO* state. Fundamentally identical code could be used to control other devices like sensors or switches.
+Code is using *generic commands* to program a *GPIO* state. Fundamentally identical code could be used to control other devices like sensors or switches.
 
 > [!NOTE]
 > If the *board definition* you selected in your development environment *does not exactly match* the microcontroller you use, even this simple example could result in ugly red error messages (i.e. when the board definiton did not define the constant `LED_BUILTIN`), or could simply not work (i.e. when the board definition assigned the *wrong* GPIO pin to `LED_BUILTIN`).
