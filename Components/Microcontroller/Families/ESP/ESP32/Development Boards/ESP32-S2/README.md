@@ -2,7 +2,32 @@
  
 # S2
 
-> Full Native USB Support And Low Energy Consumption
+> Full Native USB Support, Massive Number Of GPIOs, And Low Energy Consumption
+
+The *ESP32-S2* is one of the direct successors of the highly popular *ESP32S*. Still, it never got the same traction in the DIY community.
+
+## Overview
+It is rather surprising at first that *ESP32-S2* wasn't an instant success when it surfaced. *ESP32-S2* comes with a number of significant improvements over the classic *ESP32S*:
+
+* **GPIOs:** up to massive *43 GPIOs* can be used (*34 GPIOs* with *ESP32S*)
+* **Energy Efficiency:** better low-power modes and energy-efficient features, which are particularly useful for battery-powered applications.
+* **Analog Pins:** more ADC channels and improved analog-to-digital conversion (ADC) capabilities compared to ESP32 and ESP8266
+* **Native USB Support:** unlike *ESP32S* (and *ESP8266*), the *ESP32-S2* has a **USB 2.0 OTG** interface, which allows for direct USB connections, and can simulate keyboards, mice, mass storage devices, and *serial interfaces*. No separate *UART* component is required.
+
+Despite these massive advantages (and its affordability with prices significantly below *ESP32S*), the *ESP32S* remained a niche microcontroller
+
+* **Single Core:** it is a *single* core microcontroller, like *ESP8266*, and lacks the second *core* in *ESP32S*. Even though many DIY projects do not benefit significantly from this second core, an apparently "less powerful successor" was not very appealing. On second thought, a single core can contribute significantly to a lower energy consumption, so unless you really need it, a *single core* can be an advantage in many DIY projects.
+* **No Bluetooth:** it has no *bluetooth capabilities*. Again, this put many users off that did not want to "downgrade" from *ESP32S* (which supports *bluetooth*). Then again, realistically only a fraction of DIY projects requires *bluetooth*, and again the lack of *bluetooth capabilities* can help conserve precious energy.
+
+### Issues
+The *real* issues with this microcontroller are on a different page.
+
+The *ESP32-S2* was the first microcontroller from *Espressif* with full native USB support. It served somewhat as a "test balloon", and the engineers did not get everything right at the first shot. That's why a poor *USB design* has the most severe impact on practical use:
+
+* **Dual COM Interfaces:** for some reason, the *ESP32-S2* implements *two* COM ports, one for normal mode, and another one for firmware upload mode. This caused many development environments and platforms like *ESPHome* to be *incompatible* at first: users simply couldn't get the tools to talk correctly to the microcontroller, and were unable to upload their firmware. These issues have meanwhile been resolved.
+* **No Serial Port:** again due to the way how *ESP32-S2* uses its native USB support to emulate serial ports, you still cannot get *Serial* to reliably work.
+
+What *really* hindered this microcontroller to gain great popularity
 
 
 In 2020, *Expressif* released both the *S-Series* and the first member of the *C-Series*.
