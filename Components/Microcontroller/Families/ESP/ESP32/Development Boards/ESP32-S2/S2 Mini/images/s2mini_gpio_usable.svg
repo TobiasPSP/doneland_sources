@@ -29,6 +29,18 @@
          y="86.495415"
          ry="2.7453561" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1385-8">
+      <rect
+         style="opacity:0.995;fill:none;fill-opacity:0.6;stroke:#ffcc00;stroke-width:0.980242;stroke-linejoin:round;stroke-opacity:0.6"
+         id="rect1387-7"
+         width="30.009415"
+         height="50.109585"
+         x="132.41949"
+         y="86.495415"
+         ry="2.7453561" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -37,9 +49,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.95617475"
-     inkscape:cx="512.92104"
-     inkscape:cy="510.75722"
+     inkscape:zoom="0.67611765"
+     inkscape:cx="192.13041"
+     inkscape:cy="531.71459"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -2951,5 +2963,109 @@ pytm/x9MfjZ/hAq1gAAAAABJRU5ErkJggg==
          x="-112.26139"
          y="50.360783"
          style="font-size:4.93889px;fill:#ffffff;stroke-width:0.264583">I2C</tspan></text>
+    <rect
+       style="opacity:0.995;fill:#ffff00;fill-opacity:0.6;stroke:none;stroke-width:2.92358;stroke-linejoin:round;stroke-opacity:0.6"
+       id="rect864-7-8-7-0"
+       width="5.6594853"
+       height="41.700638"
+       x="125.84052"
+       y="87.156784"
+       ry="0.75818634"
+       rx="0" />
+    <rect
+       style="opacity:0.995;fill:#ffff00;fill-opacity:0.6;stroke:none;stroke-width:2.97547;stroke-linejoin:round;stroke-opacity:0.6"
+       id="rect864-7-8-6"
+       width="5.6594853"
+       height="43.194397"
+       x="132.89986"
+       y="93.875336"
+       ry="0.78534532"
+       rx="0"
+       clip-path="url(#clipPath1385-8)"
+       transform="matrix(1,0,0,0.67620828,0,29.915806)" />
+    <rect
+       style="font-variation-settings:'wght' 400;fill:#a8df0e;fill-opacity:1;stroke:#a7dd0c;stroke-width:2.95223;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect24-7-1-5-9-7-9-5-63-0-6-50"
+       width="14.568014"
+       height="5.0624585"
+       x="-83.064034"
+       y="129.52246"
+       inkscape:transform-center-x="-13.717877"
+       inkscape:transform-center-y="1.7102841"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56"
+       transform="rotate(-90)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;"
+       x="-81.131294"
+       y="133.8069"
+       id="text1067-9-7-7-1-4-8-1-9-2"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56"
+       transform="rotate(-90)"
+       inkscape:transform-center-x="-10.514983"
+       inkscape:transform-center-y="1.9369792"><tspan
+         sodipodi:role="line"
+         id="tspan1065-8-7-3-1-9-6-0-4-0"
+         x="-81.131294"
+         y="133.8069"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#000000;stroke-width:0.264583;">ADC1</tspan></text>
+    <path
+       style="fill:#000000;stroke:#a7dd0c;stroke-width:0.855479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 128.47409,83.116834 v 4.53113"
+       id="path1527" />
+    <path
+       style="fill:#000000;stroke:#a7dd0c;stroke-width:0.956438;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 135.56103,83.030363 V 94.16795"
+       id="path1527-8" />
+    <rect
+       style="font-variation-settings:'wght' 400;fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:2.62262;stroke-linejoin:round;stroke-opacity:1"
+       id="rect24-7-1-5-9-7-9-5-63-0-8-7-8-6"
+       width="13.704016"
+       height="4.2465439"
+       x="50.519405"
+       y="124.90298"
+       inkscape:transform-center-x="1.1859298"
+       inkscape:transform-center-y="-0.62144814"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="51.971912"
+       y="128.77946"
+       id="text1067-9-7-7-1-4-8-1-5-4-5-9"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56"><tspan
+         sodipodi:role="line"
+         id="tspan1065-8-7-3-1-9-6-0-8-9-5-8"
+         x="51.971912"
+         y="128.77946"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff;stroke-width:0.264583">DAC1</tspan></text>
+    <rect
+       style="font-variation-settings:'wght' 400;fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:2.62262;stroke-linejoin:round;stroke-opacity:1"
+       id="rect24-7-1-5-9-7-9-5-63-0-8-7-8-6-6"
+       width="13.704016"
+       height="4.2465439"
+       x="33.767593"
+       y="118.17651"
+       inkscape:transform-center-x="1.1859298"
+       inkscape:transform-center-y="-0.62144814"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="34.681118"
+       y="122.05299"
+       id="text1067-9-7-7-1-4-8-1-5-4-5-9-6"
+       inkscape:export-xdpi="339.56"
+       inkscape:export-ydpi="339.56"><tspan
+         sodipodi:role="line"
+         id="tspan1065-8-7-3-1-9-6-0-8-9-5-8-6"
+         x="34.681118"
+         y="122.05299"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#ffffff;stroke-width:0.264583">DAC2</tspan></text>
   </g>
 </svg>
