@@ -90,3 +90,4 @@ If *ArduinoIDE* shows a port, but once you are trying to upload new firmware to 
 
 > Tags: Microcontroller, ArduinoISE, ESPHome, platformio, Board Manager
 
+[Visit Page on Website](https://done.land/components/microcontroller/developmentenvironments/arduinoide?519169011326253354) - created 2025-01-25 - last edited 2025-01-25
