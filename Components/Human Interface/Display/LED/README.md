@@ -159,4 +159,4 @@ At any given moment, only one digit is lit, so the maximum simultaneous current 
 
 > Tags: LED Display Controller, Multiplexer, Character Map, Segment, Module
 
-
+[Visit Page on Website](https://done.land/components/humaninterface/display/led?639124011028252627) - created 2025-01-27 - last edited 2025-01-27

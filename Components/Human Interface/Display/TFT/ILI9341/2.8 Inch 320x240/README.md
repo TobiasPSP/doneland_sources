@@ -166,6 +166,45 @@ The display boards use the [ILI9341](https://done.land/components/humaninterface
 ### ESPHome 
 [ESPHome](https://done.land/tools/software/esphome/introduction) has dedicated support for *ILI9341* through the [ILI9XXX](https://esphome.io/components/display/ili9xxx#ili9xxx) component.
 
+Here is a sample configuration using the GPIOs for a [ESP32-S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). Adjust the GPIOs to your needs:
+
+````
+esp32:
+  board: lolin_s2_mini
+  framework:
+    type: arduino
+      
+output:
+  - platform: ledc
+    pin: 3
+    id: gpio_3_backlight_pwm
+    
+light:
+  - platform: monochromatic
+    output: gpio_3_backlight_pwm
+    name: "Touchdisplay Licht"
+    id: back_light
+    restore_mode: ALWAYS_ON
+
+spi:
+  clk_pin: GPIO07
+  mosi_pin: GPIO11
+  miso_pin: GPIO09
+
+display:
+  - platform: ili9xxx
+    model: ili9341
+    dc_pin: GPIO05
+    cs_pin: GPIO12
+    invert_colors: false
+    show_test_card: true
+    reset_pin: GPIO01
+````
+
+> [!IMPORTANT]
+> Make sure you **remove** `show_test_card: true` once you start adding your own display content. If you forget to remove this line, the display will show a distored image.
+
+
 ### PlatformIO/Arduino 
 
 * [Adafruit ILI9341:](https://github.com/adafruit/Adafruit_ILI9341) specific library for this driver, well documented, enables the use of the hardware-neutral [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) library on top of it
