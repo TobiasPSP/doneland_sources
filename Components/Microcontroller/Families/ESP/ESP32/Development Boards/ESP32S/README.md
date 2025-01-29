@@ -134,7 +134,7 @@ Here are the second-choice GPIOs that are most commonly used:
 | 26   | **Yes**   | not using DAC2 | - | Yes | Yes | Yes | Yes | Used for DAC2 output when not configured for other purposes. |
 
 ### Interface Pins (UART, I2C and SPI)
-Here are the defaukt GPIOs used for interfaces:
+Here are the default GPIOs used for interfaces:
 
 #### SPI
 

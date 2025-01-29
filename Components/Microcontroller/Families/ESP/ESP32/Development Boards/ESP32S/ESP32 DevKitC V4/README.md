@@ -2,26 +2,325 @@
  
 # ESP32 DevKitC V4
 
-> Original DevKit From Espressif Providing Access To Almost All ESP32 Pins - For Experienced Users 
+> Original DevKit from Espressif With Access to All ESP32 Pins – For Experienced Users
+The *ESP32 DevKitC V4* is a classic **engineering development board**, designed for **advanced prototyping, debugging, education, and experimentation**. Essentially, it serves as a hosting platform for an *ESP32 module*, providing access to nearly all of its pins.
 
-This is a classic engineering **development board**, targeted towards *expert prototyping*, *debugging*, *education*, and *experimenting*. It is basically just a hosting platform for a *ESP32 module*, providing access to almost all of its pins. 
+<img src="images/esp32-devkitC_V4_pinout_t.png" width="100%" height="100%" />
 
-This board is not an ideal choice for beginners and is particularly unsuited for DIY devices, especially those that are battery-operated.
+However, this board is **not an ideal choice for beginners**. It may also be less suitable for integration into DIY devices, particularly those that rely on battery power or have space constraints.
 
-> [!TIP]
-> If you are a beginner or planning to use the board in your own DIY devices, [there are much better-suited boards](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#what-is-your-use-case) for the same price. If you want a "classic" development board, consider the smaller *30-pin* version, as most of the additional pins exposed on this *38-pin* board are unusable anyway, and you are wasting space. The picture below shows the size difference (left: *30pin*, right: *38pin*):
 
-<img src="images/esp32devkitcv4_variants1_t.png" width="60%" height="60%" />
 
 ## Overview
 
+The *ESP32 DevKitC V4* is widely regarded as the *gold standard* for *ESP32* prototyping. Many projects use this board to test and experiment with code and peripherals, and you can likely use existing *ESP32* source code with minimal modifications. 
 
 
-First, the good news: this is a solid piece of hardware with a decent voltage regulator that is used in many community projects. You *can* run your sketches on this board, and many community-projects use this development board.
+<img src="images/esp32devkitcv4_usbc_t.png" width="60%" height="60%" />
 
-The board comes with a variety of *ESP32 modules* installed, typically *WROOM 32D* (featuring a PCB antenna) and *WROOM 32U* (with an IPX connector for an external antenna).
+Every possible *GPIO* is exposed, giving you a high degree of flexibility and the option to *adapt* your test setup to simulate almost any other *ESP32* board someone may have been used in a project you are trying to replicate.
 
-The table below lists information specific to the original *DevKitC V4*. Please note that clones may utilize different components, other USB connectors, and can vary in PCB dimensions.
+> [!NOTE]
+> *Espressif* has open-sourced the [original DevKitC V4 board design](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/hw-reference/esp32/get-started-devkitc.html). Today, many vendors produce such boards with minor variations voltage regulator (*AMS1117* vs. *IRU1117-33*), UART chip (*CH340* vs. *CP2102*), USB connector (*USB-C* vs. *Micro-USB*), and pin labelling. **All of these "DevKitC" boards are pin-compatible.** 
+
+
+
+### 30-Pin Variant
+While the board provides access to *38 pins*, you likely won’t need all of them. In fact, having so many exposed pins can be **confusing** or even **risky**—some pins can destabilize the board if used as regular *GPIOs*.
+
+<img src="images/esp32devkitcv4_variants1_t.png" width="60%" height="60%" />
+
+A similar *30-pin variant* retains the essential GPIOs and flexibility while omitting the pins that are either **useless or problematic** for typical use cases.
+
+The extra pins on the *38-pin version* (`D0`, `D1`, `D2`, `D3`, `CLK`, `CMD`) are primarily intended for **hardware engineers** exploring aspects of the *ESP32* that are beyond the needs of DIY hobbyists.
+
+## GPIOs
+
+The *ESP32S* follows standardized GPIO assignments, especially for common interfaces like *I2C* and *SPI*. Most development boards—including the *DevKitC V4* discussed here—[adhere to these conventions](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/#gpios).
+
+<img src="images/esp32devkitcv4_pinout2.png" width="100%" height="100%" />
+
+### Primary GPIOs
+
+If you need quick, reliable GPIOs, focus on those marked in *light green*: GPIOs `25`, `32`, and `33`. These three GPIOs support **all modes**—they can be used for *input*, *output*, and even *analog input*.
+
+### Additional GPIOs
+
+If you need more than the three foolproof GPIOs, there are many additional ones marked in *dark green*. However, these GPIOs may have restrictions depending on your use case.
+
+Before using any of them, ensure you understand their limitations and potential conflicts with the microcontroller's features:
+
+- **Input-Only:** Some GPIOs support only *input* and cannot be used for *output* or with internal pull-up/pull-down resistors.
+- **Analog Input:** Only GPIOs connected to *ADC1* support analog input. GPIOs connected to *ADC2* can only be used for analog input while **WiFi is disabled**.
+- **Shared Interfaces:** Some GPIOs are assigned to hardware interfaces such as *SPI*, *I2C*, or the two built-in *DACs* (*Digital-to-Analog Converters*). You can repurpose them if you don't require their assigned function.
+- **WROVER Modules:** GPIOs `16` and `17` are available only on boards with **ESP32-WROOM** and **ESP32-SOLO-1** modules. Boards with **ESP32-WROVER** modules reserve these pins for internal use.
+
+### Off-Limit GPIOs
+
+Avoid using the GPIOs that are located near the **USB connector**—they are strictly **off-limits**. Specifically:
+
+- GPIOs `6-11` are internally used for communication between the microcontroller and **SPI flash memory**. Using these pins may disrupt flash access, leading to system instability.
+
+
+### Interfaces (UART, I2C, and SPI)
+
+Interfaces allow the ESP32 to communicate with peripherals. The choice of interface depends on the peripheral you want to connect.
+
+#### Software-Emulated 
+
+- You can implement **any interface** on *any available GPIO* using software emulation.
+- However, software-emulated interfaces introduce **higher CPU load** and are **significantly slower** than hardware-supported interfaces.
+- To use a software-emulated interface, you must **explicitly specify** the GPIOs for the interface in your code.
+
+#### Hardware-Accelerated 
+
+- Some GPIOs are routed to dedicated **hardware-supported interfaces**, which are **much faster** and offload processing from the microcontroller.
+- When using hardware-supported interfaces, the constructors in your development environment handle GPIO assignment **automatically**.
+- Typically, you **do not** need to specify GPIOs when using these interfaces, as they are fixed.
+
+> [!IMPORTANT]  
+> If the *board definition* in your development environment (*Arduino IDE*, *PlatformIO*, *ESPHome*, etc.) **does not match your actual development board**, GPIO assignments for hardware interfaces may be incorrect, causing failures when trying to use them.
+
+
+### SPI
+
+*ESP32* comes with *two* hardware *SPI* interfaces called *VSPI* and *HSPI*. 
+
+
+Most projects require only *one SPI* interface (if at all), and by convention *VSPI* is typically used. You should wire your board accordingly for best compatibility.
+
+| SPI | MOSI | MISO | SCLK | CS |
+| --- | --- | --- | --- |--- |
+| VSPI (default) | `23` | `19` | `18` | `5` |
+| HSPI (secondary) | `13` | `12` | `14` | `15` |
+
+### I2C
+
+| Label | GPIO |
+| --- | --- |
+| SDA | `21` |
+| SCL | `22` |
+
+### Serial Interface (UART)
+
+| UART Port | TX | RX |
+| --- | --- | --- |
+| UART 0 (default) | `1` | `3` |
+| UART1 | custom | custom |
+| UART2 | `17` or custom | `16` or custom |
+
+> [!NOTE]
+> *UART0* is the default serial interface. It is used when you communicate with a PC terminal window, or when you upload firmware.
+
+> [!NOTE]
+> Here are detailed information about [safe-to-use ESP32 GPIOs](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/#safe-gpios).
+
+
+
+## Firmware Upload Mode
+The board comes with two buttons labelled `BOOT` and `RST`:
+
+<img src="images/esp32_devkitc_v4_buttons_t.png" width="60%" height="60%" />
+
+
+* `BOOT`: when pressed, connects GPIO `0` to `GND`
+* `RST`: when pressed, connects `EN` to `GND` 
+
+There are a number of use cases.
+
+### Enter Firmware Upload Mode
+Development environments often trigger firmware upload mode automatically before they start uploading new firmware to your microcontroller. 
+
+<img src="images/esp32_devkitc_v4_usb_t.png" width="60%" height="60%" />
+
+
+
+With this board, this *does not occur automatically*, and you need to enable this mode *manually*:
+
+* **Enter:** Keep `BOOT` pressed, then press `RST` once. The microcontroller reboots, and when it finds GPIO `0` *low* (since `BOOT` is pressed), it launches the *boot loader* from *ROM* and is now ready to accept firmware uploads from your development environment.
+* **Exit:** Press `RST` once to reset the microcontroller. Do not hold down `BOOT`. When the microcontroller finds GPIO `0` *high* (default), it starts normally and runs the user firmware. 
+
+
+
+### Regular Reset
+You can press `RST` anytime to perform a normal reset. Keep in mind that this resets only your microcontroller. Connected peripherals (like displays) may not reset and may retain their display content.
+
+### User Push Button
+`BOOT` pulls GPIO `0` *low* when the user pushes this button. GPIO `0` has special meaning only when the microcontroller is booting. 
+
+
+
+<img src="images/esp32_devkitc_v4_c15_t.png" width="60%" height="60%" />
+
+Once it has booted, and once your own firmware runs, you can safely use GPIO `0` for your own purposes.
+
+For example, you can use GPIO `0` as a *digital input*, and use the built-in `BOOT` push button as input device.
+
+
+## Driver Installation
+
+The original board design used a *CP2102* UART from *Silicon Labs*. Consumer PCs do not typically ship with a driver for this UART. 
+
+### CP210x Driver May Be Required
+If your microcontroller is not recognized by the PC when you connect it, you most likely need to manually install the driver first:
+
+- Visit [Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) and download the appropriate driver package. On *Windows*, you should download both *CP210x Windows Drivers* and *CP210x VCP Windows*.
+
+> [!TIP]
+> After downloading the driver packages, right-click the ZIP file, select *Properties*, and click the *Unblock* button **before unzipping the file**.
+
+Once the drivers are installed, restart your computer.
+
+### UART Variations
+Some vendors have replaced the *CP2102* UART by the more popular *CH340* in which case typically no additional drivers are required.
+
+### Testing UART Connection
+When you connect the *DevKitC V4* board via USB cable to your PC, and the required drivers are available, the PC should emit the typical sound signal for a newly discovered USB device.
+
+In *Device Manager* (on *Windows*), a new *COM port* should show when the board is connected, and disappear when it is disconnected.
+
+<img src="images/devmgr_usb_com_disc.png" width="40%" height="40%" />
+
+## Hardware Overview
+
+The *DevKitC V4* is a **development board** explicitly designed for testing *ESP32* **modules**. It supports various *ESP32 modules*, including `ESP32-WROOM-DA/32E/32UE/32D/32U`, `ESP32-WROVER-E/IE`, and `ESP32-SOLO1`.
+
+Because of this, the *ESP module* mounted on your development board may differ from the examples shown here.
+
+<img src="images/esp32_devkitc_v4_module_t.png" width="40%" height="40%" />
+
+### Module Variants
+
+- **External Antenna:** If your board has an *IPEX* connector, you **must** connect an external antenna **before powering on the board**. Otherwise, a meandering PCB trace indicates a *built-in* antenna.
+- **WROOM:** This variant is *smaller*, leaving some unused solder pads visible. It lacks *PSRAM*, and GPIOs `16` and `17` are available for use.
+- **WROVER:** Includes additional *PSRAM* and utilizes all solder pads. GPIOs `16` and `17` are internally used and not available for general use.
+
+In the original PCB design, which accommodates both `WROOM` and `WROVER`, the `WROOM` module left unused space. Some manufacturers optimized the PCB layout by shifting `WROOM` so that its PCB antenna fills this space rather than protruding.
+
+> [!NOTE]
+> The *DevKitC* from *Espressif* has undergone numerous minor revisions and variations. This section focuses on the standard components found in the original *Espressif* design.
+
+### USB Connector
+
+The original board uses a *Micro-USB* connector:
+
+<img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
+
+Many modern versions have replaced it with *USB-C*.
+
+### UART Interface
+
+Near the *USB connector*, a *Silicon Labs CP2102* chip provides a *USB-to-UART* bridge, supporting speeds up to **3 Mbps**. Your computer may require [manual driver installation](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#manual-driver-installation) to recognize this chip.
+
+<img src="images/esp32_devkitc_v4_regulator_t.png" width="50%" height="50%" />
+
+### Power Supply
+
+The board offers three *mutually exclusive* power options:
+
+1. **USB:** Provides *5V*, which is internally regulated to *3.3V*.
+2. **5V/GND Pins:** Allows external *5V* power input, passing through the onboard voltage regulator. Acceptable voltage range: *4.75V - 7.0V* (varies by board version).
+3. **3.3V/GND Pins:** Supplies *3.3V* directly, bypassing the voltage regulator. This is more energy-efficient but **riskier**—if the voltage strays outside *3.0V - 3.6V*, it could damage the board. Additionally, the power LED will not turn on.
+
+> [!CAUTION]
+> Never use multiple power sources simultaneously. A common mistake is supplying power via the *5V* or *3.3V* pins while also connected to USB, which can damage the board. To prevent this, either disconnect external power during firmware uploads or use a *USB cable* with power lines disabled.
+
+<img src="images/usb_power_turnoff_t.png" width="70%" height="70%" />
+
+### Voltage Regulator
+
+The board features an *IRU1117-33* 3.3V *voltage regulator*, capable of supplying up to **800mA**. It operates when powered via USB or the *5V pin* and supports a maximum input voltage of **7V**.
+
+
+The board includes two *JY3/S8050* epitaxial planar transistors, each capable of handling **500mA** of current with high total power dissipation.
+
+### Antenna
+
+Some *ESP32 modules* come with a built-in PCB antenna, while others include support for an *IPEX connector*, allowing you to connect an external antenna for extended range.
+
+<img src="images/esp32_devkitc_v4_antenna_t.png" width="60%" height="60%" />
+
+If your board requires an external antenna, **make sure to connect it before powering on**. Running the board without an antenna—even briefly—can cause permanent damage to the built-in *WiFi amplifier*.
+
+<img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
+
+### Power LED
+
+This board does not feature a programmable LED.
+
+It includes a red *power LED* that lights up when the board is powered through the *5V* pin or via USB.
+
+However, the LED will not turn on if you supply power directly to the *3V3* pin.
+
+
+## Historic Hardware Flaw
+
+In early versions of this board, there was a significant issue: when the board was powered externally (i.e., not through *USB*), it required you to manually press the *EN* button to reset the board and begin running your code. However, this problem did not occur when the board was powered via USB.
+
+The root cause was a *capacitor* (`C15`) connected in parallel with the `Boot` button. This capacitor caused the board to enter the bootloader by default, preventing it from running your code. In later versions of the board, this capacitor was removed to fix the issue.
+
+> [!CAUTION]
+> If you're using an older version of the board and experiencing this issue, you might need to remove the problematic SMD capacitor (`C15`). This can be tricky due to its small size and the delicate tracks underneath. Make sure to use a heat gun and proper desoldering tools to carefully remove it.
+
+Below is an image of a newer version of the board that still has the solder pads for *C15*, but without the capacitor installed:
+
+<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="40%" height="40%" />
+
+
+## Conclusion
+
+While the *ESP32 DevKitC V4* is a powerful and versatile board, it may not be the best choice for beginners due to several factors:
+
+* **Drivers**:     
+   The original design uses a *CP2102* UART controller, and its drivers are typically not included in your PC’s operating system. As a result, you may need to [manually install the appropriate driver](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#manual-driver-installation) before your PC can recognize the board.
+
+* **Size**:    
+   The board's size can make it difficult to use with breadboards. To simplify connections, it's recommended to use a dedicated [expansion board](https://done.land/components/microcontroller/expansionboards/devkitcv4/) designed for this purpose.
+
+    <img src="images/expansionboard_esp32_38_side_t.png" width="60%" height="60%" />
+
+* **Labels**:     
+   Pin labeling can be confusing, and the print quality of some labels may be poor. Some pins are labeled by *GPIO numbers*, while others use *D* notation (e.g., `D2`, which corresponds to GPIO `9`). While `Dx` GPIOs in hobbyist projects denote *recommended* GPIOs, with *this* board, `Dx` are GPIOs **that you may under no circumstances use**. Accidentally using these pins may cause the board stop booting or behave erratically.
+
+* **No LED**:     
+   This board lacks a built-in programmable LED, a feature that is commonly used for testing and learning, particularly for beginners.
+### When to Use
+
+*ESP32 enthusiasts* should have at least *one ESP32 DevKitC V4* board for reference, along with an *expansion board* for it. This combination is a perfect starting point to explore and replicate existing projects or test new peripherals and unknown components.
+
+#### Expansion Board Recommended
+
+Here’s a picture showing the *DevKitC V4* mounted on an [expansion board](https://done.land/components/microcontroller/expansionboards/devkitcv4/). For comparison, at the bottom, you can see a modern [ESP32-C3 SuperMini board](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/), which, for many use cases, is a **much better, significantly smaller, and more affordable** choice.
+
+<img src="images/compare_devkitcv4_vs_c3_t.png" width="60%" height="60%" />
+
+#### Perfect Test Environment
+
+Since the *DevKitC V4* uses a *classic ESP32* microcontroller and exposes every single GPIO pin, it’s the perfect development board for replicating projects. 
+
+It doesn’t matter which development board the original author used—as long as it was based on an *ESP32* microcontroller, you’ll be able to use any of the *GPIOs* they selected without needing to adjust the project or its GPIO assignments. This greatly reduces the chances of breaking things during the process.
+
+<img src="images/esp32_devkitc_v4_top_t.png" width="60%" height="60%" />
+
+#### Exploring New Components
+
+Thanks to the numerous connectors found on the *expansion board*, this setup is also ideal for quickly testing peripherals or exploring new devices.
+
+#### First Realize, Then Optimize
+
+Go step by step. It’s essential to first have a *working prototype*. The *DevKitC V4* might not be the smallest or most elegant, but it’s perfect for prototyping.
+
+Once you’ve built a working prototype or successfully replicated an existing project and gained a solid understanding, you’re ready for the next steps:
+
+* **Optimize Size:**    
+   If you want to create a smaller device based on your idea, transition your working prototype to a more compact development board.
+* **Optimize Cost/Performance:**    
+   Move your code to a more modern, more capable, or possibly more affordable *ESP32* variant.
+
+
+## Specifications
+
+<img src="images/esp32devkitcv4_clone2_t.png" width="60%" height="60%" />
 
 
 | Item | Description |
@@ -39,273 +338,6 @@ The table below lists information specific to the original *DevKitC V4*. Please 
 | SPI Pins | MOSI 23, MISO 19, SCLK 18 |
 | Size | 48.2x27.9mm (without PCB antenna), 54.4x27.9mm (with PCB antenna) |
 
-### Not Beginner-Friendly
-
-The not-so-good news is that this board *is not beginner-friendly*. Its design is nearly a decade old and has been superseded by many [newer boards and ESP32 variants](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#what-is-your-use-case) that are more powerful, compact, and user-friendly.
-
-Here’s why this board isn’t beginner-friendly:
-
-
-* **Micro-USB:** The board features an old *Micro-USB* connector (newer revisions exist with *USB-C*). 
-* **Drivers:** your PC might not recognize the board out-of-the-box. Its original designs use a *CP2102* UART controller, and its drivers aren't typically included in your PC operating system. You may need to [manually install the appropriate driver](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#manual-driver-installation) first.
-* **Size:** The board's size makes it incompatible with standard breadboards. You'll need to either use two breadboards side-by-side,  connect wires directly to the pins or use a dedicated [expansion development board](https://done.land/components/microcontroller/expansionboards/devkitcv4/) for easier prototyping.
-
-    <img src="images/expansionboard_esp32_38_side_t.png" width="60%" height="60%" />
-
-* **Pins:** While it seems advantageous to have access to nearly all ESP32 pins, many of the additional pins exposed by this board are useless for DIY projects and provide no advantage. For example, *GPIO 6-11* are reserved for communication with flash memory. Using these pins can make the board unstable or prevent it from booting entirely.
-* **Pin Labeling:** Pin labels on the board are inconsistent, confusing, and difficult to read. Some pins are labeled with *GPIO numbers*, while others use *D* notation (e.g., *D2*, which is *GPIO9*). The *Dxxx* pins are typically used in custom sketches, however with this board they are used for the **unsafe** pins and should never be used. This inconsistency can easily confuse beginners.
-* **No LED:** Unlike many other development boards, this one lacks a built-in programmable LED, which is a handy feature for testing and learning.
-* **Firmware Upload:** Uploading firmware requires *manual* intervention. You need to hold down the *Boot* button and then press the *Reset* button to enable bootloader mode for uploading. Most other boards do this automatically.
-* **Hardware Flaws:** Early board revisions had hardware issues preventing sketches from running when powered via the *5V* pin.
-Generally, this board design is outdated. It was introduced when *ESP32S* microcontrollers were first released in 2016. Despite its age, the *DevKitC V4* board remains extremely popular and is readily available from numerous sources.
-
-> [!TIP]
-> You can find many variants of this board design. They all function essentially the same, as vendors typically use the open-source hardware design provided by the manufacturer, and adjust it only slightly while keeping boards pin-compatible. **Price differences can be significant**, though: while the board is available for under €2 on *AliExpress*, local vendors often sell essentially the same product for €12 or more, sometimes even marketing this as a "sale."
-
-### Clones
-
-The [original DevKitC V4 board designed by the manufacturer](https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/hw-reference/esp32/get-started-devkitc.html) is open-source, and a wide range of products from different manufacturers exists, only slightly varying in PCB quality. A board labeled *DevKitC V4* typically adheres to the original components and circuitry. Therefore, it doesn’t matter *which* variant you purchase—shop wisely and compare prices.
-
-Some manufacturers have adapted the original design over time, modernizing or streamlining components such as the voltage regulator (*AMS1117* instead of *IRU1117-33*), UART chip (*CH340* instead of *CP2102*), or USB connector (*USB-C* instead of *Micro-USB*). 
-
-Most of these changes are practical improvements; for example, the *CH340* chip typically doesn’t require manual driver installation, and *USB-C* is a clear upgrade over the older *Micro-USB* connector. Below is an example of a clone featuring an *AMS1117* voltage regulator and pin labels on the backside:
-
-<img src="images/esp32devkitcv4_clone2_t.png" width="60%" height="60%" />
-
-The picture also illustrates that vendors may change the way they label the pins: the variant shown uses pin labels on the backside (instead of the front).
-
-The general pin design, however, always follows the original specification, ensuring these clones are *pin-compatible*. All variants of the board work essentially the same, providing a reliable platform to test and experiment with a standard *ESP32 module*.
-
-
-### Always Use Antenna
-Some boards come with *IPEX connectors* for external antennas which can be a good choice when you need maximum *WiFi strength* or must operate in weak WiFi networks. 
-
-
-<img src="images/esp32_devkitc_v4_antenna_t.png" width="60%" height="60%" />
-
-
-If the board expects an external antenna to be connected, you can clearly see the *IPEX* connector (left board) that is replacing the *PCB antenna* (right board):
-
-<img src="images/esp32_devkitc_v4_compare_t.png" width="60%" height="60%" />
-
-Again, this flexibility is great, but it comes with added responsibilities and caveats on your part: **it is your responsibility** now to actually connect an antenna. If your power up the board without an antenna connected, you quickly destroy its *WiFi power amplifier*.
-
-### Conclusion 
-
-
-This board is best suited for prototyping, education, and experimenting, and targets experienced users that know what they are doing. For them, it offers a wide variety of options. However, these options come with responsibilities: 
-
-* With almost all *ESP32* pins exposed, you must identify the ones that are safe to use, or else the board will become unstable or refuses to boot at all.     
-* Likewise, with an external antenna jack, you must ensure a suitable antenna is connected, or else you will be damaging the *WiFi power amplifier*.  
-This board is also not ideal for production devices, especially battery-operated ones:
-
-In addition to its large size, it is highly inefficient in terms of power consumption. Even in *deep sleep*, the board draws around *19mA*, while modern *ESP32* boards typically consume just *500μA*. As a result, this board might only last a single day on a battery, whereas modern boards could operate for over a month. Optimized board designs like the *FireBeetle* series can draw as little as *20μA*, extending the potential deep sleep runtime to up to three years.
-
-The key reason for this inefficiency is that a true *development board* is designed for testing and experimenting with the *ESP32* in a lab setting. It is not intended for production use, leaving power optimization to dedicated board designers. The supporting components chosen, and this boards' overall design are far from sophisticated. It provides merely the fundamental requirements to test-drive a *ESP32*.
-
-
-
-## Hardware Overview
-
-The *ESP32 module* (depending on type, either with a PCB antenna or an IPX antenna jack) occupies about half of the PCB surface area. Toward the inner side, there is unused space unless your breakout board uses the larger *WROVER* module, which includes additional *PSRAM*.
-
-<img src="images/esp32_devkitc_v4_module_t.png" width="40%" height="40%" />
-
-> [!NOTE]
-> Some vendors have utilized the wasted space and shifted the entire ESP32 module on the PCB, making additional room for the PCB antenna that otherwise sticks out and enlargens the footprint.
-
-
-
-### USB Connector
-
-On one side, a *Micro-USB* connector allows you to connect the board to a computer.
-
-<img src="images/esp32_devkitc_v4_usb_t.png" width="40%" height="40%" />
-
-Next to the *USB connector*, a *Silicon Labs CP2102* chip provides a *USB-to-UART* bridge, capable of speeds up to 3 Mbps. This chip may require [manual driver installation](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/#manual-driver-installation) for your computer to recognize it.
-
-<img src="images/esp32_devkitc_v4_regulator_t.png" width="50%" height="50%" />
-
-> [!NOTE]
-> Some vendors have replaced the *CP2102* by a more common *CH340* which typically does not require additional drivers to be installed.    
-
-
-### Power Supply
-
-The board offers three *mutually exclusive* ways to power it:
-
-1. **USB:** Use *5V USB*, which is internally converted to *3.3V*.
-2. **5V/GND Pins:** Connect an external power supply to the *5V* and *GND* pins. This input also passes through the onboard voltage regulator, similar to the USB method. You can supply voltage in the range of *4.75-7.0V* (unless your board uses a different voltage regulator).
-3. **3.3V/GND Pins:** Supply *3.3V* directly to the *3.3V* and *GND* pins. This method bypasses the voltage regulator and powers the microcontroller directly. When you power the board this way, the power LED will not turn on. This is the most energy-efficient method but also the riskiest: if your external supply does not consistently deliver regulated voltage between *3.0V* and *3.6V*, it can easily damage the board and/or microcontroller.
-
-> [!CAUTION]
-> Always use **only one** of the three power methods listed above. Never power the board through both an external supply and *USB* simultaneously. The most common mistake is supplying power through the *5V* or *3.3V* pins while connecting the board to a computer via *USB cable* for firmware uploads. To avoid damage: disconnect the external power supply during firmware uploads **-or-** use a *USB connector* that can disable its power lines like in the picture below.
-
-<img src="images/usb_power_turnoff_t.png" width="70%" height="70%" />
-
-### Voltage Regulator
-
-Behind the *CP2102* lies an *IRU1117-33* 3.3V *voltage regulator*, capable of supplying up to *800mA*. This regulator is used when the board is powered via *USB* or the *5V pin*. It accepts a maximum input voltage of *7V*. 
-
-> [!TIP]
-> Some clones use other voltage regulators, for example the *AMS1117* which is interchangeable. *AMS1117* is widely cloned, though, and quality may vary depending on the source.  The original *IRU1117-33* is less commonly cloned and might ensure more consistent quality.     
-
-To the right, there are two *JY3/S8050* epitaxial planar transistors, each with a high collector current of *500mA* and high total power dissipation.
-
-### Power LED
-
-A *surface-mount power LED* is located on the opposite side of the board. It illuminates whenever input power passes through the voltage regulator. However, it **does not turn on** when you power the board via the *3.3V pin* to conserve energy in battery-operated scenarios.
-
-
-### Firmware Download Mode
-
-The board includes two push buttons labeled *EN* (reset) and *Boot*. 
-
-To enter *Firmware Download Mode*:
-1. Hold down the *Boot* button.
-2. While holding *Boot*, press and release the *EN* button.
-3. Release the *Boot* button.
-
-This puts the board into *Firmware Download Mode*, allowing you to upload new firmware via the *USB connector*. Timing is crucial—this must be done exactly when your IDE attempts to connect to the board.
-
-After the firmware transfer is complete, press the *EN* button again (without pressing *Boot*) to exit *Firmware Download Mode* and run your sketch normally.
-
-
-
-#### Hardware Flaw
-On the **initial** versions of this board, there was an odd behavior: when powered externally (not via *USB*), you need to manually press the *EN* button to reset the board and run your sketch. It won't start automatically. The issue does not occur when the board is powered via *USB*.
-
-The reason for this unwanted behavior is a *capacitor* (C15) connected in parallel to the *Boot* button that causes the board to launch the boot loader by default. On newer versions of this breakout board, the *capacitor* has been removed. If it is still in place on your board, and you experience this problem, then you know what to do: remove it.
-
-> [!CAUTION]
-> The SMD capacitor is very small, and there are delicate tracks behind it that can easily be damaged by brute force or an over-sized and over-heated soldering iron. Desoldering this component requires proper tools (i.e., a heat gun).
-
-The picture shows a newer version with the solder pads for *C15* (but with no capacitor present):
-
-<img src="images/esp32_devkitc_v4_c15_fail_t.png" width="80%" height="80%" />
-
-
-
-## Pinout and GPIO
-
-This breakout board exposes most of the *ESP32* pins:
-
-<img src="images/esp32-devkitC_V4_pinout_t.png" width="100%" height="100%" />
-
-For a detailed description, [consult the ESP32S GPIO listing](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/#gpios). If you just need to figure out which GPIOs can be used for your next project, take a look at the [safe-to-use ESP32 GPIOs](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/#safe-gpios).
-
-
-<img src="images/esp32_devkitc_v4_back_t.png" width="50%" height="50%" />
-
-
-### Practical Considerations
-This board is a *development board* in its best sense: it exposes almost all *ESP32* pins and invites anyone to fully test-drive the *ESP32*.
-
-Unfortunately, for the same reasons, the board is fairly large. Its *width* is *28mm*, which is unfortunately *too wide* to place the breakout board on typical breadboards:
-
-<img src="images/esp32_devkitc_v4_breadboard_t.png" width="70%" height="70%" />
-
-Only one row of header pins would remain accessible.
-
-#### One Breadboard Isn't Enough
-Most breadboards are modular and can be combined and rearranged. When you take *two* breadboards and remove *one power rail* each, you can stick them together in a way that provides the necessary real estate to place the breakout board:
-
-<img src="images/esp32_devkitc_v4_breadboard2_t.png" width="80%" height="80%" />
-
-Better yet, use one of the [dedicated expansion boards](https://done.land/components/microcontroller/expansionboards/devkitcv4/).
-
-
-<img src="images/expansionboard_esp32_38_side_t.png" width="80%" height="80%" />
-
-
-### No Built-in LED
-This board has no built-in user-controllable *LED*: simple *blink* sketches will not work.
-
-> [!NOTE]
-> There *is* a *LED* on the board; however, this is the *power LED* that is not user-controllable.
-
-<img src="images/esp32_devkitc_v4_side_t.png" width="60%" height="60%" />
-
-
-
-### Missing Board Definition
-Neither *Arduino IDE* nor *platformio* provide a dedicated board *DevKitC V4*, so you need to find a similar board. That's no rocket science but not self-explanatory either, especially for novice users:
-
-- **Arduino IDE**: choose *ESP-WROOM-32*.
-- **platformio**: use the generic *esp32dev* profile, or use one of the many profiles added by companies that rebranded this generic board.
-
-
-````
-[env:az-delivery-devkit-v4]
-platform = espressif32
-board = az-delivery-devkit-v4
-framework = arduino
-````
-> [!CAUTION]
-> Make sure you remove any *build flags* or other settings that you do not *positively know are necessary*. If you *copy&paste* extra settings from other boards, you may easily run into compile exceptions like "Serial was not declared in this scope".
-
-## Driver Installation
-This board may not initially be recognized by your computer when you connect it via *USB cable*. This is due to its *USB to UART bridge*: 
-
-The *CP2102* from *Silicon Labs* is fast, but it is not as ubiquitous as i.e. the *CH340*. It may require a manual *driver installation* before the board is recognized.
-
-> [!NOTE]
-> Some clones employ more commonly used UART chips such as the *CH340* in which case your board will be recognized out of the box, and no additional drivers are required.   
-
-#### Is Board Recognized?
-If a *new device discovered* chime plays when you connect the board to your PC, that's a very good sign. 
-
-If no sound plays, or if you would like to verify, open *device manager* (*Windows* PC) and check that a new *COM Port* has appeared (and vanishes when you unplug the board from your PC).
-
-<img src="images/devmgr_usb_com_disc.png" width="60%" height="60%" />
-
-### Manual Driver Installation
-If *no COM Port* appears in *device manager* once you have connected the board to your PC, then most likely the *CP210x drivers* are missing.
-
-[Visit Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) and download the appropriate driver package. On *Windows*, I installed *CP210x Windows Drivers* and *CP210x VCP Windows*.
-
-> [!TIP]
-> Once you downloaded the driver packages, make sure you right-click the downloaded ZIP file, choose *Properties*, and click on the button to *unblock* the file **before you unzip it**.
-
-Once drivers are installed, restart the computer. When you now connect the board, it will now be correctly recognized, and a *COM port* appears in *device manager*.
-
-> [!TIP]
-> If things *still* do not work, make sure you use an appropriate *USB cable*. Try using a cable that you previously successfully used to upload firmware. There are plenty of cheap cables with no data wire connection, high cable resistance, or loose plug connections.
-
-## Uploading New Firmware
-If you managed to successfully connect the board to your computer, then there is a final challenge to master when you are ready to upload new firmware to it: 
-
-The board needs to be **manually** set to *firmware download mode* at *just the right moment*. Other microcontroller boards switch *automatically* to this mode when it is needed.
-
-
-<img src="images/esp32_devkitc_v4_side2_t.png" width="60%" height="60%" />
-
-1. **Initiate Firmware Upload:** in your *IDE* (*platformio* or *ArduinoIDE*), compile your sketch and ask the IDE to upload it to your microcontroller.
-2. **Connection:** your *IDE* tries to connect to the board. As soon as this happens and you see it trying to connect, hold the *Boot* button and press *EN* shortly. This procedure enables the firmware download mode. *Only now* will the board respond to the connection requests.
-
-    The *connecting...* message will now hold for a second, and then the *IDE* starts to upload the new sketch to the board.
-
-## Conclusion
-The DevKitC V4 is a great *development board* to test-drive *ESP32* features simply because it exposes all important CPU pins.
-
-It's a solid board with a good voltage regulator, and its *street price* of under EUR 2.00 is ok, too (don't buy it for EUR 10 or more - there are still people selling it for these ridiculous prices).
-
-You can get great [expansion boards](https://done.land/components/microcontroller/expansionboards/devkitcv4/), and while the resulting physical size is huge now, it can be perfect in a lab or for educational purposes.
-
-### What is Your Use Case?
-
-It all boils down to your use case:
-
-* **Beginner:**  If you are a beginner and would like to start exploring the world of microcontrollers, then there are definitely other boards that provide more bang for the buck while being a lot easier to handle.
-* **Device Use:** If you are planning to use a microcontroller board inside your DIY devices, then there are *much* smaller boards with a much better energy efficiency for the same price, for example the [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/), or the [ESP32 S2 Mini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/s2mini/). If you are willing to spend €5 instead of €2, the [T-Display](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/) comes with *16MB Flash Memory* (instead of *4MB*) and a TFT display, a battery interface and charger, and a deep sleep consumption of *290uA* (instead of *19mA*).
-
-For comparison, here is a picture of the *ESP32 DevKitC V4*, plugged into an *expansion board*, and a [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) that I placed next to it:
-
-<img src="images/compare_devkitcv4_vs_c3_t.png" width="80%" height="80%" />
-
-The former comes with all *classic ESP32 features* including [DAC](https://done.land/components/microcontroller/families/esp/espfeatures/dac/) and dual core processor, whereas the latter has just a *single core* and is missing some of the lesser-used ESP32 features (such as the DAC). They both have the same *4MB* of flash memory.
-
-That said, I am routinely using the [ESP32 C3 SuperMini](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/c3supermini/) in most of my bread-and-butter sensors and devices including sophisticated applications such as [WLED](https://done.land/components/microcontroller/firmware/fromsomeoneelse/wled/), and its tiny size and affordable price works perfectly well in my devices where a *ESP32 DevKitC V4* board would have been way too clumsy and power-hungry.
 
 ## Materials
 [Board Schematics](materials/esp32_devkitc_v4-sch.pdf)    
@@ -322,4 +354,4 @@ That said, I am routinely using the [ESP32 C3 SuperMini](https://done.land/compo
 
 > Tags: Microcontroller, ESP32, CP2102
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4?604445051417245543) - created 2024-05-16 - last edited 2024-12-26
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4?604445051417245543) - created 2024-05-16 - last edited 2025-01-28
