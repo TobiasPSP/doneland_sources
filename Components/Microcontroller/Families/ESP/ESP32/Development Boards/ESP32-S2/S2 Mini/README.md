@@ -204,7 +204,7 @@ esp32:
 
 
 
-<details><summary>Examle configuration</summary><br/>
+<details><summary>Example configuration</summary><br/>
 
 Here is an example configuration showing how yo interface a `ili9341` *TFT display* using *hardware SPI*:
 

@@ -196,6 +196,7 @@ Here is a [detailed list](https://i2cdevices.org/addresses) with clickable devic
 You can also create yourself a simple *I2C Address Scanner*: upload the following code to a microcontroller, then connect the unknown device to its designated *I2C pins*. The scanner then scans all devices connected to *I2C*, and lists the addresses it found:
 
 ````c++
+#include <Arduino.h>
 #include <Wire.h>
 
 // change to the GPIOs you want to use for I2C
@@ -203,7 +204,8 @@ You can also create yourself a simple *I2C Address Scanner*: upload the followin
 #define SCL_PIN 22
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
+  delay(2000);
   
   // Initialize I2C with custom pins
   Wire.begin(SDA_PIN, SCL_PIN);
