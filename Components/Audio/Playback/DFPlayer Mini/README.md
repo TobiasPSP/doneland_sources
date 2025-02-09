@@ -158,3 +158,5 @@ The module supports up to *100* folders, with each folder containing up to *255*
 <img src="images/dfplayer_mini_back.png" width="50%" height="50%" />
 
 > Tags: Audio, 3W, Amplifier, Mono, SD Card, MP3, WAV, WMA, Uart
+
+[Visit Page on Website](https://done.land/components/audio/playback/dfplayermini?833367021909255401) - created 2025-02-08 - last edited 2025-02-08
