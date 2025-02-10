@@ -1,88 +1,95 @@
 <img src="/assets/images/treasureChest.png" width="100%" height="100%" />
  
-
 # Permanent Storage on SD Cards
 
-> SD Cards are Cost-Effective to Permanently Store Data. Plus You Can Use Them To Export Data From A Device To Your PC.
+> SD cards are a cost-effective way to permanently store data. They also allow easy data export from a device to your PC.
 
-
-SD Cards (memory cards) can store large amounts of data permanently, and since SD cards can be removed, they are an excellent way of transferring data (i.e. sensor data) to a PC to do evaluations. 
-
+SD cards (memory cards) can store large amounts of data permanently. Since they are removable, they provide an excellent method for transferring data, such as sensor readings, to a PC for evaluation.
 
 <img src="images/card_formats2.png" width="40%" height="40%" />
 
-
-Let's cover some fundamental facts and then dive into everything you need to hook up **SD Card Readers** to your project.
+Let's cover some fundamental facts and then dive into everything you need to know about connecting **SD card readers** to your project.
 
 ## Life Span
 
-There is no definite life span of SD Cards and they can probably last 10 to 30 years. 
+There is no fixed lifespan for SD cards, but they can last anywhere from 10 to 30 years under normal use.
 
-SD cards use a type of Flash memory called *NAND*. Flash memory has a *finite number of write cycles*. Saving, deleting, and re-writing data contributes to the wear of SD cards.
+SD cards use a type of flash memory called *NAND*, which has a *finite number of write cycles*. Writing, deleting, and re-writing data contribute to the wear of SD cards.
 
-Modern SD cards employ advanced *wear-leveling* technology for even distribution of data across all memory cells. When you store relatively small amounts of data, the overall life-span is further extended.
+Modern SD cards employ *wear-leveling* technology, which evenly distributes data across all memory cells to extend lifespan. When storing relatively small amounts of data, overall longevity improves even further.
 
-> [!TIP]
-> While flash memory (including SD cards) is not perfect for continuous writing in high frequency (as is the case when logging sensor data), *realistically* they are great *especially* for storing sensor data (aka small amounts of data). Here is why: 
-> Assume you are writing 100 bytes of sensor data every second. That's 6KB per minute, and 360KB per hour. So you accumulate 8MB per day, or 260MB per month. Let's say you record for a year: 3GB of data.
-> Todays' **SD Cards** come with storage capacities of 32GB and more. So you could log your sensor data every second for 10 years just to fill the **SD Card** *once*. Assuming each memory unit sustains just 1000 read/writes, you would have to continuously log sensor data for 10.000 years until its *finite number of write cycles* hit you. We all will be long gone by then I am afraid.
+### Practical Considerations
+Flash memory (including SD cards) is not ideal for continuous high-frequency writing, such as real-time sensor logging. However, in practical use cases, they are quite reliable for storing sensor data.  
 
-
+For example, writing 100 bytes of sensor data per second results in:
+- 6KB per minute
+ - 360KB per hour
+ - 8MB per day
+ - 260MB per month
+ - 3GB per year  
+  
+Since modern SD cards typically start at 32GB, you could log data every second for **10 years before filling the card once**. Even if each memory unit endured only 1000 write cycles, you would need to log continuously for **10,000 years** before wearing out the card—far beyond any realistic concern.
 
 ## Speed
 
-Different types of **SD Cards** support different read and write speeds. This is important when transferring *big data*, i.e. inside a 4K camera. 
+Different types of **SD cards** support different read and write speeds. This is important when handling *large data transfers*, such as recording 4K video.
 
-For typical data logging applications, read and write access times are no issue, and even the cheapest **SD Cards** should suffice.
+For typical data logging applications, read and write speeds are not a major concern, and even the cheapest **SD cards** should be sufficient.
 
-## Size
+## Storage Capacity
 
-The initial SD cards stored up to *2GB*. Modern SD cards can store *128GB* and much more.
+Early SD cards stored up to *2GB*, while modern SD cards can exceed *128GB*.
 
-Even if you just need a few kilobytes or megabytes for your sensor data, choosing a high capacity **SD Card** can still be benefitial to extend its lifetime, especially when you log data in high frequency (see above, *wear levelling*)
-
+Even if your project only requires a few kilobytes or megabytes for sensor data, choosing a high-capacity **SD card** can be beneficial for extending its lifespan, particularly in high-frequency logging applications (see *wear-leveling* above).
 
 ## Physical Dimensions
 
-**SD Cards** come in two different sizes. Make sure you purchase an **SD Card Reader** that matches the size of your **SD Cards**.
+**SD cards** come in two primary sizes. Ensure that you purchase an **SD card reader** compatible with your card type.
 
-The *classic* SD cards are *large* with dimensions of 24x32x2.1mm. Newer *microSD* are much smaller: 11x15x1mm. 
+- **Standard SD**: 24×32×2.1mm (larger, traditional format)
+- **microSD**: 11×15×1mm (much smaller, commonly used in compact devices)
 
-> [!NOTE]
-> If you want to equip your device with additional permanent storage and do not plan to *change* the **SD Card** frequently, *microSD* cards are best. They are so small they easily fit even into small devices.
-> Should you want to use **SD Cards** for *portability* and *export* data from your device to your PC, then fiddling with *microSD* cards is impractical. The *regular sized* **SD Cards** are better.
-> Maybe it's a matter of availability, too: still have **SD Cards** from cameras and other devices stockpiling in your drawer? Choosing a matching **SD Card Reader** seems reasonable then. And if you want to carry the sensor data to your PC, check whether your PC has a built-in **PC Card Reader**, and which size it is.
-
+### Practical Considerations
+- If you are adding permanent storage to a device and do **not** plan to swap out the **SD card** frequently, *microSD* is ideal due to its small size.  
+- If you plan to use **SD cards** for **portability**, such as transferring data to a PC, handling *microSD* cards can be impractical. In this case, full-size **SD cards** are better.  
+- Consider availability: if you have spare **SD cards** from cameras or other devices, choosing a matching **SD card reader** makes sense. Also, check whether your PC has a built-in card reader and which size it supports.
 
 ## SD Card Modules
 
-**SD Card Modules** are small breakout boards with a slot to fit in the **SD Card**. They read and write data and communicate with microcontrollers using **SPI** (4 GPIO pins).
+**SD card modules** are small breakout boards with an **SD card** slot, allowing microcontrollers to read and write data. They communicate using the **SPI** interface, requiring four GPIO pins.
 
 <img src="images/sdcard_moduleBasic.png" width="40%" height="40%" />
 
-> [!TIP]
-> It is not strictly necessary to use a **SD Card Module**. These modules simply provide an easy **SD Card** mount and forward the appropriate contacts to your microcontroller. **SD Card Modules** for **5V** microcontrollers add a *level shifter*. 
-> **SD Cards** come with a *SPI* interface already built-in so no complex external components are required.   
-> Without a **SD Card Module**, manually connect the **SD Card** contacts *CS*, *DI*, *DO*, and *CLK* to the microcontroller pins *CS*, *MOSI*, *MISO*, and *SCK*.
-> Supply voltage to the **SD Card** via its contacts *VDD* and *VSS/GND* but keep in mind that they are **3.3V** devices. To operate them with a **5V** microcontroller like an *Arduino*, add an appropriate *level shifter*.   
-> Then again, **SD Card Modules** are so cheap that the only sensible reason for directly connecting **SD Cards** would be a challenging device size or cases where you simply want to add permanent storage to your microcontroller.
+Using an **SD card module** is not strictly necessary. These modules simply provide an easy **SD card** mount and forward the necessary contacts to your microcontroller. **SD card modules** for **5V** microcontrollers also include a *level shifter*.  
+  
+However, **SD cards** natively support the *SPI* interface, so direct wiring is possible:  
+- Connect *CS*, *DI*, *DO*, and *CLK* on the **SD card** to *CS*, *MOSI*, *MISO*, and *SCK* on the microcontroller.  
+- Provide power via *VDD* and *VSS/GND*, keeping in mind that **SD cards operate at 3.3V**.  
+- If using a **5V** microcontroller like an *Arduino*, a *level shifter* is required.  
+  
+That said, **SD card modules** are inexpensive, making direct wiring practical only for space-constrained projects or when adding storage directly to a microcontroller.
 
-
-There are also *Shields* available for *specific* microcontrollers such as the *Wemos D1 Mini*. *Shields* are breakout boards that are designed to be pin-compatible with a host board. *Shields* can be mounted directly on the microprocessor board and require no wiring:
+There are also **shields** available for specific microcontrollers, such as the *Wemos D1 Mini*. Shields are designed to be pin-compatible with their respective boards and require no additional wiring.
 
 <img src="images/piggy3.png" width="40%" height="40%" />
 
-Things to watch out for before choosing a particular **SD Card Module**:
+### Choosing an SD Card Module
 
-* **Voltage:** Internally, **SD Card Modules** use 3.3V technology. Breakout boards may expose a *3.3V* pin, may have both a *3.3V* and *5V* pin and use an internal voltage regulator when needed, or seldomly just have a *5V* pin (in which case these modules do not work with *ESP8266* and other 3.3V microcontrollers unless you manually cut wires on the breakout board to disable the voltage regulator).
-* **SD Card Size:** Most modules have slots for small *microSD* cards and do not support the bulky classic *SD Card* format any more.
-* **Module Size:** There are many different modules available that come in much different sizes. If space is limited make sure you choose a slim board. 
+Before selecting an **SD card module**, consider the following:
+
+- **Voltage Compatibility**:  
+  - SD cards use **3.3V** internally.  
+  - Some modules have *3.3V* and *5V* pins, while others only provide *5V* (which may not work with **ESP8266** or other 3.3V microcontrollers unless modified).  
+- **Card Size Support**:  
+  - Most modern modules support *microSD* and do **not** accommodate full-size **SD cards**.  
+- **Module Size**:  
+  - Available in various form factors—choose a compact board if space is limited.  
 
 ### Pin Layout
 
 **SD Card Modules** come with at least six pins:
 
-| Pin Label | ESP8266 (adjust pins for other microcontrollers accordingly) |
+| Pin Label | ESP8266 (adjust for other microcontrollers accordingly) |
 | --- | --- |
 | VCC | 3.3V (may be 5V tolerant, check datasheet) |
 | GND | Ground pin **G** |
@@ -94,21 +101,15 @@ Things to watch out for before choosing a particular **SD Card Module**:
 Some modules feature an additional *5V* pin and use a voltage regulator when this pin is used.
 
 > [!NOTE]  
-> Essentially, the pins resemble the *power supply* (**VCC** and **GND**) and *communications* via *SPI*.
-> Different microcontrollers have different *SPI* pins. Most *SPI* pins are typically fixed and assigned to specific microcontroller pins. **CS** can be freely assigned to any suitable *GPIO* pin.
-> If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
-
-
+> Essentially, the pins resemble the *power supply* (**VCC** and **GND**) and *communications* via *SPI*. Different microcontrollers have different *SPI* pins. Most *SPI* pins are typically fixed and assigned to specific microcontroller pins. **CS** can be freely assigned to any suitable *GPIO* pin. If you plan to use a microcontroller other than *ESP8266*, look up the designated *SPI* pins for your model.
 
 <img src="images/wiringOverview.png" width="40%" height="40%" />
-
 
 ## Connecting SD Card Readers
 
 This is the schematics to connect a **SD Card Module** to a *ESP8266*:
 
 <img src="images/basic_schematic.png" width="80%" height="80%" />
-
 
 ### Breadboard
 
@@ -117,7 +118,6 @@ This is what the actual wiring on a breadboard looks like:
 <img src="images/wiring.png" width="80%" height="80%" />
 
 If you use a *Shield* instead, no wiring is required. Just make sure you stack the *Shield* on top of your microcontroller board in a pin-compatible orientation.
-
 
 <img src="images/sdcard_shield_stacked.png" width="40%" height="40%" />
 
@@ -136,9 +136,8 @@ The pins for the *SPI* connection are predefined by the microprocessor hardware.
 The sketch below illustrates the basic I/O operations: listing SD card contents, creating a file, writing to it, appending it, and reading it.
 
 > [!CAUTION]
-> Before you *build*, *upload* and *monitor* the sketch, make sure you insert a *SD Card*. The *SD Card Module* is only operational when a *SD card* is inserted and else will not respond.
->
-> If things still don't work for you, please check the next paragraph on how to adequately *prepare* the *SD card*.
+> Before you *build*, *upload* and *monitor* the sketch, make sure you insert a *SD Card*. The *SD Card Module* is only operational when a *SD card* is inserted and else will not respond. If things still don't work for you, please check the next paragraph on how to adequately *prepare* the *SD card*.
+
 
 ```c++
 #include <Arduino.h>
@@ -264,87 +263,60 @@ void setup()
 void loop() {
 }
 ```
-
 ## Preparing SD Cards
 
-To limit sources of faults, before you use a *SD card*, first try it on a *PC*. It is not uncommon for older *SD cards* to simply not work correctly anymore:
+Keep in mind two key points:
 
-* Insert the SD card into your PC. If your PC has no SD card reader (many do), you might want to get a cheap USB card reader. After all, the whole point of using *SD cards* is to carry sensor and other data over from your DIY devices to your computer.
-* Check whether the SD card is correctly identified by your PC. If the PC prompts you to format the SD card, do format it. Use the *FAT* filesystem.
-* Open the *SD card drive* in *explorer*, and copy a few files on it.
-* Eject the *SD card*, wait a minute, then re-insert the card. Check whether the card still works and whether you can retrieve the stored files.
+- **Is the SD Card Inserted?**  
+  An SD card module is merely a *holder* and does not contain any electronic components by itself. If no SD card is inserted, your microcontroller **will not recognize the SD card module**. Always ensure that an SD card is inserted **before** running your microcontroller code.
 
-> [!IMPORTANT]  
-> *SD Card modules* can only read and write *SD cards* formatted with the *FAT32* filesystem. *SD cards* larger than *4GB* typically are formatted using the *exFAT* filesystem. Such *SD cards* will not work in *SD card modules*.
->
-> You can find out the current filesystem by right-clicking the *SD card* drive in *Windows Explorer*. Choose *Properties*. The dialog shows the file system in use.
->
-> If the dialog shows a filesystem other than *FAT32* (i.e. *exFAT* or *NTFS*), you need to convert it to *FAT32* before you can use it. See below for instructions.
+- **Use FAT32 File System**  
+  Most microcontrollers and SD card modules require the SD card to be formatted as `FAT32`.  
+  **Other file systems such as `exFAT` will not work.**  
 
-<img src="images/1_exfat.png" width="40%" height="40%" />
+  <img src="images/1_exfat.png" width="60%" height="60%" />
 
-Once your *SD card* has passed all checks, insert the *SD card* into your *SD card module* slot. Make sure the contacts face towards the board, and do not use force.
+- **Test Your SD Card**  
+  Older or worn-out SD cards may not function reliably. To check:
+  1. Insert the SD card into your PC.
+  2. Copy some files onto it.
+  3. Eject the card, wait a moment, then reinsert it.
+  4. Verify that the files are still accessible.  
 
-Some boards have a *snap* mechanism while others simply slide the card in and out without any lock. 
+## Converting an SD Card to FAT32  
 
-With *snap* mechanisms, you need to gently *push* the *SD card* to release them when you want to eject and remove them.
+On *Windows*, small SD cards (*<4GB*) can be formatted as `FAT32` using the standard formatting tool.
 
-
-## Converting SD Card Media to FAT32
-
-> [!IMPORTANT]  
-> Before you format a SD Card, make sure it is not *write protected*: try and copy a file to it. If this fails, you need to remove the write protection. If there is no physical switch on the SD Card to remove write protection, the reason can also be your SD Card reader in your PC. Try rebooting the PC, and if this doesn't help, try using a USB external SD Card reader.
-
-
-### Using Built-In Tools
-
-*SD cards* smaller than *32GB* can be converted to *FAT32* using the built-in *Windows* tools:
-
-1. Right-click the *SD card* drive in *Windows Explorer*, then choose *Format*.
-2. In the *File System* dropdown list, choose *FAT32*. If you cannot see this option, the *SD card* is larger than *4GB*. You then need to do the format using the console command described below.
-3. Check *Quick Format*, then click *Start*.
+However, SD cards *larger than 4GB* (which is the norm today) are typically restricted to `exFAT` or `NTFS`. The format dialog does not even provide a `FAT32` option:
 
 <img src="images/2_format.png" width="40%" height="40%" />
 
-If the dialog does not list the *FAT32* file system, then use a more powerful console command:
+### Converting Large SD Cards to FAT32  
 
-1. Press `WIN+R`, then launch `cmd` or `powershell`. A console windows opens.
-2. Enter this command: `format /FS:FAT32 e:`. Replace `e:` with the drive letter of your *SD card* drive.
-3. Press `ENTER`. The process may take an hour.
+The easiest way to format large SD cards as `FAT32` is by using [DoneLandTools](https://done.land/tools/powershell/#install-donelandtools), a free PowerShell module.  
+Simply run the command:
 
-### Using 3rd Party Tools for Big Drives 
+````powershell
+Show-Fat32Converter
+````
 
-If the command does not complete successfully and instead complains that the *SD card* is "too large", then it is probably larger than *32GB*. Microsoft has decided to not support formatting drives larger than *32GB* to *FAT32* even though this is technically possible, and most operating systems (including *Windows*) do support *FAT32* drives of up to *2TB*.
+This opens a dialog. Follow the instructions, and your SD Card will be converted to `FAT32` in a matter of a few seconds.
 
-You then need the help of 3rd party tools. Most freeware tools for this purpose do not work in *Windows 10/11* anymore. [MiniTool Partition Wizard](https://de.minitool.com/downloadcenter/) still does, and its *free* and functionally limited version fortunately covers the file system conversion.
+## Troubleshooting  
 
-Once you downloaded and installed the *free* version, a window opens and shows all partitions of all disk drives in your computer. 
+If your microcontroller cannot detect the *SD card module*, follow these steps:
 
-<img src="images/3_minitool.png" width="80%" height="80%" />
+1. **Check your wiring**  
+   - Ensure all connections are secure.  
+   - Verify that the *chipSelect (CS)* pin is correctly defined in your code.  
 
-In the lower part of the window, identify the partition that represents your *SD card* drive, and right-click it. Choose *Format*. This time, the *Format* dialog offers all available file systems. Select *FAT32*, then click *OK*.
+2. **Verify SPI Pin Connections**  
+   - If you are not using a *Wemos D1 Mini* or a compatible board, confirm that you have connected the wires to the correct **SPI** pins.  
+   - Be mindful that *pin labels* (e.g., **D6**) and *pin numbers* (e.g., **6**) are not the same.  
 
-<img src="images/4_format_fat32.png" width="40%" height="40%" />
-
-This adds the job to a task list. In the left lower section of the main window below *Operations Pending* you see the formatting job. Click *Apply* to actually perform the formatting.
-
-The *SD card* is now running the *FAT32* file system and can be used with the *SD card module*. Its size hasn't changed. This way, you can now use *SD cards* with *64GB* in size (or more) with your *SD card module.
-
-<img src="images/fat_32.png" width="40%" height="40%" />
-
-
-## Troubleshooting
-
-A few thoughts when things don't work at first:
-
-If the sketch above cannot even find the *SD card reader*, work your way through these items:
-
-* Double-check your wiring. In the code, check that you defined the *chipSelect* pin correctly.
-* If you do not use a *Wemos D1 Mini* microprocessor board (or compatible), make sure you connect the wires to the correct **SPI** pins. Remember: pin *labels* (like **D6**) and pin numbers (like **6**) are *not* the same.
-* Make sure you fully inserted a *SD card* that you have tested on your PC before and that is working correctly. When no *SD card* is inserted or when the *SD card* is not working right, the sketch won't find the *SD card module* or can produce random errors.
-* Make sure your *SD card* is using the **FAT** or **FAT32** filesystem, not **exFAT**. If your *SD card* is larger than *32GB*, manually re-format it with the **FAT32** filesystem (as described above). 
-* If things still do not work for you, try using a *SD card* with a maximum size of *2GB*. They are hard to get but definitely available.
+3. **Confirm SD Card Functionality**  
+   - Make sure the SD card is properly inserted.  
 
 > Tags: Example, SD Card, Storage, FAT32, Filesystem
 
-[Visit Page on Website](https://done.land/components/data/storage/permanent/onsdcards?097439021728243911) - created 2024-02-28 - last edited 2024-02-28
+[Visit Page on Website](https://done.land/components/data/storage/permanent/onsdcards?097439021728243911) - created 2024-02-28 - last edited 2025-02-09

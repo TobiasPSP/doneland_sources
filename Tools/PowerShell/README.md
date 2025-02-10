@@ -350,8 +350,33 @@ Do not be surprised to see a lot of third-party devices showing up: many devices
 
 <img src="images/webinterface_many_t.png" width="100%" height="100%" />
 
+## Formatting SD Cards
+*DoneLandTools PowerShell Commands* can help you properly format *SD Card Media* on *Windows* with the command `Show-Fat32Converter`.
 
 
-> Tags: PowerShell, Module, Install, Tools
+### FAT32 on Large SD Cards
+By default, *Windows* cannot format modern *SD Card media* with the `FAT32` file system anymore: any SD Card larger than *4GB* can only be formatted using the `exFAT` or `NTFS` file system.
 
-[Visit Page on Website](https://done.land/tools/powershell?911673031121245307) - created 2024-03-21 - last edited 2024-03-21
+That's a problem since most *SD Card Reader modules* and *MP3 Players* require the `FAT32` file system. They do not work with SD Cards formatted with `exFAT`. 
+
+Your options are to either try and get a smaller SD Card (<4GB), or to use the PowerShell command `Show-Fat32Converter` that is part of *DoneLandTools*.
+
+> [!IMPORTANT]
+> It won't help to convert a *64GB* SD Card to `FAT32` when the device can only handle smaller cards. So always check the requirements of the device where you want to use the SD Card. The popular MP3 player *DFPlayer Mini* for example handles SD Cards of up to *32GB*.
+
+### Converting Any Media To FAT32
+Here is how you convert SD Cards of any size to `FAT32`:
+
+1. Make sure the SD Card does not contain any valuable data. Insert it into your PC. *Windows Explorer* shows a new drive representing your SD Card Media.
+2. Launch *PowerShell*, for example by pressing `Win`+`R`, then entering `powershell` into the *Run* dialog.
+3. In the PowerShell console, enter `Show-Fat32Converter`, and press `ENTER`.
+4. A dialog opens, and you can now select the drive that you want to convert to `FAT32`, and define a new volume label (optional).
+5. Click `Format`, and follow the instructions. A few seconds later, the media is converted to `FAT32`.
+
+
+<img src="images/dfplayermini_format2.png" width="100%" height="100%" />
+
+
+> Tags: PowerShell, Module, Install, Tools, FAT32, Convert, SD-Card
+
+[Visit Page on Website](https://done.land/tools/powershell?911673031121245307) - created 2024-03-21 - last edited 2025-02-09
