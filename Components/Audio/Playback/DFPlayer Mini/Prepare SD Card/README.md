@@ -242,9 +242,9 @@ Before you do, you may want to ensure that the audio files on your SD Card are u
 
 | Format | Codec  | Bit Rate | Sample Rate | Channels | File Extension |
 |--------|--------|----------|-------------|----------|---------------|
-| MP3    | MPEG-1 Audio Layer III | 8 - 320 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.mp3` |
-| WAV    | ADPCM (IMA, Microsoft) | 32 - 384 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.wav` |
-| WMA    | Windows Media Audio | 32 - 192 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.wma` |
+| **MP3**    | MPEG-1 Audio Layer III | 8 - 320 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.mp3` |
+| **WAV**    | ADPCM (IMA, Microsoft) | 32 - 384 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.wav` |
+| **WMA**    | Windows Media Audio | 32 - 192 kbps | 8 kHz - 48 kHz | Mono, Stereo | `.wma` |
 
 So it is **not sufficient** to just select **any** *.mp3*, *.wav*, or *.wma* audio file. You **must** also ensure it uses the correct codec and is within supported bit rates.
 

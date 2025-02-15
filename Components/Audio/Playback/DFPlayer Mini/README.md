@@ -73,7 +73,7 @@ Once you are able to hear sound, evaluate the audio quality. If you notice noise
 
 This is the *DFPlayer Mini* pin-out:
 
-<img src="images/dfplayer_mini_pinout.png" width="80%" height="80%" />
+<img src="images/dfplayer_mini_pinout.png" width="60%" height="60%" />
 
 | Pin   | Description                     | Notes |
 |-------|---------------------------------|-------|
@@ -104,8 +104,6 @@ The primary considerations for powering the *DFPlayer Mini* are ensuring *suffic
 The most robust power setup involves directly feeding *5V USB power* to the *DFPlayer Mini*, bypassing any voltage regulator on your microcontroller development board.
 
 Since it is easy to switch between *3.3V* and *5V* wiring, start with *3.3V* if you're using a *3.3V* microcontroller. If you encounter issues, you can switch to *5V* for improved performance.
-
-</details>
 
 #### Powering with 3.3V (ESP32 Example)
 
@@ -186,6 +184,7 @@ Below are some findings compiled from the community. Please note that these obse
 | JL AB23xxx | ok | ok | yes | blue LED |
 | JL AB24xxx | | | | |
 | JL AF24xxx | | | | |
+
 ### Use Auto-Mute (if available)
 
 Some PCBs feature a solder bridge that can be moved to the opposite side (marked with red arrows in the illustration). 
@@ -200,6 +199,12 @@ This controls the built-in audio amplifier and can significantly improve sound q
 * **Auto-Mute:** When the solder bridge is moved to the opposite side, the mute pin is set to *high* by default (muted). The audio amplifier will only turn on when *DFPlayer Mini* plays audio and its `BUSY` pin goes *low*.
 
 There are additional subtle differences marked by the green arrows. Aside from different chips, the number of capacitors may vary, and some boards include a solder bridge marked `A` with an unknown purpose.
+
+> [!NOTE]
+> Some users report this to improve sound quality immensely while others claim it wouldn't work. Try yourself at own risk.
+
+
+
 
 > Tags: Audio, 3W, Amplifier, Mono, SD Card, MP3, WAV, WMA, Uart, FAT32
 
