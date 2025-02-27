@@ -4,37 +4,33 @@
 
 > Measuring Temperature
 
-Measuring the environmental temperature is not just important when you plan to build a whether station. Temperature monitoring can be a valuable add-on for many devices, i.e. to safely charge batteries, or to get a notification when your power supply gets too hot.
+Measuring environmental temperature is essential, not only for building a weather station but also for enhancing the safety and performance of various devices. Temperature monitoring can help ensure safe battery charging or trigger notifications when a power supply reaches dangerously high temperatures.
 
-There are a number of sensor types for measuring temperature. They differ in temperature range, latency, and control interface.
+There are several types of temperature sensors, each utilizing different physical properties to convert temperature into a measurable reading, with variations in temperature range, latency, and control interfaces.
+
+Picking the right sensor type for a given use case is essential.
 
 ## Overview
-Temperature sensors measure temperature and come in various types, each with unique characteristics and applications. Here's a quick summary of the most common types:
+Temperature sensors measure temperature in a number of different ways:
 
-1. **Thermistors (NTC/PTC)**:    
-  These are resistive temperature sensors. NTC thermistors decrease in resistance as temperature rises, while PTC thermistors increase. They're sensitive and accurate in a limited temperature range but have nonlinear behavior, requiring calibration.
+1. **Thermistors (NTC/PTC)**:  
+   **Resistance** decreases as temperature rises (NTC) or vice versa (PTC). Their nonlinear behavior requires calibration.  
 
-2. **Thermocouples**:     
-  Made of two different metals joined at one end, thermocouples generate a voltage based on the temperature difference. They're widely used for high-temperature measurements and offer a broad range of temperatures but require complex circuitry for accurate readings.
+2. **Thermocouples**:  
+   Made of two different metals joined at one end, thermocouples generate a tiny **voltage** based on the temperature difference. This voltage needs to be amplified using specialized circuitry, and cold-junction compensation is required. They can measure very **high temperatures**.  
 
-3. **RTDs (Resistance Temperature Detectors)**:     
-  These are also resistive sensors, usually made from platinum. RTDs are highly accurate and stable over a wide temperature range, making them ideal for industrial applications, but they tend to be more expensive.
+3. **RTDs (Resistance Temperature Detectors)**:  
+   RTDs are highly accurate and stable over a wide temperature range. They use platinum inside, which makes them expensive.  
 
-4. **Semiconductor Temperature Sensors**:     
-  These sensors use a semiconductor material to measure temperature based on the change in voltage or current. They're often used in integrated circuits and are more linear than thermistors.
-
-5. **Dallas/One-Wire Sensors (e.g., DS18B20)**:     
-  These digital temperature sensors use the One-Wire protocol to communicate with microcontrollers. They are easy to use, accurate, and can be chained together on the same data line, making them ideal for projects requiring multiple sensors.
-
-Each type has specific advantages depending on the required temperature range, accuracy, and ease of use.
+4. **Semiconductor Temperature Sensors**:  
+   Semiconductor material causes a change in voltage or current based on temperature. They are more linear than thermistors and are often used in ICs and with digital interfaces. One example is the popular *Dallas DS18B20* sensor.  
 
 | Sensor Type| Temperature Range| Latency| Interface| Voltage Range| Power Consumption (when active) | Cost| Other Characteristics|
 |---|---|---|---|---|---|---|---|
 | **Thermistors (NTC/PTC)**| -50°C to 150°C (typical)| few milliseconds| Analog| Varies (3-5V)| 1-10mA | Low| Nonlinear response, requires calibration|
-| **Thermocouples**| -200°C to 2000°C|  tens of milliseconds to seconds | Analog (Voltage output) | Varies (depends on type) | 5-50mA| Medium| High temperature range, needs compensation circuits |
-| **RTDs (Resistance Temperature Detectors)** | -200°C to 850°C| few milliseconds| Analog (Resistance measurement) | 3.3V-5V| 1-5mA| High| Highly accurate, stable over time, linear response |
-| **Semiconductor Sensors**| -55°C to 150°C| few milliseconds| Digital (I2C/SPI/Analog) | 2.7V to 5.5V| 1-3mA| Medium| Linear response, easy integration, available in IC form |
-| **Dallas/One-Wire Sensors**| -55°C to 125°C| few milliseconds| Digital (One-Wire)| 3V to 5.5V| 1-2mA | Low| Can chain multiple sensors, easy to use with microcontrollers |
+| **Thermocouples**| -200°C to 2000°C| tens of milliseconds to seconds| Analog (Voltage output)| Varies (depends on type)| 5-50mA| Medium| High temperature range, needs compensation circuits|
+| **RTDs (Resistance Temperature Detectors)**| -200°C to 850°C| few milliseconds| Analog (Resistance measurement)| 3.3V-5V| 1-5mA| High| Highly accurate, stable over time, linear response|
+| **Semiconductor Sensors (i.e. Dallas)**| -55°C to 150°C| few milliseconds| Digital (I2C/SPI/One-Wire/Analog)| 3V to 5V| 1-3mA| Medium| Linear response, easy integration|
 
 
 
