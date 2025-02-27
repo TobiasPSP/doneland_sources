@@ -4,7 +4,70 @@
 
 > Semiconductor Relais Without Moving Parts
 
-A *solid state relay* (*SSR*) is an electronic switch that uses semiconductor components to switch on or off when an external voltage is applied. Unlike traditional electromechanical relays, SSRs have no moving parts, resulting in faster switching times, greater reliability, and longer operational life. They are commonly used in applications where silent operation, low power consumption, and high durability are required.
+A *solid state relay* (*SSR*) is an electronic switch that uses semiconductor components to switch on or off when an external voltage is applied. Unlike traditional electromechanical relays, SSRs have no moving parts, resulting in faster switching times, greater reliability, and longer operational life. 
+
+<img src="images/ssr_overview1-removebg-preview.png" width="60%" height="60%" />
+
+They are commonly used in applications where silent operation, low power consumption, and high durability are required.
+
+## Overview
+
+SSR relays can be especially useful for microcontroller projects:
+
+* **GPIO Controlled:**    
+  Unlike mechanical relays, many SSR relays can be driven directly from a GPIO pin, making them compatible with both *5V* and *3.3V* microcontrollers. Their power requirements can be as low as *5mA* (for *3.3V*) and *12mA* (for *5V*), both well within the current limits of typical GPIO pins.
+* **Low Power Consumption:**    
+  The low power consumption can be useful by itself when your project is battery-driven or otherwise sensitive to power consumption.
+
+### Careful Selection
+
+Using SSR relays requires careful planning to select the correct type:
+
+* **AC or DC?**    
+  Since SSR relays operate with solid-state components, they use *MOSFETs* for DC switching and *Thyristors* (or *Triacs*) for AC switching. You need to choose the correct type of SSR relay for your application. Typically:
+  * An SSR relay designed to switch AC household appliances is labeled **DA** (*DC* control, *AC* switching).
+  * An SSR relay designed to switch DC voltage is labeled **DD** (*DC* control, *DC* switching).
+
+* **Maximum Current:**    
+  Pay attention to the maximum *sustained* current an SSR relay can handle. With budget SSR relays, especially from unverified sources, apply a *400% safety margin*. For example, if you plan to switch *2000W* (*9A* at *220V AC*), use an SSR relay rated for at least **40A**. Exceeding the current rating, even momentarily, can permanently damage the relay. High loads can also cause SSR relays to [catch fire or explode](https://youtu.be/FV9t1GFVbhU?si=dvGa1x_2ezz8e6mw).
+
+* **Heat Dissipation:**    
+  SSR relays generate heat when operating near their maximum current rating. Ensure proper heat dissipation by using an appropriate heat sink or mounting the relay on a metal surface. Choosing a relay with a higher current capacity can also help reduce thermal stress.
+
+* **Leakage Current:**    
+  Unlike mechanical relays, SSR relays do not provide a perfect open circuit when turned off. They have a small leakage current, which can be enough to power low-wattage devices (e.g., LED bulbs may glow faintly even when "off"). If complete isolation is required, a mechanical relay might be a better choice.
+
+* **Zero-Crossing vs. Random Turn-On:**    
+  When switching AC loads, some SSR relays use *zero-crossing detection*, meaning they only switch on when the AC voltage crosses zero volts. This reduces electrical noise and extends the relay's lifespan. Others use *random turn-on* (phase control), which is useful for applications like dimming. Make sure to select the right type for your use case.
+
+
+
+### SSR vs. Mechanical Relay – Pros and Cons
+
+  | Feature            | SSR Relay | Mechanical Relay |
+  |--------------------|----------|-----------------|
+  | **Lifespan**      | Long (no moving parts) | Shorter (contacts wear out) |
+  | **Switching Speed** | Fast | Slow |
+  | **Silent Operation** | Yes | No (audible clicking) |
+  | **Heat Generation** | Yes (requires heat sink at high currents) | Minimal |
+  | **Leakage Current** | Yes | No |
+  | **High Inrush Current Handling** | Poor | Good |
+
+
+### Caveats
+
+Affordable **DA** mini SSR relays, such as the [G3MB-202P](https://done.land/components/signalprocessing/switch/relais/solidstate/2ag3mb-202p/), are widely available on ready-to-use PCBs and are commonly used in DIY projects.
+
+
+<img src="images/ssr_2a_ac_2_load_t.png" width="40%" height="40%" />
+
+However, these SSR relays can handle only *2A* (*440W* at *220V*). While this may be sufficient for switching simple lamps, it is completely inadequate for most other applications. Exceeding the *2A limit*, even momentarily, will immediately destroy the relay.
+
+Industrial SSR relays are often a much better choice. Chinese clones are available at similar prices and claim to handle up to *40A* (*16A* realistically). Even if you only need to switch lighter loads, these higher-rated relays provide a much greater safety margin and improved reliability.
+
+
+<img src="images/fotek_ssr40_acside_t.png" width="40%" height="40%" />
+
 
 ## Basic Principle
 
