@@ -1,5 +1,6 @@
 <img src="/assets/images/air1.png" width="100%" height="100%" />
- # Dallas One-Wire Temperature Sensor
+
+# Dallas One-Wire Temperature Sensor
 
 > Affordable Industrial Temperature Sensors with a One-Wire Bus for Monitoring Sensitive Devices and Environments
 
@@ -90,7 +91,8 @@ In this setup, the sensor draws its power **entirely from the DATA line**. This 
 
 However, **parasitic mode has limitations** and is less reliable than using a dedicated power connection. It requires a **strong external pull-up resistor** and will not function without one. The pull-up resistor effectively provides power to all connected sensors.
 
-**Potential issues with parasitic mode:**
+#### Potential issues with parasitic mode
+
 - **Too many sensors:**  
   Since all sensors draw power from **DATA**, too many sensors can exceed the available power supply. Additionally, each sensor frequently pulls **DATA** *low* for communication, which can reduce the available *high* time needed for power delivery.
 - **Long cables and low temperatures:**  
@@ -438,6 +440,9 @@ Dallas temperature sensors come in multiple **form factors**, each suited for di
 ### TO-92 Package
 A cost-effective option, often used for measuring **electronics temperature**. However, its plastic casing has **poor thermal conductivity**, so proper placement is essential.
 
+
+<img src="images/dallas_schematic_to92.png" width="30%" height="30%" />
+
 - **Appearance:** Small black transistor (similar to a *2N2222*)
 - **Size:** ~4.7mm x 4.0mm x 5.0mm (excluding leads)
 - **Mounting Tips:**
@@ -452,6 +457,9 @@ A cost-effective option, often used for measuring **electronics temperature**. H
 ### Stainless Steel Probe (Waterproof)
 Designed for **harsh environments**, offering superior heat transfer and durability.
 
+
+<img src="images/dallas_waterproof_t.png" width="50%" height="50%" />
+
 - **Appearance:** Sealed metal cylinder with a cable
 - **Typical Sizes:** 6mm diameter, 30-50mm length
 - **Caveats:**
@@ -460,3 +468,5 @@ Designed for **harsh environments**, offering superior heat transfer and durabil
 
 
 > Tags: One-Wire, One Wire, DS18B20, DS18S20, DS1822, DS28EA00
+
+[Visit Page on Website](https://done.land/components/data/sensor/temperature/dallas?764001031305251116) - created 2025-03-04 - last edited 2025-03-04

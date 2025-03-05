@@ -35,3 +35,5 @@ Temperature sensors measure temperature in a number of different ways:
 
 
 > Tags: Thermistor, NTC, PTC, Thermocouple, RTD, Dallas, One-Wire, One Wire
+
+[Visit Page on Website](https://done.land/components/data/sensor/temperature?737512031305251116) - created 2025-03-04 - last edited 2025-03-04
