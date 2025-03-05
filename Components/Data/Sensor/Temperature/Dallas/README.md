@@ -76,6 +76,9 @@ In a standard setup, the *Dallas* sensor is connected to a power source (**VCC**
 
 When using a **single sensor**, you might be able to skip the external pull-up resistor. Since the sensor receives power through **VCC**, and **DATA** experiences minimal communication traffic, enabling the **internal pull-up resistor** of your microcontroller’s GPIO may suffice—or, in some cases, no pull-up resistor might be needed at all.
 
+> [!IMPORTANT]
+> While *ESPHome* recognizes *Dallas* sensors even in the absence of an external pullup resistor, *C++* libraries are much pickier. They often refuse to recognize sensors unless you add the pullup resistor.
+
 However, for **reliable operation**, it is strongly recommended to use an **external 4.7kΩ pull-up resistor**. The pull-up resistor ensures that the *One-Wire* bus quickly returns to its **high** state (idle state). This becomes essential when connecting **multiple sensors** to the same **DATA** line, as it helps prevent communication errors.
 
 For convenience, simple breakout boards are available that include a **4.7kΩ pull-up resistor** and a screw terminal for easy sensor connections.
