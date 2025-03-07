@@ -22,40 +22,17 @@ Laser diodes are closely related to LEDs as both are semiconductor devices that 
 
 Laser diodes work on a similar fundamental principle as LEDs—electroluminescence in a semiconductor—but with a key difference: stimulated emission. While LEDs emit incoherent light in all directions, laser diodes have a built-in optical cavity that amplifies light through stimulated emission, producing coherent, monochromatic, and highly directional light. Like LEDs, laser diodes have a p-n junction and emit photons when electrons recombine with holes, but their design enables optical feedback and gain, allowing the light to build up in intensity before escaping as a laser beam. The emitted wavelength depends on the semiconductor material, just like in LEDs.
 
-### LED Technologies
+### Normal Diodes
 
-*LED* technology has advanced significantly over the years. Today, *LEDs* are affordable and available in various shapes and forms, ranging from simple indicator LEDs to advanced applications such as **COBs (Chip-on-Board LEDs), LEPs (Laser-Excited Phosphor), programmable LED strips, and OLED displays**.
-| Technology             | Year of invention | Description                                                                                                                                                                                                                                   |
-|------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LED                    | 1962      | The invention of semiconductors that emit light. Initially limited to a few colors, later advancements enabled LEDs to emit nearly any visible color. |
-| Laser Diodes          | 1962      | Semiconductor devices that produce coherent, highly collimated light through stimulated emission. Used in optical communication, barcode scanners, and laser pointers. |
-| Seven-Segment Displays | 1969      | LEDs integrated into display modules and driven by a multiplexer to show simple numbers and characters. |
-| Dot-Matrix Displays    | 1970s     | Arrays of LEDs arranged in an 8×8 (or similar) grid, driven by a multiplexer, capable of displaying simple graphics and symbols. |
-| COB (Chip-on-Board)    | 1980s     | High-density LED packaging where multiple LED chips are mounted directly onto a substrate, creating a seamless light-emitting surface. |
-| Programmable LEDs      | 2000s     | LEDs with built-in driver circuits, often in RGB, RGBW, or RGBWW configurations (e.g., WS2812), using single- or two-wire protocols. These allow large numbers of LEDs to be controlled via a single GPIO, commonly found in LED strips and matrices. |
-| OLED Displays          | 1987      | High-resolution displays composed of self-illuminating organic LEDs, eliminating the need for a backlight. |
-| LEP (Laser-Excited Phosphor) | 2000s     | High-intensity, highly focusable light sources using a blue laser diode to excite a phosphor substrate, producing white or colored light. |
+*LEDs* and *Laser Diodes* belong to the family of *diodes*, meaning they conduct current only in one direction. However, since *LEDs* are optimized for light emission rather than blocking reverse voltage, their *reverse voltage rating* is typically very low, often around *5-7V*. Unlike standard diodes, which are designed to withstand reverse voltage safely, *LEDs* are much more vulnerable and can degrade or fail quickly if exposed to excessive reverse voltage.
+
+This means an *LED* can only block reverse voltage up to *5-7V* before it starts conducting in reverse, potentially overheating and becoming damaged. In AC applications, where voltage polarity constantly alternates, this repeated stress can quickly destroy the LED.
+
+For this reason, *LEDs* should never be connected directly to *110V/220V AC* through a simple resistor. This would not only expose them to excessive *reverse voltage* but also result in severe inefficiencies. Using a *33kΩ resistor* to power an LED from *110/220V AC* works but would cause noticeable flickering, waste significant energy as heat, and likely cause the resistor to overheat. Instead, for AC-powered LEDs, proper circuit designs include *anti-parallel protection diodes*, *bridge rectifiers*, or *capacitive droppers* to ensure stable and efficient operation.
 
 
-* The [HP Model 5082-7000 Numeric Indicator](https://en.wikipedia.org/wiki/History_of_the_LED?utm_source=chatgpt.com), introduced in 1969, was among the first LED devices to use integrated circuit technology, paving the way for seven-segment displays.
 
-* Organic Light-Emitting Diode (OLED) technology was [first demonstrated in 1987 by Ching W. Tang and Steven Van Slyke}(https://en.wikipedia.org/wiki/Flat-panel_display?utm_source=chatgpt.com) at Eastman Kodak. It took until the 2000s until OLED technology was affordable and robust enough for widespread adoption.
-
-> [!NOTE]
-> Other display types, such as *LCD* and *TFT* screens, rely on liquid crystal technology, which differs from LED-based displays. These displays do not emit light themselves but instead use a backlight, with liquid crystals controlling which areas allow light to pass through.
-
-## Rugged Yet Easy to Destroy
-
-**LEDs** are *rugged*, long-lasting, and more *resilient* to *mechanical* stress than most other light sources. However, despite their durability, they can be *easily destroyed* if not used correctly.  
-
-### Low Internal Resistance
-
-One key characteristic makes LEDs *delicate and sensitive*: they have *very low internal resistance*.  
-
-If an **LED** is connected directly to a power source, it will *almost instantly burn out*. Due to its *low resistance*, an **LED** behaves similarly to a wire or a *fuse*—when exposed to excessive current, it heats up rapidly and is permanently damaged.  
-
-
-<details><summary>Forward Voltage, Reverse Voltage, and Breakdown Voltage</summary><br/>
+<details><summary>More About Forward Voltage, Reverse Voltage, and Breakdown Voltage</summary><br/>
 
 Every material has a *breakdown voltage*, the point at which it becomes *conductive*.  
 
@@ -71,6 +48,41 @@ If the *reverse voltage* exceeds this limit, the **LED** begins to conduct, but 
 
 Using a current-limiting *series resistor* or another *current-limiting* method can help protect against accidental reverse voltage. Even if the voltage exceeds the *reverse threshold*, only a small current will flow—insufficient to cause significant damage.  
 </details>
+
+
+### LED Technologies
+
+*LED* technology has advanced significantly over the years. Today, *LEDs* are affordable and available in various shapes and forms, ranging from simple indicator LEDs to advanced applications such as **COBs (Chip-on-Board LEDs), LEPs (Laser-Excited Phosphor), programmable LED strips, and OLED displays**.
+
+
+| Technology             | Year of invention | Description                                                                                                                                                                                                                                   |
+|------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| LED                    | 1962      | The invention of semiconductors that emit light. Initially limited to a few colors, later advancements enabled LEDs to emit nearly any visible color. |
+| Laser Diodes          | 1962      | Semiconductor devices that produce coherent, highly collimated light through stimulated emission. Used in optical communication, barcode scanners, and laser pointers. |
+| Seven-Segment Displays | 1969      | LEDs integrated into display modules and driven by a multiplexer to show simple numbers and characters. |
+| Dot-Matrix Displays    | 1970s     | Arrays of LEDs arranged in an 8×8 (or similar) grid, driven by a multiplexer, capable of displaying simple graphics and symbols. |
+| COB (Chip-on-Board)    | 1980s     | High-density LED packaging where multiple LED chips are mounted directly onto a substrate, creating a seamless light-emitting surface. |
+| Programmable LEDs      | 2000s     | LEDs with built-in driver circuits, often in RGB, RGBW, or RGBWW configurations (e.g., WS2812), using single- or two-wire protocols. These allow large numbers of LEDs to be controlled via a single GPIO, commonly found in LED strips and matrices. |
+| OLED Displays          | 1987      | High-resolution displays composed of self-illuminating organic LEDs, eliminating the need for a backlight. |
+| LEP (Laser-Excited Phosphor) | 2000s     | High-intensity, highly focusable light sources using a blue laser diode to excite a phosphor substrate, producing white or colored light. |
+
+
+* The [HP Model 5082-7000 Numeric Indicator](https://en.wikipedia.org/wiki/History_of_the_LED?utm_source=chatgpt.com), introduced in 1969, was among the first LED devices to use integrated circuit technology, paving the way for seven-segment displays.
+
+* Organic Light-Emitting Diode (OLED) technology was [first demonstrated in 1987 by Ching W. Tang and Steven Van Slyke](https://en.wikipedia.org/wiki/Flat-panel_display?utm_source=chatgpt.com) at Eastman Kodak. It took until the 2000s until OLED technology was affordable and robust enough for widespread adoption.
+
+> [!NOTE]
+> Other display types, such as *LCD* and *TFT* screens, rely on liquid crystal technology, which differs from LED-based displays. These displays do not emit light themselves but instead use a backlight, with liquid crystals controlling which areas allow light to pass through.
+
+## Rugged Yet Easy to Destroy
+
+**LEDs** are *rugged*, long-lasting, and more *resilient* to *mechanical* stress than most other light sources. However, despite their durability, they can be *easily destroyed* if not used correctly.  
+
+### Low Internal Resistance
+
+One key characteristic makes LEDs *delicate and sensitive*: they have *very low internal resistance*.  
+
+If an **LED** is connected directly to a power source, it will *almost instantly burn out*. Due to its *low resistance*, an **LED** behaves similarly to a wire or a *fuse*—when exposed to excessive current, it heats up rapidly and is permanently damaged.  
 
 
 ### Always Control Current
@@ -172,4 +184,4 @@ Dedicated *controller IC* make it simple to drive these displays via *I2C* or si
 
 > Tags: LED, Light, Anode, Cathode, RGB, Neopixel, WS2812, COB, Piranha, Superflux, Straw Hat, Matrix, 7-Segment, Forward Voltage, Reverse Voltage, Breakdown Voltage
 
-[Visit Page on Website](https://done.land/components/light/led?198499031411241041) - created 2024-03-17 - last edited 2024-03-25
+[Visit Page on Website](https://done.land/components/light/led?198499031411241041) - created 2024-03-17 - last edited 2025-03-05
