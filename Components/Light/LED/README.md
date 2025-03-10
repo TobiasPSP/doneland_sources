@@ -6,6 +6,9 @@
 
 **LEDs** (*light-emitting diodes*) are *semiconductor devices* that function as *diodes* but with the primary feature of emitting *light* when an electric current passes through them.
 
+> [!IMPORTANT]
+> When working with **high-power** LEDs, take appropriate safety precautions to protect your eyes. High-intensity LED light can cause eye damage, similar to the effects of laser exposure. Avoid direct eye contact with the LED beam, and do not look at the light source without proper eye protection. Use appropriate shielding or diffusers to minimize exposure, especially when working at close range or with multiple LEDs. Always follow manufacturer guidelines and ensure a safe working environment to prevent potential harm.
+
 ## Overview
 The first practical LED was [invented in 1962 by Nick Holonyak Jr.](https://en.wikipedia.org/wiki/History_of_the_LED?utm_source=chatgpt.com) while working at General Electric.
 
