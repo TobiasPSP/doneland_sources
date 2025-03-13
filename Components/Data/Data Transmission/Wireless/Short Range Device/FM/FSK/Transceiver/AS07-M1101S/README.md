@@ -18,7 +18,8 @@ It uses *FSK* modulation which is based on *frequency modulation* (*FM*). It is 
 
 The *AS07-M1101S* is a good choice when you want to design your own high speed two-way data transfer system, i.e. to send sensor data or text messages.
 
-
+> [!IMPORTANT]
+> The board comes with header pins in **1mm pitch**. This pitch is much narrower than the typical **2.56mm pitch** used by bread boards or DuPont plugs. You may end up desoldering the header pins and soldering wires instead.
 
 
 ## Frequency Range And Channels
@@ -27,6 +28,10 @@ The board can *send and receive* in a frequency range of *387-464MHz*.
 Its maximum transmitting power is +10dBm/10mW, and the receiver sensitivity is excellent with *-116dBm*. In free *line of sight*, distances of up to *1km* can be bridged.
 
 <img src="images/radio_as07-m1101s_top2_t.png" width="80%" height="80%" />
+
+> [!NOTE]
+> The *CC1101* transceiver chip used on this board supports a much wider frequency range from *300–928 MHz*, however when this chip is used on breakout boards, the external components like RF traces, crystal, filters, and antenna are optimized for a much narrower frequency range, in the case of this board *387-464MHz*.
+
 
 ## Specs
 
@@ -46,7 +51,7 @@ Its maximum transmitting power is +10dBm/10mW, and the receiver sensitivity is e
 | Interface | SPI |
 | Size | 20.65x12.1x7mm |
 
-## Connectors
+## Pins
 
 The board comes with eight solder pads. They are clearly marked on the backside:
 
@@ -55,12 +60,12 @@ The board comes with eight solder pads. They are clearly marked on the backside:
 | Pin | Tag | Description |
 | --- | --- | --- |
 | 1 | GND | negative voltage |
-| 2 | GOD2 | I/O |
+| 2 | GOD2 | Output-only I/O (i.e. for interrupts)  |
 | 3 | GDO1 | MISO, SPI |
 | 4 | MOSI | SPI |
 | 5 | SCK | SPI |
 | 6 | CSN | SPI |
-| 7 | GOD0 | I/O |
+| 7 | GOD0 | Output-only I/O (i.e. for interrupts) |
 | 8 | VCC | +1.8V to +3.6V |
 
 
@@ -82,6 +87,23 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 
 <img src="images/radio_as07-m1101s_top_t.png" width="100%" height="100%" />
 
+## Wiring and Programming
+
+The board can be connected to a microcontroller using its [SPI](https://done.land/fundamentals/interface/spi/) interface:
+
+| Pin | Description |
+| --- | --- |
+| GDO1 | **MISO** (data from board to microcontroller) |
+| MOSI | **MOSI** (data from microcontroller to board) |
+| SCK | **SCK** (clock) |
+| CSN | **CS** (chip select) |
+
+### ESPHome
+Unfortunately, at the time of this writing, there is no native support for the **CC1101* in [ESPHome](https://done.land/tools/software/esphome/introduction/).
+
+### platformio / C++
+
+
 
 
 
@@ -92,4 +114,4 @@ This board uses the *SPI* interface to communicate with a microcontroller.
 
 > Tags: CC1101, AS07-M1101S, HW-863, Sender, Receiver, Transceiver, RF, 433MHz, 3.3V, IPEX
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/fm/fsk/transceiver/as07-m1101s?593316041116244739) - created 2024-04-15 - last edited 2024-04-15
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/fm/fsk/transceiver/as07-m1101s?593316041116244739) - created 2024-04-15 - last edited 2025-03-08
