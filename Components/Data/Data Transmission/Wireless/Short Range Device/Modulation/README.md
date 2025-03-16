@@ -113,4 +113,4 @@ To achieve this, it is using the proprietary, patented *LoRa* (*LongRange*) wire
 
 > Tags: AM, FM, ASK, FSK, PSK, LoRa, WiFi, EV1527, DSSS, Spread Spectrum, Chirp, PSK, DBPSK, CCK, DQPSK
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/modulation?751038030916250921) - created 2025-03-15 - last edited 2025-03-15
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/shortrangedevice/modulation?751038030916250921) - created 2025-03-13 - last edited 2025-03-15
