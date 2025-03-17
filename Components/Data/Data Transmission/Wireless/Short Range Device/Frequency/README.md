@@ -35,13 +35,13 @@ The table below can help you identify the frequency range your device was made f
 
 | ASK/EV1527 Frequency | Region        | Crystal Frequencies & Factors |
 |------------------------------|--------------|--------------------------------------|
-| 315.00 MHz                   | **US**       | 13.560 MHz × 23.25, 21.000 MHz × 15  |
-| 330.00 MHz                   | **Some regions** | 13.200 MHz × 25                    |
-| 390.00 MHz                   | **US**       | 13.000 MHz × 30                     |
-| 418.00 MHz                   | **UK (legacy use)** | 13.933 MHz × 30                     |
-| 433.92 MHz                   | **Europe, Asia** | 13.560 MHz × 32, 6.7458 MHz × 64, 21.600 MHz × 20, 6.000 MHz × 72, 7.000 MHz × 62, 8.000 MHz × 54.4, 12.000 MHz × 36 |
-| 868.35 MHz                   | **Europe**   | 13.560 MHz × 64, 21.708 MHz × 40    |
-| 915.00 MHz                   | **US, Australia** | 13.107 MHz × 69.8, 26.214 MHz × 35 |
+| 315.00 MHz                   | **US**       | **13.560 MHz** × 23.25, **21.000 MHz** × 15  |
+| 330.00 MHz                   | **Some regions** | **13.200 MHz** × 25                    |
+| 390.00 MHz                   | **US**       | **13.000 MHz** × 30                     |
+| 418.00 MHz                   | **UK (legacy use)** | **13.933 MHz** × 30                     |
+| 433.92 MHz                   | **Europe, Asia** | **13.52127 MHz** x 33, **13.560 MHz** × 32, **6.7458 MHz** × 64, **21.600 MHz** × 20, **6.000 MHz × 72**, **7.000 MHz** × 62, **8.000 MHz** × 54.4, **12.000 MHz** × 36 |
+| 868.35 MHz                   | **Europe**   | **13.560 MHz** × 64, **21.708 MHz** × 40    |
+| 915.00 MHz                   | **US, Australia** | **13.107 MHz** × 69.8, **26.214 MHz** × 35 |
 
 > [!IMPORTANT]
 > It's not uncommon for the bandwidth to span over a small range of frequencies around the nominal frequency, i.e. *433.92 MHz* (typically within *±100 kHz*), especially with basic OOK modulation and lower-cost receivers.On 433MHz, the signal may be anywhere in the range of *433.8-434.0MHz*.
