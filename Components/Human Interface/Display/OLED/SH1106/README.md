@@ -5,9 +5,11 @@
 
 The *SH1106* is a modern, cost-optimized *OLED display driver*, often considered a successor to the widely popular *SSD1306*. It is commonly found in affordable *0.96"* and *1.3"* monochrome OLED displays.
 
+While *SH1106* works well for most OLED display use cases, if you have a choice, then get an OLED display with [SSD1306](https://done.land/components/humaninterface/display/oled/ssd1306/) driver instead. The older *SSD1306* is much more capable and supports hardware-accelerated scrolling. 
+
 ## Overview  
 
-The *SSD1306* (released in *2007*) has long been the dominant OLED driver, but the *SH1106* (introduced in *2013*) has gained popularity in recent years due to its lower cost. The primary trade-off is that the *SH1106* lacks hardware acceleration for scrolling and animations—features available in the *SSD1306*. However, for most typical OLED use cases, such as displaying static text and simple graphics, these features are not essential.
+The [SSD1306](https://done.land/components/humaninterface/display/oled/ssd1306/) (released in *2007*) has long been the dominant OLED driver, but the *SH1106* (introduced in *2013*) has gained popularity in recent years due to its lower cost. The newer *SH1106* lacks hardware acceleration for scrolling and animations—features available in the *SSD1306*. For most typical OLED use cases, such as displaying static text and simple graphics, these features are not essential.
 
 The *SH1106* supports monochrome OLED displays with a maximum resolution of *132x64* pixels, though most breakout boards use a *128x64* resolution. These displays typically communicate via the [I2C](https://done.land/fundamentals/interface/i2c/) interface.
 
@@ -408,6 +410,67 @@ Adafruit display libraries are widely popular due to their modular design. They 
 * [Adafruit GFX:](https://github.com/adafruit/Adafruit-GFX-Library) The core graphics library, which is hardware-independent and provides drawing commands.
 
 This modular approach allows the source code to be compatible with a variety of displays; you simply adjust the specific driver library as needed.
+
+#### platformio.ini
+
+In *platformio*, start by defining the dependcies in `platformio.ini`:
+
+
+````
+framework = arduino
+lib_deps = 
+	adafruit/Adafruit SH110X@^2.1.12
+````
+
+The library and its dependencies are downloaded and installed automatically as soon as you save the file.
+
+Here is source code to get you started:
+
+````c++
+#include <Arduino.h>
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
+
+#define i2c_Address 0x3c //initialize with the I2C addr 0x3C Typically eBay OLED's
+//#define i2c_Address 0x3d //initialize with the I2C addr 0x3D Typically Adafruit OLED's
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+#define OLED_RESET -1   //   QT-PY / XIAO
+Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+
+void setup() {
+  // Start serial communication
+  Serial.begin(115200);
+
+  //Wire.begin(33, 35);   // in case you must define I2C pins manually
+
+  delay(250); // wait for the OLED to power up
+  // Initialize the OLED display
+  display.begin(i2c_Address, true); 
+  
+  // Clear the display
+  display.clearDisplay();
+  display.setTextSize(1);              // Text size
+  display.setTextColor(SH110X_WHITE);  // Text color
+
+  display.setCursor(0, 0);
+  display.clearDisplay();
+  display.print("Some text output");
+  display.display();                   // write to screen
+}
+
+void loop() {
+  
+}
+````
+
+Beware that you **must** call `display.display();` to write anything to the screen. The graphics commands just prepare an offscreen buffer. The buffer content will be written to the display only once you call `display()`. 
+
+If you want to use examples that come with a particular library, keep in mind that *platformio* expects a certain order when defining methods. Typically, you need to move `setup()` and `loop()` to the **bottom** of the code to make examples compile in *platformio*. 
 
 <details><summary>Better not use "hacked" libraries!</summary><br/>
 

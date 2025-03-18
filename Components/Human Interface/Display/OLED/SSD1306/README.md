@@ -2,58 +2,59 @@
 
 # SSD1306-Based OLED Display
 
-> Small And Monochrome OLED Displays For Little Money
+> Small and Monochrome OLED Displays for Little Money
 
-*SSD1306*-based *OLED Displays* come with a *128x32* and a *128x64* pixel resolution and typically use *I2C*. Displays are *monochrome* and come in different colors: *white*, *blue*, *yellow*. 
+*SSD1306*-based *OLED displays* come in *128x32* and *128x64* pixel resolutions and typically use the *I2C* interface. These displays are *monochrome* but available in different colors: *white*, *blue*, and *yellow*.  
 
-*SSD1306* is very similar to [SH1106](https://done.land/components/humaninterface/display/oled/ssd1306/), and you can often use the same *C++ libraries* and *ESPHome components* for both. 
+The *SSD1306* is very similar to the [SH1106](https://done.land/components/humaninterface/display/oled/ssd1306/), **but they are not identical**. Some libraries support both *SSD1306* and *SH1106*, but libraries written specifically for one **are not compatible** with the other.  
 
-*SSD1306* is more capable than its successor *SH1106*. *SH1106* is a newer design tailored to cut cost by removing hardware acceleration for scrolling and animations that is not needed for these types of display in most use cases anyway.
+If you accidentally use the wrong driver for your OLED display, the screen will appear scrambled, though you may still recognize parts of the intended content.  
 
+The *SSD1306* is the *older* but *more feature-rich* design, supporting hardware scrolling and other capabilities. The *SH1106* is a newer, cost-optimized variant that omits hardware acceleration for scrolling and animations, as these features are often unnecessary for such small displays.  
 
 <img src="images/oled_ssd1306_128x64_yellow_t.png" width="30%" height="30%" />
 
-> [!CAUTION]
-> Be aware that typical displays of this kind *are physically very small*. The *0.96 inch 128x64 display* measures *2.4x1.2cm*. That's ok though: you can display a lot of information, and these displays can be perfectly integrated in small and portable devices.
+> [!CAUTION]  
+> These displays are *physically very small*. A *0.96-inch 128x64 display* measures only *2.4x1.2 cm*. Despite their size, they can display a lot of useful information and are well-suited for compact and portable devices.  
 
+## Dual Color  
 
-
-
-
-
-## Dual Color
-*SSD1306*-based *OLED displays* are *strictly monochrome* despite some vendors claiming to sell *dual-color OLEDs*.
+*SSD1306*-based *OLED displays* are strictly *monochrome*, even if some vendors advertise *dual-color OLEDs*.  
 
 <img src="images/oled_ssd1306_128x64_dualcolor2_t.png" width="25%" height="25%" />
 
-In reality, these are *split-screens* with a small *yellow* stripe at top. The remainder of the display is *blue*. You cannot freely change the color of a pixel.
+In reality, these are *split-color displays* with a small *yellow* stripe at the top while the rest of the display is *blue*. You **cannot** freely change the color of individual pixels.  
 
-*Split-color* displays can be very useful when you incorporate the hardware design into your screen layout. The upper part could i.e. display special *warning messages* or a progress bar.
+However, *split-color* displays can be useful when incorporated into a purposeful screen layout. For example, the upper yellow portion could be used for *warning messages* or a *progress bar*.  
 
 <img src="images/oled_ssd1306_128x64_dualcolor_t.png" width="30%" height="30%" />
 
+## 128x64 and 128x32  
 
-## 128x64 And 128x32
-The two most commonly found *OLED resolutions* with breakout boards that use the *SSD1306* are *128x64* (*0.96"* and *1.3"* sizes) and *128x32* (*0.91"*).
+The two most common *OLED resolutions* found in breakout boards using the *SSD1306* are:  
+
+- *128x64* (available in *0.96"* and *1.3"* sizes)  
+- *128x32* (typically *0.91"*)  
 
 <img src="images/oled_ssd1306_128x32_text_board_t.png" width="50%" height="50%" />
 
-## Software Support
-There are many libraries available for *SSD1306 OLED displays* that are compatible with *Arduino* as well as *ESP* microcontrollers.
+## Software Support  
 
-## Interface
-The majority of breakout boards use the efficient two-wire *I2C* interface. 
+There are many libraries available for *SSD1306 OLED displays*, compatible with *Arduino* as well as *ESP* microcontrollers.  
 
-The *SSD1306* does support *SPI*, too, yet due to the small amounts of data that need to be transferred in a *small monochrome* display, using a high-sped *SPI* interface with its need for four wires and additional *GPIOs* does not make much sense.
+## Interface  
 
+Most breakout boards use the efficient two-wire *I2C* interface.  
 
-### Caveats
-There are a few caveats you should be aware of:
+The *SSD1306* also supports *SPI*, but given the low data transfer requirements of small monochrome displays, using the *SPI* interface (which requires four wires and additional *GPIOs*) is often unnecessary.  
 
-* **SPI Or I2C?** Even though *SSD1306* supports *SPI*, most breakout boards use the *I2C* interface to save *GPIOs*. Make sure you know which interface is supported by your particular display breakout board, and use the library examples for this interface (or adjust the code appropriately).
-* **I2C Hardware Address:** When your display uses *I2C*, the default *I2C* hardware address for most breakout boards (regardless of resolution) is *0x3c*. If this address does not work, try *0x3d*. 
-* **platformio:** When you use *platformio* as your *IDE*, move all functions above the *setup()* function as *c++* requires *forward function declaration*: in *platformio*, functions must have been declared *before* they can be used (in *Arduino IDE* they can be located anywhere). Some libraries were originally developed in *Arduino IDE* and come with example code that places *functions after* (*below*) the code that calls them. [Here](https://docs.platformio.org/en/latest/faq/ino-to-cpp.html) are the very few (but essential) details to convert an *.ino* source code file to *.c* so that it compiles correctly in *platformio*.
+### Caveats  
 
+Keep the following points in mind:  
+
+- **SPI or I2C?** While the *SSD1306* supports *SPI*, most breakout boards use *I2C* to save *GPIOs*. Verify which interface your display supports and ensure your code matches the correct interface.  
+- **I2C Hardware Address:** The default *I2C* address for most *SSD1306* breakout boards (regardless of resolution) is *0x3C*. If this does not work, try *0x3D*.  
+- **PlatformIO Considerations:** If you use *PlatformIO* as your *IDE*, move all functions above the `setup()` function, as *C++* requires *forward function declaration*. Unlike the *Arduino IDE*, where functions can be placed anywhere, *PlatformIO* enforces stricter rules. Some libraries were originally developed in the *Arduino IDE* and include example code that places functions *after* they are called, which can cause compilation errors in *PlatformIO*. [Here](https://docs.platformio.org/en/latest/faq/ino-to-cpp.html) are the essential details for converting an `.ino` file to `.cpp` so that it compiles correctly in *PlatformIO*.  
 
 
 ## Programming
@@ -64,14 +65,19 @@ Alternately, you can use *C++ libraries* to program the firmware manually.
 
 ## ESPHome
 
-Using *ESPHome* is the simplest approach, as *ESPHome* includes a native [SSD1306 OLED Display](https://esphome.io/components/display/ssd1306.html) component that supports most monochrome OLED drivers, including the *SSD1306*. Here are the supported OLED drivers:
+Using *ESPHome* is the simplest approach: *ESPHome* includes a native [SSD1306 OLED Display](https://esphome.io/components/display/ssd1306.html) component which is made to support a variety of OLED drivers, including the *SSD1306*. This are the currently supported OLED drivers:
 
 * **SSD1306:** 128x32, 128x64, 96x16, 72x40, 64x48
 * **SSD1305:** 128x32, 128x64
 * **SH1107:** 128x64, 128x128
 * **SH1106:** 128x32, 128x64, 96x16, 64x48
 
-Here is an example configuration:
+So if you come across *SH1106*-based OLEDs in the future, your *ESPHome* configuration continues to work almost unchanged.
+
+> [!IMPORTANT]
+> *ESPHome* creates the **illusion** that *SSD1306* and *SH1106* drivers would be compatible - which they are **not**. When using *C++* libraries, you must be careful to pick a library that is made for your particular driver. When you accidentally pick the wrong library, your display will be scambled due to the differences in memory and registers.    
+
+Here is an example configuration for the *SSD1306*:
 
 ````
 # define the I2C pins that you use 
@@ -154,7 +160,7 @@ These are the most common issues with code that was created in *ArduinoIDE* and 
 * **`.ino` is `.cpp`:** *ArduinoIDE* uses the file extension `.ino` (as in *Ardu**ino***) for *C++ source code* files. The official extension is `.cpp` (as in *C++*). You can simply rename the file extension.
 * **Add `#include <Arduino.h>`:** while not always necessary, it enables *ArduinoIDE-specific* features
 * **Use `setup()` and `loop()`:** define both `setup()` and `loop()`. If you don't need `loop()`, define it anyway, and leave it empty.
-* **Method Order:** make sure you define every method in your code **before you call the method**. Code written in *ArduinoIDE* typically moves method definitions to the *bottom* of the source code. This is only allowed in *ArduinoIDE*. For use in *platformio* and other professional IDEs, move the method definitions *up* so that they are defined when code wants to call them.
+* **Method Order:** make sure you define every method in your code **before you call the method**. Code written in *ArduinoIDE* typically moves method definitions to the *bottom* of the source code. This is only allowed in *ArduinoIDE*. For use in *platformio* and other professional IDEs, move `setup()` and `loop()` to the **bottom** of your code, and generally make sure all method definitions are defined once code calls them.
 
 </details>
 
