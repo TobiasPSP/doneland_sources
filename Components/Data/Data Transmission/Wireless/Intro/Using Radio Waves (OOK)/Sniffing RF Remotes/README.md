@@ -4,7 +4,7 @@
 
 > Using Simple OOK Receivers to Sniff ID Codes from RF Remote Controls
 
-[Previously](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves(ook)/), you learned that simple *OOK receivers* are specialized for receiving short bursts of signals in the range of *1-5kHz*. These receivers are *not well-suited* for longer transmissions. 
+[Previously](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/), you learned that simple *OOK receivers* are specialized for receiving short bursts of signals in the range of *1-5kHz*. These receivers are *not well-suited* for longer transmissions. 
 
 Bursts of short signals form the foundation of digital data transmission. Since *OOK receivers* do not interpret the bursts they receive, they make ideal *sniffing devices* that can capture *any form of transmission*, including signals from unknown remote controls.
 
@@ -91,7 +91,7 @@ remote_receiver:
 ````
 Once you upload this configuration to your microcontroller, go to *ESPHome*, click *LOGS* > *Wirelessly* to view the log. When you press a button on the remote control, the log will capture its signature:
 
-<img src="images/esphome_sniffing_rf_rc.png" width="80%" height="80%" />
+<img src="images/esphome_sniffing_rf_rc.png" width="100%" height="100%" />
 
 Note that most remote controls continuously repeat the transmission until you release the button. As a result, the remote control stops transmitting immediately after you let go. This is why you'll see aborted codes in the log:
 
@@ -329,6 +329,150 @@ When you press a button on the remote control, the display will show the receive
 
 <img src="images/rc_remote_sniffer2_t.png" width="50%" height="50%" />
 
+
+### ID Code Numeric Format
+If you looked closely, you'll notice that the display shows the remote control button codes as numbers, i.e. `16642212`. *ESPHome* used a series of `1` and `0`, i.e. `111111011111000010100100`.
+
+In reality, both are the same. They are just displayed in different number formats. When you launch *powershell* (or a similar shell, or a scientific calculator), you can easily convert between *binary* and *decimal* numbers:
+
+````
+# convert decimal to binary:
+PS> [Convert]::ToString(16642212, 2)
+111111011111000010100100
+
+# convert binary to decimal:
+PS> [Convert]::ToInt64("111111011111000010100100", 2)
+16642212
+````
+
+If you'd like to perform the same conversion in *C++* to show binary IDs on your OLED, use a function like this:
+
+````C++
+String convertToBinary(uint32_t num, int bitLength) {
+  String binary = "";
+  
+  // Build the binary string
+  for (int i = bitLength - 1; i >= 0; i--) {
+    binary += String(bitRead(num, i));
+  }
+
+  // Limit to 24 characters (take the rightmost 24 bits)
+  if (binary.length() > bitLength) {
+    binary = binary.substring(binary.length() - bitLength);
+  }
+
+  return binary;
+}
+````
+
+Here is an adaption of above source code that incorporates the binary number display and limits the bit length to *24 bit* (the message length for *EV1527-compliant remote controls).
+
+````c++
+#include <Arduino.h>
+#include <RCSwitch.h>
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SH110X.h>
+
+#define OOK_PIN  39  // Pin for OOK receiver
+#define i2c_Address 0x3c // I2C address for OLED display
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+RCSwitch mySwitch;
+
+const int LINE_HEIGHT = 20; // Space per line (fixed to prevent cutoff)
+const int MAX_ENTRIES = (SCREEN_HEIGHT - 10) / LINE_HEIGHT; // Max number of lines
+String receivedCodes[MAX_ENTRIES]; // Store received codes
+int numEntries = 0; // Current number of displayed entries
+
+String convertToBinary(uint32_t num, int bitLength) {
+  String binary = "";
+  
+  // Build the binary string
+  for (int i = bitLength - 1; i >= 0; i--) {
+    binary += String(bitRead(num, i));
+  }
+
+  // Limit to 24 characters (take the rightmost 24 bits)
+  if (binary.length() > bitLength) {
+    binary = binary.substring(binary.length() - bitLength);
+  }
+
+  return binary;
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(250); 
+  display.begin(i2c_Address, true); 
+  
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(0, 0);
+  display.print("Init Receiver...");
+  display.display();
+
+  mySwitch.enableReceive(digitalPinToInterrupt(OOK_PIN));
+
+  display.setCursor(0, 0);
+  display.clearDisplay();
+  display.print("Waiting for Remote...");
+  display.display();
+}
+
+void loop() {
+  if (mySwitch.available()) {
+    String newCode = String(mySwitch.getReceivedValue());
+    Serial.println("Received Code: " + newCode);
+
+    // Shift entries up if full
+    if (numEntries >= MAX_ENTRIES) {
+      for (int i = 0; i < MAX_ENTRIES - 1; i++) {
+        receivedCodes[i] = receivedCodes[i + 1];
+      }
+      receivedCodes[MAX_ENTRIES - 1] = newCode;
+    } else {
+      receivedCodes[numEntries] = newCode;
+      numEntries++;
+    }
+
+    // Clear display and redraw all entries
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.print("Received Codes:");
+
+    for (int i = 0; i < numEntries; i++) {
+      int yPos = 12 + (i * LINE_HEIGHT);
+      display.setCursor(10, yPos);
+
+      if (i == numEntries - 1) {
+        display.setCursor(0, yPos); 
+        display.print(">");
+        display.setCursor(10, yPos); 
+        display.print(convertToBinary(receivedCodes[i].toInt(),24));
+      } else {
+        // Older entries: Normal text
+        display.print(convertToBinary(receivedCodes[i].toInt(),24));
+      }
+    }
+
+    display.display();
+    mySwitch.resetAvailable();
+  }
+}
+````
+
+Since now each ID takes more space than just a OLED display line, only the last two IDs fit on the screen.
+
+The result is a useful tool that helps you figure out the IDs for *EV1527*-compliant remote control buttons, and you can use these codes directly in *ESPHome configurations*. No need to enable debug logging and then manually scan through the *ESPHome logs* anymore.
+
+### Next Steps
 Now that you have the codes, you can use them in more advanced firmware:
 
 - You could check the received code and, when it matches, trigger specific actions. This way, each button on the remote control can be assigned a specific task.
