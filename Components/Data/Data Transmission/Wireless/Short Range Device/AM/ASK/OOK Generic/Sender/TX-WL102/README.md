@@ -4,7 +4,7 @@
 
 > Small RF ASK Sender 
 
-This *sender* breakout board enables you to send data on the designated frequency. This is a **3.3V** board. You cannot operate it with **5V**.
+This *sender* breakout board sends data on the designated frequency. This is a **3.3V** board. You cannot operate it with **5V**.
 
 
 <img src="images/tx_wl102-341_side_t.png" width="60%" height="60%" />
@@ -37,7 +37,7 @@ The board comes with *four* pins labeled on the back side.
 | Pin  | Description |
 | --- | --- |
 | - | negative voltage/GND|
-| + | 2.0-4.6V |
+| + | 2.0-3.6V |
 | DAT | data in |
 | EN  | enable pin, not connected |
 
