@@ -21,7 +21,8 @@ There is no sophosticated overhead such as *modulation* (*AM*, *FM*, etc.), and 
 That's why in theory, you could use *OOK* senders to transmit audio or even video. However, *OOK* is typically usable for signals in the range of *1-5kHz*, so the data transmission speed is very low. Transmitting a picture or video would be entirely possible, however it would take forever to transmit. 
 
 > [!TIP]
-> *HAM Radio Amatuers* created [Slow Scan Television (SSTV)](https://en.wikipedia.org/wiki/Slow-scan_television) in 1957 to transmit pictures at a rate of seconds to minutes to transmit a single picture. 
+> *HAM Radio Amatuers* created [Slow Scan Television (SSTV)](https://en.wikipedia.org/wiki/Slow-scan_television) in 1957 to transmit pictures at a rate of seconds to minutes to transmit a single picture.
+
 
 ## OOK Transmitter
 
@@ -40,9 +41,10 @@ There are more sophisticated RF sender boards that add additional features:
 * **EV1527 Remote Controls:** [EV1527](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/)-compliant senders are ready to send *24-bit remote control IDs*. They are perfect when you want to create your own simple remote controls, however these senders cannot send anything else anymore - just 24bit bursts using the *EV1527* standard.
 * **Microcontroller-based:** Sophisticated [FM transceivers](https://done.land/components/data/datatransmission/wireless/shortrangedevice/fm/fsk/) use microcontrollers or specialized chips to handle digital data packets and modulations. They are perfect when you intend to transmit complex information. However, they too cannot send pure and unmodulated radio waves anymore.
 
-These boards are great - often much better suited than simple *OOK* boards - but today, *OOK* is best as it lets us focus on the fundamentals.
+These boards are great - often much better suited than simple *OOK* boards - but for the moment (and the objective of this article), *OOK* is best as it lets us focus on the fundamentals, and the easiest start is to get yourself a dedicated **OOK sender** and a dedicated **OOK receiver** board.
 
-
+> [!NOTE]
+> Remote controls are very simple *one-way transmissions* which is why you use dedicated *senders* (**transmitters**) and **receivers**. Modern microcontroller-based boards (i.e. **CC1101**) target much more sophisticated transmission protocols including *two-way communications* which is why these boards are **transceivers** (**trans**mitter and re**ceiver**) and can be programmed to act as *sender* **or** *receiver*. Many support the basic *OOK* mode, too, so you *could* use two such sophisticated boards and "downgrade" them to become **OOK sender** and **OOK receiver**. Programming the boards to act that way would be considerable overhead but proves that *OOK* is in fact the foundation of any digital transmission technique used today.
 
 
 ### Pins
