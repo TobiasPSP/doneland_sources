@@ -4,11 +4,11 @@
 
 > Creating Simple Remote Controls Based on EV1527 Encoding and OOK
 
-Simple *OOK* (*On-Off Keying*) serves as the fundamental *physical layer* for wireless data transmission. However, as explored [previously](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves(ook)/sniffingrfremotes/), *OOK* alone is insufficient. A **logical layer** is required to structure and interpret the raw transmitted signals into meaningful data.
+Simple *OOK* (*On-Off Keying*) serves as the fundamental *physical layer* for wireless data transmission. However, as explored [previously](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/sniffingrfremotes/), *OOK* alone is insufficient. A **logical layer** is required to structure and interpret the raw transmitted signals into meaningful data.
 
 <img src="images/rc_remote_sniffer3_t.png" width="70%" height="70%" />
 
-This is why a [microcontroller was necessary](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves(ook)/sniffingrfremotes/) to process incoming signals and filter out environmental noise.
+This is why a [microcontroller was necessary](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/sniffingrfremotes/) to process incoming signals and filter out environmental noise.
 
 To simplify this process and enable cost-effective remote controls, **EV1527** was introduced. It defines an encoding standard that transmits *24-bit ID numbers* via *OOK*.
 
@@ -140,11 +140,12 @@ Since a *EV1527 receiver* has just a single push button to interact, most receiv
 The latch mode definition used by the [RX480E-4](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver/rx480e-4/#setting-operating-mode-latch-mode) is used by many other *EV1527 receivers* as well. If in doubt, look up the manual for the *EV1527 receiver* you use.
 
 
+## Materials
 
+[EV1527 Datasheet](materials/silvan_ev1527.pdf)
 
 
 
 > Tags: OOK, EV1527, Remote Control, Sender, Receiver
 
-
-
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves(ook)/ev1527remotecontrols?670699031619250555) - created 2025-03-18 - last edited 2025-03-18
