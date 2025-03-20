@@ -109,10 +109,10 @@ The antenna *optimizes* the radiation of electromagnetic waves, and a good anten
 <img src="images/radio_e07-m2202d_antenna_t.png" width="50%" height="50%" />
 
 
-### Omnidirectional and 
+### Omnidirectional and Unidirectional
 In its most basic form, an antenna is simply a piece of wire. In this case, electromagnetic waves are emitted equally in all directions ([omnidirectional antenna](https://en.wikipedia.org/wiki/Omnidirectional_antenna)). 
 
-More sophisticated [directional antennas](https://en.wikipedia.org/wiki/Directional_antenna) can *focus* electromagnetic waves in a particular direction, strengthening the signal considerably in this direction (and weakening it in all other directions).
+More sophisticated [(uni)directional antennas](https://en.wikipedia.org/wiki/Directional_antenna) can *focus* electromagnetic waves in a particular direction, strengthening the signal considerably in this direction (and weakening it in all other directions).
 
 ### Antenna Matching
 Whichever antenna type you prefer, the antenna must **match** the desired frequency. In the case of a simple omnidirectional wire, it must have exactly the right **length** so that the oscillating currents can *resonate*. Here is how this works:
@@ -129,23 +129,23 @@ Radio waves travel with the speed of light. When you divide the speed of light b
 #### Calculating Wavelengths
 Lets put the theory at work and calculate antenna lengths.
 
-In Europe, many license-free transmitters work at *433.95MHz*. How long needs a good antenna wire be to resonate at this frequency?
+In Europe, many license-free transmitters work at *433.92 MHz*. How long needs a good antenna wire be to resonate at this frequency?
 
 Put the values into the formula:
 
 ````
-λ (wavelength) = 29979.2458 / 433.95 
-               = 0.6908456227676
+λ (wavelength) = 29979.2458 / 433.92 
+               = 69.0893385877581
 ````
 
-The wavelength for radio waves at a frequency of *433.95MHz* turns out to be *69.1 cm*. If you need the wavelength for other frequencies, just change the frequency in *Mhz*.
+The wavelength for radio waves at a frequency of *433.92 MHz* turns out to be *69.1 cm*. If you need the wavelength for other frequencies, just change the frequency in *Mhz*.
 
 > [!NOTE]
-> When you use `29979.2458` as the speed of light, you can divide it directly with a frequency specified in *MHz* and get back the wavelength in *centimeters*. Using the scientific default base units (meter, Hertz), the formula would be `299792458/433950000` and return the wavelength in *meters* instead of *centimeters*.
+> When you use `29979.2458` as the speed of light, you can divide it directly with a frequency specified in *MHz* and get back the wavelength in *centimeters*. Using the scientific default base units (meter, Hertz), the formula would be `299792458/433920000` and return the wavelength in *meters* instead of *centimeters*.
 
 #### Antenna Length
 
-For a *433.95 MHz* transmitter, a *full-λ* antenna would have a length of *69.1 cm*. That's pretty long, and often too long to be handled.
+For a *433.92 MHz* transmitter, a *full-λ* antenna would have a length of *69.1 cm*. That's pretty long, and often too long to be handled.
 
 To keep antennas practical, you can...
 
