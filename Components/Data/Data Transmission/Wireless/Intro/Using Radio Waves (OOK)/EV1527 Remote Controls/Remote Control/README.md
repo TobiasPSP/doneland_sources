@@ -73,11 +73,17 @@ Some breakout boards exceed the **10mW** limit, which may be illegal in some reg
 
     I am using a [RX480-E](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver/rx480e-4/). Most *EV1527* receivers are wired very similarly.
 
+    
+    <img src="images/rx480-e_ev1527_receiver_t.png" width="50%" height="50%" />
+
 - **EV1527 Sender:**  
   - A [breakout board](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/sender/) **-or-**  
   - A [*EV1527*-compliant RF remote control](https://www.google.com/search?q=ev1527+remote+control)    
       
       I am using a [TX118SA](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/sender/tx118sa/) and a commercially available ready-to-use remote control.
+
+      
+    <img src="images/tx118-s-4_ev1527_sender_t.png" width="40%" height="40%" />
 
 ### Cost
 The required items are very inexpensive; however, prices can vary substantially depending on *where* you shop. I ordered the boards from *AliExpress* for less than 1-2€ per piece.
@@ -87,8 +93,72 @@ The required items are very inexpensive; however, prices can vary substantially 
 As is almost always the case with such microelectronics, the higher prices are mainly due to the many additional intermediaries. The boards typically come from the same Chinese manufacturer anyway, regardless of where you purchase them.
 
 
+## Antenna
+
+Sender and receiver breakout boards often come without an antenna pre-soldered. 
+
+Sometimes, a wire or coil antenna is bundled but needs to be soldered to the board. If you don't have an antenna, use a wire of appropriate length, i.e. *17.3 cm* long for *433 MHz* devices.    
+
+Here is the formula to calculate the approproate antenna length for a given frequency:
+
+  ````
+  Length for λ/4-Antenna:
+  =======================
+  7495 / frequency (MHz) = antenna length (cm)
+  
+  433 MHz devices:
+  ================
+  7495 / 433.25 =  17.3 cm
+  
+  315 MHz devices:
+  ================
+  7495 / 315.00 =  23.8 cm
+  ````
+
+Connect an antenna to both the sender and the receiver board:
+
+<img src="images/ook_ev1527_antenna_board_t.png" width="80%" height="80%" />
+
+* **Coil Antenna:** if the board came with a coil antenna, these work very well and require very little space. You may want to put a piece of shrink tube over the coil. This looks cool but also makes sure you don't accidentally short-circuit the wire when touching, or in the rain.
+* **DuPont Wire:** if the board uses a regular pin to connect the antenna, shortening a standard *DuPont* wire and using it as antenna can work very well.
+
+## Assembling  Sender
+Let's set up the sender (the "remote control"). If you are using a ready-to-use commercial RF remote control, you can skip this part.
+
+These are the typical pins found on a sender breakout board:
+
+| Pin | Description |
+| --- | --- |
+| **ANT**, **OUT**, **A** | either a pin, or a solder pad somewhere on the board. Connect the antenna here. |
+| **+**, **V** | Positive voltage. Look up the voltage range in the board specs. The [TX118-SA](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/sender/tx118sa/) accepts *3-24V*. The higher the voltage the higher the RF output power. |
+| **-**, **G** | Ground |
+| **1**, **2**, **3**, **4** | Each pin controls a channel (and represents the buttons on commercial remote controls).<br/><br/>Depending on board, when a pin is connected either to *ground* or to *VCC*, the board starts to continuously send out the code for the particular channel. The board keeps sending this code until the pin is disconnected again. |
+
+> [!NOTE]
+> If your board does not have pins labeled `1`, `2`, etc., and  instead has a pin labeled `DAT` or `DATA`, then you have a generic [OOK sender board](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ookgeneric/sender/), not a [EV1527 sender board](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/).
+
+
+#### Connections
+
+
+
+* **Power:** connect the power supply pins to an appropriate power source. The [TX118SA](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/sender/tx118sa/) supports *3-24V*. Typically, senders require at least *5V* to output reasonable RF power. I am using a *4 AAA* battery pack (1.5V * 4 = 6V).
+* **Antenna:** make sure you connect an antenna. You can destroy a sender board when operating without antenna, or with a grossly mismatched antenna.
+* **Buttons:** connect each channel pin to a push button. Connect the other end of the push button to *ground* (other sender boards may have different requirements and may need the channel pins to be pulled up instead of down).
+
+
+<img src="images/schematics_simple_ev1527_sender_t.png" width="80%" height="80%" />
+
+### Testing
+
+There is no indicator LED on the breakout board. You can test the setup either with a multimeter, or if you followed this article series, you can use the [Remote Control Sniffer](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/sniffingrfremotes/#id-code-numeric-format) we created earlier:
+
+* **Multimeter:** connect the multimeter in *series* with the power supply, and switch to *current* measurement. When you press one of the push buttons, your *EV1527* sender should start a RF transmission, drawing current in the range of *20-80mA*. Once you release the button, power consumption should be close to nil.
+* **RC Sniffer:** if you built the [Remote Control Sniffer](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/sniffingrfremotes/#id-code-numeric-format), it should show a unique *24bit* code whenever you press one of the push buttons. Each push button should always send the same ID code when you push it, and stop sending it once you release it.
+
+
 
 
 > Tags: OOK, EV1527, Remote Control, Sender, Receiver
 
-
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves(ook)/ev1527remotecontrols/remotecontrol?971770031620254455) - created 2025-03-19 - last edited 2025-03-19
