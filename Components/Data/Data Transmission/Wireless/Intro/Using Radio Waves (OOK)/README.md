@@ -222,30 +222,34 @@ Connect the [AK-RXB59R](https://done.land/components/data/datatransmission/wirel
 ## Experience Failure: Using OOK wrongly
 
 Observe what happens when you *manually* send "morse code" with invalid signal lengths. 
+### Observations  
+The *receiver* seems to return random *high* signals, and when you attach a *LED* or *buzzer* to **DATA**, the *LED* will flicker, and the buzzer will emit random sounds.  
 
-### Observations
-the *receiver* seems to return random *high* signals, and when you attach a *LED* or *buzzer* to **DATA**, the *LED* will flicker, and the buzzer will emit random sounds.
+Once you transmit your "morse signal" (a long transmission), **DATA** on the receiver side will go all the way to *VDD*. A *LED* lights up in full brightness, and a buzzer emits a strong signal.  
 
-Once you transmit your "morse signal" (a long transmission), **DATA** on the receiver side will go all the way to *VDD*. A *LED* lights up in full brightness and a buzzer emits a strong signal.
+> [!NOTE]  
+> You may even see the *LED* turn **off** when you transmit, indicating that it now draws more energy than the receiver **DATA** pin can deliver.  
 
-> [!NOTE]
-> You may even see the *LED* turn **off** when you transmit, indicating that it now draws more energy than the receiver **DATA** pin can deliver.
+In a nutshell, while you can see some response on the *receiver side* when you send a signal, the received signal is unusable as it is embedded in a very high noise floor.  
 
-In a nutshell, while you can see some response on the *receiver side* when you send a signal, the received signal is unusable as it is embedded in a very high noise floor.
+> [!TIP]  
+> Simply add a logical layer that can distinguish signals from omnipresent background noise. *EV1527*—as used in cheap remote controls—is such a layer and enables *OOK* to [reliably transmit simple data, including Morse code](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/ev1527remotecontrols/remotecontrol/).  
 
-## Experience Success: Using OOK correctly
+## Experience Success: Using OOK Correctly  
 
-Attach a *digital signal* in the range of *1-5 kHz* to the *senders* **DATA** pin:
+Attach a *digital signal* in the range of *1-5 kHz* to the *sender's* **DATA** pin:  
 
-* **Custom Signal:**     
-  use `tone()` on Arduinos, or create a *PWM* signal on *ESP32*, and send it to a *GPIO* that you connect to **DATA** on the sender.
-* **Real Remote Control Signals:**    
-  use the [rc-switch](https://github.com/sui77/rc-switch) library to emit real remote-control signals (or decode existing remote control signals).    
-
-  * *your *sender* can act like a real *remote control* or even mimick an existing one    
-  * your *receiver* can pick up signals from *real remote controls* and decode their ids
-  * by *combining* your *sender* and your *receiver*, you can create *self-learning* remote controls that first pick up the signals from real remote controls, then play them back.
-* **ESPHome:** use the components [remote_receiver](https://esphome.io/components/remote_receiver.html) and [remote_transmitter](https://esphome.io/components/remote_transmitter.html) to control your *OOK receiver* and *OOK sender*. Both components internally use the [rc-switch](https://github.com/sui77/rc-switch) library.
+- **Custom Signal:**  
+  Use `tone()` on Arduinos or create a *PWM* signal on *ESP32*, then send it to a *GPIO* connected to **DATA** on the sender.  
+- **Real Remote Control Signals:**  
+  Use the [rc-switch](https://github.com/sui77/rc-switch) library to emit real remote-control signals (or decode existing remote-control signals).  
+  - Your *sender* can act like a real *remote control* or even mimic an existing one.  
+  - Your *receiver* can pick up signals from *real remote controls* and decode their IDs.  
+  - By *combining* your *sender* and your *receiver*, you can create *self-learning* remote controls that first pick up signals from real remote controls and then play them back.  
+- **ESPHome:**  
+  Use the components [remote_receiver](https://esphome.io/components/remote_receiver.html) and [remote_transmitter](https://esphome.io/components/remote_transmitter.html) to control your *OOK receiver* and *OOK sender*. Both components internally use the [rc-switch](https://github.com/sui77/rc-switch) library.  
+- **Hardware Solution:**  
+  If you are not into microcontrollers and want to keep things simple, use a *hardware solution*: swap out generic *OOK* boards with *EV1527* boards. The latter include a specialized chip that takes care of all the heavy lifting. With this solution, you can [remote-control devices](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/ev1527remotecontrols/remotecontrol/) or [transmit Morse code](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/ev1527remotecontrols/remotecontrol/) without microcontrollers, programming, etc.  
 
 
 
