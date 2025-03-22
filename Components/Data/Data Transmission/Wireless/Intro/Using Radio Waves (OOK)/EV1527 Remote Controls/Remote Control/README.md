@@ -29,10 +29,7 @@ This is the equipment used in this article:
 - **Receiver (Base Station controlling devices):**  
   [RX480-E](https://done.land/components/data/datatransmission/wireless/shortrangedevice/am/ask/ev1527/receiver/rx480e-4/) on the same frequency.  
   <img src="images/rx480-e_ev1527_receiver_t.png" width="50%" height="50%" />  
-
-Below, the sender is on the left and the receiver is on the right. Both are not yet connected to an antenna:  
-
-<img src="images/ev1527_sender_receiver_overview_t.png" width="70%" height="70%" />  
+ 
 
 ### Commercial Remote Controls  
 
@@ -40,7 +37,7 @@ As an alternative, you can replace the *sender* with a ready-to-use *EV1527*-com
 
 <img src="images/rc_remote_sniffer3_t.png" width="40%" height="40%" />  
 
-Just make sure the remote control uses the same frequency as your *receiver board*. Often, there is a sticker on the back of remote controls.
+Just make sure the remote control uses radio frequency in the same range as your *receiver board*, and you don't accidentally purchase a *infrared* (*IR*) remote control. Often, there is a sticker on the back of remote controls with the radio frequency.
 
 <img src="images/remote_control_ev1527_433mhz_t.png" width="30%" height="30%" />  
 
