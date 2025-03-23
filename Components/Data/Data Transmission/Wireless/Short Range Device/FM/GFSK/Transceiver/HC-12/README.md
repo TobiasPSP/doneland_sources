@@ -50,10 +50,10 @@ The microcontroller supports four different transmission modes (`FU1` - `FU4`) a
 
 RF Power is programmable, and the board can be configured to stay within legal limits (*10 mW*). Operating the board at full RF power (*100 mW*) requires a license (i.e. *HAM Radio Amateurs*).
 
-### Radio Chip: SI4438 vs. SI4463
-*HC-12* uses a *SI44xx* radio chip from *Silicon Labs*. Most boards use the cheaper and less feature-rich *SI4438*.
+### Clones: SI4438 vs. SI4463
+*HC-12* is available in many versions and cloned designs. They all use a *SI44xx* radio chip from *Silicon Labs*. Especially unbranded and very affordable boards use the cheaper and less feature-rich *SI4438*.
 
-Some boards claim to (or actually do) use the more advanced *SI4463*. Both versions are marketed under the same name: *HC-12*. And vendors often use *SI4438* and *SI4463* interchangeably in their ads, typically always shipping *SI4438*. The only half-way reliable way to tell is checking the chip markings on the boards you receive.
+Both versions are marketed under the same name: *HC-12*. Vendors often use *SI4438* and *SI4463* interchangeably in their ads, still shipping *SI4438* only. Check the chip markings on the boards you receive.
 
 *SI4438* and *SI4463* differ considerably:
 
@@ -70,37 +70,21 @@ Some boards claim to (or actually do) use the more advanced *SI4463*. Both versi
 | **Standby Consumption**    | 50 nA                                  | 50 nA                                 |
 | **Integrated Features**    | AES encryption                        | Low-power sleep mode                 |
 
-Originally, *HC-12* was designed around *SI4438*, and since this radio chip is limited to the *433 MHz* band, there are no *HC-12* versions for the other license-free sub-GHz ISM bands (*315 MHz*, *433 MHz*, *868 MHz*).
+However, practical consequences are limited because the radio chip is used within the *HC-12 board design* which works on 433 MHz only. The radio chip features (i.e., modulation or encryption) are not directly accessible.
 
-When *SI4463* became available, even though it now supported all four ISM bands, the existing *HC-12* board design was stuck on *433 MHz*. So even if you are lucky and find a *SI4463* on your *HC-12*, you still cannot use the other bands.
+*HC-12* own microcontroller with custom firmware lets the user select predefined "working modes" only. It is up to the firmware to internally translate these "working modes" into particular *FM modulations* used by the radio chip.
 
-What's much more important with the new *SI4463* are its support for more sophisticated *FM modulations* (like *(G)MSK*), doubling the transfer speed to *1 Mbps*, its better sensitivity, extending the maximum communication distance by *25%* from around *1.500 m* to *2.000 m*, and its *30% lower* receive current. Here are the details:
+From a practical perspective, these are important consequences:
 
-* **Communication Distance:**    
-  Even though both boards can emit the same RF power, the sensitivity of the *SI4463* is better by *2 dBm*. This is significant because dBm is logarithmic: a difference of 2 dBm corresponds to a factor of approximately 1.585 times in terms of power, so a *SI4463* can detect a signal that is approximately 1.585 times weaker than the *SI4438*. In practical terms, a *SI4463* has a communication distance in the range of *2.000 m* whereas the *SI4438* range is closer to *1.500 m*.
+* **Compatiblity:** make sure not to mix boards with *SI4438* and *SI4463*. To leverage features of the *SI4463*, the firmware needs to use modulations that are not available in *SI4438*, making both **incompatible**. 
+* **Recommendation:** if you have the choice, opt for boards with *SI4463* as it is the far superior chip with a much better sensitivity (boosting communication distance by *25%*) and up to *30%* better battery life in receive mode.
 
-* **Speed:**
-  *SI4463* supports almost double the maximum speed. Faster data transfer translates to less power consumption.
 
-* **Modulations:**
-  *SI4438* supports just the basic *(G)FSK* modulation modes which is sufficient for simple use cases. *SI4463* supports more sophisticated modulations including *(G)MSK*, which enable significantly higher data rates.
-
-* **Power Efficiency:**    
-  *SI4463* is more power efficient with an average receive current of *10mA* compared to *14mA* (*SI4438*). This **30% difference** can be significant in battery- or solar-powered scenarios.
-
-### Clones & Compatibility
-
-This board is very popular, and many clones exist that may use varying firmware and different radio chips.
-
-The UART command `AT+VER` returns the board versions. "Original" boards should return `www.hc01.com` (and have this URL printed on their back side). That said, clone boards from other sources may work reliably, too.
-
-Even though all boards from all sources *should* be able to communicate with each other, try and use boards from the same source and batch. 
-
-Once you mix variants, you may run into issues when using advanced features that aren't available on all boards. 
-
-For example, some boards use the *SI4463* radio chip, which supports higher data rates (*1 Mbps*) and more sophisticated modulations (i.e. *(G)MSK*). When using these modes, you can no longer communicate with boards using the more limited *SI4438*.
 
 <img src="images/433_Extension_HC-12_angle_t.png" width="40%" height="40%" />
+
+> [!TIP]
+> The UART command `AT+VER` returns the board versions. "Original" boards should return `www.hc01.com` (and have this URL printed on their back side). That said, clone boards from other sources may work reliably, too.
 
 ## Connectors
 
@@ -141,7 +125,7 @@ To reset communication settings to factory defaults, connect `SET` to `GND` when
 
 ### Working Modes
 
-The built-in microcontroller takes care of all the complex radio operations, including managing *FM modulations*, and translates these into four available operating modes:
+The built-in microcontroller takes care of all complex radio operations, including managing *FM modulations*, and translates these into four available operating modes:
 
 | Mode | Description | Idle Current | Serial Baud | Air Baud Rate |
 | --- | --- | --- | --- | --- |
@@ -149,6 +133,17 @@ The built-in microcontroller takes care of all the complex radio operations, inc
 | FU2 | Super Power Saving | 80uA | 1200-4800 | 250kBps |
 | FU3 | Normal | 16mA | 1200-115200 | 236kBps |
 | FU4 | Long Distance | 16mA | 1200 | 500bps |
+
+Internally, the firmware translates these modes into the appropriate digital FM modulations. You have no direct control over these settings.
+
+This explains why you may experience communication problems when using different *HC-12* modules from different sources. If you experience issues, always start by checking the firmware versions using `AT+VER`.
+
+When modules use different firmwares, these firmwares may use different *FM modulations*, making communication incompatible. Try using one of the other modes, i.e. `FU3` or `FU1`, to check whether the modules can connect this way.
+
+The reason why different modules use different firmwares which in turn use incompatible modulations is the radio chip: 
+
+Boards with the more sophisticated *SI4463* can take advantage of more sophisticated modulations like *(G)MSK* for higher data rates, or better long distance performance. These modes are not available on boards using the *SI4438*. 
+
 
 ### Transmission Speed
 The *serial baud rate* controls the *over the air* baud rate. 
