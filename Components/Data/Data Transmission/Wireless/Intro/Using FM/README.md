@@ -267,5 +267,4 @@ To transfer *digital* data, *FSK* (*Frequency Shift Keying*) or one of its deriv
 
 > Tags: FM, FSK, GFSK, O-QPSK, OFDM, Frequency Modulation, Wireless Communication, Digital Modulation, Data Transmission, Two-Way Communication, Wi-Fi, Bluetooth, Zigbee, ISM Bands, CC1101,LLCC68,LR11x0,RF69,RFM2x,RFM9x,Si443x,STM32WL,SX126x,SX127x,Sx128x,Sx123x
 
-
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingfm?835237031322255935) - created 2025-03-21 - last edited 2025-03-24
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingfm?835237031322255935) - created 2025-03-21 - last edited 2025-03-22
