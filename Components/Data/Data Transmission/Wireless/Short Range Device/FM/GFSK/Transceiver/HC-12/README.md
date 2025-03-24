@@ -12,48 +12,40 @@ Note that *HC-12* is capable of outputting RF signals ten times above the legal 
 
 
 ## Overview
+Sometimes there is a need to have a data connection between devices over some distance. *HC-12* works as a wireless UART extender, forwarding the transmitted information wirelessly to another *HC-12* module.
 
-This *433 MHz* digital FM radio board uses its own on-board microcontroller that takes care of most radio and modulation complexities and lets you focus on simple UART/serial commands. 
+To enable this, *HC-12* has a built-in microcontroller. Its firmware autonomously takes care of all required tasks and controls the *SI4438/SI4463* radio chip via an internal *SPI* interface. 
 
+The user simply connects the UART output of one device to `RX` and `TX`, and picks up the signals at the other *HC-12* module at its `RX` and `TX` pins.
+
+### Ease of Use
+
+It is important to understand that *HC-12* is a **specialized** application that does not expose the *SI44xx* radio chip or its capabilities to the outside. Instead, its built-in microcontroller interfaces with the radio chip.
+
+This makes using this module so simple: to the outside, a user simply connects the data lines. *HC-12* immediately starts transferring the data wirelessly.
+
+The user can configure the module by setting certain high-level preferences, such as focussing on low power, high speed, or long distance. *HC-12* internally then picks the most appropriate *FM modulations* and radio settings.
+
+The module covers the frequency range *425-525 MHz* and divides it into 100 channels at a *400 kHz* spacing, and the user picks a channel.
+
+### Limitations
+
+The downside to this abstraction is that you have no access to low level radio settings, and you can transfer data only as UART data streams.
+
+If you want to directly access the *SI44xx** API, you would have to [re-program the onboard microcontroller](https://github.com/rumpeltux/hc12) as it is the only one with direct *SPI* access to the radio module. This is complex, so if you need low-level access to radio functions, *HC-12* is not for you. Instead, choose a simpler board without microcontroller and with an exposed *SPI* interface so you can use your own microcontroller to talk to the radio module.
 
 ### Built-In Microcontroller
-*HC-12* is designed to be operated stand-alone without the need for an external microcontroller and firmware.
+*HC-12* uses the 16 MHz 8-bit *STM8S003F3* microcontroller made by *STMicroelectronics* with proprietary firmware that translates a set of UART commands into commands for the internal *ST44xx* radio chip. 
 
-It uses the 16 MHz 8-bit *STM8S003F3* microcontroller made by *STMicroelectronics* with proprietary firmware that translates a set of UART commands into commands for the internal *ST44xx* radio chip. Boards use the small square-shaped *U6* (LQFP-20) or the larger *P6* (TSSOP-20) package type.
+The package type of the microcontroller may vary: both small square-shaped *U6* (LQFP-20) or larger *P6* (TSSOP-20) package types are commonly found.
 
-The microcontroller firmware takes care of all fundamental sending and receiving, and the module can be used to autonomously wirelessly transmit *serial data* with various baud rates: simply connect a serial line to `RX` and `TX`, and use a second module to receive the signals again at `RX` and `TX`. 
 
-Provided both modules use the same configuration, then this solution works out of the box with minimal effort.
-
-#### Configuring Microcontroller
-To configure the microcontroller and i.e. set channel, output power, or data speed, connect pin `SET` to `GND`: now serial input is treated as commands at `9600 baud, 8, N, 1` until you disconnect `SET` from `GND` again.
-
-The microcontroller supports four different transmission modes (`FU1` - `FU4`) and *100* channels spaced *400 kHz* apart.
-
-| Item | Value |
-| --- | --- |
-| Sending Modes | FU1, FU2, FU3, FU4 |
-| Default Mode | FU3: 9600bps, Channel 1 (433.4MHz) |
-| Standby Current (per mode) | 3.6mA, 80uA, 16mA, 16mA |
-| Sleep Current | 22uA |
-| Operating Current | 100mA |
-| Transmission Rate | <10 Kbps |
-| Channels | 100 |
-| Channel Spacing | 400 kHz |
-| Interface | UART 3.3V/5V TTL level |
-| Size | 27.4x13.2x4mm |
-
-> [!TIP]
-> You can program your own firmware and [upload it to the onboard microcontroller](https://github.com/rumpeltux/hc12). This way you get direct *SPI access* to the *SI4438*/*SI4463* registers.
-
-### High RF Power
-
-RF Power is programmable, and the board can be configured to stay within legal limits (*10 mW*). Operating the board at full RF power (*100 mW*) requires a license (i.e. *HAM Radio Amateurs*).
 
 ### Clones: SI4438 vs. SI4463
-*HC-12* is available in many versions and cloned designs. They all use a *SI44xx* radio chip from *Silicon Labs*. Especially unbranded and very affordable boards use the cheaper and less feature-rich *SI4438*.
+*HC-12* is available in many versions and cloned designs. They all use a *SI44xx* radio chip from *Silicon Labs*. Unbranded and very affordable boards often use the cheaper and less feature-rich *SI4438*.
 
-Both versions are marketed under the same name: *HC-12*. Vendors often use *SI4438* and *SI4463* interchangeably in their ads, still shipping *SI4438* only. Check the chip markings on the boards you receive.
+> [!IMPORTANT]
+> Both versions are marketed under the same name: *HC-12*. Vendors often use *SI4438* and *SI4463* interchangeably in their ads, still shipping *SI4438* only. Check the chip markings on the boards you receive.
 
 *SI4438* and *SI4463* differ considerably:
 
@@ -70,11 +62,8 @@ Both versions are marketed under the same name: *HC-12*. Vendors often use *SI44
 | **Standby Consumption**    | 50 nA                                  | 50 nA                                 |
 | **Integrated Features**    | AES encryption                        | Low-power sleep mode                 |
 
-However, practical consequences are limited because the radio chip is used within the *HC-12 board design* which works on 433 MHz only. The radio chip features (i.e., modulation or encryption) are not directly accessible.
 
-*HC-12* own microcontroller with custom firmware lets the user select predefined "working modes" only. It is up to the firmware to internally translate these "working modes" into particular *FM modulations* used by the radio chip.
-
-From a practical perspective, these are important consequences:
+From a practical perspective, these are the relevant consequences:
 
 * **Compatiblity:** make sure not to mix boards with *SI4438* and *SI4463*. To leverage features of the *SI4463*, the firmware needs to use modulations that are not available in *SI4438*, making both **incompatible**. 
 * **Recommendation:** if you have the choice, opt for boards with *SI4463* as it is the far superior chip with a much better sensitivity (boosting communication distance by *25%*) and up to *30%* better battery life in receive mode.
@@ -113,51 +102,96 @@ On the opposite end, five through-holes provide connectivity, clearly marked on 
 > [!CAUTION]
 > The *LDO voltage regulator* on this board is problematic. When operating at maximum power over extended periods, the LDO needs to convert considerable energy to heat in an effort to lower the input voltage to the required level. To workaround, **lower** the input voltage yourself to *4.5 V*. This can also be achieved by placing a *1N4007* diode in series with a *5 V* power supply.
 
-## Configuration
 
-The module stores its configuration until you re-configure it. To re-configure, connect pin `SET` to `GND` (to enter command mode), then send the appropriate AT commands to `RX`.
+## Configuring HC-12
 
-The default communication settings for command mode are:
+With *HC-12*, only the built-in microcontroller has direct access to the radio module. The user *cannot* directly control them and uses simple *AT commands* instead to tell the built-in microcontroller what to do:
 
-`9660 baud, 8 data bits, no parity, one stop bit`
+* **Priorities:**     
+  a choice of four different transmission modes (`FU1` - `FU4`) allow the user to prioritize *power consumption*, *speed*, or *communication distance*. Internally, the microcontroller translates these modes into the most appropriate FM modulations and radio settings.
+* **Channel:**     
+  the user cannot set a specific frequency. Instead, there is a choice of *100 channels*. Internally, the microcontroller translates these channels into frequencies within the *425-525 MHz* frequency range. **Only channels 1-4** represent license-free frequencies in Europe.
+* **Power:**     
+  the user can set the RF output power in eight steps from *0.8 mW* to *100 mW*, roughly doubling the power with each step. **Only the first four RF power choices** (*0.8 mW*, *1.6 mW*, *3.2 mW*, *6.3 mW*) are legal to use in license-free bands.   
+* **Serial Interface:**    
+  the user can configure speed and settings of the serial interface so it matches the devices that need to communicate. *HC-12* supports baud rates in the range of *1200-115200*. However, the maximum baud rate depends on the transmission mode you chose and is limited to *4800* in `FU2` and to *1200* in `FU4`. `FU1` and `FU3` do not restrict the available baud rates. In addition, number of bits, parity, and stop bits can be defined. 
 
-To reset communication settings to factory defaults, connect `SET` to `GND` when **powering on**.
+By default, *HC-12* uses `FU3` at 9600,8,N,1 on *channel 1* (433.4MHz).
+  
+### Sending Commands
+By default, *HC-12* works in data mode and treats all input at `RX` as data that is sent off.
 
-### Working Modes
+To instruct the microcontroller to treat input as *commands*,  pin `SET` must be connected to `GND`. While this connection exists, all input is treated as *AT commands*.
 
-The built-in microcontroller takes care of all complex radio operations, including managing *FM modulations*, and translates these into four available operating modes:
+> [!TIP]
+> To reset the communication settings to the default `9600 baud, 8, N, 1`, connect `SET` to `GND`, then **power on HC-12**.
 
-| Mode | Description | Idle Current | Serial Baud | Air Baud Rate |
+## Choosing Transmission Mode
+The transmission mode prioritizes low power consumption, speed, or communication distance. 
+
+The mode is set via `AT+FU1` through `AT+FU4`.
+
+| Mode | `FU1` | `FU2` | **`FU3`** | `FU4` |
 | --- | --- | --- | --- | --- |
-| FU1 | Power Saving | 3.6mA | 1200-115200 | 250kBps |
-| FU2 | Super Power Saving | 80uA | 1200-4800 | 250kBps |
-| FU3 | Normal | 16mA | 1200-115200 | 236kBps |
-| FU4 | Long Distance | 16mA | 1200 | 500bps |
+| Use Case | power efficient | extreme low power | **normal** | long distance |
+| Power (receive) | 3.6 mA | 80 uA | **16 mA** | 16 mA |
+| Latency | 15-25 ms | 500 ms | **4-80 ms** | 1000 ms |
+| Maximum baud rate | 115.200 | 4.800 | **115.200** | 1.200 |
+| Communication Distance (*100 mW*) | 100 m | 100 m | **1.000 m (2.400 baud)<br/>600 m (9.600 baud)** | 1.800 m |
+| Air Baud Rate (kbps) | 250  | 250 | 236 | 0.5 |
 
-Internally, the firmware translates these modes into the appropriate digital FM modulations. You have no direct control over these settings.
+* In `FU2`, receiving power consumption is extremely low (80 uA). The price you pay speed capped at *4.800 baud*, plus long latency (*500 ms*): the radio chip is sent to sleep in regular intervals. 
+* The sleep current is 22uA (in sleep, the board is not operational and cannot receive). 
+* When transmitting with full power, power consumption can raise to *100 mA*, regardless of mode.
 
-This explains why you may experience communication problems when using different *HC-12* modules from different sources. If you experience issues, always start by checking the firmware versions using `AT+VER`.
+### Choosing Baud Rate
+The baud rate at which the data is delivered by the external device can be set via `AT+B*x*` (where *x* is the baud rate, i.e. `AT+B9600`).
 
-When modules use different firmwares, these firmwares may use different *FM modulations*, making communication incompatible. Try using one of the other modes, i.e. `FU3` or `FU1`, to check whether the modules can connect this way.
+| Serial Baud Rate | 1.200 | 2.400 | 4.800 | 9.600 | 19.200 | 38.400 | 57.600 | 115.200 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Air Baud Rate | 5.000 | 5.000 | 15.000 | 15.000 | 58.000 | 58.000 | 236.000 | 236.000 |
+| `FU1` | yes | yes | yes | yes | yes | yes | yes | yes |
+| `FU2` | yes | yes | yes | - | - | - | - | - |
+| `FU3` | yes | yes | yes | yes | yes | yes | yes | yes |
+| `FU4` | yes | - | - | - | - | - | - | - |
+| RX Sensitivity (dBm) | -117  |  -117  |  -112  | -112 | -107 | -107 |  -100 |  -100 | 
 
-The reason why different modules use different firmwares which in turn use incompatible modulations is the radio chip: 
+* The trade-off is *speed* versus *communication distance* because with faster data transfer rates, the receiver sensitivity decreases. That's why the long range mode `FU4` supports only slow *1.200 baud*.
+* Due to error correction and related overhead, the data transmission rate (serial baud rate) is always considerably lower than the air baud rate.
 
-Boards with the more sophisticated *SI4463* can take advantage of more sophisticated modulations like *(G)MSK* for higher data rates, or better long distance performance. These modes are not available on boards using the *SI4438*. 
+## RF Power
+The radio chip on *HC-12* boards supports RF power of up to *20dBm/100mW* and can be controlled in eight steps via `AT+P1` through `AT+P8`. 
+
+The default is maximum RF power at *100 mW*.
+
+| Power Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| --- | --- |  --- | --- |  --- | --- | --- | --- | --- |
+| mW | 0.8 | 1.6 | 3.2 | 6.3 | 12 | 25 | 50 | 100 |
+| dBm | -1 | 2 | 5 | 8 | 11 | 14 | 17 | 20 |
+
+In most regions of the world, the limit for the license-free 433 MHz band is *10 mW* (power levels *1-4*). For RF power exceeding *10 mW*, a license is required (i.e. HAM Radio Amateur).
 
 
-### Transmission Speed
-The *serial baud rate* controls the *over the air* baud rate. 
+## Channel
 
-| Serial baud (bps) | 1200-2400 | 4800-9600 | 19.2k-38.4k | 57.6-115.2k |
-| --- | --- | --- | --- | --- | 
-| Wireless baud (Kbps) | 5 | 15 | 58 | 236 |  
+With `AT+C1` through `AT+C100` the user can select a channel. *HC-12* translates channels to frequencies, starting at *433.4 MHz*, with a spacing of *400 kHz*. So channel #1 represents *433.4 MHz*, channel #2 *433.8 MHz*, channel #3 *434.2 MHz*, and so forth.
 
-### Receiver Sensitivity
-The faster the data transfer rate is, the lower is the *receiver* sensitivity:
+Channel #1 is set by default.
 
-| Serial Baud (bps) | 500 | 5k  | 15k | 58k | 236-250k |
-| ---  | ---  | ---  | ---  | ---  | ---  |
-| Receiver Sensitivity  | -124dBm |-116dBm |-111dBm |-106dBm |-100dBm |
+In Europe, the license-free frequency range is *433.05-434.79 MHz*, so only channels #1-#4 are legal to use (without a license).
+
+### Incompatibilities
+
+Internally, the firmware translates the selected operation mode into  appropriate digital FM modulations. 
+
+This explains reports that *HC-12* modules from different vendors cannot communicate. If you experience issues like this, start by checking the firmware versions using `AT+V`.
+
+If firmware versions do not match, they may use different *FM modulations* for the more specialized modes `FU1`, `FU2`, and `FU4`. Try `FU3` to see whether the modules can connect now.
+
+One of the reasons why different firmware versions exist that use incompatible radio settings lays in the fact that *HC-12* boards use different radio chips.
+
+Boards with the more sophisticated *SI4463* take advantage of more sophisticated modulations like *(G)MSK*, which increases data rates and/or long distance communication. Since these modulations aren't supported with boards using the *SI4438*, the result are incompatibilities.
+
 
 > [!TIP]
 > Communication distance reduces by half for every *6dBm* decrease in receiver sensitivity.
