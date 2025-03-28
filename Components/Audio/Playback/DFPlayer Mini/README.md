@@ -60,7 +60,7 @@ The *DFPlayer Mini* supports *MP3*, *WAV*, and *WMA* audio formats.
 Once you are able to hear sound, evaluate the audio quality. If you notice noise or other audio issues, you can try improving the quality with the following steps:
 
 1. **Review Power Supply:**  
-   - **3.3V:** If you are running the *DFPlayer Mini* at *3.3V*, consider switching to the **5V** pin on your microcontroller instead. If you use a *3.3V* microcontroller, add a *1KΩ* resistor in series with the `TX` pin of the *DFPlayer Mini*.  
+   - **3.3V:** If you are running the *DFPlayer Mini* at *5 V*, consider switching to the **5V** pin on your microcontroller instead. If you use a *3.3V* microcontroller, add a *1KΩ* resistor in series with the `RX` pin of the *DFPlayer Mini*.  
    - **AC Adapter:** If you're using an *AC USB power supply*, try switching to a power bank. If this reduces noise, it may indicate that your adapter is introducing interference. In this case, consider using a *USB isolator* or another method to prevent noise from affecting the *DFPlayer Mini*.
 
 2. **Enable Auto Mute:** If your *DFPlayer Mini* PCB supports it, bridge the solder pads to enable the *auto mute* function (more details below).

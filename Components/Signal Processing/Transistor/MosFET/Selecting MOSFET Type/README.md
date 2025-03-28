@@ -3,69 +3,18 @@
 
 > A Special Type of Transistor Especially Suited for Switching Applications
 
-A **MOSFET** (*Metal-Oxide-Semiconductor Field-Effect Transistor*) is a great transistor type for switching loads. MOSFET transistors are especially good at being *fully on* and *fully off*. 
+A **MOSFET** (*Metal-Oxide-Semiconductor Field-Effect Transistor*) is a transistor type ideal for switching loads. *MOSFETs* can switch at very high frequencies.
 
-You can also *dim* or *regulate* loads with a MOSFET: use a *PWM* (*Pulse Width Modulation*) signal. It switches the MOSFET on and off at high frequency, and the duty cycle (the sum of the *on* phases) can regulate the load, i.e.  dim a light. This is possible because MOSFETs can switch very fast at up to *10 MHz* (and higher with specialized types).
+To act as an ideal switch, a MOSFET must become fully conductive when *on*. This requires a certain voltage at its *gate* pin. Most MOSFET types require much higher voltages than are available in logic level circuits. 
 
+One of the most fundamental specs to look for is the *Rds(on)* for the voltage you can supply: this is the *on resistance* when this voltage is supplied.
 
 ## Overview
-MOSFETs - like most transistors - has three legs: two (called *source* and *drain*) carry the load. The third (called *gate*) is the control pin that you can use to turn the MOSFET *on* and *off*.
+MOSFETs are **voltage-controlled** and draw almost no current. They use **electric fields** to control their state rather than direct current flow. 
 
-So a MOSFET works pretty much like a mechanical switch:
+This is why MOSFETs can *stay on (conductive)* when the voltage is removed from their *gate* pin: the electric field remains intact. *Gate pins* must be connected to a *defined state*, i.e. it may be necessary to *pull down* the controlling *GPIO* to ensure that the MOSFET turns off when the positive voltage is removed (for *P-Channel* MOSFETs it is the other way around, and the *gate* pin must be *pulled up*).
 
-<img src="images/analogy_mosfet_switch_drawing.png" width="60%" height="60%" />
-
-* **Gate:**    
-  acts like the button or rocker and controls whether the switch is *on* or *off*. Since the switch state is controlled by a *voltage*, this makes it easy to electronically control the switch, i.e. via a *GPIO* on a microcontroller, or via a suitable sensor output.
-* **Source** and **Drain:** conduct the load when the MOSFET is *on*
-
-In reality, a MOSFET *can* work just as simple as a mechanical switch, however while a true mechanical switch is just essentially a strip of wire that can be opened and closed, a MOSFET is a *semiconductor* and has some requirements to be happy.
-
-
-### N-Channel and P-Channel
-
-There are two fundamental types of MOSFETs: *N-Channel* (more common) and *P-Channel* (less common). These types differ in the way how their **gate** pin controls them:
-
-#### N-Channel MOSFET (Low-Side-Switch)
-*  Load current flows from **drain** to **source**. 
-* The *gate* voltage must be **positive** and **higher than the voltage at pin *source*** to turn the MOSFET **ON**. 
-* Typically used for **low-side switches**:
-  * **OFF by default** when *gate* connected to *ground* (pulled low)
-  * **Turned ON** by pulling *gate* **higher than source** (e.g., connecting *gate* to *+V*)
-
-#### P-Channel MOSFET (High-Side Switch)
-* Load current flows from *source* to *drain*. 
-* The *gate* voltage must be **negative** and **lower than source** to turn the MOSFET **ON**. 
-* Typically used for **high-side switches**:
-  * **ON by default** if the *gate* is at **GND** (assuming *source* is at *+V*) 
-  * **Turned OFF** by pulling *gate* to **the same voltage as *source* (+V)**
-
-  
-Don't worry too much about this if you are a beginner. Just keep in mind that a MOSFET cannot simply be placed anywhere in your circuit as if it were a simple mechanical switch.
-
-Determine whether you want a *high-side* or *low-side* switch, pick the appropriate MOSFET type (*N-Channel* or *P-Channel*), and use one of the sample circuit designs below.
-
-
-### Understanding `GATE` Pin
-MOSFETs are controlled via *voltage*, but a better term might be *electrostatic load*.
-
-With a *N-Channel MOSFET*, briefly touching the *gate* pin with a wire connected to **+V** is sufficient to turn the MOSFET **ON**. It stays on even when you remove the wire.
-
-In contrast to *BJT transistors* and their **base** pin, there is **no continuous current flow** into the gate. The charge you apply to the **gate** stays there, and the charge you applied to *gate* stays there (and keeps the MOSFET **ON**) until you actively remove the charge again.
-
-#### Practical Takeaways
-
-* **Sensitive:**     
-  MOSFETs are very sensitive to electrostatic energy. Always properly ground yourself before touching MOSFET pins.
-* **Pull-Down Resistor:**     
-  To ensure *gate* returns to a defined state when you stop applying your control signal, use a *pull-down resistor* or enable the *pull down* in the controlling GPIO. This ensures the *gate* is pulled to a voltage lower than the *source*, properly turning the MOSFET **OFF**.
-
-* **Protective Resistor:**    
-  Unlike **BJT transistors**, MOSFETs do not require a current-limiting resistor for the **gate** because they are voltage-controlled devices. However, you may still want to use a **protective resistor** between the **gate** and **GPIO** to limit inrush currents when driving the **gate** capacitance, especially in larger MOSFETs.
-    
-    
-
-
+**BJT** (*Bipolar Junction Transistor*) transistors, for comparison, work differently: those are **current-controlled**, and a small current at the transistor *base* is *amplified* to control a larger current. When the current stops, then the *BJT* transistor *turns off*.
 
 ## MOSFET Pinout  
 
