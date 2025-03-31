@@ -286,4 +286,4 @@ All prices are considered to be a rough classification and may vary greatly betw
 
 > Tags: Transistor, Choice, Selection, Heat, Amplifier, Switch
 
-[Visit Page on Website](https://done.land/components/signalprocessing/transistor/mosfet?740715031924250457) - created 2025-03-23 - last edited 2025-03-23
+[Visit Page on Website](https://done.land/components/signalprocessing/transistor/mosfet/selectingmosfettype?740715031924250457) - created 2025-03-23 - last edited 2025-03-23

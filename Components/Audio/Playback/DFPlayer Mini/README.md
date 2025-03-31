@@ -124,7 +124,7 @@ The *3.3V* setup described above may or may not be suitable for your needs, depe
 Switching to a *5V* setup is simple:
 
 - **Power Line:** Switch the red power line from the `3V3` pin to the `5V` pin, bypassing the internal voltage regulator. This allows the *DFPlayer Mini* to be directly powered by the *USB power input*.
-- **Resistor:** To protect the *DFPlayer Mini*, add a *1kΩ* resistor in series with the *TX* line to prevent damage from the *5V* logic levels.
+- **Resistor:** To protect the *DFPlayer Mini*, add a *1kΩ* resistor in series with the *RX* line to prevent damage from the *5V* logic levels.
 
 <img src="images/dfplayer_mini_schematics_5v.png" width="80%" height="80%" />
 ## Microcontroller Control
