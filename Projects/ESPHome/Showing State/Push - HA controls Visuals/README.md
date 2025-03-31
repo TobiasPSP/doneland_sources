@@ -1,70 +1,91 @@
 <img src="/assets/images/convert.jpg" width="80%" height="80%" />
  
-# Push - Home Assistant Controls Visuals
+# Push - Let Home Assistant Control Visuals
 
-> Creating A Central Automation Script In Home Assistant To Manage Visuals In Dashboards And Remote Controls
+> **Creating a Central Automation Script in Home Assistant to Manage Visuals in Dashboards and Remote Controls**
 
-
-In this scenario, *Home Asisstant* is centrally updating all **Visuals** in any of your devices when the state of an **Effector** changes.
+In this scenario, *Home Assistant* centrally updates all **Visuals** in *any* of your devices whenever the state of an **Effector** changes.
 
 ## Overview
 
-A central automation script to update **Visuals** has many advantages:
+These are the tasks the central automation script must perform:
 
-* **Safe:**    
-  Devices do not require API access, so if a device is hacked, it provides a limited attack surface
-* **Clear:**   
-  There is just **one** place that manages **all** relationships between device states and **Visuals**. This makes it easy to maintain, and you don't need to roll out new device firmware just because you renamed a device or want to re-organize the devices a particular remote control manages.
+1. **Device State Updates:**  
+   When the state of a device (the **Effector**) changes, all **Visuals** representing that device must update accordingly.   
+   
+     **Example:**  when a plug is turned off, then all **Visuals** representing this plug in *any of your devices* should change from green to red.
+2. **State Initialization:**  
+   When a device with a relevant **Visual** becomes available, it must be initialized so that its **Visuals** show the correct state.   
+   
+     Else, the device could show a random state until the next time the state changes.
 
-### Tasks
 
-The central automation script is responsible for managing **two** tasks:
+## Managing Automations
 
-* **Device State:**    
-  When the **state** of a device (that you want to monitor via **Visuals**) **changes**, it needs to update the state of all **Visuals** that represent this device
-* **Initialize State:**   
-  A device with a **Visual** may turn on and off at any time, independent from the **Effectors**. The automation script must detect when a device with a **Visual** becomes available so it can immediately **initialize** its **Visuals**. Else, the **Visuals** would be updated only on the next *device state change*, and until this happens, the **Visuals** would not show the correct device state.
-  
+*Home Assistant* maintains a central automation script in `/config/automations.yaml`.
 
-## Central Automation Script
-*Home Assistant* maintains a central automation script called `/config/automations.yaml`. 
+This file is **not** directly accessible through the Home Assistant UI unless you install separate add-ons like *File Editor* or *Studio Code Server*, but this is not necessary as there are better and safer ways to edit it.
 
-The content of this script is not directly accessible via the *Home Assistant UI*. You would need to install a text editor add-on in *Home Assistant* such as *File Editor* or *Studio Code Server*, but this effort is not needed.
+### What Are Automations Anyway?
 
-### Automations
-*Automations* enable you to *teach Home Assistant* to perform certain tasks **automatically**. You can, for example, establish **relationships** between separate devices: if sensor *A* is above temperature *B*, turn on device *C* - a fan for example.
+*Automations* leverage the true power in *Home Assistant* as they allow you to **teach** *Home Assistant* what it should do *automatically* when certain things occur.
 
-Likewise, when a certain button on a device is pressed, you may want *Home Assistant* to toggle the state of a plug somewhere else, effectively turning the button in a **remote control**, and **pairing** it to a plug.
+This allows you to compose automations that involve multiple devices:
+- If sensor *A* detects a temperature above *B*, turn on device *C*, i.e. a fan or air conditioning system.
+- If a button is pressed on device *X*, toggle plug *Y*, effectively making the button a **remote control** that is **paired** to the plug.
 
 ### Accessing Automations
-All automations you have ever defined are listed in the *Home Assistant User Interface* via **Settings**/**Automations & scenes**.
 
-Initially, this list is empty, and by clicking **CREATE AUTOMATION**, you add any number of automation tasks.
+To view all automations:
+1. Navigate to **Settings** → **Automations & Scenes**.
+2. Click **Create Automation** to add a new automation.
 
-### How it works
-
-* `automations.yaml`:     
-  *Home Assistant* maintains a hidden file: `/config/automations.yaml`. You can view and edit it with special tools, but it is better to let *Home Assistant* transparently handle this file.
-* **Purpose:**     
-  *Home Assistant* reads `automations.yaml` at startup (and whenever you edit the file), and updates its own task lists accordingly.
-* **Automation:**     
-  When you create a new automation in the user interface, *Home Assistant* adds code to `automations.yaml`. By adding a new automation, you are in fact **indirectly** editing `automations.yaml`, but the user interface protects you from mishaps that could damage other automations in this file.
-* **Wizard:**     
-  **CREATE AUTOMATION** invokes a wizard that helps you compose a new automation task: by answering simple questions and selecting devices from dropdown lists, *Home Assistant* writes the automation script for you in the background. 
-* **List of Automations:**     
-  All your automations are listed in **Settings**/**Automations & scenes** where you can click them to re-open the wizard to view the settings and also apply changes when needed. 
-* **Advanced Editing and Refining:**     
-  The three-dot menu in the upper right corner of an **opened** automation, lets you *disable*, permanently *delete*, or even view its **source code**:   
-    
-    Clicking *Edit in YAML* displays the actual code that the wizard generated, and if you feel comfortable, you could directly program your automations and bypass the wizard and the UI.
+Initially, this list is empty, but you can add any number of automation tasks.
 
 
-### Example
 
-This code was automatically generated by the wizard:
+## How Automations Work
 
-````
+Home Assistant stores all automations in a hidden file: `/config/automations.yaml`. This file is automatically managed and updated when you create or modify automations via the UI.
 
+Here is how it works:
+
+
+1. **Code in `automations.yaml`:**  
+   Home Assistant reads `automations.yaml` at startup and reloads it when changes are made.
+2. **Adding New Automation:**  
+   Creating a new automation via the UI adds the corresponding code to `automations.yaml`. This ensures consistency while preventing errors.
+3. **Wizard for Simplicity:**  
+   The **Create Automation** wizard guides you through setting to compose automations via dropdown menus and simple prompts.
+4. **Viewing & Editing Automations:**  
+   - Automations can be found under **Settings** → **Automations & Scenes**.
+   - Clicking an automation lets you **edit** it via the wizard and its simple controls.
+   - Advanced users can access the **three-dot menu** in the top-right corner to **disable**, **delete**, or **Edit in YAML**.
+
+
+
+### Working With The Real Code
+The built-in wizard is great for simple automation tasks, but you'll soon hit its limitations, and also the wizard controls can sometimes be more confusing than helpful.
+
+#### Accessing Source Code
+When you click *Edit in Yaml*, you get to see the raw content of `automations.yaml` after all. You now can view the source code that the wizard has created for you, and even **edit** and change it.
+
+You are, however, only working with the portion of `automations.yaml` that belong to your automation, and the UI shields you from other code. This is much clearer and protects you from accidentally damaging other automations.  
+
+
+
+## Understanding Automations
+
+Before you can fully leverage the power of *Home Assistant automations*, you need a basic understanding of how the code in automations really work. 
+
+Using the simple wizard is not enough and too limited for most tasks. 
+
+### Sample Automation
+Create a simple automation using the wizard. Then click **Edit in YAML** and look at the raw YAML code.
+
+For example, I created an automation that toggles a plug when a button is pressed. Here is the raw YAML code:
+
+```yaml
 alias: Toggle Plug T34-19
 description: When push button is pressed, toggle state of plug
 mode: single
@@ -73,35 +94,63 @@ triggers:
     device_id: d93e239b5f04ccdd3b671c70303a45ab
     entity_id: 9490a273345f25f05d90e72c42bb2f20
     domain: binary_sensor
-    trigger: device
 conditions: []
 actions:
   - type: toggle
     device_id: 05a1d541fac7c7fc3d6127e1af0b0116
     entity_id: 8db7a92b4ce6e0168ccb4b3e7f9908ea
     domain: switch
-````
+```
 
-It toggles a plug when a button on a device is pressed. 
+### Understanding Code
+Now try and make sense of the code. 
 
-This code was never meant to be read by humans: while it works just fine, it is hardly readable because it references the devices by their internal id numbers.
+Here are two hints that help you simplify the wizard-generated code significantly:
 
-If you are fine with the *wizard* and its *UI*, you never need to look at this code, so its structure is not important.
+* **YAML:**    
+  Automations use the same simple *YAML* language that you already know from *ESPHome*. The same rules apply:   
+  * tree structure, correct **indenting** is crucial.
+  * key-value pairs, key ends with `:`
+* **Entity ID:**    
+  To reference particular devices, you use the unique device IDs. 
+  * **GUIDs** the wizard uses cryptic *GUID* numbers
+  * **Entity ID:** instead, use *Entity IDs* that you use everywhere else in the *Home Assistant UI* anyway.
 
-If however you'd like to dive deeper and take more control by editing and adjusting the code directly, it is best to rephrase the code, i.e. with the help of *ChatGPT*, to make it easier to understand and maintain.
 
-Here is the same automation rephrased, using clear-text *Entity IDs* to reference the devices involved:
 
-````
+Here is a much more readable version for the same automation:
+
+```yaml
 alias: Control Fan
 description: Toggle the fan when the push button is pressed
-mode: single
-trigger:
-  - platform: state
-    entity_id: binary_sensor.push_button_pushbutton1
+triggers:
+  - entity_id: binary_sensor.push_button_pushbutton1
     to: "on"
-action:
-  - service: switch.toggle
-    target:
+    trigger: state
+actions:
+  - target:
       entity_id: switch.plug_t34_38_switch_1
-````
+    action: switch.toggle
+    data: {}
+mode: single
+```
+
+### Testing Code
+Copy the original wizard-generated code to an editor for backup, then replace the code with your simplified version. Save it, and test whether *Home Assistant* still correctly executes the automation.
+
+This may be a mixed experience of trial and error, but eventually you get the idea, and it becomes evident how *simple* automation scripts often are: 
+
+* **When?**  `trigger:` defines when an automation should execute
+* **What?** `action:` defines the changes this automation should invoke
+
+### Automation Code Explained 
+
+By applying this know-how to the sample automation, you can now easily "decipher" it:
+
+* **Documentation:**    
+  `alias:` and `description:` are just comments that help you better understand what the code does when you revisit it in a few weeks.
+* **When?**    
+  `triggers:` defines when this automation should execute: it executes when the **state** of device with *Entity ID* **binary_sensor.push_button_pushbutton1** changes to **on** (when the push button is pressed).
+* **What?**     
+  `actions:` defines what *Home Assistant* should do when the trigger condition is met: the device with the *Entity ID* **switch.plug_t34_38_switch_1** (a plug) is instructed to perform the action **switch.toggle**: when the plug was *on*, it is now *off*, and vice versa. 
+
