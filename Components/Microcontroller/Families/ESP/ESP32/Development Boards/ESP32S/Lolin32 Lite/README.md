@@ -24,6 +24,14 @@ You can [view an archieved version of the *Lolin Lite* product page](https://web
 
 <img src="images/esp32_lolin_lite_pins2_t.png" width="100%" height="100%" />
 
+The board is [supported by *platformio*](https://docs.platformio.org/en/latest/boards/espressif32/lolin32_lite.html):
+
+````
+[env:lolin32_lite]
+platform = espressif32
+board = lolin32_lite
+````
+
 ### Pros and Cons
 
 The things I like most about this board:

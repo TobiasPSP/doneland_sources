@@ -100,3 +100,5 @@ When a **Visual** is located in a different device than the **Effector**, there 
 
 
 > Tags: ESPHome, Home Assistant, State, Visuals, Effectors, Push, Pull
+
+[Visit Page on Website](https://done.land/projects/esphome/showingstate?664500031331250650) - created 2025-03-30 - last edited 2025-03-30

@@ -152,5 +152,6 @@ By applying this know-how to the sample automation, you can now easily "decipher
 * **When?**    
   `triggers:` defines when this automation should execute: it executes when the **state** of device with *Entity ID* **binary_sensor.push_button_pushbutton1** changes to **on** (when the push button is pressed).
 * **What?**     
-  `actions:` defines what *Home Assistant* should do when the trigger condition is met: the device with the *Entity ID* **switch.plug_t34_38_switch_1** (a plug) is instructed to perform the action **switch.toggle**: when the plug was *on*, it is now *off*, and vice versa. 
+  `actions:` defines what *Home Assistant* should do when the trigger condition is met: the device with the *Entity ID* **switch.plug_t34_38_switch_1** (a plug) is instructed to perform the action **switch.toggle**: when the plug was *on*, it is now *off*, and vice versa.
 
+[Visit Page on Website](https://done.land/projects/esphome/showingstate/push-hacontrolsvisuals?678462031331250650) - created 2025-03-30 - last edited 2025-03-30

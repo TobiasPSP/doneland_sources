@@ -4,11 +4,21 @@
 
 > Simple Yet Efficient Single-Battery Tester For 18650 Cells, 5V Power Banks, And Other Battery Cell Below 5V
 
+
+<img src="images/generic_1cell_tester_18650_overview_t.png" width="70%" height="70%" />
+
+
 This is an affordable *all-in-one* tester that can identify *counterfeit* batteries and determine overall battery health and quality. It can test *only one battery at a time*.
 
-<img src="images/generic_1cell_tester_18650_overview_t.png" width="40%" height="40%" />
 
 The two load resistors on top (8 Ohms each, connected in parallel) can reach high temperatures during testing (up to 80°C). Adding a heat sink is recommended to avoid accidental burns.
+
+
+
+You can easily *enhance* this device, i.e. by removing the soldered battery holders and adding external test cables, and/or by adding a 3D-printed housing (STL files below).
+
+<img src="images/battery_tester_8_t.png" width="100%" height="100%" />
+
 
 | Feature  | Description  |
 |---|---|
@@ -166,9 +176,14 @@ The unit cannot draw power from the battery under test, as this would lead to in
 
 The primary power source is the **left** *USB-C* connector. When connected through this port, the unit can operate in all three modes.
 
+### Left Battery Holder / Portable Use
+
 For *portable use*, insert a *18650 cell* into the **left** battery holder. This will power the unit in **DSG** (*discharge*) mode only; it will not be able to *charge* the battery under test in this mode.
 
-### Automatic Charging
+> [!TIP]
+> The *left* battery holder is of such limited use that you may want to as well desolder it. If you keep it, then never leave a 18650 battery in this bay permanently, or else the quiescent current and missing undervoltage protection may destroy the battery over time. 
+
+#### Automatic Charging
 
 When a *18650* cell is placed in the left battery holder, the unit automatically charges the cell once connected to *USB power*. Two *charger LEDs* indicate the charging status:
 
@@ -182,23 +197,127 @@ As the battery nears full charge, both *LEDs* may alternate between red and blue
 > [!IMPORTANT]
 > **Remove the left battery** if the unit will be unused for an extended period. The unit draws a small quiescent current and lacks *under-voltage protection* for the left battery, which may lead to deep discharge and potential **battery damage**.
 
+## Customizations
+
+Unless you want to exclusively test *18650* round cells, at the minimum you should solder a pair of test wires to the test bed and add a convenient connector to it.
+
+<img src="images/battery_tester_custom1_t.png" width="100%" height="100%" />
+
+I have 3D-printed a round-cell holder that lets me easily insert a wide range of lithium-based round cells.
+
+### Housing
+The PCB isn't very practical by default: the left battery holder can only be used to power the tester during *discharge* tests. For full tests, you need an external *USB power supply* **anyway**. 
+
+Plus, the left battery bay has no undervoltage protection, and if you indeed use it to power the device, chances are you are damaging or destroying the battery over time.
+
+That's why I recommend removing **both** battery bays:
+
+<img src="images/battery_tester_custom2_t.png" width="100%" height="100%" />
+
+
+
+This way, you can place the PCB in a very small housing. Add a pair of test cables to externally connect a battery bay or other means of battery holder.
+
+<img src="images/battery_tester_5_t.png" width="100%" height="100%" />
+
+
+The built-in TFT display can now be read easily, and you can attach a heat sink to the load resistors.
+
+
+<img src="images/battery_tester_8_t.png" width="100%" height="100%" />
+
+Here are the *STL* files for the housing I used:
+
+* [Cover](materials/cover.stl)    
+* [Bottom](materials/bottom.stl)     
+* [Heat Sink](materials/heatsink.stl)   
+
+
+> [!NOTE]
+> The [heat sink part](materials/heatsink.stl) can be snapped around the two built-in load resistors. On top, there is space for a default 70x21mm heat sink. Since the heat sink can be exposed to temperatures of 60-80C, use a heat-resistant 3D printing material for this part, i.e. *ABS*.
+
+<img src="images/battery_tester_7_t.png" width="70%" height="70%" />
+
+
+
+
 ## Conclusion
-This very affordable tester is a great pick: it reliably tests individual battery cells and is optimized for *18650*, but not limited to this battery type. You can also test *USB-C power banks* provided the power bank is not supplying more than *5V*.
+If you can get this tester for less than €4.00, it **may** be a nice pick for occasional battery testing: it comes with all test functionality required for a *single LiIon cell*, and with a bit of customization - housing, removing internal battery holders, adding external battery holder, and possibly a smaller load resistor for a higher discharge current - you end up with a useful battery tester for small money.
+
+### Single Cell Testing Only
+
+However, if *LiIon battery testing* is your thing and you need to **regularly** test batteries, then this tester **isn't right for you**: since it can test only a *single cell*, and since the discharge current is limited to *1A*, it takes considerable time for a test to be conducted.
+
+Plus, it has some design flaws:
+
+#### Useless Left Battery Bay
+The left battery bay is almost completely useless as it is reserved for internal energy supply during *discharge* tests. Regular testing requires an external USB power supply anyway.
 
 
-### Problematic Power Supply Battery
-On the downside, this test device can only test *one battery at a time* because its left battery bay is exclusively reserved for supplying power to the test circuitry. If you need to test batteries only occasionally, this is perfectly fine. However, if you test batteries regularly and in greater quantity, get a beefed up version of this device that has four or even more test bays that all can run simultaneously.
+* **No Gauge:** no battery gauge for the left battery (so you never know its state of charge).
+* **No Undervoltage Protection:** if you leave the battery in the device for prolonged times, and if you do not regularly connect the device to USB power to recharge it, the quiescent current will eventually deep-discharge this battery and destroy it.
+* **No Use:** when powered by the the left battery, the battery under test cannot be charged from it. Only simple discharge tests with previously fully charged batteries can be run off the left battery. This makes no sense.
 
-The left battery bay can serve as an internal power supply, making this device portable (which appears convenient at first). However, running this device from an internal battery turns out to be a severe design flaw that can damage your battery:
 
-* **Unreliable:** the device is lacking a battery gauge for its left battery (so you never know its state of charge).
-* **Damaging:** worse, the device has no *under-voltage protection* for this battery: if you leave the battery in the device for prolonged times, and if you do not regularly connect the device to USB power to recharge it, the quiescent current will eventually deep-discharge this battery and permanently damage it.
-* **Limited Use:** while the internal battery in the left bay allows for battery discharge tests without the need for an external USB power supply, when running on battery power the test device is severely limited: it can no longer charge the battery under test, removing much of its brilliance. Accurate battery capacity tests require the ability to first fully charge the battery under test, or better yet, discharge it first to a defined safe voltage level, and then log the charge current until it is fully charged. Neither of this is possible when running on the internal battery.
-* **Waste of Space:** because of all of the above, the left battery bay is wasting space without adding significant benefit, and this device would be better without it.
+### Lii-M4S: Better Choices
 
-> [!IMPORTANT]
-> Always remove the battery from the left bay if you do not intend to use the device for some time. Better yet, skip this internal battery supply nonsense altogether, ignore the left battery bay and never insert a battery into it. Use an external USB-C power source only.     
+The *Liitokala Lii-M4S* (not to be confused with the *Lii-M4*) would be a **much better choice** for regular LiIon battery testing: you can get it often for less than €14.00, and it comes with four universal bays big enough even for *21700* and *26650* cells.
 
-> Tags: Battery Tester, All-in-One, Capacity, Internal Resistance
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/all-in-onetesters/single-batterytester?426647102019242309) - created 2024-10-18 - last edited 2024-10-28
+<img src="images/lii-m4s_1_t.png" width="70%" height="70%" />
+
+This single device with its ready-to-use housing, four robust battery slider bays, touch buttons and reliable firmware **costs less** than four of the hobbyist-level test devices described in this article, and performs much better:
+
+* conducts tests on each of its four bays individually
+* reports both the total discharge and charge capacity. 
+* can also be used as a regular charger, or to bring battery voltage toa safe-for-longtime-storage *3.70V* (by automatically *charging* **or** *discharging* the battery as appropriate)
+* comes with internal load resistors, discharge current can be set to *300mA* and *500mA* .
+
+### Dedicated Dischargers
+
+Another route you may want to take is to stick to cheap and affordable multi-bay LiIon chargers and just add a DIY battery **discharger**.
+
+#### Commercial Multi-Bay Chargers With Total Load Current...
+
+For a perfect test environment, invest in chargers that can show the total charging current (like the *Liitokala Lii-S8*):
+
+<img src="images/lii-s8_1_t.png" width="70%" height="70%" />
+
+> [!TIP]
+> Check the charger features carefully before you buy: the 8-bay *Lii-S8* for example comes with sophisticated charge current testing per bay, whereas the almost identically-looking 12-bay *Lii-S12* **is lacking all of these features** and works like a simple charger only.
+
+This way, whenever you *charge* batteries, you get a good capacity estimate for free (and without extensive test overhead).
+
+Whenever you want to *really test the total battery capacity*, you just need a device that can *discharge* the battery to a desired level, i.e. *2.8V* (for total capacity) or *3.7V* (for long-term storage).
+
+#### ...and a Universal Battery Discharger
+
+Below is a very affordable breakout board called *HW-586* that can safely discharge any battery (*15V* max) using up to *3A discharge current*.
+
+<img src="images/dedicated_capacity_tester_hw586_overview_t.png" width="70%" height="70%" />
+
+This module is often available for less than €1.00 and comes with two *5W 8Ohm* load resistors. Typically, both resistors are connected in parallel (4 Ohm) resulting in around *1A discharge current*.
+
+
+A more flexible approach is to use just one of the two *5W 8Ohm* resistors, and add a *25-50W 2 Ohm* resistor.
+
+* **8 Ohm:** permanently connect a 8 Ohm resistor which enables a moderate discharge current of around *500mA*.
+* **2 Ohm:** add a *2 Ohm* resistor **in parallel** with a *3A switch* in series, so you can add this additional resistor only when needed. 
+
+By default, the discharger would now discharge with moderate *500mA*. If you need a higher discharge current, you can add the second resistor in parallel, dropping total resistance to *1.6Ohm*, delivering *2.6A discharge current* at *4.2V*.
+
+#### Fixing "Error 3"
+Coincidentally, such a setup would also help with the dreaded **Error 3** issue: 
+
+During the initial seconds of discharging, the module looks for significant voltage drops to make sure the battery under test is actually able to safely deliver the discharge current. 
+
+Unfortunately, this alarm is often triggered by the resistance of your battery holder and its wiring, not the battery, once you start using higher discharge currents.
+
+To get rid of it, either use a higher-quality battery holder with less resistance, or use the dual-resistor approach outlined above, and start discharging with the 8 Ohms resistor at *500mA* only. 
+
+Once the system has stabilized, add the second resistor for the full 3A discharge current.
+
+
+> Tags: Battery Tester, All-in-One, Capacity, Internal Resistance, Liitokala Lii-M4S, Lii-M4S, M4S, HW-586, Err3, Error 3
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/batterytesters/all-in-onetesters/single-batterytester?426647102019242309) - created 2024-10-18 - last edited 2025-04-20
