@@ -1,4 +1,6 @@
 <img src="/assets/images/lightning.png" width="100%" height="100%" />
+
+
 # HW-586 Battery Discharger Module
 
 > Very Affordable and Flexible Battery Discharger Module
