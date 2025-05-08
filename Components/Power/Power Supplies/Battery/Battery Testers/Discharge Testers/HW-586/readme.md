@@ -53,12 +53,14 @@ Yet even if your module *isn't* accurate enough for capacity measurement, you ca
 1. Before you charge your batteries, use `HW-586` to **discharge** them to a known stop voltage, i.e. *2.8V* or *3.0V*. If your `HW-586` isn't accurately summing up the discharge capacity, simply ignore it. All that matters is that `HW-586` reliably discharges your batteries to a known stop voltage.
 2. Next, charge your batteries as you would usually do. Most half-way sophisticated chargers report the total *mAh* that were charged into the battery. Since - thanks to `HW-586` - all of your batteries now start charging at the same stop voltage, the charge that goes into your batteries is now a good estimate of battery capacity.
 
-As an added benefit, this way of monitoring battery capacity and health is much faster and adds less strain on your batteries since you start with *already empty* cells and just discharge them a little bit more to bring them to the same voltage:
+As an added benefit, this way of battery monitoring is faster and adds less strain to your batteries: since you start with *already empty* cells and just discharge them a little bit more to bring them to the same voltage, the overhead is minimal.
 
-* **Slow Classic Testing:** In classic automated battery testing, your test device would first fully charge the battery, then fully discharge it, then again fully charge it. You would waste a full charge cycle
-* **Fast Testing:** When testing the battery during charge, you are not wasting any charge cycle, and YOU save approximately 6-8 hours of time.
+* **Slow Classic Testing:** In classic automated battery testing, your test device would first **fully charge** the battery, then **fully discharge** it, then **again fully charge** it. You would waste a full charge cycle, and testing a battery can take half a day.
+* **Fast Testing:** When testing the battery during normal charge, you are not wasting *any* charge cycle. The only overhead is discharging the almost empty cell to a known stop voltage. Thanks to the high discharge currents supported by `HW-586`, this overhead sums up to just a few minutes. Classic testing adds 6-12 hours of overhead for a full additional charge/discharge cycle.
 
-That said, the *fast testing* outlined here may over-estimate the battery capacity by a few percent: the total energy going *into* a battery during charging is slightly higher than the energy drawn out of the battery during discharge. However, *fast testing* is perfect for *routinely* monitoring battery health as part of your regular charging routine.
+That said, *fast testing* may over-estimate the battery capacity by a few percent: total energy *going into a battery* during charging is slightly higher than energy drawn *out of the battery* during discharge. 
+
+*Fast testing* is perfect for *routinely* monitoring battery health as part of your regular charging routine.
 
 
 ## Wiring
@@ -70,6 +72,10 @@ The board features four screw terminals, labeled on the back of the PCB:
 | R, R           | Connects the external load resistor |
 | +IN            | **Positive** pole of the battery under test |
 | IN-            | **Negative** pole of the battery under test |
+
+> [!IMPORTANT]
+> Connect the battery holder with correct polarity, and make sure the **battery holder is appropriately labeled/marked** so that users later know how to correctly insert the battery. Reversing polarity **will destroy** the tester. You may want to add an *ideal diode PCB* to your setup for added safety.
+
 
 Here’s a typical setup using a *18650 battery holder* and an external load resistor:
 
@@ -186,26 +192,44 @@ If you’re experiencing *Err3*, try the following:
 
 ## Performing Test Discharge
 
-Insert a battery to test into your battery bay, and connect power to the test device by plugging in a Micro USB plug.
+Plug in a Micro USB connector to power up the test device. The device performs a quick self-test during which the three red LEDs at the right side of the display cycle.
 
-The display now shows the current battery voltage (`000` if no battery is present).
+The display shows `000` until you insert a battery into the battery holder. Once a battery is inserted, the display shows the current battery voltage.
 
 ### Setting Stop Voltage
-If you do not set a stop voltage, the tester picks a stop voltage automatically. The automatically picked stop voltage is typically **too low** though (i.e. *2.5V* for a LiIon cell), and may damage your battery.
+If you do not set a stop voltage, the tester picks a stop voltage automatically. This stop voltage is typically **too low** (i.e. *2.5V* for a LiIon cell) and may damage your battery or trigger its built-in BMS.
 
-To set your own stop voltage, press and hold `+` until the desired stop voltage is reached. You can set or change the stop voltage only when no discharge test is running. It is not possible to change the stop voltage once you started a test run.
+That's why you should always set your own stop voltage. To set your own stop voltage, press and hold `+` until the desired stop voltage is shown in the display. You can set or change the stop voltage when no discharge test is running. Once you start a test run, the stop voltage can no longer be adjusted. You would have to abort the test run by pulling the Micro USB plug, then start over again, if you needed to change the stop voltage.
+
+#### Caveat: Dangerous Stop Voltage
+Always make sure you **check the stop voltage by pressing `+`** before you start any discharge test. 
+
+The test device has an awkward and potentially dangerous way of setting stop voltages automatically:
+
+* it does not remember your stop voltage from previous runs
+* it sets the stop voltage to half of the batteries' start voltage
+
+If you accidentally insert an almost empty LiIon cell into the test device, it will set the stop voltage to 50% of the current voltage. So if the cell is at *3.1V*, the stop voltage would be *1.5V*.
+
+
+If you perform the test now without checking (and correcting) the stop voltage, the tester would go ahead and discharge your LiIon cell to *1.5V*. Discharging a LiIon cell to below *2.8V* permamently damages the cell.
+
+So **always manually set the stop voltage** prior to every discharge run!
+
 
 ### Starting Test
-To start the discharge test, press `OK`. The display shows the stop voltage for a few seconds. Then the discharge test begins.
+To start the discharge test, press `OK`. The display briefly shows the set stop voltage, then the discharge test begins.
 
 The display automatically switches between `Ah` (total discharged capacity), `A` (discharge current), and `V` (current battery voltage) in short intervals.
 
-Press `OK` to freeze the display to one of these units. The tester continues to automatically switch between the units after 15 seconds.
+Press `OK` to temporarily lock the display to one of these units. After 15 seconds, the tester starts cycling the units again.
 
 ### Ending Test
 There is no way to prematurely stop (or pause) the test. If you must interrupt the test, pull the Micro USB power plug.
 
-Once the battery has reached the stop voltage that you have defined, the display shows the total discharged capacity (*Ah*).
+Once the battery has reached the stop voltage, the display shows the total discharged capacity (*Ah*), and the display blinks permanently.
+
+Press `OK` to confirm the test result. Press `OK` again to start a new test. The display now shows the battery voltage again, and you can start over with a new battery.
 
 ## Conclusion
 
