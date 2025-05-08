@@ -1,64 +1,87 @@
 <img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
- 
+
 # Using FM Transceivers
 
 > Reliable Data Transfer at High Speeds Using FM Modulation
 
-In the early days of radio communication, sophisticated data protocols were impossible due to the lack of semiconductors and microcontrollers. As a result, simple *OOK* and *AM* modulations dominated.
+In the early days of radio communication, sophisticated data protocols were impossible — not for lack of imagination, but because the hardware simply didn’t exist. Without semiconductors or microcontrollers, engineers had to rely on [basic OOK and AM modulation](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/) schemes.
 
-This changed with the advent of transistors, specialized chips, and microcontrollers, making signal processing more affordable. Today, almost all professional radio transmissions use *FM*.
+That changed with the advent of transistors, specialized RF chips, and microcontrollers. Today, signal processing is trivial — and affordable. Dirt-cheap controller ICs now handle all the hard work for you.
 
-> [!NOTE]
-> Aviation radio is one of the last domains where amplitude modulation (*AM*) is still in use, primarily for historical reasons. Even public broadcasting has long since switched from *AM* to *FM*, moving away from shortwave frequencies (*SW*/*MW*) to modern *VHF* frequencies.
+<img src="images/e07-m1101d_top_top_antenna_t.png" width="20%" height="20%" />
 
-Whenever you need to reliably transmit large amounts of data at high speeds, frequency modulation (*FM*) is the preferred choice.
+As a result, almost all professional RF data transmissions now use *FM* modulation or a digital modulation derived from it.
 
-<img src="images/e07-m1101d_top_top_antenna_t.png" width="10%" height="10%" />
+There are only a few notable exceptions:
 
-Modern *FM breakout boards* are only slightly more expensive than simple *OOK* transmitters and receivers and are available for various frequency bands.
+* **Aviation**: Aircraft still use *AM* modulation for historical compatibility.
+* **Simplicity**: For transmitting tiny amounts of data (e.g. garage door openers), [AM/OOK](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/) remains the cheapest and simplest option — which is why most basic RF remote controls still rely on it.
 
-<img src="images/fsk_rxtx_rfm69_back_t.png" width="40%" height="40%" />
+---
 
 ## Overview
 
-Simple *OOK* is the most basic way to transmit radio signals: the transmitter is turned on and off at intervals to send signals—that's it. With encodings like [EV1527](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/ev1527remotecontrols/), this is sufficient for transmitting small chunks of data, such as the *24-bit IDs* used in remote controls.
+Basic *OOK* transmitters — built with just a handful of discrete components like coils and resistors — are still [perfectly fine for short bursts of data](https://done.land/components/data/datatransmission/wireless/intro/usingradiowaves%28ook%29/ev1527remotecontrols/). But this primitive hardware falls short when you need to transfer more data reliably or at higher speeds.
 
-However, when higher data rates, longer transmission distances, and lower power consumption are required, more advanced modulations like *FM* (*Frequency Modulation*) become necessary.
+That’s where *FM modulation* (and its digital variants) come in.
 
-Specialized radio chips such as *CC1101*, *SI4463*, *nRF24L01*, and *SX1231* handle much of the complexity introduced by *FM modulation*.
+Modern RF chips like the **CC1101**, **SI4463**, **nRF24L01**, or **SX1231** handle the complex signal shaping, filtering, and timing required for FM-based transmission — and they do so efficiently and affordably.
 
-### Transceivers
+<img src="images/radio_as07-m1101s_side1_t.png" width="60%" height="60%" />
 
-Most *FM* chips on breakout boards are **transceivers**, meaning they can both **transmit** and **receive**. Unlike *OOK* modules, which require separate sender and receiver boards, *FM* transceivers allow two-way communication.
 
-<img src="images/radio_as07-m1101s_side1_t.png" width="40%" height="40%" />
+Because these chips support both *transmitting* and *receiving*, they enable **two-way communication** — essential for:
 
-Two-way communication is crucial for robust data transfer:
+* Confirming receipt of data
+* Requesting retransmissions when errors occur
+* Implementing robust protocols
 
-- A *sender* can transmit data and then switch to **receiver mode** to listen for an acknowledgment from the receiver, ensuring the data was received correctly.
-- The **receiver** can switch to **sender mode** to report back whether the data was received correctly or if a retransmission is needed.
+And the best part? FM-based transceivers are now only **slightly more expensive** than basic OOK transmitters and receivers. In many cases, they’re just as easy to integrate and no longer require major compromises on cost or complexity.
 
-Most modern communication protocols rely on this continuous switching between sending and receiving to ensure data integrity.
+> In short: unless your use case demands absolute minimalism, FM-based transceivers are the superior choice — technically and economically.
+
+### Frequency
+
+*FM radio modules* are typically available for various frequency bands to comply with regional radio regulations.
+
+Be sure to [select a frequency that is legal in your region](https://done.land/components/data/datatransmission/wireless/intro/legalfrequencies/).
+
+<img src="images/fsk_rxtx_rfm69_back_t.png" width="40%" height="40%" />
+
+---
 
 ### Microcontroller Required
 
-Most *FM* breakout boards require a microcontroller to operate. While these modules handle signal processing, they require an external microcontroller to program them, setting the desired modulation, speed, RF power, and data encoding. Standard microcontroller interfaces are used, such as:
+While *FM* breakout boards handle low-level signal processing internally, they almost always require an external **microcontroller** to configure and control them. This includes setting:
+
+- Modulation type
+- Transmission speed
+- RF power level
+- Data encoding scheme
+
+These modules use standard microcontroller interfaces such as:
 
 - *UART (serial)*
 - [I2C](https://done.land/fundamentals/interface/i2c/)
 - [SPI](https://done.land/fundamentals/interface/spi/)
 
-<img src="images/fsk_rxtx_rfm69_top_t.png" width="40%" height="40%" />
+<img src="images/fsk_rxtx_rfm69_top_t.png" width="60%" height="60%" />
 
-Occasionally, FM radio chips are integrated into specialized boards designed for very specific use cases, in which case no external microcontroller or programming is required. 
+---
 
+#### Special-Purpose Boards
 
-A common example is *wireless serial* modules, which automatically transmit serial data wirelessly:
+Sometimes, FM radio chips are integrated into **special-purpose modules** designed for a specific application. In these cases, no external microcontroller or configuration is required.
 
-1. Connect your serial **RX** and **TX** pins to the corresponding pins on the module.
-2. Connect **RX** and **TX** of another (paired) module elsewhere.
+A common example is a *wireless serial link module*, which acts like an invisible cable:
 
-Once paired, the modules transmit serial data wirelessly at a predefined baud rate—eliminating the need for expensive cables or custom programming.
+1. Connect your device’s **TX** and **RX** pins to the module.
+2. Connect the second module in the same way at the other end.
+
+Once powered and paired, the modules automatically transmit serial data at a fixed baud rate — no code, no configuration, and no extra wires.
+
+> [!IMPORTANT]
+> Special-purpose modules like "wireless COM ports" can be convenient for simple use cases — but they can also be *highly frustrating* if you purchase one unintentionally. These boards often include their own microcontroller, locking you out of direct access to the radio chip. Only choose a specialized module if it *exactly* matches your intended application.
 
 ## Frequency Modulation (FM)
 
@@ -89,8 +112,6 @@ But *FM* has even more advantages: it requires less bandwidth to transmit the sa
 Faster (and therefore shorter) transmissions consume less power, which is a significant benefit for battery- or solar-powered projects.
 
 
-
-## Digital FM Modes
 ## Digital FM Modes
 
 *FM* was originally designed for **analog** signals. While it's possible to transmit **digital** data using *analog FM*, the process is highly inefficient and slow—as anyone who used an [acoustic coupler](https://en.wikipedia.org/wiki/Acoustic_coupler) in the early days of the Internet can attest.  
@@ -159,7 +180,7 @@ While *AM* encodes information in **amplitude**, and *FM* in **frequency shifts*
 
 This method is highly complex and was not technologically feasible until recently. Today, however, powerful and inexpensive chips handle this modulation in devices such as modern smartphones and Bluetooth transceivers.  
 
-#### **PSK (Phase Shift Keying)**  
+#### PSK (Phase Shift Keying)
 
 *PSK* uses **phase shifts** instead of **frequency shifts**, making it more bandwidth-efficient than *FSK*, though it requires more complex receivers.  
 
@@ -267,4 +288,4 @@ To transfer *digital* data, *FSK* (*Frequency Shift Keying*) or one of its deriv
 
 > Tags: FM, FSK, GFSK, O-QPSK, OFDM, Frequency Modulation, Wireless Communication, Digital Modulation, Data Transmission, Two-Way Communication, Wi-Fi, Bluetooth, Zigbee, ISM Bands, CC1101,LLCC68,LR11x0,RF69,RFM2x,RFM9x,Si443x,STM32WL,SX126x,SX127x,Sx128x,Sx123x
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingfm?835237031322255935) - created 2025-03-21 - last edited 2025-03-22
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/intro/usingfm?835237031322255935) - created 2025-03-21 - last edited 2025-05-07
