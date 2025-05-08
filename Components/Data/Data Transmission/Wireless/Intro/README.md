@@ -4,9 +4,7 @@
 
 > How Wireless Data Trasmission Via Radio Waves Works
 
-When starting with wireless transmissions using radio waves, there is at first an overwhelming number of moving parts: frequencies, RF power, transmitter, receiver, modulations, legal regulations, and so much more.
-
-In this section, I am explaining the basics of wireless data transmissions using radio waves in a fun and practical step-by-step series, including many sample projects that you can build or expand on.
+When starting to look into using radio waves, there is initially an overwhelming number of moving parts: frequencies, RF power, transmitter, receiver, modulations, legal regulations, and more. In this section, you'll learn the basics of using radio waves.
 
 ## Overview
 *Electromagnetic waves* carry energy through space without the need for physical wires. They oscillate at certain frequencies and can travel long distances at the speed of light. The distance they can bridge depends on their frequency and power.
