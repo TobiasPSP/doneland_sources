@@ -4,7 +4,7 @@
 
 > 3-Channel Current And Voltage Monitoring Via Shunt 
 
-[INA3221](https://www.ti.com/lit/ds/symlink/ina3221.pdf?ts=1720423291346) from *Texas Instruments* measures *current* and *voltage* for three different channels concurrently. It supports both *3.3V* and *5V* environments.
+[INA3221](https://www.ti.com/lit/ds/symlink/ina3221.pdf?ts=1720423291346) from *Texas Instruments* measures *current* and *voltage* for three different channels concurrently. It supports both *3.3V* and *5V* environments. It works similar to *INA226* (with minor differences), just with 3 channels instead of one.
 
 * Load voltage must not exceed *26V*.
 * All loads and the chip must share a common *GND*.

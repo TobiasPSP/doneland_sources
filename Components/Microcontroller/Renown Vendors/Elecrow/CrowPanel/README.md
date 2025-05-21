@@ -119,3 +119,4 @@ Currently available add-on modules:
 
 > Tags: ESP32, S3, ESP32-S3, Elecrow, CrowPanel, Panel, Development Board
 
+[Visit Page on Website](https://done.land/components/microcontroller/renownvendors/elecrow/crowpanel?955462051320254448) - created 2025-05-19 - last edited 2025-05-19

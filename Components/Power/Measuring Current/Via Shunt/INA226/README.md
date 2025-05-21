@@ -3,9 +3,16 @@
 
 # INA226 Current And Voltage Monitoring
 
-> The INA Family of Microchips From Texas Instruments are Perfect for Measuring Current and Voltage 
+> Modern Chip For Accurately Measuring Current and Voltage Via I2C Interface 
 
-[**INA226**](https://www.ti.com/lit/ds/symlink/ina226.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. It is often used to *monitor* power consumption or the yield from *solar generators*.
+[**INA226**](https://www.ti.com/lit/ds/symlink/ina226.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* and calculate *power* from it. Its separate *VBS* (Bus) pin allows precise voltage measurements using [four-wire techniques](https://en.wikipedia.org/wiki/Four-terminal_sensing) (*Kelvin* probe). 
+
+This chip is the more modern successor of the popular *INA219*. Like *INA219*, it is a digital component that communicates via *I2C* and requires a microcontroller.
+
+> [!TIP]
+> *INA226* isn't always superior to the older *INA219*: it has a fixed gain, so the current range that it can measure is fixed and depends on the value of the shunt resistor. *INA219* in contrast, while less accurate due to its inferior *ADC* (12bit instead of 16bit), lets you control the gain. This enables *INA219* to adapt to various current ranges and cover a much larger range: if the current exceeds the active range, simply switch the gain. On the contrary, *INA219* cannot separately measure the bus voltage and thus cannot be used with *four-wire techniques* which may be an issue with high currents when cable resistance leads to significant voltage drop.
+
+
 
 **INA226** is available as *ready-to-go* breakout board with an integrated **Shunt** and should cost less than EUR 2/piece. 
 

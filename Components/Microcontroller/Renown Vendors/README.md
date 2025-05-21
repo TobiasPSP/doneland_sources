@@ -1,8 +1,8 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
 
-# Renowned Vendors
+# Renown Vendors
 
-> Introducing Renowned Vendors for Microcontroller Boards and Peripherals
+> Introducing Reputable Vendors for Microcontroller Boards and Peripherals
 
 Knowing and comparing reputable vendors helps you find the most trustworthy sources for reasonably priced, high-quality microcontroller development boards and peripherals—in other words, the best *bang for your buck*.
 
@@ -54,3 +54,4 @@ To maximize value, it helps to understand how electronics are manufactured today
 
 > Tags: Microcontroller, Development Board, Vendor, Series
 
+[Visit Page on Website](https://done.land/components/microcontroller/renownvendors?914571051320254448) - created 2025-05-19 - last edited 2025-05-19
