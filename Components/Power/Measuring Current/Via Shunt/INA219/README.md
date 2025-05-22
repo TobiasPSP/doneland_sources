@@ -17,7 +17,7 @@ A variety of breakout boards are available, featuring either solder pins or plug
 
 Most boards use an *R100* (0.1 Ohm) shunt resistor, allowing a current range of up to *±3.2 A* (bidirectional), and typically cost well under €2.00 per unit.
 
-> **Tip:**  
+> [!TIP]  
 > The relatively large current range is due to the built-in *PGA* (programmable gain amplifier), which can amplify the shunt voltage drop by 2x, 4x, or 8x—at the expense of accuracy. Newer chips such as the *INA226* and *INA3221* no longer include a *PGA*, and therefore support lower maximum currents with the same *R100* shunt resistor.
 
 | Spec            | Description                                         |
@@ -33,7 +33,7 @@ The **INA219** does not measure *current* directly; it measures the *voltage dro
 
 However, the *INA219* features a *PGA* (programmable gain amplifier) that can increase the current range by factors of 2, 4, or 8, allowing the chip to adapt to different current ranges with optimal precision.
 
-> **Tip:**  
+> [!TIP]  
 > Newer chips like the *INA226* and *INA3221* do not include a *PGA*, so their current range depends entirely on the shunt resistor. For example, an *INA226* with a typical *R100* (0.1 Ohm) resistor can measure up to 820 mA, and the *INA3221* up to 1.64 A. Thanks to its *PGA*, the *INA219* can measure up to 3.2 A with the same resistor—assuming the PCB traces can handle the current.
 
 #### Integrated Shunts
@@ -78,7 +78,7 @@ On these boards, *VCC*, *GND*, *SDA*, and *SCL* are exposed three times: as sold
 
 <img src="images/ina219_breakout_red_top_t.png" width="60%" height="60%" />
 
-> **Tip:**  
+> [!TIP]  
 > You can connect the board to your microcontroller using the solder pads, turning it into an I2C hub with two additional connectors for more I2C device chains.
 
 The load connects *high-side* via two solder pads to the shunt resistor. The traces are usually thick, but the solder pads may not be labeled, making it unclear which is *Vin+* and which is *Vin-*:
@@ -202,7 +202,7 @@ There are many [excellent tutorials](https://wolles-elektronikkiste.de/en/ina219
 
 ### ESPHome
 
-[ESPHome] natively supports the *INA219* via its `ina219` [sensor platform](https://esphome.io/components/sensor/ina219.html), with many [sample configurations](https://gist.github.com/fabaff/762008f61e745b220b9f4693954427e2) available.
+[ESPHome](https://done.land/tools/software/esphome/introduction/) natively supports the *INA219* via its `ina219` [sensor platform](https://esphome.io/components/sensor/ina219.html), with many [sample configurations](https://gist.github.com/fabaff/762008f61e745b220b9f4693954427e2) available.
 
 
 ## Materials
