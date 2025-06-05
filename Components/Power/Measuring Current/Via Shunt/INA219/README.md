@@ -3,19 +3,24 @@
 
 # INA219 Current and Voltage Monitoring
 
-> The INA family of microchips from Texas Instruments is ideal for measuring current and voltage.
+> Bi-Directional Voltage And Current Sensor With Programmable Gain Amplifier
 
-[**INA219**](https://www.ti.com/lit/ds/symlink/ina219.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* bidirectionally and calculate *power* (Watts).
+[**INA219**](https://www.ti.com/lit/ds/symlink/ina219.pdf) is a microchip from *Texas Instruments* that can measure *current* and *voltage* bidirectionally and calculate *power* (Watts). 
 
 <img src="images/ina219_breakout_overview1_t.png" width="80%" height="80%" />
 
+Thanks to its *programmable gain amplifier* (*PGA*), it can adapt to a wide range of currents and handle up to *3.2A* with a standard *R100* (0.1 Ohms) shunt resistor.
+
+> [!TIP]
+> Of all the commonly available I2C *INAxxx* breakout boards, the *INA219* can handle the highest currents with *3.2A*, compared to *0.8A* ([INA226](https://done.land/components/power/measuringcurrent/viashunt/ina226/)) and *1.6A* ([INA3221](https://done.land/components/power/measuringcurrent/viashunt/ina3221/)).     
+
 ## Overview
 
-A variety of breakout boards are available, featuring either solder pins or pluggable [Grove](https://wiki.seeedstudio.com/Grove_System) connectors ([JST SH 1.0](https://done.land/components/power/cables/connectors/#jst-connectors), *QWIIC*).
+A variety of breakout boards exist, featuring solder pins or pluggable [Grove](https://wiki.seeedstudio.com/Grove_System) connectors ([JST SH 1.0](https://done.land/components/power/cables/connectors/#jst-connectors), *QWIIC*).
 
 <img src="images/ina219_breakout_red_grove_1_t.png" width="40%" height="40%" />
 
-Most boards use an *R100* (0.1 Ohm) shunt resistor, allowing a current range of up to *±3.2 A* (bidirectional), and typically cost well under €2.00 per unit.
+Most boards use an *R100* (0.1 Ohm) shunt resistor, allowing a current range of up to *±3.2 A* (bidirectional). They typically cost under €2.00 per unit.
 
 > [!TIP]  
 > The relatively large current range is due to the built-in *PGA* (programmable gain amplifier), which can amplify the shunt voltage drop by 2x, 4x, or 8x—at the expense of accuracy. Newer chips such as the *INA226* and *INA3221* no longer include a *PGA*, and therefore support lower maximum currents with the same *R100* shunt resistor.
@@ -29,21 +34,20 @@ Most boards use an *R100* (0.1 Ohm) shunt resistor, allowing a current range of 
 
 ### Shunt Value and Maximum Current
 
-The **INA219** does not measure *current* directly; it measures the *voltage drop* across a **shunt** resistor. The shunt's resistance determines the maximum measurable current.
+The **INA219** measures the *voltage drop* across a **shunt** resistor. The shunt's resistance determines the maximum measurable current.
 
 However, the *INA219* features a *PGA* (programmable gain amplifier) that can increase the current range by factors of 2, 4, or 8, allowing the chip to adapt to different current ranges with optimal precision.
 
 > [!TIP]  
-> Newer chips like the *INA226* and *INA3221* do not include a *PGA*, so their current range depends entirely on the shunt resistor. For example, an *INA226* with a typical *R100* (0.1 Ohm) resistor can measure up to 820 mA, and the *INA3221* up to 1.64 A. Thanks to its *PGA*, the *INA219* can measure up to 3.2 A with the same resistor—assuming the PCB traces can handle the current.
+> Newer chips like the [INA226](https://done.land/components/power/measuringcurrent/viashunt/ina226/) and [INA3221](https://done.land/components/power/measuringcurrent/viashunt/ina3221/) do not include a *PGA*, so their current range depends entirely on the shunt resistor. For example, an *INA226* with a typical *R100* (0.1 Ohm) resistor can measure up to *820 mA*, and the *INA3221* up to *1.64 A*. Thanks to its *PGA*, the *INA219* can measure up to *3.28 A* with the same resistor—assuming the PCB traces can handle the current.
 
 #### Integrated Shunts
 
-Most breakout boards come with a presoldered *R100* (0.1 Ohm) shunt resistor, enabling measurement of up to *3.2 A* (with the *PGA* set to 8x). In practice, the maximum usable current also depends on the PCB and trace thickness.  
-Always test each breakout board individually to determine its true maximum current capability.
+Most breakout boards come with a presoldered *R100* (0.1 Ohm) shunt resistor, enabling measurement of up to *3.28 A* (with the *PGA* set to 8x). In practice, the maximum usable current also depends on the PCB and trace thickness.  
 
 ## Breakout Boards
 
-Generic **INA219** breakout boards typically have 6 pins and cost between €0.50 and €1.00:
+Generic **INA219** breakout boards typically have 6 pins and start at €0.50 to €1.00 per piece:
 
 <img src="images/ina219_breakout__blue_top_t.png" width="50%" height="50%" />
 
@@ -62,7 +66,7 @@ Generic **INA219** breakout boards typically have 6 pins and cost between €0.5
 
 ### GY-219 Boards
 
-If you plan to measure high currents (2.0–3.4A), look for boards labeled `GY-219`.
+If you plan to measure high currents (2.0–3.28A), look for boards labeled `GY-219`.
 
 The *purple* no-name boards, often marked *GY-219*, use larger PCB traces and a bigger shunt resistor compared to other generic boards.
 
