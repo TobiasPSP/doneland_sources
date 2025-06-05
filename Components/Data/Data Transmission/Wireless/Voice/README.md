@@ -6,7 +6,7 @@
 
 Almost everyone today uses smartphones to wirelessly transmit voice. Hobbyists use CB radios, parents use baby monitors, on the beach you might use a wireless Bluetooth speaker, licensed HAM radio amateurs experiment with long-range radio transmissions, and many professions use their own radio networks—such as police, emergency services, aviation, and businesses.
 
-<IMG src="images/rf_voice_walky_overview.png" width="100%" height="100%" />
+<img src="images/rfvoice_walky_overview.png" width="100%" height="100%" />
 
 So what are the common fundamentals: the technical *and* legal requirements to transmit voice wirelessly? And what are your options to transmit voice wirelessly via radio waves?
 
@@ -103,7 +103,7 @@ To *legally* operate on one of the license-free bands, you must (1) adhere to th
 ### Certified Radios
 Certified radios from reputable brands guarantee that you operate within legal limits. Such radios work *out of the box*, with no confusing configurations or settings to learn.
 
-<IMG src="images/rf_voice_pmr_overview.png" width="40%" height="40%" />
+<img src="images/rfvoice_pmr_overview.png" width="20%" height="20%" />
 
 They undergo careful design and extensive testing, and the built-in antenna is typically perfectly tuned to the frequency range you intend to use. You can use these radios out-of-the box with next to no technical background.
 
@@ -112,7 +112,7 @@ On the downside is *cost*: certified radios cost a multiple of the price of unce
 ## Cheap Illegal Radios
 While generic Chinese radios are much more affordable and can be programmed to use the required frequencies and power levels for license-free bands, they are typically **not certified**—and thus illegal to use on one of the license-free bands in most countries.
 
-<IMG src="images/rf_voice_analog_overview.png" width="40%" height="40%" />
+<img src="images/rfvoice_analog_overview.png" width="30%" height="30%" />
 
 Such radios aren't *illegal per se*. They are just illegal to use **without a proper license**. As an analogy, while you can ride a bicycle license-free, a driver's license is required for a Ducati because there is much more risk and skill involved.
 
@@ -194,7 +194,7 @@ It can receive almost the entire frequency range from *18 MHz* up to *1 GHz*, in
 
 That's impressive for a price tag of less than €50.
 
-<IMG src="images/rf_voice_digital_overview.png" width="40%" height="40%" />
+<img src="images/rfvoice_digital_overview.png" width="30%" height="30%" />
 
 As discussed, such powerful general-purpose radios require a license to operate: operating them is not *fool-proof* and requires technical know-how.
 
