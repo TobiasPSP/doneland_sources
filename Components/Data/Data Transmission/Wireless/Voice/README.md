@@ -4,42 +4,109 @@
 
 > Technical and Legal Requirements for Wireless Voice Transmission
 
-Almost everyone today uses smartphones to wirelessly transmit voice. Hobbyists use CB radios, parents use baby monitors, on the beach you might use a wireless Bluetooth speaker, licensed HAM radio amateurs experiment with long-range radio transmissions, and many professions use their own radio networks—such as police, emergency services, aviation, and businesses.
+Most people today use smartphones to talk to others without realizing that they are basically using radio transceivers.
+
+Radio transceivers are everywhere and can have many forms and shapes:
+
+Hobbyists use CB radios, parents use baby monitors, on the beach you might use a wireless Bluetooth speaker.
+
+Licensed HAM radio amateurs experiment with long-range radio transmissions, and many professions use their own radio networks—such as police, emergency services, aviation, and businesses.
 
 <img src="images/rfvoice_walky_overview.png" width="100%" height="100%" />
 
-So what are the common fundamentals: the technical *and* legal requirements to transmit voice wirelessly? And what are your options to transmit voice wirelessly via radio waves?
+Even though walky talkys, babyphones, and bluetooth speakers may look much different from smartphones, they all fundamentally do the same: they transmit voice information via radio waves.
+
+In this article, we'll be looking at the technical *and* legal requirements to transmit voice wirelessly.
 
 ## Overview
-Originally, voice transmission exclusively used *analog* technology. *Digital* transmission has since become increasingly affordable and popular.
 
-> [!IMPORTANT]
-> Whether you can use *analog* or *digital* transmission depends on the legal restrictions and frequencies you want to use. Keep in mind that analog and digital transmissions are **incompatible**, so a digital radio can only talk to other digital radios.
+To better understand how wireless voice transmission works and what your options are, let's start with the ubiquitous smartphone.
 
-Most public license-free services still use *analog* devices.
+### Smartphones – Digital Walkie-Talkies
+
+Smartphones really are highly sophisticated digital walkie-talkies operating across a variety of frequency ranges:
+
+| Technology | Example Bands (MHz)   | Typical Use             |
+|------------|----------------------|-------------------------|
+| 2G         | 900, 1800            | GSM (Europe/Asia)       |
+| 3G         | 900, 2100            | UMTS/WCDMA              |
+| 4G         | 700, 800, 1800, 2600 | LTE (global)            |
+| 5G         | 600, 3500, 26000     | Low, mid, mmWave 5G     |
+
+Users are shielded from all technical complexity. The smartphone automatically selects the appropriate frequency band based on your carrier, location, and the available network technology.
+
+When you dial a number, the smartphone connects to your network and requests the location of the target number. Once the network determines where the recipient is currently located, it routes your voice data packets to the target device—much like data packets in a computer network.
+
+Essentially, smartphones use radio frequencies only for the "last mile": your device connects to the nearest radio tower, while the rest of the communication path is typically handled by wired infrastructure.
+
+### Analog Walkie-Talkies
+
+In contrast, classic *analog* walkie-talkies use radio waves exclusively: the entire communication from source to destination is transmitted directly, with no intermediaries. This means there is a natural *range limit* (maximum communication distance).
+
+> Some services use *repeaters* to extend the range: the radio connects to a repeater station, often located at an elevated position. The repeater then retransmits your signal on another frequency that all walkie-talkies in the area listen to. With repeaters, walkie-talkies send and receive on different frequencies. While repeaters can *extend* the range, they typically cannot relay signals through multiple repeaters, so the overall range—though improved—is still limited.
+
+This type of communication is still heavily used, for example by aircraft (Airband), classic walkie-talkies, and HAM radio amateurs.
+
+### Digital Walkie-Talkies
+
+Digital technology has become very affordable in recent years, leading to an increasing number of *digital* walkie-talkies.
+
+Digital walkie-talkies basically use the same technology found in smartphones:
+
+* **Peer Mode:**  
+  When operating stand-alone (without an underlying network), voice information is sent as data packets and can be received by anyone within range who also has a compatible digital walkie-talkie using the same frequency and protocol.
+* **Simple Networks:**  
+  Some license-free bands, like [PMR446 Digital (DMR446)](https://en.wikipedia.org/wiki/PMR446), allow digital communication with support for channels and talk groups.  
+  
+  You can target specific groups, but you cannot "call" a specific person. This is because free networks have no central registration, so it is not possible to uniquely identify individuals.
+* **Full Networks:**  
+  Licensed HAM radio amateurs, commercial users, and authorities use global networks like *D-STAR*, *DMR*, and *TETRA*, which function similarly to telephone networks.  
+  
+  In these networks, users are registered and can be uniquely identified by their ID, allowing you to "call" a specific person. The voice data packets are then routed to that person across the network, regardless of their location.
+
+A crucial advantage of digital transmission is the ability to securely encrypt information, i.e. by using *AES256* encryption. Analog radios can, at best, "scramble" voice information, which is far less secure.
+
+> Unlike commercial users and businesses, HAM radio amateurs are not allowed to encrypt their communications.
+
+### Low-Range Voice Transmission
+
+There are many more devices that also transmit voice wirelessly via radio waves: baby monitors, wireless speakers, wireless headphones, and similar products are all essentially walkie-talkies, though they typically transmit voice in only one direction.
+
+These devices are intended for (very) short ranges—essentially, just connecting one device to another nearby, or monitoring a baby room in close proximity.
+
+That's why such devices often use *WiFi* or *Bluetooth*.
+
 
 ## Voice-Only Radio Services
 
-There are a number of license-free frequency ranges for voice transmission that anyone can use. Just make sure you purchase a compliant radio.
+If you are interested in transmitting voice over larger distances - independent from existing infrastructure and smartphone coverage -  you need to select a *radio frequency range* where it is legal for you to transmit.
+
+There are a number of license-free frequency ranges for voice transmission that anyone can use.
 
 > [!IMPORTANT]
 > Regulations may vary from country to country. The table below lists *typical* regulations. Always make sure you understand the specific regulations that apply to **you** in your **current location**.
 
+Most license-free services use *analog* technology and no repeaters, so the overall reach is limited to a few kilometers.
+
 | Service/Device      | Analog/Digital         | Typical Frequency Range         | Max Power (Legal)            | Legal Requirements/Notes                    |
 |---------------------|-----------------------|---------------------------------|------------------------------|---------------------------------------------|
 | [CB (Citizens Band)](https://en.wikipedia.org/wiki/Citizens_band_radio)  | Analog (AM/FM/SSB)    | 26.965–27.405 MHz               | 4 W (AM/FM), 12 W (SSB)      | License-free |
-| [Air Band](https://en.wikipedia.org/wiki/Airband)            | Analog (AM)           | 108–137 MHz                     | Varies (typically 5–25 W)    | Aviation license, strict regulation|
-| [2m Ham Band](https://en.wikipedia.org/wiki/2-meter_band)               | Analog & Digital      | 144–148 MHz (US), 144–146 MHz (EU)         | Up to 1.5 kW (US, licensed)             | Amateur radio license required |
 | [Freenet](https://en.wikipedia.org/wiki/Freenet_(radio))    | Analog & Digital      | 149.0125–149.125 MHz            | 0.5 W (handheld only)        | License-free, Germany only |
 | [MURS (Multi Use Radio Service)](https://en.wikipedia.org/wiki/Multi-Use_Radio_Service)           | Analog (NFM)          | 151.820–154.600 MHz             | 2 W                          | License-free (US)  |
-| [70cm Ham Band](https://en.wikipedia.org/wiki/70-centimeter_band)             | Analog & Digital      | 420–450 MHz (US), 430–440 MHz (EU)         | Up to 1.5 kW (US, licensed)             | Amateur radio license required |
 | [LPD433 (Low Power Device)](https://en.wikipedia.org/wiki/LPD433)   | Analog FM             | 433.075–434.775 MHz                        | 10 mW                                   | License-free in the EU |
 | [PMR446 (Private Mobile Radio)](https://en.wikipedia.org/wiki/PMR446)      | Analog FM & Digital (DMR) | 446.0–446.2 MHz               | 0.5 W ERP                    | License-free, EU/Malaysia/Singapore/Norway/UAE |
 | [FRS (Family Radio Service)](https://en.wikipedia.org/wiki/Family_Radio_Service)            | Analog (NBFM)         | 462.5625–467.7125 MHz           | 2 W (main ch.), 0.5 W (others)| License-free|
-| [GMRS (General Mobile Radio Service)](https://en.wikipedia.org/wiki/General_Mobile_Radio_Service)           | Analog (NBFM)         | 462.5625–467.7125 MHz                     | 5 W (handheld), 50 W (base/mobile) | License required (US)  |
+
 
 ### Licensed Public Radio Services
 Some frequency ranges require a special license:
+
+| Service/Device      | Analog/Digital         | Typical Frequency Range         | Max Power (Legal)            | Legal Requirements/Notes                    |
+|---------------------|-----------------------|---------------------------------|------------------------------|---------------------------------------------|
+| [Air Band](https://en.wikipedia.org/wiki/Airband)            | Analog (AM)           | 108–137 MHz                     | Varies (typically 5–25 W)    | Aviation license, strict regulation|
+| [2m Ham Band](https://en.wikipedia.org/wiki/2-meter_band)               | Analog & Digital      | 144–148 MHz (US), 144–146 MHz (EU)         | Up to 1.5 kW (US, licensed)             | Amateur radio license required |
+| [70cm Ham Band](https://en.wikipedia.org/wiki/70-centimeter_band)             | Analog & Digital      | 420–450 MHz (US), 430–440 MHz (EU)         | Up to 1.5 kW (US, licensed)             | Amateur radio license required |
+| [GMRS (General Mobile Radio Service)](https://en.wikipedia.org/wiki/General_Mobile_Radio_Service)           | Analog (NBFM)         | 462.5625–467.7125 MHz                     | 5 W (handheld), 50 W (base/mobile) | License required (US)  |
 
 * [Air Band:](https://en.wikipedia.org/wiki/Airband) *Radio station license* (for the equipment/aircraft) and *Operator License* (for the operator/pilot)
 * [HAM radio amateur:](https://en.wikipedia.org/wiki/Amateur_radio) Non-commercial experimental use, large frequency ranges with high RF power, requires deep technical and legal knowledge
@@ -62,7 +129,7 @@ Aside from the designated **voice-only** services, additional license-free **mul
 | [Bluetooth](https://en.wikipedia.org/wiki/Bluetooth)                 | Digital               | 2.4 GHz ISM band                           | 1–100 mW (Class 1: 100 mW, Class 2: 2.5 mW, Class 3: 1 mW) | License-free   |
 | [ISM (Industrial, Scientific, Medical)](https://en.wikipedia.org/wiki/ISM_radio_band)  | Analog & Digital      | 315, 433, 868, 915 MHz (region dependent)  | 10–100 mW (typical, varies by band)     | License-free, **strict duty cycle/power limits** |
 
-Devices like [Baby Monitors](https://en.wikipedia.org/wiki/Baby_monitor), wireless *speakers*, wireless *headphones*, etc., all use one of these bands and share it with other devices such as garage door openers, sensors, and other devices that transmit data other than voice.
+Devices like [Baby Monitors](https://en.wikipedia.org/wiki/Baby_monitor), wireless *speakers*, wireless *headphones*, etc., all use one of these bands and share it with other devices such as *garage door openers*, *sensors*, and other devices that transmit data other than voice.
 
 Most DIY projects use breakout boards with transceivers operating in one of these bands.
 
@@ -89,13 +156,16 @@ Digital transmission uses much more modern techniques, resulting in significant 
 | **Battery Life**                  | Shorter, constant transmission power needed. | Up to 40% longer battery life  |
 | **Coverage**                      | More static and noise at coverage edges. | Clearer audio at coverage edges due to error correction. |
 | **Expandability**                 | Limited | Data can be incorporated into transmission (e.g., caller ID, GPS position, etc.) |
+| **Privacy** | none | strong encryption available (may be illegal to use) |
+| **Mesh/Network** | no | *DMR*, *D-STAR*, *TETRA*, etc. |
 
-Whether or not you *can* use digital transmission depends on the radio band you are targeting:
+Whether or not you *are allowed to* use digital transmission depends on the radio band you are targeting:
 
 * [CB](https://en.wikipedia.org/wiki/Citizens_band_radio), [LPD433](https://en.wikipedia.org/wiki/LPD433), [FRS](https://en.wikipedia.org/wiki/Family_Radio_Service), [GMRS](https://en.wikipedia.org/wiki/General_Mobile_Radio_Service), and [MURS](https://en.wikipedia.org/wiki/Multi-Use_Radio_Service) are all **analog only**.
 * [Freenet](https://en.wikipedia.org/wiki/Freenet_(radio)) and [PMR446](https://en.wikipedia.org/wiki/PMR446) allow both analog and digital modes.
+* **HAM Radio:** licensed HAM radio amateurs can use any mode they want. Encryption is not allowed, though.
 
-Digital *Freenet* and *PMR446* radios are costly, however, and the analog modes are much more popular.
+
 
 ## Using Legal Radios
 To *legally* operate on one of the license-free bands, you must (1) adhere to the technical restrictions **and** (2) use a **certified** radio.
@@ -109,26 +179,28 @@ They undergo careful design and extensive testing, and the built-in antenna is t
 
 On the downside is *cost*: certified radios cost a multiple of the price of uncertified radios.
 
-## Cheap Illegal Radios
+## Cheap "Illegal" Radios
 While generic Chinese radios are much more affordable and can be programmed to use the required frequencies and power levels for license-free bands, they are typically **not certified**—and thus illegal to use on one of the license-free bands in most countries.
 
 <img src="images/rfvoice_analog_overview.png" width="30%" height="30%" />
 
-Such radios aren't *illegal per se*. They are just illegal to use **without a proper license**. As an analogy, while you can ride a bicycle license-free, a driver's license is required for a Ducati because there is much more risk and skill involved.
+Such radios aren't *illegal per se*. They are just illegal to use **without a proper license** and/or on one of the license-free bands.    
+
+As an analogy, while you can ride a bicycle license-free, a driver's license is required for a *Ducati* because there is just much more risk involved for you and bystanders if you don't know what you are doing.
 
 * **Certified Radios:** Fool-proof to operate, no special knowledge required by the user.
-* **Uncertified Radios:** Highly flexible, require technical understanding and programming. Else, such radios can easily cause severe interference. That's why such radios require a license, i.e. [HAM radio amateur](https://en.wikipedia.org/wiki/Amateur_radio). 
+* **Uncertified Radios:** Highly flexible, require technical understanding and programming. Used inappropriately, such radios can easily cause severe interference. That's why such radios require a license, i.e. [HAM radio amateur](https://en.wikipedia.org/wiki/Amateur_radio). 
 
 Even such a license wouldn't allow you to use these radios on one of the license-free bands. You'd be restricted to the frequency ranges specifically assigned to HAM radio.
 
 ### Why is it illegal?
 
-There are a number of (good) reasons why uncertified radios are illegal to use without a proper license:
+There are a number of very good reasons why uncertified radios are illegal to use without a proper license:
 
 * **Spurious Emissions:**    
-Many radios emit so-called *spurious emissions*: when you transmit, you send not only on your own frequency, but also in parallel on higher *harmonic* frequencies (typically 2x, 3x, 4x, etc. the frequency you dialed in). 
+Many cheap radios emit so-called *spurious emissions*: when you transmit, you send not only on your own frequency, but also in parallel on higher *harmonic* frequencies (typically 2x, 3x, 4x, etc. the frequency you dialed in). 
 
-  Harmonics are a general problem of transceivers, yet cheap radios lack the suppression found in more expensive certified radios. Using cheap radios may therefore severely interfere with emergency and other services in other frequency ranges—without you even noticing. 
+  Harmonics are a general problem of radio transceivers, yet cheap radios lack the suppression found in more expensive certified radios. Using cheap radios may therefore severely interfere with emergency and other services in other frequency ranges—without you even noticing. 
 
   Licensed HAM radio amateurs have the test equipment to detect harmonics, and the knowledge and means to attenuate them if present.
 * **Illegal Power:**    
@@ -136,7 +208,7 @@ Even though most cheap Chinese radios do not reach the output power they claim, 
 
   For example, *PMR* allows a maximum of *0.5W*. Even low-end uncertified radios can transmit with 1–5W. 
   
-    Sending with more power does not necessarily improve your reach: you'd need to quadruple your power to double your reach. By doing so, your radio emits very high RF levels with a good chance of interfering with other services in your vicinity.
+    Sending with more power does not necessarily improve your reach: you'd need to quadruple your power to double your reach. By doing so, your radio starts to emit very high RF signals with a good chance of interfering with other services in your vicinity.
 * **Antenna:**     
   Part of many regulations is your *effective RF power*, which depends on additional factors like the *antenna* you are using.    
     
@@ -186,9 +258,9 @@ If, on the contrary, you are *brute-forcing* reach by pumping up just the RF pow
 
 ## Using Uncertified Radios
 
-Let there be no mistake: there *are* a number of awesome and technically highly sophisticated uncertified Chinese radios, packed with technology at unbeatably low prices.
+Let there be no mistake: there *are* a number of awesome and technically highly sophisticated uncertified Chinese radios, packed with technology at unbeatably low prices. And these radios are perfectly legal to operate with the proper license (i.e. HAM radio).
 
-For example, take the *Radtel RT-4D*: it supports both *analog* and *digital* transmission with dual-band support for *2m* and *70cm* (essentially covering all VHF and UHF license-free bands) and has an exceptionally sensitive receiver.
+For example, take the *Radtel RT-4D*: it supports both *analog* and *digital* transmission with dual-band support for *2m* and *70cm* (essentially covering all VHF and UHF bands) and has an exceptionally sensitive receiver.
 
 It can receive almost the entire frequency range from *18 MHz* up to *1 GHz*, including *27MHz CB band*, and even supports strong AES256 encryption in its digital modes. All this in a very small form factor and with a strong rechargeable battery. 
 
