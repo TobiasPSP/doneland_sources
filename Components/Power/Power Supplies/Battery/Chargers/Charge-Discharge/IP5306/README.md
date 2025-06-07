@@ -364,7 +364,7 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 
 ### Registers
 
-#### `0x00`
+#### `0x00` Input/Output Enable
 
 | Bit | Description | Default |
 | --- | --- | --- |
@@ -376,7 +376,7 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1 | **Boost Output Normally Open:** 1: enable |  1 |
 | 0 | **Button Shutdown Enable:** 1: enable |  0 |
 
-#### `0x01`
+#### `0x01` Buttons
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7 | **Boost Closure:** 1: press/ 0: short press twice |  0 |
@@ -395,6 +395,74 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 4 | **Long Press Time:** 0: 2sec/ 1: 3sec | 0 |
 | 3,2 | **Light Load Shutdown:** 11: 64sec/ 10: 16sec/ 01: 32sec/ 00: 8sec | 0 |
 | 1,0 | reserved |  |
+
+
+#### `0x020` Stop Charging
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4,3,2 | reserved |   |
+| 1,0 | **Charge Stop Voltage:** 11:4.2/4.305/4.35/4.395 / 10:4.185/4.29/4.335/4.38 / 01:4.17/4.275/4.32/4.365 / 00:4.14/4.26/4.305/4.35 V  | 10 |
+
+#### `0x021` Stop Charging
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6 | **End Stop Charging:** 11: 600mA/ 10: 500mA/ 01: 400mA/ 00: 200mA |  01 |
+| 5 | reserved | 0 |
+| 4,3,2 | **Charging Under Voltage:** 111: 4.8V/ 110: 4.75V/ 101: 4.7V/ 100: 4.65/ 011: 4.6V/ 010: 4.55V/ 001: 4.5V/ 000: 4.45V  | 101  |
+| 1,0 | reserved  |   |
+
+
+#### `0x22` Battery
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4 | reserved |   |
+| 3,2 | **Battery Voltage:** 11: 4.4V / 10: 4.35V / 01: 4.3V / 00: 4.2V | 00 |
+| 1,0 | **CV Charging:** 11: 42mV/ 10: 28mV / 01: 14mV / 00: none  | 00  |
+
+
+#### `0x23` Constant Current Charging
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6 | reserved |   |
+| 5 | **CC End Detection:** 0: BAT / 1: VIN | 1 |
+| 4,3,2,1,0 | reserved |  |
+
+#### `0x24` Charging Current
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5 | reserved |   |
+| 4,3,2,1,0 | **Charger Current:** I=0.05 + `0`*0.1 + `1`*0.2 + `2`*0.4 + `3`*0.8 + `4`*1.6A |  |
+
+
+
+#### `0x70` Charging Status
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4 | reserved |   |
+| 3 | **Charging Status:** 1: charging (**read only**)|  |
+| 2,1,0 |reserved  |   |
+
+#### `0x71` Charging Status
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4 | reserved |   |
+| 3 | **Full Charge:** 1: fully charged (**read only**)|  |
+| 2,1,0 |reserved  |   |
+
+#### `0x72` Charging Status
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4,3 | reserved |   |
+| 2 | **Light Load Detection:** 1: light load (**read only**)|  |
+| 1,0 |reserved  |   |
+
+#### `0x77` Key Press Detection
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5,4,3 | reserved |   |
+| 2 | **Double Click:** 1: has occured (write `1` to clear) |  |
+| 1 | **Long Press:** 1: has occured (write `1` to clear) |  |
+| 0 | **Short Press:** 1: has occured (write `1` to clear) |  |
 
 
 ## Materials
