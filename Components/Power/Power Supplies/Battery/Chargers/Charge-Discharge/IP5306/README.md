@@ -344,6 +344,59 @@ By keeping the boards' boost converter active all the time, this will increase q
 > [!IMPORTANT]    
 > As always on this site, use all information including suggested circuitry entirely at your own risk.    
 
+## I2C Configuration
+**Specific** versions of the *IP5306* may behave different and can have additional features, most notably an *I2C* interface for advanced configuration. Please note that most "normal" breakout boards use the default *IP5306* which has **no I2C interface**.
+
+The following applies only to *IP5306* chips with enabled *I2C* interface:
+
+### Fundamentals
+
+| Item | Description |
+| --- | --- |
+| Address | `0x75` |
+| Speed | 400Kbps |
+| Address Width | 8 bit |
+| Data Width | 8 bit |
+| Bit order | MSB first |
+| SCK/SCL | pin `L1`, driven by master (connected MCU), pull up to VCC via 2.2K resistor |
+| SDA | pin `L2`, pull up to VCC via 2.2K resistor |
+| IRQ | pin `L3`, *high* when in working status/*low* when in sleep state |
+
+### Registers
+
+#### `0x00`
+
+| Bit | Description | Default |
+| --- | --- | --- |
+| 7, 6 | reserved |   |
+| 5 | **Boost Enable:** 1: enable |  1 |
+| 4 | **Charger Enable:** 1: enable |  1 |
+| 3 | reserved |  1 |
+| 2 | **Auto Power On When Load Connected:** 1: enable | 1 |
+| 1 | **Boost Output Normally Open:** 1: enable |  1 |
+| 0 | **Button Shutdown Enable:** 1: enable |  0 |
+
+#### `0x01`
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7 | **Boost Closure:** 1: press/ 0: short press twice |  0 |
+| 6 | **WLED Flashlight:** 1: short press twice/ 0: press | 0  |
+| 5 | **Short Press Switch Boost:** 1: enable | 0 |
+| 4,3 | reserved |  |
+| 2 | **Turn On Boost After Unplugging:** 1: enabled |  1 |
+| 1 | reserved |  |
+| 0 | **3.0V Low Voltage Shutdown:** 1: enabled |  1 |
+
+
+#### `0x02`
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7,6,5 | reserved |   |
+| 4 | **Long Press Time:** 0: 2sec/ 1: 3sec | 0 |
+| 3,2 | **Light Load Shutdown:** 11: 64sec/ 10: 16sec/ 01: 32sec/ 00: 8sec | 0 |
+| 1,0 | reserved |  |
+
+
 ## Materials
 
 [IP5306 Power Management SoC Datasheet](materials/ip5306_datasheet.pdf)     
