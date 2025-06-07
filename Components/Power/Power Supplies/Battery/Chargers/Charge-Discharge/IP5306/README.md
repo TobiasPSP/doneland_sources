@@ -345,7 +345,7 @@ By keeping the boards' boost converter active all the time, this will increase q
 > As always on this site, use all information including suggested circuitry entirely at your own risk.    
 
 ## I2C Configuration
-**Specific** versions of the *IP5306* may behave different and can have additional features, most notably an *I2C* interface for advanced configuration. Please note that most "normal" breakout boards use the default *IP5306* which has **no I2C interface**.
+**Specific** versions of the *IP5306* may behave differently and can have additional features, most notably an *I2C* interface for advanced configuration. Please note that most "normal" breakout boards use the default *IP5306* which has **no I2C interface**.
 
 The following applies only to *IP5306* chips with enabled *I2C* interface:
 
@@ -387,6 +387,14 @@ Here is a list of registers accessible via *I2C* on *IP5306* chips with enabled 
 | 2 | **Auto Power On When Load Connected:** 1: enable | 1 |
 | 1 | **Boost Output Normally Open:** 1: enable |  1 |
 | 0 | **Button Shutdown Enable:** 1: enable |  0 |
+
+**Auto Power On When Load Connected**, when enabled, automatically detects a connected load. This very same feature is also responsible for automatically **turning off** the output once the load is removed. This includes the **light load detection**: once the load drops below *50mA* for the time configured in **REG_SYS_2** (`0x02`, normally *32 seconds*), the outout is also automatically turned off.
+
+This may be undesirable: when you supply light loads (i.e. microcontrollers in sleep mode), the *IP5306* may unexpectedly turn off the power supply.
+
+In order to **disable light load detection** and ensure that the *IP5306* supplies power all the time, turn off **Auto Power On When Load Connected** by setting its bit to `0`.
+
+As a consequence, *IP5306* no longer automatically turns on its output once power is drawn, and it *never* turns off power automatically anymore, even if no power at all is drawn. You now control the power output entirely manually via the control button.
 
 #### REG_SYS_1: `0x01` Buttons
 
