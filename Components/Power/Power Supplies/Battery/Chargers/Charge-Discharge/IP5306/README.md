@@ -349,7 +349,7 @@ By keeping the boards' boost converter active all the time, this will increase q
 
 The following applies only to *IP5306* chips with enabled *I2C* interface:
 
-### Fundamentals
+### I2C Settings
 
 | Item | Description |
 | --- | --- |
@@ -362,9 +362,21 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | SDA | pin `L2`, pull up to VCC via 2.2K resistor |
 | IRQ | pin `L3`, *high* when in working status/*low* when in sleep state |
 
+### Libraries
+
+A number of libraries exist that can be used to program the *IP5306* (provided you have a *IP5306* with **enabled I2C functionality**):
+
+* [IP5306_I2C](https://github.com/AvinasheeTech/IP5306_I2C)
+* [IP5306-arduino](https://github.com/Al1c3-1337/IP5306-arduino/blob/master/IP5306.h](https://github.com/Al1c3-1337/IP5306-arduino)
+* [IP5306](https://github.com/LaskaKit/IP5306-Charger](https://github.com/rynskyi/IP5306)
+* [IP5306](https://github.com/rynskyi/IP5306)
+
+
 ### Registers
 
-#### `0x00` Input/Output Enable
+Here is a list of registers accessible via *I2C* on *IP5306* chips with enabled *I2C* interface:
+
+#### REG_SYS_0: `0x00` Input/Output Enable
 
 | Bit | Description | Default |
 | --- | --- | --- |
@@ -376,7 +388,8 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1 | **Boost Output Normally Open:** 1: enable |  1 |
 | 0 | **Button Shutdown Enable:** 1: enable |  0 |
 
-#### `0x01` Buttons
+#### REG_SYS_1: `0x01` Buttons
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7 | **Boost Closure:** 1: press/ 0: short press twice |  0 |
@@ -388,7 +401,8 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 0 | **3.0V Low Voltage Shutdown:** 1: enabled |  1 |
 
 
-#### `0x02`
+#### REG_SYS_2: `0x02` Light Load Shutdown
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5 | reserved |   |
@@ -397,13 +411,15 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1,0 | reserved |  |
 
 
-#### `0x020` Stop Charging
+#### REG_CHG_0: `0x020` Stop Charging
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4,3,2 | reserved |   |
 | 1,0 | **Charge Stop Voltage:** 11:4.2/4.305/4.35/4.395 / 10:4.185/4.29/4.335/4.38 / 01:4.17/4.275/4.32/4.365 / 00:4.14/4.26/4.305/4.35 V  | 10 |
 
-#### `0x021` Stop Charging
+#### REG_CHG_1:  `0x021` Stop Charging
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6 | **End Stop Charging:** 11: 600mA/ 10: 500mA/ 01: 400mA/ 00: 200mA |  01 |
@@ -412,7 +428,8 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1,0 | reserved  |   |
 
 
-#### `0x22` Battery
+#### REG_CHG_2: `0x22` Battery Adjustment
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4 | reserved |   |
@@ -420,14 +437,16 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1,0 | **CV Charging:** 11: 42mV/ 10: 28mV / 01: 14mV / 00: none  | 00  |
 
 
-#### `0x23` Constant Current Charging
+#### REG_CHG_3: `0x23` Constant Current Charging
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6 | reserved |   |
 | 5 | **CC End Detection:** 0: BAT / 1: VIN | 1 |
 | 4,3,2,1,0 | reserved |  |
 
-#### `0x24` Charging Current
+#### REG_CHG_4: `0x24` Charging Current
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5 | reserved |   |
@@ -435,28 +454,32 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 
 
 
-#### `0x70` Charging Status
+#### REG_READ_0: `0x70` Charging Status
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4 | reserved |   |
 | 3 | **Charging Status:** 1: charging (**read only**)|  |
 | 2,1,0 |reserved  |   |
 
-#### `0x71` Charging Status
+#### REG_READ_1: `0x71` Charging Status
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4 | reserved |   |
 | 3 | **Full Charge:** 1: fully charged (**read only**)|  |
 | 2,1,0 |reserved  |   |
 
-#### `0x72` Charging Status
+#### REG_READ_2: `0x72` Charging Status
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4,3 | reserved |   |
 | 2 | **Light Load Detection:** 1: light load (**read only**)|  |
 | 1,0 |reserved  |   |
 
-#### `0x77` Key Press Detection
+#### REG_READ_3: `0x77` Key Press Detection
+
 | Bit | Description |  Default |
 | --- | --- | --- |
 | 7,6,5,4,3 | reserved |   |
@@ -464,6 +487,15 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | 1 | **Long Press:** 1: has occured (write `1` to clear) |  |
 | 0 | **Short Press:** 1: has occured (write `1` to clear) |  |
 
+#### REG_READ_4: `0x78` LED Indicator
+
+| Bit | Description |  Default |
+| --- | --- | --- |
+| 7 | **LED4:** 0: on (**read-only**) |   |
+| 6 | **LED3:** 0: on (**read-only**) |   |
+| 5 | **LED2:** 0: on (**read-only**) |   |
+| 4 | **LED1:** 0: on (**read-only**) |   |
+| 3,2,1,0 | reserved |  |
 
 ## Materials
 
