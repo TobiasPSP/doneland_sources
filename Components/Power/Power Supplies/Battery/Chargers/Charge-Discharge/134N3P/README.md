@@ -4,13 +4,15 @@
 
 > Compact Charge/Discharge Solution for Single Li-Ion Cells and 5V USB Output
 
-The **134N3P** is an excellent solution to add battery power to portable devices (like microcontroller projects): it supports *LiIon/LiPo* batteries and can both charge them as well as boost the battery voltage to a stable *5V USB output*.
+The **134N3P** is an excellent solution to build small power banks or add battery power to portable devices (like microcontroller projects): it supports *LiIon/LiPo* batteries and can both charge them as well as boost the battery voltage to a stable *5V USB output*.
 
 
 
 <img src="images/134n3p_overview_t.png" width="100%" height="100%" />
 
-**134N3P** refers to *both* a power management chip *and* the breakout board that is using it. There is no dedicated **134N3P* datasheet available, nor can you order this chip separately. The chip on the board has no markings.
+**134N3P** refers to *both* a power management chip *and* the breakout board that is using it. While there is no datasheet available for the *134N3P*, many clones use similar power management chips like the [HT4928S](materials/ht4928s_datasheet.pdf). Often, chips with no markings at all are found.
+
+
 
 
 ## Overview
@@ -20,7 +22,21 @@ Technically, **134N3P** boards combine battery charging logic (similar to a *TP4
 
 <img src="images/134n3p_usbc_topback_t.png" width="40%" height="40%" />
 
-Dedicated *chargers* (like *TP4056*) typically have no *coil* on the board (which is part of the *boost* converter that pure chargers lack).
+> Dedicated *chargers* (like *TP4056*) typically have no *coil* on the board (which is part of the *boost* converter that pure chargers lack).
+
+These boards are tailored to be used in power banks. Unfortunately, this means they have a built-in *low load detection*: once the load drops below *60mA* for more than 8 seconds, the output is turned off.
+
+### Use in Microcontroller Projects
+If your microcontroller constantly draws more than *60mA*, you are fine. However, if you use a low-power microcontroller (such as *Arduino*), or send your microcontroller to *deep sleep*, you'll experience the effects of the *low load detection*, and power is cut off.
+
+Users have worked around this by *brute force* adding additional load, i.e. resistors. This obviously increases power consumption considerably, creates unwanted heat, and shortens battery life. While this works, it is highly inefficient.
+
+A more clever approach is to use a transistor (i.e. *PN2222*) via a GPIO that turns on a *50 Ohm* resistor load for *0.01 seconds* every 3-6 seconds. That's enough to keep the output active and will add less than *1mA* extra load. 
+
+If these workaround are not for you, you may be better off using (a) separate charger and boost boards, or (b) use a *programmable* power management chip such as the [IP5306](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/) or *IP5310*.
+
+> [!NOTE]
+> "Regular" *IP5306* charge/discharge boards like the [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/) or [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) are **not programmable** because they do not expose the required *I2C* interface.
 
 ### Supported Batteries
 You can connect any single *LiIon* or *LiPo* battery to the board. Other chemistries, especially *LiFePo4*, are **not supported** and **must not be used**.
@@ -97,12 +113,57 @@ When you [google](https://www.google.com/search?q=134N3P) for `134N3P`, you quic
 
 <img src="images/134n3p_micro_connectors_t.png" width="40%" height="40%" />
 
-Boards differ primarily in the USB connectors: blue boards use an old *Micro-USB* connector whereas green boards use a modern *USB-C* connector. Both boards come with an additional *USB-A* connector.
+All offered boards are similar and differ only in two aspects:
+
 
 <img src="images/134n3p_usbc_frontangle_t.png" width="40%" height="40%" />
 
-* **USB-A:** output only. 
-* **USB-C/Micro-USB:** input and output, can be used for charging
+* **USB-C vs. Micro-USB:** blue boards use an old *Micro-USB* connector whereas green boards use a modern *USB-C* connector. Both boards come with an additional *USB-A* connector.
+  * **USB-A:** output only. 
+  * **USB-C/Micro-USB:** input and output, can be used for charging
+
+  
+<img src="images/134n3p_led_t.png" width="100%" height="100%" />
+
+* **LED Solder Pads:** some boards come with *two* LED solder pads on *each side* whereas other boards expose all four LED solder pads on the *top side*.
+
+
+<img src="images/134n3p_led_backside.png" width="50%" height="50%" />
+
+### LEDs
+
+Regardless of board type and location of LED solder pads, typically only *one* red LED is mounted. The remaining LED solder pads are left empty.
+
+The power management chip supports a maximum of *two* indicator LEDs:
+
+* `LED2`, `LED4`: primary LED (LED is mounted to one solder pad, the other one can be used for external wiring)
+* `LED1`, `LED3`: secondary LED for alternating blinking, no LEDs mounted
+
+`LED1` and `LED3` are used only for *alternating blinking* in one of the blink modes. When the primary LED is constantly on (i.e. during *discharge*), `LED1` and `LED3` are constantly **off**.
+
+That's useful for power efficiency: if you want to only indicate *charging* but not vwaste power on an indicator LED during *discharge*, remove the mounted LED, and instead add your own LED to `LED1` or `LED3`. 
+
+#### Single-LED Mode
+
+In *single LED mode* (default), the LED behaves like this:
+
+
+* **Off:**    
+  - no battery connected
+  - board is in *standby*, waiting for load or charger to be connected
+  - *2.95V* under-voltage shutdown (battery empty). Note that the battery voltage may recover a bit again after under-voltage protection has kicked in.
+* **On:**    
+  discharging (load connected)
+* **Blinking:**    
+  - charging
+  - discharging with battery voltage below *3.2V* (near empty warning) 
+
+
+#### Using 2nd LED
+
+The board type with *two LEDs* places the active LED behind the *USB-A* connector (marked `LED2`) whereas the type with *four LEDs* places it on the front side next to the *USB-A* connector (marked `LED4`).
+
+The latter is the better choice because this way the LED stays visible when adding the board to a housing. It is simple to add a small recess to the front side or your housing to show the LED.
 
 ## Use Cases
 By adding a single *LiIon/LiPo* battery to this board, you essentially create a simple power bank.
