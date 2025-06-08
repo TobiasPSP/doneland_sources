@@ -10,9 +10,10 @@ The **134N3P** is an excellent solution to build small power banks or add batter
 
 <img src="images/134n3p_overview_t.png" width="100%" height="100%" />
 
-**134N3P** refers to *both* a power management chip *and* the breakout board that is using it. While there is no datasheet available for the *134N3P*, many clones use similar power management chips like the [HT4928S](materials/ht4928s_datasheet.pdf). Often, chips with no markings at all are found.
+**134N3P** refers to *both* a power management chip *and* the breakout board that is using it. While there is no datasheet available for the *134N3P*, many clones use similar power management chips like the [HT4928S](https://blog.pagefault-limited.co.uk/wp-content/plugins/pdf-poster/pdfjs-new/web/viewer.html?file=https://blog.pagefault-limited.co.uk/wp-content/uploads/2019/04/HT4928S-HOTCHIP_EN.pdf&z=auto&raw=&nobaki=false&stdono=false&open=false&onlypdf=false&hrscroll=false&side=false&isHideRightToolbar=false#page=0). Often, chips with no markings at all are found.
 
-
+> [!IMPORTANT]
+> The power management chip on this board uses *CMOS* technology and is sensitive to *electrostatic discharge*.
 
 
 ## Overview
@@ -49,7 +50,7 @@ You can connect any single *LiIon* or *LiPo* battery to the board. Other chemist
 
 
 ### USB 5V Output
-The board provides an *output* of *5V* with a peak current of *1A* (*500mA* continuously is a safe assumption). That is perfect for supplying power to microcontroller projects.
+The board provides an *output* of *5V* with a peak current of *1A* (only with fully charged batteries; *500mA* continuously is a safe assumption). That is suitable for supplying power to microcontroller projects.
 
 
 Output power is available on both USB connectors, and there is *overload protection* and *short-circuit protection* built-in.
@@ -91,16 +92,18 @@ Just be aware that the *1A* output current allows for charging your devices at a
 | BAT Discharging Stop Voltage | 2.9 V |
 | Discharging Efficiency | 85% (input 3.7 V, output 5 V/1 A) |
 | BMS | - Output overvoltage protection<br/>- Short-circuit protection<br/>- Overload protection<br/>- Over-charging protection<br/>- Over-discharging protection |
+| Anti Backflow Protection | yes | 
 | Reverse Polarity Protection | no |
 | Trickle-Mode | supported |
 | Zero-Voltage Charging | supported |
 | LED | red: on=load connected, blinking=charging, off=standby |
-| Standby Current | 8 μA (max) |
+| Standby Current | 13-30 μA (max) |
+| Switching Frequency | 1 MHz |
 | Operating Temperature Range | -30°C to +85°C |
 | Module Size | 23 mm × 17.5 mm × 12 mm |
 | Weight | ~3 g |
 
-
+The board comes with *anti backflow protection* at the charging input which might be useful when using solar panels as charging input (to be investigated).
 
 > [!IMPORTANT]
 > The board has no *reverse polarity* protection: always make sure you connect the battery in correct polarity, especially when using a battery holder.
@@ -118,7 +121,7 @@ All offered boards are similar and differ only in two aspects:
 
 <img src="images/134n3p_usbc_frontangle_t.png" width="40%" height="40%" />
 
-* **USB-C vs. Micro-USB:** blue boards use an old *Micro-USB* connector whereas green boards use a modern *USB-C* connector. Both boards come with an additional *USB-A* connector.
+* **USB-C vs. Micro-USB:** *blue* boards use an old *Micro-USB* connector whereas *green* boards use a modern *USB-C* connector. Both boards come with an additional *USB-A* connector.
   * **USB-A:** output only. 
   * **USB-C/Micro-USB:** input and output, can be used for charging
 
@@ -158,12 +161,34 @@ In *single LED mode* (default), the LED behaves like this:
   - charging
   - discharging with battery voltage below *3.2V* (near empty warning) 
 
+#### Power-Saving Configuration
+When you remove the built-in LED, and instead solder your own LED to `LED1` or `LED3`, the LED works like this:
 
-#### Using 2nd LED
 
-The board type with *two LEDs* places the active LED behind the *USB-A* connector (marked `LED2`) whereas the type with *four LEDs* places it on the front side next to the *USB-A* connector (marked `LED4`).
+* **Off:**    
+  - no battery connected
+  - board is in *standby*, waiting for load or charger to be connected
+  - *2.95V* under-voltage shutdown (battery empty). Note that the battery voltage may recover a bit again after under-voltage protection has kicked in.
+  - discharging with battery voltage above *3.2V*
+* **Blinking:**    
+  - charging
+  - discharging with battery voltage below *3.2V* (near empty warning) 
 
-The latter is the better choice because this way the LED stays visible when adding the board to a housing. It is simple to add a small recess to the front side or your housing to show the LED.
+This is a perfect configuration for power efficiency: the LED indicates charging and also warns the user when the battery is close to depletion. Else, it is off.
+
+#### Two-LED Mode
+If you connect *two* LEDs, one to `LED2` or `LED4` (primary), and another one to `LED1` or `LED3` (secondary), this changes behavior to this:
+
+
+* **Off:**    
+  - no battery connected
+  - board is in *standby*, waiting for load or charger to be connected
+  - *2.95V* under-voltage shutdown (battery empty). Note that the battery voltage may recover a bit again after under-voltage protection has kicked in.
+* **Primary LED On, Secondary LED Off:**    
+  discharging (load connected)
+* **Alternating Blinking Between Both LEDs:**    
+  - charging
+  - discharging with battery voltage below *3.2V* (near empty warning)
 
 ## Use Cases
 By adding a single *LiIon/LiPo* battery to this board, you essentially create a simple power bank.
@@ -232,6 +257,8 @@ Once the battery voltage drops below *2.9-3.0V*, the board automatically disconn
 
 When you measure battery voltage with a multimeter, you may find that it shows a battery voltage of *3.1-3.2V*, especially when measuring after some delay. This is normal: once the load is disconnected, battery voltage can rise again.
 
+Once the battery voltage rises to *>3.2V*, the under-voltage protection is cleared.
+
 ### Charging
 
 To charge the battery, connect a USB power source to the *USB-C/Micro-USB* connector. 
@@ -271,14 +298,23 @@ So if you have dead *LiIon/LiPo* cells that your normal charger wouldn't charge,
 
 ## Discharging While Charging
 
-You can discharge (power a device) while charging. There is a short power interruption when you *remove* the charger:
+You can discharge (power a device) while charging. The board supports *side charging:** when an external charger is connected, it charges both the battery and a connected USB device.
+
+Once external power is removed, the boost circuitry is started. This switch can lead to a short power interruption.
+
 
 * **Simultaneous Charging and Discharging:** you can keep a charger connected to *USB-C/Micro-USB* while drawing power from the *USB-A* port.
 * **No Interruption When Adding Charger:** Connecting a charger to *USB-C/Micro-USB* does not interrupt the output power supply on *USB-A*.
 
 * **Interruption When Removing Charger:** However, when you stop charging (i.e. **remove** the *USB-C* charging cable), there will be a short interruption, and your connected *USB-A* device will lose power for a short moment.
 
+## Materials
 
-> Tags: Charger, Discharger, Li-Ion, Li-Po, Boost Converter, 1A, USB, 1S, Microcontroller, Power Source, Portable
+There is no dedicated data sheet for a *134N3P* controller chip. Many boards use the [HT4928S](materials/ht4928s_datasheet.pdf) or a similar chip with identical features:
+
+* [HT4928S Power Management Chip](materials/ht4928s_datasheet.pdf)   
+  (*source: [pagefault-limited.co.uk](https://blog.pagefault-limited.co.uk/hotchip-ht4928s-ver1-1-english-pdf)*)
+
+> Tags: Charger, Discharger, Li-Ion, Li-Po, Boost Converter, 1A, USB, 1S, Microcontroller, HT4928S, Power Source, Portable
 
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/134n3p?739577062007250254) - created 2025-06-06 - last edited 2025-06-06
