@@ -165,6 +165,12 @@ Note the current direction in the USB tester display: energy is flowing from the
 
 <img src="images/134n3p_usbc_load_direction_t.png" width="80%" height="80%" />
 
+#### Over-Discharge Protection
+
+Once the battery voltage drops below *2.9-3.0V*, the board automatically disconnects the load to protect the battery from over-discharge. The red LED turns off.
+
+When you measure battery voltage with a multimeter, you may find that it shows a battery voltage of *3.1-3.2V*, especially when measuring after some delay. This is normal: once the load is disconnected, battery voltage can rise again.
+
 ### Charging
 
 To charge the battery, connect a USB power source to the *USB-C/Micro-USB* connector. 
@@ -178,6 +184,17 @@ The red LED is **blinking** during charging.
 
 > [!NOTE]
 > When you connect a USB power source to the board, it may take a few seconds until the charging process starts. The built-in red LED is a valuable indicator: it starts blinking after a few seconds, indicating that charging has begun.
+
+#### Charging Current
+The board supports a **maximum** charge current of *1A*. However, this current is adapted to the battery voltage. 
+
+Under normal conditions, you'll see a charging current of around *0.95A* (with fully depleted batteries) that is slowly dropping as the battery is approaching full charge.
+
+
+
+<img src="images/134n3p_usbc_fullcharge_t.png" width="80%" height="80%" />
+
+
 
 #### Trickle-Charging
 
@@ -193,11 +210,12 @@ So if you have dead *LiIon/LiPo* cells that your normal charger wouldn't charge,
 
 ## Discharging While Charging
 
-You can discharge (power a device) while charging:
+You can discharge (power a device) while charging. There is a short power interruption when you *remove* the charger:
 
-* **No Interruption When Adding Charger:** Connect a device to the *USB-A* connector. It will be supplied by the battery, and when you insert a *USB-C* charging cable, there is no interruption, and you can continue to use the device while charging.
+* **Simultaneous Charging and Discharging:** you can keep a charger connected to *USB-C/Micro-USB* while drawing power from the *USB-A* port.
+* **No Interruption When Adding Charger:** Connecting a charger to *USB-C/Micro-USB* does not interrupt the output power supply on *USB-A*.
 
-* **Interruption When Removing Charger:** However, when you **remove** the *USB-C* charging cable, there will be a short interruption, and your connected *USB-A* device will lose power for a short moment.
+* **Interruption When Removing Charger:** However, when you stop charging (i.e. **remove** the *USB-C* charging cable), there will be a short interruption, and your connected *USB-A* device will lose power for a short moment.
 
 
 > Tags: Charger, Discharger, Li-Ion, Li-Po, Boost Converter, 1A, USB, 1S, Microcontroller, Power Source, Portable
