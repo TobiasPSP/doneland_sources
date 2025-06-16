@@ -362,15 +362,6 @@ The following applies only to *IP5306* chips with enabled *I2C* interface:
 | SDA | pin `L2`, pull up to VCC via 2.2K resistor |
 | IRQ | pin `L3`, *high* when in working status/*low* when in sleep state |
 
-### Libraries
-
-A number of libraries exist that can be used to program the *IP5306* (provided you have a *IP5306* with **enabled I2C functionality**):
-
-* [IP5306_I2C](https://github.com/AvinasheeTech/IP5306_I2C)
-* [IP5306-arduino](https://github.com/Al1c3-1337/IP5306-arduino/blob/master/IP5306.h](https://github.com/Al1c3-1337/IP5306-arduino)
-* [IP5306](https://github.com/LaskaKit/IP5306-Charger](https://github.com/rynskyi/IP5306)
-* [IP5306](https://github.com/rynskyi/IP5306)
-
 
 ### Registers
 
@@ -505,12 +496,363 @@ As a consequence, *IP5306* no longer automatically turns on its output once powe
 | 4 | **LED1:** 0: on (**read-only**) |   |
 | 3,2,1,0 | reserved |  |
 
+## I2C Libraries
+
+If you want to read and write configuration data via *I2C*, you need to know:
+
+* **I2C Register:** what is the number of the register that holds the required information?
+* **Bit(s):** which bit(s) store the desired information? There can be other bits in the same register that control other things.
+* **Meaning:** how are the bit values actually *interpreted*? So what does a `0` or `1` in a bit actually stand for, or do?
+
+Libraries can help you very much as they do much of this work for you, and provide simple-to-use functions.
+
+> [!IMPORTANT]
+> Keep in mind that in order to successfully use any of these libraries, you need to physically correctly **wire up** the *IP5306* breakout board to your microcontroller, **and** your breakout board must be using a **I2C-enabled IP5306**. Many cheap boards use *IP5306* variants **without I2C interface** (as it is not needed). In this case, you cannot use *I2C*, and below libraries won't help you.     
+
+
+
+### Basic IP5306 I2C Control Library (Example #2)
+[IP5306-arduino](https://github.com/Al1c3-1337/IP5306-arduino) is a very simple yet very efficient library that works for a large range of microcontrollers. It provides a range of functions covering all controllable *I2C* features: 
+
+
+````
+uint8_t IP5306_GetKeyOffEnabled() 
+uint8_t IP5306_SetKeyOffEnabled(uint8_t value)                //0:dis,*1:en
+uint8_t IP5306_GetBoostOutputEnabled()         
+uint8_t IP5306_SetBoostOutputEnabled(uint8_t value)           //*0:dis,1:en
+uint8_t IP5306_GetPowerOnLoadEnabled()          
+uint8_t IP5306_SetPowerOnLoadEnabled(uint8_t value)           //0:dis,*1:en
+uint8_t IP5306_GetChargerEnabled()      
+uint8_t IP5306_SetChargerEnabled(uint8_t value)               //0:dis,*1:en
+uint8_t IP5306_GetBoostEnabled()          
+uint8_t IP5306_SetBoostEnabled(uint8_t value)                 //0:dis,*1:en
+uint8_t IP5306_GetLowBatShutdownEnable()        
+uint8_t IP5306_SetLowBatShutdownEnable(uint8_t value)         //0:dis,*1:en
+uint8_t IP5306_GetBoostAfterVin()             
+uint8_t IP5306_SetBoostAfterVin(uint8_t value)                //0:Closed, *1:Open
+uint8_t IP5306_GetShortPressBoostSwitchEnable() 
+uint8_t IP5306_SetShortPressBoostSwitchEnable(uint8_t value)  //*0:disabled, 1:enabled
+uint8_t IP5306_GetFlashlightClicks()          
+uint8_t IP5306_SetFlashlightClicks(uint8_t value)             //*0:short press twice, 1:long press
+uint8_t IP5306_GetBoostOffClicks()              
+uint8_t IP5306_SetBoostOffClicks(uint8_t value)               //*0:long press, 1:short press twice
+uint8_t IP5306_GetLightLoadShutdownTime()    
+uint8_t IP5306_SetLightLoadShutdownTime(uint8_t value)        //0:8s, *1:32s, 2:16s, 3:64s
+uint8_t IP5306_GetLongPressTime()              
+uint8_t IP5306_SetLongPressTime(uint8_t value)                //*0:2s, 1:3s
+uint8_t IP5306_GetChargingFullStopVoltage()     
+uint8_t IP5306_SetChargingFullStopVoltage(uint8_t value)      //0:4.14V, *1:4.17V, 2:4.185V, 3:4.2V (values are for charge voltage 4.2V, 0 or 1 is recommended)
+uint8_t IP5306_GetChargeUnderVoltageLoop()                    //Automatically adjust the charging current when the voltage is greater than the set value
+uint8_t IP5306_SetChargeUnderVoltageLoop(uint8_t value)       //Vout=4.45V + (v * 0.05V) (default 4.55V) //When charging maximum current, the charge is less than the set value. Slowly reducing the charging current to maintain this voltage
+uint8_t IP5306_GetEndChargeCurrentDetection() 
+uint8_t IP5306_SetEndChargeCurrentDetection(uint8_t value)    //0:200mA, 1:400mA, *2:500mA, 3:600mA
+uint8_t IP5306_GetVoltagePressure()            
+uint8_t IP5306_SetVoltagePressure(uint8_t value)              //0:none, 1:14mV, *2:28mV, 3:42mV (28mV recommended for 4.2V)
+uint8_t IP5306_GetChargeCutoffVoltage()        
+uint8_t IP5306_SetChargeCutoffVoltage(uint8_t value)          //*0:4.2V, 1:4.3V, 2:4.35V, 3:4.4V
+uint8_t IP5306_GetChargeCCLoop()               
+uint8_t IP5306_SetChargeCCLoop(uint8_t value)                 //0:BAT, *1:VIN
+uint8_t IP5306_GetVinCurrent()                              
+uint8_t IP5306_SetVinCurrent(uint8_t value)                   //ImA=(v*100)+50 (default 2250mA)
+uint8_t IP5306_GetShortPressDetected()                      
+uint8_t IP5306_ClearShortPressDetected()                    
+uint8_t IP5306_GetLongPressDetected()                     
+uint8_t IP5306_ClearLongPressDetected()                   
+uint8_t IP5306_GetDoubleClickDetected()                     
+uint8_t IP5306_ClearDoubleClickDetected()                   
+uint8_t IP5306_GetPowerSource()                               //0:BAT, 1:VIN
+uint8_t IP5306_GetBatteryFull()                               //0:CHG/DIS, 1:FULL
+uint8_t IP5306_GetLevelLeds()                                 //LED[0-4] State (inverted)
+uint8_t IP5306_GetOutputLoad()                                //0:heavy, 1:light
+````
+
+This library is so small that you could in fact incorporate the code into your own source code. Here is what the library does:
+
+#### Helpers
+
+The library comes with four helpers:
+
+* **I2C Registers:** it defines the available *I2C* registers for you:    
+  ````
+  #define IP5306_REG_SYS_0    0x00
+  #define IP5306_REG_SYS_1    0x01
+  #define IP5306_REG_SYS_2    0x02
+  #define IP5306_REG_CHG_0    0x20
+  #define IP5306_REG_CHG_1    0x21
+  #define IP5306_REG_CHG_2    0x22
+  #define IP5306_REG_CHG_3    0x23
+  #define IP5306_REG_CHG_4    0x24
+  #define IP5306_REG_READ_0   0x70
+  #define IP5306_REG_READ_1   0x71
+  #define IP5306_REG_READ_2   0x72
+  #define IP5306_REG_READ_3   0x77
+  #define IP5306_REG_READ_4   0x78
+  ````
+* **Bit Banging:** it defines two mathematical helper functions that help you extract bits from a byte, and changing bits in an existing byte:    
+  ````c++
+  uint8_t ip5306_get_bits(uint8_t reg, uint8_t index, uint8_t bits) {
+      int value = ip5306_get_reg(reg);
+      if(value < 0) {
+        return 0;
+      }
+      return (value >> index) & ((1 << bits)-1);
+  }
+
+  void ip5306_set_bits(uint8_t reg, uint8_t index, uint8_t bits, uint8_t value) {
+      uint8_t mask = (1 << bits) - 1;
+      int v = ip5306_get_reg(reg);
+      if(v < 0) {
+          //Serial.printf("ip5306_get_reg fail: 0x%02x\n", reg);
+          return;
+      }
+      v &= ~(mask << index);
+      v |= ((value & mask) << index);
+        if(ip5306_set_reg(reg, v)) {
+      }
+  }
+  ````    
+
+* **I2C Read/Write:** it defines two generic functions to read or write a byte to an *I2C* register:     
+  ````c++
+  int ip5306_get_reg(uint8_t reg){
+      Wire.beginTransmission(0x75);
+      Wire.write(reg);
+      if(Wire.endTransmission(false) == 0 && Wire.requestFrom(0x75, 1)){
+          return Wire.read();
+      }
+      return -1;
+  }
+
+  int ip5306_set_reg(uint8_t reg, uint8_t value){
+      Wire.beginTransmission(0x75);
+      Wire.write(reg);
+      Wire.write(value);
+      if(Wire.endTransmission(true) == 0){
+          return 0;
+      }
+      return -1;
+  }
+  ````
+
+#### Specific I2C Functions
+With the three helpers from above, it then defines all specific functions that you can use to control the *IP5306* in the [header file](https://github.com/Al1c3-1337/IP5306-arduino/blob/master/IP5306.h), like this one:
+
+````c++
+#define IP5306_GetKeyOffEnabled()               ip5306_get_bits(IP5306_REG_SYS_0, 0, 1)
+````
+
+Here is how this works:
+
+* The function **IP5306_GetKeyOffEnabled()** is actually calling the generic **ip5306_get_bits()**
+* It is asking to return **one bit** (`1`) from index position 0 (`0`) of register *0x00* (`IP5306_REG_SYS_0`).
+* According to the [IP5306 register map](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#reg_sys_0-0x00-inputoutput-enable), bit `0` controls **Button Shutdown Enable**:
+
+| Button Shutdown Enable | Value |
+| --- | --- |
+| 0 | disabled |
+| 1 | enabled |
+
+> What exactly **Button Shutdown Enable** *does* is often not well documented, even if you dig through the official [I2C Register Map](materials/ip5306_i2c_registers.pdf), and requires some guessing and experimenting. In this particular case, **Button Shutdown Enable** controls whether the button that can be connected to the *IP5306* can serve to *manually turn off* the power output, typically by *double pressing* it. **IP5306_GetBoostOffClicks()** and **IP5306_SetBoostOffClicks()** coincidentally control whether shutting off the power is controlled by a double-click or a long press.    
+
+As you see, the way this library is organized is working well but requires intimate knowledge of the bit definitions and their meaning. Prepare to keep the [I2C Register Map](materials/ip5306_i2c_registers.pdf) open in parallel, especially when you deal with configuration items that use more than one bit.
+
+For example, **IP5306_SetLightLoadShutdownTime()** can set the timeout after which the IP5306 shuts off when a load *<50mA* is connected:
+
+````c++
+#define IP5306_SetLightLoadShutdownTime(v)      ip5306_set_bits(IP5306_REG_SYS_2, 2, 2, v)//0:8s, *1:32s, 2:16s, 3:64s
+````
+
+This setting is controlled by *two* bits, and the comment explains the bits:
+
+| Light Load Shutdown Time (seconds) | Value |
+| --- | --- |
+| 8 | 0 |
+|16 | 2 |
+| 32 | 1 |
+| 64 | 3 |
+
+You just need to know what the expected values are. The function calls **ip5306_set_bits()** with the appropriate arguments. In this particular case, **two** bits (`2`) need to be written to I2C register *0x02* (`IP5306_REG_SYS_2`) starting at index position 2 ( `2`). Again, you can [look up](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#reg_sys_2-0x02-light-load-shutdown) the details for this *I2C register* and its bits and definitons.
+
+
+### Sophisticated IP5306 I2C Library 
+[IP5306_I2C](https://github.com/AvinasheeTech/IP5306_I2C) does basically what the previous library did, however this author has also *typed* many of the arguments and return values. 
+
+So instead of having to guess what a specific bit actually means, you find *structs* (self-defined structured records).
+
+Here is the list of functions this library provides:
+
+````
+void boost_mode(uint8_t boost_en);
+void charger_mode(uint8_t charger_en);
+void power_on_load(uint8_t power_on_en);
+void boost_output(uint8_t output_val);
+void button_shutdown(uint8_t shutdown_val);
+
+void boost_ctrl_signal(uint8_t press_val);
+void flashlight_ctrl_signal(uint8_t press_val);
+void short_press_boost(uint8_t boost_en);
+void boost_after_vin(uint8_t val);
+void low_battery_shutdown(uint8_t shutdown_en);
+
+void set_long_press_time(uint8_t press_time_val);
+void set_light_load_shutdown_time(uint8_t shutdown_time);
+
+void set_charging_stop_voltage(uint8_t voltage_val);
+void end_charge_current(uint8_t current_val);
+void charger_under_voltage(uint8_t voltage_val);
+
+void set_battery_voltage(uint8_t voltage_val);
+void set_voltage_pressure(uint8_t voltage_val);
+void set_cc_loop(uint8_t current_val);
+
+uint8_t check_charging_status(void);
+uint8_t check_battery_status(void);
+uint8_t check_load_level(void);
+uint8_t short_press_detect(void);
+uint8_t long_press_detect(void);
+uint8_t double_press_detect(void);
+````
+
+When you look at the function signatures and compare them with the previous library, you'll see that function arguments are *typed*. The previous library used `uint8_t` for all arguments, and you had to know the appropriate byte values (and bit-bang the appropriate bits).
+
+Let's take a closer look what is different in this library:
+
+#### Easier Handling
+Instead of using just *bytes* for everything, this library defines *structs* (structured data records) per *I2C* register. Here is an example for `0x00`:
+
+````c++
+/*SYS_CTL0*/
+union{
+    struct{
+     uint8_t BUTTON_SHUTDOWN             : 1;
+     uint8_t SET_BOOST_OUTPUT_ENABLE     : 1;
+     uint8_t POWER_ON_LOAD               : 1;
+     uint8_t RSVD                        : 1;
+     uint8_t CHARGER_ENABLE              : 1;
+     uint8_t BOOST_ENABLE                : 1;
+     uint8_t RSVD2                       : 2;
+       
+    }bits;
+
+    uint8_t reg_byte;
+
+}reg_SYS_CTL0_t;
+````
+
+Now all the bits inside this byte are *named*, and directly accessible.
+
+Likewise, when entities are configured using more than one bit, like the *LightLoadShutdownTime* from before in register `0x02`, a *struct* simplifies the handling enormously:
+
+````c++
+/*SYS_CTL2*/
+union{
+    struct{
+       uint8_t RSVD                              : 2;
+       uint8_t LIGHT_LOAD_SHUTDOWN_TIME          : 2;
+       uint8_t LONG_PRESS_TIME                   : 1;
+       uint8_t RSVD2                             : 3;  
+    }bits;
+
+    uint8_t reg_byte;
+}reg_SYS_CTL2_t;
+````
+
+You can now read the relevant two bits via `LIGHT_LOAD_SHUTDOWN_TIME`. Unfortunately, the author is still returning `uint8_t`, so while it is now much easier to *read* the required bits, you still need to interpret the resulting byte yourself.
+
+*Setting* (writing) these bits is easier since the author has defined constants:
+
+````c++
+/*SHUTDOWN_TIME_VALUE*/
+#define SHUTDOWN_8s                                 0
+#define SHUTDOWN_32s                                1
+#define SHUTDOWN_16s                                2
+#define SHUTDOWN_64s                                3
+````
+
+#### Room for Improvement
+It would take only a small step to improve this library even further, so you would no longer need to look up values in *I2C register maps*. 
+
+This is how the library currently works:
+
+````c++
+union {
+    struct {
+        uint8_t RSVD                      : 2;
+        uint8_t LIGHT_LOAD_SHUTDOWN_TIME  : 2;
+        uint8_t LONG_PRESS_TIME           : 1;
+        uint8_t RSVD2                     : 3;
+    } bits;
+    uint8_t reg_byte;
+} reg_SYS_CTL2_t;
+
+/* SHUTDOWN_TIME_VALUE */
+#define SHUTDOWN_8s   0
+#define SHUTDOWN_32s  1
+#define SHUTDOWN_16s  2
+#define SHUTDOWN_64s  3
+````
+
+And this is how a more modern and object-oriented approach would look like:
+
+````c++
+// define possible values as a enum:
+enum class ShutdownTime : uint8_t {
+    S8  = 0,  // 8 seconds
+    S32 = 1,  // 32 seconds
+    S16 = 2,  // 16 seconds
+    S64 = 3   // 64 seconds
+};
+
+// define the structure of the byte that the particular I2C register uses:
+struct SYS_CTL2_Bits {
+    uint8_t RSVD                      : 2;
+    uint8_t LIGHT_LOAD_SHUTDOWN_TIME  : 2;
+    uint8_t LONG_PRESS_TIME           : 1;
+    uint8_t RSVD2                     : 3;
+};
+
+// create a union (map the raw byte to the struct): 
+union reg_SYS_CTL2_t {
+    SYS_CTL2_Bits bits;
+    uint8_t reg_byte;
+};
+
+// create type-safe setter and getter functions:
+inline void set_shutdown_time(reg_SYS_CTL2_t& reg, ShutdownTime time) {
+    reg.bits.LIGHT_LOAD_SHUTDOWN_TIME = static_cast<uint8_t>(time);
+}
+
+inline ShutdownTime get_shutdown_time(const reg_SYS_CTL2_t& reg) {
+    return static_cast<ShutdownTime>(reg.bits.LIGHT_LOAD_SHUTDOWN_TIME);
+}
+````
+
+From a users perspective, the code would now be simplified and type-safe, with no room for misunderstandings and unclear values:
+
+````c++
+// define variable to hold the I2C register 0x02:
+reg_SYS_CTL2_t reg{};
+
+// Set shutdown time to 16 seconds
+set_shutdown_time(reg, ShutdownTime::S16);
+
+// Read shutdown time
+ShutdownTime t = get_shutdown_time(reg);
+if (t == ShutdownTime::S16) {
+    // Do something
+}
+````
+
+
+
+
 ## Materials
 
-[IP5306 Power Management SoC Datasheet](materials/ip5306_datasheet.pdf)     
-[FM5324GA Power Management SoC (Chinese Clone) Datasheet](materials/fm5324ga_datasheet_en.pdf) *(translated)*       
-[FM5324GA Power Management SoC (Chinese Clone) Datasheet](materials/fm5324ga_datasheet.pdf) *(Chinese original)*  
+[IP5306 Datasheet](materials/ip5306_datasheet.pdf)     
+[IP5306 I2C Register Map](materials/ip5306_i2c_registers.pdf)
+[FM5324GA (IP5306 Clone) Translated English](materials/fm5324ga_datasheet_en.pdf) *(translated)*       
+[FM5324GA (IP5306 Clone) Chinese Original](materials/fm5324ga_datasheet.pdf) *(Chinese original)*  
 
 > Tags: Charger, Li-Ion, Li-Po, Boost Converter, 2A, USB, 1S, IP5306, FM5324GA, Torch Mode, Push Button
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306?313487011513254524) - created 2025-01-12 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306?313487011513254524) - created 2025-01-12 - last edited 2025-06-13
