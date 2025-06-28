@@ -4,20 +4,24 @@
 
 > Clever Analog And Digital Power Supply System
 
-Consumers know *USB* from a plethora of devices: it is used to supply *power* from chargers and power banks to devices, and it can also transport *data*.
+Consumers know *USB* from a plethora of devices: it is used to supply *power* from chargers and power banks to devices, and it can also transport *data*. In this section, I am focusing on the *power delivery* features of USB.
 
-Once you start examining *USB* more closely, you'll discover that it has - among many other things - evolved into a highly sophisticated power management system that can be used in many DIY projects. It can often replace cumbersome buck and boost converters, and for certain scenarios, it may even challenge traditional lab bench power supplies.
+
 
 ## Overview
-The **Universal Serial Bus (USB)** is an industry standard that defines cables, connectors, and protocols used for 
+
+Once you start examining *USB* more closely, you'll quickly discover that it has - among many other things - evolved into a highly sophisticated power management system that can be used in many DIY projects. It can often replace cumbersome buck and boost converters, and for certain scenarios, it may even challenge traditional lab bench power supplies.
+
+### Roots
+The **Universal Serial Bus (USB)** is an industry standard that defines cables, connectors, and protocols used for... 
 
 * connection
 * communication
 * power supply
 
-between computers and electronic devices. 
+...between computers and electronic devices. 
 
-### Roots
+
 Introduced in the mid-1990s by a consortium of companies, USB was designed to standardize and simplify the way peripherals such as keyboards, mice, printers, and storage devices connect to computers. The goal was to replace a variety of older, less user-friendly, and incompatible standards:
 
 * **Data:**     
@@ -40,7 +44,7 @@ Over the years, *USB* has transitioned from a simple *5V 2.5W* power supply for 
 | USB PD 1.0 (Power Delivery)  | 2012      | 60W (20V, 3A)      | Introduces **negotiated voltage steps** to support high-power devices (like laptops)  | typically USB-C | 5V, 9V, 15V, 20V       | Digital (USB PD protocol over CC line) |
 | QC 3.0 (Quick Charge)        | 2015      | Up to 36W (20V, 1.8A)| Introduces **adjustable voltage** in *200mV* steps   | USB-A, Micro-USB, USB-C    | 5V, 9V, 12V, 20V; 3.6V–20V (*200mV* steps, often the upper voltage range limited to *12V* by chargers)             | Digital (D+/D- pulse signaling, INOV)  |
 | USB PD 3.0                   | 2015      | 100W (20V, 5A)      | Introduces support for **e-marker cables** that can actively advertise their capabilities, enabling *100W* with appropriate cables     | USB-C                            | 5V, 9V, 15V, 20V (fixed steps)                       | Digital (USB PD protocol over CC line) |
-| USB PD 3.0 PPS (Programmable Power Supply) | 2015 | 100W (20V, 5A) | Introduces **programmable current** in addition to programmable voltage (current programmable in *50mA* steps).                                        | USB-C                            | 5V, 9V, 15V, 20V; PPS: 3.3–21V (*20mV* steps)          | Digital (USB PD protocol over CC line) |
+| USB PD 3.0 PPS (Programmable Power Supply) | 2015 | 100W (20V, 5A) | Introduces **programmable current** in addition to programmable voltage (current programmable in *50mA* steps, *1A* minimum).                                        | USB-C                            | 5V, 9V, 15V, 20V; PPS: 3.3–21V (*20mV* steps)          | Digital (USB PD protocol over CC line) |
 | USB PD 3.1 (Standard Power Range) | 2021 | 100W (20V, 5A)      | Basic member of the PD 3.1 family, remains backwards compatible with PD 3.0     | USB-C                            | 5V, 9V, 15V, 20V; PPS: 3.3–21V (*20mV* steps)          | Digital (USB PD protocol over CC line) |
 | USB PD 3.1 EPR (Extended Power Range) | 2021 | 240W (48V, 5A)     | Introduces support for up to **48V**/**240W** for powering high-demand devices    | USB-C (EPR-certified cable)      | 5V, 9V, 15V, 20V, 28V, 36V, 48V (fixed steps)        | Digital (USB PD protocol over CC line) |
 | USB PD 3.1 AVS (Adjustable Voltage Supply) | 2021 | 240W (48V, 5A)    | Optional feature in *EPR* that introduces **adjustable voltage 15V–48V** in *100mV* steps. The real upper voltage limit is determined by charger capabilities. **Programmable current feature is dropped in this mode (CV only)**     | USB-C (EPR-certified cable)      | 15V–28/36/48V (upper limit depending on charger, *100mV* steps)| Digital (USB PD protocol over CC line) |
@@ -51,6 +55,7 @@ Over the years, *USB* has transitioned from a simple *5V 2.5W* power supply for 
 > At the same time, *PD 3.0* marked the inflection point where protocol emulation with generic MCUs became impractical due to the introduction of BMC (*Biphase Mark Coding* signaling), PPS (Programmable Power Supply), and cryptographic requirements. PD 3.1 (2021) and later (e.g., EPR/AVS) further increased complexity with higher voltage/current limits and stricter timing, solidifying the need for dedicated PD controllers (e.g., STM32 UCPD, TI TCPP).
 >
 > *QC3* remains the only widely used specification supporting freely definable voltages (in *200mV* increments) that can be easily emulated (triggered) by simple MCUs like *Arduino* or *ESP32*. Any specification beyond *QC3* requires specialized *trigger chips* or *I2C-enabled helper ICs* that handle the complex protocol requirements.
+
 
 ### Using for Data Exchange
 
