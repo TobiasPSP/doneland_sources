@@ -12,17 +12,22 @@ To enable this, you need a way to engage in *USB PD negotiation*. Since the *USB
 
 <img src="images/usb_trigger_overview_t.png" width="50%" height="50%" />
 
-You find these chips for example on *USB Trigger Boards*: such boards connect to your USB power supply via *USB-C* and provide the requested voltage on solder pads. The requested voltage can be set in a variety of ways, i.e. via DIP switches, solder bridges, or push buttons. Some *USB Trigger Boards* are pre-configured to a specific output voltage. With such boards you could, for example, power *12V* devices from a USB power bank.
+You find these chips for example on *USB Trigger Boards*: such boards connect to your USB power supply via *USB-C* and provide the requested voltage on solder pads. 
+
+The requested voltage can be set in a variety of ways, i.e. via DIP switches, solder bridges, or push buttons. Some *USB Trigger Boards* are pre-configured to a specific output voltage. With such boards you could, for example, power *12V* devices from a USB power bank.
 
 ## Overview
 
 To use *USB* as a flexible power source, you need to *negotiate* the requested voltage via one of the protocols supported by your USB power source.
 
-Most USB power sources today support *PD 3.0*, so triggering a fixed voltage is possible with almost any USB power source. However, simpler or lower-cost power sources may not support higher voltages such as *20V* or above, even if they claim PD compatibility.
+Most USB power sources today support *PD 3.0*, so triggering is possible with almost any USB power source. Simpler or lower-cost power sources may not support higher voltages such as *20V* or above, even if they claim PD compatibility.
 
-To select an *adjustable* voltage, protocol extensions like *PPS* (Programmable Power Supply) or *AVS* (Adjustable Voltage Supply) are required. These features are *optional* in the USB PD specification, so your power source may or may not support them. If you are unsure, use a USB tester to check which protocols and extensions are available.
+To select a **fully adjustable voltage** (and not just fixed voltages such as *9V* or *15V*), protocol extensions like *PPS* (Programmable Power Supply) or *AVS* (Adjustable Voltage Supply) are required. 
 
-If you require less than *36W* of power, *QC 3.0* (Quick Charge 3.0) is also a viable option, as it is widely supported and provides adjustable voltages by design. Another advantage of *QC 3.0* is its much simpler protocol: microcontrollers like Arduino and ESP32 can easily emulate it, and no external trigger hardware is required.
+These features are *optional* in the USB PD specification, so your power source may or may not support them. If you are unsure, use a USB tester to check which protocols and extensions are available.
+
+> [!TIP]
+> If you require less than *36W* of power, *QC 3.0* (Quick Charge 3.0) is also a viable option, as it is widely supported and provides adjustable voltages by design. Another advantage of *QC 3.0* is its much simpler protocol: microcontrollers like Arduino and ESP32 can easily emulate it, and no external trigger hardware is required.
 
 Takeaways:
 
@@ -34,7 +39,7 @@ Takeaways:
 
 ## Suitable USB Protocols
 
-Your USB power source defines the USB protocols it can support. Today, a wide variety of protocols exist, and many chargers and powerbanks support multiple of these:
+It is important to understand that triggering can only use the protocols and voltage levels that the power source exposes. Today, a wide variety of protocols exist, and chargers and powerbanks often support multiple of these:
 
 | Standard / Protocol            | Supported Voltages (V)      | Max Current (A) | Max Power (W) | Protocol Features / Notes                                         | E-marker Cables Required         |
 |-------------------------------|-----------------------------|-----------------|---------------|-------------------------------------------------------------------|--------------------------|
@@ -67,7 +72,7 @@ Your USB power source defines the USB protocols it can support. Today, a wide va
 
 
 ### Fixed Voltage Steps
-To request one of the fixed voltage steps, these protocols are commonly used in DIY:
+To request one of the fixed voltage steps, these protocols are commonly used in voltage triggering:
 
 | Protocol | Voltages (V) | Power | Remarks |
 | --- | --- | --- | --- |
@@ -79,7 +84,7 @@ To request one of the fixed voltage steps, these protocols are commonly used in 
 
 ### Adjustable Voltage
 
-*Adjustable* voltage can be requested by one of these protocols:
+*Adjustable* voltage can be requested by one of these protocols/extensions:
 
 | Extension | Voltages (V) | Power | Steps | Remarks | Protocol Requirements |
 | --- | --- | --- | --- | --- | --- |
@@ -125,7 +130,7 @@ Dedicated breakout boards with an *I2C* interface, allowing MCUs like Arduino or
 
 
 * **QuickCharge 3.0:**
-[Software emulation](https://github.com/vahidtvj/QC3Control) for *ESP32* and other MCUs to *emulate* the QuickCharge protocol. Requires no specialized hardware.    
+[Software emulation](https://github.com/vahidtvj/QC3Control) for *ESP32* and other MCUs to *emulate* the QuickCharge protocol. Requires no specialized *USB PD* hardware.    
   * Allows for **adjustable** voltages in the range of *3.6-20V* at a maximum of *36W*
   * Requires no *e-marker* cables
   * Real limits depend on the USB power source that you use and can be lower (i.e. 12V max)
@@ -141,18 +146,30 @@ Simple *resistors* can be used for limited control, typically to unlock *fast ch
   |-------------------------------------------|-------------------|-------------|---------------------------|-----------------------------------------------------------------------|
   | Short D+ and D- (USB-A/B)                 | 5V                | 1.5A+       | Wire or 0Ω resistor       | Works with many Android devices for "fast charge"                     |
   | Apple Divider (USB-A/B)                   | 5V                | 2.1A+       | Resistor dividers         | Specific voltages on D+/D- for Apple devices                          |
-  | 5.1kΩ on CC (USB-C, non-PD)               | 5V                | 3A          | Two 5.1kΩ resistors       | Standard for 5V/3A on USB-C, no higher voltages without PD            |
   | QC 2.0/3.0 Divider (USB-A)                | 5V–12V (QC2)      | Up to 3A    | Resistor dividers         | Not universally reliable; true QC needs protocol                      |
-
+  | 5.1kΩ on CC (USB-C, non-PD)               | 5V                | 3A          | Two 5.1kΩ resistors       | not really a "hack" but the official way to get at least *5V* out of *USB PD*   |
+  
 ## Specialized ICs
 
-For maximum performance and reliability, using the *USB PD* protocol for triggering is recommended.  Due to its complexity of the *USB PD* protocol, specialized ICs are required for this.
+The *USB PD* protocol provides maximum performance and reliability. Triggering the *USB PD* protocol requires specialized ICs:
+
+
+| IC        | Fixed Voltage | Programmable Voltage (PPS) | I2C Interface | Extended Power Range (>20V) |
+|-----------|--------------|----------------------|---------------|-----------------------------|
+| CH224K    | ✔️           | ❌                   | ❌            | ❌                          |
+| HUSB238   | ✔️           | ✔️                   | ✔️            | ❌                          |
+| HUSB238A  | ✔️           | ✔️                   | ✔️            | ✔️                          |
+| AP33772   | ✔️           | ✔️                   | ✔️            | ❌                          |
+| AP33772S  | ✔️           | ✔️                   | ✔️            | ✔️                          |
+
+
+
 
 ### CH224K
 
-The **CH224K** is a low-cost, highly integrated USB Power Delivery (PD) sink controller IC designed to trigger and negotiate **fixed** voltages from USB-C power sources. It simulates **e-marker chips** and automatically detects VCONN, enabling requests for up to 100W (20V/5A) from compliant USB PD sources.
+The **CH224K** is a low-cost USB Power Delivery (PD) sink controller designed to trigger and negotiate **fixed** voltages from USB-C power sources. It simulates **e-marker chips** and automatically detects VCONN, enabling requests for up to 100W (20V/5A) from compliant USB PD sources.
 
-It cannot be used to request **adjustable** voltages and has no *I2C* interface. That's why this chip is used by the majority of simple *manual trigger boards*:
+It cannot be used to request **adjustable** voltages and has no *I2C* interface. This chip is used by the majority of simple and affordable *manual trigger boards*:
 
 
 | Feature                    | Details                                                                 |
@@ -162,7 +179,6 @@ It cannot be used to request **adjustable** voltages and has no *I2C* interface.
 | Output Voltages            | 5V, 9V, 12V, 15V, 20V                                                  |
 | Max Power                  | Up to 100W (20V/5A, requires e-marked cable for >3A)                   |
 | E-marker Simulation        | Yes (supports high-power negotiation)                                   |
-| Microcontroller Required   | No (for basic voltage selection)                                        |
 | Power-Good Output          | Yes (PG pin for status indication)                                      |
 | Protection                 | Over-voltage, over-temperature                                         |
 
@@ -187,6 +203,27 @@ Thanks to its *I2C* interface, *HUSB238* can be found on many affordable breakou
 | Microcontroller Required   | No (for preset voltage), Yes (for dynamic control/monitoring)           |
 | Power-Good Output          | Yes (PG pin for status indication)                                      |
 | Protection                 | Over-voltage, over-current, over-temperature                            |
+
+### HUSB238A
+The **HUSB238A** is a direct, pin-compatible upgrade to the HUSB238, offering significant new features—most notably, full support for *USB PD 3.1 EPR* (Extended Power Range) up to *48V/5A* in I2C mode, as well as *AVS* and *PPS* modes.
+
+According to [community reports](https://hackaday.io/project/197947-usb-c-power-delivery-31-breakout-with-i2c), the *I2C* mode in the *HUSB238A-BB001-QN16R* variant may present a safety concern:  
+In I2C mode, the chip reportedly defaults to requesting *28V* immediately upon startup, before any user configuration is possible. This behavior could potentially damage devices that are not rated for high voltage.
+
+Additionally, users have noted limited I2C control over the output PMOS transistor and a lack of publicly available documentation for critical I2C register maps. Due to these concerns, the referenced [project](https://hackaday.io/project/197947-usb-c-power-delivery-31-breakout-with-i2c) was halted as of October 2024, with the authors stating:
+
+> *We consider this as dangerous behavior and suggest not to use the HUSB238A-BB001-QN16R in I2C mode.*
+
+It is not clear whether these issues are inherent to all HUSB238A chips or specific to certain revisions or implementations. Users are advised to thoroughly test the device in their intended applications and consult the latest manufacturer documentation for updates or errata.
+
+| Feature                | HUSB238           | HUSB238A                   |
+|------------------------|-------------------|----------------------------|
+| USB PD Version         | 3.0               | 3.1 (EPR, AVS, PPS)        |
+| Max Negotiated Voltage | 20V               | 48V (I2C), 28V (GPIO)      |
+| PPS/AVS/EPR            | No                | Yes                        |
+| Pin Compatibility      | QFN-16, same pins | QFN-16, same pins          |
+| Firmware Update Needed | N/A               | Yes, for I2C mode          |
+
 
 ### AP33772
 
@@ -250,3 +287,4 @@ Here is a comparison table:
 
 > Tags: USB-C, USB-PD, USB Power Delivery, PPS, AVS, Quick Charge, Fast Charging, USB Trigger, E-Marker, DIY Electronics, Power Supply, CH224K, HUSB238, AP33772, AP33772S, I2C, Arduino, ESP32, Voltage Negotiation, Power Protocols, Trigger Board, USB Cable, Fixed Voltage, Adjustable Voltage, Programmable Power Supply
 
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers?667784060228252731) - created 2025-06-27 - last edited 2025-06-27
