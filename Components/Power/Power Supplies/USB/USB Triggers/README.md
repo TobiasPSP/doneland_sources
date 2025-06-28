@@ -138,7 +138,8 @@ Dedicated breakout boards with an *I2C* interface, allowing MCUs like Arduino or
 * **Resistors:**    
 Simple *resistors* can be used for limited control, typically to unlock *fast charge* modes with higher currents.     
 
-  For any voltage above 5V on USB-C, or for true USB Power Delivery or Quick Charge negotiation, a dedicated IC or microcontroller is usually required. Pure resistor/discrete methods are limited to 5V (USB-C) or basic fast charge signaling (USB-A/B).
+  * For any voltage above 5V on USB-C, or for true USB Power Delivery or Quick Charge negotiation, a dedicated IC or microcontroller is usually required.    
+  * Pure resistor/discrete methods are limited to 5V (USB-C) or basic fast charge signaling (USB-A/B).
 
   Here is a list of commony-used "resistor hacks":
 
@@ -151,13 +152,14 @@ Simple *resistors* can be used for limited control, typically to unlock *fast ch
   
 ## Specialized ICs
 
-The *USB PD* protocol provides maximum performance and reliability. Triggering the *USB PD* protocol requires specialized ICs:
+Specialized ICs are required to control *USB PD*:
 
 
-| IC        | Fixed Voltage | Programmable Voltage (PPS) | I2C Interface | Extended Power Range (>20V) |
+
+| IC        | Fixed Voltage | Programmable Voltage (PPS) | I2C Interface | Extended Power Range (>20V, 240W) |
 |-----------|--------------|----------------------|---------------|-----------------------------|
 | CH224K    | ✔️           | ❌                   | ❌            | ❌                          |
-| HUSB238   | ✔️           | ✔️                   | ✔️            | ❌                          |
+| HUSB238   | ✔️           | ❌                   | ✔️            | ❌                          |
 | HUSB238A  | ✔️           | ✔️                   | ✔️            | ✔️                          |
 | AP33772   | ✔️           | ✔️                   | ✔️            | ❌                          |
 | AP33772S  | ✔️           | ✔️                   | ✔️            | ✔️                          |
@@ -169,7 +171,7 @@ The *USB PD* protocol provides maximum performance and reliability. Triggering t
 
 The **CH224K** is a low-cost USB Power Delivery (PD) sink controller designed to trigger and negotiate **fixed** voltages from USB-C power sources. It simulates **e-marker chips** and automatically detects VCONN, enabling requests for up to 100W (20V/5A) from compliant USB PD sources.
 
-It cannot be used to request **adjustable** voltages and has no *I2C* interface. This chip is used by the majority of simple and affordable *manual trigger boards*:
+*CH224K* cannot be used to request **adjustable** voltages (PPS) and has no *I2C* interface. This chip is used by the majority of simple and affordable *manual trigger boards* with fixed voltage steps:
 
 
 | Feature                    | Details                                                                 |
@@ -185,7 +187,7 @@ It cannot be used to request **adjustable** voltages and has no *I2C* interface.
 
 ### HUSB238
 
-The **HUSB238** is a much more sophisticated USB Power Delivery (PD) sink controller IC which can be configured and controlled via *I2C*. This allows microcontrollers (such as Arduino, ESP32, or ATMega328) to dynamically select PD profiles, voltages, and monitor status in real time.
+The **HUSB238** is a USB Power Delivery (PD) sink controller IC with *I2C* support. This allows microcontrollers (such as Arduino, ESP32, or ATMega328) to dynamically select PD profiles, voltages, and monitor status in real time.
 
 This chip supports **fixed** voltages only and has no support for **adjustable** voltages.
 
@@ -205,7 +207,7 @@ Thanks to its *I2C* interface, *HUSB238* can be found on many affordable breakou
 | Protection                 | Over-voltage, over-current, over-temperature                            |
 
 ### HUSB238A
-The **HUSB238A** is a direct, pin-compatible upgrade to the HUSB238, offering significant new features—most notably, full support for *USB PD 3.1 EPR* (Extended Power Range) up to *48V/5A* in I2C mode, as well as *AVS* and *PPS* modes.
+The **HUSB238A** is a direct, pin-compatible upgrade to the HUSB238, offering significant new features—most notably, full support for *USB PD 3.1 EPR* (Extended Power Range) up to *48V/5A* in I2C mode, **as well as *AVS* and *PPS* modes**.
 
 According to [community reports](https://hackaday.io/project/197947-usb-c-power-delivery-31-breakout-with-i2c), the *I2C* mode in the *HUSB238A-BB001-QN16R* variant may present a safety concern:  
 In I2C mode, the chip reportedly defaults to requesting *28V* immediately upon startup, before any user configuration is possible. This behavior could potentially damage devices that are not rated for high voltage.
