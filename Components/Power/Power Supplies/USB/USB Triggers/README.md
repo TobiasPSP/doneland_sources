@@ -235,7 +235,7 @@ Thanks to its *PPS* support, this allows for MCU-controlled programmable output 
   * **Voltage Steps:**     
     *20mV* voltage increments
   * **Constant Current:**    
-    *59mA* current increments for constant current, with a minimum current of *1A*
+    *50mA* current increments for constant current, with a minimum current of *1A*
   * **Integrated Protection:**    
     Built-in over-voltage, over-current, and over-temperature protection, with support for external NTC thermistor for thermal monitoring and derating.
   * **Status & Fault Reporting:**     
