@@ -179,4 +179,4 @@ To enable **e-marker simulation**, connect `CC2` to `GND` using a **1KΩ resisto
 
 > Tags: USB-C, USB-PD, USB Power Delivery, USB Trigger, E-Marker, Power Supply, CH224K, Voltage Negotiation, Trigger Board, Fixed Voltage, PD Sink, Fast Charging, CH224D, CH221K, E-Marker Simulation, Power Adapter, Car Adapter, USB PD Tester
 
-
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224?581182061730253233) - created 2025-06-29 - last edited 2025-06-29

@@ -126,3 +126,5 @@ If you come across a USB power source that works strictly by USB PD specificatio
 [HUSB238 I2C Register Map](materials/husb238_i2c_registers.pdf)
 
 > Tags: USB-C, USB-PD, USB Power Delivery, USB Trigger
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/husb238?663266061730253233) - created 2025-06-29 - last edited 2025-06-29

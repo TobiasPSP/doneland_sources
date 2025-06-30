@@ -74,3 +74,5 @@ You can further customize testing:
   * Once you stop pressing the button for more than *3 seconds*, the new time is saved.
 
 > Tags: USB-C, USB-PD, USB Power Delivery, USB Trigger, E-Marker, Power Supply, CH224K, Voltage Negotiation, Trigger Board, e-marker, Fixed Voltage
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224/usbtriggertester?632883061730253233) - created 2025-06-29 - last edited 2025-06-29
