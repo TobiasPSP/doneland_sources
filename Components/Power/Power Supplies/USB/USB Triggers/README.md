@@ -156,13 +156,13 @@ Specialized ICs are required to control *USB PD*:
 
 
 
-| IC        | Fixed Voltage | Programmable Voltage (PPS) | I2C Interface | Extended Power Range (>20V, 240W) |
+| IC        | Fixed Voltage | Programmable Voltage (PPS) | Microcontroller Support | Extended Power Range (>20V, 240W) |
 |-----------|--------------|----------------------|---------------|-----------------------------|
-| CH224K    | ✔️           | ❌                   | ❌            | ❌                          |
-| HUSB238   | ✔️           | ❌                   | ✔️            | ❌                          |
-| HUSB238A  | ✔️           | ✔️                   | ✔️            | ✔️                          |
-| AP33772   | ✔️           | ✔️                   | ✔️            | ❌                          |
-| AP33772S  | ✔️           | ✔️                   | ✔️            | ✔️                          |
+| CH224K    | ✔️           | ❌                   | 2 GPIOs            | ❌                          |
+| HUSB238   | ✔️           | ❌                   | I2C            | ❌                          |
+| HUSB238A  | ✔️           | ✔️                   | I2C            | ✔️                          |
+| AP33772   | ✔️           | ✔️                   | I2C            | ❌                          |
+| AP33772S  | ✔️           | ✔️                   | I2C            | ✔️                          |
 
 
 
