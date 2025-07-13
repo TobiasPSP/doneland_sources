@@ -36,7 +36,7 @@ Because of the *IP5306* specific power path management, the module uses *separat
 
 <img src="images/ip5306_mh-cd42_back_t.png" width="30%" height="30%" />
 
-- **BAT:** connect the positive pole of *Li-Ion* or *Li-Po* battery. Make sure the battery supports *2.4A* charging current and a maximum of *3.5A* discharge current.
+- **BAT:** connect the positive pole of *Li-Ion* or *Li-Po* battery. Make sure the battery supports *2.1A* charging current and a maximum of *4A* discharge current.
 
 #### Understanding Power Output Paths
 This module can *either* charge the battery *or* supply power. It cannot do both at the same time. Regardless, you can draw power *while* charging. How does that work?
@@ -50,7 +50,7 @@ Once you connect external power to *VIN*, the boost converter is turned off, and
 
 This has a number of consequences you should know and consider:
 
-* **High Input Power Requirements:** the chip charges the battery with up to *2.4A* (10.5W) while simultaneously providing up to *5V 2.1A* (10.5W) to *OUT 5V*. During charging, *both* is powered by the external power supply connected to *VIN*. The combined output power is *21W*. Your external power supply must be capable of delivering up to *22W*/*4.5A* at *5V*.
+* **High Input Power Requirements:** the chip charges the battery with up to *2.1A* while simultaneously providing up to *5V 2.4A* (12W) to *OUT 5V*. During charging, *both* is powered by the external power supply connected to *VIN*. The combined output power is *22W*. Your external power supply must be capable of delivering up to *22W*/*4.4A* at *5V*.
 * **Short Interruption:** the chip needs to switch power paths once a power supply is connected to, or disconnected from *VIN*. Supplying external power or removing it may therefore both cause a brief power interruption, potentially rebooting connected microcontroller boards. Adding a sufficiently large capacitor to the power input can mitigate this issue.
 
 ### Push Button
@@ -75,13 +75,13 @@ A *torch LED* can be connected in parallel to the push button using a *100Ω* se
 
 ## Charging Mode
 
-The charger activates automatically when a power supply is connected to *VIN**, charging the battery at up to *2.4A*. It requires a *5V 2A* input. For detailed charging specifications, refer to the [*IP5306* documentation](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/).
+The charger activates automatically when a power supply is connected to *VIN**, charging the battery at up to *2.1A*. It requires a *5V 2A* input. For detailed charging specifications, refer to the [*IP5306* documentation](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/).
 
 The charging cut-off voltage is set to *4.2V*, which is suitable for most *Li-Ion* and *Li-Po* batteries. The *IP5306* supports higher cut-off voltages, and some modules like the [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/#charging-mode) provide solder bridges to customize this, however this module does not expose this option. 
 
 ## Supplying Power
 
-The module provides *5V* at up to *2A* at pin *OUT 5V*. Advanced quick-charge protocols are not supported.
+The module provides *5V* at up to *2.4A* at pin *OUT 5V*. Advanced quick-charge protocols are not supported.
 
 
 
@@ -106,4 +106,4 @@ When the module is charging, the buttons have no effect, and *OUT 5V* is always 
 
 > Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, IP5306, FM5324GA
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42?192546011815254411) - created 2025-01-14 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42?192546011815254411) - created 2025-01-14 - last edited 2025-07-11

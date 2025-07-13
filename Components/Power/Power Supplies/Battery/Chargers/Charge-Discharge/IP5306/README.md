@@ -4,16 +4,25 @@
 
 > 2.4A 1S Li-Ion Charger Plus 5V 2A Boost Converter In One SoC Solution That Drives Many DIY Boards
 
-The [IP5306](materials/ip5306_datasheet.pdf) is a fully integrated *power bank* system-on-chip with a *2.4A* charger and a *2A* discharger. This chip—or one of its many Chinese clones, like the [FM5324GA](materials/fm5324ga_datasheet_en.pdf)—is commonly used in modern DIY modules.
+The [IP5306](materials/ip5306_datasheet.pdf) is a fully integrated *power bank* system-on-chip (SOC) with a charger and a *2A* discharger. 
+
+* **Charger**     
+  uses a *buck* converter at *750kHz* switching frequency, and charges with a maximum current of **2.1A**. Can be adjusted to *0.05-3.2A* using *I2C* (when the *IP5306* version supports *I2C*, see below for details)
+* **Discharge:**     
+  uses a *boost* converter at *500kHz* switching frequency and a *5V* output at a maximum current of *2.4A* (12W)
+
+This chip—or one of its many Chinese clones, like the [FM5324GA](materials/fm5324ga_datasheet_en.pdf)—is commonly used in modern DIY modules.
 
 
 <img src="images/ip5306_chip_hr.png" width="30%" height="30%" />
 
 
-For highly integrated chips like this one, it is essential to understand their concepts and functionality before use. Some of its features - like its optional *torch mode* -  may not be immediately apparent and could lead to unintended risks. 
+
 
 ## Overview
-The *IP5306* is found on affordable breakout boards like the [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/) and the *MH-CD42*.
+The *IP5306* is found on affordable breakout boards like the [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/) and the [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/). 
+
+Sophisticated versions such as the [PB01](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) even expose an *I2C* interface that can be used by microcontrollers to configure the settings, i.e. reduce or increase the charging current.
 
 
 
@@ -21,33 +30,34 @@ The *IP5306* is found on affordable breakout boards like the [X-150](https://don
 
 
 
-Modules utilizing this chip are highly compact (typically *15-20x25mm*) yet surprisingly powerful. With a single *Li-Ion* cell, they can deliver up to *2A* at *5V*. 
+Modules utilizing this chip are highly compact (typically *15-20x25mm*) yet surprisingly powerful. With a single *Li-Ion* cell, they can deliver up to *2A* at *5V* (10W). This compactness is possible due to a clever architecture that uses a single inductor for both charging and discharging operations.
 
-This compactness is made possible by a clever architecture that uses a single inductor for both charging and discharging operations.
 
+
+## Use Cases
+This chip specializes in outputting `5V/2A/10W` from a single *LiIon/LiPo* rechargeable battery and is typically used in these scenarios:
+
+* Powering portable devices, i.e. microcontroller projects
+* Designing miniature powerbanks that use a single battery cell
+
+
+Devices can be powered continuously even during charging, with a small power gap occuring when charging ends and the internal boost converter is re-enabled, and an optional push button can be used to *manually* turn power on and off.
 
 <details><summary>How simultaneous charge and discharge really work</summary><br/>
 
-### Power Paths
-This chip can **either** use its integrated boost converter to increase the battery voltage to *5V* at a maximum of *2A* output (*10W total*), **or** it can step down an external *5V* input to a charging voltage suitable for *Li-Ion* or *Li-Po* batteries. However, the chip can only perform *one* of these conversions at a time.
+This chip **either** use its integrated boost converter to increase the battery voltage to *5V* at a maximum of *2.4A* output (*12W total*), **or** it can step down an external *5V* input to a charging voltage suitable for *Li-Ion* or *Li-Po* batteries. However, the chip can only perform *one* of these conversions at a time because it only has one external coil that is used *either* for *boost* **or** for *buck* operations.
 
 Despite this limitation, the chip supports simultaneous discharging and charging. This means you can operate a connected device both while the chip is charging and when the device is powered by the battery alone.
 
 Understanding the involved switching between different power paths is critical.
 
-### Battery Operation
-When the chip operates solely on battery power, its boost converter supplies *5V* at a maximum of *2A* to the output, providing up to *10W* of power. The battery must be capable of supplying a peak current of *3.5A* to support this load. Be aware that smaller batteries or low-cost, low-current *Li-Po* batteries may not be sufficient to meet this demand.
+### On Battery
+Boost converter supplies *5V* at *2.4A* max (12W). The battery must be capable of supplying a peak current of *4A* to support this load. Be aware that smaller batteries or low-cost, low-current *Li-Po* batteries may not be sufficient to meet this demand.
 
-### Charging
-When an external *5V* power supply is connected, the chip dynamically switches internal power paths:
-- The input voltage is stepped down to a suitable charging voltage for the battery, with a maximum charging current of *2.4A*.
-- The internal boost converter is deactivated.
-- The power output is now directly supplied by the *5V* input. 
+### When Charging
+Input voltage powers **both** the charger (at a maximum current of *2.1A* at up to *4.2V*) **and** the load (at a maximum of *12W*).
 
-This allows the device to continue operating while the battery is being charged. However, during this mode:
-- If the connected device draws the full *10W* output **while** the battery is simultaneously charged at the maximum rate, the total power demand can reach *21W* when accounting for conversion inefficiencies.
-- The external *5V* power supply must provide at least *4.2A* to handle this combined maximum load.
-- If no device is connected to the output during charging, a standard *5V 2A* power supply is sufficient for charging the battery alone.
+The total power demand can reach *22W* when accounting for conversion inefficiencies. The external *5V* power supply must provide *4.2A* to handle a combined maximum load. With charging only, a standard *5V 2A* power supply is sufficient.
 
 ### Temporary Power Cut
 When an external power supply is connected or disconnected, the chip actively switches power paths. During this transition, there may be a **brief power interruption** at the output. This can cause connected devices, such as microcontrollers, to reboot. To prevent this, you can add an appropriately sized capacitor to the output line, which will smooth out any voltage dips during these transitions.
@@ -55,87 +65,127 @@ When an external power supply is connected or disconnected, the chip actively sw
 
 </details>
 
-### Use Cases
-This chip is ideal for adding battery power to external *5V* devices such as microcontrollers, [WS2812](https://done.land/components/light/led/programmable/ws2812/) LED strips, DIY flashlights, and more. It is also suitable for building simple power banks.
-
-
-#### Permanently Connected Devices
-This chip is especially suited for adding battery support to *5V* devices:
-
-- a *push button* can be used to control power to the connected device, so it can be turned on and off as needed.
-- Only the device connected to the *power output* can draw energy from the battery.
-- The *power input* is exclusively reserved for charging the battery and does not allow external devices to deplete the battery. 
+### Powering Portable DIY devices
+This chip is almost perfect for adding battery power to external *5V* devices such as microcontrollers, [WS2812](https://done.land/components/light/led/programmable/ws2812/) LED strips, DIY flashlights, and more: it is low cost, small, and sufficiently powerful.
 
 
 
-#### Power Bank
-When designing a power bank, the goal is to provide power on demand to various USB devices. To achieve this, you can add one or more USB connectors (of your chosen type) to the chip's power output.
+There are **two important caveats** for this scenario:
 
-Key considerations for power bank design with this chip:
-- The chip provides a fixed *5V* output voltage only. This limitation is a direct consequence of the chip targeting *1S batteries* (single-cell configurations). 
-- Boosting the voltage beyond *5V* would require higher battery currents, larger physical components (e.g., coils), and lead to inefficiencies. 
+* **Deep Sleep/Low Power Consumption:**     
+  if your device requires **less than 50mA** for longer than **32s**, by default **IP5306** turns off power. This may easily occur with low-power circuits, or when your microcontroller enters *deep sleep*.
+* **Small Battery:**     
+  if your device uses a relatively small *LiIon/LiPo* battery (**<3000mAh**), most likely the default charging current of **2.1A** is significantly **too high**, with the potential of battery damage or even fire hazard.
 
-As a result:
-- This chip does not support *quick charge protocols*, which rely on multiple output voltages such as *9/12/15/20V*. 
-- Devices connected to the power bank will charge at standard speeds, limited to a fixed *5V* output at a maximum current of *2A* (10W).
+If this applies to your project, it is strongly recommended to utilize **IP5306** with [enabled I2C interface](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#i2c-configuration), i.e. by using a board like [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) that exposes the *I2C* interface.
 
-In a nutshell, this chip is excellent for building *physically very small* power banks.
+By utilizing *I2C*, your microcontroller can adjust the **IP5306** settings: 
 
-### No Temperature Sensor
-The *IP5306* features several built-in protection mechanisms, including *over-temperature protection*, but there is no support for external temperature sensors.
+* tailor the battery charging current exactly to the needs of your battery (in a range of *0.05-3.2A*)     
+* ensure that battery power is not cut off when your microcontroller enters deep-sleep.
 
-External temperature sensors can detect catastrophic battery failures during charging. 
 
-Such sensors, though, are more commonly integrated into power management chips designed for higher-capacity battery systems, where the risk of thermal issues is higher due to larger energy storage and discharge rates.
+### Power Bank
+**IP5306** is a great choice for building a basic powerbank. Just keep in mind these limitations:
+
+* **1S LiIon Battery:**     
+  you must use a *LiIon/LiPo* battery in **1S** configuration (one cell, or multiple cells connected **in parallel**)
+* **5V Output Only:**   
+  **IP5306** provdies *5V output* only and does not support any other USB power protocol or higher output voltages. This limitation is a direct consequence of the chip targeting *1S batteries* (single-cell configurations). 
+* **No bi-directional USB connectors:**    
+  **IP5306** uses different power paths for input and output. You cannot use the built-in *USB-C* connector for output. It is **input only**. You'll need to add a separate *USB connector* (i.e. *USB-A* or *USB-C*) to `5V-`  and `5V+` pins.
+
+For **simple** power banks, especially *miniature versions* with just one battery cell, **IP5306** is a great choice. 
+
+For around the same investment, you get more sophisticated power management chips that support *2-6S* battery configurations and many modern *quick charge* output protocols with a voltage range up to *20V*.
+
+
+
 
 ## Battery Requirements
-The *IP5306* supports *1S* battery configurations (*Li-Ion* and *Li-Po*). You can use a single cell or connect multiple cells in *parallel* to increase capacity while maintaining the required *1S* voltage.
+The *IP5306* supports *1S* battery configurations (*Li-Ion* and *Li-Po*). *LiFePO₄* batteries and other chemistries are **incompatible**, and using them can be hazardous (as over-charge would occuur).
 
+### Battery Capacity
+Use a single cell, or connect multiple cells in *parallel* to increase capacity while maintaining the required *1S* voltage. **Never** connect battery cells *in series*. 
 
-### Battery Voltage
-This chip is designed for *Li-Ion* and *Li-Po* batteries with a maximum voltage of *4.2V*. It also includes optional support for *high-voltage* cells with a maximum voltage of *4.35V*. However, *LiFePO₄* batteries are **incompatible**, and using them can be hazardous.
+Since **IP5306** uses a maximum charging current of **2.1A**, ensuring a suitablly high battery **capacity** is critical. Batteries that are too small can lead to overcharging and/or over-discharging, increasing the risk of fire hazards. 
+
+You will need a battery with a minimum capacity of around *3,500mAh*. Either use a *single large cell*, or use *multiple smaller cells* **in parallel**.
 
 > [!TIP]
-> Some users have reported that the *4.35V* setting is ineffective, with the maximum charging voltage remaining at *4.2V*. Batteries must explicitly support *4.35V* to utilize this setting. Many standard *Li-Ion* batteries with built-in BMS will cut off power above *4.2V*. Additionally, their internal resistance increases sharply beyond this voltage, causing the charging current to taper naturally. To use the *4.35V* setting, ensure your batteries are specifically designed for *4.35V* operation.
-
-### Selecting Appropriate Battery Capacity
-Given the high performance of the *IP5306*, selecting a suitable battery is critical. Batteries that are too small can lead to overcharging and/or over-discharging, increasing the risk of fire hazards. 
-
-Generally, you will need a battery with a minimum capacity of around *3,500mAh*.
+> If you'd like to keep your portable device or powerbank small, and use only a small battery below *3.500mA*, then you must use a **I2C-enabled IP5306** version, i.e. [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/), and **lower the charging current appropriately**. With **IP5306**, there is no external way to adjust charging current, i.e. through resistors or solder bridges. You can only *program* it using *I2C* and a microcontroller.
 
 #### Key Considerations:
-- **High Charging Current:**  
-  The charging current is fixed at *2.4A*. At a *1C* charge rate, the battery must have a capacity of at least *2,400mAh* to safely handle this current. 
 
-- **High Power Output:**  
-  The chip can supply up to *10W* to its power output. When the battery voltage drops to *3V* near depletion, a *10W* output at *90% conversion efficiency* requires approximately *3.5A*. At a *1C* discharge rate, the battery must have a capacity of at least *3,500mAh*. 
+Due to this powerful chip, the battery must support a charging current of **2.A** and a discharge rate of **4A**.
 
-- **Minimum Capacity:**    
-  Due to the fixed charging current, at *1C* charge rate, your battery **must have** a capacity of **at least** *2.400mAh*. Assuming a *1C* discharge rate as well, at this capacity the battery could deliver a maximum output current of *2.4A*. When the battery is close to depletion at *3V*, this allows for a maximum of *6.5W* power output (*1.3A* at *5V* output).
-- **Recommended Minimum Capacity:**    
-  To take advantage of the maximum *2A* output (10W) that this chip supports, your battery capacity must be at least *3.500mAh* at an assumed *1C* discharge rate.
+If the battery is less capable, ensure that your connected load requires less power.
 
 > [!TIP]
-> If the chip stops charging after only a few minutes and reports the battery as fully charged when it is not, this might indicate that the battery is too small for the *2.4A* charging current. Overcharging a small battery can cause its voltage to temporarily rise too quickly, triggering the chip's early cut-off protection.
+> If the chip stops charging after only a few minutes and reports the battery as fully charged when it is not, this might indicate that the battery is too small for the *2.1A* charging current. Overcharging a small battery can cause its voltage to temporarily rise too quickly, triggering the chip's early cut-off protection.
 
 
 <details><summary>Risk: Low-Performance Batteries</summary><br/>
-Low-performance *Li-Ion*/*Li-Po* batteries, such as the one shown below, can be a perfect and affordable choice for projects requiring only small currents.  
-
-However, it is **essential** to understand their **limitations** before using them with *high performance* chips like the *IP5306*.
+Low-performance *Li-Ion*/*Li-Po* batteries, such as the one shown below, can be a perfect and affordable choice for projects requiring only small currents, however they typically have a maximum charging rate of **0.3C** (*0.3 x battery capacity*, i.e. **1A** for a *3000mA* battery).
 
 <img src="images/makerfocus_battery_3000_t.png" width="40%" height="40%" />
 
-In the calculations discussed earlier, a default *1C* charge and discharge rate was assumed. This means the current can reach the same value as the battery's total capacity. For example, with a *3000mAh* battery like the one depicted, a *1C* rate would allow for a charge or discharge current of *3A*.  
+The maximum *discharge* rate may be even less.
 
-However, low-performance batteries often fall short of the *1C* standard. For the battery shown:  
-- **Maximum charge current:** **0.2C** (*600mA*)  
-- **Maximum discharge current:** **0.5C** (*1,500mA*)  
-
-If this battery were connected to the *IP5306*, the chip's fixed charging current of *2,400mA* would exceed the battery's maximum safe charge current by four times, potentially damaging the battery and creating safety hazards.
+Such batteries are *unsuited* for high-performance power management chips such as the **IP5306** unless you either use [I2C-enabled versions](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) and re-configure their defaults, and/or make sure your load isn't drawing more power than can be safely supplied by your battery.
 
 
 </details>
+
+
+
+
+
+### Battery Voltage
+By default, *IP5306* is designed for *Li-Ion* and *Li-Po* batteries with a maximum voltage of *4.2V*. 
+
+> [!TIP]
+> With *I2C-enabled* versions of this chip, you can fine-tune the battery cell voltage in steps of `4.20/4.30/4.35/4.40` volts. Setting these voltages requires that your battery indeed supports them. Else, standard *Li-Ion* batteries with built-in BMS will cut off power above *4.2V*, and internal resistance increases sharply beyond their design voltage, causing the charging current to taper naturally. 
+
+### BMS and Protection
+It is always recommended to use batteries with built-in *BMS* for added safety. However, *IP5306* comes with a number of protections:
+
+Output protections:
+
+* **Over-Current detection:**    
+  Output voltage **<4.4V** for over *30ms*
+* **Short-Circuit Protection:**   
+  Output current **>4A** for over *200us*
+
+Battery protections:
+
+* **Over-Discharge:**     
+  turns off battery when voltage **<3.0V** 
+* **Over-Charge:**   
+  Charge termination at *4.2V*, safety timer cuts off at **<24h**
+* **Under-Voltage:**    
+  Trickle charge (*100mA*) when battery voltage *<2.9V*
+* **Over-Voltage:**    
+  Turns off charging when battery voltage **>4.2V**
+* **Over-Current:**    
+  Limits charging to **2.1A** max., and limits further if charger voltage drops too much
+* **Auto-Recharge:**     
+  Starts when battery voltage *<4.1V*
+
+General protections:
+
+* Thermal shutdown (at *125C*)
+
+* **Over-Current:**    
+
+#### Missing Protections
+**IP5306** is missing these protections:
+
+* **Temperature Sensor:**   
+  No support for external temperature sensors. External temperature sensors typically detect catastrophic battery failures during charging.   
+* **Revers Battery Polarity:**     
+  Connecting the battery in reverse polarity destroys the chip. Since rechargeable batteries are typically not serviceable in portable devices and powerbanks, such a protection is normally not needed (with proper assembly). If you plan to use battery bays with user-serviceable battery cells, you may want to add an *ideal diode*.
+
 
 
 ## Charging
@@ -144,7 +194,7 @@ Charging and discharging are separate features, and you can use the *IP5306* for
 | Item                         | Description                    |
 |------------------------------|--------------------------------|
 | Input Voltage                | *5-5.5V*                      |
-| Charging Current             | *2.4A*                        |
+| Charging Current             | *2.1A*                        |
 | Charge Switching Freq.       | *750kHz*                      |
 | Charging Cut-Off Voltage     | *4.2V* or *4.35V* (configurable)   |
 | Charging Efficiency          | *91%*                         |
@@ -190,7 +240,7 @@ The chip includes a robust and efficient boost converter capable of supplying *5
 |-----------------------|--------------------------------|
 | Output Voltage        | *5-5.15V* (USB-A, 5V pads)    |
 | Output Voltage Ripple | *50mV*                        |
-| Output Current        | max. *2.1A*                   |
+| Output Current        | max. *2.4A*                   |
 | Indicator LED Current | *4mA* each                    |
 | Off Current           | *<50µA*                       |
 | Standby Current       | *<100µA*                      |

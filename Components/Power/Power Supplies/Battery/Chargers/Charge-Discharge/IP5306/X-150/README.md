@@ -42,7 +42,7 @@ On the backside of the board, a *USB-A* connector can be mounted if you want to 
 
 <img src="images/ip5306_x-150_back_t.png" width="40%" height="40%" />
 
-If you want to use this module to permanently power *one specific* device, i.e. a microcontroller development board, you do not need the bulky USB-A connector. Instead, use two solder pads marked *5V* on the front side that supply *5V 2.1A*.
+If you want to use this module to permanently power *one specific* device, i.e. a microcontroller development board, you do not need the bulky USB-A connector. Instead, use two solder pads marked *5V* on the front side that supply *5V 2.4A*.
 
 <img src="images/ip5306_x-150_connectors_output_t.png" width="40%" height="40%" />
 
@@ -58,7 +58,7 @@ Once you connect a USB-C power supply, the boost converter is turned off, and ch
 
 This has a number of consequences you should know and consider:
 
-* **High Input Power Requirements:** the chip charges the battery with up to *2.4A* (10.5W) while simultaneously providing up to *5V 2.1A* (10.5W) to the power output. During charging, *both* is powered by the *USB-C* input. The combined output power is *21W*. Your *USB-C power supply* must be capable of delivering up to *22W*/*4.5A* at *5V*.
+* **High Input Power Requirements:** the chip charges the battery with up to *2.1A* while simultaneously providing up to *5V 2.4A* (12W) to the power output. During charging, *both* is powered by the *USB-C* input. The combined output power is *22W*. Your *USB-C power supply* must be capable of delivering up to *22W*/*4.5A* at *5V*.
 * **Short Interruption:** the chip needs to switch power paths once a *USB-C power source* is added or removed. Plugging in or unplugging the *USB-C* cable may therefore cause a brief power interruption, potentially rebooting connected microcontroller boards. Adding a sufficiently large capacitor to the power input can mitigate this issue.
 
 ### Push Button
@@ -86,7 +86,7 @@ A *torch LED* can be connected in parallel to the push button using a *100Ω* se
 
 ## Charging Mode
 
-The charger activates automatically when a power supply is connected to the *USB-C* port, charging the battery at up to *2.4A*. It requires a *5V 2A* input. For detailed charging specifications, refer to the [*IP5306* documentation](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/).
+The charger activates automatically when a power supply is connected to the *USB-C* port, charging the battery at up to *2.1A*. It requires a *5V 2A* input. For detailed charging specifications, refer to the [*IP5306* documentation](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/).
 
 By default, the charging cut-off voltage is set to *4.2V*, which is suitable for most *Li-Ion* and *Li-Po* batteries. Near the *100%* mark on the built-in indicator LEDs, there are two tiny solder pads. Bridging these pads raises the cut-off voltage to *4.35V*.
 
@@ -97,7 +97,7 @@ By default, the charging cut-off voltage is set to *4.2V*, which is suitable for
 
 ## Supplying Power
 
-The module provides *5V* at up to *2A* via the *USB-A connector* or *5V solder pads*. Advanced quick-charge protocols are not supported.
+The module provides *5V* at up to *2.4A* via the *USB-A connector* or *5V solder pads*. Advanced quick-charge protocols are not supported.
 
 <img src="images/ip5306_x-150_leds3.png" width="60%" height="60%" />
 
@@ -125,4 +125,4 @@ When the module is charging, the buttons have no effect, and the load remains po
 
 > Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, USB, 1S, X-150, IP5306, FM5324GA
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150?160929011912250937) - created 2025-01-11 - last edited 2025-01-15
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150?160929011912250937) - created 2025-01-11 - last edited 2025-07-11
