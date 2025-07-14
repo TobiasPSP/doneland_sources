@@ -160,7 +160,7 @@ Output protections:
 Battery protections:
 
 * **Over-Discharge:**     
-  turns off battery when voltage **<3.0V** 
+  turns off battery when voltage **<3.25V** (may vary with internal configuration)
 * **Over-Charge:**   
   Charge termination at *4.2V*, safety timer cuts off at **<24h**
 * **Under-Voltage:**    
