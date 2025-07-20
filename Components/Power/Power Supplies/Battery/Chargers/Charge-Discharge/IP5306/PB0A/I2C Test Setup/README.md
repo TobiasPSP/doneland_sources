@@ -413,7 +413,7 @@ Vin Current: 22
 (...)
 ````
 
-### Solving Connection Issues
+### Solving I2C Connection Issues
 If no *I2C* connection can be established, status messages are emitted:
 
 ````
@@ -431,7 +431,10 @@ If no *I2C* connection can be established, status messages are emitted:
     Keep in mind:     
     * once you established *I2C* connection **once**, *IP5306* knows that you are using *I2C* and will accept connections in the future (until you completely remove power from **PB0A** in which case it resets to default behavior again).
     * if you **change** settings via *I2C*, these changes will stay in effect until you *disable power output*. Custom settings must be set **each time the power output is activated**.
-
+* **Other Reasons:**      
+  A breadboard design can have many other points of potential failures, due to the relatively high speed of the *I2C* interface which operates at *400kHz*:     
+    * **Cable length:** long *I2C* cables may introduce noice and capacitance. Try and reduce cable lenghts.
+    * **Connectors:** when using a breadboard, make sure all DuPont plugs are securely plugged. If in doubt, replace pluggable DuPont wires with soldered connections.
 
 
 ### Next Steps
