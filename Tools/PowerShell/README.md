@@ -7,6 +7,12 @@
 
 **PowerShell** is a modern scripting language [available](https://github.com/PowerShell/PowerShell/releases) cross-platform for *Windows*, *Linux*, *MacOS* and many other operating systems.
 
+I am using custom PowerShell commands to easily calculate LED resistors, to convert audio file formats, and for many other purposes. So can you: I freely share all my custom commands with you. They are all contained in the PowerShell Module `donelandtools` which you can [easily download and install](https://done.land/tools/powershell/#install-donelandtools).
+
+Before new commands are merged to the module `donelandtools`, I keep them as separate functions to extensively test-drive them. Once they work as expected, they eventually are added to the module `donelandtools`.
+
+New commands are 
+
 ## Installing PowerShell
 
 On *Windows*, you do not necessarily need to install **PowerShell**: *Windows PowerShell* is part of the operating system: press `Win`+`R` to open the *Run* dialog.
@@ -48,9 +54,9 @@ The cross-platform **PowerShell** displays as a *black* console.
 > **PowerShell** is actively developed: its *versions* increment rapidly. *Version 7.4.0* as depicted above is probably long outdated and replaced by a higher version number when you read this. 
 
 
-## Install DoneLandTools
+## Install Module `DoneLandTools`
 
-It's extremely *simple* to add new *Done.Land* **PowerShell** commands to your *PowerShell*: the module *DoneLandTools* is available for installation from the Microsoft [PowerShellGallery](https://www.powershellgallery.com/packages/DoneLandTools).
+It's *simple* to add new *Done.Land* **PowerShell** commands to your *PowerShell*: the module *DoneLandTools* is available for installation from the Microsoft [PowerShellGallery](https://www.powershellgallery.com/packages/DoneLandTools).
 
 > **PowerShell** comes with a basic set of *general-purpose* commands. You extend them for your *specific needs and use cases* by adding additional *modules* that provide *more specific* commands.
 
@@ -63,7 +69,7 @@ Install-Module -Name DoneLandTools -Scope CurrentUser -Force
 > [!TIP]
 > The switch `-Force` omits confirmation dialogs. If you'd rather see them, omit `-Force`. Modules are downloaded from the *Microsoft PowerShell Gallery*. Since this is a *public* place, and *Microsoft* is not taking responsibility for any materials you download from there, you need to confirm your choice.
 
-### Module Installation Fails
+### When Module Installation Fails...
 
 Should the above command be unable to download the module, check these items:
 
@@ -71,6 +77,16 @@ Should the above command be unable to download the module, check these items:
 * **Permissions:** within company networks, access to the gallery may be restricted.
 * **Conflicts:** when an *existing* module added commands with the *same name* as commands in *DoneLandTools*, a *name conflict* would occur, and the new module cannot be installed. Either remove the conflicting module that is already present, or add the switch parameter `-AllowClobber` to install the *DoneLandTools* module anyway.
 * **Outdated:** *Windows PowerShell* may use outdated libraries. Try updating them using this command: `Install-Module -Name PowerShellGet -Scope CurrentUser -Force`
+
+### Update Module
+
+Every now and then new commands are added to the module `donelandtools`. To check whether your module is still up-to-date, run this:
+
+````powershell
+Update-Module -Name DoneLandTools
+````
+
+This command automatically checks for new versions, and if present, updates your module to the latest version.
 
 ## DoneLand Commands
 
