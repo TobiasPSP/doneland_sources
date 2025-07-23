@@ -26,16 +26,6 @@ Do **not** use this level shifter for signals faster than *400kHz* or those requ
 - UART at high speed
 - WLED (programmable LED control)
 
-### WLED / WS2812 LED Strips
-
-Popular addressable LED strips are a use case where selecting the appropriate level shifter is important. When such *5V* strips are controlled by *3.3V* microcontrollers, a level shifter is often needed.
-
-> [!NOTE]
-> You can get away with using a less suited level shifter (or none at all) when the wire connection to the strip is short, the ground line is separated, and/or the LED strip itself is short. However, once your setup becomes more extensive, 
-
-General purpose bidirectional shifters (like `TXS0108E`) or MOSFET-driven I2C-oriented shifters (like the one discussed here) present significant reliability and performance problems when used to drive addressable LED data lines. Those level shifters are designed for bidirectional, low-power data lines (like I²C or GPIO), but not for protocols requiring strong, fast, one-way signal edges such as NeoPixel/WS28xx LEDs.
-
-For *WLED*/programmable LED, use level shifters based on chips like `SN74AHCT125/245`, `SN74HCT14/04`, or similar fast, unidirectional logic chips.
 
 ## Overview
 

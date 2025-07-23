@@ -95,4 +95,4 @@ In practice, for slow signal translation, these level shifters usually work fine
 
 > Tags: 12V, 18V, EzSBC, Unidirectional Level Shifter, Voltage Level Translator, Car Electronics, Automotive Voltage, High Voltage Logic, CD4504B, LS1, LS2, LS3
 
-
+[Visit Page on Website](https://done.land/components/signalprocessing/levelshifter/ezsbc?580150071922254412) - created 2025-07-21 - last edited 2025-07-21
