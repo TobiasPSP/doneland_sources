@@ -14,14 +14,16 @@
 
 ## Overview
 
-*TXS0108E* is a fast and robust **general purpose level shifter** that works equally well with open-drain protocols (i.e. *I2C*) and push-pull (i.e. *SPI*, *UART*). It is *directionless* (bidirectional), so it translates signals from either side.
+*TXS0108E* is a fast and robust **general purpose level shifter** that works equally well with open-drain protocols (i.e. *I2C*) and push-pull (i.e. *SPI* at moderate speeds, *UART*). It is *directionless* (bidirectional), so it translates signals from either side.
+
 
 The low voltage side can be in the range of *1.4-3.6V*, and the high voltage side supports *1.65-5.5V*. Both sides must share the same ground, and the low voltage side **must never be higher** than the high voltage side (*LV <= HV*).
 
 
 <img src="images/txs0108e_levelshift_back_t.webp" width="50%" height="50%" />
 
-*TXS0108E* is not a good choice for *WLED*/*WS2812*/programmable LED projects. For this, use level shifters based on chips like `SN74AHCT125/245`, `SN74HCT14/04`, or similar fast, unidirectional logic chips.
+> [!IMPORTANT]
+> The **signal current** (signal strength) produced by this chip is limited and does not work well for signal protocols that require strong signals over long wires, i.e. *WLED*/*addressable LED strips*. **Do not use TX0108E for WLED.**    
 
 
 ### Special Features
@@ -73,4 +75,4 @@ When pin `OE` is pulled to `GND`, the level shifter can be disabled. Leave this 
 
 > Tags: TXS0108E, TXB0108E, I2C, One-Wire, SMBus, UART, SPI, HW221, HW-221
 
-[Visit Page on Website](https://done.land/components/signalprocessing/levelshifter/txs0108e?523047071722255423) - created 2025-07-21 - last edited 2025-07-21
+[Visit Page on Website](https://done.land/components/signalprocessing/levelshifter/txs0108e?523047071722255423) - created 2025-07-21 - last edited 2025-07-22
