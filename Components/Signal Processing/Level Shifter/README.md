@@ -273,6 +273,6 @@ Optocouplers can provide isolation, but are generally too slow for modern fast i
 - **Do not rely on resistor dividers for bidirectional protocols** (like I²C) or for fast signals.
 - **For discrete MOSFET shifters, assign LV/HV per expected voltage ranges,** and avoid LV > HV where possible.
 
-> Tags: Level Shifter, Logic Level Converter, BSS138, TXS0108E, TXB0108, SN74LVC245, 74LVC245, PCA9306, LSF0102, Pololu Level Shifter, MAX3394E, MAX232, MAX3232, MAX3243, MAX233, SN74AHCT125N, SN74AHCT245, SN74HCT14, SN74HCT04, CD40109B, EzSBC LS2, EzSBC LS3, TCA9517A, NLSX4373, TXS0102, 2N7001T, Voltage Divider, Voltage Crossing, Body Diode Effect, ESD Protection, MOSFET Level Shifter, Chip-based Level Shifter, Discrete Level Shifter, I2C, UART, SPI, RS232, Open-Drain, Push-Pull, Pull-up Resistor, GPIO, WLED, NeoPixel, WS2812, Addressable LED, 1-Wire, IP5306, LiIon, ISO1540, ISO1640, Optocoupler, Galvanic Isolation
+> Tags: BSS138, TXS0108E, TXB0108, SN74LVC245, 74LVC245, PCA9306, LSF0102, MAX3394E, MAX232, MAX3232, MAX3243,  CD40109B, EzSBC, LS2, LS3, TCA9517A, NLSX4373, TXS0102, 2N7001T, I2C, SPI, RS232, WLED, NeoPixel, WS2812, 1-Wire, ISO1540, ISO1640, Optocoupler, Galvanic Isolation
 
 [Visit Page on Website](https://done.land/components/signalprocessing/levelshifter?519094071721255105) - created 2025-07-20 - last edited 2025-07-22

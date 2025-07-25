@@ -2,7 +2,7 @@
 
 # PB0A I2C Production Setup
 
-> Accessing PB0A I2C Interface In Power-Management Applications
+> Using PB0A I2C Interface In Power-Management Applications
 
 **PB0A** provides great opportunities to control and fine-tune the power management functions via a microcontroller and its *I2C* interface. 
 
