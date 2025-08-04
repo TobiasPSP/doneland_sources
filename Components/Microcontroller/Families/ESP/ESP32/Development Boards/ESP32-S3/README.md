@@ -15,29 +15,11 @@ Some resources like SRAM and ROM are slightly reduced, but overall, the S3 is a 
 
 The *ESP* family of microcontrollers has grown quite large and has become somewhat confusing. Here is a quick overview:
 
-| Microcontroller | Remark | Successor |
-| --- | --- | --- |
-| [ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/) | Single-Core Simple MCU, many users transitioned to this MCU from *Arduino* | [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/) |
-| [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) | Powerful Two-Core MCU, has become DIY default for many projects | **ESP32-S3** |
-
 For general tasks, the *ESP32-S3* speed is similar to *ESP32S*. The *ESP32-S3* excels though with computation-heavy tasks due to its better math coprocessor.
 
-### Specialized ESPs
-Most other not mentioned ESP family members focus on new radio standards such as *Thread* and *Matter* as well as *WiFi 5GHz*. Unless you require support for this, you can ignore MCUs such as *ESP32-C6* or *ESP32-H2*.
 
-| Microcontroller | Remark  | Key Radio Standards |
-| --- | --- |  --- |
-| **ESP32-C6** | Adds Wi-Fi 6, Thread, Zigbee |  Wi-Fi 6 (2.4 GHz), BLE 5.0, IEEE 802.15.4 (Thread, Zigbee) |
-| **ESP32-H2** | Focus on Thread/Zigbee, no Wi-Fi |  IEEE 802.15.4 (Thread, Zigbee), BLE 5.2 |
-| **ESP32-P4** | Newest member, supports Wi-Fi 5 GHz |  Wi-Fi 2.4 GHz & 5 GHz, BLE 5.x |
+### ESP32-S3 vs ESP32S
 
-
-## Upgrade Path
-
-It is recommended to keep some *ESP8266* and *ESP32S* to stay compatible with the older projects and sample codes that were developed for these two MCUs, but for *new projects*—regardless of whether you used *ESP8266* or *ESP32S* before—it makes sense to look at transitioning to the more modern variants:
-
-* [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/): most simple projects, very cost-efficient and small
-* **ESP32-S3:** projects that would previously have used a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/), i.e. use cases that require higher computational power such as camera projects.
 
 To help decide whether the classic *ESP32S* or the newer *ESP32-S3* is right for you, here is a table with the key differences:
 
@@ -54,6 +36,9 @@ To help decide whether the classic *ESP32S* or the newer *ESP32-S3* is right for
 | compatibility to older projects/example code | ✅ | |
 
 Neither one comes with modern *Thread* wireless radio (802.15.4). Currently the only ESP microcontroller that natively supports 802.15.4 (required for *Thread* and *Zigbee*) is the *ESP32-H2*.
+
+> [!TIP]
+> Keep some *ESP8266* and *ESP32S* to stay compatible with the older projects and sample codes that were developed for these two MCUs, but 
 
 ## Limitations
 Some useful features found in *ESP32S* have been removed in *ESP32-S3*:
