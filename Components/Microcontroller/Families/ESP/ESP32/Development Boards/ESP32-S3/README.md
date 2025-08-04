@@ -5,29 +5,36 @@
 
 > Modern Successor of ESP32S
 
-The ESP32-S3 is the modern successor to the [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/), offering more power and features. 
+The ESP32-S3 is the modern successor to the [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/).
 
-Compared to the original ESP32, the S3 removes some rarely used features (like the Hall Sensor and DAC) to provide more GPIO pins, a temperature sensor, and BLE 5.0 support. It also introduces new features such as AI acceleration, more ADC channels, more touch inputs, and USB OTG. 
+Compared to the original ESP32, the S3 removes some rarely used features (like the Hall Sensor and DAC) to provide more GPIO pins, a dedicated camera interface, and BLE 5.0 support as well as AI acceleration, more ADC channels, more touch inputs, and USB OTG.
 
 Some resources like SRAM and ROM are slightly reduced, but overall, the S3 is a more capable and versatile chip designed for advanced applications.
 
-
 ## Overview
 
-The *ESP* family of microcontrollers has grown quite large and has become somewhat confusing. So here is a quick overview to help you relate the *ESP32-S3* to other ESP family members:
+The *ESP* family of microcontrollers has grown quite large and has become somewhat confusing. Here is a quick overview:
 
 | Microcontroller | Remark | Successor |
 | --- | --- | --- |
 | [ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/) | Single-Core Simple MCU, many users transitioned to this MCU from *Arduino* | [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/) |
 | [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) | Powerful Two-Core MCU, has become DIY default for many projects | **ESP32-S3** |
 
-For general tasks, the *ESP32-S3* speed is similar to *ESP32S*.
+For general tasks, the *ESP32-S3* speed is similar to *ESP32S*. The *ESP32-S3* excels though with computation-heavy tasks due to its better math coprocessor.
+
+### Specialized ESPs
+Most other not mentioned ESP family members focus on new radio standards such as *Thread* and *Matter* as well as *WiFi 5GHz*. Unless you require support for this, you can ignore MCUs such as *ESP32-C6* or *ESP32-H2*.
+
+| Microcontroller | Remark  | Key Radio Standards |
+| --- | --- |  --- |
+| **ESP32-C6** | Adds Wi-Fi 6, Thread, Zigbee |  Wi-Fi 6 (2.4 GHz), BLE 5.0, IEEE 802.15.4 (Thread, Zigbee) |
+| **ESP32-H2** | Focus on Thread/Zigbee, no Wi-Fi |  IEEE 802.15.4 (Thread, Zigbee), BLE 5.2 |
+| **ESP32-P4** | Newest member, supports Wi-Fi 5 GHz |  Wi-Fi 2.4 GHz & 5 GHz, BLE 5.x |
+
 
 ## Upgrade Path
 
-It is always wise to keep some *ESP8266* and *ESP32S* to stay compatible with the older projects and sample codes that were developed for these two MCUs.
-
-However, for new projects - regardless of whether you used *ESP8266* or *ESP32S* before - it makes sense to look at transitioning to the more modern variants:
+It is recommended to keep some *ESP8266* and *ESP32S* to stay compatible with the older projects and sample codes that were developed for these two MCUs, but for *new projects*—regardless of whether you used *ESP8266* or *ESP32S* before—it makes sense to look at transitioning to the more modern variants:
 
 * [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/): most simple projects, very cost-efficient and small
 * **ESP32-S3:** projects that would previously have used a [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/), i.e. use cases that require higher computational power such as camera projects.
@@ -49,7 +56,7 @@ To help decide whether the classic *ESP32S* or the newer *ESP32-S3* is right for
 Neither one comes with modern *Thread* wireless radio (802.15.4). Currently the only ESP microcontroller that natively supports 802.15.4 (required for *Thread* and *Zigbee*) is the *ESP32-H2*.
 
 ## Limitations
-Some useful features found in *ESP32S* have been removed in *ESP32-S3*. Here are the key differences: 
+Some useful features found in *ESP32S* have been removed in *ESP32-S3*:
 
 | Feature | Removal |
 | --- | --- |
@@ -71,20 +78,35 @@ Some useful features found in *ESP32S* have been removed in *ESP32-S3*. Here are
 | --- | --- |
 | Bluetooth | BLE 5.0 instead of BLE 4.2 (**but no support for Bluetooth Classic anymore**) |
 | ADC | 18 instead of 20 |
+| Digital Video Port | ✅ | 
 | Touch | 14 instead of 10 |
 | Temperature Sensor | ✅ (but just for the MCU temperature, not environmental) |
 | GPIO | 45 instead of 34 |
 | SD Host | 2 instead of 1 (no SD Slave support anymore) |
 | USB OTG | ✅ |
+| Math Coprocessor | significantly extended |
+
 
 ### Camera Support
 Traditionally, *ESP32S* has often been used with camera modules, implementing surveillance systems and face recognition.
 
-The *ESP32-S3* - while running at comparable clock rates - improves these use cases significantly. Its *AI Acceleration Support* improves a wide range of computational tasks, allowing for more efficient image manipulation, edge detections, face recognition, and related AI-based tasks. 
+The *ESP32-S3*—while running at comparable clock rates—improves these use cases significantly. Its *AI Acceleration Support* improves a wide range of computational tasks, allowing for more efficient image manipulation, edge detections, face recognition, and related AI-based tasks.
 
-In addition, The **ESP32-S3** features dedicated hardware support for parallel camera interfaces, specifically the *DVP* (*Digital Video Port*) interface. This allows the S3 to connect directly to camera modules (like the *OV2640* or *OV7670*) using an 8-bit parallel data bus, along with dedicated pins for pixel clock (PCLK), horizontal sync (HREF), and vertical sync (VSYNC).
+In addition, the **ESP32-S3** features dedicated hardware support for parallel camera interfaces, specifically the *DVP* (*Digital Video Port*) interface. This allows the S3 to connect directly to camera modules (like the *OV2640* or *OV7670*) using an 8-bit parallel data bus, along with dedicated pins for pixel clock (PCLK), horizontal sync (HREF), and vertical sync (VSYNC).
 
 The *ESP32S* can connect to cameras using its *I2S* peripheral in parallel mode, but this is a workaround and not a dedicated camera interface. It is less efficient, can be more complex to implement, and is limited by the number of available GPIOs and the lack of hardware acceleration for camera data. As a result, the ESP32S typically supports lower frame rates and resolutions for camera applications, and the CPU is more heavily loaded during image capture.
+
+## Math Coprocessor
+Both have a dedicated math coprocessor and built-in math acceleration, however the capabilities of *ESP32-S3* are much extended. This can lead to *significant* improvements for computational intense applications (speed, higher resolutions, better frame rates), i.e. *AI* or *cameras/image processing*:
+
+| Feature                  | ESP32S (Xtensa LX6)                  | ESP32-S3 (Xtensa LX7)                      |
+|--------------------------|--------------------------------------|--------------------------------------------|
+| Math Coprocessor (FPU)   | ✅ (single-precision floating point)| ✅ (single-precision floating point)      |
+| Vector Instructions      | ❌                                   | ✅ (for AI acceleration and SIMD math)    | |
+| AI Acceleration          | ❌                                   | ✅ (dedicated vector extensions)          |
+| Integer Performance      | ++                                 | ++++ (architectural enhancements)      |
+| Floating Point Performance| ++                                | +++                          |
+| Use Cases                | General math, DSP                    | General math, DSP, AI, Image Processing    |
 
 
 ## Detailed Comparison
@@ -99,22 +121,22 @@ The *ESP32S* can connect to cameras using its *I2S* peripheral in parallel mode,
 | **Bluetooth**      | v4.2 (Classic + BLE)                     | v5.0 (BLE only, no Classic)              |
 | **GPIO**           | 34                                       | 45                                       |
 | **ADC Channels**   | 18                                       | 20                                       |
+| **Digital Video Port** | ❌ | ✅|
 | **Touch Inputs**   | 10                                       | 14                                       |
-| **AI Acceleration**| No                                       | Yes (vector instructions)                |
-| **USB OTG**        | No                                       | Yes                                      |
-| **Temperature Sensor** | No                                   | Yes                                      |
-| **DAC**            | Yes (2 channels)                         | No                                       |
-| **Hall Sensor**    | Yes                                      | No                                       |
+| **AI Acceleration**| ❌                                       | ✅ (vector instructions)                |
+| **USB OTG**        | ❌                                       | ✅                                      |
+| **Temperature Sensor** | ❌                                   | ✅                                      |
+| **DAC**            | ✅ (2 channels)                         | ❌                                       |
+| **Hall Sensor**    | ✅                                      | ❌                                       |
 
 ## Recommendation
 
-* **ESP32-S3:** more GPIO, improved BLE (v5.0), USB OTG, slightly lower power consumption, and better AI/vector processing. 
+* **ESP32-S3:** more GPIO, improved BLE (v5.0), camera support, image processing, USB OTG, slightly lower power consumption, and better AI/vector processing.
 
-* **ESP32S:** support for *Bluetooth Classic*, built-in *DAC*, Hall sensor. Ideal for maximum compatibility with older projects and libraries. It’s still a solid choice for many existing designs.
+* **ESP32S:** *Bluetooth Classic*, built-in *DAC*, Hall sensor. Maximum compatibility with older projects and libraries. Still a solid choice for many existing designs.
 
-> [!TIP]
-> For most **new** projects, *ESP32-S3* is recommended. *ESP32S* is the better choice if you'd like to use projects or firmware originally developed for *ESP32S* although many source code can be adjusted to *ESP32-S3* with little effort.
 
-> Tags: Microcontroller, ESP32, S3, ESP32-S3
 
+> Tags: Microcontroller, ESP32, S3, ESP32-S3, ESP32S, ESP32-C3, ESP32-S2, ESP32-H2, BLE, Bluetooth, USB, AI, Camera, Thread, Zigbee,
+ 
 [Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s3?530017031823244200) - created 2024-03-23 - last edited 2025-08-02

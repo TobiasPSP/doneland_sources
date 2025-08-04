@@ -4,17 +4,48 @@
 
 > High-Powered Single- And Dual-Core Microcontrollers With WiFi, Bluetooth, And Now Also Zigbee And Thread Support
 
+ESP microcontrollers are renown for their affordability, performance, and well-balanced feature set including support for wireless communications. 
+
+This makes ESP microcontrollers very popular for DIY projects.
+
+On the downside, ESP microcontrollers are power-hungry and may not the best choice for battery-powered portable devices. Their power consumption during normal operation is well above *100mA*, whereas the most power-efficient microcontrollers (i.e. the *Nordic nRF52* series (such as the *nRF52840*) consume just *4-8mA*.
+
+## Overview
+
+The ESP family of microcontrollers has grown quite large over time. For general purpose DIY projects, however, only a few models are relevant:
 
 
-## ESP32 Microcontroller Types
-The **ESP32** processor family is the **ESP8266** *successor* and surfaced in 2016 with the *ESP32 WROOM* and *ESP32 WROVER*. 
+| Microcontroller | Remark | Successor |
+| --- | --- | --- |
+| [ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/) | Single-Core Simple MCU, many users transitioned to this MCU from *Arduino* | [ESP32-C3](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-c3/), [ESP32-S2](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s2/) |
+| [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) | Powerful Two-Core MCU, has become DIY default for many projects | **ESP32-S3** |
 
-The *ESP32* family has since evolved with many more variants. The [Expressif Product Comparison](https://products.espressif.com/#/product-comparison) provides a complete list of models and specs. 
+The first ESP microcontroller with overwhelming traction was the [ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/). In 2016, the much more powerful dual-core [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) started to replace the *ESP8266* and established itself as an affordable general-purpose DIY standard.
 
-Here is a quick reference covering the most commonly used *ESP32* types, and their most important specs:
+While this is still the case, meanwhile a number of successor microcontrollers surfaced. In a nutshell: 
+
+* for simple projects that used *ESP8266* previously, today *ESP32-S2* or *ESP32-C3* are used.
+* for more advanced projects that used *ESP32S* before, today *ESP32-S3* often is a better choice.
+
+The [Expressif Product Comparison](https://products.espressif.com/#/product-comparison) provides a complete list of models and specs. 
 
 
-| Feature | [ESP32](ESP32) | [S2](S2) | [S3](S3) | [C3](C3) | [C6](C6)  | H2 |ESP8266 |
+### Specialized ESP32 Models
+Some ESP family members focus primarily on new radio standards such as *Thread*, *Matter*, and *WiFi 5GHz*. 
+
+Unless this is important for you, you can safely ignore these MCUs:
+
+| Microcontroller | Remark  | Key Radio Standards |
+| --- | --- |  --- |
+| **ESP32-C6** | Adds Wi-Fi 6, Thread, Zigbee |  Wi-Fi 6 (2.4 GHz), BLE 5.0, IEEE 802.15.4 (Thread, Zigbee) |
+| **ESP32-H2** | Focus on Thread/Zigbee, no Wi-Fi |  IEEE 802.15.4 (Thread, Zigbee), BLE 5.2 |
+| **ESP32-P4** | Newest member, supports Wi-Fi 5 GHz |  Wi-Fi 2.4 GHz & 5 GHz, BLE 5.x |
+
+
+### History
+To better understand how the ESP family of MCU evolves, here is a comparison:
+
+| Feature | [ESP32](ESP32) | [S2](S2) | [S3](S3) | [C3](C3) | [C6](C6)  | H2 |[ESP8266](https://done.land/components/microcontroller/families/esp/esp8266/) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Launch | 2016 |  2019 | 2020 | 2020 | 2021 | 2021 | 2014 |
 | Core Type | LX6 | LX7 | LX7 | RISC-V | RISC-V | RISC-V | L106
@@ -22,44 +53,46 @@ Here is a quick reference covering the most commonly used *ESP32* types, and the
 | Frequency | 240 | 240 | 240 | 160 | 160 | 96 | 160 |
 | Voltage | 2.3-3.6 | 3.0-3.6| 3.0-3.6 | 3.0-3.6 | 3.0-3.6 | 3.3-3.6 | 2.5-3.6 |
 | GPIOs | 34 | 43 | 45 | 22 | 30 | 19 |17 |
-| SRAM KB | 520 | 320 | 512 | 400 | 512 | 256 |160 |
+| SRAM KB | 520 | 320 | 512 | 400 | 320 | 256 |160 |
 | RTC/LP SRAM KB | 16 | 16 | 16 | 8 | 16 | 4 | 1 |
 | int Flash MB | 0/2/4 | 0/2/4 | 0/8 | 0/4 | 0/4 | 2/4 | 4 |
 | Cache KB | 64 | 8/16 | 16 | 16 | 16 | 16 | 32 |
 | ROM KB | 448 | 128 | 384 | 384 | 320 | 128 | 0 |
-| ADC | 2x12bit 18ch | 2x13bit 20ch | 2x12bit 20ch | 2x12bit 6ch | 1x12bit 7ch | 1x12bit 5ch | 1x10bit 1ch |
-| DAC | 2x8bit | 2x8bit | -  | - | -  | -  |- |
-| Timers | 4x64bit | 4x64bit | ? | 2x54bit/1x52bit | ? | 2x54bit | 2x23bit |
+| ADC | 2x12bit 18ch | 2x13bit 20ch | 2x12bit 20ch | 1x12bit 6ch | 1x12bit 7ch | 1x12bit 5ch | 1x10bit 1ch |
+| DAC | 2x8bit | 2x8bit | ❌  | ❌ | ❌  | ❌  | ❌ |
+| Timers | 4x64bit | 4x64bit | 4x64bit | 2x54bit | ? | 2x54bit | 2x23bit |
 | Watchdog | 3 | 3 | 3 | 3 | 3 | 3 | 1 |
 | I2C | 2 | 2 | 2 | 1 | 2 | 2 | 1 |
 | I2S | 2 | 1 | 2  | 1 | 1 | 1 | 1 |
 | SPI | 4 | 4 | 4 | 3 | 2 | 3 |2 |
-| Ethernet | yes | - | - | - |- | - |- |
-| LCD Interface | 1 | 1 | 1 | - | - | - | - |
-| Temperature | - | yes | yes | yes | yes | yes | - |
-| Touch | 10 | 14 | 14 | - | - | - | - |
+| Digital Video Interface | ❌ | ✅ | ✅ | ❌| ❌| ❌| ❌| ❌|
+| Ethernet | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| LCD Interface | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| MCU Temperature | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Touch | 10 | 14 | 14 | ❌ | ❌ | ❌ | ❌ |
 | UART | 3  | 2 | 3 | 2 | 3 | 2 | 2|
-| Ethernet | 1 | - | - | - | - | - | - |
+| Ethernet | 1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | IR/RMT | 8  | 4 | 8 | 4 | 4 | 4 | 1 |
-| Hall Sensor | 1 | - | - | - | - | - | - |
+| Hall Sensor | 1 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | LED PWM | 16  | 8 | 8 | 6 | 6 | 6 | 5 |
-| Motor PWM | 6 | - | 2| - | - | 1 | - |
+| Motor PWM | 6 | ❌ | 2| ❌ | ❌ | 1 | ❌ |
 | Wifi | 4 | 4 | 4 | 4 | 4/6 | no | 4 | 
-| Wifi Mbps | 150 | 150 | 150 | 150 | 150 | - | 75 |
-| Bluetooth | 4.2  | - | BLE5.0 | BLE5.0 | BLE5.3 | BLE5.3 | 0 |
-| Thread 1.3 | - | - | - | - | yes | yes | - |
-| Zigbee 3.0 | - | - | - | - | yes | yes | - |
-| Matter | - | - | - | - | yes | yes | - |
-| HomeKit, MQTT, etc | - | - | - | - | yes | yes | - |
-| USB OTG | - | yes | yes | - |- | - |- |
-| Camera Interface | 1  | 1 | 1 | - | - | - |- |
-| TWAI (CAN 2.0) | 1 | 1 | 1 | 1 | 2 | 1 | - |
-| SD Host | 1 | - | 2 | - | - | - | - |
-| SD Slave | 1 | - | - | - | 1 |- |  1 |
-| JTAG | yes | yes | yes | yes | yes | - |
-| TOF | - | yes | - | - |- | -  | - |
-| AI Acceleration Support | - | - | yes | - | - | - | - |
-| Deep Sleep | 100uA | 22uA | 7uA | 5uA | 7uA | 8uA | 20uA |  
+| Wifi Mbps | 150 | 150 | 150 | 150 | 150 | ❌ | 72.2 |
+| Bluetooth Classic | ✅ | ❌| ❌| ❌| ❌| ❌| ❌|
+| Bluetooth BLE | BLE4.2  | ❌ | BLE5.0 | BLE5.0 | BLE5.3 | BLE5.3 | ❌ |
+| Thread 1.3 | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Zigbee 3.0 | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Matter | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| HomeKit, MQTT, etc | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| USB OTG | ❌ | ✅ | ✅ | ❌ |❌ | ❌ |❌ |
+| Camera Interface | ✅  | ✅ | ✅ | ❌ | ❌ | ❌ |❌ |
+| TWAI (CAN 2.0) | ✅ | ✅ | ✅ | ✅ | ✅ (2) | ✅ | ❌ |
+| SD Host | ✅ | ❌ | ✅ (2) | ❌ | ❌ | ❌ | ❌ |
+| SD Slave | ✅ | ❌ | ❌ | ❌ | ✅ |❌ |  ✅ |
+| JTAG | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| TOF | ❌ | ✅ | ❌ | ❌ |❌ | ❌  | ❌ |
+| AI Acceleration Support | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Deep Sleep | 10µA | 20µA | 7µA | 5µA | 7µA | 8µA | 20µA |  
 | Size mm | 5x5/6x6 | 7x7 | 7x7 | 5x5 | 5x5 | 4x4 | 5x5 |
 
 > [!NOTE]
