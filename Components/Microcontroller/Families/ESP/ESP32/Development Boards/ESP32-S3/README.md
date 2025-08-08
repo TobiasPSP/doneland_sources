@@ -123,5 +123,5 @@ Both have a dedicated math coprocessor and built-in math acceleration, however t
 
 
 > Tags: Microcontroller, ESP32, S3, ESP32-S3, ESP32S, ESP32-C3, ESP32-S2, ESP32-H2, BLE, Bluetooth, USB, AI, Camera, Thread, Zigbee,
- 
+
 [Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32-s3?530017031823244200) - created 2024-03-23 - last edited 2025-08-02

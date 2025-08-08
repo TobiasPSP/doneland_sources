@@ -4,10 +4,10 @@
 
 > 2.1A 1S Li-Ion Charger Plus 5V 2A Boost Converter In One SoC Solution That Drives Many DIY Boards
 
-The [IP5306](materials/ip5306_datasheet.pdf) is a fully integrated *power bank* system-on-chip (SOC) with a charger and a *2A* discharger. 
+The [IP5306](materials/ip5306_datasheet.pdf) is a fully integrated *power bank* system-on-chip (SOC) with a charger and a *2A* discharger that works with single *LiIon* cells:
 
 * **Charger**     
-  uses a *buck* converter at *750kHz* switching frequency, and charges with a maximum current of **2.1A**. Can be adjusted to *0.05-3.2A* using *I2C* (when the *IP5306* version supports *I2C*, see below for details)
+  uses a *buck* converter at *750kHz* switching frequency, and charges with a maximum current of **2.1A**. Can be adjusted to *0.05-3.2A* using *I2C* (when the *IP5306* version supports *I2C*, see below for details).
 * **Discharge:**     
   uses a *boost* converter at *500kHz* switching frequency and a *5V* output at a maximum current of *2.4A* (12W)
 
@@ -22,28 +22,45 @@ This chip—or one of its many Chinese clones, like the [FM5324GA](materials/fm5
 ## Overview
 The *IP5306* is found on affordable breakout boards like the [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/) and the [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/). 
 
-Sophisticated versions such as the [PB01](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) even expose an *I2C* interface that can be used by microcontrollers to configure the settings, i.e. reduce or increase the charging current.
-
-
 
 <img src="images/ip5306_overview_t.png" width="100%" height="100%" />
 
+These modules use *IP5306*-variants that are non-programmable, so you are limited to the chip defaults which are tailored to powerbank use-cases, not so much to power microcontroller projects:
+
+* **High Charging Current:** uses a maximum current of *2.1A* (which may be too much for small *LiIon/LiPo* batteries).
+* **Low Current Cut-Off:** turn automatically off when the load current drops below *50mA* for more than *32s* (which can cause problems, i.e. with microcontroller projects that use deep sleep)
+
+### I2C to the rescue
+There are more sophisticated versions of *IP5306* that include a [I2C](https://done.land/fundamentals/interface/i2c/) interface. This interface allows microcontrollers to communicate with the chip, and change its settings.
+
+The [PB01](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) is an example of a very affordable breakout board (below €1.00) that comes with the I2C-enabled IP5306 and exposes the *I2C* pins.
+
+Adjusting the IP5306 configuration provides immense flexibility:
+
+* **Adjust Charge:**    
+The maximum charging current can be adjusted in a wide range of *0.05-3.2A*, i.e. you can lower it to match the requirements of small *LiPo* batteries you may be using.
+* **Continuous Power:**   
+You can tell the chip to keep its 5V output open continuously and not turn off after a while when the load drops below *50mA*. This way, microcontrollers continue to receive power even when they switch to power-saving deep sleep modes.
+
+There are many more things [I2C can read or change](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#i2c-configuration), i.e. fine-tune discharge protection or battery specifics, determine whether the battery is fully charged, and even manually controlling the charger. 
+
+> [!NOTE]
+> One thing the *IP5306* isn't able to do though is provide energy statistics such as actual battery voltage, or measuring currents.
 
 
-Modules utilizing this chip are highly compact (typically *15-20x25mm*) yet surprisingly powerful. With a single *Li-Ion* cell, they can deliver up to *2A* at *5V* (10W). This compactness is possible due to a clever architecture that uses a single inductor for both charging and discharging operations.
 
-
-
-## Use Cases
+### Use Cases
 This chip specializes in outputting `5V/2A/10W` from a single *LiIon/LiPo* rechargeable battery and is typically used in these scenarios:
 
 * Powering portable devices, i.e. microcontroller projects
-* Designing miniature powerbanks that use a single battery cell
+* Designing miniature powerbanks that use a single battery cell and need to output only *5V* (no sophisticated *USB PD*).
 
+
+### Power While Charging
 
 Devices can be powered continuously even during charging, with a small power gap occuring when charging ends and the internal boost converter is re-enabled, and an optional push button can be used to *manually* turn power on and off.
 
-<details><summary>How simultaneous charge and discharge really work</summary><br/>
+<details><summary>How simultaneous charge and discharge works</summary><br/>
 
 This chip **either** use its integrated boost converter to increase the battery voltage to *5V* at a maximum of *2.4A* output (*12W total*), **or** it can step down an external *5V* input to a charging voltage suitable for *Li-Ion* or *Li-Po* batteries. However, the chip can only perform *one* of these conversions at a time because it only has one external coil that is used *either* for *boost* **or** for *buck* operations.
 
@@ -68,96 +85,50 @@ When an external power supply is connected or disconnected, the chip actively sw
 ### Powering Portable DIY devices
 This chip is almost perfect for adding battery power to external *5V* devices such as microcontrollers, [WS2812](https://done.land/components/light/led/programmable/ws2812/) LED strips, DIY flashlights, and more: it is low cost, small, and sufficiently powerful.
 
+#### Basic IP5306...
+The generic *IP5306* (without *I2C* interface) that is found on [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/) and [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) breakout boards is perfect for **power-hungry projects** that do not continuously drop below *50mA* and use a **large battery** that can sustain the up to *2.1A charging rate* (i.e. *18650 LiIon*).
+
+> [!IMPORTANT]
+> Keep in mind that the popular small *LiPo*-cells often used in microcontroller projects typically have a maximum recommended charging rate of **0.3C**, so a *1000mAh* cell shouldn't be charged with more than *350mA*.
+
+#### ...versus I2C-Enabled IP5306
+If you want to power microcontroller projects that use *deep sleep*, or any other project that may consume less than *50mA*, and/or if you are using *LiPo* batteries smaller than *3000mAh*, you should use utilize a **IP5306** with [enabled I2C interface](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#i2c-configuration).
 
 
-There are **two important caveats** for this scenario:
-
-* **Deep Sleep/Low Power Consumption:**     
-  if your device requires **less than 50mA** for longer than **32s**, by default **IP5306** turns off power. This may easily occur with low-power circuits, or when your microcontroller enters *deep sleep*.
-* **Small Battery:**     
-  if your device uses a relatively small *LiIon/LiPo* battery (**<3000mAh**), most likely the default charging current of **2.1A** is significantly **too high**, with the potential of battery damage or even fire hazard.
-
-If this applies to your project, it is strongly recommended to utilize **IP5306** with [enabled I2C interface](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#i2c-configuration), i.e. by using a board like [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) that exposes the *I2C* interface.
-
-By utilizing *I2C*, your microcontroller can adjust the **IP5306** settings: 
-
-* tailor the battery charging current exactly to the needs of your battery (in a range of *0.05-3.2A*)     
-* ensure that battery power is not cut off when your microcontroller enters deep-sleep.
+> [!NOTE]
+> Even *3000mAh LiPo* batteries work best when not charged with more than *1000mA*. The *IP5306* uses up to *2.1A*. For *3000mAh* and more *LiPo* batteries, this is considered "quick charging" (which may be desireable but stresses the battery), but it typically is still safe. Smaller *LiPo* batteries may overcharge at *2.1A* and then pose a fire hazard.
 
 
-### Power Bank
-**IP5306** is a great choice for building a basic powerbank. Just keep in mind these limitations:
-
-* **1S LiIon Battery:**     
-  you must use a *LiIon/LiPo* battery in **1S** configuration (one cell, or multiple cells connected **in parallel**)
-* **5V Output Only:**   
-  **IP5306** provdies *5V output* only and does not support any other USB power protocol or higher output voltages. This limitation is a direct consequence of the chip targeting *1S batteries* (single-cell configurations). 
-* **No bi-directional USB connectors:**    
-  **IP5306** uses different power paths for input and output. You cannot use the built-in *USB-C* connector for output. It is **input only**. You'll need to add a separate *USB connector* (i.e. *USB-A* or *USB-C*) to `5V-`  and `5V+` pins.
-
-For **simple** power banks, especially *miniature versions* with just one battery cell, **IP5306** is a great choice. 
-
-For around the same investment, you get more sophisticated power management chips that support *2-6S* battery configurations and many modern *quick charge* output protocols with a voltage range up to *20V*.
+The [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) breakout board has such a *IP5306-variant* and exposes the *I2C* interface, so your microcontroller can adjust IP5306 settings to match your needs.
 
 
 
+### Creating a Power Bank
+**IP5306** was originally developed to be used in power banks (and can be found in many simple commercial power banks).
 
-## Battery Requirements
-The *IP5306* supports *1S* battery configurations (*Li-Ion* and *Li-Po*). *LiFePO₄* batteries and other chemistries are **incompatible**, and using them can be hazardous (as over-charge would occuur).
+There are even some commercial [ESP32-programmable power banks](https://docs.m5stack.com/en/core/basic). The link also provides technical documentation and schematics that may help interface *ESP32* microcontrollers via *I2C* to *IP5306*:
 
-### Battery Capacity
-Use a single cell, or connect multiple cells in *parallel* to increase capacity while maintaining the required *1S* voltage. **Never** connect battery cells *in series*. 
+* **I2C Programming:**  [C++ code](https://github.com/m5stack/M5Stack/blob/master/src/utility/Power.cpp) illustrating how the power bank's *ESP32* microcontroller communicates with the *IP5306* registers via *I2C*.
+* **Schematics:** [Circuitry](https://community.m5stack.com/assets/uploads/files/1515402963959-97994060-2969-49dc-ad9c-7b3887d95a17-image.png) showing the wiring and implementation, including the use of *BSS138* MOSFETs used as a level shifter to translate between the battery voltage and the *3.3V* used by the *ESP32* microcontroller.
 
-Since **IP5306** uses a maximum charging current of **2.1A**, ensuring a suitablly high battery **capacity** is critical. Batteries that are too small can lead to overcharging and/or over-discharging, increasing the risk of fire hazards. 
+You, too, can use breakout boards like the [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) to build your own sophisticated and microcontroller-based power bank. Just keep in mind the limitation: *IP5306* works with *1S LiIon Cells* and outputs only *5V*. It does not support higher voltages or *USB Power Delivery*.
 
-You will need a battery with a minimum capacity of around *3,500mAh*. Either use a *single large cell*, or use *multiple smaller cells* **in parallel**.
+Another limiting factor may be the design of the *IP5306* power paths: the chip uses separate connectors for *input* (charging) and *output* (5V output).
 
-> [!TIP]
-> If you'd like to keep your portable device or powerbank small, and use only a small battery below *3.500mA*, then you must use a **I2C-enabled IP5306** version, i.e. [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/), and **lower the charging current appropriately**. With **IP5306**, there is no external way to adjust charging current, i.e. through resistors or solder bridges. You can only *program* it using *I2C* and a microcontroller.
+This is great for scenarios where you want to charge while keeping a device running, but it also means that your power bank will have separate connectors for charging and discharging.
 
-#### Key Considerations:
+## BMS and Protection
 
-Due to this powerful chip, the battery must support a charging current of **2.A** and a discharge rate of **4A**.
+The *IP5306* has the most important security features built in:
 
-If the battery is less capable, ensure that your connected load requires less power.
-
-> [!TIP]
-> If the chip stops charging after only a few minutes and reports the battery as fully charged when it is not, this might indicate that the battery is too small for the *2.1A* charging current. Overcharging a small battery can cause its voltage to temporarily rise too quickly, triggering the chip's early cut-off protection.
-
-
-<details><summary>Risk: Low-Performance Batteries</summary><br/>
-Low-performance *Li-Ion*/*Li-Po* batteries, such as the one shown below, can be a perfect and affordable choice for projects requiring only small currents, however they typically have a maximum charging rate of **0.3C** (*0.3 x battery capacity*, i.e. **1A** for a *3000mA* battery).
-
-<img src="images/makerfocus_battery_3000_t.png" width="40%" height="40%" />
-
-The maximum *discharge* rate may be even less.
-
-Such batteries are *unsuited* for high-performance power management chips such as the **IP5306** unless you either use [I2C-enabled versions](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) and re-configure their defaults, and/or make sure your load isn't drawing more power than can be safely supplied by your battery.
-
-
-</details>
-
-
-
-
-
-### Battery Voltage
-By default, *IP5306* is designed for *Li-Ion* and *Li-Po* batteries with a maximum voltage of *4.2V*. 
-
-> [!TIP]
-> With *I2C-enabled* versions of this chip, you can fine-tune the battery cell voltage in steps of `4.20/4.30/4.35/4.40` volts. Setting these voltages requires that your battery indeed supports them. Else, standard *Li-Ion* batteries with built-in BMS will cut off power above *4.2V*, and internal resistance increases sharply beyond their design voltage, causing the charging current to taper naturally. 
-
-### BMS and Protection
-It is always recommended to use batteries with built-in *BMS* for added safety. However, *IP5306* comes with a number of protections:
-
-Output protections:
+### Output protection
 
 * **Over-Current detection:**    
   Output voltage **<4.4V** for over *30ms*
 * **Short-Circuit Protection:**   
   Output current **>4A** for over *200us*
 
-Battery protections:
+### Battery protection
 
 * **Over-Discharge:**     
   turns off battery when voltage **<3.25V** (may vary with internal configuration)
@@ -172,24 +143,30 @@ Battery protections:
 * **Auto-Recharge:**     
   Starts when battery voltage *<4.1V*
 
-General protections:
+### General protection
 
 * Thermal shutdown (at *125C*)
 
-* **Over-Current:**    
 
-#### Missing Protections
-**IP5306** is missing these protections:
+### Missing Protections
+For a safe and robust power bank, *IP5306* lacks these protections:
 
 * **Temperature Sensor:**   
   No support for external temperature sensors. External temperature sensors typically detect catastrophic battery failures during charging.   
 * **Revers Battery Polarity:**     
-  Connecting the battery in reverse polarity destroys the chip. Since rechargeable batteries are typically not serviceable in portable devices and powerbanks, such a protection is normally not needed (with proper assembly). If you plan to use battery bays with user-serviceable battery cells, you may want to add an *ideal diode*.
+  Connecting the battery in reverse polarity destroys the chip. Since rechargeable batteries are typically not serviceable in portable devices and powerbanks, such a protection is normally not needed (with proper assembly). 
+  
+So these two areas are on you:
+
+* Use an affordable [Dallas](https://done.land/components/data/sensor/temperature/dallas/) temperature sensor (or similar). They can be connected directly to your microcontroller, and in case of excessive temperatures, your microcontroller can disable the charger via *I2C*.
+* Add an *ideal diode* if you do not hard-wire the battery (in which case there would be the risk of users not replacing the battery in correct polarity).
 
 
 
 ## Charging
-Charging and discharging are separate features, and you can use the *IP5306* for charging only, possibly as a replacement for a simple *TP4056*, simply to achieve higher charging currents.
+Charging and discharging are separate features and can be utilized separately, too.
+
+You could, for instance, use the *IP5306* solely for charging *LiIon/LiPo* cells, possibly as a replacement for a simple *TP4056* if you would like to achieve higher charging rates:
 
 | Item                         | Description                    |
 |------------------------------|--------------------------------|
@@ -204,7 +181,7 @@ Charging and discharging are separate features, and you can use the *IP5306* for
 | Charging While Discharging   | Yes                           |
 
 > [!IMPORTANT]
-> The chip lacks *battery reverse polarity protection*. Use an *ideal diode* or other suitable protection if reverse polarity is a risk, i.e. because you are using battery holders where a user could be intreagued to insert a battery in wrong position.
+> If you are indeed using the *IP5306* as a simple charger, the lacking *battery reverse polarity protection* becomes an issue. Either make sure the battery connectors or bays are fool-proof, or add an *ideal diode* to the battery wiring.
 
 ### Initiating Charging
 Charging starts automatically when a power supply is connected, and the battery voltage is *>2.8V* and *<4.2V*. The external power supply must provide *5V* at *2A* minimum.
@@ -220,17 +197,25 @@ Charging phases:
 
 Once charging has completed, all four indicator LEDs light solidly.
 
+> [!NOTE]
+> I2C-enabled breakout boards, like the [PB01](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/), use the status LED connectors as *I2C* interface. These boards use additional helper ICs to drive a WS2812 RGB LED which typically pulsates in changing color, indicating the charging state.
+
 A new charging cycle is initiated automatically once the battery voltage drops below *4.1V*.
 
+### "Dead" Batteries
+When a battery has accidentally been *deeply discharged* (i.e. by keeping it in storage for too long so that normal self-discharge could cause a voltage drop below *2.8V*), it can no longer absorb the normal amount of energy. 
 
-> [!NOTE]
-> When a battery has accidentally been *deeply discharged* (i.e. by keeping it in storage for too long so that normal self-discharge could cause a voltage drop below *2.8V*), it can no longer absorb the normal amount of energy. Charging such a battery with a normal charge current would convert the excess energy into heat and might cause a fire or explosion. The *recovery charge mode* is taking this into account. Whether or not it will be successful in recovering such a battery is not certain. However, if the battery isn't fully charged after a maximum of 24 hours, the charging cycle is aborted.
+That's why many chargers refuse to charge such batteries at all. Charging such a battery with normal charging rates would convert the excess energy into heat and can subsequently easily cause a fire or explosion. 
+
+*IP5306* can deal with over-discharged batteries. When the battery voltage is too low for normal charging, its *recovery charge mode* reduces the charging rate and charges in intervals. 
+
+This is not guaranteed to work of course, it is just a best effort. If the battery was damaged beyond recovery, *IP5306* aborts the *recovery charge mode* after 24 hours.
 
 
 
 ## Supplying Power
 
-The chip includes a robust and efficient boost converter capable of supplying *5V* at up to *2A*. It is equipped with *over-current* and *short circuit* protection mechanisms.
+*IP5306* has a robust and efficient boost converter. It boosts the battery voltage to *5V* at up to *2A*. The boost converter is equipped with *over-current* and *short circuit* protection.
 
 <img src="images/ip5306_overview2_t.png" width="100%" height="100%" />
 
@@ -250,10 +235,16 @@ The chip includes a robust and efficient boost converter capable of supplying *5
 | Short Circuit Prot.   | Yes                           |
 | Other Protections     | Over-Current, Over-Voltage    |
 
-When a load is connected to the power output, the boost converter activates and begins supplying power. When the load is removed (or the load drops below *45mA* for more than *32s*), the boost converter automatically shuts down to conserve battery power.
 
+### Automatic Load Detection
+When a load is connected to the power output, the boost converter activates and begins supplying power. This requires the load to consume significant currents. Light loads may require to *manually* turn on the power output by pressing a push button (connected to pins `K` and `GND` on most breakout boards). This behavior is inline with typical powerbanks.
 
-While power is being supplied, four LEDs indicate the battery's *state of charge* in *25%* increments. Each LED is supplied with *4mA*.
+When the load is removed (or the load drops below *45mA* for more than *32s*), the boost converter automatically shuts down to conserve battery power.
+
+> [!NOTE]
+> The *I2C*-enabled versions of *IP5306* can adjust all this. Specifically, *IP5306* can be switched to an *always-on* mode that works also with light loads (*I2C* register `00`, bit `1` set to `1`). When *always-on* is enabled, the on-board LED still turns off after the designated time (*32s* by default, can be shortened via *I2C* to *8s*), but the *5V* output remains active, and the *IP5306* preserves all other changes that have been made via *I2C*.
+
+While power is being supplied, four LEDs indicate the battery's *state of charge* in *25%* increments. Each LED is supplied with *4mA*. *I2
 
 When the battery's *state of charge* drops below *3%*, one LED will blink at *2Hz* to alert the user. If the battery voltage falls further, below *2.8-2.9V*, the *over-discharge* protection feature turns off the power output to prevent damage to the battery.
 
@@ -264,6 +255,8 @@ When the battery's *state of charge* drops below *3%*, one LED will blink at *2H
 | 3 | *>3.65* |
 | 4 | *>3.91* |
 
+> [!IMPORTANT]
+> C*-enabled breakout boards often use a single pulsating WS2812-RGB LED.
 
 ### Automatic Load Detection
 The *automatic load detection* feature is essential for preserving battery life. 
