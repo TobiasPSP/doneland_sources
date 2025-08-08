@@ -2,7 +2,7 @@
 
 # IP5306 Power Management IC
 
-> 2.1A 1S Li-Ion Charger Plus 5V 2A Boost Converter In One SoC Solution That Drives Many DIY Boards
+> Charger/Discharger for Single Lithium Batteries (Some Versions Programmable)
 
 The [IP5306](materials/ip5306_datasheet.pdf) is a fully integrated *power bank* system-on-chip (SOC) with a charger and a *2A* discharger that works with single *LiIon* cells:
 
@@ -48,14 +48,6 @@ There are many more things [I2C can read or change](https://done.land/components
 > One thing the *IP5306* isn't able to do though is provide energy statistics such as actual battery voltage, or measuring currents.
 
 
-
-### Use Cases
-This chip specializes in outputting `5V/2A/10W` from a single *LiIon/LiPo* rechargeable battery and is typically used in these scenarios:
-
-* Powering portable devices, i.e. microcontroller projects
-* Designing miniature powerbanks that use a single battery cell and need to output only *5V* (no sophisticated *USB PD*).
-
-
 ### Power While Charging
 
 Devices can be powered continuously even during charging, with a small power gap occuring when charging ends and the internal boost converter is re-enabled, and an optional push button can be used to *manually* turn power on and off.
@@ -82,6 +74,26 @@ When an external power supply is connected or disconnected, the chip actively sw
 
 </details>
 
+## Operational Modes
+
+*IP5306* can be in four different operational modes:
+
+| Mode | When Active | LED(s) | 5V Output | I2C Active | Can Charge  | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | remove power source | ❌ | ❌ | ❌ | ❌ | Chip is off, resets to default configuration |
+| 1 | add power source | ❌ | ❌ | ❌ | ✅| All configuration changes made by *I2C* are lost. |
+| 2 | short-press button, or connect load | ✅ | ✅ | ✅ | ✅| Disconnecting the load for >32s or double-pressing the push button switches to mode 1 |
+| 3 | setting bit `1` of I2C register `00` | ❌ | ✅ | ❌ | ✅| *IP5306* stays active and keeps all settings, power output is permanently on |
+
+Mode 3 is available only in *I2C*-enabled versions of *IP5306*.
+
+## Use Cases
+Originally, *IP5306* was designed for power banks, and you can of course use it to [design your very own power bank](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/#creating-a-power-bank).
+
+As a spin-off - and often more interesting for DIY makers - you can power your projects with it: *IP5306* turns any regular microcontroller board into a rechargeable and portable battery solution.
+
+Better yet, if you opt for the *I2C*-enabled variant, your microcontroller gains minute control over the power management chip.
+
 ### Powering Portable DIY devices
 This chip is almost perfect for adding battery power to external *5V* devices such as microcontrollers, [WS2812](https://done.land/components/light/led/programmable/ws2812/) LED strips, DIY flashlights, and more: it is low cost, small, and sufficiently powerful.
 
@@ -104,16 +116,18 @@ The [PB0A](https://done.land/components/power/powersupplies/battery/chargers/cha
 
 
 ### Creating a Power Bank
-**IP5306** was originally developed to be used in power banks (and can be found in many simple commercial power banks).
+**IP5306** was originally created to drive power banks (and can be found in many commercial entry-level power banks).
 
-There are even some commercial [ESP32-programmable power banks](https://docs.m5stack.com/en/core/basic). The link also provides technical documentation and schematics that may help interface *ESP32* microcontrollers via *I2C* to *IP5306*:
+#### ESP32-Controlled Power Bank
+There are even some commercial [ESP32-programmable power banks](https://docs.m5stack.com/en/core/basic). The links provide technical documentation and schematics that may help interface your own *ESP32* microcontrollers via *I2C* to *IP5306*:
 
 * **I2C Programming:**  [C++ code](https://github.com/m5stack/M5Stack/blob/master/src/utility/Power.cpp) illustrating how the power bank's *ESP32* microcontroller communicates with the *IP5306* registers via *I2C*.
 * **Schematics:** [Circuitry](https://community.m5stack.com/assets/uploads/files/1515402963959-97994060-2969-49dc-ad9c-7b3887d95a17-image.png) showing the wiring and implementation, including the use of *BSS138* MOSFETs used as a level shifter to translate between the battery voltage and the *3.3V* used by the *ESP32* microcontroller.
 
-You, too, can use breakout boards like the [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) to build your own sophisticated and microcontroller-based power bank. Just keep in mind the limitation: *IP5306* works with *1S LiIon Cells* and outputs only *5V*. It does not support higher voltages or *USB Power Delivery*.
+You, too, can use breakout boards like the [PB0A](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/) to build your own sophisticated and microcontroller-operated power bank. Just keep in mind the limitation: *IP5306* works with *1S LiIon Cells* only, and it outputs *5V* only - no higher voltages or *USB Power Delivery* features..
 
-Another limiting factor may be the design of the *IP5306* power paths: the chip uses separate connectors for *input* (charging) and *output* (5V output).
+#### Separate Input and Output Connectors
+Also note the design of the *IP5306* power paths: the chip uses separate connectors for *input* (charging) and *output* (5V output).
 
 This is great for scenarios where you want to charge while keeping a device running, but it also means that your power bank will have separate connectors for charging and discharging.
 
@@ -149,14 +163,14 @@ The *IP5306* has the most important security features built in:
 
 
 ### Missing Protections
-For a safe and robust power bank, *IP5306* lacks these protections:
+For a safe and robust power bank, *IP5306* lacks these two protections:
 
 * **Temperature Sensor:**   
   No support for external temperature sensors. External temperature sensors typically detect catastrophic battery failures during charging.   
 * **Revers Battery Polarity:**     
   Connecting the battery in reverse polarity destroys the chip. Since rechargeable batteries are typically not serviceable in portable devices and powerbanks, such a protection is normally not needed (with proper assembly). 
   
-So these two areas are on you:
+To cover this:
 
 * Use an affordable [Dallas](https://done.land/components/data/sensor/temperature/dallas/) temperature sensor (or similar). They can be connected directly to your microcontroller, and in case of excessive temperatures, your microcontroller can disable the charger via *I2C*.
 * Add an *ideal diode* if you do not hard-wire the battery (in which case there would be the risk of users not replacing the battery in correct polarity).
@@ -164,9 +178,9 @@ So these two areas are on you:
 
 
 ## Charging
-Charging and discharging are separate features and can be utilized separately, too.
+Charging is a separate feature and can be utilized independently from other features if you wish.
 
-You could, for instance, use the *IP5306* solely for charging *LiIon/LiPo* cells, possibly as a replacement for a simple *TP4056* if you would like to achieve higher charging rates:
+You could, for instance, use the *IP5306* solely for charging *LiIon/LiPo* cells, possibly as a replacement for a simple *TP4056* if you want higher charging rates:
 
 | Item                         | Description                    |
 |------------------------------|--------------------------------|
@@ -181,7 +195,7 @@ You could, for instance, use the *IP5306* solely for charging *LiIon/LiPo* cells
 | Charging While Discharging   | Yes                           |
 
 > [!IMPORTANT]
-> If you are indeed using the *IP5306* as a simple charger, the lacking *battery reverse polarity protection* becomes an issue. Either make sure the battery connectors or bays are fool-proof, or add an *ideal diode* to the battery wiring.
+> If you are using the *IP5306* as a simple charger, the lacking *battery reverse polarity protection* becomes an issue. Either make sure the battery connectors or bays are fool-proof, or add an *ideal diode* to the battery wiring.
 
 ### Initiating Charging
 Charging starts automatically when a power supply is connected, and the battery voltage is *>2.8V* and *<4.2V*. The external power supply must provide *5V* at *2A* minimum.
@@ -256,14 +270,21 @@ When the battery's *state of charge* drops below *3%*, one LED will blink at *2H
 | 4 | *>3.91* |
 
 > [!IMPORTANT]
-> C*-enabled breakout boards often use a single pulsating WS2812-RGB LED.
+> *I2C*-enabled breakout boards often use a single pulsating WS2812-RGB LED.
 
-### Automatic Load Detection
-The *automatic load detection* feature is essential for preserving battery life. 
+### Power Consumption
 
-Operating the boost converter requires approximately *100µA*. If the boost converter remained active continuously—even without an active load—it could deplete the battery unnecessarily.
+Operating the boost converter requires approximately *100µA*. 
 
-To address this, both the boost converter and the indicator LEDs are activated only when required. In inactive states, the chip minimizes power consumption, reducing quiescent current to *30-50µA*. 
+To save even more energy, the chip can minimize power consumption to just *30-50µA* when disabling the power output (quiescent current).
+
+That's why by default, *IP5306* has an active *low load detection*: once the load drops below 50mA for more than 32 seconds, the chip switches off the boost converter and cuts power output.
+
+Like mentioned before, if this power-savings feature causes problems because your load requires low current (i.e. deep sleep), you have two options:
+* **Manual:**    
+  pull pin `K` low every 30 seconds, either by external discrete logic, or by waking up your MCU every 30 seconds.
+* **Reconfigure:**   
+  if you use an *I2C*-enabled *IP5306*, set bit `1` of register `00` to keep the boost converter turned on all the time. Be aware that the power LED(s) on the board will turn off, yet the power output stays enabled.
 
 Two operational modes manage this behavior:
 
@@ -276,10 +297,6 @@ The chip automatically transitions between these modes:
 
 * **Load Detection:** The chip continuously monitors the power output. When it detects a load, it activates *Standby Mode* to supply power to the connected device.
 * **Load Removal Detection:** If the load drops below *45mA* for a continuous period of at least *32 seconds*, the chip shuts off the boost converter and switches to *Off Mode*.
-
-> [!TIP]
-> A user once reported that the chip worked properly but stopped after exactly 33 seconds. This behavior was due to the *automatic load removal detection*. The user's load was too small to sustain *Standby Mode*. To prevent this, you can increase the load above *45mA* (e.g., by adding a small LED or resistor). Alternatively, you can enable the power output manually using the push button connector in regular intervals to reset the load removal timer (see below).
-
 
 
 
@@ -323,7 +340,7 @@ All chip variants distinguish three fundamental key press patterns:
 
 
 ### Manually Control Output Power
-A *short press* (*>30ms* impulse) enables power output in all chip variants. Use a short press to turn on a device, or to reset the *load removal detection timer* before it can kick in on light loads *<45mA*.
+A *short press* (*>30ms* but *<200ms* impulse) enables power output in all chip variants. Use a short press to turn on a device, or to reset the *load removal detection timer* before it can kick in on light loads *<45mA*.
 
 > [!TIP]
 > With low loads (*<50mA*), your logic could send an impulse (*<30ms <2s*, simulated short press) in *<30s* intervals to prevent unintentional power off.
@@ -368,25 +385,6 @@ Here are the top issues with this chip and the boards that are using it:
   
      The reason is not yet clear. A remidy is to manually *short press* the push button or cause a reset of power paths by supplying a charging power. You might be able to work around this by keeping the chip active all the time (preventing *Off* mode) at the expense of a slightly higher quiescent power consumption via the following circuit (which may also help with continuously operating low loads *<50mA*):
 
-### Keeping Power Output Active
-One of the top design issues is the *load removal detection* that kicks in once the load drops below *<50mA* for more than *32s*.
-
-Whether you want to work around this *load removal detection*, or whether you want to generally prevent the board from entering *Off* mode, i.e. to work around wake-up problems, here are two suggestions you may want to try (at own risk) to keep the power output active:
-
-* **MH-CD42** breakout board:
-
-    <img src="images/ip5306_mh-cd42_always_on.png" width="100%" height="40%" />      
-
-* **X-150** breakout board:
-
-
-   <img src="images/ip5306_x-150_keep_on.png" width="40%" height="40%" /> 
-
-By keeping the boards' boost converter active all the time, this will increase quiescent current consumption by approximately *50uA*.     
-
-> [!IMPORTANT]    
-> As always on this site, use all information including suggested circuitry entirely at your own risk.    
-
 ## I2C Configuration
 **Specific** versions of the *IP5306* may behave differently and can have additional features, most notably an *I2C* interface for advanced configuration. Please note that most "normal" breakout boards use the default *IP5306* which has **no I2C interface**.
 
@@ -422,13 +420,7 @@ Here is a list of registers accessible via *I2C* on *IP5306* chips with enabled 
 | 1 | **Boost Output Normally Open:** 1: enable |  1 |
 | 0 | **Button Shutdown Enable:** 1: enable |  0 |
 
-**Auto Power On When Load Connected**, when enabled, automatically detects a connected load. This very same feature is also responsible for automatically **turning off** the output once the load is removed. This includes the **light load detection**: once the load drops below *50mA* for the time configured in **REG_SYS_2** (`0x02`, normally *32 seconds*), the outout is also automatically turned off.
-
-This may be undesirable: when you supply light loads (i.e. microcontrollers in sleep mode), the *IP5306* may unexpectedly turn off the power supply.
-
-In order to **disable light load detection** and ensure that the *IP5306* supplies power all the time, turn off **Auto Power On When Load Connected** by setting its bit to `0`.
-
-As a consequence, *IP5306* no longer automatically turns on its output once power is drawn, and it *never* turns off power automatically anymore, even if no power at all is drawn. You now control the power output entirely manually via the control button.
+**Boost Output Normally Open**, when enabled, keeps the boost converter active permanently. When this mode is active, light loads no longer cause the power output to be turned off after *32s*.
 
 #### REG_SYS_1: `0x01` Buttons
 
