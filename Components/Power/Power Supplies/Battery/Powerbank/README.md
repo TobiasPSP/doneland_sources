@@ -120,24 +120,22 @@ Battery packs used in drones, RC, and similar applications can be very dangerous
 Powerbanks are a blend of four essential features:
 
 
-* **Battery/Battery Pack:**     
-  One or more **rechargeable** battery cells, connected in series and/or in parallel, to provide raw internal voltage and energy.
-* **Charger:**    
-  Electronics for safely charging the battery cells with the correct voltage. The charging circuit internally adapts the input voltage to match the battery chemistry and its current state of charge. 
-  
-  For example, **empty** lithium cells require constant current; nearly **fully recharged** cells require constant voltage. 
-  
-  Sometimes, the charging unit also handles cell balancing; in other cases, the BMS provides this function.
-* **Discharger:**    
-  Electronics that transform the raw battery voltage (which can vary with state of charge) to a **stabilized output voltage**. For instance, USB powerbanks output *5V*, often supporting other voltages via **USB Power Delivery** and similar protocols.
-* **Safety/BMS:**    
-  Electronics that protect battery cells from abuse. A BMS ensures no cell is overcharged or discharged below a safe cutoff.
+* **Battery/Battery Pack:**      
+  One or more **rechargeable** battery cells, connected in series and/or in parallel, to provide raw internal voltage and energy.
+* **Charger:**    
+  Electronics for safely charging the battery cells with the correct voltage. The charging circuit internally adapts the input voltage to match the battery chemistry and its current state of charge. 
+
+  For example, **empty** lithium cells require constant current; nearly **fully recharged** cells require constant voltage. 
+
+  Sometimes, the charging unit also handles cell balancing; in other cases, the BMS provides this function.
+* **Discharger:**    
+  Electronics that transform the raw battery voltage (which can vary with state of charge) to a **stabilized output voltage**. For instance, USB powerbanks output *5V*, often supporting other voltages via **USB Power Delivery** and similar protocols.
+* **Safety/BMS:**    
+  Electronics that protect battery cells from abuse. A BMS ensures no cell is overcharged or discharged below a safe cutoff.
 
 
-  **Note:** Even if each cell in your battery pack has a built-in BMS, the overall pack still needs its own. Cell-level BMSes are not designed to protect multi-cell packs.
+  **Note:** Even if each cell in your battery pack has a built-in BMS, the overall pack still needs its own. Cell-level BMSes are not designed to protect multi-cell packs.
 
-
- 
 
 ## Optional Components
 
@@ -145,9 +143,9 @@ Powerbanks are a blend of four essential features:
 Typical *powerbanks* also include these *optional* components:
 
 
-* **Visuals:** *LED Bars*, *digital displays*, etc., to show *state of charge*.
-* **Button:** For manual activation of power output. Most powerbanks automatically detect a connected load; with very small loads, this can fail.
-* **USB interfaces and Cables:** Various USB input and output ports for charging versatility; some may include USB-C, micro-USB, or wireless charging features.
+* **Visuals:** *LED Bars*, *digital displays*, etc., to show *state of charge*.     
+* **Button:** For manual activation of power output. Most powerbanks automatically detect a connected load; with very small loads, this can fail.     
+* **USB interfaces and Cables:** Various USB input and output ports for charging versatility; some may include USB-C, micro-USB, or wireless charging features.     
 
 
 
@@ -155,4 +153,5 @@ Typical *powerbanks* also include these *optional* components:
 > Tags: Powerbank, Battery, BMS, Charger, Battery Pack, Li-ion, LiPo, USB Power Delivery, Protection, Safety, Battery Management System, Portable Energy, Rechargeable Batteries, DIY Powerbanks, USB Output, Visual Indicators, Cell Balancing, Safe Charging
 
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/powerbank?340059051703244602) - created 2024-05-02 - last edited 25-08-15
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/powerbank?340059051703244602) - created 2024-05-02 - last edited 2024-05-02

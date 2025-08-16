@@ -408,14 +408,14 @@ IP5306 is a highly compact IC with just 8 pins. External components are minimal.
 
 Both boost and buck converter share the same external inductor which should be *1uH*. The inductor needs to be rated for at least *4.5A*.
 
-<img src="images/îp5306_wiring_basic.webp" width="75%" height="75%" />
+<img src="images/ip5306_wiring_basic.webp" width="75%" height="75%" />
 
 A push button can be connected to `K`/`KEY` and `GND`. It should be protected by a *10K* resistor because when "torch mode" is active, `K`/`KEY` can supply considerable current.
 
 ### Status LEDs
 In basic (non-I2C) variants of IP5306, pins `L1`, `L2`, and `L3` connect to the status LED:
 
-<img src="images/îp5306_wiring_4led.webp" width="100%" height="100%" />
+<img src="images/ip5306_wiring_4led.webp" width="100%" height="100%" />
 
 Optionally, less than 4 LEDs can be connected:
 
@@ -425,7 +425,7 @@ Optionally, less than 4 LEDs can be connected:
 
 For I2C-enabled variants of IP5306, pins `L1`, `L2`, and `L3` host the I2C interface:
 
-<img src="images/îp5306_wiring_i2c.webp" width="100%" height="100%" />
+<img src="images/ip5306_wiring_i2c.webp" width="100%" height="100%" />
 
 IP5306 is running on battery voltage, so a level shifter mechanism is required to translate the voltages and logic levels to the levels required by the external microcontroller.
 
