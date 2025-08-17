@@ -16,9 +16,9 @@ The truly interesting part about this project is its creative use of affordable 
 * [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) is used as a charger and discharger for a 1S LiIon cell
 * **LX-LISC** is used as a super-small and super-efficient boost converter that boosts the 5V to 12V at 12W (without even getting hot).     
 
-  LX-LISC is actually another battery charger, designed to charge 3S battery packs, but it also works as boost converter for 12V loads.
+  LX-LISC is actually just another battery charger, designed to charge 3S battery packs, but it also works as boost converter for 12V loads.
 
-So in this project you learn how to build your own custom powerbank that can drive 12V devices up to around 12-15W.
+In this project you learn how to build your own custom powerbank that can drive 12V devices up to around 12-15W.
 
 
 
@@ -27,11 +27,9 @@ So in this project you learn how to build your own custom powerbank that can dri
 Typically, professional emergency lights are powered by car electric. That's simple and robust for fixed installations, yet portable emergency lights have to use a coiled wire that can get into the way.
 
 ### The Issue
-Using emergency lights in a removable way (i.e. concealed law enforcement, volunteer emergency services, car breakdown, etc.) adds annoying cabling.
+Using emergency lights in a removable way (i.e. concealed law enforcement, volunteer emergency services, car breakdown, etc.) adds annoying cabling. If you want to use the light outside a car, additional 12V power supplies are required.
 
-If you want to use the light outside a car, additional 12V power supplies are required.
-
-> [!TIP:] 
+> [!TIP] 
 > For a long time, my solution for away-from-car usage was a strong USB powerbank and a USB trigger board. That worked very well but involved a lot of gear.
 
 ### The Plan
@@ -51,7 +49,7 @@ Here is the design I came up with:
 * **Charger/Discharger:**
   [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) takes a 1S LiIon battery and produces 2.4A output at 5V (12W). It can also charge the battery at a maximum rate of 2.1A which is perfect for the size of battery pack (0.25C).
 * **Boost Converter:**     
-  Instead of a traditional bulky boost converter I opted for an affordable modern *IP2326* power management chip that is readily available on boards such as **LX LISC**. While this IC was designed as a 2/3S charger, it can also be used as a simple boost converter and yields impressive 1.5-2A (15W input).
+  Instead of a traditional bulky boost converter I opted for an affordable modern *IP2326* power management chip that is readily available on boards such as **LX LISC**. While this IC was designed as a 2/3S charger, it can also be used as a simple boost converter and yields impressive 1.5-2A (15W input) at around 12V.
 
 
 <img src="images/comet_haensch_emergency_wirelessbottom_t.webp" width="70%" height="70%" />
@@ -59,25 +57,21 @@ Here is the design I came up with:
 ### Reasoning
 
 * *Why not 3S or 4S battery pack?*     
-  A 3-4S battery pack would natively produce the required 12V. Since Haensch Comet LED emergency lights accept 12-24V input, the light could have been directly driven off such a battery. 
+  A 4S battery pack would natively produce the required 12V. Since Haensch Comet LED emergency lights accept 12-24V input, the light could have been directly driven off such a battery despite its varying output voltage (12.0-16.8V). 
 
-  However, charger boards for 4S batteries are much harder to get than simple 1S chargers. In addition, I was looking for a use case for an *IP5306*-driven charger/discharger, and this chip comes with additional useful features such as support for a neat push button that can control the load.
+  However, charger boards for 4S batteries are much harder to get than simple 1S chargers. Also, I was looking for a use case for an *IP5306*-driven charger/discharger, and this chip comes with additional useful features such as support for a neat push button that can control the load.
 
 * *Why not a classic boost converter?*     
-  There are tons of affordable boost converter breakout boards available, and I own plenty of them. However, my experience with these is dissapointing. Either they are very large and bulky, or they do not come close to the output power that is required.
+  There are tons of affordable boost converter breakout boards available, and I own plenty of them. However, my experiences with these are dissapointing. Either they are very large and bulky (and would never fit into the lamp housing), or they do not come close to the output power that is required.
 
-  In addition, classic boost converters are fairly inefficient. That's not good for a battery-operated device, and it is in general problematic because of the massive heat that is generated.
+  Worse yet, classic boost converters are fairly inefficient. That's generally not good for a battery-operated device, and it is particularly problematic because of the massive heat that is generated.
 
-  That's why I was extremely surprised to see that 3S charger boards with modern power management ICs work phantastically as a boost converter. They seem to work highly efficient and can yield 10-15W output without getting hot at all.
+  That's why I was pleasantly surprised to see that 3S charger boards with modern power management ICs work phantastically as a boost converter. They seem to work highly efficient and can yield 10-15W output without getting hot at all.
 
 * *Why not using a modern boost converter?*   
-  I looked into *TPS61088* which is a highly efficient boost converter that yields up to 12V/3A. While this IC supports input voltages from as low as 2.7V, it was not able to provide the required power at 12V from LiIon voltage.    
+  I looked into *TPS61088* which is a highly efficient boost converter that yields up to 12V/3A. While this IC supports input voltages from as low as 2.7V, it was not able to provide the required power at 12V from LiIon voltage. That's expected because the higher the voltage difference between input and output, the higher are the currents at input. 
 
-  That's expected because the higher the voltage difference between input and output, the higher are the currents at input. 
-
-  That's why it is actually a fortunate design to first use the MH-CD42 to produce strong and stable 5V, then take this voltage into a second boost converter.
-
-  I could have switched out the *LX LISC* 3S charger with a TPS61088 but when I realized all this, I already dedicated myself to LX LISC.
+  It is actually an ideal design to first use the MH-CD42 to produce strong and stable 5V, then take this voltage into a second boost converter. I could have switched out the *LX LISC* 3S charger with a TPS61088 (which works well with 5V input instead of 3.7V directly from a battery), but when I realized all this, I already dedicated myself to LX LISC.
 
 
 ## Preparation
@@ -133,19 +127,21 @@ Disassemble the emergency light:
 ### USB Extension Cable
 
 
-To conveniently charge the emergency light externally, I put together a USB-C extension cable:
+To conveniently charge the emergency light externally, I put together a USB-C extension cable that connects to a water-proof female USB-C connector externally, and a male USB-C connector internally.
 
 <img src="images/comet_haensch_emergency_externalusb_t.webp" width="100%" height="100%" />
 
-A water-proof USB-C connector (4 wires) was soldered to a **male** USB-C connector. I connected **V**, **D+**, **D-**, and **G**.
+The water-proof USB-C connector (4 wires) was soldered to a **male** USB-C connector. I connected **V**, **D+**, **D-**, and **G**. 
+
+**Note:** With **two**-wire connectors, you can no longer charge via modern USB PD (power delivery) chargers since these require the two additional data lines.
 
 <img src="images/comet_haensch_emergency_externalusbsolder_t.webp" width="70%" height="70%" />
 
-In the end, the cable can be conveniently mounted in the housing. The added **male** USB-C connector fits through the mounting hole:
+In the end, the cable can be conveniently mounted in the housing. The added **male** USB-C connector fits through the mounting hole and later plugs into the MH-CD42 charger input:
 
 <img src="images/comet_haensch_emergency_usbextension_t.webp" width="70%" height="70%" />
 
-Just make sure you use one of the affordable generic USB wire testers to test your soldering before you mount the cable.
+Verify your soldering job with one of the affordable generic USB wire testers before you mount the cable.
 
 <img src="images/comet_haensch_emergency__cabletest_t.webp" width="70%" height="70%" />
 
@@ -177,17 +173,18 @@ On the bottom of the lamp, I added the water-proof USB-C charging port.
 ## Battery Pack
 I used unprotected 4x 18650 LiIon cells with a total capacity of 10.000mAh, and no distinct BMS.
 
-Here are the reasons:
 
 
 <img src="images/comet_haensch_emergency__18650_t.webp" width="40%" height="40%" />
 
-* Batteries must sustain high currents. LiPo batteries (at least the affordable ones) are for **low currents only**. 18650 is perfect for the kind of power required (also, I had plenty of used 18650 laying around).
+Here is my reasoning:
+
+* Batteries must sustain high currents. Li**Po** batteries (at least the affordable ones) are for **low currents only**. Li**Ion** batteries (like readily available 18650) are much better-suited for high currents (also, I had plenty of used 18650 laying around).
 * The unused space in the lamp housing provides enough room to arrange four batteries with ease.
 * A capacity of 10.000mAh provides enough energy to run the lamp for many hours, so it is practically useful.
 * Since the batteries are non-servicable (not to be replaced by a user), neither a polarity protection nor a separate BMS was required. The MH-CD42 already comes with all the vital protections (short-circuit, over-current, over-charge, over-discharge) and cuts off power when the battery voltage drops below 3.0V.
 
-I then used nickel strips and spot welding to connect the four batteries, added the breakout boards, and secured it with Kapton tape. 
+I used nickel strips and spot welding to connect the four batteries, added the breakout boards, and secured it with Kapton tape. 
 
 
 <img src="images/comet_haensch_emergency__assembly_t.webp" width="50%" height="50%" />
@@ -203,9 +200,11 @@ If you use nickel strips like I did, make sure you add a few short ones so you c
 
 ### Designing Battery Pack (Shape) 
 
-Make up your mind how you want to shape your battery pack before you start. 
+Make up your mind how you want to shape your battery pack before you start. There is plenty of space in the lamp housing, but also space restrictions. Be certain that your battery pack actually fits into the lamp housing **when the light dome is put back on**. 
 
-Be certain that your battery pack actually fits into the lamp housing **when the light dome is put back on**. Keep in mind that there are extensive power electronics on its bottom that limit the head room.
+I initially did not take into account the extensive power electronics on the bottom side of the light dome that sticks deep into the housing in certain locations, so I had to redesign the shape of my battery pack. That was painful, so use scotch tape first to tape the batteries into the desired arrangement, then test your battery pack by putting back the light dome.
+
+It is crucial that no part of the power electronics touches (or pierces) the batteries since these parts may get hot and need ventilation distance.
 
 
 ## Assembly
@@ -229,15 +228,13 @@ Using the lamp is a joy:
 * **Turn off:**    
   Double short-press to turn the lamp off. MH-CD42 goes into standby mode with quiescent current consumption in the uA.
 * **Charging:**    
-  Connect any USB charger via USB-C. Thanks to the 4-wire extension cable, both simple and USB PD chargers are supported. MH-CD42 will detect weak chargers and reduce charging rate.     
+  Connect any USB charger via USB-C. Thanks to the 4-wire extension cable, both simple and USB PD chargers are supported. MH-CD42 will detect weak chargers and reduce charging rate. After I ran the lamp for about half an hour, I recharged the batteries. They initially charged at around 2A. When charging was completed, the total refilled charge was around 1.600mAh (6.4Wh) which aligns with expectations:
 
   <img src="images/comet_haensch_emergency_charge.webp" width="70%" height="70%" />
 
-  **Note:** during charging, MH-CD42 always opens the 5V output, so during charging the lamp is always on - unless you installed the rocker switch and can turn it off (for charging only).
+During charging, MH-CD42 always opens the 5V output, so during charging the lamp is always on - unless you installed the rocker switch and can turn it off (for charging only).
 
-  That's actually a good feature because it enables you to run the light off an external USB power supply for as long as you want, independently of the battery:
-
-  When MH-CD42 is supplied with USB-C power, it does not draw energy from the battery. It just charges it until it is full, and uses the external power supply to run the load.
+That's actually a useful feature since it enables you to run the light off an external USB power supply for as long as you want, independently of the battery: when MH-CD42 is supplied with USB-C power, it does not draw energy from the battery. It just charges it until it is full, and continues to use the external power supply to run the load.
 
 
 
