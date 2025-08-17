@@ -152,6 +152,4 @@ Typical *powerbanks* also include these *optional* components:
 
 > Tags: Powerbank, Battery, BMS, Charger, Battery Pack, Li-ion, LiPo, USB Power Delivery, Protection, Safety, Battery Management System, Portable Energy, Rechargeable Batteries, DIY Powerbanks, USB Output, Visual Indicators, Cell Balancing, Safe Charging
 
-
-
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/powerbank?340059051703244602) - created 2024-05-02 - last edited 2024-05-02
