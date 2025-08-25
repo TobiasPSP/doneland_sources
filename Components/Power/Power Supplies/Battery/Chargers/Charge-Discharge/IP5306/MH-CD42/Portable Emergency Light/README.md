@@ -187,7 +187,7 @@ However the **NTC** pin can be useful: after all, the battery is installed in a 
 LX-LISC has a built-in thermal management and can protect your device from overheating:
 
 * Replace the 51kΩ SMD resistor on the LX-LISC board next to the mark **NTC** (the resistor itself is marked `513`) with a  82kΩ, 1% SMD resistor. 
-* Add a 100kΩ NTC thermistor (B=4100K) to pins `NTC` and `GND. Embed it into your battery pack where you expect the most heat.
+* Add a 100kΩ NTC thermistor (B=4100K) to pins `NTC` and `GND`. Embed it into your battery pack where you expect the most heat.
 
 <img src="images/lx_linc_top_ntsresistor_t.webp" width="70%" height="70%" />
 
@@ -289,11 +289,9 @@ Before you mount the cable, you may want to test your soldering job with one of 
 
 <img src="images/comet_haensch_emergency_electronicscomplete_t.webp" width="70%" height="70%" />
 
-* 5V input power from HO-CD42
-* 12V output to the Haensch Comet power input (typically use the cable and connector that is supplied with the lamp and fits the light dome PCB). 
-
-  Add the rocker switch to the positive cable so you can manually control the lamp during charging.
-* USB-C not used
+* 5V input power from MH-CD42.    
+* 12V output to the Haensch Comet power input (typically use the cable and connector that is supplied with the lamp and fits the light dome PCB). Add the rocker switch to the positive cable so you can manually control the lamp during charging.     
+* USB-C not used.    
 
 
 
@@ -381,13 +379,9 @@ If this happens, double-short-press the push button to turn off the lamp.
 ### Inserting Light Dome
 The final step in your wiring should be plugging in the male light dome connector (that is soldered to the LX LISC's output) into the light dome female connector on the emergency light dome. 
 
-Now, insert the dome so it rests on its three fixations. Make sure the dome sits evenly, and do not apply any pressure or force at all. 
+Now, insert the dome so it rests on its three fixations. Make sure the dome sits evenly, and do not apply any pressure or force at all. If there is any resistance keeping the dome from fitting in, it most likely is a part of your setup, i.e. the battery pack, colliding with some of the lamps power electronics components. 
 
-If there is any resistance keeping the dome from fitting in, it most likely is a part of your setup, i.e. the battery pack, colliding with some of the lamps power electronics components. 
-
-Never force the dome in place. Instead, inspect the issue, and rearrange your components.
-
-When done, secure the dome with its three screws. 
+Never force the dome in place. Instead, inspect the issue, and rearrange your components. When done, secure the dome with its three screws. 
 
 ### Adding Transparent Cap
 Inspect the rubber seal of the housing, and make sure it is not pulled out anywhere. Gently push it back if needed.
@@ -419,7 +413,7 @@ Using the lamp is a joy:
 When you supply external USB power through the USB-C adapter, you can run the lamp for as long as you wish, bypassing the battery:
 
 * MH-CD42 charges the battery until it is full, *-and-*
-* MH-CD42 supplies the external USB power to LX-LISC which in turn powers the lamp.
+* MH-CD42 supplies the external USB power to LX-LISC which in turn powers the lamp, not drawing any energy from the battery.
 
 If you want to charge only, without running the lamp, use the rocker switch to temporarily turn off the lamp.
 
