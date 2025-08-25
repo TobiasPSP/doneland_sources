@@ -1,5 +1,7 @@
 <img src="/assets/images/charging.png" width="100%" height="100%" />
 
+# IP2326
+
 > 15W Boost Charger With 94% Efficiency For 2S/3S LiIon Battery Packs
 
 IP2326 from Injonic is a highly efficient boost converter that takes 5V USB input and boosts it to 8.4 (2S) or 12.6V (3S) at a maximum of 15W. It includes balancing (for 2S batteries, not for 3S configuration) and can charge 2S or 3S batteries from USB power supplies.  
@@ -203,10 +205,14 @@ On the *LX-LISC* board, the resistor that needs to be replaced is labeled `NTC`:
 ## Pins and Adjustments
 
 ### 2S / 3S-Charging
+
+
 | `CON_SEL` | Mode | Output Voltage |
 | --- | --- | --- |
 | floating/unconnected | **2S** |  6.0-8.2V |
 | via a 1K resistor to `GND` |  **3S** | 9.0-12.4V |
+
+
 
 <img src="images/lx_lisc_3s_charger_annot_t.webp" width="50%" height="50%" />  
 
@@ -253,6 +259,5 @@ If the charger is left connected to the battery after it is fully charged, the c
 [IP2326 Datasheet](materials/ip2326_datasheet.pdf)
 
 > Tags: LX-LISC, Battery Management, BMS, Power Management, Charging, Powerbank, Boost-Converter, 2S, 3S, USB-C, USB PD, QC, CC/CV, Synchronous Boost, Timeout, NTC, Balancing, AWG, XT30, XT60, 15W, 94% Efficiency, Injoinic, IP2326, UVLO, OVLO, ISET, VSET, TIME_SET, VIN_UVSET, VIN_OVSET, Thermal Design, Inductor Selection, Low ESR, Layout
-
 
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326?941088081818254701) - created 2025-08-17 - last edited 2025-08-22
