@@ -222,5 +222,4 @@ This is a safety feature. Here is why:
 
 > Tags: Charger, Li-Ion, Li-Po, Boost Converter, IP2369, 45W, Charger, Discharger, LiFePo4, 250khz, I2C, NTC, Light-Load Shutdown
 
-
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369?728608081930253114) - created 2025-08-29 - last edited 2025-08-30

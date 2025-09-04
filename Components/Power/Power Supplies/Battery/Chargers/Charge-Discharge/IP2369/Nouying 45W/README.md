@@ -144,3 +144,4 @@ For some reason, on my board the preinstalled **4S** solder bridge was using a 5
 
 > Tags: Charger, Li-Ion, Li-Po, LiFePo4, Boost, Buck, Buck-Boost, 20V, IP2369, 45W, Charger, Discharger, Light Load, Powerbank, I2C
 
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/nouying45w?125674091701252408) - created 2025-08-31 - last edited 2025-08-31
