@@ -5,11 +5,11 @@
 
 > 45W 2-6S Charger/Discharger Board With Protections and Support for LiIon and LiFePo4
 
-This 2-6S 45W charger/discharger is based on the [IP2369 power management chip](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) and surfaces in various slightly different versions:
+This 2-6S 45W charger/discharger is based on the [IP2369 power management chip](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) and surfaces in various slightly different versions with different labels, like "Nuoying" or "DYKB":
 
 <img src="images/ip2369_versions_overview_t.webp" width="50%" height="50%" />
 
-This board is a complete and highly integrated powerbank-solution: connect it to any lithium 2-6S battery pack, and you are done.
+This board is a complete and highly integrated powerbank-solution: add it to any lithium 2-6S battery pack to get a high-performance USB PD powerbank.
 
 
 <img src="images/ip2369_chip_t.webp" width="50%" height="50%" />
@@ -17,6 +17,7 @@ This board is a complete and highly integrated powerbank-solution: connect it to
 | Item | Remark |
 | --- | --- |
 | Supported batteries | LiIon, LiPo, LiFePo4 |
+| Supported strings | 2-6S |
 | Built-in battery protections | yes |
 | Built-in output protections | yes |
 | Maximum output current | 3A |
@@ -26,19 +27,17 @@ This board is a complete and highly integrated powerbank-solution: connect it to
 
 The board can be configured conveniently via solder bridges (i.e. setting the battery chemistry and number of strings). No complex soldering required.
 
-> [!NOTE]
-> For technical details and use cases, please refer to the article about [IP2369](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/). This article focuses on the specifics of the Nouying breakout board.
 
 ## Overview
 
-This board is an extremely flexible powerbank solution and can be connected to almost any lithium-based battery pack (including LiFePo4). It is important to note though that you **must configure the board properly** through solder bridges **before connecting any battery**.
+This board is a flexible powerbank solution and can be connected to almost any lithium-based battery pack (including LiFePo4). You **must configure the board properly** though via solder bridges **before connecting any battery**.
 
 > [!NOTE]
 > All board features are implemented by the [IP2369](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) power management chip, so it is strongly recommended that you [read the IP2369 overview](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) before reading *this* article.
 
 ### Highlights
 
-There are zillions of power management boards, but this board stands out for a number of reasons:
+There are many different power management boards on the market, but this one stands out for a number of reasons:
 
 * **LiFePo4-Support:**    
   Most boards work with LiIon and LiPo batteries only. This board can also be configured to work with LiFePo4 batteries.  
@@ -71,14 +70,17 @@ There are zillions of power management boards, but this board stands out for a n
 
 ### Limitations
 
-This board is powered by the [IP2369](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) chip. It implements most (but not all) configuration options. 
-
-
+This board has a few limitations, too:
 
 | Feature | Remark |
 | --- | --- |
 | Light Loads | IP2369 cannot detect loads <70mA and cuts power |
-| Charging and Output Power | IP2369 supports [limiting the power](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/#maximum-output-power) (both for charging and discharging) from 45W down to 20W, however the board does not expose the required `RPSET` resistor | 
+| Charging and Output Power | While IP2369 supports [limiting the power](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/#maximum-output-power) (both for charging and discharging) from 45W down to 20W, this board does not expose the required `RPSET` resistor | 
+
+So if you plan to use this board to power i.e. a microcontroller that may enter deep sleep, it is not the best choice:
+
+* this board targets very high USB loads and would be an overkill for small loads. 
+* as most powerbank boards do, it cuts power output once the load drops below 70mA, so it would cut power once your microcontroller enters deep sleep.
 
 <details><summary>Light Loads and Workarounds</summary><br/>
 
@@ -129,7 +131,7 @@ A much more convenient approach is to use I2C to change the maximum power digita
 
 
 ### Caveats
-
+When using this board in your own projects, here are a few considerations to avoid issues.
 
 This board is a high-performance buck-boost converter that can output considerable power at a much higher voltage than your battery pack. This can induce **high currents** at your battery pack level. 
 
@@ -161,15 +163,24 @@ This board is available from different vendors and can be labeled **Nouying** or
 
 <img src="images/ip2369_versions_top_t.webp" width="60%" height="60%" />
 
-While the board design is identical, there are **significant differences**:
+While the board design is identical, there are **significant differences**. Since there is no documentation, the following information is strictly empirical from the boards I received from different vendors:
 
-* PCB quality / label quality
-* TVS diode
-* Inductor value (4.7µH , 6.8µH)
+| Item | Nuoying | DYKB |
+| --- | --- | --- |
+| PCB quality | good | good |
+| PCB Labels | good | poor | 
+| TVS Diode | mostly present | always missing |
+| Inductor | 6.8µH | 4.7µH |
 
-There is no vendor information on version differences. An educated guess would be that the Nuoying board is a **newer** design with slightly superior features, possibly driven by higher EMI protection requirements, but this could be wrong.
+What makes matters worse, even one board type (like Nouying) can be configured differently, based on the batch you get. While most Nuoying boards came with a TVS diode in place, some boards were lacking it:
 
-Both boards work well. If you are interested in the subtle differences, read the detailed review below.
+<img src="images/ip2369_config_nouying_tvs_t.webp" width="60%" height="60%" />
+
+DYKB boards always lacked the TVS diode.
+
+In a nutshell, all board variants work well. While a TVS diode adds additional protection, it certainly isn't crucial for designs where the battery is soldered directly to the board. So whatever board version you get, most likely you will be happy with it.
+
+If you are interested in the subtle differences, read the details below.
 
 <details><summary>Differences: Nouying vs. DYKB</summary><br/>
 
@@ -193,7 +204,7 @@ On the back side, the **Nouying** board (left) uses a slightly more efficient he
 
 ### TVS Protection
 
-The Nouying board uses a TVS diode close to the `B+` connector (the black item labeld `CK` in the background of the picture).
+The Nouying board typically (but not always) uses a TVS diode close to the `B+` connector (the black item labeld `CK` in the background of the picture).
 
 <img src="images/ip2369_nouying_tvs_t.webp" width="65%" height="65%" />
 
@@ -240,6 +251,8 @@ Both boards seem to use different SMB resistors at some places on first look. Ho
   For example, Nouying uses `01C` (10 kΩ) for the **4S** setting whereas DYKB uses `912` (9.1 kΩ).   
 * **Solder Bridge:**    
   The DYKB board uses a `000` resistor for the default solder bridge (0 Ω jumper). Nouying uses a `015` (0.15 Ω), presumably because of a lack of `000`.
+
+The different SMB resistor labels rather seem to indicate that this board is produced by various manufacturers.
 
 #### Nouying Configuration
 
@@ -321,20 +334,19 @@ Any push longer than 100ms and shorter than 2s is considered a "short push":
   Disables power output and enters low-power mode.
 
 ### Side View
-On the side, to the left there are the battery connectors, and next to the `B+` connector, the Nouying board populates the protective TVS diode (labeled **CK**, big black component) whereas the DYKB board leaves the diode unpopulated.
+On the side, to the left there are the battery connectors, and next to the `B+` connector, the Nouying board typically (but not always) populates the protective TVS diode (labeled **CK**, big black component) whereas the DYKB board leaves the diode always unpopulated (at least with the batches I received).
 
 <img src="images/ip2369_chip_t.webp" width="50%" height="50%" />
 
 In the background, the large inductor is visible. The inductor is used both for buck and boost.
 
-* **Nuoying:**   
-  Uses a `6R8` inductor (6.8µH)
-* **DYKB:**   
-  Uses a `4R7`inductor (4.7µH).
+| Item | Nouying | DYKB |
+| --- | --- | --- |
+| Inductor Value | `6R8` (6.8µH) | `4R7` (4.7µH) |
 
-In the middle part, you see the [IP2369](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) power management chip.
 
-On the right side, the solder bridges for the battery configuration can be seen. 
+
+In the middle part, you see the [IP2369](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/) power management chip. On the right side, the solder bridges for the battery configuration can be seen. 
 
 
 ## Battery Pack
@@ -343,7 +355,7 @@ The battery pack is connected to `B+` and `B-`.
 * **Protections/BMS:**    
   The board comes with all necessary [protections](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/#protections), so the battery pack does not necessarily need its own protections (although recommended).
 * **Balancing:**    
-  The board has no balancing capabilities. Use a separate BMS for your battery pack that supports balancing.    
+  Always use a separate BMS for your battery pack that supports balancing.    
 * **Wires:**    
   IP2369 limits **input** currents to **3A**/**45W**. Depending on your battery configuration, there can be much higher currents at the battery terminal. For example, in **2S** configuration, the maximum battery current can reach **7.5A**.
 
@@ -357,7 +369,7 @@ Both string configuration and battery chemistry can conveniently be configured u
 
 #### LiFePo4
 
-If you want to use LiFePo4 batteries, close the solder bridge marked **Li-fe**.
+For LiFePo4 batteries, close the solder bridge marked **Li-fe**.
 
 #### 2-6S Configuration
 
