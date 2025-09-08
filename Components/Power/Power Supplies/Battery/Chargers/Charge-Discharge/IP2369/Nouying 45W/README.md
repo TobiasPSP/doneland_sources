@@ -207,7 +207,7 @@ The Nouying board typically (but not always) uses a TVS diode close to the `B+` 
 
 <img src="images/ip2369_nouying_tvs_t.webp" width="65%" height="65%" />
 
-The DYKB board leaves the diode unpopulated:
+The DYKB board leaves the diode unpopulated (at least for all the boards I ordered from various sources):
 
 <img src="images/ip2369_dykb_tvsmissing_t.webp" width="60%" height="60%" />
 
@@ -238,8 +238,8 @@ Rule of thumb based on the different inductor value:
 
 | Board | Use Cases |
 | --- | --- |
-| Nouying | targeting 2S→20 V laptop loads<br/>heavier sustained loads<br/>EMI‑sensitive builds<br/>minimizing ripple/peaks<br/>more thermal headroom |
-| DYKB | follows IP2369 reference inductance (4.7 µH)<br/>slightly higher peak efficiency possible at some loads (lower DCR)<br/>okay when thermal/EMI margin is available |
+| Nouying | targeting 2S→20 V laptop loads, heavier sustained loads, EMI‑sensitive builds, minimizing ripple/peaks, more thermal headroom |
+| DYKB | follows IP2369 reference inductance (4.7 µH), slightly higher peak efficiency possible at some loads (lower DCR), okay when thermal/EMI margin is available |
 
 
 
@@ -276,7 +276,7 @@ On the front side, the board features:
   Manually enable (single click) or disable (two single clicks) the power output.
 * **USB-C Connector:**  
   In-/Output. Can be used to charge the battery, and provides USB PD output when running from the battery.
-* **Four LEDs:**  
+* **Four LEDs:**     
   Indicate battery state-of-charge, and charging progress when connecting to a USB power supply.
 * **MOSFET:**  
   **AGM405AP** or similar N-channel power MOSFET, most likely used as an "ideal diode": when the board sources power (discharge mode) it doesn’t leak back into an attached charger, and when sinking (charging) it blocks system voltage from returning to the port if disabled
@@ -284,7 +284,7 @@ On the front side, the board features:
   <img src="images/ip2369_nouying_mosfet.webp" width="15%" height="15%" />
 
 #### LED Indicator
-The board implements a 4-LED indicator located next to the USB-C connector.
+The board implements a 4-LED indicator located next to the USB-C connector. All four LEDs are very bright **white** LEDs.
 
 <img src="images/ip2369_top_t.webp" width="60%" height="60%" />
 
@@ -366,12 +366,16 @@ For LiFePo4 batteries, close the solder bridge marked **Li-fe**.
 
 #### 2-6S Configuration
 
-Bridge the appropriate solder bridge for your battery packs' string configuration.
+Bridge the appropriate solder bridge for your battery packs' string configuration:
+
+- First, **remove** the existing SMB resistor from the currently bridged solder bridge.
+    When removing the existing SMB resistor, be gentle. With too much force applied to your soldering iron, you may else rip off the solder pad altogether, and when this happens, you can no longer use this particular solder bridge in the future.     
+- Next, use a solder blob or `000` resistor to bridge the solder bridge that matches your battery configuration.
+
+
 
 > [!IMPORTANT]
 > Always make sure **that only ONE solder bridge is bridged**. The solder bridges enable an internal resistor. If you accidentally bridge more than one solder bridge, the total resistor value decreases (resistor parallel connection), and the effective string configuration may be lower than required.
-
-> Tags: Nouying, DYKB, IP2369, 45W, Charger, Discharger, Li-Ion, Li-Po, LiFePo4, Powerbank, USB-C, USB PD, PD3.0, PD3.1, PPS, 20V, 15V, 12V, 9V, 5V, Boost, Buck, Buck-Boost, 2S, 3S, 4S, 5S, 6S, BMS, Solder Bridges, Light Load, I2C, Power Management, Battery Charging, Laptop Charger, Tool Batteries, Makita, Bosch, DeWalt, PPS 100 mV, ESD, TVS, Inductor 4.7µH, Inductor 6.8µH, Thermal, Efficiency 92%
 
 > Tags: Nouying, DYKB, IP2369, 45W, Charger, Discharger, Li-Ion, Li-Po, LiFePo4, Powerbank, USB-C, USB PD, PD3.0, PD3.1, PPS,Boost, Buck, Buck-Boost,  Light Load, I2C, Power Management, Battery Charging, Laptop Charger, Tool Batteries, Makita, Bosch, DeWalt, PPS 100 mV, ESD, TVS
 
