@@ -14,7 +14,7 @@ In this project, I am adding a custom powerbank to a **Haensch Comet 12-24V Emer
 The interesting part about this project is its creative use of affordable and readily available breakout boards to run 12V loads from a 1S LiIon (3.7V) powerbank:
 
 *  [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) is used as a charger and discharger for a 1S LiIon cell
-* **LX-LISC** is used as a super-small and super-efficient boost converter that boosts the 5V to 12V at 12W (without even getting hot). LX-LISC is actually just another battery charger, designed to charge 2S and 3S battery packs, but it also works as boost converter for 12V loads.
+* [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) is used as a super-small and super-efficient boost converter that boosts the 5V to 12V at 12W (without even getting hot). [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) is actually just another battery charger, designed to charge 2S and 3S battery packs, but it also works as boost converter for 12V loads.
 
 In this project you learn how to build your own custom powerbank that can drive 12V devices up to around 12-15W.
 
@@ -53,7 +53,7 @@ Here is the design I came up with:
   
   <img src="images/mh-cd42_top_clean_t.webp" width="30%" height="30%" />
 * **Boost Converter:**     
-  Instead of a traditional bulky boost converter I opted for an affordable modern *IP2326* power management chip that is readily available on boards such as **LX LISC**. While this IC is typically used as a 2/3S charger, it can also work as a simple boost converter and yields impressive 1.5-2A (15W input) at 12V.
+  Instead of a traditional bulky boost converter I opted for an affordable modern *IP2326* power management chip that is readily available on boards such as [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/). While this IC is typically used as a 2/3S charger, it can also work as a simple boost converter and yields impressive 1.5-2A (15W input) at 12V.
 
   
 
@@ -62,7 +62,7 @@ Here is the design I came up with:
 
 
 > [!NOTE]
-> The LX-LISC board is available in a variety of versions. I came across versions **V1**, **V2**, and unmarked boards. Meanwhile, even a **V3** is available. All versions except **V3** look and feel very similar. I tested my setup both with a **V2** version and with an unmarked board.   
+> The [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) board is available in a variety of versions. I came across versions **V1**, **V2**, and unmarked boards. Meanwhile, even a **V3** is available. All versions except **V3** look and feel very similar. I tested my setup both with a **V2** version and with an unmarked board.   
 
 
 
@@ -88,7 +88,7 @@ There are a zillion ways to add portable power to a device, so here I share the 
 
   It turned out to be an ideal design to first use the MH-CD42 to produce strong and stable 5V, then take this voltage into a second boost converter to transform it to 12V. 
 
-  The LX-LISC has yet another advantage when compared to simple boost converters like *TPS61088*: it has built-in thermal control via an external NTC thermistor. 
+  The [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) has yet another advantage when compared to simple boost converters like *TPS61088*: it has built-in thermal control via an external NTC thermistor. 
 
   Although I did not use it in this project, adding a temperature probe can add significant robustness: when you squeeze batteries in housings that already host power electronics, it is a good idea to keep an eye on temperature, and when it exceeds thresholds, shut down the device.
 
@@ -105,9 +105,9 @@ The boost solution in this project can be used for any scenario where you have a
 Boosting is a two-step boost process: 
 
 * **3.7V-to-5V:**     
-  MH-CD42 connects to 1S LiIon input at 3.7V nominal, and outputs 5V.
+  [MH-CD42](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/) connects to 1S LiIon input at 3.7V nominal, and outputs 5V.
 * **5V-to-12V:**    
-  LX-LISC gets the 5V input and boosts it to 12V output. **Add a  10kΩ thermistor to pin `NTC` for extra safety and embed it in your battery pack.**
+  [LX-LISC](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) gets the 5V input and boosts it to 12V output. **Add a  10kΩ thermistor to pin `NTC` for extra safety and embed it in your battery pack.**
 
 <img src="images/liion_12v_schematics_mh-cd42.webp" width="70%" height="70%" />
 

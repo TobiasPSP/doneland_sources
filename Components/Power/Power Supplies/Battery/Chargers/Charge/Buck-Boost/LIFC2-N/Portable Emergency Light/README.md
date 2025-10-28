@@ -35,7 +35,7 @@ Here are the print files:
 
 
 ### Designing the Internal Battery
-The emergency light requires **12-24V** at around **15W**. Running it off a **1S** LiIon battery required boosting the 3.7V battery voltage up quite a bit - [this did work surprisingly well](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/portableemergencylight/) by using a cheap **LX-LISC 3S charger module** in a "creative" design in my [previous project](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/portableemergencylight/).
+The emergency light requires **12-24V** at around **15W**. Running it off a **1S** LiIon battery required boosting the 3.7V battery voltage up quite a bit - [this did work surprisingly well](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/portableemergencylight/) by using a cheap [LX-LISC 3S charger module](https://done.land/components/power/powersupplies/battery/chargers/charge/powermanagementics/ip2326/) in a "creative" design in my [previous project](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/mh-cd42/portableemergencylight/).
 
 This time, however, I wanted to run the emergency light directly off a **4S LiIon** pack built from old *18650* cells (12-16.8V depending on state-of-charge) to increase efficiency and decrease part counts and complexity.    
 
