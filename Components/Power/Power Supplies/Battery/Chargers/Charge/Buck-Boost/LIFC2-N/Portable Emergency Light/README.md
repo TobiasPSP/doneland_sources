@@ -108,13 +108,13 @@ Next, add a 4S BMS to the battery pack by connecting the five wires to the match
 
 <img src="images/4s_8a_top_t.webp" width="50%" height="50%" />
 
-I used a [very simple 4S BMS](https://done.land/components/power/powersupplies/battery/bms/4s/8a/) simply to protect the battery from    
+I used a [very simple 4S BMS](https://done.land/components/power/powersupplies/battery/bms/4s/8a/) with no balancing capabilities simply to protect the battery from    
 
 * over-discharge (which could destroy its cells), and from     
 * short-circuit (which could cause a fire).
 
 > [!IMPORTANT]
-> You may want to invest a little more and use a 4S BMS with integrated balancing, ensuring that all four cells are always at a matching voltage.     
+> You may want to invest a little more and use a 4S BMS with integrated balancing, ensuring that all four cells are always at a matching voltage. **This bit me:** I used old 18650 cells which all had different internal resistances. Quickly I realized that the overall capacity of my battery pack was crippled by one bad cell. Balancing would have been helpful, but the most important aspect is to carefully select the cells and make sure they are equal, have a similar internal resistance, and same state-of-charge when you assemble the battery pack.     
 
 ### Adding Charger
 

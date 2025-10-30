@@ -14,30 +14,42 @@ A 4S BMS is required for basic battery pack protection. The BMS is neither a cha
 
 ## Caveats
 
-When building 4S battery packs, it is crucial to pick battery cells of same type and state-of-charge. Always make sure all four cells are fully charged.
+When building 4S battery packs, it is crucial to pick battery cells of same type and state-of-charge. Always make sure all four cells are fully charged. 
+
+If you have the opportunity, measure the battery *internal resistance* (requires a special meter and cannot be done with a normal multimeter), and make sure these resistances are roughly equal for all cells.
 
 ### Using Adequate Battery Cells
 
-If you use batteries of different type or age, or if one of the cells isn't fully charged, yozr entire battery pack will perform as bad as the worst cell you used:
+If you use batteries of different type or age, or if one of the cells isn't fully charged, yozr entire battery pack will perform as bad as the worst cell you used.
 
-Let's assume you forgot to charge one of the four cells. When you later charge the battery pack through the BMS, it will detect that three of the four cells are eventually fully charged, and stop charging. The forth cell that wasn't initially fully charged will never receive a full charge.
+Let's assume you forgot to charge one of the four cells. When you later charge the battery pack through the BMS, it will stop charging **all** cells once **any** cell reaches its top voltage. If cells aren't equal, or if one cell initially wasn't fully charged, it will no longer fully charge anymore because it is always lagging behind.
 
-When you then use your battery pack to power a load, the halfway charged cell will first reach the over-discharge voltage, and the BMS cuts power - even though the other three cells are still good to go.
+When you then later use your battery pack to power a load, the BMS cuts power once the **first** cell drops below the over-discharge voltage - which coincidentally is the worst cell or the one that  initially wasn't fully charged. So BMS cuts power even though the other three cells are still good to go.
 
-So by not fully charging one of the four cells, you are effectively crippling the overall capacity of your battery pack to the charge that was in that forth cell when you assembled it.
+With multi-string battery packs, you therefore easily cripple the overall capacity of your pack by using bad cells or by using cells that weren't initially fully charged. 
+
+
 
 ### Balancing
 
-As you have seen, the culprit with multi-string batteries is **balancing**: such packs work well only when all cells are *balanced* and charged to the same level.
+The culprit with multi-string batteries is **balancing**: such packs work well only when all cells are *balanced* and charged to the same level. If only one cell is out-of-balance, this cell dictates the behavior and severely limits overall capacity.
 
 A **balancer** can equal out cell imbalances:
 
 * **Simple BMS:**     
   Simple and cost-effective BMS do not balance at all. That's ok as long as you carefully pick battery calls that are **absolutely identical** in state, capacity, age, and make.    
 * **Passive Balancing:**    
-  Average BMS come with **passive** balancing, and you can also add dedicated passive balanacer modules to simple BMS: if a cell reaches full-charge voltage before other cells, the excess power is wasted and converted to heat until all cells are fully charged. Passive balancing is not very efficient, and balancing currents are very small (in the mA range). While passive balancers can prevent imbalances from happening, they cannot typically heal gross imbalances due to differences in cells or their state-of-charge during assembly.
+  Average BMS come with **passive** balancing, and you can also add dedicated passive balancer modules to simple BMS: if a cell reaches full-charge voltage before other cells, the excess power is wasted and converted to heat until all cells are fully charged. Passive balancing is not very efficient, and balancing currents are very small (in the mA range). While passive balancers can prevent imbalances from happening, they cannot typically heal gross imbalances that existed in the first place, i.e. due to differences in cell quality or their state-of-charge during assembly.
 * **Active Balancing:**      
   These typically are dedicated modules that can be added to a BMS. Active balancers **actively** feed extra charging current into cells that are behind. The balancing current is **much higher** than with passive balancers, often in the *Ampere* region.
+
+#### Balancers May Not Always Be Needed
+Even renown manufacturers with excellent quality record may not use balancers  (i.e. *Makita* in their *5S tool battery packs*). Instead, they solely trust in first grade battery cells of equal specs and quality. 
+
+This is much more important than balancing: balancing is merely **straightening out problems** that shouldn't occur in the first place when using good battery cells. 
+
+So balancers maximize battery pack capacity when you must use lower grade battery cells (i.e. because you repurpose older batteries from different sources).   
+
 
 ## Example
 

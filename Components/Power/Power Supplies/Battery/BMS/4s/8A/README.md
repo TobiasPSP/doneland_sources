@@ -24,7 +24,7 @@
 ## 8A
 
 [LiIon](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
- [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}
+ [LiPo](https://done.land/fundamentals/battery){:.button.button--success.button--rounded.button--sm}    
 This is a cost-effective and simple BMS that claims to sustain continuous currents of **8A**, however in this case make sure you add heat sinks. I use this BMS for smaller loads up to **3A** without heat sink.
 
 Note that this BMS **is not balancing the cells**. It only provides the typical protections (i.e. over-discharge, short-circuit):
@@ -64,7 +64,7 @@ The output voltage is available at the (relatively small) **P+** and **P-** term
 
 You *can* charge your battery pack directly through this BMS by applying *16.8-17.0V* to **p-** and **P+**, however this would result in relatively high charging currents of **6A**, and you may not typically have *16.8-17.0V* at hand.
 
-A much better alternative is to add a dedicated **4S USB Charger Board**, for example the [LIFC2-N](https://done.land/components/power/powersupplies/battery/chargers/charge/buck-boost/lifc2-n/) module. This way, you can charge your 4S battery from any USB power supply.
+A much better way is to add a dedicated **4S USB Charger Board**, for example the [LIFC2-N](https://done.land/components/power/powersupplies/battery/chargers/charge/buck-boost/lifc2-n/) module. This way, you can charge your 4S battery from any USB power supply.
 
 
 ### Example
