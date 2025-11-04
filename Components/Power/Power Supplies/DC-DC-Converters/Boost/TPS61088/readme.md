@@ -10,7 +10,7 @@ This is a popular breakout board available on AliExpress that uses it:
 
 <img src="images/tps61088_board_t.webp" width="60%" height="60%" />
 
-The TPS61088 is btw just the very small black IC on that board. Most space is used for the external inductor, solder pads, and some decoupling inductors and configuration resistors. TPS61088 requires only very few external components, and solutions based on it can have an *extremely* small footprint. Still they boost a *1S LiIon battery input* (at around 3V) up to *12V* - at impressive *1.5A/18W*.
+The TPS61088 is just the very small black IC on that board. Most space is used for the external inductor, solder pads, and some decoupling inductors and configuration resistors. TPS61088 requires only very few external components, and solutions based on it can have an *extremely* small footprint. Still they boost a *1S LiIon battery input* (at around 3V) up to *12V* - at impressive *1.5A/18W*.
 
 
 ## Overview
@@ -158,7 +158,7 @@ TPS61088 supports both *PWM* (pulse width modulation) and *PFM* (pulse frequency
 
   Use PFM for batteries and improved light-load efficiency since fewer switch events cut switching loss and quiescent current, extending runtime.
 
-By default, the board comes with an open `PWM` solder bridge. That leaves the TOS61088 `MODE` pin floating: TPS61088 automatically selects *PFM* for light loads, and *PWM* for moderate-to-heavy loads.
+By default, the board comes with an open `PWM` solder bridge. That leaves the TPS61088 `MODE` pin floating: TPS61088 automatically selects *PFM* for light loads, and *PWM* for moderate-to-heavy loads.
 
 
 <img src="images/tps61088_pfmpwm.webp" width="100%" height="100%" />
@@ -176,5 +176,5 @@ Closing the pad `PWM` grounds `MODE`, forcing *PWM* regardless of load.
 
 
 
-> Tags: Boost, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC, DC-DC
+> Tags: Boost, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC, DC-DC, Whine, Coil Whine
 
