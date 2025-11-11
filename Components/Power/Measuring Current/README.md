@@ -1,13 +1,17 @@
 <img src="/assets/images/lightning.png" width="100%" height="100%" />
 
-# Measuring Voltage and Current
+# Measuring Current
 
-> Measuring Voltage, Current, and Power Consumption 
+> Measuring Current and Power Consumption 
 
-Often, raw power supply properties are needed: voltage can estimate the current state of charge of a battery, for example, and current indicates the power draw.
+Electrical **current** is the flow of electric charge through a conductor. Together with voltage, it determines the **electrical power** (in watts) a device consumes or delivers.  
 
-By measuring current and voltage, you can also calculate the total power. *Coloumb meters* do this **over time** and work like a "power meter", indicating the total power drawn or produced over a given period of time, for example the yield of a solar panel.
+- **Current** quantifies **how many** electrons are moving through a conductor. Higher current requires thicker wires; otherwise, the wire’s resistance turns into a load itself, heating the wire and causing voltage drops. Typical issues related to *current* include choosing sufficiently large wire diameters and avoiding unwanted resistance in connectors and screw terminals. The main dangers are overheating, melting cables, and sparks that can cause fires.  
 
+- **Voltage** represents the **electrical potential difference** that pushes electrons through a circuit. Unlike current, higher voltage doesn’t require thicker wires — it allows more energy to be transferred without increasing the current. However, higher voltages demand better insulation, as the electric field strength can overcome the insulating properties of materials (including human skin). Voltages above roughly **40 volts** can penetrate skin and drive dangerous currents through the body, which is why voltage — not just current — determines electric shock risk.
+
+
+Measuring the current is important when you want to test device power consumption or measure battery capacity. 
 
 
 ## Measuring Voltage
