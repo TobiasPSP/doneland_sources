@@ -178,3 +178,4 @@ Closing the pad `PWM` grounds `MODE`, forcing *PWM* regardless of load.
 
 > Tags: Boost, Voltage, Regulator, Constant Voltage, Constant Current, CV, CC, DC-DC, Whine, Coil Whine
 
+[Visit Page on Website](https://done.land/components/power/powersupplies/dc-dc-converters/boost/tps61088?385649111716250802) - created 2025-11-15 - last edited 2025-11-15
