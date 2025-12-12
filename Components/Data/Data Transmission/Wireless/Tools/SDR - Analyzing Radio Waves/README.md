@@ -1,56 +1,61 @@
 <img src="/assets/images/radio_walkytalky.png" width="100%" height="100%" />
+
 # SDR (Software Defined Radio)
 
 > Affordable universal receivers allow you to monitor wide frequency spectrums and visualize radio emissions.
 
-Traditional receivers are designed to tune into a specific frequency, meaning you can only monitor one frequency at a time. To listen to a different frequency, you must manually adjust the receiver.
+Traditional receivers tune into a *specific* frequency which is ok if you want to communicate with someone. However, if you want to *monitor* and *diagnose RF devices*, it is much more important to view an entire frequency spectrum. This is what *SDR* does.
 
-*SDR (Software Defined Radio) receivers*, however, work differently. They capture a wide frequency range, and modern signal analysis software running on a computer can visualize all the signals within that range simultaneously.
+For example, a 433MHz radio remote control was suspected to not work properly. By tuning a SDR receiver to the 433.9MHz frequency range, it was simple and straight-forward to verify that the remote control indeed sent out a RF signal on the proper frequency:
 
-This approach is highly beneficial for analyzing and debugging RF (Radio Frequency) devices. You no longer need to know the exact frequency a device is using. For example, if you suspect that a device is operating at the wrong frequency, you can tune your SDR to the approximate range and immediately see the actual frequency in use.
 
-> [!TIP]
-> SDR is a broad field, and many HAM radio enthusiasts use SDR receivers to listen to radio stations worldwide. SDR receivers come in various quality levels and price ranges. For lab use, however, a simple SDR USB stick priced around €20 is often sufficient.
+<img src="images/sk120x_remotecontrol_sdr.webp" width="100%" height="100%" />
+
+
+*SDR (Software Defined Radio) receivers* capture a wide frequency range, and modern signal analysis software running on a computer can visualize all the signals within that range simultaneously.
+
 
 ## Overview
 
-Radio waves are invisible, so special tools are required to visualize them in order to analyze and troubleshoot RF components.
+To get started with *SDR*, you need two things: 
 
-For instance, if you're having trouble connecting two RF boards, it helps to verify that both components are indeed using the same radio frequency and modulation. 
+* **Hardware (SDR Receiver):**     
+A device that picks up the radio frequencies. Cheap and highly useful devices start at well below €50 but you can also invest in the range of €300-800 that can monitor wider frequency spectrums.    
 
-Moreover, radio frequencies are regulated, with many restrictions in place. To ensure you stay within legal limits and avoid interfering with other services, you may need to measure the actual RF power your devices emit and check for unwanted spurious emissions.
+* **Software:**      
+The signal analysis is done on a capable computer, i.e. a Windows notebook. There is a variety of free SDR software available. Some require a specific operating system, others work cross-platform.
 
-Lastly, if you're looking to optimize your wireless transmissions, you'll want to assess your antennas. Are they performing as expected? Are they properly tuned for the frequencies you're using?
 
 ### SDR Receivers
 
-SDR receivers are relatively simple circuits because most of the heavy lifting is offloaded to a computer. The computer's processor handles the complex signal analysis and visualizes the signals present across the chosen frequency range. 
+A wide variety of *SDR radio devices* are available, ranging from affordable USB dongles to high-end, professional models that can cost hundreds or even thousands of dollars.     
 
-This is why it's possible to start with a basic and inexpensive SDR receiver. However, the computer itself needs to be powerful enough to process large amounts of data.
+Many popular models are also available as [*cloned* devices](https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/), which may work just as well, or may not work at all.
 
-The quality and frequency range of the SDR receiver determine how much raw data it sends to the computer. For smooth operation, you need a fast USB connection (at least USB 2.0, but ideally USB 3.0) along with high-quality USB cables.
+The most challenging part about SDR receivers often is making sure that your computer properly recognizes it. 
+
+* Brand-name products typically come with [quick start guides](https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/) that provide helpful information and links to necessary drivers. 
+
+* Cloned and cheap SDR receivers are frequently not recognized by your computer at first, and you need tools like [Zadig](https://zadig.akeo.ie/) to work around this issue and ensure that the SDR receiver is recognized by your operating system.
+
+
+> [!NOTE]
+> When you upgrade your operating system - i.e. migrate from Windows 10 to Windows 11 - you may have to run *Zadig* again since new installations reset the cheats that *Zadig* installed for your SDR receiver.   
+
 
 ### Software
 
-In SDR, *software* plays a central role. 
+Most SDR software is open-source and free for personal use. Applications are generally of very high quality, but as with many free tools, they may have limitations. 
 
-Most SDR software is open-source and free for personal use. These applications are generally of very high quality, but as with many free tools, they may have limitations. For instance, some software may only be available on certain operating systems, depending on the preferences of the software's creator.
+For instance, some software may only be available on certain operating systems, depending on the preferences of the software's creator, or support only certain SDR receivers. So make sure the software you pick matches your requirements.   
 
-Therefore, when choosing *SDR software*, pick one that works well with your preferred operating system. Most SDR software supports the same core functionality.
 
-In this guide, we will use [SDR Console](https://www.sdr-radio.com/), which runs on *Windows PCs*. It is sometimes referred to as *sdr-radio*.
 
-### SDR Radio Devices
+## Software Installation
 
-A wide variety of *SDR radio devices* are available. These range from affordable USB dongles to high-end, professional models that can cost hundreds or even thousands of dollars. Many popular models are also available as [*cloned* devices](https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/), which may work just as well, or may not work at all.
+In this guide, I will use [SDR Console](https://www.sdr-radio.com/), which runs on *Windows PCs*. It is sometimes referred to as *sdr-radio* and comes with support for many popular SDR receivers.
 
-Choosing a brand-name SDR radio is important because *hardware drivers* can be the most challenging part of installation. Brand-name products typically come with [quick start guides](https://www.rtl-sdr.com/rtl-sdr-quick-start-guide/) that provide helpful information and links to necessary drivers.
 
-Clones and unbranded devices often lack adequate support and documentation, which means you may encounter difficulties getting them to work, no matter how inexpensive they are.
-
-## SDR Console (Software) Installation
-
-[SDR Console](https://www.sdr-radio.com/) is a well-regarded SDR software, but it is only available for *Windows PCs*.
 
 ### Downloading
 
@@ -60,23 +65,23 @@ Follow these steps to download the software:
 
 1. Navigate to [sdr-radio.com](https://www.sdr-radio.com/). Scroll down a bit on the *Home* page until you see the button *Download SDR Console*. Alternatively, you can directly visit [this link](https://www.sdr-radio.com/download#Release) to proceed directly to the download section.
 
-    <img src="images/sdr-radio_install1.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install1.webp" width="60%" height="60%" />
 
 2. On the download page, in the upper section, click *Release*:
 
-    <img src="images/sdr-radio_install2.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install2.webp" width="60%" height="60%" />
 
 3. This will scroll you down to the actual download options:
 
-    <img src="images/sdr-radio_install3.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install3.webp" width="60%" height="60%" />
 
 4. Clicking *DOWNLOAD* will not take you to the download immediately. Instead, click on either the *32-Bit* or *64-Bit* version listed, for example, to download the *64-bit version* from *Microsoft OneDrive*.
 
-    <img src="images/sdr-radio_install4.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install4.webp" width="60%" height="60%" />
 
 5. This will lead you to the actual download page. From there, click *Download* to begin the download process.
 
-    <img src="images/sdr-radio_install5.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install5.webp" width="60%" height="60%" />
 
 ### Installation
 
@@ -84,50 +89,57 @@ Follow these steps to download the software:
 
 1. Run the downloaded executable file. You will be prompted to provide *Administrator* privileges. Click *Yes* to proceed.
 
-    <img src="images/sdr-radio_install6.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install6.webp" width="60%" height="60%" />
 
 2. The installer unpacks the necessary files. This process should only take a few seconds.
 
-    <img src="images/sdr-radio_install7.png" width="50%" height="50%" />
+    <img src="images/sdr-radio_install7.webp" width="40%" height="40%" />
 
 3. The actual installation process begins. Click *Next* and follow the on-screen instructions.
 
-    <img src="images/sdr-radio_install8.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install8.webp" width="60%" height="60%" />
 
 4. The installer will confirm the installation directory, which defaults to your primary hard drive. If space is limited, you can select a different drive.
 
-    <img src="images/sdr-radio_install9.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install9.webp" width="60%" height="60%" />
 
 5. During installation, any missing components (e.g., *C++ redistributables*) will be installed. Each component will launch a separate installer, so be sure to click *OK* when prompted.
 
-    <img src="images/sdr-radio_install10.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install10.webp" width="60%" height="60%" />
 
 6. Once the installation is complete, click *Next*, check the box to *Start the program now*, and click *Finish*.
 
-    <img src="images/sdr-radio_install11.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install11.webp" width="60%" height="60%" />
 
 This will close the installer and launch *SDR Console*. The program's red round icon with an antenna will appear in your taskbar.
 
-<img src="images/sdr-radio_install12.png" width="80%" height="80%" />
+<img src="images/sdr-radio_install12.webp" width="40%" height="40%" />
 
 Be sure to right-click this icon and choose *Pin to taskbar* for easy access in the future.
 
-### Adding an SDR Radio Device (Hardware)
-
 For *SDR Console* to work, it needs at least one physical *SDR Radio Receiver*. On the first launch of the software, a dialog box will prompt you to add your SDR receiver.
 
-<img src="images/sdr-radio_install13.png" width="100%" height="100%" />
+## Hardware
+
+In this example, I am using a very affordable *RTL-SDR.COM V4* SDR receiver. It actually seems to be a cheap clone. 
+
+The software comes with a long list of supported SDR radios. Make sure you select the one you are intending to use.
+
+<img src="images/sdr-radio_install13.webp" width="100%" height="100%" />
 
 Follow these steps to add your SDR receiver:
 
-1. Plug in your SDR receiver, so the software can detect it.
+1. Plug in your SDR receiver, so the software can detect it. 
+
+    *If your SDR receiver is not detected by the operating system, or if you are encountering difficulties in the process lined out below, visit the next section to ensure that your SDR receiver is properly recognized.*
+
 2. In the dialog box that opens, click *Search*. A drop-down menu will appear. Select your SDR device (e.g., `RTL Dongle`/`USB`). *SDR Console* will search for your device.
 
-    <img src="images/sdr-radio_install14.png" width="100%" height="100%" />
+    <img src="images/sdr-radio_install14.webp" width="100%" height="100%" />
 
 4. Once the device is detected, click *Add*. The software will automatically populate the technical details of your device, and it will appear in the list of available devices.
 
-    <img src="images/sdr-radio_install15.png" width="100%" height="100%" />
+    <img src="images/sdr-radio_install15.webp" width="100%" height="100%" />
 
 5. Don't forget to click *Save* to keep the device in your list. From now on, you can simply double-click it to select it whenever you launch *SDR Console*.
 
@@ -137,21 +149,32 @@ You can also add additional SDR devices if desired.
 
 If *SDR Console* fails to detect your SDR receiver, and you've confirmed that it's connected and the correct model was selected in the *Search* menu, the issue might be related to *USB device discovery*.
 
-Here's how to fix it on a *Windows PC*:
+On my Windows PC, the properly recognized SDR receiver shows up in *Device Manager* as **Blog V4** under **Other Devices**:
+
+<img src="images/sdr_device_manager.webp" width="100%" height="100%" />
+
+If it instead displays with a warning icon, labeled as **Bulk-In** device, it is most probably still lacking a proper driver, and you need to follow the steps below to fix it.
+
+<img src="images/sdr-radio_install_sdr_1.webp" width="100%" height="100%" />
+
+Here's how to fix a warning icon in device manager on a *Windows PC*:
 
 1. Plug your SDR stick into a USB-A port. You should hear the sound indicating that a new device was recognized. Press `WIN`+`R` and type `devmgmt.msc` to open the Device Manager.
 
 2. In Device Manager, check for any *unknown* devices or devices with strange names such as *Other devices*/*Bulk-In*. If you see one, the SDR device may have a USB driver issue.
 
-    <img src="images/sdr-radio_install_sdr_1.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_install_sdr_1.webp" width="80%" height="80%" />
 
-3. Install [Zadig](https://zadig.akeo.ie/), launch it, and select the unknown device from the drop-down list (e.g., *Bulk-In, Interface 0*).
+3. Install [Zadig](https://zadig.akeo.ie/), launch it, and select the unknown device from the drop-down list (e.g., *Bulk-In, Interface 0*).      
+  
+    It is **crucial** that you do this only for the device that has issues. If you accidentally select a different USB device that is properly working, you may mess up its configuration. 
 
-    <img src="images/sdr-radio_zadig1.png" width="80%" height="80%" />
+    <img src="images/sdr-radio_zadig1.webp" width="80%" height="80%" />
 
 4. In the *Driver* field, check whether a driver is installed. If no driver is present, select *WinUSB* from the drop-down menu and click *Install Driver*. This process may take up to a minute.
 
 After installing the correct USB driver, return to *SDR Console* and try searching for your SDR device again. It should be detected within a few seconds.
+
 ## SDR Console - First Steps
 
 Once you have installed *SDR Console* and added your *SDR Radio Device* to it, let's walk through the first steps:
@@ -165,18 +188,17 @@ Once you have installed *SDR Console* and added your *SDR Radio Device* to it, l
 3. **Set Bandwidth**  
    In the lower part of the dialog, you can select the *bandwidth*. This refers to the frequency range that can be monitored simultaneously in the spectrum. The available bandwidths depend on your SDR receiver's quality and performance. A higher bandwidth requires more computational power and higher data transfer rates. Start with a low bandwidth, such as *1 MHz*, then click *Start*.
 
-     <img src="images/sdrconsole_overview_1.png" width="80%" height="80%" />
+     <img src="images/sdrconsole_overview_1.webp" width="80%" height="80%" />
 
 4. **Start Listening**  
    After a few seconds, *SDR Console* will start emitting sound, most likely static. By default, it will tune to *7.1 MHz*.
 
----
 
 ### Listening to Public Broadcast
 
 Now, let's tune into the radio frequency range and modulation type you want to examine. As a first test, tune into *VHF public broadcast*:
 
-<img src="images/sdrconsole_overview_2.png" width="100%" height="100%" />
+<img src="images/sdrconsole_overview_2.webp" width="100%" height="100%" />
 
 1. **Set Frequency**  
    Click on the frequency meter in the upper left corner. On each digit, there is a square above and below when you hover the mouse over it. Clicking the square increases/decreases the digit. Tune in your favorite *VHF* radio station, or tune in a frequency in the range of `88-108 MHz`.
@@ -191,7 +213,6 @@ Now, let's tune into the radio frequency range and modulation type you want to e
 
    On the left side, click *Mode*, and from the drop-down, select `W-FM` (*wideband FM*). Done! Now, if you’ve tuned into a radio station and cranked up the volume, you should be able to hear music or news.
 
----
 
 ### Testing RF Remote Controls
 
@@ -200,7 +221,7 @@ Now let’s try something more practical: You may have found an old RF remote co
 1. **Tune to Suspected Frequency**  
    Set *SDR Console* to the first suspected frequency range, such as `433.920.000` (*433.92 MHz*).
 
-   <img src="images/sdrconsole_overview_3.png" width="100%" height="100%" />
+   <img src="images/sdrconsole_overview_3.webp" width="100%" height="100%" />
 
 2. **Listen for Signals**  
    Listen for a while. You may pick up various ISM band transmissions, from short bursts from remote controls to regular intervals from digital data transmissions. The waterfall display shows signals over time. If the transmission is on a license-free band, the signals should be centered around *433.92 MHz*.
@@ -208,13 +229,12 @@ Now let’s try something more practical: You may have found an old RF remote co
 3. **Test the Remote Control**  
    Press the unknown remote control and check whether it emits a signal in this spectrum. It should produce a much stronger signal, as it is much closer to the receiver.
 
----
 
 #### Findings
 
 Your remote control may be within the monitored range, but its transmission frequency might be slightly off.
 
-<img src="images/sdrconsole_overview_4.png" width="100%" height="100%" />
+<img src="images/sdrconsole_overview_4.webp" width="100%" height="100%" />
 
 The weak signals in the middle of the waterfall come from unknown sources at precisely the center frequency *433.92 MHz*, while the tested remote control transmits around *433.78 MHz*.
 
@@ -278,4 +298,4 @@ Another reason why these days you should definitely adhere to legal regulations,
 
 > Tags: Radio, RF, Tools, SDR, Bandwidth, Modulation, SDR Console, SDR Dongle, Zadig, USB Driver
 
-[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/tools/sdr-analyzingradiowaves?312657031324253356) - created 2025-03-23 - last edited 2025-03-23
+[Visit Page on Website](https://done.land/components/data/datatransmission/wireless/tools/sdr-analyzingradiowaves?312657031324253356) - created 2025-03-23 - last edited 2025-12-11
