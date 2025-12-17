@@ -69,19 +69,19 @@ Follow these steps to download the software:
 
 2. On the download page, in the upper section, click *Release*:
 
-    <img src="images/sdr-radio_install2.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install2.webp" width="40%" height="40%" />
 
 3. This will scroll you down to the actual download options:
 
-    <img src="images/sdr-radio_install3.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install3.webp" width="40%" height="40%" />
 
 4. Clicking *DOWNLOAD* will not take you to the download immediately. Instead, click on either the *32-Bit* or *64-Bit* version listed, for example, to download the *64-bit version* from *Microsoft OneDrive*.
 
-    <img src="images/sdr-radio_install4.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install4.webp" width="40%" height="40%" />
 
 5. This will lead you to the actual download page. From there, click *Download* to begin the download process.
 
-    <img src="images/sdr-radio_install5.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install5.webp" width="40%" height="40%" />
 
 ### Installation
 
@@ -89,27 +89,27 @@ Follow these steps to download the software:
 
 1. Run the downloaded executable file. You will be prompted to provide *Administrator* privileges. Click *Yes* to proceed.
 
-    <img src="images/sdr-radio_install6.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install6.webp" width="30%" height="30%" />
 
 2. The installer unpacks the necessary files. This process should only take a few seconds.
 
-    <img src="images/sdr-radio_install7.webp" width="40%" height="40%" />
+    <img src="images/sdr-radio_install7.webp" width="20%" height="20%" />
 
 3. The actual installation process begins. Click *Next* and follow the on-screen instructions.
 
-    <img src="images/sdr-radio_install8.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install8.webp" width="40%" height="40%" />
 
 4. The installer will confirm the installation directory, which defaults to your primary hard drive. If space is limited, you can select a different drive.
 
-    <img src="images/sdr-radio_install9.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install9.webp" width="40%" height="40%" />
 
 5. During installation, any missing components (e.g., *C++ redistributables*) will be installed. Each component will launch a separate installer, so be sure to click *OK* when prompted.
 
-    <img src="images/sdr-radio_install10.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install10.webp" width="40%" height="40%" />
 
 6. Once the installation is complete, click *Next*, check the box to *Start the program now*, and click *Finish*.
 
-    <img src="images/sdr-radio_install11.webp" width="60%" height="60%" />
+    <img src="images/sdr-radio_install11.webp" width="40%" height="40%" />
 
 This will close the installer and launch *SDR Console*. The program's red round icon with an antenna will appear in your taskbar.
 
@@ -135,11 +135,11 @@ Follow these steps to add your SDR receiver:
 
 2. In the dialog box that opens, click *Search*. A drop-down menu will appear. Select your SDR device (e.g., `RTL Dongle`/`USB`). *SDR Console* will search for your device.
 
-    <img src="images/sdr-radio_install14.webp" width="100%" height="100%" />
+    <img src="images/sdr-radio_install14.webp" width="40%" height="40%" />
 
 4. Once the device is detected, click *Add*. The software will automatically populate the technical details of your device, and it will appear in the list of available devices.
 
-    <img src="images/sdr-radio_install15.webp" width="100%" height="100%" />
+    <img src="images/sdr-radio_install15.webp" width="40%" height="40%" />
 
 5. Don't forget to click *Save* to keep the device in your list. From now on, you can simply double-click it to select it whenever you launch *SDR Console*.
 
@@ -151,11 +151,10 @@ If *SDR Console* fails to detect your SDR receiver, and you've confirmed that it
 
 On my Windows PC, the properly recognized SDR receiver shows up in *Device Manager* as **Blog V4** under **Other Devices**:
 
-<img src="images/sdr_device_manager.webp" width="100%" height="100%" />
+<img src="images/sdr_device_manager.webp" width="60%" height="60%" />      
+
 
 If it instead displays with a warning icon, labeled as **Bulk-In** device, it is most probably still lacking a proper driver, and you need to follow the steps below to fix it.
-
-<img src="images/sdr-radio_install_sdr_1.webp" width="100%" height="100%" />
 
 Here's how to fix a warning icon in device manager on a *Windows PC*:
 
@@ -163,7 +162,7 @@ Here's how to fix a warning icon in device manager on a *Windows PC*:
 
 2. In Device Manager, check for any *unknown* devices or devices with strange names such as *Other devices*/*Bulk-In*. If you see one, the SDR device may have a USB driver issue.
 
-    <img src="images/sdr-radio_install_sdr_1.webp" width="80%" height="80%" />
+    <img src="images/sdr-radio_install_sdr_1.webp" width="60%" height="60%" />
 
 3. Install [Zadig](https://zadig.akeo.ie/), launch it, and select the unknown device from the drop-down list (e.g., *Bulk-In, Interface 0*).      
   
@@ -188,7 +187,7 @@ Once you have installed *SDR Console* and added your *SDR Radio Device* to it, l
 3. **Set Bandwidth**  
    In the lower part of the dialog, you can select the *bandwidth*. This refers to the frequency range that can be monitored simultaneously in the spectrum. The available bandwidths depend on your SDR receiver's quality and performance. A higher bandwidth requires more computational power and higher data transfer rates. Start with a low bandwidth, such as *1 MHz*, then click *Start*.
 
-     <img src="images/sdrconsole_overview_1.webp" width="80%" height="80%" />
+     <img src="images/sdrconsole_overview_1.webp" width="60%" height="60%" />
 
 4. **Start Listening**  
    After a few seconds, *SDR Console* will start emitting sound, most likely static. By default, it will tune to *7.1 MHz*.
