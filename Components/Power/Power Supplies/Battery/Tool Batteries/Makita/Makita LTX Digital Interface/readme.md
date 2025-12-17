@@ -214,3 +214,5 @@ For all other battery types, a *health* value is calculated like this:
 
 
 > Tags: Makita, One-Wire, 1-Wire, OneWire, Digital Interface, LTX, BTC04, DC18RC
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/toolbatteries/makita/makitaltxdigitalinterface?134231121517253207) - created 2025-12-16 - last edited 2025-12-16

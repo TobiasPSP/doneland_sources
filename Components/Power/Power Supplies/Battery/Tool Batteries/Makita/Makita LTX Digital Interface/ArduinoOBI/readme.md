@@ -154,3 +154,4 @@ Complete sample project, ready to be built in *platformio*: download and unpack 
 
 > Tags: Open Battery Information, Arduino, Makita, OBI, BMS
 
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/toolbatteries/makita/makitaltxdigitalinterface/arduinoobi?170009121517253207) - created 2025-12-16 - last edited 2025-12-16
