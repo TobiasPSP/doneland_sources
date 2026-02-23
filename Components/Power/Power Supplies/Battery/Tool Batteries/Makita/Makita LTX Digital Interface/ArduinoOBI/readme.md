@@ -349,6 +349,4 @@ Complete sample project, ready to be built in *platformio*: download and unpack 
 
 > Tags: LTX, Makita, ArduinoOBI, Open Battery Information, 1-Wire protocol, battery diagnostic, BMS unlock, Arduino Nano, Arduino UNO, PlatformIO, battery lockout, lockout, Martin Jansson
 
-
-
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/toolbatteries/makita/makitaltxdigitalinterface/arduinoobi?170009121517253207) - created 2025-12-16 - last edited 2026-02-22
