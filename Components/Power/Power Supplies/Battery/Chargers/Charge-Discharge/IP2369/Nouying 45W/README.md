@@ -8,6 +8,10 @@ This 2-6S 45W charger/discharger is based on the [IP2369 power management chip](
 
 <img src="images/ip2369_versions_overview_t.webp" width="50%" height="50%" />
 
+> [!IMPORTANT]
+> The **DYKB** boards have a flaw and do not work, at least the batches we received in the past months. Only the **Nouying** boards work as expected.
+
+
 This board is a highly integrated powerbank-solution: add it to any lithium 2-6S battery pack to get a high-performance USB PD powerbank, including charging and discharging with USB PD support.
 
 <img src="images/ip2369_chip_t.webp" width="50%" height="50%" />
@@ -157,11 +161,22 @@ In a nutshell:
 * make sure your battery pack has a **BMS** that takes care of balancing the battery cells.
 
 ## Board Versions
-This board is available from different vendors and can be labeled **Nouying** or **DYKB**.
+This board is available from different vendors and can be labeled **Nouying** or **DYKB**. It seems like these board versions ship randomly.
+IMPORTANT]
+
+The **DYKB** boards seem to have a design flaw and do not work. Only the **Nouying** boards work as expected:
+
+* when you connect a USB tester to USB-C, both boards show all supported protocols
+* once you actually draw power, the **DYKB** board can only deliver small currents, and it cannot boost the voltage
 
 <img src="images/ip2369_versions_top_t.webp" width="60%" height="60%" />
 
-While the board design is identical, there are **significant differences**. Since there is no documentation, the following information is strictly empirical from the boards I received from different vendors:
+The only apparent differences in these boards is the inductor. We are still investigating the root cause but it seems likely that this particular board design fails with the smaller 4.7µH inductor for some reason (even though other boards with IP2369 exist that work fine with 4.7µH inductors).
+
+In any respect, if you ordered and received **DYKB** boards lately, make sure you test and return them in time. I was fortunately able to return most **DYKB** boards I received from AliExpress - no questions asked.
+
+If you come across **DYKB** boards that work, please take the time and add a comment below. I would assume at some point the flaw will get fixed.
+
 
 | Item | Nuoying | DYKB |
 | --- | --- | --- |
@@ -170,18 +185,8 @@ While the board design is identical, there are **significant differences**. Sinc
 | TVS Diode | mostly present | always missing |
 | Inductor | 6.8µH | 4.7µH |
 
-> Application tip: prefer 6.8 µH when targeting heavier 2S→20 V laptop loads or EMI-sensitive builds; prefer 4.7 µH when peak efficiency is prioritized and ripple/EMI can be tolerated.
 
-What makes matters worse, even the same board type (like Nouying) can be configured differently, based on batch. While most Nuoying boards came with a TVS diode in place, some boards were lacking it:
-
-<img src="images/ip2369_config_nouying_tvs_t.webp" width="60%" height="60%" />
-
-DYKB boards were more consistent in the sense that they **always lacked** the TVS diode.
-
-
-In a nutshell, all board variants work well. While a TVS diode adds additional protection, it certainly isn't crucial for designs where the battery is soldered directly to the board. So whatever board version you get, most likely you will be happy with it.
-
-If you are interested in the subtle differences, read the details below.
+If you are interested in subtle board differences, read the details below.
 
 <details><summary>Differences: Nouying vs. DYKB</summary><br/>
 
@@ -223,23 +228,8 @@ Parts may not fail immediately but suffer reduced lifetime or intermittent fault
 Even though the added safety from this TVS diode can be argued for the typical "powerbank" use-case where a battery is permanently attached, the Nouying comes with this protection, and the DYKB has saved a few cents by leaving the TVS diode unpopulated.
 
 ### Inductor 
-Nuoying uses a 6.8µH inductor whereas DKYB uses a 4.7µH inductor. 4.7µH is the inductor value of the reference schematics in the IP2369 datasheet.
+Nuoying uses a 6.8µH inductor whereas DKYB uses a 4.7µH inductor. 4.7µH is the inductor value of the reference schematics in the IP2369 datasheet, however as stated before, the **DYKB** board with the 4.7µH **does not work**.
 
-In reality, both inductor values presumably work equally well, however there may be subtle differences:
-
-| Item | 4.7µH (DYKB) | 6.8µH (Nuoying) |
-| --- | --- | --- |
-| Ripple | higher | lower |
-| Efficiency | better | worse |
-| Light Loads | worse | better |
-| EMI | worse | better |
-
-Rule of thumb based on the different inductor value:
-
-| Board | Use Cases |
-| --- | --- |
-| Nouying | targeting 2S→20 V laptop loads, heavier sustained loads, EMI‑sensitive builds, minimizing ripple/peaks, more thermal headroom |
-| DYKB | follows IP2369 reference inductance (4.7 µH), slightly higher peak efficiency possible at some loads (lower DCR), okay when thermal/EMI margin is available |
 
 
 
@@ -379,4 +369,4 @@ Bridge the appropriate solder bridge for your battery packs' string configuratio
 
 > Tags: Nouying, DYKB, IP2369, 45W, Charger, Discharger, Li-Ion, Li-Po, LiFePo4, Powerbank, USB-C, USB PD, PD3.0, PD3.1, PPS,Boost, Buck, Buck-Boost,  Light Load, I2C, Power Management, Battery Charging, Laptop Charger, Tool Batteries, Makita, Bosch, DeWalt, PPS 100 mV, ESD, TVS
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/nouying45w?125674091701252408) - created 2025-08-31 - last edited 2025-09-05
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/nouying45w?125674091701252408) - created 2025-08-31 - last edited 2026-02-14

@@ -17,7 +17,14 @@ For production use, there are two challenges:
 * **Microcontroller Required:**    
   Since *IP5306* has no built-in memory, it cannot store adjusted settings, nor can you "pre-program" the chip to your needs. Instead, your project **must** contain a microcontroller: each time *IP5306* enables its power output, the microcontroller needs to re-configure the chip via *I2C*.
 * **TTL Logic Levels:**
-  Your microcontroller and the *IP5306* chip used by **PB0A** must use the same voltages for logic levels in order to successufully communicate via *I2C*. Since the *IP5306* is powered by the *LiIon battery* (voltage range: *2.8-4.2V*), your microcontroller cannot directly interface with *IP5306*. Instead, a [level shifter](https://done.land/components/signalprocessing/levelshifter/) must be used. If you use a *3.3V* microcontroller, then it needs to be a *special* level shifter that accepts *higher* **as well as** *lower* voltages on the `HV` side since *3.3V* are somewhere in the middle of the range of the battery voltage. If you use a *5V* microcontroller, any [I2C compatible level shifter](https://done.land/components/signalprocessing/levelshifter/#ic) will do.
+  Your microcontroller and the *IP5306* chip used by **PB0A** must use the same voltages for logic levels in order to successufully communicate via *I2C*. 
+  
+  
+The *IP5306* is powered by the *LiIon battery* (voltage range: *2.8-4.2V*). If you use a microcontroller that supports this voltage range natively (not via its voltage regulator), i.e. Arduino or LGT8F328P, you can power it from the battery. This is the recommended way as now the logic levels naturaly align.
+
+If you'd rather want to use a different microcontroller that needs to run from a different voltage (i.e. ESP32), you may have to add a [level shifter](https://done.land/components/signalprocessing/levelshifter/). Whether a level shifter is required or not depends on the TTL levels and voltage ranges your microcontroller supports.
+
+Adding a level shifter may not be trivial: if you use a *3.3V* microcontroller, you need a level shifter that accepts *higher* **as well as** *lower* voltages on the `HV` side since the 3.3V can be lower **or** higher than the battery voltage. With *5V* microcontrollers, this is simpler since 5V is always above the battery voltage: any [I2C compatible level shifter](https://done.land/components/signalprocessing/levelshifter/#ic) will do.
 
 
 ## Circuit Design Considerations

@@ -377,16 +377,22 @@ void ip5306_set_bits(uint8_t reg, uint8_t index, uint8_t bits, uint8_t value){
 ## Running the Code
 Once you uploaded the source code to your microcontroller, and then did the wiring, once the microcontroller is powered on (i.e. powered by its USB connector), **PB0A** also receives power.
 
-Make sure you run your microcontroller with an attached terminal window set to *115.200* baud since all information is returned to the terminal. 
+Make sure you run your microcontroller with an attached terminal window set to *115.200* baud since all information is returned to the terminal. For example, in *platform.io*, choose *Upload and Monitor*, or *Monitor*.
 
-For example, in *platform.io*, choose *Upload and Monitor*, or *Monitor*.
+In order for *I2C* to work in this test scenario, you need to *enable power output* by pressing the push button once for a short period of time. The onboard LED should start pulsating, and now you can connect to *I2C*.
 
-### Caveats
-In order for *I2C* to work, you need to *enable power output* by pressing the push button once for a short period of time. The onboard LED should start pulsating, and now you can connect to *I2C*.
 
-The initial *I2C* connection must occur within a certain time frame after you supply power to the module. If you supply power to the module and then wait a minute to enable its power output, *IP5306* has **permanently disabled I2C**, and any effort to connect to it will fail.
+### I2C Issues - and Workarounds
 
-This is because *IP5306* uses the *I2C* connectors in a dual way: if no microcontroller tries to connect right after initial power up, these lines will be used for *status LEDs* instead.
+On the board, you see two ICs. The larger one is the IP5306. The smaller one seems to be an RGB controller that manages the on-board WS2812 RGB LED. This second controller is **also** using the I2C interface - and may interfere.
+
+In many tests with different microcontrollers and configurations, it turned out that some microcontroller boards manage to use I2C with the RGB controller in place, whereas other microcontrollers require you to remove the RGB controller.
+
+In my own tests, a classic ESP32 DevKit V2 board was able to use I2C with the unaltered board, whereas a ESP32-C3 SuperMini struggled. 
+
+If you experience difficulties talking to I2C, you may want to remove the RGB controller chip. Once removed, I2C works reliably with any microcontroller.
+
+
 
 ### Performing Test Run
 Once you add power to your microcontroller, it also powers the **PB0A** module through its `3.3V` pin.
@@ -438,7 +444,7 @@ If no *I2C* connection can be established, status messages are emitted:
 
 
 ### Next Steps
-Once *I2C* communication works, you can easily take a closer look at the `ip5306` library and its methods. You'll quickly realize which information now can be read and set by your microcontroller.
+Once *I2C* communication works, you should take a closer look at the `ip5306` library and its methods. You'll quickly realize which information now can be read and set by your microcontroller.
 
 > [!IMPORTANT]
 > Keep in mind that *IP5306*/**PB0A** has no internal memory, and you cannot permanently change the settings. Whenever the **PB0A** enables its power output, the microcontroller must (re)configure **PB0A** via *I2C*.
@@ -449,4 +455,4 @@ Once you have familiarized yourself with how *IP5306 I2C* works, the next step i
 
 > Tags: IP5306, PB0A, I2C
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/i2ctestsetup?128966071813251842) - created 2025-07-12 - last edited 2025-07-12
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a/i2ctestsetup?128966071813251842) - created 2025-07-12 - last edited 2026-02-14

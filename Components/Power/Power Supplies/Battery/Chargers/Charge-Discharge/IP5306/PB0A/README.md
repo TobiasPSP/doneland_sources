@@ -10,6 +10,9 @@ The *PB0A* module is one of the most affordable **programmable** charger/dischar
 
 The module features a `DATA` through-hole pin and a separate solder pad on the front side, both providing access to its internal *I2C* programming interface.
 
+> [!IMPORTANT]
+> Recently, new PCBs surfaced that are also marked "CKCS" and "PB0A". While they are cheaper, they seem to no longer support I2C. You can recognize versions by the position of the two ICs on the board: the original and I2C-capable version places the smaller IC (RGB controller) in a 90-degree angle, whereas the new non-I2C board places both in parallel.    
+
 ## Overview
 
 The *PB0A* breakout board is a sophisticated version of the basic [X-150](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/x-150/). Both boards are based on the power management chip [IP5306](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/), which comes in two different versions:
@@ -57,7 +60,7 @@ Many **PB0A** breakout boards use unmarked chips. It is not always clear whether
 
 <img src="images/pb0a_data_chip_unmarked2_t.png" width="50%" height="50%" />
 
-All boards acquired from various sources on *AliExpress* worked flawlessly.
+All boards **in the original design** acquired from various sources on *AliExpress* worked flawlessly. Make sure the two ICs on the board are placed in a 90 degree angle. Newer board revisions with both chips in parallel do not seem to be I2C-enabled any longer.
 
 ### Confusing Labels
 
@@ -191,4 +194,4 @@ Whenever [IP5306](https://done.land/components/power/powersupplies/battery/charg
 
 > Tags: Charger, Li-Ion, LiIon, Li-Po, LiPo, Boost Converter, 2A, 3.2A, USB, 1S, X-150, IP5306, I2C, CKCS, PB0A Configuration Tool Instructions.doc, TXS0108, BSS138, Level Shifter, SCL, SDA, USB-C, USB-A, Push Button, Deep Sleep
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a?992043071607250919) - created 2025-07-06 - last edited 2025-07-11
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip5306/pb0a?992043071607250919) - created 2025-07-06 - last edited 2026-02-13

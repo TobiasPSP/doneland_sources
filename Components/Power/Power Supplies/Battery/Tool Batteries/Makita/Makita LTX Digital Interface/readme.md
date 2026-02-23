@@ -3,126 +3,129 @@
 
 # Makita LTX Digital Interface
 
+> Understanding the Proprietary Makita LTX Digital Service Interface
 
-> Understanding The Proprietary Makita LTX Digital Service Interface
-
-Makita LTX batteries (18V tool batteries) use a proprietary digital one-wire interface that can be used to query battery details, determine battery health, and even unlock previously locked batteries.
+Makita LTX batteries (18 V tool batteries) use a proprietary one-wire digital interface that allows querying battery details, assessing health, and unlocking locked batteries.
 
 <img src="images/makita_ltx_side_t.webp" width="50%" height="50%" />
 
-The interface is accessible via the yellow extra connector on the battery. 
+Access the interface via the yellow auxiliary connector on the battery.
 
 ## Overview
 
-The digital interface in Makita LTX batteries is proprietary, and no official documentation exists. Genuine Makita chargers like the [DC18RC](https://www.makitatools.com/products/details/DC18RC) and official diagnostic tools like the [BTC04](https://www.youtube.com/watch?v=uumwieLu8CE) utilize this interface.
-
+Makita LTX batteries feature a proprietary, undocumented digital interface. Official chargers like the [DC18RC](https://www.makitatools.com/products/details/DC18RC) and diagnostic tools like the [BTC04](https://www.youtube.com/watch?v=uumwieLu8CE) use this communication channel.[web:1][web:2]
 
 <img src="images/makita_obi_battconn_t.webp" width="50%" height="50%" />
 
+Community reverse-engineering has produced affordable DIY diagnostic tools.
 
-The community has managed to reverse-engineer this interface, and there are already projects that illustrate how to build diagnostic tools for just a few bucks in material.
+<details><summary>Community Achievements</summary>
 
+**Reverse-engineering timeline:**
 
+* **[2021] Martin Jansson begins protocol analysis**  
+  [Battery Hacking](https://martinjansson.netlify.app/posts/makita-battery-post-1) – Initial reverse-engineering work.
 
-<details><summary>Community Achievements</summary><br/>
+* **[2024] Firmware extraction & command discovery**  
+  [Command Set Analysis](https://martinjansson.netlify.app/posts/makita-battery-post-1) – Extracted original firmware, identified key commands.
 
-Here is a quick history about the persons and projects involved in reverse-engineering the Makita LTX 1-Wire protocol:
+* **[2024] Open Battery Information (OBI)**  
+  [Arduino dongle + Python tool](https://github.com/mnh-jansson/open-battery-information) – Complete communication solution.
 
-* [2021: Battery Hacking by Martin Jansson](https://martinjansson.netlify.app/posts/makita-battery-post-1): Martin Jansson is the key person in reverse-engineering the interface. In 2021, he started seriously reverse-engineering the protocol.
-* [2024: Uncovering Command Set by Martin Jansson](https://martinjansson.netlify.app/posts/makita-battery-post-1): Three years later, Martin Jansson managed to extract the original firmware and found the key commands that can be sent to the digital interface.
-* [2024: Open Battery Information by Martin Jansson](https://github.com/mnh-jansson/open-battery-information): Martin Jansson then developed an Arduino-based "Dongle" and a Python-based software to easily communicate with Makita LTX batteries. 
+<img src="images/obi_application_bl1860B.webp" width="50%" height="50%" />
 
-  <img src="images/obi_application_bl1860B.webp" width="50%" height="50%" />
+* **[2025] DIY Diagnostic Tool Tutorial**  
+  [Well Done Tips YouTube](https://www.youtube.com/watch?v=kUg9jWvf5FM) – Arduino Nano build with [3D-printed case](https://shorturl.at/W719g).
 
-* [2025: Building your own Makita Diagnostic Tool](https://www.youtube.com/watch?v=kUg9jWvf5FM): the YouTube channel [Well Dine Tips](https://www.youtube.com/@welldonetips) walks you through building your own Makita diagnostic tool, essentially using the resources from [Open Battery Information](https://github.com/mnh-jansson/open-battery-information), inexpensive resources (Arduino Nano Clone, Makita connector), and adds a [3D printable adapter case](https://shorturl.at/W719g).
-
-* [2025: Stand-alone ESP32 solution with web interface](https://github.com/Belik1982/esp32-makita-bms-reader): at the end of 2025, Belik1982 published a derived project that ports the code from Arduino to the much more capable ESP32 microcontroller that can act as a web server and displays all settings on i.e. a smartphone. This solved many issues with the original solution that required a PC to actually display information. In addition, this project provides even more battery details than the original work.
+* **[2025] ESP32 Web Interface**  
+  [esp32-makita-bms-reader](https://github.com/Belik1982/esp32-makita-bms-reader) – Standalone web server, no PC required, enhanced data display.
 
 </details>
 
-## Protocol Overview
+## Hardware Interface
 
-Makita LTX batteries use a 1-wire interface that is accessible through the yellow 7-pin connector. You source connector cables at places like [AliExpress](https://www.google.com/search?q=aliexpress+makita+charger+connector).
+The 1-Wire interface uses the yellow 7-pin connector. Source cables from [AliExpress](https://www.google.com/search?q=aliexpress+makita+charger+connector).
 
 <img src="images/makita_obi_cable_t.webp" width="50%" height="50%" />
 
-Only two pins are required for the digital interface (the second pin from each side):
+**Required pins (2nd from each side):**
 
-* **1-Wire:**    
-  Serves as the communication pin and needs to be pulled up by an external 4.7 kΩ resistor.
-* **Enable (active high):**    
-  must be pulled high via 4.7 kΩ resistor to activate the 1‑wire interface. 
+| Pin | Function | Pull-up |
+|-----|----------|---------|
+| Enable | Active high (to activate interface) | 4.7 kΩ |
+| 1-Wire | Data communication | 4.7 kΩ |
 
 <img src="images/makita_ltx_plug_connector.webp" width="50%" height="50%" />
 
-* **Connector:**     
-  Typically when you order the connectors, only six pins are connected. One pin is not connected. The pin next to the unconnected pin is **Enable**, and the *second* pin from the opposite side is carrying the **1-Wire** signal.     
-* **Voltage:**     
-  Both pins seem to be designed for **5V** however there are reports that **3.3V** may also work. That said, there are other reports stating that using 3.3V may introduce instability. That's why most projects either use 5V microcontrollers (like Arduino Nano), or add a level shifter and pull the pins up to the 5V rail.    
-
-The purpose of the remaining pins on the connector is unknown, most users cut off the remaining wires:
+**Key notes:**
+- Standard connectors have 6 connected pins (1 missing)
+- **Enable** = pin next to missing pin
+- **1-Wire** = 2nd pin from opposite side
+- **Voltage:** 5 V recommended (3.3 V possible but unstable)
+- Remaining pins: unknown function (typically cut)
 
 <img src="images/makita_obi_adapted_connector_front_t.webp" width="20%" height="20%" />
 
-> [!TIP]
-> There is an excellent [write-up](https://github.com/rosvall/makita-lxt-protocol) on all protocol findings that are currently publicly known.
+> [!TIP]  
+> Complete protocol reference: [makita-lxt-protocol](https://github.com/rosvall/makita-lxt-protocol)
+
+## 1-Wire Protocol
+
+**Standard Dallas 1-Wire** (16.3 kbps):
+- Open-drain bus with 4.7 kΩ pull-up (3-5 V)
+- Master reset: 480 µs low → slaves presence: 60-240 µs low
+- Bit timing: 60 µs slots (logic 1 = release, 0 = hold low)
+
+### Communication Sequence
 
 
+1. Reset (500 µs low)
+2. Presence (550-650 µs low from battery)
+3. Command: cc + command bytes (ex: cc d7 0e 02 = temp)
+4. Response: data bytes + 0x06 terminator
 
-## Protocol
+> [!NOTE]  
+> Source: [makita-lxt-protocol repo](https://github.com/rosvall/makita-lxt-protocol)
 
-Makita uses the original 1-wire protocol. This is a half-duplex serial bus protocol developed by Dallas Semiconductor (now Maxim Integrated) for low-speed communication over a single data wire plus ground.
+**Example:** `cc d7 0e 02` → `9d 0b 06`
 
-Devices connect via an open-drain data line pulled high by a 4.7kΩ resistor to 3-5V, allowing master or slaves to pull low for signaling. A master initiates all communication with a reset pulse (480μs low, then release), prompting slaves to respond with a presence pulse (60-240μs low). Each slave has a unique 64-bit factory-programmed ROM ID for addressing on multi-device buses.
+## Battery Commands
 
-Bits transmit in 60μs time slots without a clock: master starts each slot with a brief low pulse; slaves send "1" by doing nothing (line goes high) or "0" by holding low longer. Standard speed is 16.3kbps, with overdrive mode at 125kbps using shorter timings. Power can be parasitic (from data line) or external via Vcc.
+Batteries use different BMS generations with varying command sets.
 
+### Universal Commands
+All types support:
+- Battery type
+- Capacity  
+- Failure codes
+- Cycle count
 
-### Communication
+[Details](https://github.com/rosvall/makita-lxt-protocol/blob/main/basic_info_cmd.md)
 
-> [!NOTE] 
-> Most details have been taken from [makita-lxt-protocol](https://github.com/rosvall/makita-lxt-protocol/tree/main) and just summarized below for better structure. Please visit the [original content](https://github.com/rosvall/makita-lxt-protocol/tree/main)  for more details.
-
-Every command is preceeded by a 1-wire reset sequence, to which the battery asserts presence:
-
-1. Transactions starts with a 1-wire bus reset (line pulled low for 500μs).     
-2. Battery asserts by pulling the bus low from 550-650μs.     
-3. Client then sends a command initiated by `cc`, followed by the command type (i.e. reading absolute temperature: `d7 0e 02`.
-4. Battery returns response, i.e. `9d 0b 06`.
-
-
-## Commands
-Makita LTX batteries have evolved over time and use different BMS chips with slightly different command sets. 
-
-### Common Commands
-All battery types support querying basic battery information, including information like:
-
-* Battery type   
-* Capacity      
-* Failure Code    
-* Cycle Count
-
-[More details here.](https://github.com/rosvall/makita-lxt-protocol/blob/main/basic_info_cmd.md)
 
 ### Specific Commands
-Reading battery information such as cell voltages, temperature, charge level, and battery health indicators differs between battery types. 
+Reading battery information such as cell voltages, temperature, charge level, and battery health indicators requires different commands based on battery type. 
 
-#### 1. Determine Battery Type
-That's why first the type of battery needs to be determined. The official Makita diagnostic tools [BTC04](https://www.youtube.com/watch?v=uumwieLu8CE) uses this scheme:
 
-| Type | Identification |
-| --- | --- |
-| 0 | must support `cc dc 0b`, last byte of response must be `06` |
-| 2 | does not support `cc dc 0b` but supports `cc dc 0a` when *test mode* was enabled |
-| 3 | does not support the previous commands, but supports `cc d4 2c 00 02` |
-| 5 | value of byte 3 (starting at 0) of ROM id is <100 | 
-| 6 | byte 17 (starting at 0) of basic battery information response `cc aa 00` is decimal 30 |
+### Type Detection
+Follow [BTC04] probing sequence:
 
-#### 2. Issue Specific Commands
+| Type | Test Command | Response Check |
+|------|--------------|----------------|
+| 0 | `cc dc 0b` | Ends with `06` |
+| 2 | `cc dc 0a` | *Test mode enabled* |
+| 3 | `cc d4 2c 00 02` | Supported |
+| 5 | ROM ID byte 3 | < 100 |
+| 6 | `cc aa 00` response byte 17 | = 30 (decimal) |
+
+
+#### Issue Specific Commands
 Once you know the battery type, you can use supported commands from the table below. 
 
-* Battery types 0,2,3 terminate all results by sending byte `06`. 
-* All results are in *little-endian* notation unless noted otherwise
+
+**Notes:**
+- Types 0,2,3 terminate with `0x06`
+- All data: little-endian
 
 
 | Action | Command | Battery Type | Returned Bytes | Data Type | 
