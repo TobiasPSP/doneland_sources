@@ -1,95 +1,92 @@
 <img src="/assets/images/lightning.png" width="100%" height="100%" />
 
-# CH224 USB Trigger
+# CH224 USB Sink Controller Chip Family
 
-> Affordable USB Trigger Chip for Selecting Fixed Voltages
+> Affordable USB Sink Controllers for Requesting USB Voltages From a USB Power Supply 
 
-*CH224* is a chip family specializing on negotiating fixed output voltages from a variety of USB power protocols, including *USB PD*. The basic *CH224K* is well suited for use cases where you need one of the pre-defined voltage steps (*5V*, *9V*, *12V*, *15V*, *20V*) at a maximum of *100W*.
+The **CH224** family is a set of low-cost USB fast‑charge sink controllers that negotiate fixed output voltages from USB‑C PD and other protocols (BC1.2, some “boost” fast‑charge schemes) for loads up to about 100W/140W, depending on model. 
 
-Newer family members like the *CH224A* also support *PD3.2 EPS* (*140W* at a maximum voltage of *48V*), and *CH224Q* also supports *PPS* and *AVS* for delivering **adjustable voltages** in *20/100mV* increments.
-
+They integrate the PD communication engine, E‑Marker simulation, voltage detection, and basic protection (over‑voltage, over‑temperature), so only minimal external circuitry is needed. 
 
 ## Overview
 
-*CH224* manages **USB Power Delivery (PD) negotiation**, ensuring your device receives the voltage and current it needs. 
+There are currently five CH224 family members:
 
-* **CH224K**:   
-  10-pin *CH224K* is the most popular family member found on many simple and affordable USB trigger boards: it supports **USB PD3.0/2.0** and **BC 1.2**, can request five fixed voltages (*5V*, *9V*, *12V*, *15V*, and *20V*) at up to **100W**, and includes an optional simple-to-use digital interface that makes it easy to interface with external microcontrollers.
-
-<img src="images/usb_trogger1_bottom2_t.png" width="50%" height="50%" />
-
-* **CH224A:**     
-  modern drop-in replacement for *CH224K* with additional *USB PD 3.2 EPR* support for voltages of up to *48V* at a maximum power of *140W*. *I2C* is supported as another interface option.Unfortunately, *CH224A* **does not support *PPS* and *AVS*** (adjustable voltage).
+* **CH221K**:    
+  first chip model that surfaced 2018. It can request 5/9/12/15/20V via resistor configuration from USB PD 2.0/3.0. Since it does not use *D+/D-* lines, it can only trigger USB PD, but no legacy USB-A quick charge protocols like QC, VOOC, FCP, etc. It is still in use for its extremely compact design and low cost.      
+* **CH224K/D**:   
+  In 2019, revised models were released that add full support for USB-A legacy fast charging protocols, including BC1.2. In addition, trigger voltage can now also be set using logic pins, making it much easier to build configurable triggers and further lowering external component count.     
   
+  CH224K and CH224D are functionally identical. They differ primarily in package size.     
+  **NOTE:** *CH224K* tolerates max. 3.7V at its logic pins and is suitable for 3.3V logic only.     
+* **CH224A**:    
+  In 2024, CH224A was released as pin-compatible drop-in replacement for CH224K. It adds support for EPR (Extended Power Range), allowing triggering of up to 48V and 140W. Via a simple *I2C* interface, it can now also be controlled by external MCUs.
+
 * **CH224Q:**    
-  
-  Adds support for *PPS* and *AVS* which allows voltage selection in *20mV*/*100mV* increments. 
+  In 2025, CH224Q was released as the new flagship model. It adds **PPS* (Programmable Power Supply) and *AVS* support (Adjustable Voltage Supply), effectively allowing to request specific voltages rather than fixed USB PD standard voltages. 
 
-### Variant Overview
+  Most notably, this chip can finally read all USB source profiles (PDO lists) offered by the power source via its extended I2C registers. It also supports a new *I2C burst mode* where multiple registers can be polled in one transaction. This can be up to 10x faster than single-byte reads. 
+
+### Comparison Chart
+
+
+
+| Feature / Model | CH221K | CH224K | CH224D | CH224A | CH224Q |
+|---|---|---|---|---|---|
+| Output range | 5-20V | 5-20V | 5-20V | 5-48V | 3.3-48V |
+| USB PD | 3.0 | 3.0 | 3.0 | 3.2 EPR | 3.2 EPR |
+| PPS | | | | | 3.3-21V@20mV/50mA |
+| AVS | | | | | 15-48V 100mV |
+| output power | 60W | 100W | 100W | 140W | 140W |
+| legacy protocols |  | ✅ | ✅ | ✅ | ✅ |
+| E-marker simulation |  | ✅ | ✅ | ✅ | ✅ |
+| Trigger via resistor |  ✅ | ✅ | ✅ | ✅ |✅ |
+| Trigger via logic pin|  | ✅ | ✅ | ✅ |✅ |
+| Trigger via I2C |   |  |  | ✅ |✅ |
+| I2C Burst Mode |  |  |  |  | ✅ |
+| Package type  | SOT‑23‑6 | ESSOP‑10 | QFN‑20 | EESOP-10/<br/>QFN‑20   | DFN10                                       |
+| Pin count                        | 6                                   | 10                                 | 20                                 | 20                                       | 20                                           |
 
 
 <img src="images/ch224_package_overview_new_t.png" width="100%" height="100%" />
 
 
-| Feature / Model        | **CH221K**                    | **CH224K**                       | **CH224D**                        | **CH224A**                         | **CH224Q**                         |
-|-----------------------|-------------------------------|----------------------------------|-----------------------------------|-------------------------------------|-------------------------------------|
-| **PD Version**        | PD3.0/2.0                     | PD3.0/2.0                        | PD3.0/2.0                         | PD3.2 EPR              | PD3.2 EPR AVS PPS              |
-| **Max Voltage**       | 20V | 20V | 20V | 48V | 48V |
-| **Adjustable Voltage** | ❌ | ❌ | ❌ | ❌ | ✔️ |
-| **Max Power**         | 100W                  | 100W                   | 100W                      | 140W        | 140W       |
-| **Protocols**         | PD                        | PD, BC1.2, AFC, FCP, QC2.0, etc. | PD, BC1.2, AFC, FCP, QC2.0, etc.  | PD, BC1.2, EPR, etc. | PD, BC1.2, EPR, AVS, PPS,  etc. |
-| **Voltage Config**    | - Resistor                  | - Resistor<br/>- GPIO          | - Resistor<br/>- GPIO                  | -Resistor<br/>- GPIO<br/>- I2C                | -Resistor<br/>- GPIO<br/>- I2C        |
-| **I2C Support (400kHz)**       | ❌                            | ❌                               | ❌                                | ✔️                        | ✔️                       |
-| **E-Marker Simulation**      | ❌                            | ✔️                              | ✔️                               | ✔️                                 | ✔️                                 |
-| **Max Voltage on pins  `CFG2`/`CFG3`**  | ❌   | 3.7V                               | 5V |    5V | 5V |
-| **Special Pins**      | ❌                             | ❌                              | GATE (NMOS), ISP/ISN (current)    | ❌                                   | ❌                                  |
-| **Package**           | SOT23-6L                      | ESSOP10                          | QFN20, ESSOP10                    | ESSOP10     | QFN20 |
-| **Use Case**          | Consumer Devices  | Trigger Boards  | Trigger Boards    | High-Power Trigger Boards   | High-Power Trigger Boards  |
-
-## Trigger Boards
-Trigger boards typically use the affordable 10-pin *CH224K* found in many *USB Trigger Boards*.
-
-
-<img src="images/usb_trigger_3_side_t.png" width="50%" height="50%" />
-
-It is likely that *CH224K* will be replaced by the pin-compatible *CH224A* in the near future, increasing the power from *100W* to *140W*, and the maximum voltage from *20V* to *48V*, and adding *I2C* support for external microcontrollers. 
-
-
-| Feature | CH224K | CH224A |
-| --- | --- | --- |
-| max. Voltage | 20V | 48V |
-| max. Power | 100W | 140W |
-| I2C | no | yes |
-
-> Note that *CH224A* **does not support adjustable voltage** (*PPS* and *AVR*). Only *CH224Q* allows for freely adjustable voltages in *20/100mV increments*.
-
 ### Use Cases
-USB trigger boards play an important role in many DIY projects, for example:
 
-- **Custom Power Adapters:** Power portable soldering irons and other high-demand devices at *20V* and up to *100W* from a USB power bank.
-- **Car Adapter:** Add a trigger board to a *12V cigarette lighter socket*, and run devices originally designed for automotive use from a USB power source.
-- **USB PD Tester:** Control the trigger chip from an external microcontroller to automatically test USB power sources and identify the voltages it can deliver.
-- **Lab Bench Power Supply:** Create a (simple) lab bench power supply that can be powered by a USB charger and delivers one of the pre-defined voltages on key press. 
+Here is where these chips are typically used:
 
-## Voltage Selection
+* *CH221K*: maximum space constraints, very low-cost
+* *CH224K*: being phased out for *CH224A* but still stocked and cheaper.    
+  CFG pins max 3.7 V** (3.3 V logic only)       
+  <img src="images/usb_trogger1_bottom2_t.png" width="50%" height="50%" />
 
-The trigger voltage can be set in three ways:
+* *CH224D*: simple and cheap USB triggers    
+* *CH224A*: high-quality triggers for up to 140W/48V      
+  
+  <img src="images/usb_trigger_3_side_t.png" width="50%" height="50%" />
 
-| Method | CH221K | CH224K/D | CH224A/Q |
-| --- | --- | --- | --- |
-| Resistor (`CFG1`) |  ✔️ | ✔️ | ✔️ |
-| Level (`CFG2`, `CFG3`) | ❌| ✔️ | ✔️ |
-| I2C | ❌| ❌| ✔️ |
+* *CH224Q*: full programmatic control via I2C, fully programmable output voltages   
 
 
 
-### Resistance Configuration
 
-In this mode, a single resistor is connected to `CFG1` and `GND`.
+## Voltage Configuration
+Depending on chip model, voltage can be requested in up to three different ways:
+
+| Method | CH221K | CH224K | CH224D | CH224A | CH224Q |
+| --- | --- | --- | --- | --- | --- |
+| Resistors |  ✅ | ✅ | ✅ | ✅ | ✅ |
+| Digital Pins |   | ✅ | ✅ | ✅ | ✅ |
+| I2C |  | | | ✅ | ✅ |
+
+### Using Resistors
+
+This is the most basic approach that is supported by all chip models. In this mode, a single resistor is connected to `CFG1` and `GND`.
 
 
 | Resistance on CFG1 to GND | Request-voltage |
 |---------------------------|-----------------|
+| none                      | 5V |
 | 6.8KΩ                     | 9V              |
 | 24KΩ                      | 12V             |
 | 56KΩ                      | 15V             |
@@ -99,11 +96,8 @@ In this mode, a single resistor is connected to `CFG1` and `GND`.
 `CFG2` and `CFG3` are not used.
 
 
-> With *CH224K/D*, when `CFG1`, `CFG2`, and `CFG3` are left unconnected, the chip defaults to *20V*.
-
-
 #### CH221K
-*CH221K* is the only chip variant that works *differently*: the pin is called `CFG` (not `CFG1`), the resistor must connect to `VDD` (not `GND`), and the resistor values are different:
+*CH221K* being the first chip model of this family, works slightly different: the pin is called `CFG` (not `CFG1`), the resistor must connect to `VDD` (not `GND`), and the resistor values are different:
 
 | Resistance on CFG to VDD | Request-voltage |
 |--------------------------|-----------------|
@@ -113,7 +107,9 @@ In this mode, a single resistor is connected to `CFG1` and `GND`.
 | 100KΩ                    | 15V             |
 | 200KΩ                    | 20V             |
 
-### Level Configuration Mode
+
+
+### Using Digital Pins
 
 In this mode, all three `CFGx` pins are used. when `CFG1` is pulled `low`, this digital ("level") mode is enabled: the states of `CFG2` and `CFG3` now determine the trigger voltage:
 
@@ -125,7 +121,6 @@ In this mode, all three `CFGx` pins are used. when `CFG1` is pulled `low`, this 
 | 0    | 1    | 1    | 15V             |
 | 0    | 1    | 0    | 20V             |
 
-*Level configuration mode* is a simple digital protocol for external microcontrollers to control the trigger voltage, requiring just two *GPIOs*:
 
 
 * **Maximum Pin Voltage:** 
@@ -143,31 +138,36 @@ In this mode, all three `CFGx` pins are used. when `CFG1` is pulled `low`, this 
 * **Disabling Level Control:**    
     pull up `CFG1` to `VHV` through 100KΩ resistor
   
-### I2C Interface
+### Using I2C Interface
 
-*CH224A/Q* support the *I2C interface*. Using this interface is mandatory for accessing advanced functionality:
+*CH224A/Q* can be controlled via I2C from an external MCU. Via I2C, enhanced functionality is accessible:   
 * **CH224A:**    
   * *I2C status* register (`0x09`)    
-  * *voltage control* register (`0x0A`, only fixed voltage steps)    
+  * *voltage control* register (`0x0A`, fixed voltage steps)    
   * *current data* register (`0x50`, maximum available current).
 * **CH224Q** adds:    
-  * *AVS voltage configuration* register (`0x51`, `0x52`, adjustable voltage above *15V* in *100mV* increments)
   * *PPS voltage configuration* register (`0x53`, adjustable voltage up to *15V* in *25mV* increments)
+  * *AVS voltage configuration* register (`0x51`, `0x52`, adjustable voltage above *15V* in *100mV* increments)
   * *PD power data* register (`0x60-0x8F`, complete power information) 
 
 
-For *I2C* details including the register map, [see the datasheet](materials/ch224a_datasheet.pdf).
+For *I2C* details including the register map, [see the datasheet](materials/ch224aq_datasheet.pdf).
 
 
 ## E-Marker Simulation
 
-With USB PD protocols, power levels **above 60W** or voltages **above 20V** are only enabled when the USB-C cable contains an **e-marker chip** certifying the cable for these power levels. This is a critical safety feature.
+Since CH224 chips support output power >60W, proper power supplies will deliver this power only when the USB cable contains a valid E-marker chip that certifies that the USB cable works safely with this power.
 
-*CH224* can **simulate e-markers**, allowing the use of any USB cable at high power. If you enable e-marker simulation, you lose the built-in cable safety protection and **must ensure the cable can safely carry the required current**.
+Trigger chips like CH224 are often used inside devices to manage internal power supply, so there are no e-Marker USB cables involved. That's why these chips can **simulate E-markers**, ensuring that an external USB power supply actually delivers the power levels that the chip requests.
+
+When E-marker simulation is enabled, this effectively turns off a useful and important safe guard of the USB ecosystem: you now can use *any* USB cable with *any* of the supported powers, i.e. up to 140W/5A. It is now up to *you* to ensure that requested powers and the cabling involved fit.
+
 
 To enable **e-marker simulation**, connect `CC2` to `GND` using a **1KΩ resistor**.
 
 ## Safety Features
+
+All chip models come with basic security features:
 
 * **OVP:** over-voltage protection
 * **OTP:** over-temperature protection
@@ -175,8 +175,14 @@ To enable **e-marker simulation**, connect `CC2` to `GND` using a **1KΩ resisto
 
 ## Materials
 
-[CH224/CH221 Datasheet](materials/ch224_datasheet.pdf)
+* [CH224/CH221 Datasheet](materials/ch224_datasheet.pdf):     
+  Comprehensive overview of CH224 chip family including CH221K. Does not cover the latest CH224Q.        
+* [CH224A/Q I2C Datasheet](materials/ch224aq_datasheet.pdf):    
+  Specific datasheet for CH224A/Q focusing on I2C register maps, schematics, and CH224K replacement options.   
+
+
+
 
 > Tags: USB-C, USB-PD, USB Power Delivery, USB Trigger, E-Marker, Power Supply, CH224K, Voltage Negotiation, Trigger Board, Fixed Voltage, PD Sink, Fast Charging, CH224D, CH221K, E-Marker Simulation, Power Adapter, Car Adapter, USB PD Tester
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224?581182061730253233) - created 2025-06-29 - last edited 2025-06-29
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224?581182061730253233) - created 2025-06-29 - last edited 2026-02-25

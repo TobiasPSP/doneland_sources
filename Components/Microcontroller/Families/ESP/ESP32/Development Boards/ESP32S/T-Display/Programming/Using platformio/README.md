@@ -7,29 +7,24 @@
 
 
 
-The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) is fully supported by the development environment *platformio* and can also be programmed using *ArduinoIDE* (you just need to install its support for *ESP32* microcontrollers).
+The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) development board is fully supported in *platformio* and can also be programmed using *ArduinoIDE*. 
 
-Programming your own firmware is the most flexible approach: **you** decide what the microcontroller is going to do, and only the sky is the limit. 
+Programming your own firmware is the most flexible approach: **you** decide what the microcontroller is going to do, and only the sky is the limit. On the contrary, this requires some *C++* skills.
 
-The price to pay is *programming* (which requires some *C++* skills), and it is up to you to find and download appropriate libraries that support your peripherals - such as the built-in TFT display.
+Here is what I recommend:
 
-
-
-You can start programming firmware in two ways:
-
-* **From Existing:** download a ready-to-go *sample project*, and load it into *platformio*. Then adjust the project to your needs, or compile it as-is.
-* **From Scratch:** start a *new project* in *platformio*, and tell the project the type of board you are using, and the extra libraries you need.
+* **Getting to know IDE/platformio:**    
+  Focus on compiling and uploading some pre-made source code that is guaranteed to work, i.e. the *Pong Example*.
+* **Create your own fresh platformio Project:**   
+  Once uploading and running pre-made source code works, next focus on creating a new blank project in platformio, and adjust it step by step. Make sure you upload the project after each small step so you can verify your success.
 
 
-## New From Existing
-When you [download](materials/t_display_pong.zip) a *known-good* project from a trusted source, you save time and effort. The *ZIP file* contains the ready-to-go *platformio project* for the *Pong Example*, already adjusted to be *platformio-compatible*, and fitting the *T-Display* screen resoultion.
+## Overview
 
-After downloading, *unblock* and *unzip* the file, then open the unzipped folder in *VSCode*. Next, click *Upload* in the *platformio Project Tasks*, and you are done.
+My favorite development environment is platformio. I no longer use ArduinoIDE. Below are the steps to create a new fresh platformio project for T-Display boards.
 
-If you have a bit more time, in the next section, we'll together build a project from scratch, and you can see all the detail settings that might be important to know when programming *T-Display*.
+## Create New Project
 
-
-## New Project From Scratch
 In *platformio*, in the *Project Tasks* tree, go to *Projects & Configuration*. Then click *Create New Project* in the upper right hand corner.
 
 <img src="images/lilygo_t-display_platformio_newproject1.png" width="80%" height="80%" />
@@ -37,8 +32,6 @@ In *platformio*, in the *Project Tasks* tree, go to *Projects & Configuration*. 
 
 ### Name Project & Select Board
 Name your project in *Name*, and select *LilyGo T-Display* in the combo box in *Board*. Leave the checkmark to save the new project in your default location, or remove the checkmark so you can set a different location. Then click *Finish*.
-
-
 
 <img src="images/lilygo_t-display_platformio_newproject2.png" width="60%" height="60%" />
 
@@ -51,10 +44,16 @@ board = lilygo-t-display
 framework = arduino
 ````
 
-### Add TFT Library
-*T-Display* comes with a *TFT color display*. In order to program it and display things on it, you can add the *TFT_eSPI* library to your project. It supports a rich set of TFT displays and video controllers (including those used in *T-Display*):
+## Add Display Library
+*T-Display* comes with a built-in *TFT color display*. In order to use it, you need to add an appropriate library. There are two ways of adding libraries to your project.
 
-1. In the *platformio* *Project Tasks* tree, click *Libraries*. A search panel opens. In the search text box, enter *TFT_eSPI*, and click the *magnifier* icon.
+In this example, I am adding the library "TFT_eSPI" that can be used to program the built-in TFT display. There are other suitable TFT display libraries as well, *TFT_eSPI* just serves as an example.
+
+### Browse for Library
+If you don't know the exact name of a library, you can **browse** for a library.
+
+
+1. In the *platformio* *Project Tasks* tree, click *Libraries*. A search panel opens. In the search text box, enter *TFT_eSPI*, and click the *magnifier* icon. Keep in mind that you can search for any keyword, so this dialog can help you even if you did not know the exact library name.
 
     <img src="images/lilygo_t-display_platformio_newproject3.png" width="80%" height="80%" />
 
@@ -73,7 +72,11 @@ framework = arduino
 
 Once downloaded, the library is automatically unpacked and placed inside your project folder.
 
-Your *platformio.ini* file now looks like this:
+### Add Dependency
+
+Rather than going through all of these GUI dialogs, you can also simply add a dependency to your *platformio.ini* file. The IDE then **automatically installs* the library once you save the file.
+
+In fact, the browser dialogs in the previous sections did just that. If you followed the example, your *platform.ini* file now looks similar to this:
 
 ````
 [env:lilygo-t-display]
@@ -83,12 +86,18 @@ framework = arduino
 lib_deps = bodmer/TFT_eSPI@^2.5.43
 ````
 
+> [!NOTE]
+> The browser approach always finds the **latest version** of a library and adds it to your *platform.ini* file. Once done, this version is not automatically updated to keep your code stable. That's why you see version *2.5.43* in my file, whereas you might see a newer version in your *platform.ini* file if you used the browser approach.      
 
 
-### Configure eTFT Library
-Adding the *TFT_eSPI* library to your project is just the first of two steps: you need to *configure* the library so it know what your display and video controller is. Without this, your display remains blank.
 
-Fortunately, this step is very simple: the library already knows your board and display (among hundreds of others). You just need to select it.
+## Visit and Configure Library
+
+With most libraries, you are set with the steps outlined above. Some libraries (like *TFT_eSPI*) might require adjustments, though, and maybe you just would like to know where the installed library physically lives.
+
+With *TFT_eSPI*, you need to *configure* the library so it knows your display type and video controller. So you need to visit the library and select the appropriate display and controller.
+
+### Visiting Library
 
 The library is part of your project folder. In the explorer-like file tree in *VSCode*, the library is always located here: `.pio\libdeps\lilygo-t-display\TFT_eSPI`.
 
@@ -110,61 +119,22 @@ To adapt the library to any display and/or controller, *comment out* the default
 ````
 Once you saved your changes, you are done.
 
-## Pong: Example Sketch
+## Writing Your Own Source Code
 
-The *TFT_eSPI* library comes with a lot of example code. It is just a bit unintuitive to find: in the *VSCode explorer tree*, navigate to `.pio\libdeps\lilygo-t-display\TFT_eSPI\examples`. 
+Now you are ready to go and can write your own source code. You always find it in *src/main.cpp*. Initially, this file contains just a template sketch.
 
+Make sure you add the *Arduino* reference to retain maximum compatibility to sketches developed in *ArduinoIDE*:
 
+````cpp
+#include <Arduino.h>
+````
 
-Inside this folder, you find plenty of examples, organized by display resolution and features:
-
-<img src="images/lilygo_t-display_platformio_examples1.png" width="100%" height="100%" />
-
-> [!IMPORTANT]
-> *TFT_eSPI* is a *generic TFT display library* not affiliated with any particular board or display. The *T-Display resolution* of *135x240* pixels is rather uncommon. Use the examples in the folder *160x128* as a start. You can adjust the resolution to your full screen capacity later.   
-
-### Copying Example Code
-To use one of the examples, open the example *.ino* file in *VSCode*, select the entire code, and paste it into your main source code file `src\mainapp.cpp`. Replace all the sample code that existed in this file.
+If you migrate from *ArduinoIDE* to *platformio*, make sure you define all of your functions above `setup()` and `loop()`: 
 
 
-<img src="images/lilygo_t-display_example_pong_t.png" width="50%" height="50%" />
+Before your code can call a function, it must have been defined. *platformio* is stricter than *ArduinoIDE*, and you need to move all functions up so they are in fact defined once other code paths call the functions.
 
-If you want to follow along, choose the example `.pio\libdeps\lilygo-t-display\TFT_eSPI\examples\160 x 128\Pong_v3`. It will display an exciting round of super-fast *Pong* on the display (you can only watch, not play). This particular example covers a lot of excellent learning points, though:
-
-* **Fixing Incompatibilities:** how to convert *ArduinoIDE* `.ino` files so that they work with other dev environments like *platformio*
-* **Fine-Tuning Code:** making sure the code uses the full display resolution
-
-
-> [!IMPORTANT]
-> The simple *Pong3* example comes with a single source code file. If the example folder contained additional resources such as additional `.h` files, pictures, or fonts, then you would have needed to *also* copy them to your main `src` folder. 
-
-### Testing Code
-Before you change the code in any way, make sure you got all that is needed. Try and compile it: in the *platform.io Project Tasks* tree, click *Build*.
-
-This starts the compilation process which takes place in the console window. Look for *errors*, and check to see whether the compilation ended successfully or failed.
-
-
-<img src="images/lilygo_t-display_platformio_examples2.png" width="100%" height="100%" />
-
-> [!TIP]
-> Do not worry about orange compiler **warnings**: they can occur quite frequently. In this example, warnings will remind you that your display has no *touch capabilities*, for example. The only things that matter are **red compiler errors**.   
-
-
-### Fixing Code Issues
-The most common causes for compilation failure are missing libraries (we have taken care of that), and *incompatibilities between **ArduinoIDE** and **platformio***.
-
-The latter is the culprit here: the example file's extension `.ino` suggests that these examples have been created using *ArduinoIDE*. *Arduinos'* `.ino` files are a *special flavor* of generic `.cpp` files.
-
-#### Adding `Arduino.h`
-To fix this, add `#include <Arduino.h>` to your code. This *include* statement is added automatically in *ArduinoIDE* and may be needed elsewhere.
-
-#### Changing Order Of Function Declarations
-A much more severe issue is the *order in which functions are defined* in the code:
-
-* In *ArduinoIDE*, functions can be declared in any order.     
-* *platformio* is adhering more to *C++* standards and requires functions to be declared **before** they can be used by another function.
-
-To fix this, reorder functions in the code. For this, first take a look at the compiler errors. You see errors like this:
+Else, you may get ugly error messages during compilation because the compiler cannot find the functions - since they were not yet defined when the code called them:
 
 ````
 src/main.cpp: In function 'void setup()':
@@ -175,71 +145,25 @@ src/main.cpp:69:3: note: suggested alternative: 'initstate'
    initgame();
    ^~~~~~~~
    initstate
-src/main.cpp: In function 'void loop()':
-src/main.cpp:80:3: error: 'lpaddle' was not declared in this scope
-   lpaddle();
-   ^~~~~~~
-src/main.cpp:80:3: note: suggested alternative: 'lpaddle_d'
-   lpaddle();
-   ^~~~~~~
-   lpaddle_d
 
 (...)
 ````
 
-#### Moving `setup()` and `loop()` to the end
-Translating these error messages, they basically say: function *setup()* called function *initgame()*, but *initgame()* was not declared (at this point, at least). Same for *loop()*.
+If you want to use existing sketches created in *ArduinoIDE*, make sure you rename the file extension from `.ino` to `.cpp`.
 
-Therefore, the first thing to try is to move *setup()* and *loop()* to the **end** of the code, then call *Build* again.
-
-If this does not fix all errors (like in this example), move to the next section. Else, you are done.
-
-#### Moving Individual Functions
-After shifting *setup()* and *loop()* to the end of the code, the number of compiler errors is reduced, but there are still errors:
-
-````
-src/main.cpp: In function 'void initgame()':
-src/main.cpp:66:3: error: 'calc_target_y' was not declared in this scope
-   calc_target_y();
-   ^~~~~~~~~~~~~
-````
-
-This time, the function *initgame()* called *calc_target_y()* before it was declared. You would need to move *calc_target_y* upwards in the code, above the declaration for *initgame()*.
-
-Or you could push *initgame()* lower, just like you did with *setup()* and *loop()*.
-
-> [!TIP]
-> *initgame()* seems to serve a similar purpose like *setup()* and *loop()*. That's why it is much easier to move *initgame()* to the end of the code, right above *setup()*, rather than *moving up* all other functions. *Build* again to see whether this solved the issue. And it turns out: it did.
-
-
-<img src="images/lilygo_t-display_platformio_examples3.png" width="100%" height="100%" />
-
-
-### Adjusting Code
-Before you upload the code to your *T-Display* board, you may want to fine-tune the code. At the start of the code, it defines the display resolution (*128x160*):
-
-````c++
-int16_t h = 128;
-int16_t w = 160;
-````
-
-The *T-Display* uses a resolution of *135x240*, so to unlock the true real-estate of your display, change the code to this:
-
-````c++
-int16_t h = 135;
-int16_t w = 240;
-````
 
 ## Uploading Code
-Connect the *T-Display board* using a *USB-C* cable to your PC (where you are running *platformio*). Two things should happen:
 
-* **Power On:** The *T-Display* is powered and starts doing whatever the current firmware implemented. Most likely with new *T-Display boards*, you see a logo screen and then some samples.
-* **New Device Sound:** Your PC should play a *new USB device detected* sound (at least when your volume setting allows).
+Once your sketch/code/program is complete, it is time to compile and upload it to the *T-Display* board:
 
-> [!TIP]
-> If either of the two *does not happen*, then something is wrong, and you should check (or replace) the *USB cable* and reboot your PC before you continue. These both simple remedies fix most of the issues before you run into them.   
+1. Connect the *T-Display board* using a *USB-C* cable to your PC (where you are running *platformio*). Two things should happen:
 
-To upload the code, in the *platformio Project Tasks* tree, click *Upload*. *platformio* compiles the code, then detects your board on its *USB port*, turns it into bootloader mode, and uploads your firmware.
+   * **Power On:** The *T-Display* is powered and starts doing whatever the current firmware implemented. Most likely with new *T-Display boards*, you see a logo screen and then some samples.
+   * **New Device Sound:** Your PC should play a *new USB device detected* sound (at least when your volume setting allows).
+
+   If either of the two *does not happen*, then something is wrong, and you should check (or replace) the *USB cable* and reboot your PC before you continue. These both simple remedies fix most of the issues before you run into them.   
+
+2. In the *platformio Project Tasks* tree, click *Upload*. *platformio* compiles the code, then detects your board on its *USB port*, turns it into bootloader mode, and uploads your firmware.
 
 ````
 Looking for upload port...
@@ -279,7 +203,7 @@ With *T-Display*, there is no need to manually switch to bootloader mode. It is 
 
 <img src="images/lilygo_t-display_example_pong_t.png" width="50%" height="50%" />
 
-
+## Caveats
 
 If you do run into issues, check these:
 
@@ -289,9 +213,6 @@ If you do run into issues, check these:
 * **No Restart:** if the board does not respond after uploading code, try pressing the *reset* button (small button on its side). If there is still no response, then you may have forgotten to configure the *TFT_eSPI* library (see above) which is why the screen stays blank.
 
 
-## Materials
-[platformio T-Display Pong Example](materials/t_display_pong.zip)
-
 > Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong, platformio
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio?075453101202242631) - created 2024-10-01 - last edited 2024-10-01
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio?075453101202242631) - created 2024-10-01 - last edited 2026-01-01

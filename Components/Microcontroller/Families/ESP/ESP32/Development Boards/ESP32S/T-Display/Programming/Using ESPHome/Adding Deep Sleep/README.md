@@ -1,6 +1,6 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
  
-# Adding Deep Sleep To T-Display
+# Using Efficient Deep Sleep
 
 > Using Efficient Deep Sleep With Battery-Driven T-Display Boards
 
@@ -10,13 +10,9 @@
 
 <img src="images/lilygo_t-display_deepsleep_esphome_display_overview2_t.png" width="40%" height="40%" />
 
-Typically, though, a portable device does not need to continuously run at full power. At minimum, you will want to add a *power switch* so you can manually turn it on and off.
+Since a portable device might not need to continuously run, *deep sleep* can extend battery lifetime tremendously. A sensor, for example, can transmit readings every so often, and in the meantime, go to sleep (rather than wasting power by idling).
 
-Or, use the *deep sleep* mode: this way, when you don't need the device, it can idle in a very low power mode until you wake it up again. This is also a great solution for sensors or other use cases where you want the microcontroller to perform work in intervals or on input signals.
-
-One challenge with *deep sleep* is though that the actual power consumption drops from *130mA* to *9mA* which is still a very significant power consumption. That's why in this article you learn *why* the board consumes so much power in *deep sleep*, and how you can disable a few components *solely by code* to bring down *deep sleep* power consumption to less than *300uA* (*uA*, not *mA*). 
-
-At *300uA*, with a *1000mAh* battery, the device can stay in *deep sleep* mode for more than 4 months.
+Enabling deep sleep alone will bring down power consumption only to around *10mA*. With just a few additional lines of code, though, you can lower it to around *270uA* (*uA*, not *mA*). At *300uA*, with a *1000mAh* battery, the device can stay in *deep sleep* mode for more than 4 months.
 
 > [!TIP]
 > Implementing *deep sleep* has a number of additional benefits. For example, you can now add a *low voltage protection*, making sure the device automatically enters deep sleep once the battery is close to depletion, protecting battery health. The [ESPHome configuration](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep/#configuration) below includes *low voltage battery protection*.
@@ -25,6 +21,11 @@ At *300uA*, with a *1000mAh* battery, the device can stay in *deep sleep* mode f
 ## Overview
 
 This article focuses on how to add *deep sleep* support to the *T-Display* board, and how to **do it right**. If you do it carelessly, *deep sleep* may consume a lot more power than anticipated, and drain your batteries much sooner than you expected. The configuration presented here is based on the [*sample configuration* created earlier](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/#sample-configuration). 
+
+
+> [!IMPORTANT]
+> ESPHome frequently introduces **breaking changes** in the form of new mandatory parameters and/or removed default objects and variables. The configurations in this article were carefully designed in 2024. In a recent version of ESPHome, **they no longer compile**. Eventually I will try and update them but currently I don't have the time. That said, they do contain a lot of ground work that should be fairly easy to update.  
+
 
 <img src="images/lilygo_tdisplay_deepsleep_overview_ui.png" width="70%" height="70%" />
 
@@ -1384,33 +1385,42 @@ image:
   - file: mdi:wifi
     id: wifiOn
     resize: 24x24
+    type: RGB
   - file: mdi:wifi-off
     id: wifiOff
     resize: 24x24
+    type: RGB
   - file: mdi:battery-off-outline
     id: bat1
     resize: 24x24
+    type: RGB
   - file: mdi:battery-outline
     id: bat2
     resize: 24x24
+    type: RGB
   - file: mdi:battery-low
     id: bat3
     resize: 24x24
+    type: RGB
   - file: mdi:battery-medium
     id: bat4
     resize: 24x24
+    type: RGB
   - file: mdi:battery-high
     id: bat5
     resize: 24x24
+    type: RGB
   - file: mdi:flash
     id: batcharge
     resize: 24x24
+    type: RGB
   - file: mdi:power-plug
     id: powerPlug
     resize: 24x24
+    type: RGB
 ````
 
 
 > Tags: Lilygo, TTGO, T-Display, ESPHome, Deep Sleep, Ext0, Ext1, esp32_ext1_wakeup, Display Disable, Home Assistant, Button, Switch, Sensor, Power Efficiency, Power Save, Battery, Voltage Sensor
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep?396856101907245252) - created 2024-10-06 - last edited 2024-10-09
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep?396856101907245252) - created 2024-10-06 - last edited 2026-02-09

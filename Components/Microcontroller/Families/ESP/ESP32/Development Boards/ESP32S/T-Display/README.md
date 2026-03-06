@@ -4,7 +4,7 @@
 
 > ESP32 with 1.14 Inch Color TFT (135x240), 16MB Flash, 2x Programmable Buttons, And LiIon Battery Support
 
-The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is a great little board, perfect for experimenting, prototyping, or even as basis for developing small portable devices.
+The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is a great little board, perfect for experimenting, prototyping, and as basis for developing small portable devices.
 
 
 <img src="images/lilygo_t-display_pinout.webp" width="100%" height="100%" />
@@ -12,7 +12,7 @@ The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-
 
 It comes with a classic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) equipped with a full *16MB* flash memory in a very small form factor.
 
-As an added value, it has a built-in 1.14" color TFT display (with a 135x240 resolution), support for connecting a *LiIon* or *LiPo* battery (including charger), plus two general-purpose programmable push buttons.
+As an added value, it has a built-in 1.14" color TFT display (with a 135x240 resolution), can use a 1S *LiIon* or *LiPo* battery, includes a charger, too, and has two general-purpose programmable push buttons.
 
 
 ## Overview
@@ -22,24 +22,19 @@ This [T-Display](https://lilygo.cc/en-pl/products/lilygo%C2%AE-ttgo-t-display-1-
 
 
 > [!TIP]
-> T-Display often comes unsoldered, and you have to solder the included header pins yourself. So make sure you keep the protective film on the display until you finished the soldering. The pins are very close to the display: without protection, hot flux may splash onto the display and damage it.
+> Make sure you keep the protective film on the display until you finished all soldering. The pins are very close to the display: without protection, hot flux may splash onto the display and damage it.
 
 
-
-### Affordable and High Quality
-This board is very affordable and really stands out: you can frequently buy it for around €5, but even the list price of $9 is reasonable, considering that you get a full [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) with *16MB* of flash memory. Bulky development boards like the [DevKit C4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) often cost the same and offer much less.
-
-> [!NOTE]
-> *T-Displays* originally came with selectable flash memory sizes, starting at *4MB*. Today, all models have *16MB* (but better check before you buy).
+### Affordable
+For just 5-6€, you get a full [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) with *16MB* of flash memory. Bulky development boards like the [DevKit C4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) often cost the same and offer  less.
 
 Keep in mind though that T-Displays use unshielded *ESP32* (no metal cover) with no FCC id.
 
 ### Low Power Consumption
-The microcontroller sets the base line for power consumption, but what distinguishes a good from a bad board is the *additional* power consumption, especially during power savings modes like deep sleep.
 
-For a general purpose board, the T-Display performs very well with a low power consumption of just *220µA* during deep sleep (with proper configuration). 
+Many affordable ESP32 boards do not work well in deep sleep modes and still consume many mA, effectively making them unusable for battery-operated devices. 
 
-This is in a useful range for battery-operated scenarios. Generic *ESP32* development boards often consume *10mA* or more during deep sleep due to inefficient design.
+This board consumes just around *260µA* in deep sleep (with proper configuration). This is not top notch but pretty decent and works quite well with battery operated scenarios.
 
 Power consumption varies depending on usage:
 
@@ -47,10 +42,10 @@ Power consumption varies depending on usage:
 | --- | --- |
 | *40mA | Normal operation (WiFi disabled) |
 | *130mA* | Normal operation (WiFi active)<br/>spikes of up to *370mA* are possible |
-| *220µA* | Deep Sleep | 
+| *260µA* | Deep Sleep | 
 
 > [!NOTE]
-> Achieving the lowest deep sleep power consumption requires manually disabling both the display and the LDO. Without these adjustments, deep sleep power consumption may remain as high as *9mA*.
+> Achieving the lowest deep sleep power consumption requires manually disabling both the display and pulling GPIO14 low. Without these adjustments, deep sleep power consumption may remain as high as *9mA*.
 
 ### Display
 The T-Display features a built-in SPI-driven 1.14" TFT color display with a resolution of 135x240 pixels and a high pixel density of *260 PPI*. The display includes a programmable backlight controlled by *GPIO4*. 
@@ -62,28 +57,19 @@ The board can be powered from a single LiIon/LiPo battery for portable use throu
 
 <img src="images/t-display_battery_plug_t.webp" width="100%" height="100%" />
 
-One such cable is part of the package.
+The board uses a small *JST 1.25* connector. Most DIY LiPo batteries use larger *JST PH 2.0* plugs.
 
-When connecting the board via USB-C to a USB power supply, the connected battery is automatically charged.
+<img src="images/jst1.25vsjst_ph2.0_t.webp" width="80%" height="80%" />
 
-#### Battery Connector
-The board uses a small *JST 1.25* connector. Most affordable LiPo batteries use larger *JST PH 2.0* plugs.
+* The board does not mark plus and minus polarity
+* The cable and plug that is included uses common color coding: red = positive, black = negative
+* Replacement cables and DIY LiPo batteries with fitting JST 1.25 connectors **may use a different polarity** as JST is not standardized. 
 
-<img src="images/jst1.25vsjst_ph2.0_t.webp" width="100%" height="100%" />
-
-#### Polarity
-Always make sure you connect the battery in correct polarity! That's not easy unfortunately though.
-
-There are no polarity markings on the board, and both pre-crimped cables and LiPo batteries with preinstalled connectors are **notorious for not keeping a uniform standard**.
+**Always make sure you you connect the battery in correct polarity!**
 
 
-* **Cables with Preinstalled Connectors:** sometimes, the red cable connects to pin 1, sometimes to pin 2. Completely random.
-* **Batteries with Preinstalled Connector Wires:** no common standard. Most batteries use *JST PH 2.0* connectors, some use *JST 1.25* connectors. Polarity is random.
+For example, popular rechargeable LiPo batteries from *MakerFocus* typically come with the appropriate small *JST 1.25* connectors that fit the T-Display board. **However, their polarity is reversed**, so if you connect them through the (perfectly fitting) connector, you destroy your board.
 
-As an example, rechargeable LiPo batteries from *MakerFocus* typically come with the small *JST 1.25* connectors that fit the T-Display board. **However, their polarity is reversed**, so if you connect them through the (perfectly fitting) connector, you destroy your board.
-
-> [!IMPORTANT]
-> Always double-check the polarity before you connect a battery to T-Display! Do not trust cable colors or connectors that fit. Always measure with a multimeter yourself.
 
 #### Voltage Sensor
 The board has a built-in voltage sensor that is accessible at *GPIO34*.
@@ -93,14 +79,41 @@ The board comes with two programmable push buttons (active-low, so they are `GND
 
 The button state is exposed at *GPIO0* and *GPIO35*. Note that *GPIO0* is a strapping pin.
 
-## GPIOs and Connectivity
+## Fixing Defective Boards
 
-- **Usable GPIOs**: 
-  - 8 digital and analog GPIOs
-  - 4 digital and analog **input-only** GPIOs
-  - 2 strapping pin GPIOs
-  - 2 I2C GPIOs
-- **Maximum GPIOs Available**: 16 
+Despite all the goodness of these boards, there is also a downside: these boards may not reliably cold-boot and might require you to manually press the *Reset* push button in order to launch your firmware.
+
+### Symptoms
+
+When you plug in a USB cable or connect a LiPo battery, all seems to work just fine, and the board launches as expected. However, once you unplug the power and later re-plug it, the board might no longer boot automatically. It now requires you to manually press the *Reset* button.
+
+Funny enough, if you put the board aside in frustration and revisit it just half an hour later, it miraculously cold-boots again.
+
+### Cause
+
+The culprit is a tiny capacitor located to the left of the USB connector:
+
+<img src="images/tdisplay_cap_present.webp" width="50%" height="50%" />
+
+This capacitor is either too large or doesn't discharge quickly enough. You will experience the cold-boot issue for as long as this capacitor holds charge.
+
+With an **unpowered** board, when you measure the voltage across this capacitor, you'll see its voltage slowly tapering off. If you take a metal needle and short-circuit the capacitor to bleed off its charge, the board immediately cold-boots again.
+
+### Fix
+
+Whether or not you are affected by this issue at all depends on which batch of boards you received. Some boards do not populate this capacitor in the first place - and work flawlessly:
+
+<img src="images/tdisplay_cap_absent.webp" width="50%" height="50%" />
+
+If your board has the capacitor in place, then the easiest fix is to simply remove it. 
+
+Since the capacitor is tiny, the best way is to use a soldering iron with a very small tip: heat the iron to 390-410C, then place the tip on the side of the capacitor for 1-2 seconds, then try and bend it upwards. This works best when using a lot of flux. Do not overheat the board: the removal process should take only 5-10 seconds at most.
+
+
+<img src="images/tdisplay_cap_fixed.webp" width="50%" height="50%" />
+
+
+
 
 ### Options and Assembly
 
@@ -109,11 +122,13 @@ The board is available with pre-soldered or unsoldered headers, allowing flexibi
 > [!TIP]
 > Avoid peeling off the protective film on the display immediately. Soldering header pins occurs near the display, and flux may accidentally spill onto it, so it is clever to keep the protective film in place until you have finished your soldering work.   
 
-## Specs
+## ESP32 Microcontroller
 
-The *ESP32S* microcontroller is available in *4MB* and *16MB* flash memory variants (**Important:** *32MiB* is *32Mbit* which is *4MB*). It does not include *PSRAM*. 
+The *ESP32S* microcontroller on these boards is available in *4MB* and *16MB* flash memory variants (**Important:** *32MiB* is *32Mbit* which is *4MB*). Typically, these boards are sold with *16MB*.
 
-A *shell case* can be purchased separately, or you can [3D print a shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file) yourself.
+The ESP32 used in this board does not have *PSRAM*, nor does it have a metal shield or a FCC approval. 
+
+A *shell case* can be purchased separately. You can as well [3D print a shell](https://github.com/Xinyuan-LilyGO/TTGO-T-Display/tree/master/3d_file) yourself.
 
 | Item | Value |
 | --- | --- |
@@ -141,7 +156,7 @@ A *shell case* can be purchased separately, or you can [3D print a shell](https:
 
 #### PlatformIO
 
-If your board includes *16MB* of flash, ensure you specify this size in the *platformio.ini* file. Otherwise, your firmware will default to using only *4MB*:
+If your board includes *16MB* of flash, ensure you specify it in the *platformio.ini* file, or else your firmware defaults to using *4MB*:
 
 ````ini
 [env:lilygo-t-display]
@@ -164,7 +179,7 @@ esp32:
     type: arduino
 ````
 > [!CAUTION]  
-> If you specify *16MB* with boards that only have *4MB*, your firmware *may or may not* reference memory that does not exist (depending on your overall firmware size). So the effects are random: your board may continue to work fine, or you may experience boot failures or sudden resets. The latter happens whenever your firmware code tries to access non-existing flash memory. In a nutshell, add the extended flash size keys only when you are *certain* that your board has this much memory (see below for how to check the flash size).
+> If you specify *16MB* with boards that only have *4MB*, your firmware *may* reference memory that does not exist (depending on your overall firmware size). So the effects are random: your board may continue to work fine, or you may experience boot failures or sudden resets. The latter happens whenever your firmware code tries to access non-existing flash memory. In a nutshell, add the extended flash size keys only when you are *certain* that your board has this much memory (see below for how to check the flash size).
 
 #### Determining Built-In Flash Memory
 
@@ -185,7 +200,7 @@ Additionally, this tool can manually upload firmware binaries:
 - Use the *Erase* function to clear the flash memory.  
 - Click *Program* to upload the specified binary.
 
-## Caveats
+## Limitations
 
 The *LilyGO T-Display* board is a fantastic choice, especially when you can get it for €5 or less. However, like any hardware, it has some limitations:
 
@@ -210,20 +225,18 @@ There is *no programmable LED* on this board. Testing it with a simple *blink* s
 
 The board uses the primary *SPI interface* internally for the built-in display. These pins are not exposed, so they cannot be used for other peripherals. The secondary *SPI interface* is partially exposed, but pin 14 is missing, which limits usability. Essentially, external *SPI peripherals* cannot be connected to this board. Peripheral connections are limited to *I2C*.
 
-### Charger and External Battery
+### Charger Limitations
 
 The board supports external *LiIon* or *LiPo* batteries via a *JST 1.25* plug on its backside. *LiFePO4* batteries cannot be used as the charging voltage is too high.
 
-#### Charging Current
+#### High Charging Current
 
-The charger is configured to a relatively high *500mA* charging current. 
+The charger uses a relatively high *500mA* charging current which can be a problem in very small portable devices where you use LiPo batteries with less than 1000mAh capacity, exceeding the safe 0.5C charge rate.
 
-Ensure that any connected battery can handle this current. Smaller batteries, typically those below *1000mAh*, may not support such a high charge rate and could be damaged. 
-
-In fact, the typical *LiPo* pouch cells normally require a charging rate of no more than **0.3C**. So even for *1000mAh* batteries, charging at *500mA* is exceeding this, which is considered stressful and may reduce battery lifespan.
+In fact, do not confuse the cheap DIY LiPo cells with the heavy-duty LiPo packs used in RC and drones. DIY LiPos typically require a charging rate of no more than **0.3C**. So even for *1000mAh* batteries, charging at *500mA* is exceeding this rate, which can cause heat and may reduce battery lifespan.
 
 > [!NOTE]
-> *500mA* charging may still make sense in the context of portable devices where you don't want to maximize battery lifetime but rather ensure fast charging.  
+> *500mA* with a *1000mAh* LiPo is perfect as in the context of portable devices, fast charging is typically prioritized over maximizing battery life.  
  
 ### Voltage Sensor Readings
 
@@ -235,13 +248,13 @@ The built-in *voltage sensor* on *GPIO34* provides accurate battery voltage read
 These readings **do not reflect the true battery terminal voltage**. Direct measurement during charging shows that the *TP4054 charger* regulates the voltage safely, gradually rising until it reaches a constant *4.20V*.
 
 > [!IMPORTANT]
-> Set the *attenuation* for *GPIO34* to the maximum setting (*12dB*). Without this, the *ADC* will saturate and report incorrect values of around *1V*.
+> If you want to measure the battery voltage in your firmware, make sure you set the *attenuation* for *GPIO34* to the maximum setting (*12dB*). Without this, the *ADC* will saturate and cut off values at around *1V*.
 
 #### Voltage Spikes in Sensor Readings
 
-The *ESP32 ADCs* are known for limited precision. 
+The *ESP32 ADCs* are known for limited precision. While the reported battery voltage is generally accurate, frequent *positive outliers* (spikes) occur. 
 
-While the reported battery voltage is generally accurate, frequent *positive outliers* (spikes) occur. To address this, use a *quantile filter* with the *0.25 quantile* to smooth the values by cutting off spikes.
+To address this, use a *quantile filter* with the *0.25 quantile* to smooth the values by cutting off spikes.
 
 Below is an example configuration for *GPIO34* as a battery voltage sensor in *ESPHome*, including outlier filtering:
 
@@ -279,28 +292,39 @@ You find more details in the detailed article ["Programming T-Display With ESPHo
 
 ### Low Voltage Tolerance
 
-Typical *Li-ion* batteries shouldn't be discharged below *3.0V* if you want to keep them healthy. However, once voltage drops below *3.2V*, the display backlight starts to flicker, so you cannot fully exploit your battery capacity anyway.
+This board includes a safe LiIon/LiPo charger that includces deep-discharge protection. So once the battery voltage drops below 3V, the charger cuts off battery power.
 
-There is no built-in *low voltage protection* that kicks in at *3.2V* and turns off the board, so your battery may discharge well below this threshold while the board starts to behave erratically.
+This is perfect from a battery point-of-view, but it does not take into account the needs of the board. Once voltage drops below *3.2V*, the display backlight starts to flicker.
 
-That's why you should use the built-in *voltage sensor* (see above) and ensure your board enters *deep sleep* once the voltage drops below *3.2V*. 
+One workaround is to use the built-in *voltage sensor* (see above) and ensure your board enters *deep sleep* once the voltage drops below *3.2V*. 
 
 Here is an [example using ESPHome](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep/) that implements this *low voltage protection* along with other useful features for battery operation.
 
 
 ### Power-Off Capabilities
 
-Once a development board is equipped with an external battery, it needs an *off* switch—or else it would run until the battery is drained.
+If you plan to run your board on battery, make sure you add a physical power switch to the battery cable. Else, the board would run constantly until the battery is drained.
 
-For battery operation, you need to add a physical switch to your battery. *Deep sleep mode* consumes too much power to act as a *power-off switch* replacement.
+Even though this board features a fairly efficient deep sleep mode, this is no option for powering down:
+
+With a minimum deep sleep consumption of 270μA, running on a fully charged 1000mAh battery, this board would last around 4 months before the battery would hit 3.2V. While this seems promising at first, consider that this is considering deep sleep only. When the device is actually awake, assuming 30 minutes of work per day, the battery would be drained after just two weeks. 
+
+So being able to physically turn off the device is crucial.
+
 
 #### Deep Sleep Power Consumption
 
-This board has a better-than-average *deep sleep power consumption* of *220µA* (e.g., [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/) consume up to *4mA*). High-efficiency boards (like the *DFRobot FireBeetle*) consume as little as *12µA*.
+This board has a better-than-average *deep sleep power consumption* of *260µA*. To put this into perspective, [Lolin32 Lite](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/lolin32lite/) consumes up to *4mA* (15x more) whereas the *DFRobot FireBeetle* consume as little as *12µA* (21x less).
 
-The *220µA* deep sleep consumption isn't reached initially. When sending this board to *deep sleep*, it may consume up to *9mA*.
 
-As detailed in the article about [adding Deep Sleep using ESPHome](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingesphome/addingdeepsleep/), it is crucial to use the **ext0** *deep sleep mode*, you **must** send the built-in display to its own *deep sleep* and disable the *LDO* on the board **before** putting the *ESP32* into sleep. Fortunately, all of this can be done via software and requires no hardware tuning.
+## GPIOs and Interfaces
+
+- **Usable GPIOs**: 
+  - 8 digital and analog GPIOs
+  - 4 digital and analog **input-only** GPIOs
+  - 2 strapping pin GPIOs
+  - 2 I2C GPIOs
+- **Maximum GPIOs Available**: 16 
 
 | GPIO | Modes             | Exposed? | Remark                            |
 |------|-------------------|----------|-----------------------------------|
@@ -437,7 +461,9 @@ The board can be programmed by using the typical development environments (*Ardu
 
 ## Materials
 
-[Schematics (PNG)](materials/lilygo_t-display.png),  [Schematics (PDF)](materials/lilygo_t-display.pdf)    
+[Schematics (PNG)](materials/lilygo_t-display.png)      
+[Schematics (PDF)](materials/lilygo_t-display.pdf)       
+[Schematics LDO Enable](materials/ldo_power_schematics.pdf)     
 [ST7789V Video Controller](materials/st7789_datasheet.pdf)    
 [AP2112 Voltage Regulator](materials/ap2112_voltage_regulator.pdf)    
 [TP4054 LiIon Charger](materials/tp4054_datasheet.PDF)    
@@ -445,4 +471,4 @@ The board can be programmed by using the typical development environments (*Ardu
 
 > Tags: Lilygo, T-Display
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display?261761091530243112) - created 2024-09-29 - last edited 2025-08-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display?261761091530243112) - created 2024-09-29 - last edited 2026-02-04
