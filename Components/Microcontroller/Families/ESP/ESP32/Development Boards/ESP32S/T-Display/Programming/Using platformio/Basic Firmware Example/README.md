@@ -29,7 +29,20 @@ platform = espressif32
 board = lilygo-t-display
 framework = arduino
 lib_deps = 
-  bodmer/TFT_eSPI@^2.5.43
+  bodmer/TFT_eSPI
+build_flags =
+    -D USER_SETUP_LOADED=1
+    -include $PROJECT_LIBDEPS_DIR/$PIOENV/TFT_eSPI/User_Setups/Setup25_TTGO_T_Display.h
+
+# unlock full flash size:
+board_build.flash_size = 16MB  
+# maximize flash size for firmware if no OTA req:
+board_build.partitions = no_ota.csv
+# set default serial speed:
+monitor_speed = 115200
+# enable serial output (prevent reboot loop):
+monitor_rts = 0
+monitor_dtr = 0
 ````
 
 Save the file. *Platformio* automatically installs the dependencies, i.e. the referenced *eTFT* library.
@@ -49,15 +62,6 @@ const int TEXT_X = 10;
 const int TEXT_Y = 40;
 
 String lastText = "";
-
-/*
-nmake sure you adjusted user_Setup.h in the eTFT library to match 
-your display. 
-
-Uncomment the line:
-// #include <User_Setups/Setup25_TTGO_T_Display.h>
-and comment out any other display type setup 
-*/
 
 TFT_eSPI tft = TFT_eSPI();  
 
@@ -84,7 +88,6 @@ void setup(void) {
   tft.setTextSize(2);
 
   drawStateText("No button");
-
 }
 
 void loop() {
@@ -108,24 +111,36 @@ void loop() {
 }
 ````
 ## Adjusting TFT_eSPI Library
-The *TFT_eSPI* library is a generic TFT library thats supports all kinds of TFT display sizes and controllers. In order for it to work, you need to adjust a setup file in the library.
 
-In the file explorer, navigate to *.pio/libdeps/lilygo-t-display/TFT_eSPI*, and identify the file *User_Setup_Select.h*. Comment-out the default line:
+Im *platformio*, is not necessary anymore to make manual adjustments to the TFT_eSPI library anymore.   
 
-````cpp
-//#include <User_Setup.h>  
+All relevant information about the display you are actually using was specified in *platformio.ini*:
+
+````
+build_flags =
+    -D USER_SETUP_LOADED=1
+    -include $PROJECT_LIBDEPS_DIR/$PIOENV/TFT_eSPI/User_Setups/Setup25_TTGO_T_Display.h
 ````
 
-Then comment-in the line that correctly defines the display driver, display type and SPI pins for your board:
+### Manually Selecting Display Type
+If you must use a different IDE, you select your display manually by commenting-in the appropriate file inside the library files:
 
-````cpp
-#include <User_Setups/Setup25_TTGO_T_Display.h>
-````
+1. Navigate to where you store the library, i.e. in *platformio* this would be *.pio/libdeps/lilygo-t-display/TFT_eSPI*. Identify the file *User_Setup_Select.h*. 
+
+    Comment-**out** the default line:
+
+    ````cpp
+    //#include <User_Setup.h>  
+    ````
+
+2. Comment-**in** the line that defines the display driver, display type and SPI pins for your board, i.e.:
+
+    ````cpp
+    #include <User_Setups/Setup25_TTGO_T_Display.h>
+    ````
 
 
-````cpp
-#define ILI9341_DRIVER
-````
+
 
 ## Next Steps
 
@@ -136,4 +151,4 @@ Once uploaded, the built-in TFT display shows "No button". Once you press one or
 
 > Tags: Lilygo, T-Display, platformio, TFT_eSPI, C++, platformio, Template
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio/basicfirmwareexample?849079031001261309) - created 2026-02-02 - last edited 2026-02-02
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio/basicfirmwareexample?849079031001261309) - created 2026-02-02 - last edited 2026-03-14

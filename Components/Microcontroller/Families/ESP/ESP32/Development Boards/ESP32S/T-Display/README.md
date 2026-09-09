@@ -4,7 +4,8 @@
 
 > ESP32 with 1.14 Inch Color TFT (135x240), 16MB Flash, 2x Programmable Buttons, And LiIon Battery Support
 
-The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is a great little board, perfect for experimenting, prototyping, and as basis for developing small portable devices.
+The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-inch-lcd-esp32-control-board) from [Lilygo](https://www.lilygo.cc/) is an affordable base solution for many DIY projects.
+
 
 
 <img src="images/lilygo_t-display_pinout.webp" width="100%" height="100%" />
@@ -13,6 +14,59 @@ The [T-Display](https://www.lilygo.cc/products/lilygo%C2%AE-ttgo-t-display-1-14-
 It comes with a classic [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) equipped with a full *16MB* flash memory in a very small form factor.
 
 As an added value, it has a built-in 1.14" color TFT display (with a 135x240 resolution), can use a 1S *LiIon* or *LiPo* battery, includes a charger, too, and has two general-purpose programmable push buttons.
+
+
+
+## Pros
+
+
+* [ESP32S with 16MB:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#esp32-microcontroller)   
+  Uses a "classic" *ESP32S* microcontroller. There are many projects and example codes that run on it unmodified. The board typically comes with a large *16MB* flash memory (most others have 4MB). 
+* **Built-In TFT:**   
+  Built-in color TFT (ST7789 1.14" 240×135 TFT) is ready to use as output device.
+* [Two Programmable Push Buttons:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#programmable-buttons)   
+  Two low-active push buttons can be used to control options or trigger actions.   
+* [LiIon Battery Support:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#battery-support)    
+  A single LiIon battery can be attached via JST-PH series (1.25 mm pitch) connector. The board can charge the battery with [500mA](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#no-spi-interface-exposed) max when connected to USB power.  
+* **Auto-Flash Firmware:**   
+  Board can be automatically flashed with new firmware. There is no need to press awkward button sequences.   
+* [Efficient Sleep Mode:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#low-power-consumption)    
+  With only a few software tweaks, this board consumes less than 300uA in deep sleep.   
+* **Affordable:**    
+  The board is frequently offered for less than €5 on platforms like *AliExpress*. 
+
+
+## Cons / Caveats
+
+* **No PSRAM:**   
+  It has no PSRAM which may limit performance or memory-related projects.
+
+* [No Built-in LED:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#no-built-in-led)   
+  While it has a backlight for its TFT display, it has no distinct built-in LED (aside from the power LED).   
+
+* **Serial Issues:**
+ When connecting a serial terminal window to this board, it may reset or even enter firmware upload mode. That's because *RTS* and *DTR* are often both pulled low by a serial terminal, and *ESP32* dev boards use these signals to automatically enter flash upload mode (so you don't have to press buttons manually).
+
+   Many ESP32 dev boards use a logic gate to prevent accidental triggering by a serial terminal. T-Display has **no logic gate**, so pulling down both pins resets the board.
+ 
+   So when you connect a serial terminal to this board via USB, you **must ensure** that the software **is not using RTS and DTR**. In *platformio*, you can control this by adding these instructions to your *platformio.ini*:  
+
+  ````
+  monitor_rts = 0
+  monitor_dtr = 0
+  ````
+
+* [Auto-Launch Issue:](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#fixing-defective-boards)    
+  Some boards won't automatically run your firmware when you reconnect them to power and require manually pressing the reset button. This only occurs if the board was powered recently before. A capacitor is discharging too slowly, allowing normal boots only when fully discharged. 
+
+  To work around, you may have to manually remove the capacitor. Many boards do not populate this capacitor in the first place.
+
+* [No External SPI Interface](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/#no-spi-interface-exposed):    
+  The board uses *SPI* internally for its built-in display and does not expose all SPI pins. Connecting external SPI devices is therefore not possible/requires workarounds.
+
+  
+* **Unshielded ESP32:**    
+  The board does not mount the ESP32 processor in a shielding metal cover and has no FCC ID, limiting its use cases to hobbyist scenarios.    
 
 
 ## Overview
@@ -26,9 +80,8 @@ This [T-Display](https://lilygo.cc/en-pl/products/lilygo%C2%AE-ttgo-t-display-1-
 
 
 ### Affordable
-For just 5-6€, you get a full [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) with *16MB* of flash memory. Bulky development boards like the [DevKit C4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) often cost the same and offer  less.
+For just 4-6€, you get a full [ESP32S](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/) with *16MB* of flash memory. Bulky development boards like the [DevKit C4](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/esp32devkitcv4/) often cost the same and offer less.
 
-Keep in mind though that T-Displays use unshielded *ESP32* (no metal cover) with no FCC id.
 
 ### Low Power Consumption
 
@@ -40,12 +93,12 @@ Power consumption varies depending on usage:
 
 | Consumption | Mode |
 | --- | --- |
-| *40mA | Normal operation (WiFi disabled) |
+| *40mA* | Normal operation (WiFi disabled) |
 | *130mA* | Normal operation (WiFi active)<br/>spikes of up to *370mA* are possible |
-| *260µA* | Deep Sleep | 
+| *260**µ**A* | Deep Sleep | 
 
 > [!NOTE]
-> Achieving the lowest deep sleep power consumption requires manually disabling both the display and pulling GPIO14 low. Without these adjustments, deep sleep power consumption may remain as high as *9mA*.
+> Achieving the lowest deep sleep power consumption requires manually disabling both the display and pulling GPIO14 low. Else, deep sleep power consumption may stay at *9mA*.
 
 ### Display
 The T-Display features a built-in SPI-driven 1.14" TFT color display with a resolution of 135x240 pixels and a high pixel density of *260 PPI*. The display includes a programmable backlight controlled by *GPIO4*. 
@@ -163,8 +216,26 @@ If your board includes *16MB* of flash, ensure you specify it in the *platformio
 platform = espressif32
 board = lilygo-t-display
 framework = arduino
-board_build.flash_size = 16MB  # important: unlock full flash size if your board has 16MB!
+# unlock full flash size:
+board_build.flash_size = 16MB  
+# maximize flash size for firmware if no OTA req:
+board_build.partitions = no_ota.csv
+# set default serial speed:
+monitor_speed = 115200
+# enable serial output (prevent reboot loop):
+monitor_rts = 0
+monitor_dtr = 0
 ````
+
+If you connect a serial monitor to the board, this may accidentally trigger a reset or even initiate flash upload, and you may see a message similar to this in your terminal:
+
+````
+rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT...)
+waiting for download
+````
+
+That's why you must ensure that your serial monitor is **not using** *RTS* and *DTR*. In *platformio*, you can control this directly via *platformio.ini* as shown above.
+
 
 
 #### ESPHome
@@ -471,4 +542,4 @@ The board can be programmed by using the typical development environments (*Ardu
 
 > Tags: Lilygo, T-Display
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display?261761091530243112) - created 2024-09-29 - last edited 2026-02-04
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display?261761091530243112) - created 2024-09-29 - last edited 2026-03-14

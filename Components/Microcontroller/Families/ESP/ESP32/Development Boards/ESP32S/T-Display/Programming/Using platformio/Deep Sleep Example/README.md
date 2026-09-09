@@ -36,10 +36,18 @@ To start, create a new project in *platform.io*. Then, open the file *platformio
 platform = espressif32
 board = lilygo-t-display
 framework = arduino
-board_build.flash_size = 16MB
-board_build.partitions = no_ota.csv
 lib_deps = 
 	adafruit/Adafruit ST7735 and ST7789 Library@^1.10.4
+
+# unlock full flash size:
+board_build.flash_size = 16MB  
+# maximize flash size for firmware if no OTA req:
+board_build.partitions = no_ota.csv
+# set default serial speed:
+monitor_speed = 115200
+# enable serial output (prevent reboot loop):
+monitor_rts = 0
+monitor_dtr = 0
 ````
 
 Save the file. *Platformio* automatically installs the dependencies, i.e. the referenced *eTFT* library.
@@ -138,4 +146,4 @@ When the board is powered on, it shows a screen message. Pressing one button sen
 
 > Tags: Lilygo, T-Display, Deep Sleep
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio/deepsleepexample?078426031201260510) - created 2026-02-28 - last edited 2026-02-28
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio/deepsleepexample?078426031201260510) - created 2026-02-28 - last edited 2026-03-14

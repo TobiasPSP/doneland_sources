@@ -84,6 +84,16 @@ platform = espressif32
 board = lilygo-t-display
 framework = arduino
 lib_deps = bodmer/TFT_eSPI@^2.5.43
+
+# unlock full flash size:
+board_build.flash_size = 16MB  
+# maximize flash size for firmware if no OTA req:
+board_build.partitions = no_ota.csv
+# set default serial speed:
+monitor_speed = 115200
+# enable serial output (prevent reboot loop):
+monitor_rts = 0
+monitor_dtr = 0
 ````
 
 > [!NOTE]
@@ -215,4 +225,4 @@ If you do run into issues, check these:
 
 > Tags: Lilygo, T-Display, Sketch, platformio, TFT_eSPI, C++, Pong, platformio
 
-[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio?075453101202242631) - created 2024-10-01 - last edited 2026-01-01
+[Visit Page on Website](https://done.land/components/microcontroller/families/esp/esp32/developmentboards/esp32s/t-display/programming/usingplatformio?075453101202242631) - created 2024-10-01 - last edited 2026-03-14

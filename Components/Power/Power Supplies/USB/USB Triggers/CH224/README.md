@@ -20,12 +20,16 @@ There are currently five CH224 family members:
   CH224K and CH224D are functionally identical. They differ primarily in package size.     
   **NOTE:** *CH224K* tolerates max. 3.7V at its logic pins and is suitable for 3.3V logic only.     
 * **CH224A**:    
-  In 2024, CH224A was released as pin-compatible drop-in replacement for CH224K. It adds support for EPR (Extended Power Range), allowing triggering of up to 48V and 140W. Via a simple *I2C* interface, it can now also be controlled by external MCUs.
+  In 2024, CH224A was released as pin-compatible drop-in replacement for CH224K. It adds support for EPR (Extended Power Range), allowing triggering of up to 28V and 140W. The cap at 28V (instead of full 48V) is because of the internal 30V limitation for the chips' power supply. Via a simple *I2C* interface, it can now also be controlled by external MCUs.
 
 * **CH224Q:**    
-  In 2025, CH224Q was released as the new flagship model. It adds **PPS* (Programmable Power Supply) and *AVS* support (Adjustable Voltage Supply), effectively allowing to request specific voltages rather than fixed USB PD standard voltages. 
+  In 2025, CH224Q was released as the new flagship model. It adds *PPS* (Programmable Power Supply) and *AVS* support (Adjustable Voltage Supply), effectively allowing to request specific voltages rather than fixed USB PD standard voltages. 
 
   Most notably, this chip can finally read all USB source profiles (PDO lists) offered by the power source via its extended I2C registers. It also supports a new *I2C burst mode* where multiple registers can be polled in one transaction. This can be up to 10x faster than single-byte reads. 
+
+> [!NOTE]
+> *CH224A/Q* are internally limited to 30V. They do not support the full *EPR* range and are limited to a maximum 28V output.     
+
 
 ### Comparison Chart
 
@@ -33,10 +37,10 @@ There are currently five CH224 family members:
 
 | Feature / Model | CH221K | CH224K | CH224D | CH224A | CH224Q |
 |---|---|---|---|---|---|
-| Output range | 5-20V | 5-20V | 5-20V | 5-48V | 3.3-48V |
+| Output range | 5-20V | 5-20V | 5-20V | 5-28V | 3.3-28V |
 | USB PD | 3.0 | 3.0 | 3.0 | 3.2 EPR | 3.2 EPR |
 | PPS | | | | | 3.3-21V@20mV/50mA |
-| AVS | | | | | 15-48V 100mV |
+| AVS | | | | | 15-28V 100mV |
 | output power | 60W | 100W | 100W | 140W | 140W |
 | legacy protocols |  | ✅ | ✅ | ✅ | ✅ |
 | E-marker simulation |  | ✅ | ✅ | ✅ | ✅ |
@@ -61,7 +65,7 @@ Here is where these chips are typically used:
   <img src="images/usb_trogger1_bottom2_t.png" width="50%" height="50%" />
 
 * *CH224D*: simple and cheap USB triggers    
-* *CH224A*: high-quality triggers for up to 140W/48V      
+* *CH224A*: high-quality triggers for up to 140W/28V      
   
   <img src="images/usb_trigger_3_side_t.png" width="50%" height="50%" />
 
@@ -185,4 +189,4 @@ All chip models come with basic security features:
 
 > Tags: USB-C, USB-PD, USB Power Delivery, USB Trigger, E-Marker, Power Supply, CH224K, Voltage Negotiation, Trigger Board, Fixed Voltage, PD Sink, Fast Charging, CH224D, CH221K, E-Marker Simulation, Power Adapter, Car Adapter, USB PD Tester
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224?581182061730253233) - created 2025-06-29 - last edited 2026-02-25
+[Visit Page on Website](https://done.land/components/power/powersupplies/usb/usbtriggers/ch224?581182061730253233) - created 2025-06-29 - last edited 2026-03-12
