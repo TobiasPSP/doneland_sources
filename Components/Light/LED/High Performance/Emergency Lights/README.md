@@ -1,3 +1,5 @@
+<img src="/assets/images/light.png" width="80%" height="80%" />
+
 # Haensch High Performance LEDs 
 
 > Overview of Commercial Hänsch High Performance LED Lights for Emergency Services 
@@ -18,12 +20,12 @@ In this article, I cover *older* Hänsch equipment only that today is readily av
 
 | Introduced | Cree LED         | Product          | 
 | ----------------------------------- | ---------------------------------------- | --------------------------------------------------------------- | 
-| 2006                            | XR | *Typ 43 LED*                                              |
-| 2007/08                         | XR-E     | *Sputnik nano, MOVIA-D LED, DBS 975/2000/3000* |    
-| 2009                            | XP-E                 | *COMET LED* and subsequent |            
-| 2010–11                         | XP-E             | *DBS 4000, SATURN LED, MOVIA-SL LED*                         |  
-| 2013                            | XP-E2          | *Sputnik SL*                                                  |   
-| 2013 onward                     | XP-E2   | *Sputnik SL, COMET/DBS/INTEGRO generations*                       | 
+| 2006                            | `XR` | *Typ 43 LED*                                              |
+| 2007/08                         | `XR-E`     | *Sputnik nano, MOVIA-D LED, DBS 975/2000/3000* |    
+| 2009                            | `XP-E`                 | *COMET LED* and subsequent |            
+| 2010–11                         | `XP-E`             | *DBS 4000, SATURN LED, MOVIA-SL LED*                         |  
+| 2013                            | `XP-E2`          | *Sputnik SL*                                                  |   
+| 2013 onward                     | `XP-E2`   | *Sputnik SL, COMET/DBS/INTEGRO generations*                       | 
 
 ### Why Bother Using Second-Hand Equipment?
 

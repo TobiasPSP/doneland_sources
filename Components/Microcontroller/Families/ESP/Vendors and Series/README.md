@@ -1,5 +1,5 @@
 <img src="/assets/images/processor.png" width="80%" height="80%" />
- # ESP Vendors and Series
+# ESP Vendors and Series
 
 > An Introduction to ESP32 Development Board Designers and Their Product Lineups
 

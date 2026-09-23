@@ -1,3 +1,5 @@
+<img src="/assets/images/processor.png" width="80%" height="80%" />
+
 # Flashing High Performance LEDs (Emergeny Lights)
 
 > Using an inexpensive SY8750-based buck driver and an LGT8F328P to control an original nine-LED Hänsch optical module
