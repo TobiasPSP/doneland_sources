@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Linear and switching constant-current LED drivers compared</title>
+  <desc id="desc">The linear driver converts excess voltage to heat. The buck driver uses a switch, diode and inductor to regulate LED current efficiently. Both can offer PWM control.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfcfe"/><stop offset="1" stop-color="#edf3fa"/></linearGradient>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto"><path d="M0,0 L0,8 L11,4 z" fill="#40576d"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <text x="800" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#15314f">Two ways to regulate LED current</text>
+
+  <g font-family="Arial, sans-serif" filter="url(#shadow)">
+    <rect x="70" y="125" width="700" height="680" rx="28" fill="#fff7f5" stroke="#e16a52" stroke-width="5"/>
+    <rect x="830" y="125" width="700" height="680" rx="28" fill="#f1f9f5" stroke="#2a9d6f" stroke-width="5"/>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="420" y="185" text-anchor="middle" font-size="34" font-weight="700" fill="#a6402d">Linear CC / LDO-style driver</text>
+    <text x="1180" y="185" text-anchor="middle" font-size="34" font-weight="700" fill="#176c4a">Buck CC driver (SY8750)</text>
+
+    <rect x="135" y="290" width="160" height="110" rx="18" fill="#fff" stroke="#7c8fa2" stroke-width="4"/>
+    <text x="215" y="335" text-anchor="middle" font-size="26" font-weight="700" fill="#24384d">14.4 V</text><text x="215" y="370" text-anchor="middle" font-size="21" fill="#53657a">input</text>
+    <rect x="360" y="250" width="220" height="190" rx="20" fill="#ffe7df" stroke="#df684f" stroke-width="5"/>
+    <text x="470" y="325" text-anchor="middle" font-size="29" font-weight="700" fill="#a6402d">Linear CC</text>
+    <text x="470" y="364" text-anchor="middle" font-size="22" fill="#7a4337">PWM / EN</text>
+    <text x="470" y="404" text-anchor="middle" font-size="21" fill="#7a4337">drops excess voltage</text>
+    <rect x="645" y="290" width="70" height="110" rx="12" fill="#e6f2ff" stroke="#2177bc" stroke-width="4"/>
+    <text x="680" y="335" text-anchor="middle" font-size="23" font-weight="700" fill="#17609a">LED</text><text x="680" y="368" text-anchor="middle" font-size="20" fill="#17609a">10 V</text>
+    <path d="M295 345 H350 M580 345 H635" stroke="#40576d" stroke-width="7" marker-end="url(#arr)"/>
+    <path d="M470 440 v78" stroke="#e43f29" stroke-width="8" marker-end="url(#arr)"/>
+    <path d="M412 565 q58 -80 116 0 q-58 62 -116 0" fill="#ff7b55" opacity=".9"/>
+    <text x="470" y="650" text-anchor="middle" font-size="28" font-weight="700" fill="#a6402d">≈ 4.4 W heat at 1 A</text>
+    <text x="470" y="690" text-anchor="middle" font-size="21" fill="#6a5b57">Simple and potentially fast, but inefficient</text>
+
+    <rect x="895" y="290" width="160" height="110" rx="18" fill="#fff" stroke="#7c8fa2" stroke-width="4"/>
+    <text x="975" y="335" text-anchor="middle" font-size="26" font-weight="700" fill="#24384d">14.4 V</text><text x="975" y="370" text-anchor="middle" font-size="21" fill="#53657a">input</text>
+    <rect x="1120" y="250" width="245" height="190" rx="20" fill="#dcf6e9" stroke="#239369" stroke-width="5"/>
+    <text x="1242" y="310" text-anchor="middle" font-size="29" font-weight="700" fill="#176c4a">Switch + inductor</text>
+    <path d="M1155 365 h34 l15 -30 l30 60 l30 -60 l30 60 l25 -30 h22" fill="none" stroke="#239369" stroke-width="6"/>
+    <text x="1242" y="420" text-anchor="middle" font-size="22" fill="#316d57">500 kHz buck regulation</text>
+    <rect x="1430" y="290" width="70" height="110" rx="12" fill="#e6f2ff" stroke="#2177bc" stroke-width="4"/>
+    <text x="1465" y="335" text-anchor="middle" font-size="23" font-weight="700" fill="#17609a">LED</text><text x="1465" y="368" text-anchor="middle" font-size="20" fill="#17609a">~10 V</text>
+    <path d="M1055 345 H1110 M1365 345 H1420" stroke="#40576d" stroke-width="7" marker-end="url(#arr)"/>
+    <path d="M1162 525 h42 v-38 h50 v38 h50 v-38 h50 v38" fill="none" stroke="#7b55b4" stroke-width="7"/>
+    <text x="1258" y="570" text-anchor="middle" font-size="24" font-weight="700" fill="#684597">PWM tells the driver when to emit light</text>
+    <text x="1242" y="650" text-anchor="middle" font-size="28" font-weight="700" fill="#176c4a">Much lower dissipation</text>
+    <text x="1242" y="690" text-anchor="middle" font-size="21" fill="#4c665c">Response depends on PWM path, soft-start and control loop</text>
+  </g>
+  <rect x="245" y="755" width="1110" height="75" rx="18" fill="#fff" stroke="#c8d5e3" stroke-width="2"/>
+  <text x="800" y="802" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#24384d">Both architectures can expose a PWM input; “PWM-capable” alone does not imply equal efficiency or equal optical timing.</text>
+</svg>

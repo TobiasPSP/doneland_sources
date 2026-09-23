@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">Hänsch nine-LED optical module</title>
+  <desc id="desc">Three electrically separate strings of three blue LEDs share one common anode. The nine LEDs are arranged as a sideways V with five LEDs on the upper arm and four on the lower arm.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#edf3fa"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".16"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#53657a"/></marker>
+    <g id="led">
+      <circle r="44" fill="#fff" stroke="#1c4f88" stroke-width="5"/>
+      <path d="M-18,-23 L-18,23 L20,0 Z" fill="#2788e8" stroke="#145b9e" stroke-width="4"/>
+      <path d="M20,-27 V27" stroke="#145b9e" stroke-width="5"/>
+      <path d="M25,-28 l20,-18 M32,-14 l22,-8" stroke="#4aa8ff" stroke-width="4" marker-end="url(#arrow)"/>
+    </g>
+  </defs>
+  <rect width="1600" height="920" rx="34" fill="url(#bg)"/>
+  <text x="800" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#15314f">Hänsch optical module: 9 LEDs, 3 regulated channels</text>
+  <text x="800" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#53657a">Physical arrangement and electrical grouping shown together</text>
+
+  <path d="M310 192 L690 386 L1290 456 L690 526 L310 728 Z" fill="#162536" stroke="#2f4862" stroke-width="8" filter="url(#shadow)"/>
+  <path d="M345 225 L705 408 L1225 456 L705 504 L345 695" fill="none" stroke="#5d7085" stroke-width="4" stroke-dasharray="10 14"/>
+
+  <!-- Five LEDs on upper arm -->
+  <g transform="translate(400 252)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(570 337)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(755 411)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(950 438)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(1145 453)"><use href="#led" xlink:href="#led"/></g>
+  <!-- Four LEDs on lower arm -->
+  <g transform="translate(965 482)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(765 506)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(580 584)"><use href="#led" xlink:href="#led"/></g>
+  <g transform="translate(405 670)"><use href="#led" xlink:href="#led"/></g>
+
+  <!-- Color-coded electrical groups -->
+  <path d="M148 248 H270 C310 248 312 260 356 252 M444 252 C488 252 490 337 526 337 M614 337 C650 337 665 411 711 411 M799 411 H1390" fill="none" stroke="#ef476f" stroke-width="8"/>
+  <path d="M148 456 H270 C350 456 700 438 906 438 M994 438 C1034 438 1040 453 1101 453 M1189 453 H1390" fill="none" stroke="#f59e0b" stroke-width="8"/>
+  <path d="M148 666 H300 C330 666 340 670 361 670 M449 670 C500 670 520 584 536 584 M624 584 C670 584 680 506 721 506 M809 506 H1390" fill="none" stroke="#22a06b" stroke-width="8"/>
+
+  <!-- Common anode bus -->
+  <path d="M110 218 V696" stroke="#d61f45" stroke-width="12"/>
+  <circle cx="110" cy="248" r="11" fill="#d61f45"/><circle cx="110" cy="456" r="11" fill="#d61f45"/><circle cx="110" cy="666" r="11" fill="#d61f45"/>
+  <text x="76" y="180" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#b6183a">COMMON ANODE (+)</text>
+  <text x="1410" y="420" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#ef476f">K1</text>
+  <text x="1410" y="463" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#d18400">K2</text>
+  <text x="1410" y="511" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#168050">K3</text>
+  <text x="1390" y="555" font-family="Arial, sans-serif" font-size="21" fill="#53657a">separate cathodes</text>
+
+  <g transform="translate(250 820)">
+    <rect width="1100" height="70" rx="18" fill="#fff" stroke="#cbd8e6" stroke-width="2"/>
+    <circle cx="55" cy="35" r="8" fill="#ef476f"/><text x="77" y="44" font-family="Arial, sans-serif" font-size="23" fill="#24384d">String 1: 3 LEDs in series</text>
+    <circle cx="385" cy="35" r="8" fill="#f59e0b"/><text x="407" y="44" font-family="Arial, sans-serif" font-size="23" fill="#24384d">String 2: 3 LEDs in series</text>
+    <circle cx="715" cy="35" r="8" fill="#22a06b"/><text x="737" y="44" font-family="Arial, sans-serif" font-size="23" fill="#24384d">String 3: 3 LEDs in series</text>
+  </g>
+</svg>

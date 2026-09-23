@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Electrical command timing versus optical output</title>
+  <desc id="desc">The microcontroller command pulse starts before the light output rises. Turn-on delay and rise time shorten the bright optical interval.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfcfe"/><stop offset="1" stop-color="#edf3fa"/></linearGradient><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#53657a"/></marker></defs>
+  <rect width="1600" height="760" rx="32" fill="url(#bg)"/>
+  <text x="800" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#15314f">Command timing is not necessarily light timing</text>
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="192" font-size="27" font-weight="700" fill="#65448e">MCU command</text>
+    <path d="M300 220 H490 V130 H1110 V220 H1430" fill="none" stroke="#7e58b2" stroke-width="10"/>
+    <text x="800" y="118" text-anchor="middle" font-size="22" fill="#65448e">requested ON interval</text>
+
+    <text x="70" y="407" font-size="27" font-weight="700" fill="#176c4a">LED light</text>
+    <path d="M300 440 H565 C600 440 615 335 660 320 H1035 C1080 335 1095 440 1145 440 H1430" fill="none" stroke="#24a06f" stroke-width="10"/>
+    <line x1="565" y1="270" x2="565" y2="505" stroke="#ef476f" stroke-width="3" stroke-dasharray="10 9"/>
+    <line x1="660" y1="270" x2="660" y2="505" stroke="#ef476f" stroke-width="3" stroke-dasharray="10 9"/>
+    <line x1="1035" y1="270" x2="1035" y2="505" stroke="#ef476f" stroke-width="3" stroke-dasharray="10 9"/>
+    <line x1="1145" y1="270" x2="1145" y2="505" stroke="#ef476f" stroke-width="3" stroke-dasharray="10 9"/>
+    <path d="M500 535 H650" stroke="#53657a" stroke-width="4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <text x="575" y="574" text-anchor="middle" font-size="22" fill="#53657a">turn-on delay + rise</text>
+    <path d="M1038 535 H1138" stroke="#53657a" stroke-width="4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <text x="1088" y="574" text-anchor="middle" font-size="22" fill="#53657a">fall time</text>
+
+    <rect x="300" y="630" width="1130" height="70" rx="17" fill="#fff" stroke="#c9d6e4" stroke-width="2"/>
+    <text x="865" y="674" text-anchor="middle" font-size="24" fill="#24384d">Use the photodiode trace—not only GPIO timestamps—to compare and compensate the pattern.</text>
+  </g>
+</svg>

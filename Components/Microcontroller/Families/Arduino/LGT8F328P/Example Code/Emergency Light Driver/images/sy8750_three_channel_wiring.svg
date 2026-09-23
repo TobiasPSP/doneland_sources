@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Three-channel SY8750 wiring for a Hänsch LED head</title>
+  <desc id="desc">A 12 volt supply powers an LGT8F328P controller and three constant-current driver modules. Each driver regulates one of the three series strings in the common-anode Hänsch LED head.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfcfe"/><stop offset="1" stop-color="#edf3fa"/></linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#40576d"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1600" height="1000" rx="34" fill="url(#bg)"/>
+  <text x="800" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#15314f">Three regulated channels for one Hänsch LED head</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="55" y="180" width="230" height="170" rx="22" fill="#fff" stroke="#6d849a" stroke-width="4"/>
+    <text x="170" y="240" text-anchor="middle" font-size="30" font-weight="700" fill="#24384d">12 V supply</text>
+    <text x="170" y="282" text-anchor="middle" font-size="22" fill="#53657a">bench supply</text>
+    <text x="170" y="315" text-anchor="middle" font-size="22" fill="#53657a">or protected vehicle feed</text>
+
+    <rect x="55" y="520" width="300" height="220" rx="22" fill="#f2ecff" stroke="#7956ad" stroke-width="5"/>
+    <text x="205" y="580" text-anchor="middle" font-size="28" font-weight="700" fill="#5f3c8d">LGT8F328P</text>
+    <text x="205" y="620" text-anchor="middle" font-size="22" fill="#625973">VIN: 12 V via AMS1117</text>
+    <text x="205" y="660" text-anchor="middle" font-size="22" fill="#625973">D4 → PWM/EN</text>
+    <text x="205" y="698" text-anchor="middle" font-size="20" fill="#625973">LOW / Hi-Z control</text>
+
+    <rect x="470" y="170" width="330" height="180" rx="22" fill="#e7f4ff" stroke="#2578b8" stroke-width="5"/>
+    <rect x="470" y="410" width="330" height="180" rx="22" fill="#e7f4ff" stroke="#2578b8" stroke-width="5"/>
+    <rect x="470" y="650" width="330" height="180" rx="22" fill="#e7f4ff" stroke="#2578b8" stroke-width="5"/>
+    <text x="635" y="225" text-anchor="middle" font-size="28" font-weight="700" fill="#175b8b">SY8750 module #1</text>
+    <text x="635" y="269" text-anchor="middle" font-size="22" fill="#315e82">CC ≈ 1 A • PWM/EN</text>
+    <text x="635" y="308" text-anchor="middle" font-size="20" fill="#53657a">one independently regulated string</text>
+    <text x="635" y="465" text-anchor="middle" font-size="28" font-weight="700" fill="#175b8b">SY8750 module #2</text>
+    <text x="635" y="509" text-anchor="middle" font-size="22" fill="#315e82">CC ≈ 1 A • PWM/EN</text>
+    <text x="635" y="548" text-anchor="middle" font-size="20" fill="#53657a">one independently regulated string</text>
+    <text x="635" y="705" text-anchor="middle" font-size="28" font-weight="700" fill="#175b8b">SY8750 module #3</text>
+    <text x="635" y="749" text-anchor="middle" font-size="22" fill="#315e82">CC ≈ 1 A • PWM/EN</text>
+    <text x="635" y="788" text-anchor="middle" font-size="20" fill="#53657a">one independently regulated string</text>
+
+    <rect x="990" y="135" width="530" height="735" rx="28" fill="#172637" stroke="#314c67" stroke-width="7"/>
+    <text x="1255" y="198" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">Hänsch LED head</text>
+    <text x="1255" y="233" text-anchor="middle" font-size="21" fill="#b8c7d8">common anode + three separate cathodes</text>
+  </g>
+
+  <!-- supply distribution -->
+  <path d="M285 230 H400 V205 H460 M400 205 V445 H460 M400 445 V685 H460" fill="none" stroke="#d8244d" stroke-width="8" marker-end="url(#arr)"/>
+  <path d="M170 350 V475 H205 V510" fill="none" stroke="#d8244d" stroke-width="7" marker-end="url(#arr)"/>
+  <path d="M285 310 H385 V890 H875" fill="none" stroke="#40576d" stroke-width="7"/>
+  <path d="M205 740 V890" fill="none" stroke="#40576d" stroke-width="7"/>
+  <text x="320" y="215" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#b6183a">+12 V</text>
+  <text x="310" y="882" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#40576d">common ground</text>
+
+  <!-- MCU PWM fan-out -->
+  <path d="M355 630 H420 V320 H460 M420 510 H460 M420 750 H460" fill="none" stroke="#7a55ad" stroke-width="7" marker-end="url(#arr)"/>
+  <text x="374" y="610" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#694494">same pattern signal</text>
+
+  <!-- module outputs -->
+  <path d="M800 260 H955 V292 H1020" fill="none" stroke="#ef476f" stroke-width="8" marker-end="url(#arr)"/>
+  <path d="M800 500 H955 V502 H1020" fill="none" stroke="#f59e0b" stroke-width="8" marker-end="url(#arr)"/>
+  <path d="M800 740 H955 V712 H1020" fill="none" stroke="#22a06b" stroke-width="8" marker-end="url(#arr)"/>
+
+  <!-- common anode and three strings -->
+  <path d="M1050 270 V760" stroke="#d8244d" stroke-width="11"/>
+  <text x="1080" y="272" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ff8da5">common +</text>
+  <g fill="none" stroke-width="6">
+    <path d="M1050 335 H1125 l-17 -24 m17 24 l-17 24 M1135 305 v60 H1220 l-17 -24 m17 24 l-17 24 M1230 335 v60 H1315 l-17 -24 m17 24 l-17 24 M1325 365 H1455" stroke="#ef476f"/>
+    <path d="M1050 505 H1125 l-17 -24 m17 24 l-17 24 M1135 475 v60 H1220 l-17 -24 m17 24 l-17 24 M1230 505 v60 H1315 l-17 -24 m17 24 l-17 24 M1325 535 H1455" stroke="#f59e0b"/>
+    <path d="M1050 675 H1125 l-17 -24 m17 24 l-17 24 M1135 645 v60 H1220 l-17 -24 m17 24 l-17 24 M1230 675 v60 H1315 l-17 -24 m17 24 l-17 24 M1325 705 H1455" stroke="#22a06b"/>
+  </g>
+  <text x="1425" y="340" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ff91a7">K1</text>
+  <text x="1425" y="510" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffc45a">K2</text>
+  <text x="1425" y="680" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#74d9ad">K3</text>
+
+  <rect x="370" y="915" width="860" height="58" rx="16" fill="#fff" stroke="#d5a020" stroke-width="3"/>
+  <text x="800" y="952" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#805b00">Do not parallel the cathodes and assume that 3 A divides evenly among the three LED strings.</text>
+</svg>
