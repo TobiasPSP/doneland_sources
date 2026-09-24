@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1460" height="1360" viewBox="0 0 1460 1360" role="img" aria-labelledby="title desc">
+  <title id="title">IP2369 QFN-65 pinout</title>
+  <desc id="desc">Vector reconstruction of all 60 perimeter pins and five exposed pads. Pin 61 has a chamfer marking the orientation. Transparent background, with a 40% opaque rounded panel and a solid black border. No background watermark.</desc>
+  <style>
+    text { font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #17212b; font-size: 21px; font-weight: 400; }
+    .num { font-size: 20px; fill: #fff; }
+    .inner { font-size: 23px; fill: #fff; }
+    .pad-id { font-size: 21px; fill: #fff; }
+    .package { fill: #000; stroke: #000; stroke-width: 3; }
+    .exposed { fill: none; stroke: #fff; stroke-width: 2.5; stroke-linejoin: miter; }
+    .pin rect { fill: #fff; stroke: #697680; stroke-width: 1.35; }
+    .pin path { fill: none; stroke: #a3adb5; stroke-width: 1; }
+  </style>
+  <defs>
+    <g id="terminal" class="pin"><rect x="-10" y="-10" width="20" height="20"/><path d="M-10,-10 10,10 M10,-10 -10,10"/></g>
+  </defs>
+  <rect x="60" y="25" width="1340" height="1310" rx="28" ry="28" fill="#fff" fill-opacity="0.4" stroke="#000" stroke-width="3"/>
+  <rect class="package" x="206" y="162" width="1039" height="1036"/>
+  <circle cx="281" cy="237" r="64" fill="#fff"/>
+  <path class="exposed" d="M338 297 H499 V437 H314 V313 Z"/>
+  <text class="inner" x="406" y="373" text-anchor="middle">VIO_P</text>
+  <text class="pad-id" x="326" y="428">61</text>
+  <rect class="exposed" x="319" y="496" width="238" height="144"/>
+  <text class="inner" x="438" y="579" text-anchor="middle">LX1</text>
+  <text class="pad-id" x="331" y="632">62</text>
+  <rect class="exposed" x="319" y="714" width="238" height="144"/>
+  <text class="inner" x="438" y="796" text-anchor="middle">LX2</text>
+  <text class="pad-id" x="331" y="850">63</text>
+  <rect class="exposed" x="319" y="931" width="180" height="144"/>
+  <text class="inner" x="409" y="1013" text-anchor="middle">BAT_P</text>
+  <text class="pad-id" x="331" y="1067">64</text>
+  <rect class="exposed" x="660" y="292" width="477" height="764"/>
+  <text class="inner" x="899" y="683" text-anchor="middle">GND</text>
+  <text class="pad-id" x="671" y="1048">65</text>
+  <use xlink:href="#terminal" x="206.00" y="322.50"/>
+  <text x="187.00" y="329.50" text-anchor="end">VIO_P</text>
+  <text x="234.00" y="329.50" class="num">1</text>
+  <use xlink:href="#terminal" x="206.00" y="374.15"/>
+  <text x="187.00" y="381.15" text-anchor="end">VIO_P</text>
+  <text x="234.00" y="381.15" class="num">2</text>
+  <use xlink:href="#terminal" x="206.00" y="425.80"/>
+  <text x="187.00" y="432.80" text-anchor="end">GND</text>
+  <text x="234.00" y="432.80" class="num">3</text>
+  <use xlink:href="#terminal" x="206.00" y="477.45"/>
+  <text x="187.00" y="484.45" text-anchor="end">GND</text>
+  <text x="234.00" y="484.45" class="num">4</text>
+  <use xlink:href="#terminal" x="206.00" y="529.10"/>
+  <text x="187.00" y="536.10" text-anchor="end">GND</text>
+  <text x="234.00" y="536.10" class="num">5</text>
+  <use xlink:href="#terminal" x="206.00" y="580.75"/>
+  <text x="187.00" y="587.75" text-anchor="end">LX1</text>
+  <text x="234.00" y="587.75" class="num">6</text>
+  <use xlink:href="#terminal" x="206.00" y="632.40"/>
+  <text x="187.00" y="639.40" text-anchor="end">LX1</text>
+  <text x="234.00" y="639.40" class="num">7</text>
+  <use xlink:href="#terminal" x="206.00" y="684.05"/>
+  <text x="187.00" y="691.05" text-anchor="end">GND</text>
+  <text x="234.00" y="691.05" class="num">8</text>
+  <use xlink:href="#terminal" x="206.00" y="735.70"/>
+  <text x="187.00" y="742.70" text-anchor="end">GND</text>
+  <text x="234.00" y="742.70" class="num">9</text>
+  <use xlink:href="#terminal" x="206.00" y="787.35"/>
+  <text x="187.00" y="794.35" text-anchor="end">LX2</text>
+  <text x="234.00" y="794.35" class="num">10</text>
+  <use xlink:href="#terminal" x="206.00" y="839.00"/>
+  <text x="187.00" y="846.00" text-anchor="end">LX2</text>
+  <text x="234.00" y="846.00" class="num">11</text>
+  <use xlink:href="#terminal" x="206.00" y="890.65"/>
+  <text x="187.00" y="897.65" text-anchor="end">BST2</text>
+  <text x="234.00" y="897.65" class="num">12</text>
+  <use xlink:href="#terminal" x="206.00" y="942.30"/>
+  <text x="187.00" y="949.30" text-anchor="end">BAT_P</text>
+  <text x="234.00" y="949.30" class="num">13</text>
+  <use xlink:href="#terminal" x="206.00" y="993.95"/>
+  <text x="187.00" y="1000.95" text-anchor="end">BAT_P</text>
+  <text x="234.00" y="1000.95" class="num">14</text>
+  <use xlink:href="#terminal" x="206.00" y="1045.60"/>
+  <text x="187.00" y="1052.60" text-anchor="end">BAT_P</text>
+  <text x="234.00" y="1052.60" class="num">15</text>
+  <use xlink:href="#terminal" x="356.00" y="1199.50"/>
+  <text x="356.00" y="1178.00" class="num" text-anchor="middle">16</text>
+  <text transform="translate(350.00 1217) rotate(90)">PCON</text>
+  <use xlink:href="#terminal" x="407.65" y="1199.50"/>
+  <text x="407.65" y="1178.00" class="num" text-anchor="middle">17</text>
+  <text transform="translate(401.65 1217) rotate(90)">CSN2</text>
+  <use xlink:href="#terminal" x="459.30" y="1199.50"/>
+  <text x="459.30" y="1178.00" class="num" text-anchor="middle">18</text>
+  <text transform="translate(453.30 1217) rotate(90)">CSP2</text>
+  <use xlink:href="#terminal" x="510.95" y="1199.50"/>
+  <text x="510.95" y="1178.00" class="num" text-anchor="middle">19</text>
+  <text transform="translate(504.95 1217) rotate(90)">BAT_P</text>
+  <use xlink:href="#terminal" x="562.60" y="1199.50"/>
+  <text x="562.60" y="1178.00" class="num" text-anchor="middle">20</text>
+  <text transform="translate(556.60 1217) rotate(90)">LX2</text>
+  <use xlink:href="#terminal" x="614.25" y="1199.50"/>
+  <text x="614.25" y="1178.00" class="num" text-anchor="middle">21</text>
+  <text transform="translate(608.25 1217) rotate(90)">BAT</text>
+  <use xlink:href="#terminal" x="665.90" y="1199.50"/>
+  <text x="665.90" y="1178.00" class="num" text-anchor="middle">22</text>
+  <text transform="translate(659.90 1217) rotate(90)">AGND</text>
+  <use xlink:href="#terminal" x="717.55" y="1199.50"/>
+  <text x="717.55" y="1178.00" class="num" text-anchor="middle">23</text>
+  <text transform="translate(711.55 1217) rotate(90)">VCC5V</text>
+  <use xlink:href="#terminal" x="769.20" y="1199.50"/>
+  <text x="769.20" y="1178.00" class="num" text-anchor="middle">24</text>
+  <text transform="translate(763.20 1217) rotate(90)">VCCIO</text>
+  <use xlink:href="#terminal" x="820.85" y="1199.50"/>
+  <text x="820.85" y="1178.00" class="num" text-anchor="middle">25</text>
+  <text transform="translate(814.85 1217) rotate(90)">LED3</text>
+  <use xlink:href="#terminal" x="872.50" y="1199.50"/>
+  <text x="872.50" y="1178.00" class="num" text-anchor="middle">26</text>
+  <text transform="translate(866.50 1217) rotate(90)">BAT_NUM</text>
+  <use xlink:href="#terminal" x="924.15" y="1199.50"/>
+  <text x="924.15" y="1178.00" class="num" text-anchor="middle">27</text>
+  <text transform="translate(918.15 1217) rotate(90)">I2C_SCL</text>
+  <use xlink:href="#terminal" x="975.80" y="1199.50"/>
+  <text x="975.80" y="1178.00" class="num" text-anchor="middle">28</text>
+  <text transform="translate(969.80 1217) rotate(90)">VSET</text>
+  <use xlink:href="#terminal" x="1027.45" y="1199.50"/>
+  <text x="1027.45" y="1178.00" class="num" text-anchor="middle">29</text>
+  <text transform="translate(1021.45 1217) rotate(90)">I2C_SDA</text>
+  <use xlink:href="#terminal" x="1079.10" y="1199.50"/>
+  <text x="1079.10" y="1178.00" class="num" text-anchor="middle">30</text>
+  <text transform="translate(1073.10 1217) rotate(90)">I2C_INT</text>
+  <use xlink:href="#terminal" x="1245.00" y="1045.50"/>
+  <text x="1227.00" y="1052.50" class="num" text-anchor="end">31</text>
+  <text x="1264.00" y="1052.50" >PSET</text>
+  <use xlink:href="#terminal" x="1245.00" y="993.85"/>
+  <text x="1227.00" y="1000.85" class="num" text-anchor="end">32</text>
+  <text x="1264.00" y="1000.85" >NTC</text>
+  <use xlink:href="#terminal" x="1245.00" y="942.20"/>
+  <text x="1227.00" y="949.20" class="num" text-anchor="end">33</text>
+  <text x="1264.00" y="949.20" >EN</text>
+  <use xlink:href="#terminal" x="1245.00" y="890.55"/>
+  <text x="1227.00" y="897.55" class="num" text-anchor="end">34</text>
+  <text x="1264.00" y="897.55" >CC2</text>
+  <use xlink:href="#terminal" x="1245.00" y="838.90"/>
+  <text x="1227.00" y="845.90" class="num" text-anchor="end">35</text>
+  <text x="1264.00" y="845.90" >DPC</text>
+  <use xlink:href="#terminal" x="1245.00" y="787.25"/>
+  <text x="1227.00" y="794.25" class="num" text-anchor="end">36</text>
+  <text x="1264.00" y="794.25" >DMC</text>
+  <use xlink:href="#terminal" x="1245.00" y="735.60"/>
+  <text x="1227.00" y="742.60" class="num" text-anchor="end">37</text>
+  <text x="1264.00" y="742.60" >CC1</text>
+  <use xlink:href="#terminal" x="1245.00" y="683.95"/>
+  <text x="1227.00" y="690.95" class="num" text-anchor="end">38</text>
+  <text x="1264.00" y="690.95" >DPA1</text>
+  <use xlink:href="#terminal" x="1245.00" y="632.30"/>
+  <text x="1227.00" y="639.30" class="num" text-anchor="end">39</text>
+  <text x="1264.00" y="639.30" >DMA1</text>
+  <use xlink:href="#terminal" x="1245.00" y="580.65"/>
+  <text x="1227.00" y="587.65" class="num" text-anchor="end">40</text>
+  <text x="1264.00" y="587.65" >VOUT1</text>
+  <use xlink:href="#terminal" x="1245.00" y="529.00"/>
+  <text x="1227.00" y="536.00" class="num" text-anchor="end">41</text>
+  <text x="1264.00" y="536.00" >VOUT1G</text>
+  <use xlink:href="#terminal" x="1245.00" y="477.35"/>
+  <text x="1227.00" y="484.35" class="num" text-anchor="end">42</text>
+  <text x="1264.00" y="484.35" >TEST3</text>
+  <use xlink:href="#terminal" x="1245.00" y="425.70"/>
+  <text x="1227.00" y="432.70" class="num" text-anchor="end">43</text>
+  <text x="1264.00" y="432.70" >LED1</text>
+  <use xlink:href="#terminal" x="1245.00" y="374.05"/>
+  <text x="1227.00" y="381.05" class="num" text-anchor="end">44</text>
+  <text x="1264.00" y="381.05" >LED2</text>
+  <use xlink:href="#terminal" x="1245.00" y="322.40"/>
+  <text x="1227.00" y="329.40" class="num" text-anchor="end">45</text>
+  <text x="1264.00" y="329.40" >TEST4</text>
+  <use xlink:href="#terminal" x="360.00" y="162.00"/>
+  <text x="360.00" y="202.00" class="num" text-anchor="middle">60</text>
+  <text transform="translate(368.00 146) rotate(-90)">BST1</text>
+  <use xlink:href="#terminal" x="411.65" y="162.00"/>
+  <text x="411.65" y="202.00" class="num" text-anchor="middle">59</text>
+  <text transform="translate(419.65 146) rotate(-90)">NC</text>
+  <use xlink:href="#terminal" x="463.30" y="162.00"/>
+  <text x="463.30" y="202.00" class="num" text-anchor="middle">58</text>
+  <text transform="translate(471.30 146) rotate(-90)">NC</text>
+  <use xlink:href="#terminal" x="514.95" y="162.00"/>
+  <text x="514.95" y="202.00" class="num" text-anchor="middle">57</text>
+  <text transform="translate(522.95 146) rotate(-90)">VIO_P</text>
+  <use xlink:href="#terminal" x="566.60" y="162.00"/>
+  <text x="566.60" y="202.00" class="num" text-anchor="middle">56</text>
+  <text transform="translate(574.60 146) rotate(-90)">LX1</text>
+  <use xlink:href="#terminal" x="618.25" y="162.00"/>
+  <text x="618.25" y="202.00" class="num" text-anchor="middle">55</text>
+  <text transform="translate(626.25 146) rotate(-90)">PCIN</text>
+  <use xlink:href="#terminal" x="669.90" y="162.00"/>
+  <text x="669.90" y="202.00" class="num" text-anchor="middle">54</text>
+  <text transform="translate(677.90 146) rotate(-90)">AGND</text>
+  <use xlink:href="#terminal" x="721.55" y="162.00"/>
+  <text x="721.55" y="202.00" class="num" text-anchor="middle">53</text>
+  <text transform="translate(729.55 146) rotate(-90)">CSN1</text>
+  <use xlink:href="#terminal" x="773.20" y="162.00"/>
+  <text x="773.20" y="202.00" class="num" text-anchor="middle">52</text>
+  <text transform="translate(781.20 146) rotate(-90)">CSP1</text>
+  <use xlink:href="#terminal" x="824.85" y="162.00"/>
+  <text x="824.85" y="202.00" class="num" text-anchor="middle">51</text>
+  <text transform="translate(832.85 146) rotate(-90)">VIO</text>
+  <use xlink:href="#terminal" x="876.50" y="162.00"/>
+  <text x="876.50" y="202.00" class="num" text-anchor="middle">50</text>
+  <text transform="translate(884.50 146) rotate(-90)">VBUS_1</text>
+  <use xlink:href="#terminal" x="928.15" y="162.00"/>
+  <text x="928.15" y="202.00" class="num" text-anchor="middle">49</text>
+  <text transform="translate(936.15 146) rotate(-90)">VBUSG</text>
+  <use xlink:href="#terminal" x="979.80" y="162.00"/>
+  <text x="979.80" y="202.00" class="num" text-anchor="middle">48</text>
+  <text transform="translate(987.80 146) rotate(-90)">VBUS</text>
+  <use xlink:href="#terminal" x="1031.45" y="162.00"/>
+  <text x="1031.45" y="202.00" class="num" text-anchor="middle">47</text>
+  <text transform="translate(1039.45 146) rotate(-90)">TEST2</text>
+  <use xlink:href="#terminal" x="1083.10" y="162.00"/>
+  <text x="1083.10" y="202.00" class="num" text-anchor="middle">46</text>
+  <text transform="translate(1091.10 146) rotate(-90)">TEST1</text>
+</svg>

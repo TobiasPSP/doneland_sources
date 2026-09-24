@@ -43,6 +43,41 @@ upload_speed = 57600
 monitor_dtr = 0
 monitor_rts = 0
 ```
+### On-Board LEDs
+
+* **Red:**   
+  Power is supplied   
+* **Blue:**   
+  Programmable via `LED_BUILTIN`, i.e. `pinMode(LED_BUILTIN, OUTPUT);`; active high.
+
+
+### On-Board Push Button
+
+One button, directly connected to the `RESET` pin, cannot be used as programmable button directly. Can be reprogrammed to be used via GPIO, however this may harm the upload process.
+
+### Flaws and Design Faults
+
+The automatic reset circuitry in this board enables convenient USB firmware uploads without having to press the RESET button. However, it backfires when you supply external power via `VIN`.
+
+When powered via `VIN`, the board also "accidentally" invokes a *RESET* event, causing the boot loader to be invoked. As a consequence, first the internal blue LED flashes three times before your own firmware can start. 
+
+This introduces a small startup delay whenever you externally power the board. It *does not occur* when you power the board via USB - as this path is the "intended way", and the USB controller sets appropriate flags to prevent unwanted bootloader invocation. 
+
+#### Workarounds
+If you must ensure that your firmware runs immediately when you power it via `VIN`, do either of these:
+
+* **Soldering:**  
+  Remove the ~100 nF capacitor connecting `USB-UART DTR ──||── RESET`.      
+  
+  You would have to press the RESET push button manually at the right timing for USB firmware uploads as the capacitor effectively invokes the automatic reset.
+* **Upload Method:**   
+  Upload your firmware to the board directly, using its debug pins and an external programmer. This overwrites the boot loader. While it does not fix the unwanted reset at power on, it no longer invokes the boot loader, and there is almost no delay and no flashing LED.     
+  
+  You do lose the ability to upload firmware via USB when the bootloader is removed.
+
+### Board Variants
+
+There are *green* and *violet* boards. They differ considerably in many small aspects. For example, 
 
 ## Power and Consumption
 

@@ -44,8 +44,6 @@ monitor_rts = 0
 
 A typical blink example for this type of MCU would be as simple as this:
 
-<details><summary>Enhanced Blink Sketch</summary><br/>
-
 
 ````cpp
 #include <Arduino.h>
@@ -63,6 +61,10 @@ void loop() {
 ````
 
 To better leverage the capabilities of the LGT8F328P MCU, here is an enhanced version:
+
+
+<details><summary>Enhanced Blink Sketch</summary><br/>
+
 
 ````c++
 #include <Arduino.h>

@@ -29,6 +29,8 @@ This board is a highly integrated powerbank-solution: add it to any lithium 2-6S
 
 The board can be configured conveniently via solder bridges (i.e. setting the battery chemistry and number of strings). No complex soldering required.
 
+> [!NOTE]
+> Although the IP2369 on this board [supports I²C](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/ip2369i2c/), the board itself does not expose the pins to access this interface. You would need to directly solder fine wires to the appropriate chip pins if you wanted to add your own advanced digital control or display to show current state, voltages, currents, USB PD modes, and more.
 
 ## Overview
 
@@ -107,9 +109,8 @@ If you need to run a load below the chips' detection range, i.e. a microcontroll
 * **Reset Grace Period:**  
   Wake up the microcontroller in regular intervals to temporarily increase the current above the detection threshold. This resets the grace timer and keeps the output open.
 * **Change IP2369 Behavior:**  
-  Use a microcontroller and I2C to change the IP2369 settings: simply disable the "automatic output shutdown" altogether. This keeps the output open at all times, regardless of load type.
+  Use a microcontroller and [I²C](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/ip2369i2c/) to change the IP2369 settings: simply disable the "automatic output shutdown" altogether. This keeps the output open at all times, regardless of load type.
 
-> Note: Public I2C register maps for IP2369 are scarce; plan for experimentation or vendor documentation if implementing firmware control.
 
 </details>
 
@@ -123,7 +124,7 @@ Setting the power limit is configured via an `RPSET` resistor, however the board
 
 If you need to limit the power, you would have to identify where the board has located the `RPSET` resistor. Next, you'd have to replace the existing (tiny) SMB resistor with the resistor value for the output power you want to use.
 
-A much more convenient approach is to use I2C to change the maximum power digitally. This requires an external microcontroller, though.
+A much more convenient approach is to use I²C to change the maximum power digitally. This requires an external microcontroller, though.
 
 > Practical note: 45 W is the SoC’s envelope and is achieved only when the negotiated voltage/current and internal 3 A input limit allow it (e.g., 20 V ≈ 2.25 A PD profile). At lower negotiated voltages, the effective ceiling is lower.
 

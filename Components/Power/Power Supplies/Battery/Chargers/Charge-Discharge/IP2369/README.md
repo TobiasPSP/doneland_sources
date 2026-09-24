@@ -8,9 +8,8 @@ The [IP2369](materials/ip2369_datasheet_en.pdf) is a highly integrated *power ba
 
 <img src="images/ip2369_chip3_t.webp" width="20%" height="20%" />
 
-IP2369 has built-in I2C support and can be monitored or fine-tuned by a microcontroller. At this time, no I2C register information could be found, and the vendor did not yet reply. 
+IP2369 has [built-in I²C support](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/ip2369i2c/) and can be monitored or fine-tuned by a microcontroller. 
 
-If you have access to I2C register information, please leave a comment below.
 
 ## Overview
 The stand-out feature of IP2369 is its powerful 250 kHz buck-boost converter that can boost a voltage as low as 4.5 V to as high as 25.2 V.
