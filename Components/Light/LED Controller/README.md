@@ -1,52 +1,106 @@
 <img src="/assets/images/light.png" width="80%" height="80%" />
- 
+
 # LED Controller
 
 > Safely Driving LEDs With Constant Current Or Constant Voltage
 
-*LEDs* have a very low internal resistance, so when you apply electric power to them, three things can happen:
+LEDs cannot be connected directly to an arbitrary power supply. They need a specific **current** to work safely. Applying too much current, or connecting an LED with excessive reverse voltage, can destroy it quickly.
 
-* **No Light:** if the *voltage* is below the forward voltage of an *LED*, no current will flow, and there is no light emission.
-* **LED works:** if the *voltage* is above the forward voltage, and the *current* is not exceeding the amount of power that the *LED* can convert to light, all is good.
-* **LED burns (destruction):** if the *voltage* is above the forward voltage, and the *current* is exceeding a certain threshold, then the *LED* can no longer convert all of the supplied energy into light. The excess energy is converted to *heat*, and depending on the amount of excess energy, the *LED* will burn up and be destroyed immediately or over a course of a longer period of time (minutes to hours)
+## Overview
 
-*LED controllers* are circuits designed to keep the supplied energy within the specifications of an *LED*.
+When you apply power to any LED, **four things** can happen:
 
-> [!NOTE]
-> A *current limiting resistor* is a very basic form of *LED controller*: the resistor takes the excess energy and converts it to *heat*. This works well for *signal LEDs* that only take a few mA of current. Resistors do not work well for more powerful *LED*, though: they would need to be capable of dissipating many watts of power, waste a lot of energy and get very hot.
+**Connecting power in correct polarity:**
 
-*LEDs* can be controlled by *constant current* (*CC*) or by *constant voltage* (*CV*) power supplies.
+1. **Voltage below Forward Voltage:**
 
-## Constant Current Controllers
+    When the voltage is below the **forward voltage** (specific to a given LED and determined largely by its semiconductor chemistry, so typically related to its color), only very little current flows and the LED remains dark or very dim. LEDs do not have a perfectly sharp voltage threshold, but current rises very rapidly once the voltage approaches their normal forward voltage.
 
-*Constant current* is the best driver for *LEDs*. Here is why:
+2. **Voltage around or above Forward Voltage:**
 
-* **Light = Current:** the light emission of a *LED* is directly proportional to the *current*. By supplying a fixed current, you ensure that the *LED* is always emitting light of the same intensity. This can become especially important with *RGB LEDs* that *mix* colors out of *red*, *green*, and *blue*: if the light intensity of one of the colors changes, you will see a noticeable change in color.
-* **Resistance Varies:** *Voltage* and *internal resistance* determine the *current*. A *constant current* supply continuously monitors the current, and if it changes, the supply changes the *voltage* to bring back the *current* to its target value. For *LEDs*, this automatic adjustment is important because the internal resistance of *LEDs* can vary based on production differences, and more importantly, the resistance is affected by *heat*. When *LEDs* are operated for a longer period of time, they heat up and change resistance. A *constant current* supply notices the decreasing resistance by sensing a *higher current*, and automatically *reduce* the voltage.
+    Significant current can flow through the LED. How much current actually flows depends on the voltage:
 
-In a nutshell, what matters to *LED* is *current*, and a *constant current* supply controls exactly this parameter.
+    * 2a. **Current remains below the LED limit:**
 
-## Constant Voltage Controllers
+        The LED lights up, and its brightness depends mainly on current. With increasing current, the LED gets brighter, while increasingly more energy is converted to heat as well. Close to their maximum current, high-performance LEDs can get very hot and require adequate cooling. At 50 % of the current, the same LED might already produce 70-80 % of the brightness and stays cool.
 
-*Constant voltage* can also be used to drive *LED*: a fixed *voltage* is set that is causing the desired *current* to flow. Remember: *voltage* is the force that drives a *current* through *resistance*.
+    * 2b. **Current exceeds the LED limit:**
 
-This would work well if the *resistance* was constant. However with *LEDs*, resistance is **not** constant: it can change i.e. when the *LED* heats up. That's why *constant voltage* can only *approximately* set the *current*, and the real *current* will vary and change based on other factors like the *LED temperature* and its specific internal resistance.
+        The LED produces excessive heat. Its forward voltage typically decreases as it heats up, which can allow more current to flow when powered from an uncontrolled voltage source. This leads to thermal runaway and quickly damages or destroys the LED.
 
+**Connecting power in reverse polarity:**
 
-### Saving Money
-*Constant voltage* supplies are technically simpler and cheaper than *constant current*. The variations in *current* that you get with *constant voltage* supplies may not be terribly high, so you might want to tolerate them in exchange for lower component cost.
+3. **Voltage below Reverse Voltage:**
 
-WHenever *exact brightness* does not matter (i.e. decorative or ambient lighting), *constant voltage* supplys may be the most economical solution.
+   When the reverse voltage remains below the LED's maximum permitted **reverse voltage**, only a tiny leakage current flows and the LED remains dark.
 
-> [!TIP]
-> If exact brightness is important (as in *RGB LED* where slight changes in brightness can affect the emitted mixed color), or if you aim to drive a *LED* at its absolute maximum specifications, always use a *constant current* supply.
+4. **Voltage exceeds LED Reverse Voltage:**
 
-### Powering Drivers, Not LED
-Sometimes, *LED* and *LED strips* come with built-in electronics and use their own *internal drivers* (i.e. programmable LED like the *WS2812*). Cheaper *LED strips* may also use *built-in current-limiting resistors*. In all of these cases, **you are not driving the LEDs**. The *LEDs* are driven by the internal electronic parts. You are simply supplying power to these.
+   The LED can enter reverse breakdown and may quickly get damaged or destroyed.
 
-In such cases, you **must** use a *constant voltage* supply and supply exactly the voltage that the internal electronic components require. For example, programmable *WS2812 LED* typically require *5V* and use an internal *constant current* driver to drive the actual *LEDs*.
+## Supplying Power to LEDs
+
+The important property to control is the **current** flowing through an LED. The voltage across the LED then settles at its corresponding forward voltage. That's why DC-DC regulators designed specifically for LEDs are often called **LED drivers**: unlike ordinary *constant-voltage (CV)* regulators, many of them regulate output current directly (*constant-current, CC*).
+
+Practically, three ways have been established to drive LEDs:
+
+* **Resistor:**
+
+  For low-power indicator LEDs, simply put a resistor in series. It limits the current by dropping the remaining supply voltage. Small variations and waste heat are negligible since such LEDs require only currents in the mA range.
+
+* **Constant-Voltage (CV):**
+
+  A *constant voltage* supply can be used when the operating conditions are carefully controlled (i.e. exactly specified LEDs with narrow production tolerances, and good cooling). For high-power LEDs, however, directly setting a voltage that happens to produce the desired current is generally less robust:
+
+  * When the LED forward voltage changes, i.e. during heating, then the current changes as well (it rises when LEDs get hot).
+
+  * With multiple LEDs or LED strings connected in parallel, small differences in forward voltage can cause current to be distributed unevenly, resulting in differences in brightness and temperature.
+
+* **Constant-Current (CC):**
+
+  For high-power LEDs or LED strings, this is generally the best power supply because you are directly controlling the property that matters most to the LED: its **current**.
+
+## Dimming and Flash Patterns
+
+Dimming is always possible with a power supply that can *dynamically adjust* the current: When you use a *constant current* regulator and reduce the current threshold, this directly reduces the LED brightness.
+
+This type of dimming works particularly well because the LEDs remain continuously on and cannot cause flickering. However, many inexpensive regulators feature at best a manual potentiometer to adjust current, so this type of dimming is often not very practical.
+
+### PWM (Pulse Width Modulation)
+
+LEDs respond extremely fast and can be turned on and off in microseconds or less. That makes them ideal for PWM dimming: PWM turns the LED on and off at high frequency. 
+
+When you set this frequency high enough, the human eye cannot distinguish the individual pulses, and visible flickering is avoided. If the PWM frequency is high but not high enough, you may still see flickering or banding in smartphone cameras and video recordings. Likewise, when you reduce the frequency (considerably), you get flashing patterns like the ones in an emergency light.
+
+#### Driver with PWM Support
+PWM is very simple to control. Almost any dirt-cheap microcontroller can produce it at almost any frequency. The much tougher part is the actual LED driver: it must support sufficiently fast switching if you want to dim LEDs or - using the same principle, but at a much lower frequency - make the LED flash (i.e. for emergency lights).
+
+Many LED drivers expose a dedicated `PWM`, `DIM` or `ENABLE` pin for this purpose (although `ENABLE` pins may or may not work; some turn off the entire regulator, not just the output). The important part is that the driver electronics **remain powered while the LED current is switched on and off** in a controlled way.
+
+#### Driver without PWM Support
+If an LED driver does not provide such an input, an external MOSFET can sometimes be used before or after the driver to implement switching. This needs to be evaluated for the particular driver, though: 
+
+Turning the entire DC regulator repeatedly off by placing the MOSFET on its input side can cause slow restarts or unwanted soft starts. Removing the DC regulator **load** rapidly by switching its output with the MOSFET can interfere with its feedback loop or cause voltage overshoot unless the regulator is designed to tolerate this type of operation.
+
+In a nutshell:
+
+* **Simple Continuous Operation at Full Brightness:**
+
+  Any suitable LED driver will do, preferably *constant current*.
+
+* **Adjustable LED brightness and/or Flash Patterns:**
+
+  Prefer an LED driver with a dedicated PWM, DIM or fast ENABLE input.
+
+## Built-In Drivers
+
+Some LEDs come with built-in drivers or control electronics, especially *LED strips*. 
+
+The popular and ubiquitous *WS2812 LED*, for example, combines LEDs with integrated current-control electronics and a digital communication interface. The electronics takes care of LED current control already, and you control brightness and color via a digital one-wire protocol, i.e. by using a microcontroller or a ready-to-use device.
+
+In such cases, you **must supply** a **constant voltage (CV)** within the voltage range specified for the LED or LED strip (typically around 5 V for WS2812-type LEDs).
 
 
 > Tags: LED Driver, WS2812, COnstant Current, Constant Voltage
 
-[Visit Page on Website](https://done.land/components/light/ledcontroller?319805092109242628) - created 2024-09-08 - last edited 2024-09-08
+[Visit Page on Website](https://done.land/components/light/ledcontroller?319805092109242628) - created 2024-09-08 - last edited 2026-09-23
