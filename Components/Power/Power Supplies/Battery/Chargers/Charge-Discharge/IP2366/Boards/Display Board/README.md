@@ -67,25 +67,32 @@ If you use the display board, you should still use the DIP switches to set your 
 
 ### Wiring
 
-Add a **male XT30** connector to your battery, and connect it to the board. To unseal the IP2366, connect a USB charger to the USB-C port for a few seconds until the white LEDs (on the display-less board) or the TFT screen turn on.
+Here is the fundamental setup:
+
 
 <img src="images/ip2366_schematic_illu2.webp" width="100%" height="100%" />
 
-While you *can* run the board without a connected battery, this triggers constant chip resets and other unusual behavior.
 
-Running the board with just a charger can still be useful for a number of reasons:
+#### 1. Connect Charger Only
 
-* **Diagnostics:**      
+Initially, connect only a USB charger to the board. Do not yet connect the battery. Then check this:
 
-  Does the board work at all? Is the screen possibly broken?
+* **Screen broken?**    
+  Does the screen come up at all? Is it broken? The screen is fragile, and the units are often shipped with poor protection, so checking for damages should be done immediately after arrival to not miss return windows.
 
-* **Verifying Charger Settings:**  
+* **Charging Voltage Correct?**   
+  Next, measure the voltage at the battery connector. While it may fluctuate a bit as the chip is trying to identify the battery, make sure the highest voltage **does not exceed the intended charging voltage**. 
 
-  Measure the voltage on the battery side. It should align with the maximum charge voltage for your battery. If it is off, check these:
+  If it does, power off the unit, and revisit the configuration of the DIP switches. Make sure you configured string count and battery chemistry correctly. Make also sure you did not accidentally put more than one switch to `ON` per configuration group.
 
-  - did you configure the string count?
-  - did you set the battery chemistry correctly? Remember that the vendor has accidentally switched the settings for LiIon/LiPo and LiFePo4.
-  - are you positive you did not accidentally set TWO DIP switches in either settings group? Only **one** switch may be set to `ON`.
+  Note that the description of switches 9 and 10 (battery chemistry) may be reversed in the original vendor documentation. Always check the output voltage **before you connect a battery**.   
+
+#### 2. Disconnect Charger, and Connect Battery
+Next, remove the USB charger, and connect the battery. This is important because in the default settings, charging current may be way too high for your battery.
+
+With only the battery connected, the screen should come to live, and you can now review the settings and make any adjustments necessary (see below). One of the first things you may want to do is change the UI language from Chinese to English.
+
+
 
 ### Warning: High Battery Current
 
@@ -93,7 +100,13 @@ Depending on how you operate the board, there can be **high currents on the batt
 
 If, for example, you use a 2S battery and have enabled the full 140 W, then a load on the USB PD side could draw a maximum of 20 V 7 A (140 W). At a nominal 7.4 V on the 2S battery side, this would require roughly 21 A (including converter losses).
 
-The version with the display can set the maximum allowable battery current to any value you need. The display-less variant can only limit the maximum output power in three steps (65/100/140 W).
+So in the settings (see below), make sure you use `In/Out Power` and `Batt Cur` together to control the available power:
+
+* `In/Out Power`:   
+  Configurable to 65/100/140 W. At 140 W, a 2S battery would be charged with almost **20 A**. Even at 65 W, charging would still be around **9 A**. This setting can be set via DIP switches on all boards.
+*  `Batt Cur`:    
+  Sets the maximum current the battery can provide. It is still unclear at this time whether this is a global setting or applies to charging or discharging only. This setting is available only on display boards. 
+
 
 ### Enable Button
 
@@ -115,11 +128,16 @@ After this, you continue with the software configuration. Unfortunately, that's 
 
 Navigation for this board is done through the three push buttons:
 
+
+<img src="images/ip2366_disp_buttons.jpg" width="20%" height="20%" />
+
 | Button | Description |
 | --- | --- |
 | `S1` |  move up |
 | `S2` | short press: select<br/>long press: confirm and exit
 | `S3` | move down |
+
+
 
 ### Configuration
 
@@ -163,37 +181,70 @@ When you connect the display board to a USB charger, the display turns on. Unfor
 
 4. **Settings:**      
 
-    Long-pressing the middle button (`S2`) opens the settings menu.    
+    Long-pressing the middle button (`S2`) opens the settings menu.   
 
-    <img src="images/ip2366_set1.jpg" width="50%" height="50%" />  
+    - **Gauging, Battery, Max Power, and State of Charge:**
 
-    If you want to use coulomb counting (gauging), make sure you set the correct battery capacity on the first page, and set `Batt Percent` to `Gauge`. Even then will your on-screen battery meter be off for a couple of complete charge/discharge cycles until the controller has gathered enough data.   
+      <img src="images/ip2366_set1.jpg" width="50%" height="50%" />  
+
+      Battery state-of-charge can be based on voltage or on coloumb counting, controlled by `Batt Percent`. 
+      
+      Coloumb counting (set to `Gauge`) is much more accurate but requires that you set the accurate battery capacity in `Capacity`. It also requires a full discharge/charge cycle. So initially, in this setting the battery gauge is not working properly. 
+
+      Use the setting `Voltage` instead of `Gauge` to derive the state of charge from the battery voltage. This works immediately, but it can provide only a rough estimate with a high margin of error.
+
+      `In/Out Power` controls the maximum power available. Make sure this fits your battery (both charging and discharging current at battery voltage), and ensure a fan and heat sinks are in place before you select any rating above **65 W**.
+
+    - **Maximum Battery Current:**   
+
+      <img src="images/ip2366_set2.jpg" width="50%" height="50%" />  
+
+      `Batt Cur` limits the battery current if necessary. This also reduces maximum available power. So in essence, both `In/Out Power` and `Batt Cur` together control the available power.
+
+      
+
+    - **Fan Control and Bidirectional Operation:**      
+
+      <img src="images/ip2366_set3.jpg" width="50%" height="50%" />      
+
+
+      `Fan Temp` sets the temperature at which the attached fan activates. This is controlled by the NTC Sensor attached to the daughter board. You need to connect a 5 V two-wire fan to the daughter board yourself; a fan is not included.
+
+      Connect it to the through-holes marked `+ -` next to the push buttons:
+      
+      <img src="images/ip2366_disp_buttons.jpg" width="20%" height="20%" /> 
+
+      The second NTC sensor connected to the base board is controlled via `Batt NTC` and should remain `ON` and placed close to the battery to ensure charging stops on overheating.
+
+
+      With `C Mode`, you control whether the IP2366 should work bidirectional (charge and discharge), or just one way.    
+
+    - **Auto Sleep and Screen Rotation:**   
+
+      <img src="images/ip2366_set4.jpg" width="50%" height="50%" />  
+
     
-    Alternately, use the setting `Voltage` instead of `Gauge`. Now, the software extrapolates the state of charge based on the battery voltage, which works immediately but is only a rough indicator with high margin of error.
+      `Auto Sleep` is important: by default, it is set to `OFF`, meaning the display will stay on forever, eventually draining a battery. You can set it to `Auto` or specify a time in the range of 5-120 seconds. This turns off the display and puts the MCU in sleep until you press any button.
 
-    <img src="images/ip2366_set2.jpg" width="50%" height="50%" />  
+      
+      With `Rotation` you can rotate the screen in order to adjust it to the way you mount this board.
 
-    On the second page, make sure you limit the battery current if necessary. This, of course, reduces the available power.    
+    - **UI Language:**   
 
-    <img src="images/ip2366_set3.jpg" width="50%" height="50%" />  
+      <img src="images/ip2366_set5.jpg" width="50%" height="50%" />  
 
-    On the third page, set the temperature at which the attached fan should activate. You have to connect a 5 V two-wire fan to the daughter board yourself, though; a fan is not included.
-
-    <img src="images/ip2366_set4.jpg" width="50%" height="50%" />  
-
-    On the fourth page, you can rotate the screen design and adjust it to the way you mount this board.
-
-    <img src="images/ip2366_set5.jpg" width="50%" height="50%" />  
-
-    On the last page, you finally find the setting `Language`. Press the middle button `S2` to enter the setting, press `S3` to select `English`, and press `S2` again to confirm. Long-press `S2` to save and exit the menu.
+      Finally, at the very end you find the setting `Language`. Press the middle button `S2` to enter the setting, press `S3` to select `English`, and press `S2` again to confirm. Long-press `S2` to save and exit the menu.
 
 ## Fan Control
 
 The display version comes with built-in temperature-controlled fan support. You just need to supply a two-wire 5 V fan.
 
-<img src="images/ip2366_qr1.jpg" width="50%" height="50%" />  
 
 Connect the fan to the two solder pads marked `+ -`, and make sure you use the correct polarity.
+
+
+<img src="images/ip2366_disp_buttons2.jpg" width="40%" height="40%" />
+
 
 In the settings (discussed above), you can set the temperature at which the fan should start spinning. The fan is controlled by the NTC temperature probe soldered to the daughter board. The other NTC probe is soldered to the base board and controls the IP2366.
 
@@ -261,3 +312,5 @@ The developers maintain all resources for this board in QQ group 170681020. Unfo
 > If anyone has a QQ account and was able to download the materials, please leave a comment below, and I will get in touch with you ASAP. I would really love to get the official firmware and play with it here.
 
 > Tags: IP2366, Charger, Firmware, QQ, Display
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-10-05

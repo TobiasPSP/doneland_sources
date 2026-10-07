@@ -53,7 +53,8 @@ This compilation is a best-effort and work in progress:
 | `0x01` | SYS_CTL1 | Unknown | Unknown | D labels it series-cell count, battery type, current-setting mode. No bit allocation or coding established. | Unknown | D lead only |
 | `0x02` | SYS_CTL2 / Vset | 7:0 | R/W | Per-cell target `2500 + 10k` mV; maximum 4400 mV, so documented useful codes 0–190. Pack target nominally `S × Vcell`. | Unspecified | A/B |
 | `0x03` | SYS_CTL3 / Iset | 7:0 | R/W | BAT-side charging-current limit `100k` mA; documented maximum 9700 mA. Must not be below termination current. | `0x61` = 9700 mA | A/B |
-| `0x04` | SYS_CTL4 | Unknown | Unknown | Defined in C as battery capacity; absent from both inspected IP2366 map PDFs and no verified accessor/encoding established. | Unknown | C lead only |
+| `0x04` | SYS_CTL4 / Bat_Num | 2:0 | R/W (inferred) | Series-cell count, inferred direct coding `k = S`, proposed range 2-6. A 4S battery returned byte `0x04`, supporting code 4 = 4 cells. Other codes and write behavior have not been validated. | Unknown | User bench observation, 2026-10-07; similar-chip inference |
+| `0x04` | Reserved | 7:3 | -- | Preserve these bits; no meaning assigned. Reserved allocation is inferred, not manufacturer-confirmed for this variant. | Unknown | Similar-chip inference |
 | `0x06` | SYS_CTL6 / Itk | 7:0 | R/W | Precharge/trickle current `50k` mA. No independent trickle threshold or timeout field exposed here in the inspected PDFs. | `0x04` = 200 mA | A/B |
 | `0x08` | SYS_CTL8 / Istop | 7:4 | R/W | Termination current `50k` mA; field 0–15 gives 0–750 mA. **Zero is not documented as “disable termination.”** | 2 = 100 mA | A/B |
 | `0x08` | Vrch | 3:2 | R/W | 0 no recharge; 1 target − `S×50 mV`; 2 target − `S×100 mV`; 3 target − `S×200 mV`. | 2 | A/B |
@@ -68,6 +69,8 @@ This compilation is a best-effort and work in progress:
 | `0x0B` | En_Vbus_SrcSCP | 4 | R/W | Output SCP enable. | 1 | A/B |
 | `0x0C` | SYS_CTL12 / Vbus_Src_Power | 7:5 | R/W | Codes 0/1/2/3/4/5 = 30/45/60/65/100/140 W. Codes 6/7 undefined. A calls it input/output selection; B calls it output. A says writes interact with PDO settings: later writes override earlier ones. | 5 = 140 W | A/B, scope wording differs |
 | `0x0D` | SELECT_PDO / Pdo_select | 2:0 | **Uncertain** | B describes selecting input fixed PDO: 0/1/2/3/4 = 5/9/12/15/20 V. Check availability in `0x35` first. Highest adapter profile is default; re-identify/reconfigure after the configuration becomes invalid. B labels field R despite selection text; C implements writes. | Unspecified | B only + C; access contradiction |
+| `0x17` | NTC_CTL / NTC_EN | 7 | R/W (inferred) | 1 enables battery NTC temperature protection; 0 disables it. Similar-chip inference with user-reported passive validation; write behavior not experimentally established. | Unknown | User report, 2026-10-07 |
+| `0x17` | Reserved | 6:0 | -- | Preserve; no assigned meaning. Allocation inferred from similar-chip documentation. | Unknown | Similar-chip inference |
 
 Theoretical BAT CV windows, assuming the selected cell count is actually active and charger operation allows the requested voltage:
 
@@ -142,6 +145,8 @@ Neither inspected map exposes a 28 V source-PDO current/enable field, AVS voltag
 | `0x35` | PDO_5V | 0 | R | Fixed 5 V received/available. Bits 7:5 reserved. | B only + C |
 | `0x38` | STATE_CTL3 / Vsys_Oc | 5 | R / W1C? | Latched output overcurrent; prose says write 1 to clear despite R column. | A/B inconsistency |
 | `0x38` | Vsys_Scdt | 4 | R / W1C? | Latched output short-circuit; same access inconsistency. | A/B |
+| `0x3A` | IC_TEMP / Thermal_loop | 7 | R (inferred) | 1 indicates thermal loop active; 0 inactive. Not the external battery NTC temperature or its enable setting. | Similar-chip inference; user observed bit 7 = 0, 2026-10-07 |
+| `0x3A` | IC_TEMP | 6:0 | R (inferred) | Inferred unsigned direct temperature in degrees Celsius: `temperature_degC = byte & 0x7F`. User observed `0x1E`, interpreted as 30 degrees Celsius. | User passive capture; plausible room/light-load result, not independent calibration |
 
 `0x38` describes repeated fault detections within roughly 600 ms and approximately 1.5 s before sleep. B's fault-recovery prose refers to toggling `0x22[7]`, but its own map defines `0x22[7:6]` as the Type-C role. Treat that recovery instruction as suspect; do not implement it blindly.
 
@@ -186,7 +191,7 @@ These rows are intentionally separated from the documented map. They are not per
 | Address | Claimed name / purpose | What remains unknown | Source |
 | --- | --- | --- | --- |
 | `0x01` | SYS_CTL1: series count, battery type, current-setting mode | Bits, encoding, access, prerequisites, reset behavior, firmware applicability. Unused definition; matches an IP2368 heading. No verified cell-count field. | D |
-| `0x04` | SYS_CTL4: battery capacity | No usable encoding verified. Could be inherited/stale definition. | C |
+| `0x04` | Earlier SYS_CTL4 battery-capacity lead | Superseded as the working interpretation by the inferred Bat_Num field above and the 4S/code-4 bench observation. C's capacity label remains an unverified conflicting lead; variant applicability is unresolved. | C; user observation 2026-10-07 |
 | `0x54` | IVBUS_IADC: input charging current | Width, scale, access, relevance; absent from A/B. | D |
 | `0x7A` | VGPIO1_ISET: current setting | May be configuration-pin ADC data rather than writable current command. GPIO1 is INT in standard IP2366 I²C pinout, raising concern. | D |
 | `0x7C` | VGPIO2_VSET: cell-voltage setting | Access and scale unknown; may be GPIO voltage telemetry. | D |
@@ -272,6 +277,117 @@ Links below are ordinary public URLs. “Inspected” means the document or code
 
 The inspected GitHub snapshot is commit `9a23b86ec0f2544c56b25e16900b5257347a150a`. For reproducibility, replace `main` in GitHub links with this commit. No exhaustive claim is made about private customer manuals, QQ group files, unindexed repositories, or chip-specific customized firmware.
 
+## Passive decoding clarifications (2026-10-07)
+
+The following additions distinguish a register-map interpretation from a verified
+physical measurement. They were recorded while deriving a YAML profile and a
+PC-side interpreter for passive I2C recordings. They do not authorize active
+queries, configuration writes, or protection/control decisions.
+
+### Assembling measurements from separate transactions
+
+A normal I2C transaction does not identify the physical width or meaning of a
+register. The low/high grouping, byte order and scale come from this map, not
+from the signal itself. For the documented pairs, source A page 11 requires low
+before high because reading low refreshes both bytes. A pointer-selection write
+followed by a repeated START and a read is part of a register read; it is not a
+write of the returned measurement.
+
+For a conservative passive decoder, combine only successful single-byte reads
+of the specified low and high registers, in that order, with no intervening
+transaction to the same device. Invalidate a pending pair after a failed transfer,
+capture/output loss, capture pause/reset, reconnect, or an unexpected target
+transaction. This adjacency rule is a decoder policy, **not an additional chip
+timing requirement**. Other-device traffic does not by itself invalidate the
+documented latch, but any reported capture loss does.
+
+Without capture timestamps, ordered USB lines cannot establish a precise
+acquisition-time interval. Host arrival times are not bus timestamps. Separate
+reads are the baseline here; do not assume that a multi-byte read automatically
+increments the register pointer merely because I2C permits multiple data bytes.
+An explicit device-specific burst contract is needed before interpreting one.
+
+### Remaining interpretation boundaries
+
+| Topic | Decoder treatment | Evidence or validation needed |
+| --- | --- | --- |
+| `0x6E/0x6F`, `0x70/0x71` current signedness | Assemble the bit pattern as an explicitly labelled **unsigned code** in the documented mA/code scale. Do not infer positive/negative physical current or charge/discharge direction. | A pages 15-16 specifies mA but no signed representation; reference already flags this gap. Validate against independent current measurements in both directions. |
+| Example `0x6E=0xFD`, `0x6F=0x07` | `0x07FD = 2045`, hence unsigned-code interpretation 2045 mA. | Arithmetic cross-check, not proof of signedness, accuracy, or current direction. |
+| `0x0A[7:5]`, `0x33[2:0]` | Show the field code and preserve both A/B alternatives; do not silently choose the higher document version. | Identify actual chip behavior using independent voltage observations; document which codebook was validated. |
+| `0x24` through `0x28` PDO currents | Label `20k` mA as the **base programmed current**, excluding the separate 10 mA add bit in `0x2C`. | A pages 8-11 confirms the two components. Effective advertisement also depends on enables, limits and negotiation; arbitrary cached reads are not an atomic snapshot. |
+| `0x29/0x2A` PPS currents | Show programmed `50k` mA, not negotiated or measured current. `0x3C` is 3000 mA. | Enable state, cable capability and actual advertisements remain relevant. |
+| `0x74/0x75` power | Convert once to mW using 10 mW/code; retain the chip-validation caveat. | A page 16 confirms scaling. Independent voltage/current measurements can cross-check applicability. |
+| `0x77` NTC current | Decode only bit 7: 20 or 80 microamperes of excitation. | A page 16; no battery-current or temperature interpretation. |
+| `0x78/0x79` NTC voltage | Decode mV directly; do not apply an extra full-scale ADC factor. | A pages 16-17. Thermistor curve and actual board network are still needed for temperature. |
+| Undefined enumeration codes or values beyond documented ranges | Retain the code and report `UNDEFINED_CODE` or `OUT_OF_RANGE`; never clamp to a plausible value. | Such output means interpretation is incomplete or outside the stated range, not necessarily a capture failure. |
+| Observed configuration writes | Report the transmitted field values separately from successful readback. | Bus ACK does not establish that a setting was applied, remained active, or is safe. Access contradictions at `0x0D` and `0x38` remain unresolved. |
+
+### Newly recorded primary-source lead: 0x56/0x57
+
+Source A page 14 contains an isolated sentence that discharge current is stored
+in `0x56` and `0x57`, referring to `0x31[3]` as a discharge indicator. However,
+the inspected map provides no corresponding complete register entries establishing
+width, scale, signedness, latch behavior, or applicability. This conflicts with
+the temptation to treat the sentence as a complete alternative current accessor.
+It is an **unresolved lead only**: no physical-value decoder for these addresses
+is enabled. Confirm against a matching manufacturer revision and bench readings
+before adding an interpretation.
+
+### Bench-supported inference: 0x04 series-cell count
+
+On 2026-10-07, passive capture of the user's IP2366 operating with a known 4S
+battery returned `0x04` from register `0x04`. Together with similar-chip register
+documentation (specific document/revision not supplied), this supports the working
+interpretation `Bat_Num = register & 0x07`, in units of series-connected cells.
+The proposed valid range is 2-6; codes 0, 1 and 7 are outside that inferred range,
+but their actual hardware meaning has not been established.
+
+Only code 4 on the tested 4S setup has been observed as matching the cell count.
+That single observation does not independently verify the full bit allocation,
+direct encoding for other counts, R/W access, power-up behavior, interaction with
+the BAT_NUM resistor, or applicability to other variants. Bits 7:3 are treated as
+reserved and must be preserved. The passive YAML decoder labels this interpretation
+as inferred; it does not authorize writes or protection/control decisions.
+
+### Bench-supported inferences: 0x17 and 0x3A
+
+The user supplied the following working definitions on 2026-10-07, based on
+similar-chip documentation and passive sniffing. No matching primary IP2366
+register document or specific similar-chip revision was supplied.
+
+- `0x17[7]` is `NTC_EN`: 1 means battery NTC temperature protection enabled,
+  0 disabled. Access is reported as R/W, inferred rather than tested by writes.
+  Bits 6:0 are treated as reserved and preserved. `0x80` and `0x00` are examples
+  with zero lower bits, not the only possible enable/disable byte values.
+- `0x3A[6:0]` is an inferred unsigned, direct internal die temperature in degrees
+  Celsius, with `0x3A[7]` indicating thermal-loop activity. A captured byte `0x1E`
+  gives code 30 and an inactive-loop bit. The 30 degrees Celsius interpretation
+  is plausible near room temperature/light load, but was not independently
+  calibrated. No positive-loop-bit observation, accuracy, negative-temperature
+  encoding, thermal threshold or wider-range validation was supplied. Codes
+  0-127 are the representable field range, not a verified operating/accuracy range.
+
+These are separate properties: the internal die reading and thermal loop must
+not be presented as the battery thermistor temperature or proof that battery NTC
+protection works. Passive decoders retain an INFERRED caveat. They authorize
+neither active writes nor control/protection decisions.
+
+### Change record
+
+- 2026-10-07: added passive assembly policy and clarified that host arrival timing
+  is not acquisition timing; no new chip timing requirement was inferred.
+- 2026-10-07: cross-checked A's low/high latch rule, measurement units, NTC
+  excitation and PDO add bits. Existing A/B conflicts were retained, not resolved.
+- 2026-10-07: recorded the previously unlisted `0x56/0x57` sentence as an
+  incomplete primary-source lead, not a verified register-map extension.
+- 2026-10-07: added inferred `0x04[2:0]` Bat_Num decoding with a 4S/code-4
+  bench observation; retained the earlier capacity label as a conflicting lead.
+- 2026-10-07: added inferred `0x17[7]` NTC protection enable and read-only
+  `0x3A` die-temperature/thermal-loop fields; recorded the `0x1E` observation
+  without claiming independent temperature calibration or active-bit validation.
+- Current direction/signedness, variant codebooks, unknown-register leads, burst
+  semantics and write-access contradictions remain open for validation.
+
 > Tags: IP2366, I2C
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/i2creference?999094101306262639) - created 2026-10-05 - last edited 2026-10-05
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/i2creference?999094101306262639) - created 2026-10-05 - last edited 2026-10-06
