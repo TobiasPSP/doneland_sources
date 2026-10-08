@@ -2,12 +2,12 @@
 
 # IP2366 Display Board
 
-> Versatile IP2366 Board With Optional Display and I2C
+> Versatile IP2366 Board With Optional Display and I²C
 
 This compact board comes in two flavors: 
 
 * As a simple base board with an IP2366, XT30 jack, NTC temperature probe, and 10-switch configuration panel. 
-* Or with an enhanced base board (I2C-capable), plus a pluggable Arm Cortex microcontroller daughter board with TFT display, three push buttons and NTC-controlled fan connector.
+* Or with an enhanced base board (I²C-capable), plus a pluggable Arm Cortex microcontroller daughter board with TFT display, three push buttons and NTC-controlled fan connector.
 
 <img src="images/ip2366_daughter.webp" width="70%" height="70%" />
 
@@ -15,32 +15,190 @@ This compact board comes in two flavors:
 
 This board is currently sold in two variants and two screen sizes:
 
-* **Without Display:**    
-
-  Contains the base board only. The IP2366 on this board **does not support I2C**, so a daughter board cannot be fitted later, nor can you connect your own microcontroller to it. 
-
-  <img src="images/ip2366_manual.webp" width="50%" height="50%" />
-
-  A 10-switch DIP panel allows for convenient configuration. Four white LEDs are located on the board and indicate battery state-of-charge, charging, and discharging.
-
-* **With Display:**    
-
-  The base board included here uses the exact same PCB but a IP2366 variant with I2C-enabled firmware. The same ten-switch DIP panel can be used to configure the board defaults. 
-
-  <img src="images/ip2366_i2c.webp" width="50%" height="50%" />
-
-  Most of these values can later be overridden via I2C and the display. Instead of the four white LEDs, this board has a six-pin connector.
-
-  <img src="images/ip2366_6pin.webp" width="30%" height="30%" />
-
-  The **daughter board** plugs onto the six-pin connector and comes with an Arm Cortex microcontroller (Puya PY32F030K28), three push buttons marked `S1` - `S3`, and a second NTC temperature probe as part of a 2-wire 5 V fan control.
-
-  <img src="images/ip2366_daughter.webp" width="60%" height="50%" />
-
-  The daughter board is available with two different TFT display sizes:
-
+* Base board only, configurable via DIP switch, with four white status LED   
+* Base board with display daughter board, configurable on-screen via I²C
   * 0.96-inch, 80×160 ST7735 TFT
   * 1.47-inch, 170x320 ST7789 TFT
+
+
+### Without Display
+
+Base board with a **non-I²C IP2366** and DIP switch for configuration plus unpopulated `R17`-`R20` (next to the NTC sensor) for fine-tuning. 
+
+Four white LEDs for status indication and state-of-charge. Enable-push button can be soldered but is not populated.
+
+<img src="images/ip2366_manual.webp" width="50%" height="50%" />
+
+Battery can be connected via **female XT30** plug (board comes with **male** XT30 connector).
+
+### With Display
+Base board with a **I²C-enabled IP2366** and 6-pin header in order to piggy-back the display board.
+
+<img src="images/ip2366_6pin.webp" width="30%" height="30%" />
+
+<img src="images/ip2366_daughter.webp" width="60%" height="50%" />
+
+
+The daughter board uses an Arm Cortex microcontroller (Puya PY32F030K28) to control the base board via I²C, three push buttons marked `S1` - `S3`, and a second NTC temperature probe as part of a 2-wire 5 V fan control.
+
+
+<img src="images/ip2366_i2c.webp" width="50%" height="50%" />
+
+The fan can be connected to the two contacts marked `+ -` on the fron side next to the push buttons.
+
+
+### Hardware Revisions (Differences)
+
+There are multiple base board versions available. The board version is printed on the front side.
+
+Version 1.00 and version 1.1 are almost identical, whereas version 1.3 marks a significant hardware revision. Its most prominent change is the unpopulated DIP switch:
+
+<img src="images/ip2366_disp_diff3.webp" width="60%" height="50%" />
+
+
+* **JTYJ-2366-C-V1.00:**     
+  Stand-alone board with an IP2366 **that has no I²C capabilities**. The 6-pin header used to plug in the display daughter board is unpopulated. Four white LEDs and two LED resistors are populated.
+
+  DIP switch is present, resistors `R17`-`R20` are unpopulated, resistor bank for DIP switch is populated. 
+
+* **JTYJ-2366-C-V1.1:**     
+  Like version 1.00, but instead of the LEDs, a 6-pin header is populated that connects to the display daughter board. The **IP2366 on this board supports I²C**.
+
+  <img src="images/ip2366_disp_diff2.jpg" width="60%" height="50%" />
+  
+
+* **JTYJ-2366-C-V1.3:**     
+  **No DIP switch**, resistors `R17`-`R20` are populated (`273`, 27 kΩ), resistor bank for DIP switch is not populated.
+
+  <img src="images/ip2366_disp_diff1.jpg" width="60%" height="50%" />
+
+
+### Default Configuration
+V1.00 can only run stand-alone as it uses a non-I²C IP2366. The DIP switches and on-board resistors are the only option to configure battery and maximum power.
+
+V1.1 and V1.3 can run stand-alone, too. Without the daughter board, V1.1 can be configured identically to V1.0 via DIP switches. V1.3 has fixed defaults defined via the populated `R17` - `R19`, setting these defaults:
+
+* 6S battery
+* 140W maximum power
+* LiIon chemistry
+
+Both V1.1 and V1.3 are designed to operate with the display daughter board and its microcontroller, which overrides the default values via I²C as soon as it boots. That's why setting the configuration via resistors isn't really important here, and most probably the reason why the makers decided to remove the DIP switch for the display version starting in V1.3.
+
+## Resistor Configurations
+
+Resistors `R17`-`R20` configure the IP2366. The I²C-enabled display versions can override these settings. The resistor markings are located on the front side, the resistors themselves are mounted on the flipside.
+
+| Resistor | Description |
+| --- | --- |
+| `R17`|  `BAT_NUM` - string count |
+| `R18` | `VSET` - cell voltage |
+| `R19` | `PSET` - maximum power |
+| `R20` | `CC_BDO` - power direction |
+
+### `BAT_NUM` (`BATSET`)
+
+| Resistor value | Cell count | Remarks |
+| --- | --- | --- |
+| 3.6kΩ | 2S |
+| 6.2kΩ | 3S |
+| 9.1kΩ | 4S |
+| 13kΩ | 5S |
+| 18kΩ | 6S |
+| 27kΩ | 6S | *(default for board V1.3)* |
+
+### `VSET`
+
+Sets the cell voltage which depends on the cell chemistry:
+
+| Resistor value | Cell voltage | Remarks |
+| --- | --- | --- |
+| 3.6kΩ | 3.65V | *(LiFePO₄)* |
+| 6.2kΩ | 4.1V |
+| 9.1kΩ | 4.2V | *(standard Li-ion)* |
+| 13kΩ | 4.35V |
+| 18kΩ | 4.4V |
+| 27kΩ | 4.2V plus diagnostic output | *(default for board V1.3)* |
+
+> The 27 kΩ setting additionally enables diagnostic serial output on the VSET pin after configuration is detected.
+
+### `PSET`
+
+Sets the maximum power the board can deliver. This setting **applies to both charging and discharging**.
+
+| Resistor value | Max power | Fan/Heat Sink required |
+| --- | --- | --- |
+| 3.6 kΩ | 30W | no |
+| 6.2kΩ | 45W | no |
+| 9.1kΩ | 60W | yes|
+| 13kΩ | 65W | yes|
+| 18kΩ |100W | yes|
+| 27kΩ | 140W | yes; *(default for board V1.3)* |
+
+**Warning:** Setting the power incorrectly can be dangerous:
+
+* **Charging Current:**    
+  The setting sets both **charging and discharging current**. If you set power to i.e. 140 W, then your battery will be charged with up to 140 W. A two-string LiIon battery would therefore receive a charging current of roughly up to **23.5 A**.    
+* **Excessive Heat:**    
+  Starting at roughly 45-60 W, the MOSFETs on the board can no longer passively dissipate the heat. At 45 W, they stabilize at around 50 degrees celsius. Make sure you add a fan and/or heat sink and monitor the temperature if you want to use higher power levels.
+
+> [!TIP]
+> With higher power levels, use higher-string batteries to keep the currents manageable. 
+
+Here is a table with maximum currents when using 140 W:
+
+#### LiFePO₄ Cells
+Assumed low voltage cutoff at 2.5 V:
+
+| String Count | Maximum Current (roughly) |
+| -- | -- |
+| 2S | 28 A |
+| 3S | 18.7 A |
+| 4S | 14 A |
+| 5S | 11.2 A |
+| 6S | 9.4 A |
+
+
+#### LiIon/LiPo Cells
+Assumed low voltage cutoff at 3.0 V:
+
+| String Count | Maximum Current (roughly) |
+| -- | -- |
+| 2S | 23.4 A |
+| 3S | 15.6 A |
+| 4S | 11.7 A |
+| 5S | 9.4 A |
+| 6S | 7.8 A |
+
+### `CC_BDO`
+
+Affects how two USB PD devices negotiate power direction.
+
+USB PD can both *sink* and *source* power:
+
+* **Sink:**    
+  Accepts power via USB-C and charges the battery    
+* **Source:**   
+  Provides power to connected devices on the USB-C port
+
+IP2366 supports both (*dual mode*, `DRP`), so you can both power devices *and* charge the battery via the same USB-C connector. Issues can arise, though, when two `DRP` devices are connected, i.e. when you connect a powerbank or a notebook to this board.
+
+Since now both devices - this board as well as the connected device - can deliver or accept charge, `CC_BDO` (`R20`) can resolve ambiguity. 
+
+By default, the board wakes up in *sink* mode, and when you connect a `DRP` device, the board may request power to charge its battery. So when you connect a powerbank, it charges the battery of this board, and when you connect a notebook, the notebook battery will drain to charge the battery connected to this board.
+
+Via `R20`, you can change its default to *source* mode. Now the board would try to deliver power. 
+
+In reality, `CC_BDO` does not always resolve ambiguity and does not permanently restrict the IP2366 to charging or discharging. It just determines the initial USB-C role in low-power mode, not necessarily the role after the device wakes up and negotiates a connection. 
+
+So if the notebook or powerbank default is also set to *sink*, power direction would still depend on USB PD negotiation, and you might even see power direction change back and forth. 
+
+
+| Resistor value | Initial Role | Remarks |
+| --- | --- | --- |
+| `open` | Sink (`UFP`) | board *charges* the battery via USB-C by default |
+| 1kΩ | Source (`DFP`) | board *provides power* to devices connected via USB-C by default |
+
+
 
 ## Base Board Configuration
 
@@ -149,7 +307,7 @@ When you connect the display board to a USB charger, the display turns on. Unfor
 
     <img src="images/ip2366_unseal.jpg" width="30%" height="30%" />
 
-    Generally, this Chinese screen appears whenever the microcontroller cannot access the IP2366 I2C interface.
+    Generally, this Chinese screen appears whenever the microcontroller cannot access the IP2366 I²C interface.
 
 2. **Pre-Setup:**  
 
@@ -254,7 +412,7 @@ IP2366 is so powerful that it potentially generates a lot of heat. Even with its
 
 Adding heat sinks is not trivial though because the back side of the board is populated as well. Probably the best place for a heat sink is the inductor on the back side, and with the display-less version, also the IP2366 on the front side.
 
-## I2C Connector
+## I²C Connector
 
 Versions with a display feature a 6-pin connector on the base board:
 
@@ -273,22 +431,22 @@ Pin assignment from left to right:
 
 The base board that comes without a display has no connector and instead four LEDs. The through-holes for the connector are nonetheless present.
 
-### Testing I2C
+### Testing I²C
 
-If you want to test whether your display-less board may possibly have an I2C-enabled IP2366, you must remove the two tiny LED resistors (or better yet: lift them up just on one side so you can later solder them back in place).
+If you want to test whether your display-less board may possibly have an I²C-enabled IP2366, you must remove the two tiny LED resistors (or better yet: lift them up just on one side so you can later solder them back in place).
 
 > [!IMPORTANT]
-> Do this only with appropriate soldering skills and at your own risk. If you accidentally confuse the `GND` and `VBAT` pins, or pin order in general, you can easily destroy the board or anything you connect to it. I have tested a number of boards for you, and they all **did not support I2C**.
+> Do this only with appropriate soldering skills and at your own risk. If you accidentally confuse the `GND` and `VBAT` pins, or pin order in general, you can easily destroy the board or anything you connect to it. I have tested a number of boards for you, and they all **did not support I²C**.
 
 The picture below shows both methods: on the left, the resistor is removed, and on the right, it is lifted up on one side only:
 
 <img src="images/ip2366_led_remove.jpg" width="50%" height="50%" />  
 
-Next, add pull-up resistors to `4` (`SDA`) and `5` (`SCL`), and connect them to an I2C scanner (sketches for I2C scanners are available everywhere and are really simple). Do not forget to connect pin `1` (`GND`) to your scanner's `GND`.
+Next, add pull-up resistors to `4` (`SDA`) and `5` (`SCL`), and connect them to an I²C scanner (sketches for I²C scanners are available everywhere and are really simple). Do not forget to connect pin `1` (`GND`) to your scanner's `GND`.
 
-If your IP2366 supports I2C, it responds at address `0x75`.
+If your IP2366 supports I²C, it responds at address `0x75`.
 
-An even easier test: with the pull-ups in place, check the voltage on both I2C pins. When I2C is enabled, they should sit at around 3.3 V most of the time. With the non-I2C version of IP2366, the voltage is around 1.6 V despite the pull-ups.
+An even easier test: with the pull-ups in place, check the voltage on both I²C pins. When I²C is enabled, they should sit at around 3.3 V most of the time. With the non-I²C version of IP2366, the voltage is around 1.6 V despite the pull-ups.
 
 ## Firmware Updates
 
@@ -300,7 +458,7 @@ The programming interface for this Arm Cortex MCU can be found on the back side 
 
 <img src="images/puya_2366_mcu.webp" width="50%" height="50%" />  
 
-The board developers even promise full open source and access to the toolchain and future firmware updates. This would place this board in a premier league because it would come with an I2C-enabled IP2366 that is already hooked up to a microcontroller and screen, potentially opening up an entire universe of useful applications.
+The board developers even promise full open source and access to the toolchain and future firmware updates. This would place this board in a premier league because it would come with an I²C-enabled IP2366 that is already hooked up to a microcontroller and screen, potentially opening up an entire universe of useful applications.
 
 When you scan the QR code on the board, it leads you to a Chinese QQ group:
 
