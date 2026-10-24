@@ -1,0 +1,20 @@
+codec-run
+PASS: explicit LE codec/bounds, signed and 64-bit units, descriptor pages, command retry/dedupe, owner heartbeat, stale ACK ordering, channel recovery and reboot invalidation
+
+meter-tests-run
+PASS meter codec, signed limits, descriptors, pull, lost-reply retry, active clear, stale session, disconnect and boot protection
+
+projection-run
+PASS meter projection: physical signed units, freshness, absent temperatures, gap and overflow flags, active clear session
+
+core-run
+PASS: conversions, NTC, alarm latch/override/fault, integration, long-history compaction, stop conditions, invalid-data gaps
+PASS: complete export beyond 300 points and idempotent manual stop
+
+lab-ownership-run
+PASS: manual sessions, owner identity/boot/session, replay rejection, lease deadline, no late revival and wraparound
+
+lab-server-run
+PASS: in-memory multi-client charger control, capability read, duplicate/replayed commands, confirmation binding/expiry, owner-only 10-second timeout, manual sessions, channel/subscription recovery, malformed unsubscribe and retired-boot replay rejection
+
+LVGL: tests/Test-Preview.ps1 completed with exit code 0; includes production meter fixture and charger regression.

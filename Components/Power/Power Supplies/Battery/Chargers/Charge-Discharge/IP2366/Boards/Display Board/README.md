@@ -76,7 +76,7 @@ Version 1.00 and version 1.1 are almost identical, whereas version 1.3 marks a s
 ### Default Configuration
 V1.00 can only run stand-alone as it uses a non-I²C IP2366. The DIP switches and on-board resistors are the only option to configure battery and maximum power.
 
-V1.1 and V1.3 can run stand-alone, too. Without the daughter board, V1.1 can be configured identically to V1.0 via DIP switches. V1.3 has fixed defaults defined via the populated `R17` - `R19`, setting these defaults:
+V1.1 and V1.3 can theoretically run stand-alone as well. Without the daughter board connected, V1.1 can be configured identically to V1.0 via DIP switches. V1.3 has fixed defaults defined via the populated `R17` - `R19`, setting these defaults:
 
 * 6S battery
 * 140W maximum power
@@ -84,9 +84,20 @@ V1.1 and V1.3 can run stand-alone, too. Without the daughter board, V1.1 can be 
 
 Both V1.1 and V1.3 are designed to operate with the display daughter board and its microcontroller, which overrides the default values via I²C as soon as it boots. That's why setting the configuration via resistors isn't really important here, and most probably the reason why the makers decided to remove the DIP switch for the display version starting in V1.3.
 
+### Caveats
+
+Here are the most important caveats when working with this board:
+
+* **Cooling Required:**    
+  Anything above 30 W requires efficient cooling. For 140 W, you need both adequate heat sinks and a fan.    
+* **Dangerous Contacts:**    
+  Be careful when plugging in the USB-C connector when using the display board. If you accidentally touch the rim of the display daughter-board, you may cause a fulminant short-circuit and permanently destroy the base board. Apparently, directly at the rim - in close proximity of the USB-C port - there are critical blank contacts carrying full power.   
+
 ## Resistor Configurations
 
-Resistors `R17`-`R20` configure the IP2366. The I²C-enabled display versions can override these settings. The resistor markings are located on the front side, the resistors themselves are mounted on the flipside.
+IP2366 can be configured both with resistors, and via I²C. I²C can overrule the resistor settings.
+
+Resistors `R17`-`R20` configure the IP2366. The resistor labels are located on the front side, the resistors themselves are mounted on the flipside.
 
 | Resistor | Description |
 | --- | --- |
@@ -95,7 +106,7 @@ Resistors `R17`-`R20` configure the IP2366. The I²C-enabled display versions ca
 | `R19` | `PSET` - maximum power |
 | `R20` | `CC_BDO` - power direction |
 
-### `BAT_NUM` (`BATSET`)
+### `BAT_NUM` (`BATSET`, `R17`)
 
 | Resistor value | Cell count | Remarks |
 | --- | --- | --- |
@@ -106,7 +117,7 @@ Resistors `R17`-`R20` configure the IP2366. The I²C-enabled display versions ca
 | 18kΩ | 6S |
 | 27kΩ | 6S | *(default for board V1.3)* |
 
-### `VSET`
+### `VSET` (`R18`)
 
 Sets the cell voltage which depends on the cell chemistry:
 
@@ -121,7 +132,7 @@ Sets the cell voltage which depends on the cell chemistry:
 
 > The 27 kΩ setting additionally enables diagnostic serial output on the VSET pin after configuration is detected.
 
-### `PSET`
+### `PSET` (`R19`)
 
 Sets the maximum power the board can deliver. This setting **applies to both charging and discharging**.
 
@@ -137,7 +148,12 @@ Sets the maximum power the board can deliver. This setting **applies to both cha
 **Warning:** Setting the power incorrectly can be dangerous:
 
 * **Charging Current:**    
-  The setting sets both **charging and discharging current**. If you set power to i.e. 140 W, then your battery will be charged with up to 140 W. A two-string LiIon battery would therefore receive a charging current of roughly up to **23.5 A**.    
+  The setting sets both **charging and discharging current**. If you set power to i.e. 140 W, then your battery will be charged with up to 140 W. A two-string LiIon battery would therefore receive a charging current of roughly up to **23.5 A**.     
+
+  With the display versions only, you can limit the charging current separately using `Batt Cur` (I²C register `0x03`/`SYS_CTL3`, field	`Iset`).   
+
+  On non-display versions, some IP2366 use a default value of **9.7A**, so they cap charging current at this value. However, this is not guaranteed, so you should double-check.
+
 * **Excessive Heat:**    
   Starting at roughly 45-60 W, the MOSFETs on the board can no longer passively dissipate the heat. At 45 W, they stabilize at around 50 degrees celsius. Make sure you add a fan and/or heat sink and monitor the temperature if you want to use higher power levels.
 
@@ -169,7 +185,7 @@ Assumed low voltage cutoff at 3.0 V:
 | 5S | 9.4 A |
 | 6S | 7.8 A |
 
-### `CC_BDO`
+### `CC_BDO` (`R20`)
 
 Affects how two USB PD devices negotiate power direction.
 
@@ -206,7 +222,7 @@ Before use, adjust the ten DIP switches to your needs:
 
 <img src="images/dipswitch_ip2366_display.webp" width="100%" height="100%" />
 
-If you use the display board, you should still use the DIP switches to set your default values: carefully pull off the daughter board with the display to gain access to the base board DIP switches.
+If you use the display board, you can still use the DIP switches to set your default values: carefully pull off the daughter board with the display to gain access to the base board DIP switches. Newer hardware revisions however lack the DIP switch for display boards.
 
 * **Battery:**    
 
@@ -218,7 +234,7 @@ If you use the display board, you should still use the DIP switches to set your 
 
 * **Battery Chemistry:**    
 
-  Take special care with switches 9 and 10: they set the battery chemistry and determine whether the charger charges to 3.7 V (LiFePo4) or 4.2 V (LiIon). **Apparently, there is an error in the original documentation:** all boards I tested used switch 9 for LiIon/LiPo and switch 10 for LiFePo4. The vendors' documentation claims it is the other way around. If in doubt, measure the battery connector's open-circuit voltage.
+  Take special care with switches 9 and 10: they set the battery chemistry and determine whether the charger charges to 3.65 V (LiFePo4) or 4.2 V (LiIon). **Apparently, there is an error in the original documentation:** all boards I tested used switch 9 for LiIon/LiPo and switch 10 for LiFePo4. The vendors' documentation claims it is the other way around. If in doubt, measure the battery connector's open-circuit voltage.
 
 > [!IMPORTANT]
 > Only **one switch per group** may be in the `ON` position, so make sure there are exactly **three switches in `ON` position**.
@@ -245,26 +261,37 @@ Initially, connect only a USB charger to the board. Do not yet connect the batte
 
   Note that the description of switches 9 and 10 (battery chemistry) may be reversed in the original vendor documentation. Always check the output voltage **before you connect a battery**.   
 
+
+> [!IMPORTANT]
+> On newer firmware, the display will show a Chinese message until you both connect a charger *and* a battery.
+
 #### 2. Disconnect Charger, and Connect Battery
 Next, remove the USB charger, and connect the battery. This is important because in the default settings, charging current may be way too high for your battery.
 
 With only the battery connected, the screen should come to live, and you can now review the settings and make any adjustments necessary (see below). One of the first things you may want to do is change the UI language from Chinese to English.
 
+> [!NOTE]
+> In newer firmware revisions, this no longer works and isn't necessary anymore. Instead, to get rid of the Chinese nag screen, connect both the battery and the charger. Then, in an initial quick setup screen, configure the battery. The charger won't operate until this configuration is completed.
+
 
 
 ### Warning: High Battery Current
 
-Depending on how you operate the board, there can be **high currents on the battery side** (which is why the board uses XT30 high-current connectors that can handle up to 30 A).
+Depending on how you operate the board, there may be **high currents on the battery side** (which is why the board uses XT30 high-current connectors that can handle up to 30 A).
 
-If, for example, you use a 2S battery and have enabled the full 140 W, then a load on the USB PD side could draw a maximum of 20 V 7 A (140 W). At a nominal 7.4 V on the 2S battery side, this would require roughly 21 A (including converter losses).
+If, for example, you use a 2S battery and have enabled the full 140 W, then a load on the USB PD side could draw a maximum of 28 V 5 A (140 W). At a nominal 7.4 V on the 2S battery side, this would require roughly 21 A (including converter losses).
 
-So in the settings (see below), make sure you use `In/Out Power` and `Batt Cur` together to control the available power:
+The maximum battery current is controlled in two ways:
 
-* `In/Out Power`:   
-  Configurable to 65/100/140 W. At 140 W, a 2S battery would be charged with almost **20 A**. Even at 65 W, charging would still be around **9 A**. This setting can be set via DIP switches on all boards.
-*  `Batt Cur`:    
-  Sets the maximum current the battery can provide. It is still unclear at this time whether this is a global setting or applies to charging or discharging only. This setting is available only on display boards. 
+* **Charge:**   
+  IP2366 supports a maximum charging current of **9.7 A** which can be controlled in 100 mA steps through I²C register `0x03` (`SYS_CTL3`, `Iset`), available in the display settings as `Batt Cur`.   
+* **Discharge:**    
+  The maximum battery current during discharge is controlled by the power setting, which can be set by the DIP switch as well as I²C register `0x0C`, available in the display settings as `In/Out Power`. 
 
+  The DIP switch allows for 65/100/140 W, and I²C/display settings can control power in the range of 30-140 W in steps of 30/45/60/65/100/140 W. 
+
+
+The output power setting also governs charging and cannot be exceeded. So for example, if you set `Batt Cur` to i.e. 8 A and `In/Out Power` to 30 W, the charging current is capped at 30 W. A *4S* battery would charge with currents limited to 2-3 A.
 
 ### Enable Button
 
@@ -353,11 +380,13 @@ When you connect the display board to a USB charger, the display turns on. Unfor
 
       `In/Out Power` controls the maximum power available. Make sure this fits your battery (both charging and discharging current at battery voltage), and ensure a fan and heat sinks are in place before you select any rating above **65 W**.
 
-    - **Maximum Battery Current:**   
+    - **Maximum Battery Charging Current:**   
 
       <img src="images/ip2366_set2.jpg" width="50%" height="50%" />  
 
-      `Batt Cur` limits the battery current if necessary. This also reduces maximum available power. So in essence, both `In/Out Power` and `Batt Cur` together control the available power.
+      `Batt Cur` limits the **charging** battery current. 
+      
+      This is different from `In/Out Power` which controls the **discharge** current.
 
       
 
@@ -408,9 +437,23 @@ In the settings (discussed above), you can set the temperature at which the fan 
 
 ### Attention: Heat!
 
-IP2366 is so powerful that it potentially generates a lot of heat. Even with its lowest setting (65 W max), the board gets quite warm. If you decide to use the maximum 140 W, you *must install* a fan, and you should also add heat sinks to the base board.
+While this board supports up to 140 W, it needs excessive cooling for this. Without additional cooling, it can only be operated at up to 30 W.
 
-Adding heat sinks is not trivial though because the back side of the board is populated as well. Probably the best place for a heat sink is the inductor on the back side, and with the display-less version, also the IP2366 on the front side.
+In a test setup, charging a 4S LiFePo4 with 2 A (roughly 30 W), the IP2366 and the four MOSFETs heated up to around 50 degrees celsius.
+
+<img src="images/ip2366_heat1.jpg" width="20%" height="20%" />
+
+The inductor on the opposite board side was less of a problem:
+
+<img src="images/ip2366_heat2.jpg" width="20%" height="20%" />
+
+If you intend to use this board with more than 30 W power, add efficient cooling:
+
+* **Heat Sink:**    
+  Add heat sinks to both the IP2366 and the four MOSFETs    
+* **Active Cooling:**    
+  For high power output, heat sinks will not be enough. Add a fan. The display board comes with built-in support for a 5 V two-wire fan.
+
 
 ## I²C Connector
 
@@ -423,7 +466,7 @@ Pin assignment from left to right:
 | Pin | Description |
 | --- | --- |
 | 1 | `GND` |
-| 2 | *(unknown)* |
+| 2 | `ENABLE` |
 | 3 | `INT`|
 | 4 | `SDA` |
 | 5 | `SCL`|
@@ -431,12 +474,15 @@ Pin assignment from left to right:
 
 The base board that comes without a display has no connector and instead four LEDs. The through-holes for the connector are nonetheless present.
 
+> [!IMPORTANT]
+> Exercice extreme care when working with these pins. `GND` and `VBAT` pins are the outer pins, and `VBAT` can carry a high voltage with full battery power, so confusing these pins has desastrous effects.
+
 ### Testing I²C
 
 If you want to test whether your display-less board may possibly have an I²C-enabled IP2366, you must remove the two tiny LED resistors (or better yet: lift them up just on one side so you can later solder them back in place).
 
-> [!IMPORTANT]
-> Do this only with appropriate soldering skills and at your own risk. If you accidentally confuse the `GND` and `VBAT` pins, or pin order in general, you can easily destroy the board or anything you connect to it. I have tested a number of boards for you, and they all **did not support I²C**.
+> [!NOTE]
+> This requires a fine solder tip and some soldering skills. You may as well skip it. I have tested a number of display-less boards from different shipments and vendors, and they all **did not support I²C**.
 
 The picture below shows both methods: on the left, the resistor is removed, and on the right, it is lifted up on one side only:
 
@@ -448,27 +494,31 @@ If your IP2366 supports I²C, it responds at address `0x75`.
 
 An even easier test: with the pull-ups in place, check the voltage on both I²C pins. When I²C is enabled, they should sit at around 3.3 V most of the time. With the non-I²C version of IP2366, the voltage is around 1.6 V despite the pull-ups.
 
-## Firmware Updates
+## Firmware and Updates
 
-The display version is highly interesting since it comes with its own dedicated microcontroller that is fully programmable.
+The display version of this board is especially interesting since it comes with its own dedicated microcontroller. 
 
 <img src="images/puya_ip2366.png" width="50%" height="50%" />  
 
-The programming interface for this Arm Cortex MCU can be found on the back side of the PCB:
+The programming interface for this Arm Cortex MCU can be found on the back side of the PCB.
 
 <img src="images/puya_2366_mcu.webp" width="50%" height="50%" />  
 
-The board developers even promise full open source and access to the toolchain and future firmware updates. This would place this board in a premier league because it would come with an I²C-enabled IP2366 that is already hooked up to a microcontroller and screen, potentially opening up an entire universe of useful applications.
+The producer promises full open source code and access to the toolchain as well as future firmware updates. 
+
+This would place this board in the premier league: it would come with an I²C-enabled IP2366 that is already hooked up to a microcontroller and screen, potentially opening up an entire universe of useful applications.
 
 When you scan the QR code on the board, it leads you to a Chinese QQ group:
 
 <img src="images/ip2366_qr_qq.webp" width="50%" height="50%" />  
 
-The developers maintain all resources for this board in QQ group 170681020. Unfortunately, to access this group, you must sign up for QQ, and to be able to sign up for QQ, you must be Chinese (and have a Chinese phone number at hand).
+All resources for this board are maintained in **QQ group 170681020**.   
+
+To access this group, though, you must sign up for QQ, and to be able to sign up for QQ, you must be Chinese (and have a Chinese phone number at hand). So these resources are unavailable outside China.
 
 > [!NOTE]
-> If anyone has a QQ account and was able to download the materials, please leave a comment below, and I will get in touch with you ASAP. I would really love to get the official firmware and play with it here.
+> Anyone with a QQ account, please leave a comment below, and I will get in touch with you ASAP. I would really love to get the official firmware and play with it here.
 
-> Tags: IP2366, Charger, Firmware, QQ, Display
+> Tags: IP2366, Charger, Firmware, QQ, Display, Puya, PY32F030K28, JTYJ-2366-C, I²C, BATSET, VSET, PSET, CC_BDO, DRP, LiFePO4, XT30, ST7735, ST7789, DIP Switch, Coulomb Counting, QQ Firmware
 
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-10-05

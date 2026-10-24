@@ -1,0 +1,9 @@
+{
+  "name": "IP2366Control",
+  "version": "1.2.2",
+  "description": "Portable IP2366 charger control, validated settings and explicit-unit measurements, with an optional Arduino GPIO I2C transport.",
+  "frameworks": "*",
+  "platforms": "*",
+  "headers": ["IP2366.h", "IP2366Arduino.h"],
+  "export": {"exclude": [".test-build", ".test-build/*"]}
+}

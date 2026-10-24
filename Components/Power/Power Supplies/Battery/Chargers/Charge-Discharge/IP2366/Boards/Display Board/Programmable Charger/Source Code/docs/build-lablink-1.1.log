@@ -1,0 +1,43 @@
+Processing tablet (platform: espressif32@6.12.0; board: esp32-s3-devkitc-1; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Web UI: 38075 bytes source, 11435 bytes gzip; font: 15104 bytes WOFF2
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32-s3-devkitc-1.html
+PLATFORM: Espressif 32 (6.12.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)
+HARDWARE: ESP32S3 240MHz, 320KB RAM, 16MB Flash
+DEBUG: Current (esp-builtin) On-board (esp-builtin) External (cmsis-dap, esp-bridge, esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.20017.241212+sha.dcc1105b 
+ - tool-esptoolpy @ 2.40900.250804 (4.9.0) 
+ - toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 
+ - toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 37 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- GFX Library for Arduino @ 1.5.9
+|-- lvgl @ 9.2.2
+|-- IP2366Control @ 1.2.2
+|-- Wire @ 2.0.0
+|-- Preferences @ 2.0.0
+|-- ESPmDNS @ 2.0.0
+|-- WebServer @ 2.0.0
+|-- WiFi @ 2.0.0
+|-- LabLink @ 1.1.0
+Building in release mode
+Compiling .pio\build\tablet\src\main.cpp.o
+Linking .pio\build\tablet\firmware.elf
+Retrieving maximum program size .pio\build\tablet\firmware.elf
+Checking size .pio\build\tablet\firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [==        ]  16.9% (used 55276 bytes from 327680 bytes)
+Flash: [==        ]  18.1% (used 1185725 bytes from 6553600 bytes)
+Building .pio\build\tablet\firmware.bin with action:
+  "$PYTHONEXE" "$OBJCOPY" --chip esp32s3 elf2image --flash_mode ${__get_board_flash_mode(__env__)} --flash_freq ${__get_board_f_image(__env__)} --flash_size 16MB --elf-sha256-offset 0xb0 -o $TARGET $SOURCES
+Building .pio\build\tablet\firmware.bin
+esptool.py v4.9.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+========================= [SUCCESS] Took 72.32 seconds =========================

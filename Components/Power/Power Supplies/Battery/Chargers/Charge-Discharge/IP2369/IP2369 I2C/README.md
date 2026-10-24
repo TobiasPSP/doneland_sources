@@ -747,4 +747,8 @@ vbat_mV = low | (high << 8)
 
 These fields should be verified experimentally before firmware depends on the ambiguous behavior.
 
+## Materials
+
+* [IP2369 I2C Registers](materials/ip2369_i2c_registers(2025-07-23).pdf)
+
 [Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2369/ip2369i2c?045362091524264024) - created 2026-09-23 - last edited 2026-09-23

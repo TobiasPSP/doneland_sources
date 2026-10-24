@@ -1,0 +1,4 @@
+{
+ "name":"LabLink","version":"1.2.0","description":"Extensible ESP-NOW lab equipment protocol and client",
+ "frameworks":["arduino"],"platforms":["espressif32"],"build":{"includeDir":"src"}
+}

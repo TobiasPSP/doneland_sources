@@ -1,0 +1,2 @@
+linux-asus-z00t.dts  732c93bdda4d4bca013c70b404562d5e6de67ad40e67dc374bcbf100af0e14eb
+zephyr-battery.h  8d214ec544abc1fc88e97995b7003db639286bc1eb0cba880c7e85340a5eff4b

@@ -1,0 +1,178 @@
+{
+  "description": "Approximate charging-terminal-voltage references, not OCV or universal fuel gauge calibration.",
+  "units": {
+    "soc": "percent of reference full charge",
+    "voltage": "mV per cell"
+  },
+  "lfp": {
+    "rate_C": 1,
+    "points": [
+      [
+        0,
+        3000
+      ],
+      [
+        10,
+        3360
+      ],
+      [
+        20,
+        3410
+      ],
+      [
+        30,
+        3430
+      ],
+      [
+        40,
+        3435
+      ],
+      [
+        50,
+        3445
+      ],
+      [
+        60,
+        3455
+      ],
+      [
+        70,
+        3465
+      ],
+      [
+        80,
+        3475
+      ],
+      [
+        90,
+        3495
+      ],
+      [
+        95,
+        3515
+      ],
+      [
+        98,
+        3575
+      ],
+      [
+        100,
+        3650
+      ]
+    ],
+    "source": "eve-lf105.pdf",
+    "url": "http://www.adafruit.evebatteryusa.com/linked/lfp105.pdf",
+    "method": "Blue 1C CC-CV trace at 25 +/-2 C. Capacity axis normalized by reference endpoint approximately 109%; 5 mV digitization. Final 3650 mV from charge specification.",
+    "sha256": "2f9fc30fe5f88c6b2436b754ee69295ef6cd7a8935202dd2f4a40e22823032c1"
+  },
+  "ion": {
+    "rate_C": 1,
+    "points": [
+      [
+        0,
+        3000
+      ],
+      [
+        10,
+        3500
+      ],
+      [
+        20,
+        3590
+      ],
+      [
+        30,
+        3670
+      ],
+      [
+        40,
+        3750
+      ],
+      [
+        50,
+        3830
+      ],
+      [
+        60,
+        3930
+      ],
+      [
+        70,
+        4020
+      ],
+      [
+        80,
+        4120
+      ],
+      [
+        85,
+        4170
+      ],
+      [
+        90,
+        4200
+      ],
+      [
+        100,
+        4200
+      ]
+    ],
+    "source": "molicel-p42a.pdf",
+    "url": "https://www.molicel.com/wp-content/uploads/INR21700P42A_1.7_Product-Data-Sheet-of-INR-21700-P42A-80092.pdf",
+    "method": "Solid 4.2 A voltage and capacity traces (4200 mAh P42A) at 23 C. CC capacity = 100*t_hours; approximately 90% at 4200 mV CV transition. 10 mV digitization; voltage cannot distinguish the CV plateau.",
+    "sha256": "dca433d5bba5c3b10d157fc3ab22ddaaa1b9d4162de70c7d76a347d925fe4db5"
+  },
+  "hv": {
+    "rate_C": 0.5,
+    "points": [
+      [
+        0,
+        3460
+      ],
+      [
+        10,
+        3780
+      ],
+      [
+        20,
+        3850
+      ],
+      [
+        30,
+        3880
+      ],
+      [
+        40,
+        3920
+      ],
+      [
+        50,
+        3970
+      ],
+      [
+        60,
+        4050
+      ],
+      [
+        70,
+        4140
+      ],
+      [
+        80,
+        4260
+      ],
+      [
+        90,
+        4390
+      ],
+      [
+        100,
+        4400
+      ]
+    ],
+    "source": "grepow-button-hv-charge.png",
+    "url": "https://www.grepow.com/ueditor/php/upload/image/20240722/1721642875808531.png",
+    "method": "4.4 V CCCV 0.5C, 0.05C cutoff, room temperature. Integrate orange current-C trace at 1 minute intervals, normalize total delivered charge at 140 minutes; interpolate blue voltage at SOC steps; round 10 mV. Source page https://www.grepow.com/button-cell-battery/grp2440.html. User explicitly approved 0.5C reference for LiHV.",
+    "sha256": "bf5e85692e6a150b8458c825a5d2d0168503616fc31929e71f45668c71e984d8"
+  }
+}

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1030" viewBox="0 0 1480 1030">
+<rect width="100%" height="100%" fill="white"/>
+<text x="40" y="54" font-family="Segoe UI,Arial,sans-serif" font-size="32" font-weight="700" fill="#243444">BatCharger — tablet-to-IP2366 signal wiring</text>
+<text x="40" y="85" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#243444">Three 10 kΩ resistors • 3.3 V I²C • Shared ground • Logical pin numbering, not a connector mating-face drawing</text>
+<rect x="40" y="115" width="390" height="780" fill="#f5f8fb" stroke="#8b9aa7" stroke-width="2"/>
+<text x="65" y="155" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="700" fill="#243444">Guition JC3248W535C_I_Y</text>
+<rect x="65" y="185" width="340" height="230" fill="#ffffff" stroke="#8b9aa7" stroke-width="2"/>
+<text x="82" y="219" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" fill="#243444">P3 or P4 · 4-pin I²C</text>
+<text x="85" y="262" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#526375">1   GND</text>
+<polyline points="405,255 430,255" fill="none" stroke="#526375" stroke-width="3" stroke-linejoin="round"/>
+<text x="85" y="307" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#c73b42">2   3.3 V</text>
+<polyline points="405,300 430,300" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<text x="85" y="352" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#078e9b">3   GPIO17 / SDA</text>
+<polyline points="405,345 430,345" fill="none" stroke="#078e9b" stroke-width="3" stroke-linejoin="round"/>
+<text x="85" y="397" font-family="Segoe UI,Arial,sans-serif" font-size="20" font-weight="400" fill="#c17609">4   GPIO18 / SCL</text>
+<polyline points="405,390 430,390" fill="none" stroke="#c17609" stroke-width="3" stroke-linejoin="round"/>
+<rect x="65" y="462" width="340" height="302" fill="#ffffff" stroke="#8b9aa7" stroke-width="2"/>
+<text x="82" y="496" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" fill="#243444">P2 · 8-pin expansion</text>
+<text x="85" y="526" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">1   GPIO5</text>
+<text x="335" y="525" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="556" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#8152b8">2   GPIO6</text>
+<polyline points="405,550 430,550" fill="none" stroke="#8152b8" stroke-width="3" stroke-linejoin="round"/>
+<text x="85" y="586" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">3   GPIO7</text>
+<text x="335" y="585" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="616" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">4   GPIO15</text>
+<text x="335" y="615" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="646" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">5   GPIO16</text>
+<text x="335" y="645" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="676" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">6   GPIO46</text>
+<text x="335" y="675" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="706" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">7   GPIO9</text>
+<text x="335" y="705" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="85" y="736" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">8   GPIO14</text>
+<text x="335" y="735" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#526375">NC</text>
+<text x="65" y="808" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#8152b8">GPIO6 is held HIGH by firmware.</text>
+<text x="65" y="843" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#243444">Power tablet separately from regulated</text>
+<text x="65" y="869" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#243444">5 V / USB-C. Do not feed it BAT+.</text>
+<rect x="1090" y="185" width="350" height="485" fill="#f5f8fb" stroke="#8b9aa7" stroke-width="2"/>
+<text x="1110" y="224" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" fill="#243444">IP2366 display-version base</text>
+<text x="1110" y="258" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="400" fill="#243444">6-pin display header</text>
+<text x="1130" y="343" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#526375">1   GND</text>
+<polyline points="1090,335 1115,335" fill="none" stroke="#526375" stroke-width="3" stroke-linejoin="round"/>
+<text x="1130" y="398" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#526375">2   ENABLE</text>
+<text x="1330" y="395" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#526375">NC</text>
+<text x="1130" y="453" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#8152b8">3   INT</text>
+<polyline points="1090,445 1115,445" fill="none" stroke="#8152b8" stroke-width="3" stroke-linejoin="round"/>
+<text x="1130" y="508" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#078e9b">4   SDA</text>
+<polyline points="1090,500 1115,500" fill="none" stroke="#078e9b" stroke-width="3" stroke-linejoin="round"/>
+<text x="1130" y="563" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#c17609">5   SCL</text>
+<polyline points="1090,555 1115,555" fill="none" stroke="#c17609" stroke-width="3" stroke-linejoin="round"/>
+<text x="1130" y="618" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="400" fill="#c73b42">6   BAT+</text>
+<text x="1330" y="615" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#c73b42">NC</text>
+<text x="1110" y="655" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" fill="#c73b42">BAT+ is pack voltage, not 3.3 V.</text>
+<polyline points="430,255 1035,255 1035,335 1090,335" fill="none" stroke="#526375" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="430,300 820,300" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="650,300 650,365" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<rect x="640" y="365" width="20" height="62" fill="#ffffff" stroke="#c73b42" stroke-width="2"/>
+<polyline points="650,427 650,500" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="820,300 820,365" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<rect x="810" y="365" width="20" height="62" fill="#ffffff" stroke="#c73b42" stroke-width="2"/>
+<polyline points="820,427 820,555" fill="none" stroke="#c73b42" stroke-width="3" stroke-linejoin="round"/>
+<text x="674" y="400" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#c73b42">R1 · 10 kΩ</text>
+<text x="840" y="400" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#c73b42">R2 · 10 kΩ</text>
+<polyline points="430,345 550,345 550,500 1090,500" fill="none" stroke="#078e9b" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="430,390 500,390 500,555 1090,555" fill="none" stroke="#c17609" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="650" cy="300" r="5" fill="#c73b42"/>
+<circle cx="820" cy="300" r="5" fill="#c73b42"/>
+<circle cx="650" cy="500" r="5" fill="#078e9b"/>
+<circle cx="820" cy="555" r="5" fill="#c17609"/>
+<text x="860" y="490" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="700" fill="#078e9b">SDA</text>
+<text x="860" y="584" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="700" fill="#c17609">SCL</text>
+<polyline points="430,550 470,550 470,815 685,815" fill="none" stroke="#8152b8" stroke-width="3" stroke-linejoin="round"/>
+<rect x="685" y="805" width="100" height="20" fill="#ffffff" stroke="#8152b8" stroke-width="2"/>
+<polyline points="785,815 970,815 970,445 1090,445" fill="none" stroke="#8152b8" stroke-width="3" stroke-linejoin="round"/>
+<text x="675" y="876" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#8152b8">R3 · 10 kΩ</text>
+<text x="800" y="853" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#8152b8">INT keep-awake</text>
+<text x="540" y="648" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#c73b42">P3/P4 3.3 V feeds only the pull-ups.</text>
+<text x="540" y="678" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#243444">No direct 3.3 V or BAT+ power connection</text>
+<text x="540" y="705" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#243444">is made between these connector headers.</text>
+<text x="540" y="753" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#8152b8">R3 pulls INT up from GPIO6 through 10 kΩ;</text>
+<text x="540" y="778" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#8152b8">it is not a direct push-pull GPIO-to-INT wire.</text>
+<text x="1090" y="729" font-family="Segoe UI,Arial,sans-serif" font-size="19" font-weight="700" fill="#243444">Power paths, separate from signals</text>
+<text x="1090" y="767" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#243444">USB-C PD supply → charger input</text>
+<text x="1090" y="798" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#243444">Protected 2–6S pack → BAT+/BAT−</text>
+<text x="1090" y="829" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#243444">Original display daughterboard removed</text>
+<polyline points="40,925 1440,925" fill="none" stroke="#aebbc6" stroke-width="1" stroke-linejoin="round"/>
+<text x="40" y="962" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="400" fill="#243444">Dots mark electrical junctions. Crossing lines without dots are NOT connected. NC = no connection in this build.</text>
+<text x="40" y="993" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="400" fill="#243444">Pin assignments apply to the photographed display-board variant. Verify connector markings and orientation before wiring.</text>
+</svg>

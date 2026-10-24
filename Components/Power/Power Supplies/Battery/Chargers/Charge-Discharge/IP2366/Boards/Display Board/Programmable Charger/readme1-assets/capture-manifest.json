@@ -1,0 +1,152 @@
+{
+  "firmware": "1.7.7",
+  "date": "2026-10-21",
+  "data": "Synthetic UI fixtures, not physical charge measurements",
+  "images": {
+    "tablet-calibration-edit.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "07f66da84234efdd7397021593adf2eb6ec8ea67806cea245046d1cfb573a2f5"
+    },
+    "tablet-charging.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "9e38bde8489baa0c5ce4399018b37c32d4346ef66c6842bc7516ed568c93376b"
+    },
+    "tablet-configure-ready.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "d34a1cdf079db643048d232a9ce8e6780b220d60e828e3acc5a34c7d23d505ec"
+    },
+    "tablet-confirm-charge.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "0600bc7f656fc7bd759223e13ee5e6813b18d7fdf079607e1c107981f6cfc868"
+    },
+    "tablet-diagnostics.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "7bb0d871e02d377c4e2f4cb5eeba5606210fc678d3130cb58a238116ea5257cb"
+    },
+    "tablet-disconnected.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "24361a40c68055bcb2dc4fdddeeb55a8070e4e473c6ddcdc2c04d54cb42c699c"
+    },
+    "tablet-espnow-owner-lost.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "ce925a2445d46e25cb008e15b537bfa58a6a6bd8efb0cead9122f32f0d9026e5"
+    },
+    "tablet-espnow-setup.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "d8f744af3b26624e3980d51297947a3c491522de4e8f6fe9707b4a340f629fad"
+    },
+    "tablet-graph-target-capped.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "dfcc1b503e80e2aedd155e12000b20061b9fd52676e042807dfd6fcc5fcd9eb9"
+    },
+    "tablet-graph-ten-hours.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "3879e98005279e1c48fa1661959434faa11ebf31e7ab008b1d2a4be9499c2c46"
+    },
+    "tablet-keyboard-clear.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "725c82683a410583f29d9ebdf774ecf2756d1a1be5a788e60ffd6fd349ab8ce9"
+    },
+    "tablet-missing.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "8e2daf2afa6dfe1161def48da796584e9ad53b186d5af84e5b316db3461896c5"
+    },
+    "tablet-no-battery.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "04cf4ecd6d8722fe7016911d0f350922a1416cd62e9e57c3ed17350bdc9508f2"
+    },
+    "tablet-settings.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "f9c387a8b09ddaf9d2313422a9dfbe71c11e9debccb974bad665b09d8393b156"
+    },
+    "tablet-summary.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "5668000615795c82783c58d66e21077f414aabab01f3d3dc0c66ab79a4e2bdc6"
+    },
+    "tablet-timed-stop.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "91f633c88e42a8b7e88bfd158cdc4fc5d55b988861cc0d00649a946676cb6a71"
+    },
+    "tablet-unstable.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "cf3c76ff57968357b149a8bce50ea9b8523bf6d918358dd3794c8fe3f3069f58"
+    },
+    "tablet-wifi-setup.png": {
+      "width": 320,
+      "height": 480,
+      "sha256": "19e4713a7fe063801af5d1a9b8a95e0a7a9d2dffa878327691970224f2671a71"
+    },
+    "web-charger.jpg": {
+      "width": 1280,
+      "height": 720,
+      "sha256": "15284a72ae0431e984c49d74e880ae9cd80b5f163573ad5fa90ace2d1561c4c5"
+    },
+    "web-configure.jpg": {
+      "width": 1265,
+      "height": 965,
+      "sha256": "09008dee1a6d47ef1c33e29b6a65fb27b9fab4af6e30171b73f285ce8ca7ec6f"
+    },
+    "web-confirm-charge.jpg": {
+      "width": 1265,
+      "height": 965,
+      "sha256": "8f9ef9fcf944fc234e9c6b381a1c08219af369bacbc85690099400f356dd3a41"
+    },
+    "web-diagnostics.jpg": {
+      "width": 1265,
+      "height": 934,
+      "sha256": "b22f9a771c60b3d9c08c3d1f72523e559f74cdc6d77e184a5b0f3cee04a2e1a0"
+    },
+    "web-graph-full-session.jpg": {
+      "width": 1265,
+      "height": 990,
+      "sha256": "67a71223e932a6991dfddfcde46bc489f7712255408068f5dea0c22194ef54b7"
+    },
+    "web-graph.jpg": {
+      "width": 1265,
+      "height": 990,
+      "sha256": "be8e1347bd23bda85cfce1d806a23213277e1c9eaf57c60a6ce48eec55285787"
+    },
+    "web-mobile.jpg": {
+      "width": 375,
+      "height": 860,
+      "sha256": "63f2793e131e0f7a69ffae96ffa7ec0fc8d450aee6d7a37aac0b555f9f9ae677"
+    },
+    "web-settings.jpg": {
+      "width": 1265,
+      "height": 958,
+      "sha256": "76643ffcddec7b8543aeb81c628a6abdb95b21c8ecc6908d870ab0e5b9afca39"
+    },
+    "web-summary.jpg": {
+      "width": 1280,
+      "height": 720,
+      "sha256": "d8a89251ba2a8c3abe264efda8cb95ce6e8e908ae0b90968bf2fa28cf70a68af"
+    },
+    "web-warning.jpg": {
+      "width": 1280,
+      "height": 720,
+      "sha256": "f2fd8f478e53488f894546865fcfd4314db2927ff675a227e269ae70b01efc91"
+    },
+    "wiring.png": {
+      "width": 1480,
+      "height": 1030,
+      "sha256": "ff6f94792c0faa0d044717ed6c557eba7b7a8608587586170ec9819e42030c3f"
+    }
+  }
+}

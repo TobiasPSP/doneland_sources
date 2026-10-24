@@ -218,6 +218,8 @@ This is a safety feature. Here is why:
 
 [IP2369 Datasheet](materials/ip2369_datasheet_en.pdf)             
 [IP2369 Datasheet Original (Chinese)](materials/ip2369_datasheet_ch.pdf)   
+[IP2369 I2C Registers](materials/ip2369_i2c_registers(2025-07-23).pdf)      
+
 
 > Tags: Charger, Li-Ion, Li-Po, Boost Converter, IP2369, 45W, Charger, Discharger, LiFePo4, 250khz, I2C, NTC, Light-Load Shutdown
 

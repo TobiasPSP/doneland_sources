@@ -26,6 +26,9 @@ IP2366's strength is power and flexibility: it supports up to 140 W (with proper
 
 Some IP2366 come with I²C-compatible firmware and provide even richer configuration plus real-time monitoring.
 
+
+<img src="images/ip2366_chip_pins.webp" width="100%" height="100%" />
+
 ## Configuration
 
 The chip can be used in two fundamentally different scenarios:
@@ -99,6 +102,11 @@ Provided an IP2366 *has* I²C-capable firmware, a microcontroller can control th
 
 Since IP2366 has no internal memory, though, I²C settings are **not retained**. Instead, the `INT` pin goes `HIGH` when the chip activates, and the MCU then needs to freshly define all relevant settings over again. This is why it is advisable to set the defaults via resistors and use I²C for fine-tuning.
 
+| Pin | Description |
+| --- | --- |
+| `INT` | - to `HIGH`: startup, allow 100 ms before starting I²C.<br/>- hold `HIGH`: Prevents the IP2366 from entering sleep.<br/>-to `LOW`: Impending sleep, finish I²C communication within 16 ms.|
+| `ENABLE` | - Short pulse (100 ms–2 s): Wakes the chip from low-power mode<br/>- Double pulse: Two short pulses within 1 second enter low-power mode when no load is connected.<br/>- Long `HIGH` (over 10 s): Resets the IP2366.| 
+
 Some safety-relevant settings such as battery string count are protected. They can only be changed via I²C when there is no battery currently connected.
 
 IP2366 uses common 3.3 V logic levels on the I²C pins and is easy to interface with 3.3 V MCUs. Just add appropriate pullup resistors. Level shifting is still needed if you want to use a 5 V MCU (i.e. Arduino).
@@ -111,9 +119,15 @@ IP2366 uses common 3.3 V logic levels on the I²C pins and is easy to interface 
 ## Materials
 
 * [IP2366 Datasheet](materials/ip2366_datasheet.pdf)       
+* [IP2366 I2C Register Reference 1.13 (detailed, latest)](materials/ip2366_i2c_regs_v1.13_en.pdf)    
+* [IP2366 I2C Register Reference (2023-10-27)](materials/ip2366_i2c.pdf)   
+* [IP2366 I2C Register Reference 1.0 (2023-03-24)](materials/ip2366_i2c_with_reg_v1.00.pdf)      
+
+
+
 
 
 
 > Tags: IP2366, Charger, Li-Ion, Li-Po, Boost Converter, 140W, Charger, Discharger, LiFePo4, I2C, NTC
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366?960082101306262639) - created 2026-10-05 - last edited 2026-10-05
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366?960082101306262639) - created 2026-10-05 - last edited 2026-10-08

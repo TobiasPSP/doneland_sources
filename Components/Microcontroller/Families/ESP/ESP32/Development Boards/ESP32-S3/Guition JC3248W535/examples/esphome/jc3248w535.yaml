@@ -1,0 +1,70 @@
+# ESPHome 2026.9.1; USB-only color/touch diagnostic, no Wi-Fi secrets required.
+esphome:
+  name: jc3248w535-test
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  flash_size: 16MB
+  framework:
+    type: esp-idf
+
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+
+psram:
+  mode: octal
+  speed: 80MHz
+
+spi:
+  id: display_qspi
+  type: quad
+  clk_pin: GPIO47
+  data_pins: [GPIO21, GPIO48, GPIO40, GPIO39]
+
+i2c:
+  id: touch_i2c
+  sda: GPIO4
+  scl: GPIO8
+  frequency: 400kHz
+  scan: true
+
+power_supply:
+  - id: backlight
+    pin: GPIO1
+    enable_on_boot: true
+
+display:
+  - platform: qspi_dbi
+    id: lcd
+    model: JC4832W535
+    spi_id: display_qspi
+    data_rate: 40MHz
+    cs_pin:
+      number: GPIO45
+      ignore_strapping_warning: true
+    dimensions:
+      width: 320
+      height: 480
+    rotation: 0
+    color_order: rgb
+    invert_colors: false
+    update_interval: 250ms
+    lambda: |-
+      it.filled_rectangle(0, 0, 320, 160, Color(255, 0, 0));
+      it.filled_rectangle(0, 160, 320, 160, Color(0, 255, 0));
+      it.filled_rectangle(0, 320, 320, 160, Color(0, 0, 255));
+
+touchscreen:
+  - platform: axs15231
+    id: panel_touch
+    display: lcd
+    i2c_id: touch_i2c
+    update_interval: 50ms
+    on_touch:
+      - lambda: |-
+          const int x_px = touch.x;
+          const int y_px = touch.y;
+          const char *band = y_px < 160 ? "RED" : (y_px < 320 ? "GREEN" : "BLUE");
+          ESP_LOGI("touch", "%s: x_px=%d y_px=%d raw=(%d,%d)",
+                   band, x_px, y_px, touch.x_raw, touch.y_raw);
