@@ -12,7 +12,7 @@ for(const [index,key] of [[1,'lfp'],[2,'ion'],[3,'hv']])assert.deepEqual(model.c
 let checked=0,maxState=0,maxHistory=0;
 for(const file of fs.readdirSync(fixtures).filter(f=>f.endsWith('.state.json'))){
  const raw=fs.readFileSync(path.join(fixtures,file),'utf8'),state=JSON.parse(raw);maxState=Math.max(maxState,Buffer.byteLength(raw));funcs.validateState(state);
- assert(!raw.includes('meincofi66')&&!raw.includes('secret-not-for-json'));assert(!('password' in state.options));
+ assert(!raw.includes('example-pass')&&!raw.includes('secret-not-for-json'));assert(!('password' in state.options));
  sandbox.fixture=state;vm.runInContext('state=fixture;draftDirty=false;settingsDirty=false;render()',sandbox);
  assert.equal(elements.get('friendlyName').value,state.options.friendlyName);
  assert.equal(Number(elements.get('voltageCalibration_mV').value),state.options.voltageCalibration_mV);assert.equal(Number(elements.get('currentCalibration_mA').value),state.options.currentCalibration_mA);

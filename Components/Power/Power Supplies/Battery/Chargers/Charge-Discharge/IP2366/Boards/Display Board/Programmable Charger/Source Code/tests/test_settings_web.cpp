@@ -40,14 +40,14 @@ int main(){
     for(auto text:{"", "-", "5001", "-5001", "1.5", "--1", "12x"})assert(!parseCalibration(text,parsed));
     options.voltageCalibration_mV=5001;assert(validateOptions(options));options.voltageCalibration_mV=-105;
     // Real 173-byte v1 option records restore zero offsets and migrate on save.
-    OptionsRecord legacyOptions;AppOptions zero;zero.wifi=true;assert(legacyOptions.encode(zero));legacyOptions.bytes[2]=1;
+    OptionsRecord legacyOptions;AppOptions zero;zero.wifi=true;snprintf(zero.ssid,sizeof(zero.ssid),"test-network");assert(legacyOptions.encode(zero));legacyOptions.bytes[2]=1;
     uint32_t legacyHash=OptionsRecord::hash(legacyOptions.bytes,OptionsRecord::LegacySize);
     for(unsigned n=0;n<4;++n)legacyOptions.bytes[169+n]=uint8_t(legacyHash>>(8*n));
     Preferences::flash["batcharger/options-v1"]={legacyOptions.bytes,legacyOptions.bytes+OptionsRecord::LegacySize};
     assert(!store.load(next,recovered)&&next.wifi&&next.voltageCalibration_mV==0&&next.currentCalibration_mA==0);
     assert(store.saveOptions(next)&&Preferences::flash["batcharger/options-v1"].size()==OptionsRecord::Size);
     // v2 calibration preferences migrate without adopting mDNS as the friendly name.
-    OptionsRecord v2;AppOptions previous;previous.wifi=true;previous.voltageCalibration_mV=-105;previous.currentCalibration_mA=25;
+    OptionsRecord v2;AppOptions previous;previous.wifi=true;snprintf(previous.ssid,sizeof(previous.ssid),"test-network");previous.voltageCalibration_mV=-105;previous.currentCalibration_mA=25;
     snprintf(previous.hostname,sizeof(previous.hostname),"old-mdns");assert(v2.encode(previous));v2.bytes[2]=2;
     uint32_t v2Hash=OptionsRecord::hash(v2.bytes,OptionsRecord::CalibrationSize);
     for(unsigned n=0;n<4;++n)v2.bytes[173+n]=uint8_t(v2Hash>>(8*n));

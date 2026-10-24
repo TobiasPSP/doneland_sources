@@ -97,7 +97,7 @@ class WebService {
     }
     bool accessPoint(const AppOptions &o,bool fallback){
         WiFi.mode(WIFI_AP);char ssid[33];snprintf(ssid,sizeof(ssid),"%.32s",o.hostname);
-        const char *password=strlen(o.password)>=8?o.password:"meincofi66";
+        const char *password=strlen(o.password)>=8?o.password:"charger-setup";
         if(!WiFi.softAP(ssid,password)){report("Access Point failed","WiFi Access Point could not start.");return false;}
         serving(o,true);
         if(fallback){char text[220];String ip=WiFi.softAPIP().toString();

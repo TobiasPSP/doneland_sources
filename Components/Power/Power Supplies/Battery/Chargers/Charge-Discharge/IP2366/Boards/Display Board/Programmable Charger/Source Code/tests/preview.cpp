@@ -89,12 +89,12 @@ int main(int argc,char **argv){
     assert(!options.wifi&&find(lv_screen_active(),"WIFI"));
     std::vector<lv_obj_t *> wifiFields;textareas(lv_screen_active(),wifiFields);
     // Native configure fields remain behind the modal; WiFi adds three more.
-    assert(wifiFields.size()==7);assert(!strcmp(lv_textarea_get_text(wifiFields[4]),"internet-cafe"));
-    assert(!strcmp(lv_textarea_get_text(wifiFields[5]),"meincofi66")&&!strcmp(lv_textarea_get_text(wifiFields[6]),"charger1"));
+    assert(wifiFields.size()==7);assert(!strcmp(lv_textarea_get_text(wifiFields[4]),""));
+    assert(!strcmp(lv_textarea_get_text(wifiFields[5]),"")&&!strcmp(lv_textarea_get_text(wifiFields[6]),"charger1"));
     save(dir,"wifi-setup");lv_obj_send_event(wifiFields[4],LV_EVENT_FOCUSED,nullptr);save(dir,"wifi-keyboard");
     lv_obj_send_event(wifiFields[5],LV_EVENT_FOCUSED,nullptr);
     char tooLong[65];memset(tooLong,'x',64);tooLong[64]=0;
-    assert(!ui.remoteText(tooLong)&&!strcmp(lv_textarea_get_text(wifiFields[5]),"meincofi66"));save(dir,"wifi-password");
+    assert(!ui.remoteText(tooLong)&&!strcmp(lv_textarea_get_text(wifiFields[5]),""));save(dir,"wifi-password");
     auto *wifiKeyboard=findType(lv_obj_get_parent(lv_obj_get_parent(wifiFields[4])),&lv_keyboard_class);assert(wifiKeyboard);
     lv_obj_send_event(wifiKeyboard,LV_EVENT_READY,nullptr);check("Access Point",true);tap("Apply");assert(options.wifi&&options.mode==WifiMode::AccessPoint&&options.persist&&options.espNow);
     save(dir,"settings-enabled");check("WiFi",false);check("Persist charger config",false);check("ESPNow",false);tap("Back");

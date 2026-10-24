@@ -13,7 +13,7 @@ struct AppOptions {
     int16_t voltageCalibration_mV=0,currentCalibration_mA=0;
     WifiMode mode=WifiMode::Join;
     char friendlyName[32]="Charger"; // LabLink Advertisement.name: max 31 bytes plus NUL.
-    char ssid[33]="internet-cafe",password[64]="meincofi66",hostname[64]="charger1";
+    char ssid[33]="",password[64]="",hostname[64]="charger1";
 };
 inline const char *validateOptions(const AppOptions &o){
     if(o.voltageCalibration_mV < -5000||o.voltageCalibration_mV > 5000||o.currentCalibration_mA < -5000||o.currentCalibration_mA > 5000)return "Calibration: -5000 through +5000";
