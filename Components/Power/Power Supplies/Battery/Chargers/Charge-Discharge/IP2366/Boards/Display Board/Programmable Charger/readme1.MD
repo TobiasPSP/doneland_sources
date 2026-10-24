@@ -1,3 +1,6 @@
+<img src="/assets/images/charging.png" width="100%" height="100%" />
+
+
 # Programmable Charger
 
 > A Touchscreen, Browser-Controlled and ESP-NOW-enabled 2–6S Lithium Battery Charger Built Around an I²C-Capable IP2366 Board.

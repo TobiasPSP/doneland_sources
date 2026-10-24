@@ -155,3 +155,4 @@ For the `INT` signal, I selected `IO6`.
 
 > Tags: IP2366, Charger, Firmware, QQ, Display, Puya, PY32F030K28, JTYJ-2366-C, I²C, QQ Firmware
 
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard/programmablecharger?370115101024264749) - created 2026-10-23 - last edited 2026-10-23

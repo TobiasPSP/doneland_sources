@@ -114,3 +114,5 @@ The real LVGL preview covers gear/settings/diagnostics, WiFi setup/keyboard, per
 ## LabLink 1.1 shared extension
 
 The canonical shared package in lib/LabLink now includes current-meter messages and client/server support. See [lib/LabLink/METER-PROTOCOL.md](lib/LabLink/METER-PROTOCOL.md). Charger firmware behavior is unchanged; no meter hardware code was added to the charger application.
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard/programmablecharger/sourcecode?393130101024264749) - created 2026-10-23 - last edited 2026-10-23
