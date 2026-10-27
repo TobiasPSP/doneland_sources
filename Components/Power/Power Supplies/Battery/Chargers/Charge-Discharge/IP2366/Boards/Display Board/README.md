@@ -84,14 +84,43 @@ V1.1 and V1.3 can theoretically run stand-alone as well. Without the daughter bo
 
 Both V1.1 and V1.3 are designed to operate with the display daughter board and its microcontroller, which overrides the default values via I²C as soon as it boots. That's why setting the configuration via resistors isn't really important here, and most probably the reason why the makers decided to remove the DIP switch for the display version starting in V1.3.
 
-### Caveats
+## Caveats
 
 Here are the most important caveats when working with this board:
 
 * **Cooling Required:**    
   Anything above 30 W requires efficient cooling. For 140 W, you need both adequate heat sinks and a fan.    
 * **Dangerous Contacts:**    
-  Be careful when plugging in the USB-C connector when using the display board. If you accidentally touch the rim of the display daughter-board, you may cause a fulminant short-circuit and permanently destroy the base board. Apparently, directly at the rim - in close proximity of the USB-C port - there are critical blank contacts carrying full power.   
+  Be careful when plugging in the USB-C connector when using the display board. If you accidentally touch the rim of the display daughter-board, you may cause a fulminant short-circuit and permanently destroy the base board. Apparently, directly at the rim - in close proximity of the USB-C port - there are critical blank contacts carrying full power.  
+* **Gauging:**    
+  The original firmware settings support two options for determining the battery state-of-charge (SOC): derived from battery voltage (`Voltage`), and active gauging (`Gauge`). Gauge mode requires a learning cycle to produce accurate values.
+
+
+### Firmware Flaw
+There appears to be a concerning flaw in the original firmware source code that may limit the lifespan of this module (or at least the display daughter-board): Regardless of gauging mode or other settings, the firmware always saves information to flash memory in very short intervals, even when no values have changed:
+
+- Every 60 seconds: erase and rewrite the settings flash page.
+- While full or empty is detected: additionally erase and rewrite it approximately every 400 ms.
+
+This was observed with a firmware marked 08-20-2026 (no version number found). 
+
+For the `PY32F030K28` microcontroller, **Puya** specifies minimum flash endurance of:
+- 100,000 erase/write cycles at −40 to +85 °C.
+
+
+These figures appear in Table 5-19 of Puya’s [PY32F030 datasheet](https://www.puyasemi.com/download_path/%E6%95%B0%E6%8D%AE%E6%89%8B%E5%86%8C/MCU%20%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8/PY32F030_Datasheet_V2.5.pdf).
+
+Given these figures, after about 69 days of continuous operation, the flash memory may become unreliable or stop working.
+
+The repeated full/empty saves are a serious longevity defect in this source. Even the once-per-minute background saving warrants redesign for a charger expected to operate for years. 
+
+**DISCLAIMER:**     
+I analyzed the existing firmware best effort and may have overlooked things or drawn wrong conclusions, so take this with a grain of salt. If you find a way to get access to the Chinese **QQ group 170681020**, you may want to contact the developers and/or request a fixed firmware version. At minimum, unchanged values shouldn't be re-written to flash.
+
+Access to the QQ group would also get you the promised source code and documentation, so you could develop your very own firmware on the daughter board. In principle, the daughter board is reprogrammable, and the existing firmware is open-source. It's currently just locked into a **QQ group 170681020** that is inaccessible for non-Chinese users.
+
+If all else fails, you can always use your [own controller to control the IP2366 base board](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard/programmablecharger/), and skip using the display daughter board altogether.
+
 
 ## Resistor Configurations
 
@@ -521,4 +550,8 @@ To access this group, though, you must sign up for QQ, and to be able to sign up
 
 > Tags: IP2366, Charger, Firmware, QQ, Display, Puya, PY32F030K28, JTYJ-2366-C, I²C, BATSET, VSET, PSET, CC_BDO, DRP, LiFePO4, XT30, ST7735, ST7789, DIP Switch, Coulomb Counting, QQ Firmware
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-10-05
+## Materials
+
+[Puya PY32F030 Datasheet](materials/py32f030_datasheet_v2.5.pdf)
+
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-10-25
