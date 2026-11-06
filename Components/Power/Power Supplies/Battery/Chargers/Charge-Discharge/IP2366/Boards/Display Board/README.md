@@ -541,17 +541,15 @@ When you scan the QR code on the board, it leads you to a Chinese QQ group:
 
 <img src="images/ip2366_qr_qq.webp" width="50%" height="50%" />  
 
-All resources for this board are maintained in **QQ group 170681020**.   
+### Firmware Source Code
+All resources are maintained in **QQ group 170681020**. Access to this group is limited to Chinese nationals. hina.
 
-To access this group, though, you must sign up for QQ, and to be able to sign up for QQ, you must be Chinese (and have a Chinese phone number at hand). So these resources are unavailable outside China.
+**Thankfully, a Chinese vendor has provided me with the open-source materials for the 1.47" display version. I decided to publish all related material in a [separate github repository](https://github.com/TobiasPSP/ip2366_displayboard)**.
 
-> [!NOTE]
-> Anyone with a QQ account, please leave a comment below, and I will get in touch with you ASAP. I would really love to get the official firmware and play with it here.
-
-> Tags: IP2366, Charger, Firmware, QQ, Display, Puya, PY32F030K28, JTYJ-2366-C, I²C, BATSET, VSET, PSET, CC_BDO, DRP, LiFePO4, XT30, ST7735, ST7789, DIP Switch, Coulomb Counting, QQ Firmware
+Please share your own findings there, too. If you have direct access to the QQ group, please update the information on [https://github.com/TobiasPSP/ip2366_displayboard](https://github.com/TobiasPSP/ip2366_displayboard).
 
 ## Materials
 
 [Puya PY32F030 Datasheet](materials/py32f030_datasheet_v2.5.pdf)
 
-[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-10-25
+[Visit Page on Website](https://done.land/components/power/powersupplies/battery/chargers/charge-discharge/ip2366/boards/displayboard?444791101706263214) - created 2026-10-05 - last edited 2026-11-05
