@@ -525,13 +525,13 @@ An even easier test: with the pull-ups in place, check the voltage on both I²C 
 
 ## Firmware and Updates
 
-The display version of this board is especially interesting since it comes with its own dedicated microcontroller. 
+The display version of this board comes with its own dedicated microcontroller. 
 
-<img src="images/puya_ip2366.png" width="50%" height="50%" />  
+<img src="images/puya_ip2366.png" width="10%" height="10%" />  
 
 The programming interface for this Arm Cortex MCU can be found on the back side of the PCB.
 
-<img src="images/puya_2366_mcu.webp" width="50%" height="50%" />  
+<img src="images/puya_2366_mcu.webp" width="40%" height="40%" />  
 
 The producer promises full open source code and access to the toolchain as well as future firmware updates. 
 
@@ -539,14 +539,15 @@ This would place this board in the premier league: it would come with an I²C-en
 
 When you scan the QR code on the board, it leads you to a Chinese QQ group:
 
-<img src="images/ip2366_qr_qq.webp" width="50%" height="50%" />  
+<img src="images/ip2366_qr_qq.webp" width="20%" height="20%" />  
 
 ### Firmware Source Code
-All resources are maintained in **QQ group 170681020**. Access to this group is limited to Chinese nationals. hina.
+All resources are maintained in **QQ group 170681020**. Access to this group is limited to Chinese nationals. Thankfully, a Chinese vendor has provided me with the open-source materials for the 1.47" display version. 
 
-**Thankfully, a Chinese vendor has provided me with the open-source materials for the 1.47" display version. I decided to publish all related material in a [separate github repository](https://github.com/TobiasPSP/ip2366_displayboard)**.
+I decided to publish all related material in a [separate github repository](https://github.com/TobiasPSP/ip2366_displayboard).
 
-Please share your own findings there, too. If you have direct access to the QQ group, please update the information on [https://github.com/TobiasPSP/ip2366_displayboard](https://github.com/TobiasPSP/ip2366_displayboard).
+* Please share your own findings there, too.    
+* If you have direct access to the QQ group 170681020, please help updating the information in the [repository](https://github.com/TobiasPSP/ip2366_displayboard), or contact me (i.e. post a comment or submit an issue).
 
 ## Materials
 

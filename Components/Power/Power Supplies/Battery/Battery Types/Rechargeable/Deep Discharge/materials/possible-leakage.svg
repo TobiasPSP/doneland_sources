@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img">
+<style>text{font-family:DejaVu Sans,Arial,sans-serif}.title{font-size:31px;font-weight:700;fill:#e9f2fc}.sub{font-size:17px;fill:#afc0d2}.h{font-size:20px;font-weight:700;fill:#f0f6fc}.p{font-size:17px;fill:#d1deeb}.small{font-size:14px;fill:#a8bed2}.tag{font-size:15px;font-weight:700}</style>
+<rect width="1000" height="600" fill="#0b1522"/><text x="42" y="56" class="title">How a deeply discharged cell may develop internal leakage</text>
+<text x="42" y="85" class="sub">Conceptual mechanisms · neither mechanism was confirmed by destructive analysis</text>
+<rect x="48" y="127" width="425" height="315" rx="18" fill="#152638" stroke="#35516c"/>
+<rect x="527" y="127" width="425" height="315" rx="18" fill="#152638" stroke="#35516c"/>
+<text x="74" y="166" class="h">Normal electrode separation</text>
+<text x="553" y="166" class="h">Possible abnormal conduction</text>
+<rect x="82" y="211" width="346" height="52" rx="5" fill="#cb8959"/>
+<rect x="82" y="267" width="346" height="61" rx="4" fill="#bed4e3"/>
+<rect x="82" y="333" width="346" height="52" rx="5" fill="#648fbb"/>
+<text x="255" y="243" font-size="17" text-anchor="middle" fill="#152638" font-weight="bold">Graphite-side electrode</text>
+<text x="255" y="304" font-size="17" text-anchor="middle" fill="#203043">Porous separator</text>
+<text x="255" y="366" font-size="17" text-anchor="middle" fill="#ffffff">Cathode-side electrode</text><rect x="561" y="211" width="346" height="52" rx="5" fill="#cb8959"/>
+<rect x="561" y="267" width="346" height="61" rx="4" fill="#bed4e3"/>
+<rect x="561" y="333" width="346" height="52" rx="5" fill="#648fbb"/>
+<text x="734" y="243" font-size="17" text-anchor="middle" fill="#152638" font-weight="bold">Graphite-side electrode</text>
+<text x="734" y="304" font-size="17" text-anchor="middle" fill="#203043">Porous separator</text>
+<text x="734" y="366" font-size="17" text-anchor="middle" fill="#ffffff">Cathode-side electrode</text><path d="M680 265 l-8 17 14 17 -12 30" fill="none" stroke="#d65043" stroke-width="7" stroke-linecap="round"/>
+<path d="M781 267 l12 18 -10 18 9 25" fill="none" stroke="#d65043" stroke-width="5" stroke-linecap="round"/>
+<circle cx="723" cy="283" r="7" fill="#d65043"/><circle cx="746" cy="309" r="6" fill="#d65043"/>
+<text x="51" y="492" class="p">A microscopic deposit may initially be electrically inactive.</text>
+<text x="51" y="528" class="p">If leakage develops, stored chemical energy may be released internally.</text>
+<text x="51" y="567" class="small">Red structures are illustrative; they are not microscopy of the damaged cell.</text>
+</svg>
